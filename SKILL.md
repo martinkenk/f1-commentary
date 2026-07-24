@@ -129,6 +129,16 @@ for pg in PdfReader("fia_pdfs/power_unit_information.pdf").pages:
 PY
 ```
 Pull out for the pages:
+- **Car Presentation Submissions** (Doc ~9, usually published Fri midday): the
+  **official per-team upgrade list** — every declared updated component, its
+  reason (Performance / Circuit-specific) and a short description. This is the
+  authoritative source for the Upgrades page: fill the `.fia-upgrade-box`
+  (mark it `confirmed`), build the per-team item-count table, and feed the
+  headline into the storyline. Count rows with `^\s*\d+\s+[A-Z]` per team block
+  (split on `Car Presentation – <GP>`); "No updates submitted" = nil return.
+- **PU Elements Used per Driver** (Technical Delegate report): elements used so
+  far per driver → **grid-penalty watch** card on the Power Unit page (flag the
+  heaviest users of ICE/TC/EXH/MGU-K/ES/PU-CE/PU-ANC).
 - **Power Unit / override:** override energy (e.g. 2026 8.5→9.0 MJ), deployment
   distance, **the FP and Qualifying power/energy limits** (highlight these — the user
   specifically wants them called out), power-cut zones, detection point, overtake zones.
