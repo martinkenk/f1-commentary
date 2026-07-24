@@ -360,6 +360,7 @@ def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_
         {nav_html}
       </nav>
       <div class="side-foot">
+        <!--VERSION_SLOT-->
         <a href="{base}index.html" class="nav-link"><i class="bi bi-grid"></i><span>All Grands Prix</span></a>
         <p class="sources">Sources: Formula1.com · The Race<br>Updated {BUILD_STAMP}</p>
       </div>
@@ -457,7 +458,7 @@ def render_index(gps):
     <div class="offcanvas-body flex-column p-0">
       <a class="brand" href="index.html"><span class="brand-mark">F1</span><span class="brand-text">Commentary<br>Hub</span></a>
       <nav class="side-nav"><div class="nav-section">Grands Prix</div>{nav_items}</nav>
-      <div class="side-foot"><p class="sources">Sources: Formula1.com · The Race · FIA<br>Updated {BUILD_STAMP}</p></div>
+      <div class="side-foot"><!--VERSION_SLOT--><p class="sources">Sources: Formula1.com · The Race · FIA<br>Updated {BUILD_STAMP}</p></div>
     </div>
   </aside>
   <main class="content">
@@ -722,6 +723,14 @@ CSS += r"""
 .version-archived .bi{color:#ffd21e}
 .version-bar .version-latest-link{margin-left:auto;color:var(--f1-red);font-weight:700;text-decoration:none}
 .version-bar .version-latest-link:hover{text-decoration:underline}
+/* When placed in the sidebar footer: stack vertically, full width, no sticky bar */
+.side-foot .version-bar{
+  position:static;background:transparent;border-bottom:0;
+  padding:0 0 10px;margin:0 0 10px;border-bottom:1px solid var(--line);
+  flex-direction:column;align-items:stretch;gap:6px;font-size:12px;
+}
+.side-foot .version-bar select{max-width:100%;width:100%}
+.side-foot .version-bar .version-latest-link{margin-left:0}
 """
 
 

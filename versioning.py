@@ -36,7 +36,8 @@ except Exception:  # pragma: no cover
 
 WIDGET_START = "<!--VERSION_WIDGET_START-->"
 WIDGET_END = "<!--VERSION_WIDGET_END-->"
-MAIN_ANCHOR = '<main class="content">'
+SLOT_ANCHOR = "<!--VERSION_SLOT-->"
+MAIN_ANCHOR = '<main class="content">'  # legacy fallback
 RESERVED = {"versions", "versions.json", ".raw", ".git", ".nojekyll"}
 
 
@@ -203,7 +204,9 @@ def inject_widgets(public_dir, versions):
             root_has_page,
             lambda vid, sp=subpath: version_has_page(vid, sp),
         )
-        if MAIN_ANCHOR in text:
+        if SLOT_ANCHOR in text:
+            text = text.replace(SLOT_ANCHOR, SLOT_ANCHOR + "\n        " + widget, 1)
+        elif MAIN_ANCHOR in text:
             text = text.replace(MAIN_ANCHOR, MAIN_ANCHOR + "\n    " + widget, 1)
         open(path, "w", encoding="utf-8").write(text)
 
