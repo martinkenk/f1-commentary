@@ -292,6 +292,53 @@ unchanged.
 
 ---
 
+## 8. Hosting & version history (GitHub Pages)
+
+The site is deployed to **GitHub Pages** at
+`https://<user>.github.io/f1-commentary/`, rebuilt automatically by
+`.github/workflows/deploy.yml`.
+
+**What the workflow does on each run:**
+1. `python3 build.py` on the runner — so weather + Formula1.com results are
+   re-fetched live (the runner has fresh data, not your local snapshot).
+2. Restores the persistent **version store** by cloning the orphan
+   `site-history` branch into `public/` (first run: starts empty).
+3. `python3 versioning.py site public --threshold 3 --keep 20` — merges the new
+   build into the version store (see below).
+4. Force-pushes `public/` back to `site-history` (single-commit mirror) and
+   uploads it as the Pages artifact.
+
+**Versioning (`versioning.py`) — rollback support:**
+- Diffs the new build against the live one, **ignoring** the timestamp line and
+  the injected version widget. A build is *material* if it's the first ever, the
+  set of pages changed, or the normalized diff exceeds `--threshold` lines
+  (default 3). Trivial rebuilds (e.g. only the "Updated …" stamp changed) are
+  **not** pinned — keeps the history clean.
+- Material builds are pinned as immutable, self-contained snapshots under
+  `public/versions/<id>/` (id = Tallinn timestamp) and recorded in
+  `public/versions.json`. Keeps the last `--keep` (default 20); prunes older.
+- A **Version** dropdown is injected at the top of every page (right after
+  `<main class="content">`). It only appears once **≥2** versions exist; archived
+  pages also get a "Back to latest" link. So if a rebuild breaks something, pick
+  the previous version from the dropdown.
+
+**Triggers:** push to `main`, `workflow_dispatch` (manual), and a narrowed cron
+`0 6-20/2 * * 5,6,0,1` (Fri/Sat/Sun/Mon, every 2h 06:00–20:00 UTC — the race-
+weekend session window). Tighten to specific race dates or widen as needed.
+Note GitHub auto-pauses scheduled workflows after ~60 days of repo inactivity.
+
+**Workflow requirements:** `permissions: contents: write` (to push
+`site-history`) + `pages: write` + `id-token: write`; and
+`concurrency.cancel-in-progress: false` so a cancelled run can't corrupt the
+history push. Pushing `site-history` does **not** retrigger the workflow (the
+push trigger is `branches: [main]` only).
+
+**First-time setup (already done for this repo):** create a public repo, enable
+Pages with source = "GitHub Actions", push `main`. `gh auth login --web` (device
+flow) grants access without sharing a token with the build.
+
+---
+
 ## Tooling notes / gotchas
 
 - **Two Pythons:** `build.py` uses **stdlib only** (system `python3`). Image/PDF work
@@ -305,3 +352,6 @@ unchanged.
 - **Timezones:** while both cities are on summer time, Tallinn (EEST, UTC+3) = circuit
   local (CEST, UTC+2) + 1h (`tz_offset`). Re-check if a GP sits outside CEST.
 - **FIA docs are published incrementally** — re-scrape the event page every rebuild.
+- **Version store lives on the `site-history` branch**, not `main`. `public/` is
+  git-ignored locally; it's assembled only in CI. To reset the history, delete the
+  `site-history` branch and re-run the workflow.
