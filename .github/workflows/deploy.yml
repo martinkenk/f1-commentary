@@ -1,26 +1,27 @@
 name: Build & deploy to GitHub Pages
 
-# Rebuilds the site (fetching live weather + Formula1.com results at build time)
-# and publishes it to GitHub Pages. Runs on push, on a schedule (to auto-refresh
-# live data during a race weekend), and on manual trigger.
+# Rebuilds the site (fetching live weather + Formula1.com results at build time),
+# maintains a rollback-able version history, and publishes to GitHub Pages.
 on:
   push:
     branches: [main]
   schedule:
-    # Every 30 minutes. GitHub cron is best-effort and runs on the default branch.
-    # Tighten to a race-weekend window or remove if you don't want auto-refresh.
-    - cron: "*/30 * * * *"
+    # Narrowed to race-weekend windows: Fri/Sat/Sun/Mon, every 2h from 06:00–20:00
+    # UTC (covers the 09:00–18:00-ish EEST/CEST session window). Best-effort; runs
+    # on the default branch. Tighten to specific race dates or widen as you like.
+    - cron: "0 6-20/2 * * 5,6,0,1"
   workflow_dispatch: {}
 
-# Allow one concurrent deployment; let scheduled refreshes supersede older runs.
+# One deployment at a time. Do NOT cancel in progress — a cancelled run could
+# interrupt the history push and corrupt the version store.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write      # push the site-history branch (version store)
+  pages: write         # deploy to Pages
+  id-token: write      # Pages OIDC
 
 jobs:
   build:
@@ -30,12 +31,43 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Build site (fetches live weather + results)
         run: python3 build.py
+
+      - name: Restore version history
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          rm -rf public
+          if git clone --depth=1 --branch site-history \
+               "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" public 2>/dev/null; then
+            rm -rf public/.git
+            echo "Restored existing version history."
+          else
+            mkdir -p public
+            echo "No history branch yet — starting fresh."
+          fi
+
+      - name: Apply versioning (pin only material changes)
+        run: python3 versioning.py site public --threshold 3 --keep 20
+
+      - name: Persist version history
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd public
+          git init -q -b site-history
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "site history $(date -u +%FT%TZ)" || echo "nothing to commit"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" site-history
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: public
 
   deploy:
     needs: build

@@ -1,6 +1,9 @@
 # Generated site (built by GitHub Actions and served on Pages)
 site/
 
+# Version-history deploy tree (assembled in CI)
+public/
+
 # Python cache
 __pycache__/
 *.pyc

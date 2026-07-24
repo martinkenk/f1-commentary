@@ -701,6 +701,27 @@ CSS += r"""
 .gp-grid{display:flex;flex-wrap:wrap;gap:20px}
 .nav-section{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px;
   padding:16px 22px 6px}
+
+/* Version history bar (injected post-build by versioning.py) */
+.version-bar{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  background:var(--panel2);border-bottom:1px solid var(--line);
+  padding:8px 22px;font-size:13px;color:var(--muted);
+  position:sticky;top:0;z-index:50;
+}
+.version-bar label{font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px;margin:0}
+.version-bar label .bi{color:var(--f1-red)}
+.version-bar select{
+  background:var(--bg);color:var(--ink);border:1px solid var(--line);
+  border-radius:8px;padding:4px 10px;font-size:13px;font-weight:600;max-width:min(70vw,360px);
+}
+.version-bar select:hover{border-color:var(--f1-red)}
+.version-archived{
+  color:#ffd21e;font-weight:700;display:inline-flex;align-items:center;gap:6px;
+}
+.version-archived .bi{color:#ffd21e}
+.version-bar .version-latest-link{margin-left:auto;color:var(--f1-red);font-weight:700;text-decoration:none}
+.version-bar .version-latest-link:hover{text-decoration:underline}
 """
 
 
