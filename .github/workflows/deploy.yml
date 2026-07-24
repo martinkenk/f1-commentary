@@ -1,0 +1,48 @@
+name: Build & deploy to GitHub Pages
+
+# Rebuilds the site (fetching live weather + Formula1.com results at build time)
+# and publishes it to GitHub Pages. Runs on push, on a schedule (to auto-refresh
+# live data during a race weekend), and on manual trigger.
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Every 30 minutes. GitHub cron is best-effort and runs on the default branch.
+    # Tighten to a race-weekend window or remove if you don't want auto-refresh.
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+
+# Allow one concurrent deployment; let scheduled refreshes supersede older runs.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build site (fetches live weather + results)
+        run: python3 build.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

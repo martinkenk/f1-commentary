@@ -1,0 +1,12 @@
+# Generated site (built by GitHub Actions and served on Pages)
+site/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Scraped source PDFs / intermediate scrape artifacts (not needed to build)
+fia_pdfs/
+
+# OS cruft
+.DS_Store
