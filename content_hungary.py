@@ -220,47 +220,48 @@ def build_pages(ctx, env):
 
     <div class="table-wrap">
       <table class="data">
-        <thead><tr><th>Team</th><th>Rookie</th><th>Replaces</th><th>Notes</th></tr></thead>
+        <thead><tr><th>Team</th><th>Rookie</th><th>Replaces</th><th>FP1 outings</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>McLaren</td><td>Leonardo Fornaroli</td><td>Oscar Piastri</td><td>2nd FP1 outing</td></tr>
-          <tr><td>Mercedes</td><td>Frederik Vesti</td><td>Kimi Antonelli</td><td>Driving the title leader's car</td></tr>
-          <tr><td>Alpine</td><td>Paul Aron</td><td>Franco Colapinto</td><td>First Alpine run of 2026</td></tr>
-          <tr><td>Haas</td><td>Ryo Hirakawa</td><td>Ollie Bearman</td><td>2nd FP1 of 2026 (after Austria)</td></tr>
-          <tr><td>Cadillac</td><td>Colton Herta</td><td>Valtteri Bottas</td><td>Into the MAC-26</td></tr>
+          <tr><td>McLaren</td><td>Leonardo Fornaroli</td><td>Oscar Piastri</td><td><strong>2nd</strong> (1 prior: Barcelona)</td><td>FP1 debut last month in Norris' car</td></tr>
+          <tr><td>Mercedes</td><td>Frederik Vesti</td><td>Kimi Antonelli</td><td><strong>6th</strong> (5 prior since 2023)</td><td>Driving the title leader's car</td></tr>
+          <tr><td>Alpine</td><td>Paul Aron</td><td>Franco Colapinto</td><td><strong>8th</strong> (7 prior)</td><td>First Alpine run of 2026 (prior outings for Sauber &amp; Audi)</td></tr>
+          <tr><td>Haas</td><td>Ryo Hirakawa</td><td>Ollie Bearman</td><td><strong>2nd of 2026</strong> (after Austria)</td><td>Test &amp; reserve driver</td></tr>
+          <tr><td>Cadillac</td><td>Colton Herta</td><td>Valtteri Bottas</td><td><strong>2nd</strong> (1 prior: Barcelona)</td><td>Into the MAC-26</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="src" style="margin-top:-.4rem">FP1 outing counts include this Hungarian GP run. Source: Formula1.com.</p>
 
     <h2 class="sec">Pocket bios</h2>
     <div class="grid cols-2">
       {card("Leonardo Fornaroli — McLaren", ul([
          "Italian, 21. 2025 <strong>F2 champion</strong>; McLaren Driver Development Programme &amp; reserve.",
-         "FP1 debut at Barcelona last month (in Norris' car); now takes over Piastri's.",
+         "<strong>2nd career FP1 outing</strong> — debut at Barcelona last month (in Norris' car); now takes over Piastri's.",
          "Also has laps in older McLaren and Haas machinery.",
       ]), "bi-person-badge", "accent")}
 
       {card("Frederik Vesti — Mercedes", ul([
          "Danish. Mercedes' sole reserve for 2026 after 5+ years in the programme.",
-         "Five prior F1 practice outings since 2023; now racing IMSA sportscars.",
+         "<strong>6th F1 practice outing</strong> (five prior since 2023); now racing IMSA sportscars.",
          "Faces the pressure of a <strong>title contender's car</strong> (as in Barcelona).",
       ]), "bi-person-badge")}
 
       {card("Paul Aron — Alpine", ul([
          "Estonian, 22. Third in the 2024 F2 championship.",
-         "Practice debut with Sauber at 2025 British GP; loaned to Audi at Barcelona &amp; Austria this year.",
-         "Supports Gasly and Colapinto — the latter steps aside in FP1.",
+         "<strong>8th FP1 outing</strong> — debut with Sauber at the 2025 British GP, then Hungary, Monza, Mexico City &amp; Abu Dhabi, plus Audi runs at Barcelona &amp; Austria this year.",
+         "First appearance <em>for Alpine</em> in 2026; supports Gasly and Colapinto — the latter steps aside in FP1.",
       ]), "bi-person-badge")}
 
       {card("Ryo Hirakawa — Haas", ul([
          "Japanese, 32. Haas test &amp; reserve driver.",
-         "Second FP1 of 2026 (after Austria), taking Bearman's car.",
+         "<strong>2nd FP1 of 2026</strong> (after Austria), taking Bearman's car.",
          "Currently races WEC with Toyota.",
       ]), "bi-person-badge")}
 
       {card("Colton Herta — Cadillac", ul([
-         "American, 26. Cadillac test driver; FP1 debut at Barcelona.",
-         "Extensive IndyCar experience; moved to <strong>F2 for 2026</strong> (16th, 26 pts).",
-         "Takes Bottas' car; two more practice runs due this year after Hungary.",
+         "American, 26. Cadillac test driver.",
+         "<strong>2nd career FP1 outing</strong> — debut at Barcelona (in Perez' car); now into Bottas' MAC-26.",
+         "Extensive IndyCar experience; moved to <strong>F2 for 2026</strong> (16th, 26 pts). Two more practice runs due this year after Hungary.",
       ]), "bi-person-badge")}
 
       {card("Also worth a mention", ul([
