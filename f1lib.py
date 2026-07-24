@@ -619,6 +619,12 @@ table.data td.pos{font-weight:900;color:var(--f1-red);width:40px}
 .fia-upgrade-head{font-weight:700;color:#fff;margin-bottom:6px}
 .fia-upgrade-head .bi{color:var(--f1-red);margin-right:6px}
 .fia-upgrade-box p{margin:0;color:var(--muted);font-size:14px}
+.fia-upgrade-box.confirmed{border-style:solid;border-color:var(--hun-green);
+  background:linear-gradient(180deg,rgba(71,112,80,.16),var(--panel2))}
+.fia-upgrade-box.confirmed .fia-upgrade-head{color:#8fe0a4}
+.fia-upgrade-box.confirmed .fia-upgrade-head .bi{color:#8fe0a4}
+.fia-upgrade-box .table-wrap{margin:12px 0 8px}
+.fia-upgrade-box p+p{margin-top:8px}
 
 /* Quotes & badges */
 .quote{
@@ -741,6 +747,7 @@ CSS += r"""
 .data tr.upcoming td{font-weight:600}
 .data .tw{display:inline-block;margin-left:6px;font-size:10px;font-weight:800;letter-spacing:.04em;
   text-transform:uppercase;color:#fff;background:var(--f1-red);border-radius:5px;padding:1px 6px;vertical-align:middle}
+.data td.muted-cell{color:var(--muted);font-style:italic;font-size:12px;text-align:center}
 """
 
 

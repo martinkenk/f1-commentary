@@ -44,7 +44,8 @@ def build_pages(ctx, env):
       ]), "bi-trophy", "accent")}
 
       {card("Aston Martin's big moment", ul([
-         "Rolling out a sweeping chassis/aero upgrade — new nose, revised surfaces, major weight reduction.",
+         "<strong>FIA-confirmed 16-item B-spec</strong> — the biggest single package of any team this weekend.",
+         "New nose/front wing, a complete new floor, diffuser, sidepods, rear wing &amp; revised rear suspension; major weight reduction.",
          "Newey: team started the '26 car late and were 'on the back foot from the start'.",
          "Goal is simple — <em>get back racing the midfield</em> after being 2s adrift at Spa.",
       ]), "bi-tools", "accent")}
@@ -493,32 +494,81 @@ def build_pages(ctx, env):
         (ride height, rakes) will roll on over the next events, so don't expect a step-change immediately.
       </div>
 
-      <div class="fia-upgrade-box">
-        <div class="fia-upgrade-head"><i class="bi bi-file-earmark-text"></i> FIA official upgrade list</div>
-        <p>When the FIA publishes its official <strong>car-presentation / technical upgrade list</strong> for this
-        event, the confirmed Aston Martin parts and their stated purpose (performance vs. circuit-specific) will be
-        added here alongside the trackside observations above. Re-run the build once the document is live.</p>
+      <div class="fia-upgrade-box confirmed">
+        <div class="fia-upgrade-head"><i class="bi bi-file-earmark-check"></i> FIA official upgrade list — CONFIRMED</div>
+        <p>The FIA <strong>Car Presentation Submissions</strong> (Doc 9, published Fri 24 Jul, 13:54 EEST / 12:54 CEST)
+        confirm Aston Martin brought <strong>16 updated components</strong> — comfortably the <strong>biggest package of any
+        team</strong> this weekend (next is McLaren with 5). It is, in effect, the promised B-spec AMR26. Every item is
+        flagged <em>"Performance – Local Load"</em> — a coordinated, full-car aero overhaul rather than circuit-specific tweaks:</p>
+        <div class="table-wrap"><table class="data compact">
+          <thead><tr><th>#</th><th>Component</th><th>Reason</th><th>What changed</th></tr></thead>
+          <tbody>
+            <tr><td class="pos">1</td><td>Front Wing</td><td>Perf – Local Load</td><td>Revised front-view &amp; planview with chord redistribution</td></tr>
+            <tr><td class="pos">2</td><td>Front Wing Endplate</td><td>Perf – Local Load</td><td>Updated body, diveplane and foot</td></tr>
+            <tr><td class="pos">3</td><td>Nose</td><td>Perf – Local Load</td><td>Longer, thinner nose</td></tr>
+            <tr><td class="pos">4</td><td>Front Corner</td><td>Perf – Local Load</td><td>Revised lip &amp; longer rear deflector (new front brake-duct externals)</td></tr>
+            <tr><td class="pos">5</td><td>Floor Body</td><td>Perf – Local Load</td><td>Changes to all permitted floor surfaces — more floor load</td></tr>
+            <tr><td class="pos">6</td><td>Floor Fences</td><td>Perf – Local Load</td><td>Updated floor leading-edge vanes</td></tr>
+            <tr><td class="pos">7</td><td>Floor Edge</td><td>Perf – Local Load</td><td>Foot/board &amp; area ahead of rear tyre modified</td></tr>
+            <tr><td class="pos">8</td><td>Diffuser</td><td>Perf – Local Load</td><td>Changes to main diffuser, fences &amp; winglet</td></tr>
+            <tr><td class="pos">9</td><td>Sidepod Inlet</td><td>Perf – Local Load</td><td>Inlet reshaped in line with new bodywork package</td></tr>
+            <tr><td class="pos">10</td><td>Coke/Engine Cover</td><td>Perf – Local Load</td><td>Subtle bodywork-shape changes</td></tr>
+            <tr><td class="pos">11</td><td>Cooling Louvres</td><td>Perf – Local Load</td><td>Conceptually similar cooling panels (setup options)</td></tr>
+            <tr><td class="pos">12</td><td>Rear Suspension</td><td>Perf – Local Load</td><td>Small leg-position &amp; external-fairing changes</td></tr>
+            <tr><td class="pos">13</td><td>Rear Corner</td><td>Perf – Local Load</td><td>Subtle inlet, exit &amp; vane changes</td></tr>
+            <tr><td class="pos">14</td><td>Rear Wing</td><td>Perf – Local Load</td><td>Chord redistributed across 3 elements; winglets on flap TE</td></tr>
+            <tr><td class="pos">15</td><td>Beam Wing</td><td>Perf – Local Load</td><td>Twist-distribution change to rear-wing brace</td></tr>
+            <tr><td class="pos">16</td><td>Rear Wing Endplate</td><td>Perf – Local Load</td><td>All surfaces revised</td></tr>
+          </tbody>
+        </table></div>
+        <p class="src">The submission notes the front wing, endplate and nose (items 1–3) work as <em>one package</em>, and the
+        floor items (5–8) are developed together to raise floor load — matching the trackside sightings of a new sidepod,
+        floor and rear wing above.</p>
       </div>
-      <p class="src">Sources: The Race — "First clues of Aston Martin's B-spec F1 car at Hungarian GP emerge" (Josh Suttill, 24 Jul 2026) &amp; Formula1.com. FIA upgrade-list details added when published.</p>
+      <p class="src">Sources: FIA Car Presentation Submissions (2026 Hungarian GP, Doc 9, 24 Jul 13:54 EEST) · The Race —
+      "First clues of Aston Martin's B-spec F1 car at Hungarian GP emerge" (Josh Suttill, 24 Jul 2026) · Formula1.com.</p>
     </div>
+
+    <h2 class="sec">Every team's official upgrades (FIA car presentation)</h2>
+    <p class="lead-note">Number of updated components each team declared to the FIA for this event (Doc 9, 24 Jul).
+      Aston Martin's 16-item B-spec dwarfs the field; Alpine filed a nil return.</p>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Team</th><th>Items</th><th>Headline of the package</th></tr></thead>
+        <tbody>
+          <tr class="upcoming"><td><strong>Aston Martin</strong></td><td class="pos">16</td><td>Full B-spec: new front wing/nose, complete floor, diffuser, sidepods, rear wing &amp; suspension</td></tr>
+          <tr><td>McLaren</td><td class="pos">5</td><td>New floor &amp; board, rear-wing endplate, front &amp; rear corner furniture, bigger brake-cooling exit</td></tr>
+          <tr><td>Mercedes</td><td class="pos">3</td><td>Budapest-spec rear wing (centreline winglet), wider cooling exit, tail winglet into wing brace</td></tr>
+          <tr><td>Red Bull</td><td class="pos">3</td><td>Aero refinements</td></tr>
+          <tr><td>Racing Bulls</td><td class="pos">3</td><td>Aero refinements</td></tr>
+          <tr><td>Ferrari</td><td class="pos">2</td><td>New rear wing (flaps + optional winglet cascade) &amp; endplate — the 'Macarena' wing</td></tr>
+          <tr><td>Williams</td><td class="pos">2</td><td>Aero refinements</td></tr>
+          <tr><td>Haas</td><td class="pos">1</td><td>Rear-wing SM fairing optimisation + more aggressive Gurney flap</td></tr>
+          <tr><td>Audi</td><td class="pos">1</td><td>Single aero item</td></tr>
+          <tr><td>Cadillac</td><td class="pos">1</td><td>Single item (brakes package flagged in team briefings)</td></tr>
+          <tr><td>Alpine</td><td class="pos">0</td><td><em>No updates submitted for this event</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src">Source: FIA 'Car Presentation Submissions' (2026 Hungarian GP, Doc 9). Counts are declared updated components; some are optional/circuit-specific.</p>
 
     <h2 class="sec">The rear-wing arms race</h2>
     <div class="grid cols-2">
       {card("Ferrari — 'Macarena' wing", ul([
-         "New winglet cascades in the legality box where the rear-wing actuator normally sits.",
-         "Borrows from McLaren's Monaco solution — a triple-element series in the central area.",
-         "Extra hangars above the upper element too — all aimed at <strong>more downforce</strong> for the Hungaroring.",
+        "<strong>FIA-confirmed:</strong> new rear-wing flap design with extra trailing-edge devices, re-shaped endplate &amp; new pillars.",
+        "An <strong>optional winglet cascade</strong> in the SM-fairing volume — adds rear downforce at the cost of efficiency.",
+        "Borrows from McLaren's Monaco solution — a triple-element series in the central area.",
       ]), "bi-airplane", "green")}
 
       {card("McLaren — flip-over wing (finally)", ul([
          "Revised low-drag 'flip-over' wing fitted to <strong>Piastri's car</strong> for opening practice.",
-         "Was pulled at the Austrian GP before the car left the garage; reworked at Woking.",
-         "<strong>Test only in Hungary</strong> — reverts to the regular wing for qualifying; could debut properly at Monza.",
+        "Backed by a genuine 5-item package: <strong>new floor &amp; board</strong>, rear-wing endplate, revised front &amp; rear corner furniture, bigger brake-cooling exit.",
+        "<strong>Wing test only in Hungary</strong> — reverts to the regular wing for qualifying; could debut properly at Monza.",
       ]), "bi-airplane", "green")}
 
-      {card("Mercedes — new rear wing", ul([
-         "New rear-wing spec with extra winglets on top of the upper flap.",
-         "Paired with a deployment software fix after Russell's Spa woes (see Power Unit page).",
+      {card("Mercedes — Budapest rear wing", ul([
+        "<strong>FIA-confirmed 3 items:</strong> extra rear-wing winglet on the centreline, wider bodywork rear exit (cooling), and the tail winglet merged into the rear-wing brace.",
+        "All tuned to Budapest's low-speed, high-downforce L/D; paired with a deployment software fix after Russell's Spa woes (see Power Unit page).",
       ]), "bi-airplane", "green")}
 
       {card("Cadillac — brakes upgrade", ul([
@@ -526,12 +576,12 @@ def build_pages(ctx, env):
          "Hungaroring is brutally tough on brakes (Cadillac had both cars out by lap 4 at the Red Bull Ring).",
       ]), "bi-disc")}
 
-      {card("Haas — parts refresh for Ocon", ul([
-         "Different floor, different rear wing and different engine fitted to Ocon's car.",
+      {card("Haas — rear wing tweak", ul([
+        "<strong>FIA-confirmed:</strong> single item — rear-wing SM-fairing optimisation plus a new, more aggressive Gurney flap for extra rear downforce.",
          "Aimed at ending the parts-inconsistency that made the intra-team fight uneven.",
       ]), "bi-wrench-adjustable")}
     </div>
-    <p class="src">Sources: Formula1.com &amp; The Race (Ferrari Macarena wing, day-one roundup). Upgrade details will be updated as FIA technical/upgrade documents are published.</p>
+    <p class="src">Sources: FIA Car Presentation Submissions (Doc 9, 24 Jul) · Formula1.com &amp; The Race (Ferrari 'Macarena' wing, day-one roundup).</p>
     """)
 
     # ---- 6c. POWER UNIT ------------------------------------------------------
@@ -607,6 +657,25 @@ def build_pages(ctx, env):
       </table>
     </div>
     <p class="src">Source: FIA 'Power Unit Information to the Teams and PUMs' (2026 Hungarian GP, Doc 3).</p>
+
+    {card("Penalty watch — PU elements used so far", f'''
+    <p>The FIA <strong>Technical Delegate's report</strong> (Doc 7, published Fri 24 Jul 12:30 EEST) lists how many of
+    each power-unit element every driver has used this season. The heaviest users are the ones to watch for
+    <strong>grid-penalty risk</strong> as the year goes on — and both <strong>Aston Martins stand out</strong>:</p>
+    <div class="table-wrap"><table class="data compact">
+      <thead><tr><th>Driver</th><th>ICE</th><th>TC</th><th>EXH</th><th>MGU-K</th><th>ES</th><th>PU-CE</th><th>PU-ANC</th></tr></thead>
+      <tbody>
+        <tr class="upcoming"><td>Fernando Alonso (Aston)</td><td>3</td><td>3</td><td>2</td><td>4</td><td>5</td><td>5</td><td>7</td></tr>
+        <tr class="upcoming"><td>Lance Stroll (Aston)</td><td>3</td><td>3</td><td>3</td><td>4</td><td>5</td><td>5</td><td>5</td></tr>
+        <tr><td>Isack Hadjar (Racing Bulls)</td><td>5</td><td>5</td><td>5</td><td>2</td><td>4</td><td>4</td><td>5</td></tr>
+        <tr><td>Kimi Antonelli (Mercedes)</td><td>4</td><td>3</td><td>4</td><td>2</td><td>3</td><td>3</td><td>5</td></tr>
+        <tr><td class="muted-cell" colspan="8">Most others sit on 2–3 of each — full grid table in the FIA doc.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="src">Both Astons are deepest into their <strong>ES, Control-Electronics and ancillary</strong> pools
+    (Alonso already on his 7th ancillary component); Hadjar leads on the <strong>ICE/turbo/exhaust</strong> side.
+    No penalties triggered yet — a watching brief for the back half of the season.</p>
+    ''', "bi-exclamation-triangle", "watch")}
 
     {card("Mercedes' Spa power-unit gremlin — now fixed", f'''
     <p>Russell's Spa weekend was wrecked by a lack of straight-line speed vs Antonelli. The cause was buried
@@ -794,12 +863,12 @@ def build_pages(ctx, env):
       ]), "bi-person-badge")}
 
       {card("Upgrade spotting", ul([
-         "Aston Martin: new nose + aero + big weight save.",
+         "Aston Martin: <strong>16-item B-spec</strong> (FIA-confirmed) — new nose/front wing, whole floor, rear wing + big weight save.",
          "Ferrari: 'Macarena' rear wing (McLaren-style cascades).",
-         "McLaren: flip-over wing on Piastri — <em>test only</em>.",
-         "Mercedes: new rear wing + deployment software fix.",
+         "McLaren: 5-item package + flip-over wing on Piastri — <em>wing test only</em>.",
+         "Mercedes: Budapest rear wing + deployment software fix.",
          "Cadillac: bigger brakes package.",
-         "Haas: Ocon on a new floor, rear wing &amp; engine.",
+         "Haas: rear-wing SM fairing + aggressive Gurney flap.",
       ]), "bi-tools")}
     </div>
 
@@ -831,11 +900,13 @@ def build_pages(ctx, env):
     ]), "bi-hourglass-split", "accent")}
 
     {card("Official FIA documents published (2026 Hungarian GP)", ul([
+       "<strong>Car Presentation Submissions (Doc 9, 24 Jul)</strong> — official upgrade list; Aston Martin's 16-item B-spec — see Upgrades page.",
+       "PU Elements Used per Driver (Technical Delegate, Doc 7, 24 Jul) — penalty watch — see Power Unit page.",
        "Power Unit Information (override energy &amp; power maps) — see Power Unit page.",
        "Race Director's Competition Notes (track limits, lapping, practice starts) — see Circuit page.",
        "Competition Notes: Pirelli Preview (tyre pressures, Q3/mandatory compounds).",
        "Circuit Map, Pit-Lane Drawing, Emergency Exits &amp; Red Zone.",
-       "Car Display Procedure · Competition Visa.",
+       "Entry List · Self-Scrutineering · Curfew · Car Display Procedure · Competition Visa.",
     ]), "bi-file-earmark-text")}
 
     <div class="callout watch">
