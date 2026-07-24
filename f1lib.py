@@ -731,6 +731,16 @@ CSS += r"""
 }
 .side-foot .version-bar select{max-width:100%;width:100%}
 .side-foot .version-bar .version-latest-link{margin-left:0}
+
+/* Rookie FP1 career-breakdown tables */
+.lead-note{color:var(--muted);font-size:14px;margin:-4px 0 16px;max-width:70ch}
+.bio-meta{margin:0 0 10px;font-size:13px;color:var(--muted);display:flex;align-items:center;flex-wrap:wrap;gap:2px}
+.data.compact th,.data.compact td{padding:5px 9px;font-size:13px}
+.data.compact td.pos{font-weight:700;color:var(--muted);width:1.6rem;text-align:center}
+.data tr.upcoming{background:rgba(205,42,62,.14)}
+.data tr.upcoming td{font-weight:600}
+.data .tw{display:inline-block;margin-left:6px;font-size:10px;font-weight:800;letter-spacing:.04em;
+  text-transform:uppercase;color:#fff;background:var(--f1-red);border-radius:5px;padding:1px 6px;vertical-align:middle}
 """
 
 

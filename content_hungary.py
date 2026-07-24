@@ -253,9 +253,9 @@ def build_pages(ctx, env):
       ]), "bi-person-badge")}
 
       {card("Ryo Hirakawa — Haas", ul([
-         "Japanese, 32. Haas test &amp; reserve driver.",
+         "Japanese, 32. Haas test &amp; reserve driver; races WEC with Toyota.",
+         "<strong>7th career FP1 outing</strong> — across <strong>3 teams</strong> (McLaren, Alpine, Haas).",
          "<strong>2nd FP1 of 2026</strong> (after Austria), taking Bearman's car.",
-         "Currently races WEC with Toyota.",
       ]), "bi-person-badge")}
 
       {card("Colton Herta — Cadillac", ul([
@@ -269,7 +269,79 @@ def build_pages(ctx, env):
          "<strong>Arvid Lindblad</strong> (Racing Bulls) — full rookie racing this year, already trading blows with Lawson.",
       ]), "bi-people")}
     </div>
-    <p class="src">Source: Formula1.com &amp; The Race.</p>
+
+    <h2 class="sec">FP1 career breakdown</h2>
+    <p class="lead-note">Every prior Friday practice outing for each of this weekend's five FP1 rookies —
+      Hungary is the run listed as <em>this weekend</em>. Counts include the upcoming Hungarian GP session.</p>
+    <div class="grid cols-2">
+      {card("Leonardo Fornaroli — 2nd FP1 outing", f'''
+      <p class="bio-meta"><span class="pill">1 team</span> McLaren</p>
+      <div class="table-wrap"><table class="data compact">
+        <thead><tr><th>#</th><th>Grand Prix</th><th>Team</th><th>Car · notes</th></tr></thead>
+        <tbody>
+          <tr><td class="pos">1</td><td>2026 Barcelona-Catalunya</td><td>McLaren</td><td>Debut — P5, in Norris' car</td></tr>
+          <tr class="upcoming"><td class="pos">2</td><td>2026 Hungarian <span class="tw">this weekend</span></td><td>McLaren</td><td>Replaces Piastri</td></tr>
+        </tbody>
+      </table></div>''', "bi-person-badge", "accent")}
+
+      {card("Fred Vesti — 6th FP1 outing", f'''
+      <p class="bio-meta"><span class="pill">1 team</span> Mercedes</p>
+      <div class="table-wrap"><table class="data compact">
+        <thead><tr><th>#</th><th>Grand Prix</th><th>Team</th><th>Car · notes</th></tr></thead>
+        <tbody>
+          <tr><td class="pos">1</td><td>2023 Mexico City</td><td>Mercedes</td><td>Debut — P19, 26 laps</td></tr>
+          <tr><td class="pos">2</td><td>2023 Abu Dhabi</td><td>Mercedes</td><td>W14</td></tr>
+          <tr><td class="pos">3</td><td>2025 Bahrain</td><td>Mercedes</td><td>P18</td></tr>
+          <tr><td class="pos">4</td><td>2025 Mexico City</td><td>Mercedes</td><td>W16</td></tr>
+          <tr><td class="pos">5</td><td>2026 Barcelona-Catalunya</td><td>Mercedes</td><td>In Antonelli's car</td></tr>
+          <tr class="upcoming"><td class="pos">6</td><td>2026 Hungarian <span class="tw">this weekend</span></td><td>Mercedes</td><td>Replaces title leader Antonelli</td></tr>
+        </tbody>
+      </table></div>''', "bi-person-badge")}
+
+      {card("Paul Aron — 8th FP1 outing", f'''
+      <p class="bio-meta"><span class="pill">3 teams</span> Sauber · Alpine · Audi</p>
+      <div class="table-wrap"><table class="data compact">
+        <thead><tr><th>#</th><th>Grand Prix</th><th>Team</th><th>Car · notes</th></tr></thead>
+        <tbody>
+          <tr><td class="pos">1</td><td>2025 British</td><td>Sauber</td><td>Debut — Hülkenberg's C45</td></tr>
+          <tr><td class="pos">2</td><td>2025 Hungarian</td><td>Sauber</td><td>C45</td></tr>
+          <tr><td class="pos">3</td><td>2025 Italian</td><td>Alpine</td><td>First Alpine run</td></tr>
+          <tr><td class="pos">4</td><td>2025 Mexico City</td><td>Alpine</td><td>A525</td></tr>
+          <tr><td class="pos">5</td><td>2025 Abu Dhabi</td><td>Alpine</td><td>A525</td></tr>
+          <tr><td class="pos">6</td><td>2026 Barcelona-Catalunya</td><td>Audi</td><td>Loaned to Audi (R26)</td></tr>
+          <tr><td class="pos">7</td><td>2026 Austrian</td><td>Audi</td><td>R26</td></tr>
+          <tr class="upcoming"><td class="pos">8</td><td>2026 Hungarian <span class="tw">this weekend</span></td><td>Alpine</td><td>First 2026 Alpine run; replaces Colapinto</td></tr>
+        </tbody>
+      </table></div>''', "bi-person-badge")}
+
+      {card("Ryo Hirakawa — 7th FP1 outing", f'''
+      <p class="bio-meta"><span class="pill">3 teams</span> McLaren · Alpine · Haas</p>
+      <div class="table-wrap"><table class="data compact">
+        <thead><tr><th>#</th><th>Grand Prix</th><th>Team</th><th>Car · notes</th></tr></thead>
+        <tbody>
+          <tr><td class="pos">1</td><td>2024 Abu Dhabi</td><td>McLaren</td><td>Debut — MCL38, in Piastri's car</td></tr>
+          <tr><td class="pos">2</td><td>2025 Japanese</td><td>Alpine</td><td>A525</td></tr>
+          <tr><td class="pos">3</td><td>2025 Bahrain</td><td>Haas</td><td>VF-25</td></tr>
+          <tr><td class="pos">4</td><td>2025 Spanish</td><td>Haas</td><td>VF-25</td></tr>
+          <tr><td class="pos">5</td><td>2025 Mexico City</td><td>Haas</td><td>VF-25</td></tr>
+          <tr><td class="pos">6</td><td>2026 Austrian</td><td>Haas</td><td>VF-26</td></tr>
+          <tr class="upcoming"><td class="pos">7</td><td>2026 Hungarian <span class="tw">this weekend</span></td><td>Haas</td><td>Replaces Bearman</td></tr>
+        </tbody>
+      </table></div>
+      <p class="src">Excludes post-season young-driver tests (Abu Dhabi 2024 &amp; 2025) — those aren't race-weekend practice sessions.</p>''', "bi-person-badge")}
+
+      {card("Colton Herta — 2nd FP1 outing", f'''
+      <p class="bio-meta"><span class="pill">1 team</span> Cadillac</p>
+      <div class="table-wrap"><table class="data compact">
+        <thead><tr><th>#</th><th>Grand Prix</th><th>Team</th><th>Car · notes</th></tr></thead>
+        <tbody>
+          <tr><td class="pos">1</td><td>2026 Barcelona-Catalunya</td><td>Cadillac</td><td>Debut — P21, in Perez' car</td></tr>
+          <tr class="upcoming"><td class="pos">2</td><td>2026 Hungarian <span class="tw">this weekend</span></td><td>Cadillac</td><td>Into Bottas' MAC-26</td></tr>
+        </tbody>
+      </table></div>
+      <p class="src">Cadillac plan <strong>4 Herta FP1 runs</strong> in 2026 — two more due after Hungary.</p>''', "bi-person-badge")}
+    </div>
+    <p class="src">Sources: Formula1.com, team FP1 announcements &amp; practice reports, Wikipedia participation tables.</p>
     """)
 
     # ---- 5. STANDINGS --------------------------------------------------------
