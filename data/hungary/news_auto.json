@@ -1,5 +1,18 @@
 [
   {
+    "id": "297d0a39fe0e",
+    "url": "https://www.the-race.com/formula-1/winners-losers-f1-2026-hungarian-gp-practice/",
+    "title": "Winners and Losers from Hungarian GP F1 Practice",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "24 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The Hungarian Grand Prix practice sessions highlighted key performances, with Ferrari's Charles Leclerc and Lewis Hamilton topping the sessions, while Mercedes struggled, with George Russell finishing fifth. Aston Martin faced challenges with Lance Stroll's suspension failure but showed potential with Fernando Alonso's performance. Lando Norris emerged as a strong contender, and Alpine struggled without upgrades, leaving them at the back of the midfield."
+    ]
+  },
+  {
     "id": "cdc9f7d931fe",
     "url": "https://www.the-race.com/formula-1/f1-2026-hungarian-gp-starting-grid-after-hamilton-antonelli-penalties/",
     "title": "F1 2026 Hungarian GP Starting Grid After Hamilton, Antonelli Penalties",
@@ -10,6 +23,73 @@
     "session": "",
     "paragraphs": [
       "Lewis Hamilton was initially the fastest in qualifying for the Hungarian Grand Prix but faced a setback in Q3. He received a three-place penalty for obstructing Oscar Piastri. Championship leader Kimi Antonelli also received a three-place penalty for not slowing down for yellow flags during Q3. The starting grid has been adjusted accordingly."
+    ]
+  },
+  {
+    "id": "a8001cec2658",
+    "url": "https://www.the-race.com/formula-1/badly-resurfaced-hungary-track-is-breaking-up-and-f1-is-worried/",
+    "title": "F1 Monitors Hungaroring Track Surface After Driver Complaints",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "25 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The FIA is monitoring the Hungaroring track surface after drivers reported issues with bumps and deterioration. Concerns were raised during a drivers' briefing, leading to a track inspection. While some repairs were made, the surface remains inconsistent, affecting grip and potentially increasing tyre degradation. Drivers, including George Russell and Oscar Piastri, expressed dissatisfaction with the track conditions, particularly at the final corner."
+    ]
+  },
+  {
+    "id": "c0ab8ca14197",
+    "url": "https://www.the-race.com/formula-1/lewis-hamilton-oscar-piastri-hungarian-gp-qualifying-incident/",
+    "title": "Hamilton Penalized, Loses Front Row Start at Hungarian GP",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "25 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Lewis Hamilton has received a three-place grid penalty for impeding Oscar Piastri during Q3 of the Hungarian Grand Prix, dropping him to fifth on the grid. Hamilton, who was initially fastest in Q3, expressed confusion over Ferrari's strategy that led to a chaotic final lap, allowing Lando Norris to secure pole position.",
+      "The stewards ruled that Piastri was 'unnecessarily impeded' by Hamilton, who was unaware of Piastri's approaching lap. Additionally, championship leader Kimi Antonelli was penalized three places for failing to slow for yellow flags during the session."
+    ]
+  },
+  {
+    "id": "1c1f32905037",
+    "url": "https://www.the-race.com/formula-1/hungarian-grand-prix-2026-f1-qualifying-results/",
+    "title": "Hungarian Grand Prix 2026 F1 Qualifying Results",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "25 Jul",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Lando Norris secured pole position in qualifying for the Hungarian Grand Prix with a time of 1m17.207s. He was closely followed by Lewis Hamilton and Charles Leclerc, who finished second and third respectively. The top ten also included drivers from McLaren, Mercedes, Red Bull, and Audi."
+    ]
+  },
+  {
+    "id": "e54e89084374",
+    "url": "https://www.the-race.com/formula-1/norris-snatches-pole-from-hamilton-in-f1-hungarian-gp-qualifying/",
+    "title": "Norris Claims Pole Position at Hungarian GP Qualifying",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "25 Jul",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Lando Norris secured pole position for the Hungarian Grand Prix, edging out Lewis Hamilton by just 0.012 seconds. Hamilton initially led after the first runs but was penalized three grid places for impeding Oscar Piastri, starting him fifth. Charles Leclerc qualified third, while Max Verstappen spun during his final attempt, finishing sixth."
+    ]
+  },
+  {
+    "id": "f888af3d5655",
+    "url": "https://www.the-race.com/formula-1/everything-that-happened-in-f1-2026-hungarian-gp-final-practice/",
+    "title": "Norris Tops Final Practice at 2026 Hungarian Grand Prix",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "25 Jul",
+    "kind": "session",
+    "session": "Practice 3",
+    "paragraphs": [
+      "Lando Norris of McLaren secured the top spot in the final practice session for the 2026 Hungarian Grand Prix, outpacing Lewis Hamilton by 0.117 seconds. This ended Ferrari's dominance in the earlier sessions, with Kimi Antonelli from Mercedes close behind in third.",
+      "The session saw Red Bull drivers struggling, with Max Verstappen finishing seventh. Meanwhile, Racing Bulls and Audi battled for midfield positions, with Liam Lawson narrowly ahead of Nico Hulkenberg for ninth."
     ]
   },
   {
