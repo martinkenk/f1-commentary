@@ -79,14 +79,14 @@ def build_pages(ctx, env):
     # ---- 1b. WEEKEND NEWS ----------------------------------------------------
     general_news = [
         news_item(
-            "Norris takes Hungarian GP pole; Hamilton penalty reshuffles the grid",
+            "Norris takes Hungarian GP pole; two grid penalties reshuffle the order",
             ["Lando Norris delivered when it mattered, snatching pole by <strong>0.012s</strong> from Lewis Hamilton "
-             "(1:17.207) as Ferrari fumbled its Q3 strategy. But the front row changed after the flag: Hamilton picked "
-             "up a <strong>3-place grid penalty</strong> for impeding Piastri, dropping him to P5 and promoting "
-             "<strong>Charles Leclerc</strong> alongside Norris.",
-             "So the grid reads Norris–Leclerc–Antonelli–Piastri–Hamilton–Verstappen. With overtaking at a premium here, "
-             "Hamilton's recovery from fifth and Ferrari's raw pace are the stories to carry into Sunday. Full "
-             "classification and grid below."],
+             "(1:17.207) as Ferrari fumbled its Q3 strategy. Then the stewards reshaped the grid: Hamilton took a "
+             "<strong>3-place penalty</strong> for impeding Piastri, and championship leader <strong>Antonelli</strong> "
+             "a 3-place penalty (plus a point) for not slowing under yellows.",
+             "So the grid reads Norris–Leclerc–Piastri–Verstappen–Hamilton–Russell–Antonelli. With overtaking at a "
+             "premium here, the recovery drives of Hamilton (P5) and Antonelli (P7) — and Ferrari's front-row pace — "
+             "are the stories to carry into Sunday. Full classification and grid below."],
             "F1.com / The Race", "Sat 25 Jul", "f1"),
         news_item(
             "Norris tops final practice as Ferrari's grip loosens",
@@ -211,10 +211,12 @@ def build_pages(ctx, env):
                 "cars out early — left the door open. Leclerc qualified third, Antonelli fourth.",
                 "F1.com / The Race", src_kind="f1"),
             news_item(
-                "Hamilton penalised — Leclerc promoted to the front row",
-                "Hamilton then lost his front-row start: a <strong>3-place grid penalty</strong> for impeding Piastri at "
-                "Turn 1 in Q3 drops him to P5. Charles Leclerc is promoted alongside Norris on the front row, with "
-                "Antonelli third and Piastri fourth.",
+                "Hamilton penalised — and then Antonelli too",
+                "Two front-row contenders lost out to the stewards. Hamilton took a <strong>3-place grid penalty</strong> "
+                "for impeding Piastri at Turn 1 in Q3, and championship leader <strong>Antonelli</strong> was hit with a "
+                "3-place penalty <em>plus a penalty point</em> for not slowing enough under yellow flags at Turn 14. "
+                "The reshuffled order: Norris–Leclerc on the front row, then Piastri and Verstappen; Hamilton P5, "
+                "Russell P6, Antonelli down to P7.",
                 "F1.com / The Race", src_kind="race"),
             news_item(
                 "Verstappen's nightmare: 'the car is degrading'",
@@ -308,20 +310,22 @@ def build_pages(ctx, env):
                   for p, d, t, n in [
             (1, "Lando Norris", "McLaren", "Pole"),
             (2, "Charles Leclerc", "Ferrari", "Promoted"),
-            (3, "Kimi Antonelli", "Mercedes", ""),
-            (4, "Oscar Piastri", "McLaren", ""),
+            (3, "Oscar Piastri", "McLaren", ""),
+            (4, "Max Verstappen", "Red Bull", ""),
             (5, "Lewis Hamilton", "Ferrari", "−3 places (impeding)"),
-            (6, "Max Verstappen", "Red Bull", ""),
-            (7, "George Russell", "Mercedes", ""),
+            (6, "George Russell", "Mercedes", ""),
+            (7, "Kimi Antonelli", "Mercedes", "−3 places (yellow flags)"),
             (8, "Isack Hadjar", "Red Bull", ""),
             (9, "Arvid Lindblad", "Racing Bulls", ""),
             (10, "Nico Hulkenberg", "Audi", ""),
+            (11, "Liam Lawson", "Racing Bulls", ""),
+            (12, "Pierre Gasly", "Alpine", ""),
         ])
-        + '<tr><td class="num">…</td><td>P11–P22</td><td class="tm">as qualified</td>'
-          '<td class="muted">Perez may start from the pit lane</td></tr>'
+        + '<tr><td class="num">…</td><td>P13–P22</td><td class="tm">as qualified</td>'
+          '<td class="muted">Colapinto, Bortoleto, Ocon, Alonso, Bearman, Sainz, Albon, Stroll, Bottas, Perez</td></tr>'
         '</tbody></table></div>'
         '</div>'
-        '<p class="src">Sources: Formula1.com &amp; The Race qualifying coverage; FIA Doc — Car 44 impeding decision.</p>')
+        '<p class="src">Sources: FIA Doc 46 (Provisional Starting Grid); Formula1.com &amp; The Race qualifying coverage.</p>')
 
     PAGES["news"] = dict(
         kicker="Weekend News",
@@ -1293,12 +1297,21 @@ def build_pages(ctx, env):
              session="Qualifying", kind="note",
              fact="Deleted lap times — cars ran wide at Turns 1, 3, 4, 7 and 14.",
              outcome="Times deleted for Sainz, Leclerc, Bortoleto, Gasly, Colapinto, Antonelli and Piastri. Antonelli lost two laps to track limits — a costly reminder with the front row on the line."),
+        dict(doc="Doc 41", no="12", driver="Kimi Antonelli", team="Mercedes",
+             session="Qualifying", kind="penalty",
+             fact="Did not slow sufficiently under single yellow flags at Turn 14 (for Verstappen's spin).",
+             outcome="3-place grid penalty + 1 penalty point (4 in 12 months). He lifted 16 m earlier than his prior lap but was actually 3 km/h faster past the incident due to less braking. Drops the championship leader from P4 to P7 on the grid."),
+        dict(doc="Doc 43", no="12", driver="Kimi Antonelli", team="Mercedes",
+             session="Qualifying", kind="warning",
+             fact="Drove unnecessarily slowly on an in-lap — exceeded the maximum SC2–SC1 delta time.",
+             outcome="Driver: Warning. No other car was affected; Antonelli was distracted after his push lap was hit by the yellow flag and Mercedes was busy with Russell's car. Consistent with prior no-effect cases."),
     ]
-    pen_intro = ('<div class="callout"><strong>The big one:</strong> Lewis Hamilton takes a <strong>3-place grid '
-                 'penalty</strong> for impeding Piastri in Q3, dropping him from the front row to P5 and promoting '
-                 'Leclerc alongside Norris. Otherwise it stays low-key: a €400 fine (Hadjar, pit-lane speeding), a '
-                 'warning (Sainz) and two "no further action" FP1 erratic-driving rulings. Track limits policed hard '
-                 'all weekend at up to nine corners.</div>'
+    pen_intro = ('<div class="callout"><strong>Two front-runners hit.</strong> <strong>Hamilton</strong> takes a '
+                 '3-place grid penalty for impeding Piastri (P2&nbsp;&rarr;&nbsp;P5) and <strong>Antonelli</strong> '
+                 'a 3-place penalty <em>plus a penalty point</em> for not slowing under yellows '
+                 '(P4&nbsp;&rarr;&nbsp;P7) — promoting Piastri to P3 and Verstappen to P4. Antonelli also picked up a '
+                 'warning for a slow in-lap. Add the earlier €400 fine (Hadjar), a Sainz warning and two FP1 '
+                 '"no further action" rulings; track limits policed hard all weekend.</div>'
                  '<p class="lead-note">Auto-updates from the FIA event documents each rebuild — grid penalties, '
                  'in-race time penalties and post-race decisions will appear here as they are published.</p>')
     PAGES["penalties"] = dict(
