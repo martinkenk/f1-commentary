@@ -37,6 +37,55 @@ def quote(text, who):
 
 
 # --------------------------------------------------------------------------
+# Auto-enrichment data layer.
+#
+# enrich.py (run on a schedule in CI, or locally) uses an LLM to summarise new
+# articles and to turn new FIA decision PDFs into structured records, writing
+# them to data/<gp>/news_auto.json and data/<gp>/penalties_auto.json. The engine
+# merges those in automatically at build time. Curated content authored in the
+# content_<gp>.py modules always wins; auto items only *fill gaps* (deduped by
+# headline / FIA document number) and always carry a link back to the source.
+# --------------------------------------------------------------------------
+DATA_DIR = os.path.join(ROOT, "data")
+
+
+def _load_auto(ctx, name):
+    """Load data/<gp>/<name>.json as a list, or [] if missing/invalid."""
+    path = os.path.join(DATA_DIR, ctx.get("dir", ""), name + ".json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, list) else []
+    except Exception:
+        return []
+
+
+def _norm_title(t):
+    t = re.sub(r"<[^>]+>", "", t or "")
+    return re.sub(r"[^a-z0-9]+", " ", t.lower()).strip()
+
+
+def _doc_num(doc):
+    m = re.search(r"(\d+)", doc or "")
+    return int(m.group(1)) if m else 9999
+
+
+def _auto_news_card(c):
+    """Render one LLM-summarised news card, with a link back to the source."""
+    src, kind, url = c.get("source", ""), c.get("src_kind", ""), c.get("url", "")
+    paras = "".join(f"<p>{p}</p>" for p in (c.get("paragraphs") or []))
+    meta = []
+    if src:
+        link = (f'<a href="{url}" target="_blank" rel="noopener">{src}</a>' if url else src)
+        meta.append(f'<span class="news-src {kind}">{link}</span>')
+    if c.get("when"):
+        meta.append(f'<span class="news-when">{c["when"]}</span>')
+    meta.append('<span class="news-auto" title="Summarised automatically from the source article">auto</span>')
+    return (f'<div class="news-item"><h3>{c.get("title","")}</h3>'
+            f'<div class="news-meta">{"".join(meta)}</div>{paras}</div>')
+
+
+# --------------------------------------------------------------------------
 # Live weather (Open-Meteo, no key). Forecast for upcoming/ongoing sessions,
 # historical archive for sessions that are already in the past — so the skill
 # can be run at ANY point across the weekend and always shows the best data.
@@ -394,14 +443,34 @@ def render_news(ctx, general_items, session_notes):
     session_notes : dict {session_label: [news_item html, ...]} — only rendered
                     for sessions that have actually run (per live results).
                     Sessions that are complete but have no authored notes get an
-                    auto podium summary so the page always reflects reality."""
-    done = completed_labels(ctx)
-    out = []
+                    auto podium summary so the page always reflects reality.
 
+    LLM-summarised cards from data/<gp>/news_auto.json are merged in automatically:
+    curated headlines come first, then any wire stories not already covered."""
+    done = completed_labels(ctx)
+
+    # Merge in auto-summarised wire cards (curated content wins on dedup).
+    curated_titles = set()
+    for h in list(general_items) + [x for v in session_notes.values() for x in v]:
+        m = re.search(r"<h3>(.*?)</h3>", h)
+        if m:
+            curated_titles.add(_norm_title(m.group(1)))
+    auto_general, auto_by_session = [], {}
+    for c in _load_auto(ctx, "news_auto"):
+        if _norm_title(c.get("title", "")) in curated_titles:
+            continue
+        sess = c.get("session", "")
+        if c.get("kind") == "session" and sess in done:
+            auto_by_session.setdefault(sess, []).append(c)
+        else:
+            auto_general.append(c)
+
+    out = []
     out.append('<h2 class="sec">Weekend headlines</h2>')
     out.append('<p class="lead-note">General stories from around the paddock so far this weekend '
                '(Formula1.com &amp; The Race). Refreshed every time the site is rebuilt.</p>')
-    out.append(news_list(general_items) if general_items
+    general = list(general_items) + [_auto_news_card(c) for c in auto_general]
+    out.append(news_list(general) if general
                else '<div class="callout watch">No general news collated yet.</div>')
 
     out.append('<h2 class="sec">Session by session</h2>')
@@ -417,9 +486,10 @@ def render_news(ctx, general_items, session_notes):
         out.append(f'<div class="sess-head"><h3 class="sec" style="margin:0">{label}</h3>'
                    f'<span class="badge-done">Completed</span></div>')
         out.append(session_podium(ctx, label))
-        notes = session_notes.get(label)
-        if notes:
-            out.append(news_list(notes))
+        cards = list(session_notes.get(label) or []) + \
+            [_auto_news_card(c) for c in auto_by_session.get(label, [])]
+        if cards:
+            out.append(news_list(cards))
         else:
             out.append('<p class="src">Timing above is live from Formula1.com — '
                        'see the Results page for the full classification.</p>')
@@ -643,9 +713,17 @@ _PEN_KIND = {
 
 
 def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
-    """decisions: list of dicts {doc, session, driver, team, no, fact, outcome, kind, when}."""
+    """decisions: list of dicts {doc, session, driver, team, no, fact, outcome, kind, when}.
+    Auto-extracted FIA decisions from data/<gp>/penalties_auto.json are merged in
+    (deduped by document number); curated entries take precedence."""
     out = [intro_html] if intro_html else []
-    decisions = decisions or []
+    decisions = list(decisions or [])
+    seen = {_doc_num(d.get("doc", "")) for d in decisions}
+    for a in _load_auto(ctx, "penalties_auto"):
+        if _doc_num(a.get("doc", "")) not in seen:
+            decisions.append(a)
+            seen.add(_doc_num(a.get("doc", "")))
+    decisions.sort(key=lambda d: _doc_num(d.get("doc", "")))
     if not decisions:
         out.append('<div class="callout watch"><strong>No stewards\' decisions logged yet.</strong> '
                    "This tracker is populated from the FIA event decision documents on each rebuild — "
@@ -1148,6 +1226,10 @@ CSS += r"""
 .news-src.f1{background:rgba(225,6,0,.16);border-color:rgba(225,6,0,.5);color:#ff8a86}
 .news-src.race{background:rgba(70,112,80,.18);border-color:rgba(70,112,80,.6);color:#8fdca3}
 .news-when{font-style:italic}
+.news-auto{display:inline-block;font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:9.5px;
+  border-radius:5px;padding:2px 6px;background:rgba(120,110,200,.16);border:1px solid rgba(140,130,220,.5);color:#b9b2ee}
+.news-src a{color:inherit;text-decoration:none}
+.news-src a:hover{text-decoration:underline}
 .sess-head{display:flex;align-items:center;gap:10px;margin:22px 0 10px}
 .sess-head .badge-done{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
   color:#fff;background:var(--hun-green);border-radius:6px;padding:2px 9px}

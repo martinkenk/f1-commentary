@@ -429,6 +429,64 @@ flow) grants access without sharing a token with the build.
 
 ---
 
+## 9. Automated LLM enrichment (hands-off, runs in CI)
+
+The cron rebuild refreshes the **deterministic** data (weather, Formula1.com
+results tables) on its own. The **LLM-type** work — summarising articles into
+news cards and structuring FIA decision PDFs into penalty rows — is automated by
+`enrich.py`, which runs **in the same workflow, before the build**, so no manual
+trigger is needed.
+
+**What `enrich.py` does (per GP):**
+1. Scrapes candidate sources — The Race RSS, Formula1.com `/en/latest` slugs, and
+   the FIA event documents page (decision PDFs only: infringement / decision /
+   penalty / reprimand / fine / disqualification / protest; skips summons,
+   classifications, scrutineering, etc.).
+2. **Incremental & idempotent** — skips anything already recorded in
+   `data/<gp>/_seen.json` (article URLs + FIA filenames), so each run only spends
+   tokens on genuinely new items.
+3. Calls an LLM with strict-JSON, temperature-0 prompts to (a) summarise an
+   article into a 2–4 sentence news card and (b) extract `{doc, driver, team,
+   session, fact, outcome, kind}` from a decision PDF (`pypdf` text).
+4. Writes `data/<gp>/news_auto.json` + `data/<gp>/penalties_auto.json`.
+
+**LLM backend — free by default:**
+- Default: **GitHub Models** (`https://models.github.ai/inference`, model
+  `openai/gpt-4o-mini`) using the workflow's built-in `GITHUB_TOKEN` — **zero
+  secret setup**. The workflow just needs `permissions: models: read`.
+- Opt-in override (e.g. Azure OpenAI): set env `LLM_ENDPOINT` (full chat-
+  completions URL), `LLM_MODEL`, and `LLM_TOKEN`.
+- `LLM_FAKE=1` uses deterministic heuristic fallbacks (no network) — for testing
+  the fetch→diff→JSON→cache plumbing offline.
+
+**Curated content stays authoritative (anti-hallucination):** the engine
+(`f1lib.py`) *merges* the auto JSON into the curated pages — it never overwrites.
+- Auto **news** cards are deduped against curated stories by normalised `<h3>`
+  title; session-tagged cards drop into that session's block, the rest into
+  "Weekend headlines". Every auto card carries a **source link** + an **"auto"
+  badge** so a commentator can verify it live before saying it on air.
+- Auto **penalties** are deduped by FIA document number; a hand-written row always
+  wins over the auto one for the same doc.
+
+**Run it locally:**
+```bash
+# offline plumbing test (no tokens, heuristic output)
+LLM_FAKE=1 python3 enrich.py --gp hungary --max 3
+# real GitHub Models run (needs a token with models:read)
+LLM_TOKEN=$(gh auth token) python3 enrich.py --gp hungary
+python3 build.py        # merges data/<gp>/*.json into the pages
+```
+(`enrich.py` needs `pypdf`; `build.py` stays stdlib-only and just reads the JSON.)
+
+**In CI (`deploy.yml`):** an "Auto-enrich" step (`pip install pypdf` +
+`python3 enrich.py`, `continue-on-error: true` so a model outage can't break the
+deploy) runs before the build, then a "Persist enrichment data" step commits
+`data/` back to `main` with the default `GITHUB_TOKEN`. That push **does not**
+retrigger the workflow (GitHub suppresses `GITHUB_TOKEN`-authored pushes), so
+there is no loop — and `_seen.json` persists to make the next run incremental.
+
+---
+
 ## Tooling notes / gotchas
 
 - **Two Pythons:** `build.py` uses **stdlib only** (system `python3`). Image/PDF work

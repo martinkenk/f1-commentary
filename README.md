@@ -56,6 +56,22 @@ python3 build.py
 
 Add a race = one GP dict in `build.py` + one `content_<gp>.py`. The engine is untouched.
 
+## Automated LLM enrichment
+`enrich.py` runs in CI (before the build) and, incrementally, summarises new
+**Formula1.com / The Race** articles into news cards and structures new **FIA
+decision PDFs** into penalty rows — the "LLM-type" work that used to be manual.
+- Free by default via **GitHub Models** (built-in `GITHUB_TOKEN`, no secret);
+  override with `LLM_ENDPOINT`/`LLM_MODEL`/`LLM_TOKEN` for e.g. Azure OpenAI.
+- Curated content stays **authoritative** — auto items only fill gaps, are deduped
+  against hand-written ones, and always carry a **source link + "auto" badge** so
+  you can verify before saying it on air.
+- Incremental via `data/<gp>/_seen.json`; output in `data/<gp>/*_auto.json`.
+```bash
+LLM_FAKE=1 python3 enrich.py --gp hungary --max 3   # offline plumbing test
+LLM_TOKEN=$(gh auth token) python3 enrich.py         # real run (needs models:read)
+```
+See **SKILL.md §9** for the full design.
+
 ## Times & weather
 - All times shown in **circuit-local + Tallinn (EEST)** — no other zones.
 - Weather is fetched at build time from **Open-Meteo** (no API key): the forecast for
