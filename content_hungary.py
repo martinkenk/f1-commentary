@@ -79,6 +79,16 @@ def build_pages(ctx, env):
     # ---- 1b. WEEKEND NEWS ----------------------------------------------------
     general_news = [
         news_item(
+            "Norris takes Hungarian GP pole; Hamilton penalty reshuffles the grid",
+            ["Lando Norris delivered when it mattered, snatching pole by <strong>0.012s</strong> from Lewis Hamilton "
+             "(1:17.207) as Ferrari fumbled its Q3 strategy. But the front row changed after the flag: Hamilton picked "
+             "up a <strong>3-place grid penalty</strong> for impeding Piastri, dropping him to P5 and promoting "
+             "<strong>Charles Leclerc</strong> alongside Norris.",
+             "So the grid reads Norris–Leclerc–Antonelli–Piastri–Hamilton–Verstappen. With overtaking at a premium here, "
+             "Hamilton's recovery from fifth and Ferrari's raw pace are the stories to carry into Sunday. Full "
+             "classification and grid below."],
+            "F1.com / The Race", "Sat 25 Jul", "f1"),
+        news_item(
             "Norris tops final practice as Ferrari's grip loosens",
             ["Lando Norris headed FP3 by 0.117s over Lewis Hamilton, ending Ferrari's run of leading every session and "
              "denying the Scuderia a practice clean sweep. Kimi Antonelli hauled Mercedes back into contention in third, "
@@ -193,6 +203,32 @@ def build_pages(ctx, env):
                 "monopolised the midfield top-10 fight — Lawson narrowly ahead of Hulkenberg.",
                 "The Race", src_kind="race"),
         ],
+        "Qualifying": [
+            news_item(
+                "Norris snatches pole from Hamilton",
+                "Lando Norris pipped Lewis Hamilton to pole by just <strong>0.012s</strong> (1:17.207) in a gripping "
+                "session. Hamilton was quickest after the first Q3 runs but a messy final lap — after Ferrari sent both "
+                "cars out early — left the door open. Leclerc qualified third, Antonelli fourth.",
+                "F1.com / The Race", src_kind="f1"),
+            news_item(
+                "Hamilton penalised — Leclerc promoted to the front row",
+                "Hamilton then lost his front-row start: a <strong>3-place grid penalty</strong> for impeding Piastri at "
+                "Turn 1 in Q3 drops him to P5. Charles Leclerc is promoted alongside Norris on the front row, with "
+                "Antonelli third and Piastri fourth.",
+                "F1.com / The Race", src_kind="race"),
+            news_item(
+                "Verstappen's nightmare: 'the car is degrading'",
+                "Max Verstappen qualified sixth and spun at the final corner in Q3, raging over radio that the RB22 was "
+                "\"completely broken aerodynamically… getting worse and worse.\" He blamed <strong>car degradation</strong> "
+                "rather than tyres — \"then you have a big problem.\" Team-mate Hadjar also spun, in Q2.",
+                "The Race", src_kind="race"),
+            news_item(
+                "Alonso drags the B-spec Aston into Q3 territory — rivals rattled",
+                "Fernando Alonso escaped Q1 for the first time this season (P16), and rivals took note: Cadillac's Bottas "
+                "admitted he was \"a bit scared\" the upgrade would leave his car last, reckoning the rumoured two-second "
+                "gain was \"not far off.\" Stroll was 20th; Perez may take a pit-lane start after his FP3 stoppage.",
+                "The Race", src_kind="race"),
+        ],
     }
 
     quote_highlights = (
@@ -219,18 +255,80 @@ def build_pages(ctx, env):
           "bi-mic")
         + card("Charles Leclerc (Ferrari)", quote(
             "We'll have to do everything perfect.", "predicting a tight contest after a strong start"), "bi-mic")
+        + card("Max Verstappen (Red Bull)", quote(
+            "The car is just completely broken aerodynamically, it's just getting worse and worse. What a joke.",
+            "team radio in Q3, before spinning at the final corner") + quote(
+            "When, instead of the tyres degrading, the car is degrading, then you have a big problem.",
+            "on Red Bull's qualifying"), "bi-mic", "accent")
+        + card("Lewis Hamilton (Ferrari)", quote(
+            "We clearly had the car to be on pole today and I just didn't deliver. That's tough to swallow.",
+            "after missing pole by 0.012s — then losing P2 to a grid penalty"), "bi-mic")
         + card("Pedro de la Rosa (Aston Martin)", quote(
             "We've lost a lot of track time… drivers also need to adapt — it's a different characteristic to drive this car.",
             "on the compromised Friday"), "bi-mic")
         + '</div>'
         + '<p class="src">Sources: The Race &amp; Formula1.com paddock coverage, Friday–Saturday.</p>')
 
+    quali_section = (
+        '<h2 class="sec">Qualifying result &amp; starting grid</h2>'
+        '<p class="lead-note">Provisional qualifying classification and the resulting grid after Hamilton\'s '
+        '3-place penalty. The Results page will mirror the official timing once Formula1.com publishes it.</p>'
+        '<div class="grid cols-2">'
+        '<div class="card"><div class="card-h"><i class="bi bi-stopwatch"></i><h3>Qualifying classification</h3></div>'
+        '<table class="data"><thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th>Gap</th></tr></thead><tbody>'
+        + ''.join(f'<tr><td class="num">{p}</td><td>{d}</td><td class="tm">{t}</td><td class="muted">{g}</td></tr>'
+                  for p, d, t, g in [
+            (1, "Lando Norris", "McLaren", "1:17.207"),
+            (2, "Lewis Hamilton", "Ferrari", "+0.012"),
+            (3, "Charles Leclerc", "Ferrari", "+0.238"),
+            (4, "Kimi Antonelli", "Mercedes", "+0.272"),
+            (5, "Oscar Piastri", "McLaren", "+0.477"),
+            (6, "Max Verstappen", "Red Bull", "+0.518"),
+            (7, "George Russell", "Mercedes", "+0.553"),
+            (8, "Isack Hadjar", "Red Bull", "+0.649"),
+            (9, "Arvid Lindblad", "Racing Bulls", "+1.074"),
+            (10, "Nico Hulkenberg", "Audi", "+1.479"),
+            (11, "Liam Lawson", "Racing Bulls", "Q2"),
+            (12, "Pierre Gasly", "Alpine", "Q2"),
+            (13, "Franco Colapinto", "Alpine", "Q2"),
+            (14, "Gabriel Bortoleto", "Audi", "Q2"),
+            (15, "Esteban Ocon", "Haas", "Q2"),
+            (16, "Fernando Alonso", "Aston Martin", "Q2"),
+            (17, "Ollie Bearman", "Haas", "Q1"),
+            (18, "Carlos Sainz", "Williams", "Q1"),
+            (19, "Alex Albon", "Williams", "Q1"),
+            (20, "Lance Stroll", "Aston Martin", "Q1"),
+            (21, "Valtteri Bottas", "Cadillac", "Q1"),
+            (22, "Sergio Perez", "Cadillac", "Q1"),
+        ])
+        + '</tbody></table></div>'
+        '<div class="card"><div class="card-h"><i class="bi bi-flag"></i><h3>Starting grid</h3></div>'
+        '<table class="data"><thead><tr><th>Grid</th><th>Driver</th><th>Team</th><th>Note</th></tr></thead><tbody>'
+        + ''.join(f'<tr><td class="num">{p}</td><td>{d}</td><td class="tm">{t}</td><td class="muted">{n}</td></tr>'
+                  for p, d, t, n in [
+            (1, "Lando Norris", "McLaren", "Pole"),
+            (2, "Charles Leclerc", "Ferrari", "Promoted"),
+            (3, "Kimi Antonelli", "Mercedes", ""),
+            (4, "Oscar Piastri", "McLaren", ""),
+            (5, "Lewis Hamilton", "Ferrari", "−3 places (impeding)"),
+            (6, "Max Verstappen", "Red Bull", ""),
+            (7, "George Russell", "Mercedes", ""),
+            (8, "Isack Hadjar", "Red Bull", ""),
+            (9, "Arvid Lindblad", "Racing Bulls", ""),
+            (10, "Nico Hulkenberg", "Audi", ""),
+        ])
+        + '<tr><td class="num">…</td><td>P11–P22</td><td class="tm">as qualified</td>'
+          '<td class="muted">Perez may start from the pit lane</td></tr>'
+        '</tbody></table></div>'
+        '</div>'
+        '<p class="src">Sources: Formula1.com &amp; The Race qualifying coverage; FIA Doc — Car 44 impeding decision.</p>')
+
     PAGES["news"] = dict(
         kicker="Weekend News",
         title="Weekend News & Session Reports",
         sub="Paddock stories and session-by-session reports, collated from Formula1.com and The Race. "
             "Session blocks appear automatically as each session is completed.",
-        body=render_news(ctx, general_news, session_news) + quote_highlights,
+        body=render_news(ctx, general_news, session_news) + quali_section + quote_highlights,
     )
 
     # ---- 2. CIRCUIT ----------------------------------------------------------
@@ -1183,11 +1281,24 @@ def build_pages(ctx, env):
              session="FP3", kind="note",
              fact="Deleted lap times — cars ran wide at Turns 1, 3, 4, 7 and 14.",
              outcome="Times deleted for a long list including Alonso, Stroll, Antonelli, Hadjar, Lawson, Leclerc, Hamilton, Piastri, Norris, Albon and Hulkenberg. Turns 1 and 4 the repeat offenders — expect deletions in qualifying."),
+        dict(doc="Doc 36", no="44", driver="Lewis Hamilton", team="Ferrari",
+             session="Qualifying", kind="penalty",
+             fact="Unnecessarily impeded Car 81 (Piastri) at the approach to Turn 1 in Q3.",
+             outcome="3-place grid penalty. Hamilton — travelling slowly on the racing line after his own fast lap — didn't get the radio call about Piastri's push lap in time and couldn't see him in his mirrors; Piastri had to run wide and abort. Drops Hamilton from P2 to P5; Leclerc promoted to the front row."),
+        dict(doc="Doc 40", no="63", driver="George Russell", team="Mercedes",
+             session="Qualifying", kind="note",
+             fact="Passed through a double waved yellow flag marshalling sector (Turn 12) — Verstappen's spin.",
+             outcome="Lap time (1:42.565) deleted per Art. B1.8.4b. It was a slow/aborted lap, so no effect on Russell's P7 grid slot."),
+        dict(doc="Doc 39", no="", driver="Multiple drivers", team="Track limits",
+             session="Qualifying", kind="note",
+             fact="Deleted lap times — cars ran wide at Turns 1, 3, 4, 7 and 14.",
+             outcome="Times deleted for Sainz, Leclerc, Bortoleto, Gasly, Colapinto, Antonelli and Piastri. Antonelli lost two laps to track limits — a costly reminder with the front row on the line."),
     ]
-    pen_intro = ('<div class="callout"><strong>Nothing serious so far.</strong> One €400 fine (Hadjar, '
-                 'pit-lane speeding), one warning (Sainz) and two "no further action" rulings from a pair of '
-                 'FP1 erratic-driving investigations involving Sainz and Verstappen. Track limits are being '
-                 'enforced hard at up to nine corners.</div>'
+    pen_intro = ('<div class="callout"><strong>The big one:</strong> Lewis Hamilton takes a <strong>3-place grid '
+                 'penalty</strong> for impeding Piastri in Q3, dropping him from the front row to P5 and promoting '
+                 'Leclerc alongside Norris. Otherwise it stays low-key: a €400 fine (Hadjar, pit-lane speeding), a '
+                 'warning (Sainz) and two "no further action" FP1 erratic-driving rulings. Track limits policed hard '
+                 'all weekend at up to nine corners.</div>'
                  '<p class="lead-note">Auto-updates from the FIA event documents each rebuild — grid penalties, '
                  'in-race time penalties and post-race decisions will appear here as they are published.</p>')
     PAGES["penalties"] = dict(
