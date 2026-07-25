@@ -3,7 +3,8 @@
 Edit the prose here; structure/engine live in f1lib.py. build_pages(ctx, env)
 returns {slug: {kicker,title,sub,body}} for every non-results nav page.
 """
-from f1lib import card, stat, ul, quote, news_item, render_news
+from f1lib import (card, stat, ul, quote, news_item, render_news,
+                   render_h2h, render_reliability, render_penalties)
 
 
 def build_pages(ctx, env):
@@ -155,12 +156,39 @@ def build_pages(ctx, env):
         ],
     }
 
+    quote_highlights = (
+        '<h2 class="sec">Radio &amp; quote highlights</h2>'
+        '<p class="lead-note">The soundbites and team-radio lines worth having queued up.</p>'
+        '<div class="grid cols-2">'
+        + card("Adrian Newey (Aston Martin)", quote(
+            "The area involved was actually not being changed… in that sense it's very unexpected.",
+            "on Stroll's FP1 suspension failure") + quote(
+            "The oscillations — yes, that's really a question for Honda.",
+            "on the returning engine vibrations"), "bi-mic", "accent")
+        + card("Fernando Alonso (Aston Martin)", quote(
+            "In general we had what we expected in terms of numbers and correlation — very encouraging for the future.",
+            "on the B-spec upgrade"), "bi-mic")
+        + card("George Russell (Mercedes)", quote(
+            "It's a huge load off my mind… now I can just focus on driving fast, on the simple things.",
+            "on the fixed deployment software"), "bi-mic")
+        + card("Fred Vasseur (Ferrari)", quote(
+            "So far, so good.", "summing up Friday — before pointing out Ferrari still has to ace qualifying")
+        + '<p class="src">Ferrari topped both Friday sessions but hasn\'t converted to pole all season.</p>',
+          "bi-mic")
+        + card("Charles Leclerc (Ferrari)", quote(
+            "We'll have to do everything perfect.", "predicting a tight contest after a strong start"), "bi-mic")
+        + card("Pedro de la Rosa (Aston Martin)", quote(
+            "We've lost a lot of track time… drivers also need to adapt — it's a different characteristic to drive this car.",
+            "on the compromised Friday"), "bi-mic")
+        + '</div>'
+        + '<p class="src">Sources: The Race &amp; Formula1.com paddock coverage, Friday–Saturday.</p>')
+
     PAGES["news"] = dict(
         kicker="Weekend News",
         title="Weekend News & Session Reports",
         sub="Paddock stories and session-by-session reports, collated from Formula1.com and The Race. "
             "Session blocks appear automatically as each session is completed.",
-        body=render_news(ctx, general_news, session_news),
+        body=render_news(ctx, general_news, session_news) + quote_highlights,
     )
 
     # ---- 2. CIRCUIT ----------------------------------------------------------
@@ -291,6 +319,46 @@ def build_pages(ctx, env):
     <div class="callout watch">
       <strong>FP1/FP2 watch:</strong> Long-run pace on C3 vs C4 and how quickly the rears grain will
       effectively decide whether Sunday is a one- or two-stopper. Note who runs heavy fuel late in FP2.
+    </div>
+
+    <h2 class="sec">Stint & strategy predictor</h2>
+    <p class="lead-note">Best-guess race strategies for a 70-lap Hungarian GP based on the C3/C4/C5
+      nomination, ~20.6&nbsp;s pit loss and typical Hungaroring degradation. Refine against FP2 long-run data.</p>
+    <div class="strat-grid">
+      <div class="strat-card">
+        <h4>Two-stop <span class="pill hot">Most likely</span></h4>
+        <div class="stint">
+          <span class="seg s-med">MED · 24</span>
+          <span class="seg s-med">MED · 24</span>
+          <span class="seg s-hard">HARD · 22</span>
+        </div>
+        <div class="prob">The fastest paper strategy in the heat — flexible, undercut-friendly, keeps the
+          softer rubber off the worst thermal deg. Favoured if graining bites.</div>
+      </div>
+      <div class="strat-card">
+        <h4>One-stop <span class="pill">In play</span></h4>
+        <div class="stint">
+          <span class="seg s-med">MED · 30</span>
+          <span class="seg s-hard">HARD · 40</span>
+        </div>
+        <div class="prob">Track position is king and passing is hard, so a stretched one-stop can win out
+          if rear deg is milder than feared. The strategy that most rewards clean air.</div>
+      </div>
+      <div class="strat-card">
+        <h4>Aggressive undercut</h4>
+        <div class="stint">
+          <span class="seg s-soft">SOFT · 16</span>
+          <span class="seg s-med">MED · 27</span>
+          <span class="seg s-hard">HARD · 27</span>
+        </div>
+        <div class="prob">A short opening soft stint to jump the pack early, then two longer stints — the
+          go-to for anyone starting out of position or behind a slower car.</div>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Key numbers:</strong> pit loss <strong>~20.6 s</strong> · 70 laps · start C4/C5, cover the
+      race on C3/C4. The one- vs two-stop line is genuinely close — the safety-car probability and Turn-1
+      first-lap chaos usually tip it toward two stops.
     </div>
     <p class="src">Source: Pirelli weekend preview via Formula1.com.</p>
     """)
@@ -486,10 +554,32 @@ def build_pages(ctx, env):
       ]), "bi-star")}
     </div>
     <p class="src">Source: Formula1.com 'Need to Know' &amp; The Race.</p>
+
+    <h2 class="sec">Championship permutations</h2>
+    <p class="lead-note">Hungary is the last race before the summer break, so the standings here set the
+      narrative for four weeks. The maths to have ready:</p>
+    <div class="grid cols-2">
+      {card("Drivers' title", ul([
+         "<strong>Antonelli leads Hamilton by 45 pts</strong> — a full win (25) plus more. Hamilton must out-score him by chunks to make Budapest interesting.",
+         "Max points swing in one race is <strong>26</strong> (win + fastest lap vs. a rival scoring nothing), so the lead is <em>not</em> mathematically safe but is comfortable.",
+         "Russell sits 5 pts behind Hamilton — an intra-Mercedes scrap for 2nd is the live sub-plot.",
+         "If Antonelli wins and Hamilton finishes lower than 2nd, the lead stretches beyond 50 into the break.",
+      ]), "bi-trophy", "accent")}
+
+      {card("Constructors' flashpoints", ul([
+         "<strong>Racing Bulls level with Alpine</strong> for 6th — a single strong result breaks the tie before the break.",
+         "McLaren vs the front: upgrades in the pipeline; a good Hungary consolidates their position.",
+         "<strong>Aston Martin's B-spec</strong> is the wildcard — if it works, it reshuffles the lower midfield points order immediately.",
+         "Cadillac holding a 2s+ cushion over Aston at Spa; Hungary tests whether that survives the upgrade.",
+      ]), "bi-diagram-3", "accent")}
+    </div>
+    <div class="callout watch">
+      <strong>Break-defining lines:</strong> "Win here and Antonelli goes into the summer with a commanding
+      lead"; "Racing Bulls and Alpine settle their tie for 6th before four weeks off"; "the first real read on
+      whether Aston's gamble has moved them up the order."
+    </div>
+    <p class="src">Points gaps per Formula1.com after the Belgian GP; permutations are indicative.</p>
     """)
-
-
-    # ---- 6. TEAM WATCH -------------------------------------------------------
     PAGES["teams"] = dict(
         kicker="Team News",
         title="Team Watch & News",
@@ -841,6 +931,24 @@ def build_pages(ctx, env):
       ]), "bi-123")}
     </div>
     <p class="src">Source: Formula1.com 'Need to Know' (*probabilities from the last eight races in Hungary).</p>
+
+    <h2 class="sec">The current grid at the Hungaroring</h2>
+    <p class="lead-note">Which of today's drivers go well here — the "he's strong at this track" lines,
+      ready for the grid walk.</p>
+    <div class="table-wrap"><table class="data compact">
+      <thead><tr><th>Driver</th><th>Wins</th><th>Poles</th><th>Best</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr class="upcoming"><td class="tm">Lewis Hamilton</td><td class="num">8</td><td class="num">9</td><td>Win</td><td>King of the Hungaroring — most wins &amp; poles ever; holds the lap record. Topped FP2.</td></tr>
+        <tr><td class="tm">Max Verstappen</td><td class="num">2</td><td class="num">1</td><td>Win</td><td>Back-to-back wins 2022–23; strong at slow tracks (front row Monaco 2026).</td></tr>
+        <tr><td class="tm">Lando Norris</td><td class="num">1</td><td class="num">1</td><td>Win</td><td>Won here in 2025 from P3; McLaren has been the car to beat at this circuit.</td></tr>
+        <tr><td class="tm">Oscar Piastri</td><td class="num">1</td><td class="num">0</td><td>Win</td><td>Maiden F1 win came here in 2024.</td></tr>
+        <tr><td class="tm">Charles Leclerc</td><td class="num">0</td><td class="num">1</td><td>P2</td><td>Took pole in 2025 but is still chasing a first Hungaroring win.</td></tr>
+        <tr><td class="tm">George Russell</td><td class="num">0</td><td class="num">1</td><td>P3</td><td>Pole in 2022; a slow-corner circuit that suits his precision — if the car cooperates.</td></tr>
+        <tr><td class="tm">Fernando Alonso</td><td class="num">2</td><td class="num">1</td><td>Win</td><td>Breakthrough 2003 win here and again in 2005; loves a technical lap.</td></tr>
+        <tr><td class="tm">Esteban Ocon</td><td class="num">1</td><td class="num">0</td><td>Win</td><td>His sole F1 win — the 2021 Hungarian GP.</td></tr>
+      </tbody>
+    </table></div>
+    <p class="src">Career Hungaroring records for current drivers, compiled from F1 results.</p>
     """)
 
 
@@ -1002,5 +1110,105 @@ def build_pages(ctx, env):
       timesheets. Focus the story on run plans, upgrade first impressions and long-run tyre behaviour, not headline laptimes.
     </div>
     """)
+
+    # ---- PENALTIES & STEWARDS ------------------------------------------------
+    steward_decisions = [
+        dict(doc="Doc 13", no="6", driver="Isack Hadjar", team="Red Bull Racing",
+             session="FP1", kind="fine",
+             fact="Pit-lane speeding — 83.8 km/h (limit 80).",
+             outcome="€400 fine (competitor). Exceeded the limit by 3.8 km/h."),
+        dict(doc="Doc 19", no="55", driver="Carlos Sainz", team="Williams",
+             session="FP1", kind="warning",
+             fact="Preparing brakes on the racing line between T11–T12, hindered Verstappen on a push lap.",
+             outcome="Driver: Warning. Sainz's radio cable was disconnected so he missed his engineer's warnings; Verstappen had to take avoiding action but didn't consider it dangerous."),
+        dict(doc="Doc 20", no="3", driver="Max Verstappen", team="Red Bull Racing",
+             session="FP1", kind="noaction",
+             fact="Alleged erratic driving — slowed significantly at Turn 12.",
+             outcome="No further action. Verstappen slowed to mark frustration after being impeded by Sainz; no other car affected."),
+        dict(doc="Doc 21", no="55", driver="Carlos Sainz", team="Williams",
+             session="FP1", kind="noaction",
+             fact="Alleged erratic driving — slowed significantly at Turn 9.",
+             outcome="No further action. Aborted a low-fuel push lap after being compromised by Car 61; Stewards accepted the explanation."),
+        dict(doc="Doc 17", no="", driver="Multiple drivers", team="Track limits",
+             session="FP1", kind="note",
+             fact="Deleted lap times — cars ran wide at Turns 1, 2, 3, 7, 9 and 11.",
+             outcome="Times deleted (Norris, Bortoleto, Lawson, Gasly, Herta, Aron, Albon, others). Track-limits enforcement note — no penalties."),
+        dict(doc="Doc 23", no="", driver="Multiple drivers", team="Track limits",
+             session="FP2", kind="note",
+             fact="Deleted lap times — cars ran wide at Turns 1, 2, 3, 7, 9, 11, 12, 13 and 14.",
+             outcome="Times deleted (Piastri, Perez, Colapinto, Hadjar, Bottas). Track limits are being policed at nine corners — watch Turn 4 and the final corner in qualifying."),
+    ]
+    pen_intro = ('<div class="callout"><strong>Nothing serious so far.</strong> One €400 fine (Hadjar, '
+                 'pit-lane speeding), one warning (Sainz) and two "no further action" rulings from a pair of '
+                 'FP1 erratic-driving investigations involving Sainz and Verstappen. Track limits are being '
+                 'enforced hard at up to nine corners.</div>'
+                 '<p class="lead-note">Auto-updates from the FIA event documents each rebuild — grid penalties, '
+                 'in-race time penalties and post-race decisions will appear here as they are published.</p>')
+    PAGES["penalties"] = dict(
+        kicker="Stewards",
+        title="Penalties & Stewards",
+        sub="Every stewards' decision, infringement, fine and penalty from the FIA Hungarian GP event documents.",
+        body=render_penalties(ctx, steward_decisions, intro_html=pen_intro, fia_url=ctx.get("fia_url", "")),
+    )
+
+    # ---- HEAD-TO-HEAD --------------------------------------------------------
+    h2h_intro = ('<p class="lead-note">Team-mate battles are the cleanest performance read on the grid — same '
+                 'car, same day. Below: this weekend\'s sessions live from the timing, then the 2026 season '
+                 'scoreline for context.</p>')
+    season_h2h_rows = "".join(
+        f"<tr><td class='tm'>{tm}</td><td>{a}</td><td class='num'>{qa}–{qb}</td>"
+        f"<td>{b}</td><td>{note}</td></tr>"
+        for tm, a, qa, qb, b, note in [
+            ("Mercedes", "Antonelli", "6", "5", "Russell", "Antonelli leads the title; Russell's Spa deployment issue now fixed."),
+            ("McLaren", "Norris", "7", "4", "Piastri", "Piastri has the qualifying edge; very tight in race trim."),
+            ("Ferrari", "Leclerc", "6", "5", "Hamilton", "Leclerc shades qualifying; Hamilton strong on Fridays here (topped FP2)."),
+            ("Red Bull", "Verstappen", "10", "1", "Hadjar", "Verstappen dominant vs rookie team-mate Hadjar."),
+            ("Williams", "Albon", "8", "3", "Sainz", "Albon well on top; Sainz caught up in FP1 stewarding here."),
+            ("Aston Martin", "Alonso", "9", "2", "Stroll", "Alonso comfortably ahead; Stroll lost Friday to the suspension failure."),
+            ("Haas", "Bearman", "11", "3", "Ocon", "Bearman leads 11–3 in qualifying — but parts inconsistency clouds it."),
+            ("Racing Bulls", "Lawson", "7", "4", "Lindblad", "Rookie Lindblad beat Lawson at Spa; closer than the score looks."),
+            ("Audi", "Hulkenberg", "6", "5", "Bortoleto", "Rookie Bortoleto matching Hulkenberg — impressive P6 in FP1."),
+            ("Cadillac", "Bottas", "7", "3", "Perez", "Bottas ahead; new-team pairing still finding its feet."),
+        ])
+    season_h2h = (
+        '<h2 class="sec">2026 qualifying head-to-head (season)</h2>'
+        '<p class="lead-note">Season-long team-mate qualifying scoreline going into Hungary — '
+        'a quick reference for "who\'s really quicker" lines.</p>'
+        '<div class="table-wrap"><table class="data compact"><thead><tr>'
+        '<th>Team</th><th>Driver</th><th>Quali H2H</th><th>Driver</th><th>Notes</th>'
+        f'</tr></thead><tbody>{season_h2h_rows}</tbody></table></div>'
+        '<p class="src">Season scoreline approximate, compiled from 2026 qualifying results to date. '
+        'The live table above always reflects the official timing for this event.</p>')
+    PAGES["h2h"] = dict(
+        kicker="Team-mate battles",
+        title="Head-to-Head",
+        sub="Team-mate qualifying and race head-to-heads — live for this event, plus the 2026 season scoreline.",
+        body=render_h2h(ctx, intro_html=h2h_intro) + season_h2h,
+    )
+
+    # ---- RELIABILITY & PIT STOPS ---------------------------------------------
+    rel_intro = ('<p class="lead-note">The Hungaroring is hard on brakes and cooling in the summer heat, and '
+                 'track position is everything — so a slow stop or a reliability scare is hugely costly. Race-day '
+                 'retirements, finisher counts and pit-stop rankings fill in live once the race runs.</p>')
+    rel_context = (
+        '<h2 class="sec">Reliability watch going in</h2>'
+        '<div class="grid cols-2">'
+        + card("Aston Martin — new-package fragility", ul([
+            "Stroll's <strong>left-rear suspension failed</strong> in FP1 (area not changed by the upgrade, per Newey).",
+            "Spares flown in from Silverstone so both cars have the full B-spec for qualifying.",
+            "Returning <strong>Honda oscillations</strong> visible on both onboards — a reliability watch-item.",
+        ]), "bi-exclamation-triangle", "watch")
+        + card("Heat & brakes", ul([
+            "Ambient in the low-30s °C; brake cooling and PU temps are marginal at this circuit.",
+            "Long full-throttle time is low, but slow corners mean little airflow for cooling.",
+            "Watch for brake-related lock-ups (Antonelli already fighting rear locking).",
+        ]), "bi-thermometer-sun")
+        + '</div>')
+    PAGES["reliability"] = dict(
+        kicker="Reliability & Pits",
+        title="Reliability & Pit Stops",
+        sub="Retirements, finisher counts and pit-stop rankings — filled in live from the official results.",
+        body=render_reliability(ctx, intro_html=rel_intro) + rel_context,
+    )
 
     return PAGES

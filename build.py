@@ -25,9 +25,12 @@ def nav(circuit_label):
         ("tyres",     "tyres.html",     "bi-record-circle",    "Tyres & Strategy", "Tyres & Strategy"),
         ("rookies",   "rookies.html",   "bi-person-badge",     "Rookies & Line-up","Rookies & Line-ups"),
         ("standings", "standings.html", "bi-trophy",           "Standings & Form", "Championship & Form"),
+        ("h2h",       "h2h.html",       "bi-arrow-left-right", "Head-to-Head",     "Team-mate Head-to-Head"),
         ("teams",     "teams.html",     "bi-people",           "Team Watch",       "Team Watch & News"),
         ("upgrades",  "upgrades.html",  "bi-tools",            "Upgrades",         "Car Development & Upgrades"),
         ("powerunit", "powerunit.html", "bi-lightning-charge", "Power Unit",       "Power Unit & Override"),
+        ("penalties", "penalties.html", "bi-hammer",           "Penalties",        "Penalties & Stewards"),
+        ("reliability","reliability.html","bi-wrench-adjustable","Reliability & Pits","Reliability & Pit Stops"),
         ("facts",     "facts.html",     "bi-bar-chart",        "Facts & Records",  "Facts, Stats & Records"),
         ("moments",   "moments.html",   "bi-stars",            "Top Moments",      "Great Moments"),
         ("schedule",  "schedule.html",  "bi-calendar-week",    "Schedule & Weather","Schedule & Weather"),
@@ -47,6 +50,7 @@ HUNGARY = {
         ("Race",       "Sun 26 Jul", "2026-07-26", "15:00"),
     ],
     "race_id": "1291", "results_slug": "hungary",
+    "fia_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Hungarian%20Grand%20Prix",
     "nav": nav("Hungaroring"),
     "pages": content_hungary.build_pages,
 }
@@ -64,6 +68,7 @@ BELGIUM = {
         ("Race",       "Sun 19 Jul", "2026-07-19", "15:00"),
     ],
     "race_id": "1290", "results_slug": "belgium",
+    "fia_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Belgian%20Grand%20Prix",
     "nav": nav("Spa-Francorchamps"),
     "pages": content_belgium.build_pages,
 }

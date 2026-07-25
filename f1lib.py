@@ -239,6 +239,37 @@ def fetch_results(ctx):
     return out
 
 
+def _fetch_one_table(ctx, endpoint):
+    """Fetch and parse a single Formula1.com results endpoint, or None."""
+    if not ctx.get("race_id") or not ctx.get("results_slug"):
+        return None
+    url = (f"https://www.formula1.com/en/results/{ctx['year']}/races/"
+           f"{ctx['race_id']}/{ctx['results_slug']}/{endpoint}")
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            if r.status != 200:
+                return None
+            t = r.read().decode("utf-8", "ignore")
+    except Exception:
+        return None
+    if "No results available" in t:
+        return None
+    parsed = _parse_result_table(t)
+    if not parsed:
+        return None
+    headers, rows = parsed
+    return {"headers": headers, "rows": rows}
+
+
+def fetch_extra(ctx):
+    """Pit-stop summary + fastest laps — used by the Reliability & Pits page."""
+    return {
+        "pitstops": _fetch_one_table(ctx, "pit-stop-summary"),
+        "fastestlaps": _fetch_one_table(ctx, "fastest-laps"),
+    }
+
+
 _DRIVER_COL = None
 def _result_table(block):
     headers, rows = block["headers"], block["rows"]
@@ -399,6 +430,267 @@ def auto_news(ctx):
     """Engine fallback used when a GP's content module doesn't author its own
     News page. Produces a session-by-session summary straight from results."""
     return render_news(ctx, general_items=[], session_notes={})
+
+
+# --------------------------------------------------------------------------
+# Head-to-Head (teammate battles) — derived live from the session results
+# --------------------------------------------------------------------------
+def _block(ctx, label):
+    for b in (ctx.get("results") or []):
+        if b["label"] == label:
+            return b
+    return None
+
+
+def _col(headers, *starts):
+    low = [h.lower() for h in headers]
+    for i, h in enumerate(low):
+        if any(h.startswith(s) for s in starts):
+            return i
+    return None
+
+
+def _classified(block):
+    """Return ordered list of dicts {pos, dnf, no, name, code, team} for a block."""
+    h = block["headers"]
+    pi, ni, di, ti = _col(h, "pos"), _col(h, "no"), _col(h, "driver"), _col(h, "team")
+    out = []
+    for n, row in enumerate(block["rows"]):
+        pos_raw = row[pi] if pi is not None and pi < len(row) else str(n + 1)
+        dnf = not pos_raw.strip().isdigit()
+        pos = int(pos_raw) if pos_raw.strip().isdigit() else 99 + n
+        name, code = _split_driver(row[di]) if di is not None and di < len(row) else (row[-1], "")
+        out.append({
+            "pos": pos, "dnf": dnf,
+            "no": row[ni] if ni is not None and ni < len(row) else "",
+            "name": name, "code": code,
+            "team": row[ti] if ti is not None and ti < len(row) else "",
+        })
+    return out
+
+
+def _teams_from(block):
+    """Group a classified block by team -> [drivers ordered by position]."""
+    teams = {}
+    for d in _classified(block):
+        teams.setdefault(d["team"], []).append(d)
+    for v in teams.values():
+        v.sort(key=lambda x: x["pos"])
+    return teams
+
+
+def render_h2h(ctx, intro_html="", tally_html=""):
+    """Teammate head-to-head for this event, built from whatever sessions have run."""
+    order = ["Qualifying", "Race", "Practice 3", "Practice 2", "Practice 1"]
+    labels = [l for l in order if _block(ctx, l)]
+    if not labels:
+        return (intro_html + '<div class="callout watch"><strong>No sessions have run yet.</strong> '
+                "Teammate head-to-heads fill in automatically from the official timing as each "
+                "session is completed.</div>")
+    # choose up to 3 columns, prefer Qualifying + Race + best practice
+    cols = []
+    for l in ("Practice 3", "Practice 2", "Practice 1"):
+        if l in labels:
+            cols.append(l); break
+    for l in ("Qualifying", "Race"):
+        if l in labels:
+            cols.append(l)
+    cols = cols[-3:]
+
+    # union of teams across chosen sessions
+    all_teams = {}
+    for l in cols:
+        for team in _teams_from(_block(ctx, l)):
+            all_teams.setdefault(team, True)
+
+    head = "".join(f"<th>{l}</th>" for l in cols)
+    rows = []
+    for team in sorted(all_teams):
+        cells = [f"<td class='tm'>{team}</td>"]
+        for l in cols:
+            pair = _teams_from(_block(ctx, l)).get(team, [])
+            if len(pair) < 2:
+                if len(pair) == 1:
+                    d = pair[0]
+                    tag = "DNF" if d["dnf"] else f"P{d['pos']}"
+                    cells.append(f"<td>{d['code']} <span class='muted'>{tag}</span></td>")
+                else:
+                    cells.append("<td class='muted-cell'>—</td>")
+                continue
+            a, b = pair[0], pair[1]
+            atag = "DNF" if a["dnf"] else f"P{a['pos']}"
+            btag = "DNF" if b["dnf"] else f"P{b['pos']}"
+            cells.append(
+                f"<td><span class='h2h-win'>{a['code']} <span class='muted'>{atag}</span></span>"
+                f" <span class='h2h-v'>›</span> {b['code']} <span class='muted'>{btag}</span></td>")
+        rows.append("<tr>" + "".join(cells) + "</tr>")
+
+    tbl = (f'<div class="table-wrap"><table class="data compact h2h"><thead><tr>'
+           f'<th>Team</th>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>')
+    note = ('<p class="src">Green driver = ahead of their team-mate in that session '
+            '(qualifying position, or race classification). Built live from Formula1.com timing.</p>')
+    return intro_html + tally_html + tbl + note
+
+
+def auto_h2h(ctx):
+    return render_h2h(ctx)
+
+
+# --------------------------------------------------------------------------
+# Reliability & Pit Stops — DNF tracker + pit-stop / fastest-lap rankings
+# --------------------------------------------------------------------------
+def render_reliability(ctx, intro_html=""):
+    out = [intro_html] if intro_html else []
+    race = _block(ctx, "Race") or _block(ctx, "Sprint")
+    extra = ctx.get("extra") or {}
+
+    if race:
+        drivers = _classified(race)
+        h = race["headers"]
+        ri = _col(h, "time", "retired")
+        li = _col(h, "laps")
+        finishers = [d for d in drivers if not d["dnf"]]
+        dnfs = [d for d in drivers if d["dnf"]]
+        out.append('<h2 class="sec">Race reliability</h2>')
+        out.append('<div class="stat-row">'
+                   + stat(str(len(finishers)), "Classified finishers")
+                   + stat(str(len(dnfs)), "Retirements (DNF)")
+                   + stat(str(len(drivers)), "Started") + '</div>')
+        if dnfs:
+            rws = []
+            for d in dnfs:
+                idx = next((i for i, r in enumerate(race["rows"])
+                            if (r[_col(h, "no")] if _col(h, "no") is not None else "") == d["no"]), None)
+                laps = race["rows"][idx][li] if (idx is not None and li is not None and li < len(race["rows"][idx])) else ""
+                why = race["rows"][idx][ri] if (idx is not None and ri is not None and ri < len(race["rows"][idx])) else "DNF"
+                rws.append(f"<tr><td class='tm'>{d['name']} <span class='drv-code'>{d['code']}</span></td>"
+                           f"<td>{d['team']}</td><td class='num'>{laps}</td><td>{why}</td></tr>")
+            out.append('<div class="table-wrap"><table class="data compact"><thead><tr>'
+                       '<th>Driver</th><th>Team</th><th>Lap</th><th>Retired</th></tr></thead>'
+                       f'<tbody>{"".join(rws)}</tbody></table></div>')
+        else:
+            out.append('<div class="callout watch">Every starter was classified — a clean, full-distance race.</div>')
+    else:
+        out.append('<div class="callout watch"><strong>The race hasn\'t run yet.</strong> '
+                   "Retirements and finisher counts appear here automatically once the race "
+                   "classification is published.</div>")
+
+    # Pit stops
+    ps = extra.get("pitstops")
+    if ps:
+        h = ps["headers"]
+        di, ti, tti, si, li = (_col(h, "driver"), _col(h, "time"), _col(h, "total"),
+                               _col(h, "stops"), _col(h, "lap"))
+        # fastest single stationary stop = min 'Time'
+        def to_f(x):
+            try:
+                return float(x)
+            except Exception:
+                return 999.0
+        ranked = sorted(ps["rows"], key=lambda r: to_f(r[ti]) if ti is not None and ti < len(r) else 999.0)
+        out.append('<h2 class="sec">Fastest pit stops</h2>')
+        out.append('<p class="lead-note">Quickest stationary times of the race (pit crew performance, '
+                   'not counting the pit-lane drive-through).</p>')
+        rws = []
+        for n, r in enumerate(ranked[:10]):
+            nm, code = _split_driver(r[di]) if di is not None and di < len(r) else (r[-1], "")
+            t = r[ti] if ti is not None and ti < len(r) else ""
+            lap = r[li] if li is not None and li < len(r) else ""
+            cls = " class='upcoming'" if n == 0 else ""
+            rws.append(f"<tr{cls}><td class='pos'>{n+1}</td>"
+                       f"<td class='tm'>{nm} <span class='drv-code'>{code}</span></td>"
+                       f"<td class='num'>{t}s</td><td class='num'>L{lap}</td></tr>")
+        out.append('<div class="table-wrap"><table class="data compact"><thead><tr>'
+                   '<th>#</th><th>Driver</th><th>Stationary</th><th>Lap</th></tr></thead>'
+                   f'<tbody>{"".join(rws)}</tbody></table></div>')
+
+    # Fastest lap
+    fl = extra.get("fastestlaps")
+    if fl and fl["rows"]:
+        h = fl["headers"]
+        di, ti, li, ai = _col(h, "driver"), _col(h, "time"), _col(h, "lap"), _col(h, "avg")
+        top = fl["rows"][0]
+        nm, code = _split_driver(top[di]) if di is not None and di < len(top) else (top[-1], "")
+        t = top[ti] if ti is not None and ti < len(top) else ""
+        lap = top[li] if li is not None and li < len(top) else ""
+        avg = top[ai] if ai is not None and ai < len(top) else ""
+        out.append('<h2 class="sec">Fastest lap of the race</h2>')
+        out.append(card(f"{nm} — {t}",
+                        f"<p>Set on lap {lap} at an average of {avg} km/h. The fastest-lap point goes "
+                        "to a top-10 finisher; watch for a late free-stop 'fastest lap' grab if a car has "
+                        "a spare set of softs and a pit-window cushion.</p>", "bi-stopwatch", "accent"))
+
+    if not race and not ps and not fl:
+        pass
+    return "".join(out)
+
+
+def auto_reliability(ctx):
+    return render_reliability(ctx)
+
+
+# --------------------------------------------------------------------------
+# Penalties & Stewards — FIA decision-document tracker
+# --------------------------------------------------------------------------
+_PEN_KIND = {
+    "penalty": ("pen-bad", "Penalty"),
+    "warning": ("pen-warn", "Warning"),
+    "fine": ("pen-warn", "Fine"),
+    "reprimand": ("pen-warn", "Reprimand"),
+    "noaction": ("pen-ok", "No action"),
+    "note": ("pen-note", "Note"),
+}
+
+
+def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
+    """decisions: list of dicts {doc, session, driver, team, no, fact, outcome, kind, when}."""
+    out = [intro_html] if intro_html else []
+    decisions = decisions or []
+    if not decisions:
+        out.append('<div class="callout watch"><strong>No stewards\' decisions logged yet.</strong> '
+                   "This tracker is populated from the FIA event decision documents on each rebuild — "
+                   "summons, infringements, penalties, fines and 'no further action' rulings.</div>")
+        if fia_url:
+            out.append(f'<p class="src">Source: <a href="{fia_url}" target="_blank" rel="noopener">'
+                       f'FIA — {ctx.get("name", "event")} documents</a>.</p>')
+        return "".join(out)
+
+    # tally
+    npen = sum(1 for d in decisions if d.get("kind") == "penalty")
+    nfine = sum(1 for d in decisions if d.get("kind") == "fine")
+    nwarn = sum(1 for d in decisions if d.get("kind") in ("warning", "reprimand"))
+    nno = sum(1 for d in decisions if d.get("kind") == "noaction")
+    out.append('<div class="stat-row">'
+               + stat(str(npen), "Penalties")
+               + stat(str(nfine), "Fines")
+               + stat(str(nwarn), "Warnings / reprimands")
+               + stat(str(nno), "No further action") + '</div>')
+
+    rws = []
+    for d in decisions:
+        cls, badge = _PEN_KIND.get(d.get("kind", "note"), _PEN_KIND["note"])
+        who = d.get("driver", "")
+        if d.get("no"):
+            who = f"<strong>#{d['no']}</strong> {who}"
+        if d.get("team"):
+            who += f"<br><span class='muted'>{d['team']}</span>"
+        rws.append(
+            f"<tr><td class='doc'>{d.get('doc','')}</td>"
+            f"<td>{who}</td>"
+            f"<td>{d.get('session','')}</td>"
+            f"<td>{d.get('fact','')}</td>"
+            f"<td><span class='pen-badge {cls}'>{badge}</span> {d.get('outcome','')}</td></tr>")
+    out.append('<div class="table-wrap"><table class="data pen"><thead><tr>'
+               '<th>Doc</th><th>Driver</th><th>Session</th><th>Matter</th><th>Ruling</th>'
+               '</tr></thead><tbody>' + "".join(rws) + '</tbody></table></div>')
+    if fia_url:
+        out.append(f'<p class="src">Source: <a href="{fia_url}" target="_blank" rel="noopener">'
+                   f'FIA — {ctx.get("name", "event")} documents</a> (stewards\' decisions).</p>')
+    return "".join(out)
+
+
+def auto_penalties(ctx):
+    return render_penalties(ctx, [], fia_url=ctx.get("fia_url", ""))
 
 
 # --------------------------------------------------------------------------
@@ -863,6 +1155,34 @@ CSS += r"""
 .sess-podium .pod{background:var(--panel2);border:1px solid var(--line);border-radius:8px;
   padding:5px 11px;font-size:13px}
 .sess-podium .pod b{color:var(--f1-red)}
+
+/* Head-to-Head */
+.data td.tm{font-weight:700;color:#fff}
+.data td.num{text-align:right;font-variant-numeric:tabular-nums}
+.data .muted{color:var(--muted);font-size:11px;font-weight:600}
+.h2h .h2h-win{color:#8fdca3;font-weight:800}
+.h2h .h2h-v{color:var(--muted);margin:0 2px}
+.data.h2h td{white-space:nowrap}
+
+/* Penalties & Stewards */
+.data.pen td{vertical-align:top;font-size:13.5px}
+.data.pen td.doc{font-weight:800;color:var(--muted);white-space:nowrap;width:56px}
+.pen-badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.03em;
+  text-transform:uppercase;border-radius:5px;padding:2px 7px;margin-right:4px;color:#fff}
+.pen-badge.pen-bad{background:var(--f1-red)}
+.pen-badge.pen-warn{background:#c8860a}
+.pen-badge.pen-ok{background:var(--hun-green)}
+.pen-badge.pen-note{background:var(--panel2);border:1px solid var(--line);color:#cfcfe0}
+
+/* Strategy predictor */
+.strat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:6px 0}
+.strat-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.strat-card h4{margin:0 0 6px;font-size:14px;color:#fff}
+.strat-card .stint{display:flex;gap:4px;margin:8px 0 6px;flex-wrap:wrap}
+.strat-card .seg{flex:1;min-width:34px;text-align:center;font-size:11px;font-weight:800;
+  border-radius:5px;padding:4px 2px;color:#111}
+.seg.s-soft{background:#ff3b3b;color:#fff}.seg.s-med{background:#ffd21e}.seg.s-hard{background:#e8e8e8}
+.strat-card .prob{font-size:12px;color:var(--muted)}
 """
 
 
@@ -875,6 +1195,7 @@ def prepare(ctx):
     ctx["weather"] = fetch_weather(ctx)
     ctx["weather_ok"] = bool(ctx["weather"])
     ctx["results"] = fetch_results(ctx)
+    ctx["extra"] = fetch_extra(ctx)
     return ctx
 
 
@@ -919,6 +1240,28 @@ def build_all(gps):
                 sub=("Session-by-session reports built live from the official results — "
                      "rerun during the weekend to refresh as more sessions finish."),
                 body=auto_news(ctx),
+            )
+        # auto-inject data-driven pages when the nav asks and content omits them
+        if any(slug == "h2h" for slug, *_ in ctx["nav"]) and "h2h" not in pages:
+            pages["h2h"] = dict(
+                kicker="Team-mate battles",
+                title="Head-to-Head",
+                sub="Team-mate qualifying and race head-to-heads for this event, built live from the timing.",
+                body=auto_h2h(ctx),
+            )
+        if any(slug == "reliability" for slug, *_ in ctx["nav"]) and "reliability" not in pages:
+            pages["reliability"] = dict(
+                kicker="Reliability & Pits",
+                title="Reliability & Pit Stops",
+                sub="Retirements, finisher counts and pit-stop rankings — filled in from the official results.",
+                body=auto_reliability(ctx),
+            )
+        if any(slug == "penalties" for slug, *_ in ctx["nav"]) and "penalties" not in pages:
+            pages["penalties"] = dict(
+                kicker="Stewards",
+                title="Penalties & Stewards",
+                sub="Every stewards' decision, infringement, fine and penalty from the FIA event documents.",
+                body=auto_penalties(ctx),
             )
         for slug, fname, icon, short, long in ctx["nav"]:
             p = pages[slug]

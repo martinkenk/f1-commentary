@@ -1,12 +1,14 @@
 # SKILL — F1 Commentary Hub generator
 
 Build a good-looking, static, **multi-Grand-Prix commentary-prep site**. One hub
-landing page plus, for every GP, a 14-item left sidebar leading to 14 subpages:
+landing page plus, for every GP, a 17-item left sidebar leading to 17 subpages:
 weekend overview, **weekend news + session reports**, circuit guide (with the
-official zoomable circuit map), live **session results**, tyres, rookies/line-ups,
-standings, team watch, upgrades, power unit, facts, historic moments, schedule +
-**live weather**, and a commentator's cheat sheet. Content is collated from
-Formula1.com, The Race, and the FIA event documents.
+official zoomable circuit map), live **session results**, tyres + **stint/strategy
+predictor**, rookies/line-ups, standings + **championship permutations**,
+**team-mate head-to-head**, team watch, upgrades, power unit, **penalties &
+stewards**, **reliability & pit stops**, facts + **this-track driver history**,
+historic moments, schedule + **live weather**, and a commentator's cheat sheet.
+Content is collated from Formula1.com, The Race, and the FIA event documents.
 
 **This file is a runbook.** Follow it before *or during* any GP weekend and you get
 the same result. The generator is **safe to re-run at any point** — it refreshes
@@ -36,7 +38,7 @@ content_belgium.py  ← Belgium page prose  (same shape)
 assets_src/         ← source images (circuit maps); copied to site/assets/ on build
 site/               ← generated output (git-ignore or publish this)
   index.html                 ← multi-GP hub
-  <gpdir>/*.html             ← 14 subpages per GP
+  <gpdir>/*.html             ← 17 subpages per GP
   assets/style.css, *.png
 ```
 
@@ -67,7 +69,7 @@ HUNGARY = {
         ("Race",       "Sun 26 Jul", "2026-07-26", "15:00"),
     ],
     "race_id": "1291", "results_slug": "hungary",    # for live Formula1.com results
-    "nav": nav("Hungaroring"),                       # shared 14-item sidebar
+    "nav": nav("Hungaroring"),                       # shared 17-item sidebar
     "pages": content_hungary.build_pages,            # the content module
 }
 ```
@@ -245,11 +247,51 @@ still appears automatically.
 
 ---
 
+## 4c. Data-driven pages: Head-to-Head, Reliability & Pit Stops, Penalties
+
+Three more sidebar pages that fill in **live from the timing / FIA docs**. All three have an
+**engine auto-fallback** (injected in `build_all`, exactly like Results/News) so any GP gets
+a working page even with no curated prose; content modules layer curated context on top.
+
+**Head-to-Head (`h2h`)** — team-mate battles for the event, `render_h2h(ctx, intro_html, tally_html)`.
+Groups each completed session's classification by team and shows who beat their team-mate
+(green = ahead), across up to three columns (best practice + Qualifying + Race). Pure
+derivation from `ctx["results"]` — no external data. Hungary appends a hand-kept **2026 season
+qualifying scoreline** table for context; refresh those numbers after each qualifying.
+
+**Reliability & Pit Stops (`reliability`)** — `render_reliability(ctx, intro_html)`. From the
+Race classification: finisher vs DNF counts and a retirements table (driver / team / lap /
+reason, DNFs detected via non-numeric `Pos.` = "NC"). Plus **fastest pit stops** (ranked by
+stationary time) and the **fastest lap**, both pulled from two extra endpoints fetched in
+`prepare()` → `ctx["extra"]` via `fetch_extra(ctx)`: `pit-stop-summary` and `fastest-laps`.
+Everything degrades gracefully before the race runs (Hungary shows the pre-race reliability
+watch; Belgium shows the full data).
+
+**Penalties & Stewards (`penalties`)** — `render_penalties(ctx, decisions, intro_html, fia_url)`.
+The FIA event page can't be PDF-parsed in CI, so **author the decisions per GP**: scrape the
+FIA event documents (§2c), read each *Decision / Infringement / Summons* PDF, and build a list
+of dicts `{doc, no, driver, team, session, fact, outcome, kind}` where `kind` ∈
+`penalty | fine | warning | reprimand | noaction | note` (drives the coloured badge + the
+tally row). The engine renders the table + a source link to `ctx["fia_url"]` (set per GP in
+`build.py`). Fallback (no decisions) just links to the FIA docs. **On every re-run, re-scrape
+the FIA page** — new decisions (grid drops, in-race time penalties, post-race DSQs) appear
+through the weekend; download the fresh *Decision*/*Infringement* PDFs, extract the ruling,
+and append to the `decisions` list. Track-limits "deleted lap times" docs → `kind="note"`.
+
+Extraction recipe (homebrew `python3.11` + `pypdf`, same as §2c): the ruling is on the
+`Decision` line ("No further action", "€400 fine", "Driver: Warning", "3-place grid
+penalty…"), the `Fact` line summarises the incident, and the header block gives car number,
+driver, competitor and session. Keep `fia_pdfs/` gitignored — the extracted text is baked
+into `content_<gp>.py`, so `build.py` never reads a PDF at build time (CI-safe).
+
+---
+
 ## 5. Write the content module (`content_<gp>.py`)
 
 Shape:
 ```python
-from f1lib import card, stat, ul, quote, news_item, render_news
+from f1lib import (card, stat, ul, quote, news_item, render_news,
+                   render_h2h, render_reliability, render_penalties)
 
 def build_pages(ctx, env):
     schedule_rows = env["schedule_rows"]   # zero-arg, bound to this ctx
@@ -264,8 +306,9 @@ def build_pages(ctx, env):
 ```
 
 Rules:
-- Return a page for **every** nav slug except `results` and `news` (both engine-built if
-  omitted). Missing any other slug raises a build error; that's the safety net.
+- Return a page for **every** nav slug except `results`, `news`, `h2h`, `reliability` and
+  `penalties` (all engine-built if omitted). Missing any other slug raises a build error;
+  that's the safety net.
 - Page bodies are f-strings — **double any literal `{ }`** as `{{ }}`.
 - Use the helpers `card()`, `stat()`, `ul()`, `quote()`, plus `schedule_rows()` and
   `weather_cards()` from `env`.
@@ -314,7 +357,7 @@ done
 ```
 
 Checklist:
-- [ ] `index.html` lists **every** registered GP; each GP has all 14 subpages, all **200**.
+- [ ] `index.html` lists **every** registered GP; each GP has all 17 subpages, all **200**.
 - [ ] Exactly **one** `nav-link active` per page; 14 sidebar links (13 pages + "All Grands Prix").
 - [ ] Circuit PNG loads (200), corner pixel white, `zoomImg` + lightbox present.
 - [ ] Weather cards render, tagged forecast/actual; times local + Tallinn only.

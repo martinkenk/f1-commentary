@@ -1,7 +1,7 @@
 # F1 Commentary Hub
 
 A good-looking, static, **multi-Grand-Prix** site to support **live TV commentary**.
-Left-hand sidebar menu; every Grand Prix gets its own landing page plus **14 subpages**.
+Left-hand sidebar menu; every Grand Prix gets its own landing page plus **17 subpages**.
 
 Currently loaded: **🇭🇺 Hungarian Grand Prix 2026** and **🇧🇪 Belgian Grand Prix 2026**.
 
@@ -17,27 +17,31 @@ python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-## The 14 subpages (per GP)
+## The 17 subpages (per GP)
 1. **Overview** – at-a-glance, storylines, session times, standings snapshot
-2. **Weekend News** – paddock headlines + **session-by-session reports** (live top-three podiums, grows as sessions complete) from Formula1.com & The Race
+2. **Weekend News** – paddock headlines + **session-by-session reports** (live top-three podiums, grows as sessions complete) + radio/quote highlights, from Formula1.com & The Race
 3. **Circuit Guide** – lap-by-lap + **official 2026 circuit map (click to zoom)**, Straight-Mode zones, sectors, race-control notes
 4. **Results** – live **session results** pulled from Formula1.com (fills in as FP/qualifying/the race complete)
-5. **Tyres & Strategy** – Pirelli compounds, degradation, one- vs two-stop
+5. **Tyres & Strategy** – Pirelli compounds, degradation, one- vs two-stop + **stint/strategy predictor**
 6. **Rookies & Line-ups** – rookie outings / driver line-up notes with bios
-7. **Standings & Form** – title picture and how the last race reshaped it
-8. **Team Watch** – team-by-team news watch
-9. **Upgrades** – car development / upgrade packages
-10. **Power Unit** – 2026 power-unit + energy-override data (with FP & Qualifying power limits highlighted)
-11. **Facts & Records** – lap record, poles/wins, past winners, trivia
-12. **Top Moments** – historic drama at the venue (timeline)
-13. **Schedule & Weather** – session times in **circuit-local + Tallinn/EEST** with **live weather** (forecast + actuals)
-14. **Commentary Notes** – grab-and-go cheat sheet + links to the official FIA documents
+7. **Standings & Form** – title picture, how the last race reshaped it + **championship permutations**
+8. **Head-to-Head** – **team-mate qualifying/race battles** (live from timing) + 2026 season scoreline
+9. **Team Watch** – team-by-team news watch
+10. **Upgrades** – car development / upgrade packages
+11. **Power Unit** – 2026 power-unit + energy-override data (with FP & Qualifying power limits highlighted)
+12. **Penalties & Stewards** – **FIA decision-document tracker** (fines, warnings, penalties, track limits)
+13. **Reliability & Pit Stops** – **DNF/finisher tracker** + **fastest pit stops** + fastest lap (live from results)
+14. **Facts & Records** – lap record, poles/wins, past winners, trivia + **current-grid this-track history**
+15. **Top Moments** – historic drama at the venue (timeline)
+16. **Schedule & Weather** – session times in **circuit-local + Tallinn/EEST** with **live weather** (forecast + actuals)
+17. **Commentary Notes** – grab-and-go cheat sheet + links to the official FIA documents
 
 ## Re-run any time during the weekend
 The build is **safe to run repeatedly**. Each run wipes and regenerates `site/`, and:
 - refreshes **weather** (forecast for upcoming sessions, ERA5 **actuals** for past ones),
 - pulls whatever **session results** Formula1.com has published so far,
 - refreshes the **Weekend News** session reports (live podiums for every completed session),
+- rebuilds **Head-to-Head** and **Reliability & Pit Stops** from the live timing,
 - regenerates every page from the current content + any new FIA material you've scraped.
 
 ```bash
