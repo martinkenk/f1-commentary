@@ -308,6 +308,100 @@ def render_results(ctx):
 
 
 # --------------------------------------------------------------------------
+# Weekend News helpers
+# --------------------------------------------------------------------------
+def news_item(title, summary, source="", when="", src_kind=""):
+    """One news card. `summary` may be a string or list of paragraphs.
+    src_kind: '' | 'f1' | 'race' controls the source-badge colour."""
+    if isinstance(summary, (list, tuple)):
+        para = "".join(f"<p>{p}</p>" for p in summary)
+    else:
+        para = f"<p>{summary}</p>"
+    meta = []
+    if source:
+        meta.append(f'<span class="news-src {src_kind}">{source}</span>')
+    if when:
+        meta.append(f'<span class="news-when">{when}</span>')
+    meta_html = f'<div class="news-meta">{"".join(meta)}</div>' if meta else ""
+    return (f'<div class="news-item"><h3>{title}</h3>{meta_html}{para}</div>')
+
+
+def news_list(items):
+    return '<div class="news-list">' + "".join(items) + "</div>"
+
+
+def session_podium(ctx, label, top=3):
+    """Return a small podium strip (P1-P3 + fastest lap count) for a completed
+    session, pulled from the live results, or '' if the session hasn't run."""
+    for b in (ctx.get("results") or []):
+        if b["label"] != label:
+            continue
+        headers = [h.lower() for h in b["headers"]]
+        try:
+            di = next(i for i, h in enumerate(headers) if h.startswith("driver"))
+        except StopIteration:
+            return ""
+        ti = next((i for i, h in enumerate(headers) if h.startswith("time") or "gap" in h), None)
+        pods = []
+        medals = ["🥇", "🥈", "🥉"]
+        for n, row in enumerate(b["rows"][:top]):
+            nm, _ = _split_driver(row[di]) if di < len(row) else (row[-1], "")
+            gap = f" <span class='pill'>{row[ti]}</span>" if ti is not None and ti < len(row) else ""
+            mk = medals[n] if n < len(medals) else f"P{n+1}"
+            pods.append(f'<span class="pod">{mk} <b>{nm}</b>{gap}</span>')
+        return '<div class="sess-podium">' + "".join(pods) + "</div>"
+    return ""
+
+
+def completed_labels(ctx):
+    return [b["label"] for b in (ctx.get("results") or [])]
+
+
+def render_news(ctx, general_items, session_notes):
+    """Compose the Weekend News page.
+    general_items : list of news_item() HTML strings (weekend-wide stories).
+    session_notes : dict {session_label: [news_item html, ...]} — only rendered
+                    for sessions that have actually run (per live results).
+                    Sessions that are complete but have no authored notes get an
+                    auto podium summary so the page always reflects reality."""
+    done = completed_labels(ctx)
+    out = []
+
+    out.append('<h2 class="sec">Weekend headlines</h2>')
+    out.append('<p class="lead-note">General stories from around the paddock so far this weekend '
+               '(Formula1.com &amp; The Race). Refreshed every time the site is rebuilt.</p>')
+    out.append(news_list(general_items) if general_items
+               else '<div class="callout watch">No general news collated yet.</div>')
+
+    out.append('<h2 class="sec">Session by session</h2>')
+    if not done:
+        out.append('<div class="callout watch"><strong>No sessions have run yet.</strong> '
+                   "Session reports appear here automatically as each practice, qualifying "
+                   "and the race is completed — rerun the build during the weekend to refresh.</div>")
+        return "".join(out)
+
+    out.append('<p class="lead-note">A block appears for every session that has been completed. '
+               'Top three come live from the official timing.</p>')
+    for label in done:
+        out.append(f'<div class="sess-head"><h3 class="sec" style="margin:0">{label}</h3>'
+                   f'<span class="badge-done">Completed</span></div>')
+        out.append(session_podium(ctx, label))
+        notes = session_notes.get(label)
+        if notes:
+            out.append(news_list(notes))
+        else:
+            out.append('<p class="src">Timing above is live from Formula1.com — '
+                       'see the Results page for the full classification.</p>')
+    return "".join(out)
+
+
+def auto_news(ctx):
+    """Engine fallback used when a GP's content module doesn't author its own
+    News page. Produces a session-by-session summary straight from results."""
+    return render_news(ctx, general_items=[], session_notes={})
+
+
+# --------------------------------------------------------------------------
 # Page shell (sidebar + hero + body). GP context drives all labels/nav.
 # --------------------------------------------------------------------------
 def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_html, depth=1):
@@ -748,6 +842,27 @@ CSS += r"""
 .data .tw{display:inline-block;margin-left:6px;font-size:10px;font-weight:800;letter-spacing:.04em;
   text-transform:uppercase;color:#fff;background:var(--f1-red);border-radius:5px;padding:1px 6px;vertical-align:middle}
 .data td.muted-cell{color:var(--muted);font-style:italic;font-size:12px;text-align:center}
+
+/* Weekend News */
+.news-list{display:flex;flex-direction:column;gap:14px;margin:6px 0 4px}
+.news-item{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--f1-red);
+  border-radius:10px;padding:14px 18px}
+.news-item h3{font-size:17px;font-weight:800;margin:0 0 6px;line-height:1.3}
+.news-item p{margin:0 0 8px;color:#d6d6e2;font-size:14.5px}
+.news-item p:last-child{margin-bottom:0}
+.news-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px;font-size:12px;color:var(--muted)}
+.news-src{display:inline-block;font-weight:800;letter-spacing:.03em;text-transform:uppercase;
+  font-size:10.5px;border-radius:5px;padding:2px 7px;background:var(--panel2);border:1px solid var(--line);color:#cfcfe0}
+.news-src.f1{background:rgba(225,6,0,.16);border-color:rgba(225,6,0,.5);color:#ff8a86}
+.news-src.race{background:rgba(70,112,80,.18);border-color:rgba(70,112,80,.6);color:#8fdca3}
+.news-when{font-style:italic}
+.sess-head{display:flex;align-items:center;gap:10px;margin:22px 0 10px}
+.sess-head .badge-done{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
+  color:#fff;background:var(--hun-green);border-radius:6px;padding:2px 9px}
+.sess-podium{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.sess-podium .pod{background:var(--panel2);border:1px solid var(--line);border-radius:8px;
+  padding:5px 11px;font-size:13px}
+.sess-podium .pod b{color:var(--f1-red)}
 """
 
 
@@ -795,6 +910,15 @@ def build_all(gps):
                 sub=("Official Formula1.com results for every completed session — "
                      f"{done} session(s) in so far."),
                 body=render_results(ctx),
+            )
+        # auto-inject a Weekend News page if the nav asks and content omits one
+        if any(slug == "news" for slug, *_ in ctx["nav"]) and "news" not in pages:
+            pages["news"] = dict(
+                kicker="Weekend News",
+                title="Weekend News & Session Reports",
+                sub=("Session-by-session reports built live from the official results — "
+                     "rerun during the weekend to refresh as more sessions finish."),
+                body=auto_news(ctx),
             )
         for slug, fname, icon, short, long in ctx["nav"]:
             p = pages[slug]

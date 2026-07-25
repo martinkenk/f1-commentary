@@ -1,12 +1,12 @@
 # SKILL — F1 Commentary Hub generator
 
 Build a good-looking, static, **multi-Grand-Prix commentary-prep site**. One hub
-landing page plus, for every GP, a 13-item left sidebar leading to 13 subpages:
-weekend overview, circuit guide (with the official zoomable circuit map), live
-**session results**, tyres, rookies/line-ups, standings, team watch, upgrades,
-power unit, facts, historic moments, schedule + **live weather**, and a
-commentator's cheat sheet. Content is collated from Formula1.com, The Race, and the
-FIA event documents.
+landing page plus, for every GP, a 14-item left sidebar leading to 14 subpages:
+weekend overview, **weekend news + session reports**, circuit guide (with the
+official zoomable circuit map), live **session results**, tyres, rookies/line-ups,
+standings, team watch, upgrades, power unit, facts, historic moments, schedule +
+**live weather**, and a commentator's cheat sheet. Content is collated from
+Formula1.com, The Race, and the FIA event documents.
 
 **This file is a runbook.** Follow it before *or during* any GP weekend and you get
 the same result. The generator is **safe to re-run at any point** — it refreshes
@@ -36,7 +36,7 @@ content_belgium.py  ← Belgium page prose  (same shape)
 assets_src/         ← source images (circuit maps); copied to site/assets/ on build
 site/               ← generated output (git-ignore or publish this)
   index.html                 ← multi-GP hub
-  <gpdir>/*.html             ← 13 subpages per GP
+  <gpdir>/*.html             ← 14 subpages per GP
   assets/style.css, *.png
 ```
 
@@ -67,7 +67,7 @@ HUNGARY = {
         ("Race",       "Sun 26 Jul", "2026-07-26", "15:00"),
     ],
     "race_id": "1291", "results_slug": "hungary",    # for live Formula1.com results
-    "nav": nav("Hungaroring"),                       # shared 13-item sidebar
+    "nav": nav("Hungaroring"),                       # shared 14-item sidebar
     "pages": content_hungary.build_pages,            # the content module
 }
 ```
@@ -208,11 +208,48 @@ If the results page is empty, that's correct for early in the week — it's not 
 
 ---
 
+## 4b. Weekend News & session reports (`news` page)
+
+A dedicated **Weekend News** page (nav slug `news`, second in the sidebar) collates the
+paddock storylines and gives a **session-by-session report that grows as the weekend
+runs**. Split into two parts:
+
+1. **Weekend headlines** — general stories from Formula1.com and The Race (paddock news,
+   upgrades, calendar, support races). Authored as `news_item(...)` cards.
+2. **Session by session** — one block per **completed** session (driven by the live
+   results, so blocks only appear for sessions that have actually run). Each block shows a
+   **live top-three podium strip** (pulled from `ctx["results"]`) plus any authored notes.
+
+Engine helpers in `f1lib.py`:
+- `news_item(title, summary, source="", when="", src_kind="")` — one card; `summary` is a
+  string or list of paragraphs; `src_kind` is `''`/`'f1'`/`'race'` for the coloured source
+  badge.
+- `render_news(ctx, general_items, session_notes)` — composes the page. `general_items` is
+  a list of `news_item` HTML; `session_notes` is `{session_label: [news_item, ...]}` and is
+  **only rendered for sessions present in `ctx["results"]`**. Completed sessions with no
+  authored note still get the auto podium strip, so the page never lies about what's run.
+- `auto_news(ctx)` — engine fallback used when a content module doesn't author its own News
+  page (build.py injects it automatically, exactly like the Results page). Produces the
+  session podiums straight from results with no prose.
+
+Authoring in `content_<gp>.py` (see `content_hungary.py`): import `news_item, render_news`,
+build `general_news = [...]` and `session_news = {"Practice 1": [...], "Practice 2": [...]}`,
+then `PAGES["news"] = dict(kicker=..., title=..., sub=..., body=render_news(ctx, general_news, session_news))`.
+
+**On every re-run:** re-scrape The Race RSS (§2b) and Formula1.com latest (§2a) for new
+weekend/session stories, add fresh `news_item`s to `general_news`, and add a
+`session_news[label]` entry for each newly-completed session (FP3, Qualifying, Race…). Use
+the exact session labels from `RESULT_SESSIONS` ("Practice 1", "Qualifying", "Race", etc.)
+so notes attach to the right block. If you skip authoring a session's note, the live podium
+still appears automatically.
+
+---
+
 ## 5. Write the content module (`content_<gp>.py`)
 
 Shape:
 ```python
-from f1lib import card, stat, ul, quote
+from f1lib import card, stat, ul, quote, news_item, render_news
 
 def build_pages(ctx, env):
     schedule_rows = env["schedule_rows"]   # zero-arg, bound to this ctx
@@ -222,13 +259,13 @@ def build_pages(ctx, env):
     TZ_EAST_LABEL  = ctx["tz_east"]
     PAGES = {}
     PAGES["overview"] = dict(kicker=..., title=..., sub=..., body=f"""...""")
-    # ... every nav slug EXCEPT "results"
+    # ... every nav slug EXCEPT "results" (and "news" is optional — auto-built if omitted)
     return PAGES
 ```
 
 Rules:
-- Return a page for **every** nav slug except `results` (engine-built). Missing a slug
-  raises a build error; that's the safety net.
+- Return a page for **every** nav slug except `results` and `news` (both engine-built if
+  omitted). Missing any other slug raises a build error; that's the safety net.
 - Page bodies are f-strings — **double any literal `{ }`** as `{{ }}`.
 - Use the helpers `card()`, `stat()`, `ul()`, `quote()`, plus `schedule_rows()` and
   `weather_cards()` from `env`.
@@ -277,7 +314,7 @@ done
 ```
 
 Checklist:
-- [ ] `index.html` lists **every** registered GP; each GP has all 13 subpages, all **200**.
+- [ ] `index.html` lists **every** registered GP; each GP has all 14 subpages, all **200**.
 - [ ] Exactly **one** `nav-link active` per page; 14 sidebar links (13 pages + "All Grands Prix").
 - [ ] Circuit PNG loads (200), corner pixel white, `zoomImg` + lightbox present.
 - [ ] Weather cards render, tagged forecast/actual; times local + Tallinn only.

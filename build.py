@@ -19,6 +19,7 @@ import content_belgium
 def nav(circuit_label):
     return [
         ("overview",  "overview.html",  "bi-speedometer2",     "Overview",         "Weekend Overview"),
+        ("news",      "news.html",      "bi-newspaper",        "Weekend News",     "Weekend News & Session Reports"),
         ("circuit",   "circuit.html",   "bi-map",              "Circuit Guide",    f"{circuit_label} Circuit Guide"),
         ("results",   "results.html",   "bi-flag-fill",        "Results",          "Session Results"),
         ("tyres",     "tyres.html",     "bi-record-circle",    "Tyres & Strategy", "Tyres & Strategy"),

@@ -3,7 +3,7 @@
 Edit the prose here; structure/engine live in f1lib.py. build_pages(ctx, env)
 returns {slug: {kicker,title,sub,body}} for every non-results nav page.
 """
-from f1lib import card, stat, ul, quote
+from f1lib import card, stat, ul, quote, news_item, render_news
 
 
 def build_pages(ctx, env):
@@ -74,6 +74,94 @@ def build_pages(ctx, env):
     </div>
     <p class="src">All on-air times in Budapest local and Tallinn / Eastern European time. Full forecast on the Schedule &amp; Weather page.</p>
     """)
+
+    # ---- 1b. WEEKEND NEWS ----------------------------------------------------
+    general_news = [
+        news_item(
+            "Aston Martin's B-spec debut turns into a rollercoaster",
+            ["The heavily upgraded 16-part AMR26 finally hit the track — and immediately bit back. "
+             "Lance Stroll's FP1 lasted under 40 minutes before a <strong>left-rear suspension failure</strong> "
+             "spun him at Turn 3; the team couldn't repair it in time for FP2 due to a lack of spares.",
+             "Adrian Newey said the failure was in an area that <em>wasn't changed</em> by the upgrade and called it "
+             "\"very unexpected\", while flagging that <strong>Honda engine oscillations</strong> have returned — "
+             "\"that's really a question for Honda\". Aston is flying spare parts out from Silverstone so both cars "
+             "have the full package for qualifying. Alonso's verdict on the update: \"felt good… what we expected in "
+             "terms of numbers and correlation.\""],
+            "The Race", "Fri 24 Jul", "race"),
+        news_item(
+            "Ferrari on top — but qualifying is the elephant in the room",
+            ["Leclerc topped FP1, Hamilton topped FP2: a Ferrari 1-2 across the day. Rivals took note — George Russell "
+             "reckons Ferrari is \"a good step ahead of everyone\". Fred Vasseur's read was \"so far, so good\", with "
+             "Ferrari also running upgrades (the 'Macarena' rear wing).",
+             "The caveat Vasseur himself raised: Ferrari still has to <strong>nail a qualifying lap</strong> around the "
+             "narrow Hungaroring — something it hasn't managed all season."],
+            "F1.com / The Race", "Fri 24 Jul", "f1"),
+        news_item(
+            "Mercedes struggling — and already eyeing a post-break upgrade",
+            ["A tough Friday: Russell was best of the Mercedes in fifth in both sessions and is unhappy with the bumpy "
+             "resurfacing that's upsetting braking into Turn 1; Antonelli sat out FP1 for Vesti, then fought rear "
+             "locking and ended FP2 down in 13th.",
+             "The upside for the championship leader: Russell says the <strong>deployment software gremlin</strong> from "
+             "Spa and Silverstone is fixed. Toto Wolff's team is targeting \"something more sizeable\" as a "
+             "<strong>major upgrade after the summer break</strong>."],
+            "F1.com / The Race", "Fri 24 Jul", "f1"),
+        news_item(
+            "Hungaroring names all 14 corners for its 40th anniversary",
+            ["To mark 40 years of the race, every corner now has an official name honouring greats of the venue. "
+             "Turn 1 is <strong>Piquet</strong>, Turn 2 <strong>Hamilton</strong>, Turn 4 <strong>Mansell</strong>, "
+             "Turn 11 <strong>Alesi</strong>, Turn 12 <strong>Schumacher</strong> and Turn 13 <strong>Senna</strong> — "
+             "with Turn 1 the scene of Piquet's famous around-the-outside pass on Senna in the 1986 inaugural race.",
+             "Great colour to drop in on lap one — full list on the Circuit Guide page."],
+            "F1.com", "Fri 24 Jul", "f1"),
+        news_item(
+            "Calendar intrigue: Imola emerges as a season-finale back-up",
+            ["A deep-cut for the quiet moments: The Race understands <strong>Imola</strong> is now a lead candidate to "
+             "backfill the season finale if Middle East races fall through, with a Malaysian GP being lined up to "
+             "replace Bahrain. Contractually F1 wants to land on 22 races."],
+            "The Race", "Sat 25 Jul", "race"),
+        news_item(
+            "Support races: Maini and Taponen take Budapest poles",
+            ["<strong>F2:</strong> Kush Maini took pole in Budapest with Camara alongside on the front row. "
+             "<strong>F3:</strong> Tuukka Taponen pipped Slater to pole in a tight qualifying session. Feeder-series "
+             "form worth a mention when the junior cars share the bill."],
+            "F1.com", "Sat 25 Jul", "f1"),
+    ]
+
+    session_news = {
+        "Practice 1": [
+            news_item(
+                "Leclerc leads a Ferrari-flavoured opener",
+                "Charles Leclerc set the early benchmark (1:19.075) ahead of Verstappen and Hamilton. Among the five "
+                "rookies out, <strong>Frederik Vesti impressed in seventh</strong> for Mercedes in place of Antonelli.",
+                "F1.com", src_kind="f1"),
+            news_item(
+                "Stroll's session ends early",
+                "Lance Stroll's B-spec Aston stopped after under 40 minutes with a suspected left-rear suspension "
+                "failure — the first blow in Aston's rollercoaster upgrade debut.",
+                "The Race", src_kind="race"),
+        ],
+        "Practice 2": [
+            news_item(
+                "Hamilton fastest as Colapinto brings out the red flag",
+                "Lewis Hamilton edged Leclerc by 0.148s for a Ferrari 1-2, with Norris third. The session was "
+                "red-flagged near half-distance when Franco Colapinto spun into the barriers at the final corner.",
+                "The Race", src_kind="race"),
+            news_item(
+                "Warning signs down the order",
+                "Verstappen was fourth but complained of a \"super stiff\" rear and a lack of grip; Antonelli was only "
+                "13th, the sole driver on mediums for his best lap, still chasing a set-up. McLaren had reverted its "
+                "'Macarena' rear wing.",
+                "The Race", src_kind="race"),
+        ],
+    }
+
+    PAGES["news"] = dict(
+        kicker="Weekend News",
+        title="Weekend News & Session Reports",
+        sub="Paddock stories and session-by-session reports, collated from Formula1.com and The Race. "
+            "Session blocks appear automatically as each session is completed.",
+        body=render_news(ctx, general_news, session_news),
+    )
 
     # ---- 2. CIRCUIT ----------------------------------------------------------
     PAGES["circuit"] = dict(
