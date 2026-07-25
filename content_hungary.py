@@ -79,6 +79,24 @@ def build_pages(ctx, env):
     # ---- 1b. WEEKEND NEWS ----------------------------------------------------
     general_news = [
         news_item(
+            "Norris tops final practice as Ferrari's grip loosens",
+            ["Lando Norris headed FP3 by 0.117s over Lewis Hamilton, ending Ferrari's run of leading every session and "
+             "denying the Scuderia a practice clean sweep. Kimi Antonelli hauled Mercedes back into contention in third, "
+             "while Max Verstappen's Red Bull was adrift in seventh.",
+             "The order is desperately tight at the front — Norris, Hamilton, Antonelli and Leclerc covered by little "
+             "over three tenths — setting up a knife-edge qualifying at a track where track position is everything."],
+            "F1.com / The Race", "Sat 25 Jul", "f1"),
+        news_item(
+            "FIA monitoring a 'breaking up' Hungaroring surface",
+            ["The big talking point after Friday and into Saturday: the freshly resurfaced third of the track is "
+             "<strong>breaking up</strong>. Loose stones at the final corner and a bump at Turn 1 (a not-quite-flat "
+             "transition between old and new asphalt) triggered lurid slides and lock-ups.",
+             "Drivers raised it in Friday's briefing; race director Rui Marques inspected the track that night and "
+             "organisers worked to compress the bumps. The FIA is monitoring it closely, hoping to avoid a "
+             "Monaco-style red flag. George Russell: \"They've resurfaced a third of the track and unfortunately "
+             "they've done a really bad job.\""],
+            "The Race", "Sat 25 Jul", "race"),
+        news_item(
             "Aston Martin's B-spec debut turns into a rollercoaster",
             ["The heavily upgraded 16-part AMR26 finally hit the track — and immediately bit back. "
              "Lance Stroll's FP1 lasted under 40 minutes before a <strong>left-rear suspension failure</strong> "
@@ -154,6 +172,27 @@ def build_pages(ctx, env):
                 "'Macarena' rear wing.",
                 "The Race", src_kind="race"),
         ],
+        "Practice 3": [
+            news_item(
+                "Norris denies Ferrari the clean sweep",
+                "Lando Norris ended Ferrari's run of topping the practice sheets, edging Lewis Hamilton by "
+                "<strong>0.117s</strong> for P1 (1:17.939). The upgraded MCL40 shipped three tenths to Hamilton in the "
+                "low-speed final sector but was strong enough elsewhere to deny Ferrari a Friday-to-Saturday clean sweep.",
+                "The Race", src_kind="race"),
+            news_item(
+                "Mercedes back in the fight — via Antonelli",
+                "Championship leader Kimi Antonelli was right in the mix in third, just 0.129s off the pace, as Mercedes "
+                "recovered from a muted Friday. Team-mates filled P4–P6: Leclerc (who led the early runs) ahead of "
+                "Piastri and Russell, the latter half a second back with a big Turn 1 lock-up.",
+                "The Race", src_kind="race"),
+            news_item(
+                "Red Bull off the pace; Lindblad's precautionary swap",
+                "Max Verstappen could only manage seventh, three tenths clear of Hadjar (P8), as Red Bull struggled to "
+                "match the big-four. Arvid Lindblad sat out most of the session for a <strong>precautionary engine "
+                "change</strong>, squeezing in just two flying laps for 13th. Racing Bulls and Audi again "
+                "monopolised the midfield top-10 fight — Lawson narrowly ahead of Hulkenberg.",
+                "The Race", src_kind="race"),
+        ],
     }
 
     quote_highlights = (
@@ -170,7 +209,10 @@ def build_pages(ctx, env):
             "on the B-spec upgrade"), "bi-mic")
         + card("George Russell (Mercedes)", quote(
             "It's a huge load off my mind… now I can just focus on driving fast, on the simple things.",
-            "on the fixed deployment software"), "bi-mic")
+            "on the fixed deployment software") + quote(
+            "They've resurfaced a third of the track and unfortunately they've done a really bad job. It's really "
+            "bumpy… and the track's breaking up in the last corner.",
+            "on the Hungaroring surface after FP3"), "bi-mic")
         + card("Fred Vasseur (Ferrari)", quote(
             "So far, so good.", "summing up Friday — before pointing out Ferrari still has to ace qualifying")
         + '<p class="src">Ferrari topped both Friday sessions but hasn\'t converted to pole all season.</p>',
@@ -1137,6 +1179,10 @@ def build_pages(ctx, env):
              session="FP2", kind="note",
              fact="Deleted lap times — cars ran wide at Turns 1, 2, 3, 7, 9, 11, 12, 13 and 14.",
              outcome="Times deleted (Piastri, Perez, Colapinto, Hadjar, Bottas). Track limits are being policed at nine corners — watch Turn 4 and the final corner in qualifying."),
+        dict(doc="Doc 29", no="", driver="Multiple drivers", team="Track limits",
+             session="FP3", kind="note",
+             fact="Deleted lap times — cars ran wide at Turns 1, 3, 4, 7 and 14.",
+             outcome="Times deleted for a long list including Alonso, Stroll, Antonelli, Hadjar, Lawson, Leclerc, Hamilton, Piastri, Norris, Albon and Hulkenberg. Turns 1 and 4 the repeat offenders — expect deletions in qualifying."),
     ]
     pen_intro = ('<div class="callout"><strong>Nothing serious so far.</strong> One €400 fine (Hadjar, '
                  'pit-lane speeding), one warning (Sainz) and two "no further action" rulings from a pair of '
