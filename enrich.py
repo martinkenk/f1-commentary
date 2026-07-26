@@ -195,16 +195,21 @@ def f1_articles(limit=30):
     except Exception as e:
         print(f"  ! Formula1.com latest unavailable: {e}")
         return []
-    slugs = []
-    for m in re.findall(r"/en/latest/article/([a-z0-9-]+)", page):
-        if m not in slugs:
-            slugs.append(m)
+    # Capture the slug AND the trailing ID (article URLs are "<slug>.<id>"); the
+    # ID is required — the slug-only URL 404s, which used to make f1_body empty.
+    pairs = []
+    seen_slugs = set()
+    for slug, aid in re.findall(
+            r"/en/latest/article/([a-z0-9-]+)\.([A-Za-z0-9_-]+)", page):
+        if slug not in seen_slugs:
+            seen_slugs.add(slug)
+            pairs.append((slug, aid))
     out = []
-    for slug in slugs[:limit]:
+    for slug, aid in pairs[:limit]:
         title = slug.replace("-", " ").strip().capitalize()
         out.append({
             "title": title,
-            "url": f"https://www.formula1.com/en/latest/article/{slug}",
+            "url": f"https://www.formula1.com/en/latest/article/{slug}.{aid}",
             "when": "", "body": "", "source": "Formula1.com", "src_kind": "f1",
             "slug": slug,
         })
@@ -219,9 +224,20 @@ def f1_body(url):
     m = re.search(r'"articleBody"\s*:\s*"(.*?)"\s*[,}]', page, re.S)
     if m:
         return _strip(m.group(1).encode().decode("unicode_escape", "ignore"))[:6000]
-    paras = re.findall(r"<p[^>]*>(.*?)</p>", page, re.S)
-    text = " ".join(_strip(p) for p in paras if len(_strip(p)) > 40)
-    return text[:6000]
+    # F1.com gates most of the body behind "F1 Unlocked" login, but the lede
+    # paragraphs are in the static HTML. Keep sentence-like text, drop the
+    # site chrome / promos that also render as <p>.
+    _BOILER = ("opens in a new tab", "sign in", "subscribe", "f1 unlocked",
+               "download the official f1 app", "ultimate companion",
+               "world championship limited", "cookie", "newsletter",
+               "exclusive f1 content", "vip experiences")
+    keep = []
+    for p in re.findall(r"<p[^>]*>(.*?)</p>", page, re.S):
+        s = _strip(p)
+        low = s.lower()
+        if len(s) > 40 and "." in s and not any(b in low for b in _BOILER):
+            keep.append(s)
+    return " ".join(keep)[:6000]
 
 
 def _fmt_date(rfc):
@@ -254,7 +270,15 @@ def fia_decision_pdfs(ctx):
 
 
 def relevant(article, ctx):
-    hay = (article.get("title", "") + " " + article.get("url", "")).lower()
+    # Match the GP keywords against the headline, the URL slug **and** the body.
+    # Many weekend stories (driver/team angles) omit the GP name from the title
+    # but reference "Hungaroring"/"Hungarian" in the text — the body check keeps
+    # those without pulling in generic or other-GP news that never mentions it.
+    hay = " ".join((
+        article.get("title", ""),
+        article.get("url", ""),
+        article.get("body", ""),
+    )).lower()
     return any(k in hay for k in ctx["keywords"])
 
 

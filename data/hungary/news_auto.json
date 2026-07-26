@@ -1,15 +1,124 @@
 [
   {
-    "id": "b72805e582e1",
-    "url": "https://www.the-race.com/formula-1/aston-martin-flying-spare-parts-to-f1-hungarian-gp-for-upgraded-car/",
-    "title": "Aston Martin Upgrades AMR26 for Hungarian GP Amidst Challenges",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "24 Jul",
+    "id": "3525713ce58b",
+    "url": "https://www.formula1.com/en/latest/article/official-grid-who-starts-where-for-the-hungarian-grand-prix-2026.M8O8JJmpq3V29izYYaaRA",
+    "title": "2026 Hungarian Grand Prix Grid Positions Announced",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Lando Norris will start from pole position for the first time as reigning champion at the 2026 Hungarian Grand Prix, with Charles Leclerc alongside him on the front row. Lewis Hamilton, who qualified second, drops to fifth due to a three-place grid penalty.",
+      "Championship leader Kimi Antonelli also faces a three-place demotion, starting seventh. Sergio Perez will begin the race from the pit lane after set-up changes to his Cadillac during Parc Ferme conditions."
+    ]
+  },
+  {
+    "id": "838761d86f63",
+    "url": "https://www.formula1.com/en/latest/article/hamilton-braced-for-damage-limitation-in-hungarian-gp-as-grid-drop-fear-materialises.4dV28EhiovbRiiExvnTLNY",
+    "title": "Hamilton Prepares for Damage Limitation After Grid Penalty in Hungary",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Lewis Hamilton is gearing up for a race of 'damage limitation' after receiving a three-place grid penalty following Qualifying for the Hungarian Grand Prix. Hamilton qualified second but was found guilty of impeding Oscar Piastri, resulting in a drop to fifth on the grid.",
+      "In his post-Qualifying interview, Hamilton expressed disappointment at missing out on pole position and acknowledged the challenges ahead, stating, 'Tomorrow’s probably going to be damage limitation.' He congratulated Lando Norris on his performance and reflected on the session's difficulties."
+    ]
+  },
+  {
+    "id": "4b66996abacb",
+    "url": "https://www.formula1.com/en/latest/article/hulkenberg-concerned-by-bigger-gap-to-rivals-despite-trouble-free-qualifying-in-hungary.bI4w4zJfelFLYVcfuN1vA",
+    "title": "Hulkenberg Mixed on Qualifying Performance at Hungarian GP",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
     "kind": "general",
     "session": "",
     "paragraphs": [
-      "Aston Martin is sending spare parts to the Hungarian Grand Prix to ensure both drivers can utilize the upgraded AMR26 for qualifying. Despite a promising debut, Lance Stroll faced a suspension failure in FP1, limiting his track time. Fernando Alonso reported positive feedback on the upgrades, indicating the team is closing the gap to midfield rivals, although some vibrations were noted during sessions."
+      "Nico Hulkenberg qualified P10 for the Hungarian Grand Prix, expressing mixed feelings about the larger gap to his rivals despite a trouble-free session. His time of 1m 18.686s was slightly slower than his Q2 effort, leaving him cautious about the deficit to P9 and P8. Hulkenberg remains optimistic about competing with midfield teams during the race."
+    ]
+  },
+  {
+    "id": "4eff9bc772fd",
+    "url": "https://www.formula1.com/en/latest/article/f2-leon-wins-budapest-feature-race-as-camara-closes-points-gap.6jJ20dqD2b4IKhnLrXQ80M",
+    "title": "Noel Leon Wins F2 Feature Race in Budapest, Camara Closes Points Gap",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Noel Leon secured his first FIA Formula 2 Feature Race victory in Budapest, starting from third on the grid. He took the lead after a well-timed pit stop during a Virtual Safety Car period, holding off Rafael Camara and Kush Maini in the closing stages.",
+      "Maini finished second, marking his return to the podium, while Camara's third-place finish allowed him to narrow the points gap in the championship standings. Nikola Tsolov remains the points leader despite a recovery from a grid penalty."
+    ]
+  },
+  {
+    "id": "96c7ab5aa066",
+    "url": "https://www.formula1.com/en/latest/article/what-the-teams-said-qualifying-in-hungary-2026.3feA3778bfyv3miQvTeRha",
+    "title": "Norris Claims Pole in Thrilling Hungarian Qualifying",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Lando Norris secured pole position for the Hungarian Grand Prix after a dramatic qualifying session, narrowly beating Lewis Hamilton by just 0.012 seconds. Hamilton, who initially held provisional pole, received a three-place grid penalty for impeding Oscar Piastri, who will start fifth. Norris expressed confidence in his team's performance and acknowledged the challenge posed by Ferrari in the race.",
+      "Piastri, who showed promising pace throughout the session, was frustrated after his final lap was compromised by Hamilton. Both drivers and their team emphasized the progress made with new upgrades, while Hamilton remained hopeful of recovering positions during the race despite his penalty."
+    ]
+  },
+  {
+    "id": "0431eec988a5",
+    "url": "https://www.formula1.com/en/latest/article/f3-slater-beats-ugochukwu-to-victory-and-f3-championship-lead-in-budapest.59Q6iHosU2amuJQZnx54wp",
+    "title": "Slater Claims F3 Victory and Championship Lead in Budapest",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Freddie Slater secured his first Formula 3 victory in Budapest, overtaking Ugo Ugochukwu to take the championship lead. Slater, starting from P2, now leads Ugochukwu by eight points as they head into the summer break. Ugochukwu finished second after a strong drive from sixth, while Brando Badoer took third.",
+      "The race concluded the Budapest round of FIA Formula 3, with drivers set to return for a two-day test in Madrid on August 24-25, ahead of Round 8 in Monza from September 4-6."
+    ]
+  },
+  {
+    "id": "40ab821f43fb",
+    "url": "https://www.formula1.com/en/latest/article/why-stella-believes-hungary-pole-might-not-be-a-turning-point-for-mclaren.2zi8xzSN3H67plBJ2iiYFn",
+    "title": "Stella Cautious on McLaren's Hungary Pole Position Significance",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "McLaren's Team Principal Andrea Stella acknowledges Lando Norris's pole position at the Hungarian Grand Prix but remains cautious about its implications. He believes Ferrari still holds an advantage, particularly in corner grip, despite McLaren's recent upgrades. Stella emphasizes that while the upgrades improved performance, the pole may be an over-achievement due to optimal execution in challenging conditions."
+    ]
+  },
+  {
+    "id": "291a7ace200a",
+    "url": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-hungarian-gp.Gohmayw1MynzG8431rrxw",
+    "title": "Tactical Options for the Hungarian Grand Prix",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "At the Hungaroring, track position is often thought to be crucial, but historical data suggests otherwise. Since 2020, no driver has won from pole position, and only three drivers have achieved this in the last ten years."
+    ]
+  },
+  {
+    "id": "1ca4c246c9d8",
+    "url": "https://www.formula1.com/en/latest/article/what-to-watch-for-in-the-hungarian-grand-prix.2yzXpA5BLQBzJmROswimTr",
+    "title": "What to Watch for in the Hungarian Grand Prix",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Lando Norris and McLaren are facing a challenging season as defending champions, having yet to secure a victory this year. Fans will be keen to see if they can turn their fortunes around at the Hungarian Grand Prix."
     ]
   },
   {
@@ -23,6 +132,33 @@
     "session": "",
     "paragraphs": [
       "The Hungarian Grand Prix practice sessions highlighted key performances, with Ferrari's Charles Leclerc and Lewis Hamilton topping the sessions, while Mercedes struggled, with George Russell finishing fifth. Aston Martin faced challenges with Lance Stroll's suspension failure but showed potential with Fernando Alonso's performance. Lando Norris emerged as a strong contender, and Alpine struggled without upgrades, leaving them at the back of the midfield."
+    ]
+  },
+  {
+    "id": "388addf6542c",
+    "url": "https://www.the-race.com/formula-1/antonelli-penalised-for-failing-to-slow-enough-after-verstappen-spin/",
+    "title": "Antonelli Penalised for Yellow Flag Violation in Hungary Qualifying",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "25 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Kimi Antonelli, the championship leader, has received a three-place grid penalty for failing to slow sufficiently during yellow flags in Q3 of the Hungarian Grand Prix. Despite lifting off the throttle after Max Verstappen's spin, stewards determined his speed reduction was 'less than 1%'. Antonelli qualified fourth but will start seventh due to the penalty.",
+      "The stewards noted that while Antonelli did reduce his speed, it was deemed insufficient. He also received one penalty point on his superlicence, bringing his total to four in the last 12 months."
+    ]
+  },
+  {
+    "id": "4a8e2ea605ef",
+    "url": "https://www.the-race.com/formula-1/f1-rivals-envious-of-aston-martin-upgrade-gains/",
+    "title": "Aston Martin's Major Upgrade Stuns Rivals at Hungarian GP",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "25 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Aston Martin's significant upgrade to its AMR26 car has impressed rivals at the Hungarian Grand Prix, with Fernando Alonso advancing past Q1 for the first time this season. Competitors like Cadillac's Valtteri Bottas and Williams' Alex Albon expressed concern and admiration for Aston Martin's performance leap, which is rumored to be a two-second gain. Alonso noted that while the upgrade has shown promise, there is still potential to unlock in the car."
     ]
   },
   {
@@ -141,7 +277,21 @@
     "kind": "general",
     "session": "",
     "paragraphs": [
-      "Drivers are expressing concerns over the track surface at the Hungarian Grand Prix, describing it as a 'lottery' due to a significant bump at Turn 1 and inconsistent grip levels. George Russell criticized the resurfacing quality, while Lando Norris noted the difficulty in achieving a good lap. Other drivers echoed these sentiments, highlighting issues with the asphalt and calling for improvements to meet F1 standards."
+      "Drivers at the Hungarian Grand Prix have expressed concerns over a 'lottery' track surface, particularly a significant bump at Turn 1. George Russell criticized the resurfacing quality, while Lando Norris noted the difficulty in achieving consistent grip. Carlos Sainz and others echoed these sentiments, highlighting the poor conditions and the need for further analysis of the resurfacing work done compared to previous years."
+    ]
+  },
+  {
+    "id": "df9f69774bb7",
+    "url": "https://www.the-race.com/formula-1/cracked-engine-could-doom-george-russell-to-a-future-grid-penalty/",
+    "title": "Mercedes Evaluates Russell's Cracked Engine Ahead of Grid Penalty",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "26 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Mercedes is assessing whether George Russell's damaged engine from the Hungarian Grand Prix can be repaired to avoid a grid penalty after the summer break. Russell suffered a cracked sump, leading to a water leak that affected his rear tyres during Q3.",
+      "The team has already replaced the power unit, which was only recently fitted, but this marks the fourth engine Russell can use before facing penalties. A detailed analysis of the damaged engine will determine if it can be repaired, impacting both drivers' standings in the title race."
     ]
   }
 ]

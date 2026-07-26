@@ -467,11 +467,19 @@ def render_news(ctx, general_items, session_notes):
 
     out = []
     out.append('<h2 class="sec">Weekend headlines</h2>')
-    out.append('<p class="lead-note">General stories from around the paddock so far this weekend '
+    out.append('<p class="lead-note">Editor-curated stories from around the paddock so far this weekend '
                '(Formula1.com &amp; The Race). Refreshed every time the site is rebuilt.</p>')
-    general = list(general_items) + [_auto_news_card(c) for c in auto_general]
-    out.append(news_list(general) if general
+    out.append(news_list(general_items) if general_items
                else '<div class="callout watch">No general news collated yet.</div>')
+
+    # Auto-summarised wire feed in its own clearly-labelled block, so the curated
+    # analysis leads and the machine-summarised source links read as a supplement.
+    if auto_general:
+        out.append('<h2 class="sec">From the wires <span class="wire-tag">auto-summarised</span></h2>')
+        out.append('<p class="lead-note">Every other weekend article picked up automatically from '
+                   'Formula1.com &amp; The Race, summarised by an LLM. Each card links to the '
+                   'source so you can verify before air.</p>')
+        out.append(news_list([_auto_news_card(c) for c in auto_general]))
 
     out.append('<h2 class="sec">Session by session</h2>')
     if not done:
@@ -1230,6 +1238,9 @@ CSS += r"""
   border-radius:5px;padding:2px 6px;background:rgba(120,110,200,.16);border:1px solid rgba(140,130,220,.5);color:#b9b2ee}
 .news-src a{color:inherit;text-decoration:none}
 .news-src a:hover{text-decoration:underline}
+.wire-tag{display:inline-block;vertical-align:middle;margin-left:10px;font-size:10px;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;border-radius:5px;padding:2px 7px;
+  background:rgba(120,110,200,.16);border:1px solid rgba(140,130,220,.5);color:#b9b2ee}
 .sess-head{display:flex;align-items:center;gap:10px;margin:22px 0 10px}
 .sess-head .badge-done{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
   color:#fff;background:var(--hun-green);border-radius:6px;padding:2px 9px}

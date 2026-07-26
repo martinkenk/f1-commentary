@@ -466,6 +466,16 @@ def build_pages(ctx, env):
     </div>
 
     <h2 class="sec">Stint & strategy predictor</h2>
+    <div class="callout watch">
+      <strong>Post-qualifying strategy picture:</strong> the F1.com strategy guide punctures the
+      "track position is everything" cliché — there has been <strong>no winner from pole at the
+      Hungaroring since 2020</strong>, and only three in the last decade, so the front row is far from
+      decisive. Sunday is the <strong>hottest day of the weekend</strong>, which pushes teams toward the
+      two hardest compounds and keeps the one- vs two-stop call live. Two grid-shapers to flag:
+      <strong>Perez starts from the pit lane</strong> (parc fermé suspension change, FIA Doc 50), and
+      <strong>Russell takes a fresh power unit</strong> for race day (4th of the season, within
+      allocation, <em>no</em> penalty) — he gains a place from Antonelli's drop.
+    </div>
     <p class="lead-note">Best-guess race strategies for a 70-lap Hungarian GP based on the C3/C4/C5
       nomination, ~20.6&nbsp;s pit loss and typical Hungaroring degradation. Refine against FP2 long-run data.</p>
     <div class="strat-grid">
@@ -1311,7 +1321,8 @@ def build_pages(ctx, env):
                  'a 3-place penalty <em>plus a penalty point</em> for not slowing under yellows '
                  '(P4&nbsp;&rarr;&nbsp;P7) — promoting Piastri to P3 and Verstappen to P4. Antonelli also picked up a '
                  'warning for a slow in-lap. Add the earlier €400 fine (Hadjar), a Sainz warning and two FP1 '
-                 '"no further action" rulings; track limits policed hard all weekend.</div>'
+                 '"no further action" rulings; track limits policed hard all weekend. Post-qualifying, '
+                 '<strong>Perez is sent to the pit lane</strong> for a parc-fermé suspension change (FIA Doc 50).</div>'
                  '<p class="lead-note">Auto-updates from the FIA event documents each rebuild — grid penalties, '
                  'in-race time penalties and post-race decisions will appear here as they are published.</p>')
     PAGES["penalties"] = dict(
