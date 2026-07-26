@@ -83,6 +83,19 @@
     ]
   },
   {
+    "id": "dfb855ae3714",
+    "url": "https://www.formula1.com/en/latest/article/hungary-lowdown-all-the-key-moments-as-mclaren-win-again-russell-experiences-more-pain-and-ferrari-fall-back.4jn57FPqFeYQ1Q2GXGHrUU",
+    "title": "McLaren Triumphs at Hungarian GP as Russell Struggles and Ferrari Falters",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The 2026 Hungarian Grand Prix saw McLaren's Lando Norris secure his first win of the season, showcasing impressive pace throughout the weekend. Red Bull's Max Verstappen finished second after a challenging race, while Kimi Antonelli climbed to third despite a grid penalty. George Russell faced difficulties, finishing seventh, and Ferrari's promising start faded as Charles Leclerc and Lewis Hamilton ended up fourth and fifth, respectively."
+    ]
+  },
+  {
     "id": "4eff9bc772fd",
     "url": "https://www.formula1.com/en/latest/article/f2-leon-wins-budapest-feature-race-as-camara-closes-points-gap.6jJ20dqD2b4IKhnLrXQ80M",
     "title": "Noel Leon Wins F2 Feature Race in Budapest, Camara Closes Points Gap",
@@ -455,6 +468,19 @@
     "session": "",
     "paragraphs": [
       "Oscar Piastri expressed anger towards Carlos Sainz after a collision during the Hungarian Grand Prix, attributing it to Sainz's 'unacceptable' driving. Sainz defended himself, citing a malfunctioning blue flag system that hindered communication about being lapped. The incident led to a five-second penalty for Sainz, which was reduced due to mitigating circumstances. Mercedes boss Toto Wolff criticized the handling of backmarkers, calling for better communication from teams."
+    ]
+  },
+  {
+    "id": "22a6833b97b8",
+    "url": "https://www.the-race.com/formula-1/winners-losers-f1-2026-hungarian-grand-prix/",
+    "title": "Winners and Losers from the 2026 Hungarian Grand Prix",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "26 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Lando Norris claimed victory at the 2026 Hungarian Grand Prix, showcasing impressive pace throughout the race. Max Verstappen finished second, benefiting from a strategic tire choice by Red Bull, while Kimi Antonelli secured third place, extending his championship lead. Conversely, Oscar Piastri faced a disappointing DNF after a promising start, and Ferrari's performance fell short, finishing fourth and fifth despite expectations for a stronger showing."
     ]
   }
 ]
