@@ -293,5 +293,32 @@
       "Mercedes is assessing whether George Russell's damaged engine from the Hungarian Grand Prix can be repaired to avoid a grid penalty after the summer break. Russell suffered a cracked sump, leading to a water leak that affected his rear tyres during Q3.",
       "The team has already replaced the power unit, which was only recently fitted, but this marks the fourth engine Russell can use before facing penalties. A detailed analysis of the damaged engine will determine if it can be repaired, impacting both drivers' standings in the title race."
     ]
+  },
+  {
+    "id": "20b027903094",
+    "url": "https://www.the-race.com/formula-1/norris-takes-first-win-of-f1-title-defence-in-tense-hungarian-grand-prix/",
+    "title": "Norris Claims First Win of F1 Title Defence at Hungarian Grand Prix",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "26 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Lando Norris secured his first victory of the Formula 1 season at the Hungarian Grand Prix, marking a successful title defence for McLaren. After a tense race, Norris overcame early frustrations with teammate Oscar Piastri, who led until a gearbox failure forced him to retire with 14 laps remaining.",
+      "Max Verstappen capitalized on a virtual safety car to finish second for Red Bull, while Kimi Antonelli's strategic two-stop strategy earned him third. Lewis Hamilton and George Russell faced challenges, with Hamilton finishing fifth and Russell recovering to seventh after a poor start."
+    ]
+  },
+  {
+    "id": "49ceb07d43e1",
+    "url": "https://www.the-race.com/formula-1/f1-2026-hungarian-grand-prix-results/",
+    "title": "Norris Claims Victory at 2026 Hungarian Grand Prix",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "26 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Lando Norris secured his first victory of the 2026 Formula 1 season at the Hungarian Grand Prix, successfully defending his title. The race concluded after 70 laps, with Norris finishing ahead of Max Verstappen and Kimi Antonelli, who took second and third respectively, despite a five-second penalty for Lewis Hamilton."
+    ]
   }
 ]
