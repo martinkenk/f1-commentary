@@ -462,11 +462,22 @@ trigger is needed.
 **Curated content stays authoritative (anti-hallucination):** the engine
 (`f1lib.py`) *merges* the auto JSON into the curated pages — it never overwrites.
 - Auto **news** cards are deduped against curated stories by normalised `<h3>`
-  title; session-tagged cards drop into that session's block, the rest into
-  "Weekend headlines". Every auto card carries a **source link** + an **"auto"
-  badge** so a commentator can verify it live before saying it on air.
+  title; session-tagged cards drop into that session's block, the rest into a
+  clearly-labelled **"From the wires"** block *below* the curated headlines. Every
+  auto card carries a **source link** + an **"auto" badge** so a commentator can
+  verify it live before saying it on air.
 - Auto **penalties** are deduped by FIA document number; a hand-written row always
   wins over the auto one for the same doc.
+
+**Source coverage notes (`enrich.py`):**
+- **The Race** (full-text RSS) is the fuller source — the summariser gets the
+  whole article. **Formula1.com gates everything past the lede behind "F1
+  Unlocked" login**, so only the intro paragraphs are summarisable there (still
+  enough for a headline card). Two easy-to-miss bugs are fixed: F1.com article
+  URLs must keep their `.<id>` suffix (the slug-only URL 404s → empty body), and
+  relevance is matched against the article **body**, not just the title/URL, so
+  weekend stories that omit the GP name from the headline (e.g. a driver-focused
+  penalty or PU story) are still picked up while generic/other-GP news is not.
 
 **Run it locally:**
 ```bash
