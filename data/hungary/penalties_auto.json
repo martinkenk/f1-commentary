@@ -152,5 +152,16 @@
     "outcome": "Car 11 is therefore required to start the Race from the pit lane as per Article B3.5.3a of the FIA F1 Regulations.",
     "kind": "penalty",
     "source_pdf": "2026_hungarian_grand_prix_-_infringement_-_car_11_-_changes_made_under_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 60",
+    "no": "11",
+    "driver": "Sergio Perez",
+    "team": "Cadillac",
+    "session": "Race",
+    "fact": "Car 11 was out of position at Safety Car Line 1 during the formation lap.",
+    "outcome": "The Stewards issued a Warning to the driver.",
+    "kind": "warning",
+    "source_pdf": "2026_hungarian_grand_prix_-_infringement_-_car_11_-_starting_procedure_infringement.pdf"
   }
 ]
