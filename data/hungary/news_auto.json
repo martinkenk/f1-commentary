@@ -1,5 +1,18 @@
 [
   {
+    "id": "b72805e582e1",
+    "url": "https://www.the-race.com/formula-1/aston-martin-flying-spare-parts-to-f1-hungarian-gp-for-upgraded-car/",
+    "title": "Aston Martin Upgrades AMR26 for Hungarian GP Amidst Challenges",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "24 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Aston Martin is sending spare parts to the Hungarian Grand Prix to ensure both drivers can utilize the upgraded AMR26 for qualifying. Despite a promising debut, Lance Stroll faced a suspension failure in FP1, limiting his track time. Fernando Alonso reported positive feedback on the upgrades, indicating the team is closing the gap to midfield rivals, although some vibrations were noted during sessions."
+    ]
+  },
+  {
     "id": "297d0a39fe0e",
     "url": "https://www.the-race.com/formula-1/winners-losers-f1-2026-hungarian-gp-practice/",
     "title": "Winners and Losers from Hungarian GP F1 Practice",
@@ -116,6 +129,19 @@
     "session": "",
     "paragraphs": [
       "The 2026 Hungarian GP qualifying saw Lando Norris claim his first pole position of the season, while Aston Martin made significant strides with Fernando Alonso reaching Q2 for the first time this year. Mercedes faced challenges, with both drivers struggling for pace and Hamilton receiving a grid penalty. Max Verstappen also had a disappointing session, citing issues with his car's performance."
+    ]
+  },
+  {
+    "id": "75d832bc6e10",
+    "url": "https://www.the-race.com/formula-1/f1-drivers-concerned-over-lottery-track-surface-at-hungarian-gp/",
+    "title": "F1 Drivers Concerned Over 'Lottery' Track Surface at Hungarian GP",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "26 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Drivers are expressing concerns over the track surface at the Hungarian Grand Prix, describing it as a 'lottery' due to a significant bump at Turn 1 and inconsistent grip levels. George Russell criticized the resurfacing quality, while Lando Norris noted the difficulty in achieving a good lap. Other drivers echoed these sentiments, highlighting issues with the asphalt and calling for improvements to meet F1 standards."
     ]
   }
 ]

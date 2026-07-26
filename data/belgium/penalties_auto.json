@@ -1,1 +1,266 @@
-[]
+[
+  {
+    "doc": "Doc 13",
+    "no": "31",
+    "driver": "Esteban Ocon",
+    "team": "Haas",
+    "session": "",
+    "fact": "The driver was late attending the Thursday Press Conference.",
+    "outcome": "The competitor (TGR Haas F1 Team) is fined €5,000, which is suspended for a period of 12 months subject to there being no further breach of a similar nature.",
+    "kind": "fine",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_31_-_media_commitment.pdf"
+  },
+  {
+    "doc": "Doc 18",
+    "no": "34",
+    "driver": "Jak Crawford",
+    "team": "Aston Martin",
+    "session": "Free Practice 1",
+    "fact": "Car 34 exceeded the pit lane speed limit which is set at 80 km/h for this event by 0.1 km/h.",
+    "outcome": "The competitor (Aston Martin Aramco F1 Team) is fined €100.",
+    "kind": "fine",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_34_-_pit_lane_speeding.pdf"
+  },
+  {
+    "doc": "Doc 19",
+    "no": "55",
+    "driver": "Carlos Sainz",
+    "team": "Williams",
+    "session": "Free Practice 1",
+    "fact": "Crossing the white line at pit entry.",
+    "outcome": "Driver received a reprimand for the breach, which is his 1st reprimand of the season.",
+    "kind": "reprimand",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_55_-_crossing_the_white_line_at_pit_entry.pdf"
+  },
+  {
+    "doc": "Doc 20",
+    "no": "",
+    "driver": "Multiple drivers",
+    "team": "",
+    "session": "Free Practice 1",
+    "fact": "The F1 cars below did not use the track at turns 3, 4, 5, 6, 11 and 19.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International Sporting Code.",
+    "kind": "note",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 21",
+    "no": "6",
+    "driver": "Isack Hadjar",
+    "team": "Oracle Red Bull Racing",
+    "session": "Free Practice 1",
+    "fact": "The following Power Unit elements have been used: 5th Engine (ICE), 5th Turbocharger (TC), 5th Exhaust Set (EXH).",
+    "outcome": "The penalty is imposed in accordance with Article B8.2.8 of the FIA F1 Regulations, requiring the driver to start the Race from the back of the starting grid.",
+    "kind": "penalty",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_6_-_changes_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 22",
+    "no": "18",
+    "driver": "Lance Stroll",
+    "team": "Aston Martin",
+    "session": "Free Practice 1",
+    "fact": "The following Power Unit element has been used: 4th MGU-K.",
+    "outcome": "Drop of 10 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_18_-_change_to_pu_element.pdf"
+  },
+  {
+    "doc": "Doc 23",
+    "no": "1",
+    "driver": "Lando Norris",
+    "team": "McLaren",
+    "session": "Free Practice 1",
+    "fact": "The following Power Unit element has been used: 4th Control Electronics Unit (PU-CE).",
+    "outcome": "Drop of 10 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_1_-_change_to_pu_element.pdf"
+  },
+  {
+    "doc": "Doc 24",
+    "no": "16",
+    "driver": "Charles Leclerc",
+    "team": "Ferrari",
+    "session": "Practice 1",
+    "fact": "The Scuderia Ferrari HP team electronically returned two sets of dry-weather tyres for Car 16 but did not physically return them to the Appointed Tyre Supplier before the start of FP2.",
+    "outcome": "This is non-compliant with Article B6.4.2.",
+    "kind": "note",
+    "source_pdf": "2026_belgian_grand_prix_-_tyre_return_infringement.pdf"
+  },
+  {
+    "doc": "Doc 26",
+    "no": "",
+    "driver": "Multiple drivers",
+    "team": "",
+    "session": "Free Practice 2",
+    "fact": "The F1 cars did not use the track at turns 3, 4, 10, 11, 18 and 19.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International Sporting Code.",
+    "kind": "note",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 30",
+    "no": "27",
+    "driver": "Nico Hulkenberg",
+    "team": "Audi",
+    "session": "Free Practice 1",
+    "fact": "Failing to slow under double yellow flags.",
+    "outcome": "Driver received a reprimand for the infringement.",
+    "kind": "reprimand",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_27_-_failure_to_slow_under_double_yellow_flags.pdf"
+  },
+  {
+    "doc": "Doc 33",
+    "no": "16",
+    "driver": "Charles Leclerc",
+    "team": "Scuderia Ferrari",
+    "session": "Free Practice 2",
+    "fact": "The team failed to physically return electronically returned tyres to the appointed tyre supplier before the start of Free Practice 2.",
+    "outcome": "The competitor (Scuderia Ferrari HP) is fined €5,000.",
+    "kind": "fine",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_ferrari_-_car_16_return_of_tyres.pdf"
+  },
+  {
+    "doc": "Doc 34",
+    "no": "44",
+    "driver": "Lewis Hamilton",
+    "team": "Scuderia Ferrari",
+    "session": "Free Practice 2",
+    "fact": "The team failed to physically return electronically returned tyres to the appointed tyre supplier before the start of Free Practice 2.",
+    "outcome": "The competitor (Scuderia Ferrari HP) is fined €5,000.",
+    "kind": "fine",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_ferrari_-_car_44_return_of_tyres.pdf"
+  },
+  {
+    "doc": "Doc 37",
+    "no": "14",
+    "driver": "Fernando Alonso",
+    "team": "Aston Martin",
+    "session": "Free Practice 3",
+    "fact": "The following Power Unit elements have been used: 5th Energy Store (ES), 5th Control Electronics Unit (PU-CE), 7th Power Unit Ancillary Component (PU-ANC).",
+    "outcome": "The penalty is imposed in accordance with Article B8.2.8 of the FIA F1 Regulations, requiring the driver to start the Race from the back of the starting grid.",
+    "kind": "penalty",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_14_-_change_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 41",
+    "no": "",
+    "driver": "Multiple drivers",
+    "team": "",
+    "session": "Free Practice 3",
+    "fact": "The F1 cars below did not use the track at turns 4, 6, 9 and 19.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International Sporting Code.",
+    "kind": "note",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 42",
+    "no": "",
+    "driver": "Multiple drivers",
+    "team": "",
+    "session": "Free Practice 3",
+    "fact": "The F1 cars passed through a double waved yellow flag marshalling sector.",
+    "outcome": "The lap times set by the F1 cars that went through the double waved yellow flag zone will be deleted.",
+    "kind": "note",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_free_practice_3_double_yellow_flags_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 43",
+    "no": "55",
+    "driver": "Carlos Sainz",
+    "team": "Williams",
+    "session": "Free Practice 3",
+    "fact": "Alleged failing to slow under yellow flags.",
+    "outcome": "Decision No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_belgian_grand_prix_-_decision_-_car_55_-_alleged_failure_to_slow_for_double_yellow_flags_.pdf"
+  },
+  {
+    "doc": "Doc 44",
+    "no": "6",
+    "driver": "Isack Hadjar",
+    "team": "Oracle Red Bull Racing",
+    "session": "Free Practice 1",
+    "fact": "The following Power Unit elements have been used: 5th Engine (ICE), 5th Turbocharger (TC), 5th Exhaust Set (EXH).",
+    "outcome": "Drop of 30 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_belgian_grand_prix_-_corrected_infringement_-_car_6_-_changes_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 45",
+    "no": "14",
+    "driver": "Fernando Alonso",
+    "team": "Aston Martin",
+    "session": "Free Practice 3",
+    "fact": "The following Power Unit elements have been used: 5th Energy Store (ES), 5th Control Electronics Unit (PU-CE), 7th Power Unit Ancillary Component (PU-ANC).",
+    "outcome": "Drop of 20 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_belgian_grand_prix_-_corrected_infringement_-_car_14_-_change_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 54",
+    "no": "55",
+    "driver": "Carlos Sainz",
+    "team": "Atlassian Williams",
+    "session": "Qualifying",
+    "fact": "The following additional Power Unit element has been used: 4th Control Electronics Unit (PU-CE).",
+    "outcome": "Drop of 10 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_55_-_change_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 57",
+    "no": "44",
+    "driver": "Lewis Hamilton",
+    "team": "Scuderia Ferrari HP",
+    "session": "Race",
+    "fact": "Causing a collision with Car 63 in turn 5.",
+    "outcome": "5 second time penalty.",
+    "kind": "penalty",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_44_-_causing_a_collision_with_car_63_in_turn_5.pdf"
+  },
+  {
+    "doc": "Doc 59",
+    "no": "16",
+    "driver": "Charles Leclerc",
+    "team": "Scuderia Ferrari",
+    "session": "Race",
+    "fact": "Collision with Car 81 in turn 5.",
+    "outcome": "The Stewards determined to take no further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_belgian_grand_prix_-_decision_-_car_16_-_collision_with_car_81_in_turn_5.pdf"
+  },
+  {
+    "doc": "Doc 61",
+    "no": "",
+    "driver": "Multiple drivers",
+    "team": "",
+    "session": "Race",
+    "fact": "The F1 cars below did not use the track at turns 4, 6 and 19.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International Sporting Code.",
+    "kind": "note",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_race_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 63",
+    "no": "44",
+    "driver": "Lewis Hamilton",
+    "team": "Scuderia Ferrari HP",
+    "session": "Race",
+    "fact": "Unsafe release of car 44 from a pit stop.",
+    "outcome": "The competitor (Scuderia Ferrari HP) is fined €30,000 of which €10,000 is suspended for 12 months on condition that the Competitor does not commit a similar infringement in the meantime and submits a report to the FIA regarding the incident.",
+    "kind": "fine",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_ferrari_-_unsafe_release_of_car_44.pdf"
+  },
+  {
+    "doc": "Doc 64",
+    "no": "23",
+    "driver": "Alexander Albon",
+    "team": "Williams",
+    "session": "Reconnaissance Laps",
+    "fact": "Car 23 left the pit lane during the reconnaissance laps without functioning rear lights.",
+    "outcome": "Competitor received a reprimand for the breach of Article B1.5.5 of the FIA F1 Regulations.",
+    "kind": "reprimand",
+    "source_pdf": "2026_belgian_grand_prix_-_infringement_-_car_23_-_car_safety_lights_.pdf"
+  }
+]
