@@ -1,5 +1,19 @@
 [
   {
+    "id": "45235c876860",
+    "url": "https://www.formula1.com/en/latest/article/its-not-been-perfect-from-my-side-hamilton-despairs-of-costly-mistakes-in-hungarian-gp.7pHRjB2mLjsdiQJeefRpur",
+    "title": "Hamilton Reflects on Costly Mistakes at Hungarian GP",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Lewis Hamilton expressed frustration after finishing P5 at the Hungarian Grand Prix, following a three-place grid penalty for impeding another driver in qualifying. Despite starting P2, he faced setbacks during the race, including a five-second penalty for speeding in the pit lane. Hamilton acknowledged his mistakes and emphasized the need for improvement in the second half of the season.",
+      "Charles Leclerc also faced disappointment, starting on the front row but losing positions early on. He suggested a need for alternative strategies and noted that Ferrari's performance did not meet expectations despite a promising start."
+    ]
+  },
+  {
     "id": "b72805e582e1",
     "url": "https://www.the-race.com/formula-1/aston-martin-flying-spare-parts-to-f1-hungarian-gp-for-upgraded-car/",
     "title": "Aston Martin Upgrades Show Promise Ahead of Hungarian GP",
@@ -104,6 +118,19 @@
     "paragraphs": [
       "Malaysia will host a one-off Formula 1 race this season, named the Gulf Air Bahrain Grand Prix, at the Sepang circuit. This unusual arrangement comes as Bahrain covers costs due to safety concerns preventing its own grand prix from taking place. F1 CEO Stefano Domenicali expressed excitement about the return of racing to Malaysia, which last hosted F1 events from 1999 to 2017.",
       "The FIA's World Sport Council is expected to approve the race, while F1 is also monitoring the situation regarding the end-of-season races in Qatar and Abu Dhabi, with a decision needed by September."
+    ]
+  },
+  {
+    "id": "2e71171aab1b",
+    "url": "https://www.the-race.com/formula-1/dumb-driving-or-a-good-excuse-piastris-rage-at-sainz/",
+    "title": "Piastri and Sainz Clash Sparks Controversy at Hungarian GP",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "26 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Oscar Piastri expressed anger over Carlos Sainz's driving during the Hungarian Grand Prix, calling it 'unacceptable' after a blue flag malfunction led to a collision. Sainz defended his actions, citing confusion over the blue flags and a lack of communication from his team. Mercedes boss Toto Wolff criticized the handling of backmarkers, while Piastri's race was ultimately affected, leading to his retirement due to a gearbox failure."
     ]
   }
 ]
