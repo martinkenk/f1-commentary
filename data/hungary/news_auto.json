@@ -83,6 +83,20 @@
     ]
   },
   {
+    "id": "f2433156facb",
+    "url": "https://www.formula1.com/en/latest/article/its-been-a-long-time-coming-hulkenberg-reflects-on-scoring-first-points-for-audi-in-hungarian-gp.5JaHF3404ebIJQn5rbWhDm",
+    "title": "Hulkenberg Reflects on First Points for Audi in Hungary",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Nico Hulkenberg expressed relief after scoring his first points for Audi in the Hungarian Grand Prix, finishing P9. He utilized a two-stop strategy to overtake competitors in the closing laps, marking a significant achievement for the team in their debut F1 season. Audi now sits eighth in the Constructors' Championship, having scored points in three consecutive races.",
+      "Teammate Gabriel Bortoleto, who finished just outside the points in P11, praised the team's progress and acknowledged the challenges faced during the race, particularly with tire strategy."
+    ]
+  },
+  {
     "id": "dfb855ae3714",
     "url": "https://www.formula1.com/en/latest/article/hungary-lowdown-all-the-key-moments-as-mclaren-win-again-russell-experiences-more-pain-and-ferrari-fall-back.4jn57FPqFeYQ1Q2GXGHrUU",
     "title": "McLaren Triumphs at Hungarian GP as Russell Struggles and Ferrari Falters",
@@ -481,6 +495,33 @@
     "session": "",
     "paragraphs": [
       "Lando Norris claimed victory at the 2026 Hungarian Grand Prix, showcasing impressive pace throughout the race. Max Verstappen finished second, benefiting from a strategic tire choice by Red Bull, while Kimi Antonelli secured third place, extending his championship lead. Conversely, Oscar Piastri faced a disappointing DNF after a promising start, and Ferrari's performance fell short, finishing fourth and fifth despite expectations for a stronger showing."
+    ]
+  },
+  {
+    "id": "3d972e974060",
+    "url": "https://www.the-race.com/formula-1/ferrari-big-opportunity-wasted-f1-hungarian-gp/",
+    "title": "Ferrari's Missed Opportunity at Hungarian Grand Prix",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "27 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Ferrari team principal Fred Vasseur expressed frustration over the team's performance at the Hungarian Grand Prix, citing 'poor' execution and 'too many mistakes' as key issues. Despite outscoring Mercedes by one point, Vasseur noted that much more was expected from the SF-26, especially after a strong showing in practice. Drivers Charles Leclerc and Lewis Hamilton both faced challenges, with Leclerc highlighting the car's inconsistency and Hamilton reflecting on strategic missteps."
+    ]
+  },
+  {
+    "id": "8e420ee06ade",
+    "url": "https://www.the-race.com/formula-1/lewis-hamilton-f1-2026-penalties-stewards/",
+    "title": "Hamilton's Penalty Woes Continue at Hungarian Grand Prix",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "27 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Lewis Hamilton has expressed the need to avoid giving the FIA stewards reasons for penalties after receiving his fourth sanction in three races at the Hungarian Grand Prix. He was penalized for speeding in the pitlane, dropping him from fourth to fifth place. Hamilton acknowledged his mistakes and emphasized the importance of not putting himself in situations that lead to penalties.",
+      "Team principal Fred Vasseur noted that Hamilton's speeding violation was marginal, suggesting it stemmed from a series of errors during the pit stop. Hamilton's recent penalties include a jump start at Silverstone and a collision in Belgium, but he does not believe there is a campaign against him."
     ]
   }
 ]
