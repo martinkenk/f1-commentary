@@ -83,6 +83,19 @@
     ]
   },
   {
+    "id": "5b931870213e",
+    "url": "https://www.formula1.com/en/latest/article/hondas-updated-power-unit-debuts-during-aston-martin-filming-day-at-hungaroring.2Q8yfGbITLLboMBt7Y0ray",
+    "title": "Hondas updated power unit debuts during aston martin filming day at hungaroring",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Honda’s new-specification power unit has run on-track for the first time during an Aston Martin filming day in Hungary, in preparation for its planned race debut at the Dutch Grand Prix. It is due to complement a major car upgrade package introduced by Aston Martin at last weekend’s Budapest round, with the AMR26 absorbing no fewer than 16 developments . Those changes helped Fernando Alonso secure"
+    ]
+  },
+  {
     "id": "4b66996abacb",
     "url": "https://www.formula1.com/en/latest/article/hulkenberg-concerned-by-bigger-gap-to-rivals-despite-trouble-free-qualifying-in-hungary.bI4w4zJfelFLYVcfuN1vA",
     "title": "Hulkenberg Mixed on Qualifying Performance at Hungarian GP",
@@ -321,6 +334,19 @@
     "session": "",
     "paragraphs": [
       "At the Hungaroring, track position is often thought to be crucial, but historical data suggests otherwise. Since 2020, no driver has won from pole position, and only three drivers have achieved this in the last ten years."
+    ]
+  },
+  {
+    "id": "c67a4f19841a",
+    "url": "https://www.formula1.com/en/latest/article/three-drivers-in-action-at-pirelli-test-in-hungary-for-development-of-2027-tyres.6ISbKVZffqSPZLNSBZsMTD",
+    "title": "Three drivers in action at pirelli test in hungary for development of 2027 tyres",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Three drivers and teams have stayed on at the Hungaroring to take part in a Pirelli tyre test, with the programme focused on development of the 2027 compounds. While many in the paddock have embarked on F1’s summer break in the days after the Hungarian Grand Prix, Franco Colapinto and Gabriel Bortoleto are two of those still on track for Alpine and Audi respectively for tyre testing. Aston Martin"
     ]
   },
   {
@@ -685,6 +711,45 @@
     ]
   },
   {
+    "id": "ee3b3579110a",
+    "url": "https://www.the-race.com/formula-1/ferrari-begun-trial-of-mercedes-f1-qualifying-trick/",
+    "title": "Ferrari's begun trial of Mercedes F1 qualifying trick",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "28 Jul",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Ferrari has begun testing Mercedes' Formula 1 qualifying lift-off trick in a bid to help boost its challenge for pole positions. As first revealed by The Race , Mercedes has found a clever way to get around F1's ramp down rates to unleash maximum energy deployment across the timing line on qualifying laps. This means its drivers can enjoy a brief top speed boost at the end of a lap because they ar"
+    ]
+  },
+  {
+    "id": "e2f5ae0b8a72",
+    "url": "https://www.the-race.com/formula-1/mclaren-race-winning-f1-upgrade-explained/",
+    "title": "Gary Anderson on McLaren's 2026 race-winning F1 upgrade",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "28 Jul",
+    "kind": "session",
+    "session": "Race",
+    "paragraphs": [
+      "The upgrade that helped Lando Norris win Formula 1's Hungarian Grand Prix is part of what McLaren team principal Andrea Stella characterises as the need to “correct the course” with its 2026 car. The team is playing catch-up as pushing to the end of last year to ensure it won both the drivers’ and constructors’ championship put it on the back foot. On the positive side, it has also allowed them to"
+    ]
+  },
+  {
+    "id": "f52122b3de33",
+    "url": "https://www.the-race.com/formula-1/unlikely-best-f1-driver-hungarian-gp-we-debate-our-rankings/",
+    "title": "The unlikely best driver of F1's Hungarian GP weekend",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "28 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "A driver who qualified and finished 12th appears on the surface to be a strange pick for the best Formula 1 driver of the Hungarian Grand Prix weekend. But Edd Straw's driver rankings have never been about the results on paper; instead, they look beyond the machinery to pick out the real best performers across the whole weekend. It's why they always create so much discussion, and as ever, Edd tack"
+    ]
+  },
+  {
     "id": "485349271b65",
     "url": "https://www.the-race.com/formula-1/f1-calendar-chaos-2027-2026-middle-east-imola-planned-dates/",
     "title": "The latest on F1 calendar chaos and 2027 season opener",
@@ -760,6 +825,19 @@
     "session": "",
     "paragraphs": [
       "It's hard to know whether the Formula 1 summer break comes as welcome relief to Williams, or is simply four weeks away from the track that only prolongs its pain. Williams surely heads into this gap in the worst mood of any team. Cadillac, though now on its own at the back, has made an assured fist of its first half-season in F1; Aston Martin is far from out of the woods but boy did its Hungarian"
+    ]
+  },
+  {
+    "id": "2fb250342975",
+    "url": "https://www.the-race.com/business/us-gp-chief-theory-for-f1-ticket-sales-boom/",
+    "title": "US GP chief's theory for F1 ticket sales boom",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "31 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "United States Grand Prix boss Bobby Epstein says he has seen no evidence of fans being turned off by the 2026 rules – and has a fascinating theory about why Formula 1’s ticket sales are still booming. Despite this year’s new regulations being controversial off the back of criticism from drivers, they do not appear to have dimmed interest from those wanting to attend races. Epstein, who is chairman"
     ]
   }
 ]
