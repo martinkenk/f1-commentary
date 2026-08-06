@@ -30,66 +30,130 @@ The old single-file generator was split into a reusable engine + per-GP content 
 new races are cheap to add and re-runs are trivial:
 
 ```
-build.py            ← thin driver: registers each GP (metadata, sessions, sources)
-                       and calls f1lib.build_all([...])
+calendar.py         ← season scraper: session times, circuit stats, track maps
+                       -> data/calendar_<year>.json + assets_src/track-<slug>.png
+circuits.py         ← per-venue reference data: coordinates, character, corners,
+                       overtaking, tyre notes, lap records, talking points
+build.py            ← driver: turns the calendar into a GP dict per round and
+                       calls f1lib.build_all([...])
 f1lib.py            ← engine: HTML shell, CSS, weather, live results, index, build loop
+content_generic.py  ← default page prose for any GP without a bespoke module
 content_hungary.py  ← Hungary page prose  (def build_pages(ctx, env) -> {slug: page})
 content_belgium.py  ← Belgium page prose  (same shape)
 assets_src/         ← source images (circuit maps); copied to site/assets/ on build
 site/               ← generated output (git-ignore or publish this)
-  index.html                 ← multi-GP hub
+  index.html                 ← season calendar + GP cards
   <gpdir>/*.html             ← 17 subpages per GP
   assets/style.css, *.png
 ```
 
-**One GP = one dict in `build.py` + one `content_<gp>.py` module.** The engine never
-changes when you add a race.
+**The whole remaining season is built automatically.** `build.py` reads
+`data/calendar_2026.json` and registers every round from `FIRST_ROUND` onwards, so
+adding a race is not a manual step at all — it is already there. A race only needs a
+bespoke `content_<gp>.py` when you want hand-written prose; register it in the
+`BESPOKE` dict and it takes over from `content_generic`.
+
+### Progressive disclosure
+A round months away still has a circuit, session times, a format and a history, and
+those render immediately. Everything else — tyre allocation, rookie FP1 line-ups,
+upgrade filings, the FIA power-unit map, results — renders as an explicit
+*"not published yet — fills in automatically"* callout instead of a gap or a guess.
+Each rebuild picks up whatever has since appeared, so pages complete themselves as
+the weekend approaches. Nothing needs editing to make that happen.
 
 Design: Bootstrap 5.3 + Bootstrap Icons + Titillium Web font, dark theme, F1-red
 (`#e10600`) accents, mobile offcanvas sidebar, lightbox for the circuit map.
 
-**Times rule:** show **circuit-local time + Tallinn / EEST only** (Tallinn = local +
-`tz_offset`, which is +1h while both are on summer time). No UK/US columns.
+**Times rule:** show **circuit-local time + Tallinn only** (Tallinn = local +
+`tz_offset`). No UK/US columns. `tz_offset` is computed per event in `build.py` from
+the GMT offset F1 publishes for the race day, against Tallinn's own offset (EEST,
+UTC+3, until 25 Oct 2026; EET, UTC+2, after). Fly-away rounds regularly land on a
+different **date** in Tallinn — every Las Vegas session does — so the engine tags
+those cells with a red `+1d` marker and shifts the weather lookup to match.
 
 ---
 
-## 1. The GP context dict (`build.py`)
+## 1. The season calendar and the GP context dict
 
-Each GP is a plain dict. Copy an existing one (e.g. `HUNGARY`) and edit:
+### Refreshing the calendar
+`calendar.py` is the only step that needs the network *before* a build. It scrapes
+Formula1.com for every round of the season and writes `data/calendar_<year>.json`,
+downloading the official detailed track map for each venue into `assets_src/`:
+
+```bash
+python3 calendar.py            # ~30s, 23 events + 23 track maps
+```
+
+Re-run it whenever F1 confirms more detail (session times and lap counts for later
+rounds do change). CI runs it automatically on Mondays and on manual dispatch, and
+commits any changes back to `main`. `build.py` itself never touches the network for
+calendar data — it just reads the JSON, which keeps builds fast and offline-safe.
+
+Each event records: round number (derived from **race-date chronology**, because
+Formula1.com's page order is scrambled), session labels/dates/times/GMT offsets,
+sprint flag, circuit length, laps, race distance, first Grand Prix, `race_id` and
+`results_slug` for live results, and the track-map asset name. Fields that F1 has not
+published yet are stored empty on purpose and render as "to be confirmed".
+
+### Per-venue reference data
+`circuits.py` holds what the scrape cannot give you: **coordinates** (these drive the
+weather forecast, so they need to be accurate), the local-time label, and the
+commentary material — circuit character, key corners, where the passes happen, tyre
+behaviour, DRS zone count, lap record, trivia and storylines. Add an entry keyed by
+the Formula1.com racing slug before a new venue can render a useful page.
+
+### The GP context dict
+`build.py` builds one of these per round from the calendar plus `circuits.py`; you do
+not normally write them by hand:
 
 ```python
-HUNGARY = {
-    "name": "Hungarian Grand Prix", "year": "2026", "flag": "🇭🇺",
-    "circuit": "Hungaroring, Budapest", "round": "Round 14 of 24", "dir": "hungary",
-    "lat": 47.5789, "lon": 19.2486,                 # for the weather API
-    "tz_local": "Budapest (CEST)", "tz_east": "Tallinn (EEST)", "tz_offset": 1,
-    "sessions": [                                    # (label, "Fri 24 Jul", ISO date, local HH:MM)
-        ("Practice 1", "Fri 24 Jul", "2026-07-24", "13:30"),
-        ("Qualifying", "Sat 25 Jul", "2026-07-25", "16:00"),
-        ("Race",       "Sun 26 Jul", "2026-07-26", "15:00"),
+{
+    "name": "Dutch Grand Prix", "year": "2026", "flag": "🇳🇱",
+    "circuit": "Circuit Zandvoort", "round": "Round 12 of 23", "dir": "netherlands",
+    "lat": 52.3888, "lon": 4.5409,                  # from circuits.py, for weather
+    "tz_local": "Zandvoort (CEST)", "tz_east": "Tallinn (EEST)", "tz_offset": 1,
+    "sessions": [                                    # (label, "Fri 21 Aug", ISO date, local HH:MM)
+        ("Practice 1",        "Fri 21 Aug", "2026-08-21", "12:30"),
+        ("Sprint Qualifying", "Fri 21 Aug", "2026-08-21", "16:30"),
+        ("Race",              "Sun 23 Aug", "2026-08-23", "15:00"),
     ],
-    "race_id": "1291", "results_slug": "hungary",    # for live Formula1.com results
-    "nav": nav("Hungaroring"),                       # shared 17-item sidebar
-    "pages": content_hungary.build_pages,            # the content module
+    "race_id": "1293", "results_slug": "netherlands",  # live Formula1.com results
+    "cal": {...}, "ref": {...},                        # calendar event + circuits.py entry
+    "nav": nav("Circuit Zandvoort"),                   # shared 17-item sidebar
+    "pages": content_generic.build_pages,              # or a bespoke module
 }
 ```
 
-Then register it: `f1lib.build_all([HUNGARY, BELGIUM, ...])`.
+Knobs in `build.py`:
 
-The shared `nav(circuit_label)` helper defines the 13 sidebar slugs. **`results` is
-special** — the engine builds that page itself from live data, so content modules do
-**not** author a `results` page. All other slugs must be returned by `build_pages`.
-(The rendered sidebar shows 14 links = 13 pages + an "All Grands Prix" home link.)
+- `FIRST_ROUND` — the earliest round to build. Lower it to backfill finished races.
+- `BESPOKE` — `{slug: build_pages}` for races with hand-written prose.
+- `LATEST_STANDINGS` — championship tables carried into generic pages until each
+  race supplies its own.
+
+The shared `nav(circuit_label)` helper defines the 17 sidebar slugs. **Five are
+auto-built by the engine** — `results`, `news`, `h2h`, `reliability` and `penalties` —
+so content modules do not author them. All other slugs must be returned by
+`build_pages`.
+
+### Fetch gating (why a 14-GP build still takes ~12s)
+`f1lib.prepare()` classifies each event as `past`, `live` or `future` from its session
+dates and skips work that cannot produce anything:
+
+- **Future events**: no result fetches at all (nothing has run).
+- **More than 16 days out**: no weather fetch (beyond Open-Meteo's forecast horizon).
+
+Without this, a full season would fire roughly 300 pointless HTTP requests per build.
 
 ### Finding `race_id` / `results_slug`
-Formula1.com results live at:
+`calendar.py` resolves these automatically from the Formula1.com results index. They
+appear in the URL:
 ```
 https://www.formula1.com/en/results/<year>/races/<race_id>/<results_slug>/<endpoint>
 ```
-Open the race's results page on Formula1.com and read `race_id` (a number, e.g.
-Hungary 2026 = `1291`, Belgium = `1290`) and the slug from the URL. If you can't find
-them yet (early in the week), leave the results page empty — it will simply say "no
-sessions completed" until the data exists, and fill in on the next rebuild.
+Note the racing slug and the results slug differ for some events (Abu Dhabi is
+`united-arab-emirates` for racing pages, `abu-dhabi` for results); `RESULTS_SLUG_FIX`
+in `calendar.py` handles the exceptions.
 
 ---
 
@@ -369,16 +433,34 @@ Stop the temp server: `lsof -ti tcp:8770` → `kill <pid>` (numeric PID required
 
 ---
 
-## 7. Adding the next GP (summary)
+## 7. Running this before a Grand Prix (summary)
 
-1. Composite its **2026** circuit map onto white → `assets_src/<circuit>_circuit_map_2026.png` (§2d).
-2. Scrape its sources (§2) and note `race_id` / `results_slug` (§1).
-3. Add a `content_<gp>.py` with `build_pages(ctx, env)` (§5), grounded in the scrape.
-4. Add the GP dict in `build.py`, `import content_<gp>`, and include it in `build_all([...])`.
+Every remaining round of the season already exists in the hub, so the normal
+pre-weekend routine is short:
+
+```bash
+python3 calendar.py     # only if session details may have changed (CI does this Mondays)
+python3 enrich.py       # LLM: new articles + FIA decisions for the active window
+python3 build.py        # rebuild everything; verify per §6
+```
+
+That alone gives a usable page set: circuit guide with the official map, session times
+in both zones, weather once inside the 16-day window, the power-unit explainer, facts,
+history, and auto-collected news, results, head-to-head, reliability and penalties.
+
+**To promote a round to bespoke treatment** (worth it for the race you are actually
+commentating):
+
+1. Check `circuits.py` has a rich entry for the venue — that alone lifts every generic
+   page.
+2. Scrape its sources (§2) and, if you want a curated map, composite the **2026**
+   circuit map onto white → `assets_src/<circuit>_circuit_map_2026.png` (§2d).
+3. Write `content_<gp>.py` with `build_pages(ctx, env)` (§5), grounded in the scrape.
+4. Register it in `BESPOKE` in `build.py` and `import content_<gp>`.
 5. `python3 build.py` and verify (§6).
 
 The engine, CSS, sidebar structure, weather and results machinery are all reused
-unchanged.
+unchanged. A bespoke module only has to return the 12 non-auto pages.
 
 ---
 
@@ -489,10 +571,18 @@ python3 build.py        # merges data/<gp>/*.json into the pages
 ```
 (`enrich.py` needs `pypdf`; `build.py` stays stdlib-only and just reads the JSON.)
 
-**In CI (`deploy.yml`):** an "Auto-enrich" step (`pip install pypdf` +
+**Active window (important now the whole season is registered):** `enrich.py`
+only processes the weekend currently running, the race that just finished, and the
+next round once it is within 10 days. Enriching all 14 registered GPs would waste
+tokens on races with no coverage yet and — worse — file general 2026 stories against a
+Grand Prix they have nothing to do with. Override with `--all`, or target one race
+with `--gp <dir>`.
+
+**In CI (`deploy.yml`):** a "Refresh season calendar" step runs `calendar.py` on
+Mondays and manual dispatches, then "Auto-enrich" (`pip install pypdf` +
 `python3 enrich.py`, `continue-on-error: true` so a model outage can't break the
-deploy) runs before the build, then a "Persist enrichment data" step commits
-`data/` back to `main` with the default `GITHUB_TOKEN`. That push **does not**
+deploy) runs before the build, then "Persist enrichment data" commits `data/` and
+`assets_src/` back to `main` with the default `GITHUB_TOKEN`. That push **does not**
 retrigger the workflow (GitHub suppresses `GITHUB_TOKEN`-authored pushes), so
 there is no loop — and `_seen.json` persists to make the next run incremental.
 

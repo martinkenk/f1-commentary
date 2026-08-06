@@ -14,6 +14,10 @@ OUT = os.path.join(ROOT, "site")
 BUILD_STAMP = datetime.datetime.now().strftime("%a %d %b %Y, %H:%M")
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Safari/537.36")
+# How far ahead Open-Meteo's forecast reaches. Beyond this a weather request
+# just returns nothing, so a full-season build skips it rather than paying for
+# a round trip per session.
+WEATHER_HORIZON_DAYS = 16
 
 
 # --------------------------------------------------------------------------
@@ -111,6 +115,27 @@ def _hours_offset(hhmm, hours):
     return f"{(h + hours) % 24:02d}:{m:02d}"
 
 
+def _east(date, hhmm, hours):
+    """Circuit-local date/time -> Eastern European (Tallinn) date/time.
+
+    Returns ``(iso_date, "HH:MM", day_delta)``. The day delta matters: a Las
+    Vegas session at 20:00 local is 06:00 the *following* morning in Tallinn, so
+    both the on-screen time and the weather lookup have to move with it.
+    """
+    h, m = map(int, hhmm.split(":"))
+    base = datetime.datetime.fromisoformat(f"{date}T{h:02d}:{m:02d}")
+    east = base + datetime.timedelta(hours=hours)
+    return east.date().isoformat(), east.strftime("%H:%M"), (east.date() - base.date()).days
+
+
+def _east_cell(date, hhmm, hours):
+    """Tallinn time for a table cell, flagged when it falls on another day."""
+    _d, t, delta = _east(date, hhmm, hours)
+    if delta:
+        return f'{t} <span class="daymark">{delta:+d}d</span>'
+    return t
+
+
 def _fetch_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=15) as r:
@@ -135,19 +160,20 @@ def fetch_weather(ctx):
         except ValueError:
             continue
         past = d < today
-        th, _tm = map(int, _hours_offset(local_hhmm, off).split(":"))
-        key = f"{date}T{th:02d}:00"
+        east_date, east_hhmm, _delta = _east(date, local_hhmm, off)
+        th = int(east_hhmm.split(":")[0])
+        key = f"{east_date}T{th:02d}:00"
         try:
             if past:
                 url = ("https://archive-api.open-meteo.com/v1/archive"
                        f"?latitude={lat}&longitude={lon}"
                        "&hourly=temperature_2m,precipitation,weathercode,wind_speed_10m"
-                       f"&timezone={tz}&start_date={date}&end_date={date}")
+                       f"&timezone={tz}&start_date={east_date}&end_date={east_date}")
             else:
                 url = ("https://api.open-meteo.com/v1/forecast"
                        f"?latitude={lat}&longitude={lon}"
                        "&hourly=temperature_2m,precipitation_probability,weathercode,wind_speed_10m"
-                       f"&timezone={tz}&start_date={date}&end_date={date}")
+                       f"&timezone={tz}&start_date={east_date}&end_date={east_date}")
             data = _fetch_json(url)
             H = data["hourly"]
             if key not in H["time"]:
@@ -178,10 +204,10 @@ def fetch_weather(ctx):
 def schedule_rows(ctx):
     off = ctx.get("tz_offset", 1)
     rows = []
-    for name, wd, _date, local in ctx["sessions"]:
+    for name, wd, date, local in ctx["sessions"]:
         rows.append(
             f"<tr><td>{name}</td><td>{wd}</td>"
-            f"<td>{local}</td><td>{_hours_offset(local, off)}</td></tr>"
+            f"<td>{local}</td><td>{_east_cell(date, local, off)}</td></tr>"
         )
     return "\n".join(rows)
 
@@ -196,7 +222,7 @@ def weather_cards(ctx):
             "the per-session forecast/actuals.</div>"
         )
     cards = []
-    for name, wd, _date, local in ctx["sessions"]:
+    for name, wd, date, local in ctx["sessions"]:
         w = weather.get(name)
         if not w:
             continue
@@ -206,7 +232,7 @@ def weather_cards(ctx):
         tag = "actual" if w["actual"] else "forecast"
         cards.append(f"""<div class="wx-card {cls}">
       <div class="wx-head"><i class="bi {w['icon']}"></i> {name} <span class="wx-tag">{tag}</span></div>
-      <div class="wx-day">{wd} · {local} / {_hours_offset(local, off)}</div>
+      <div class="wx-day">{wd} · {local} / {_east_cell(date, local, off)}</div>
       <div class="wx-temp">{w['temp']}°C</div>
       <div class="wx-desc">{w['desc']}</div>
       <div class="wx-meta"><span><i class="bi bi-droplet"></i> {w['pop_txt']}</span>
@@ -882,23 +908,73 @@ document.addEventListener('keydown',function(e){{
 # Multi-GP landing index
 # --------------------------------------------------------------------------
 def render_index(gps):
-    cards = []
+    """Landing page: a season calendar with the next race highlighted.
+
+    With a full season registered a flat grid of cards stops being useful, so
+    events are grouped into completed, current and upcoming and the one to open
+    next is called out explicitly.
+    """
+    today = datetime.date.today()
     for ctx in gps:
+        ctx.setdefault("status", event_status(ctx, today))
+
+    live = [c for c in gps if c["status"] == "live"]
+    upcoming = [c for c in gps if c["status"] == "future"]
+    past = [c for c in gps if c["status"] == "past"]
+    highlight = (live or upcoming or past[-1:] or gps)[0] if gps else None
+
+    def gp_card(ctx, badge=""):
         first = ctx["nav"][0][1]
-        cards.append(f"""<a class="gp-card" href="{ctx['dir']}/{first}">
+        cls = "gp-card" + (" gp-now" if ctx is highlight else "")
+        tag = f'<span class="gp-badge">{badge}</span>' if badge else ""
+        return f"""<a class="{cls}" href="{ctx['dir']}/{first}">
       <div class="flag">{ctx['flag']}</div>
-      <h3>{ctx['name']} {ctx['year']}</h3>
+      <h3>{ctx['name']} {ctx['year']}{tag}</h3>
       <div class="meta">{ctx['circuit']} · {ctx['round']}</div>
       <div class="go">Open weekend hub <i class="bi bi-arrow-right"></i></div>
-    </a>""")
+    </a>"""
+
+    def row(ctx):
+        first = ctx["nav"][0][1]
+        when = ctx.get("race_date", "")
+        try:
+            when = datetime.date.fromisoformat(when).strftime("%a %d %b")
+        except (ValueError, TypeError):
+            pass
+        state = {"past": "Completed", "live": "Under way", "future": "Upcoming"}[ctx["status"]]
+        sprint = ' <span class="gp-badge">Sprint</span>' if (ctx.get("cal") or {}).get("is_sprint") else ""
+        return (f'<tr class="cal-{ctx["status"]}"><td class="pos">{ctx.get("round_no", "")}</td>'
+                f'<td>{ctx["flag"]} <a href="{ctx["dir"]}/{first}">{ctx["name"]}</a>{sprint}</td>'
+                f'<td>{ctx["circuit"]}</td><td>{when}</td><td>{state}</td></tr>')
+
+    sections = []
+    if live:
+        sections.append('<h2 class="sec">This weekend</h2>'
+                        f'<div class="gp-grid">{"".join(gp_card(c, "Live") for c in live)}</div>')
+    if upcoming:
+        nxt = upcoming[:3]
+        sections.append('<h2 class="sec">Next up</h2>'
+                        f'<div class="gp-grid">{"".join(gp_card(c) for c in nxt)}</div>')
+    if past:
+        sections.append('<h2 class="sec">Completed</h2>'
+                        f'<div class="gp-grid">{"".join(gp_card(c) for c in reversed(past))}</div>')
+
     body = f"""
-    <div class="gp-grid">{''.join(cards)}</div>
+    {''.join(sections)}
+
+    <h2 class="sec">Season calendar</h2>
+    <div class="tablewrap"><table class="tbl cal-tbl">
+      <thead><tr><th>Rd</th><th>Grand Prix</th><th>Circuit</th><th>Race day</th><th>Status</th></tr></thead>
+      <tbody>{''.join(row(c) for c in gps)}</tbody>
+    </table></div>
 
     <div class="callout" style="margin-top:26px">
       <strong>How to use this hub:</strong> pick a Grand Prix, then a section from the
       left sidebar. Everything is collated and summarised for live commentary from
       Formula1.com, The Race and the official FIA documents. Session <strong>results</strong>
-      and <strong>weather</strong> refresh every time the build is rerun across the weekend.
+      and <strong>weather</strong> refresh every time the build is rerun across the weekend,
+      and pages for future rounds fill themselves in as tyre allocations, rookie line-ups,
+      upgrade filings and FIA documents are published.
     </div>
     """
     nav_items = "\n".join(
@@ -1166,6 +1242,8 @@ h2.sec{font-weight:800;font-size:24px;margin:30px 0 14px;padding-bottom:6px;bord
 .wx-head i{color:var(--f1-red);font-size:22px}
 .wx-card.wx-wet .wx-head i{color:#5b9bff}
 .wx-day{color:var(--muted);font-size:12px;margin:4px 0 8px}
+.daymark{display:inline-block;font-size:10px;font-weight:800;vertical-align:top;
+  background:var(--f1-red);color:#fff;border-radius:4px;padding:1px 4px;margin-left:3px}
 .wx-temp{font-weight:900;font-size:30px;color:#fff;line-height:1}
 .wx-desc{color:var(--ink);font-size:14px;margin-top:2px}
 .wx-meta{display:flex;justify-content:center;gap:14px;margin-top:10px;color:var(--muted);font-size:13px}
@@ -1178,6 +1256,15 @@ CSS += r"""
 .wx-tag{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);
   border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:middle}
 .gp-grid{display:flex;flex-wrap:wrap;gap:20px}
+.gp-card{flex:1 1 280px}
+.gp-now{border-color:var(--f1-red);box-shadow:0 0 0 2px rgba(225,6,0,.25)}
+.gp-badge{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.5px;background:var(--f1-red);color:#fff;border-radius:5px;
+  padding:2px 6px;margin-left:8px;vertical-align:middle}
+.cal-tbl td a{color:var(--ink);font-weight:600}
+.cal-tbl td a:hover{color:#ff8a86}
+.cal-past{opacity:.55}
+.cal-live td{background:rgba(225,6,0,.10)}
 .nav-section{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px;
   padding:16px 22px 6px}
 
@@ -1282,13 +1369,66 @@ CSS += r"""
 # --------------------------------------------------------------------------
 # Build driver
 # --------------------------------------------------------------------------
+def event_status(ctx, today=None):
+    """Classify a GP as 'past', 'live' or 'future' from its session dates.
+
+    'live' means the weekend has started but the race hasn't happened yet, which
+    is when the hub is actually used on air. Anything with no parsable dates is
+    treated as live so it never silently stops fetching.
+    """
+    today = today or datetime.date.today()
+    dates = []
+    for _n, _wd, date, _t in ctx.get("sessions", []):
+        try:
+            dates.append(datetime.date.fromisoformat(date))
+        except (ValueError, TypeError):
+            continue
+    if not dates:
+        return "live"
+    if today < min(dates):
+        return "future"
+    if today > max(dates):
+        return "past"
+    return "live"
+
+
+def days_to_start(ctx, today=None):
+    """Days until the first session, negative once the weekend has started."""
+    today = today or datetime.date.today()
+    dates = []
+    for _n, _wd, date, _t in ctx.get("sessions", []):
+        try:
+            dates.append(datetime.date.fromisoformat(date))
+        except (ValueError, TypeError):
+            continue
+    return (min(dates) - today).days if dates else 0
+
+
 def prepare(ctx):
-    """Fetch live weather + results for a GP and attach to its context."""
+    """Fetch live weather + results for a GP and attach to its context.
+
+    With a full season registered this runs for 20-plus events, so the network
+    work is gated on how close the race actually is: there are no results to
+    fetch before a car has turned a wheel, and Open-Meteo's forecast only
+    reaches about 16 days ahead. Skipping those cases keeps a full-season build
+    to a sane number of requests without changing what any page renders.
+    """
     ctx.setdefault("tz_offset", 1)
-    ctx["weather"] = fetch_weather(ctx)
+    status = ctx.setdefault("status", event_status(ctx))
+    ahead = days_to_start(ctx)
+
+    if status == "future" and ahead > WEATHER_HORIZON_DAYS:
+        ctx["weather"] = {}
+    else:
+        ctx["weather"] = fetch_weather(ctx)
     ctx["weather_ok"] = bool(ctx["weather"])
-    ctx["results"] = fetch_results(ctx)
-    ctx["extra"] = fetch_extra(ctx)
+
+    if status == "future":
+        ctx["results"] = []
+        ctx["extra"] = {"pitstops": None, "fastestlaps": None}
+    else:
+        ctx["results"] = fetch_results(ctx)
+        ctx["extra"] = fetch_extra(ctx)
     return ctx
 
 

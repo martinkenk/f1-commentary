@@ -49,6 +49,7 @@ import sys
 import json
 import html
 import time
+import datetime
 import hashlib
 import argparse
 import urllib.request
@@ -102,11 +103,47 @@ def load_gps():
     """Import the GP contexts from build.py and attach enrichment hints."""
     import build
     gps = []
-    for ctx in (build.HUNGARY, build.BELGIUM):
+    for ctx in build.season_gps():
         c = dict(ctx)
         c["keywords"] = _keywords_for(c)
         gps.append(c)
     return gps
+
+
+def active_gps(gps, lead_days=10):
+    """The GPs worth spending LLM calls on right now.
+
+    With a full season registered, enriching every round would burn tokens on
+    races months away that have no coverage yet — and worse, general 2026 stories
+    would get filed against a Grand Prix they have nothing to do with. Only three
+    windows matter: any weekend currently running, the one just finished (whose
+    reports and stewards' decisions are still landing), and the next one once it
+    is close enough for genuine build-up coverage to exist.
+    """
+    import f1lib
+    today = datetime.date.today()
+    for c in gps:
+        c.setdefault("status", f1lib.event_status(c, today))
+    live = [c for c in gps if c["status"] == "live"]
+    future = [c for c in gps if c["status"] == "future"]
+    past = [c for c in gps if c["status"] == "past"]
+    nxt = [c for c in future[:1] if f1lib.days_to_start(c, today) <= lead_days]
+    picked = live + nxt + past[-1:]
+    seen, out = set(), []
+    for c in picked:
+        if c["dir"] not in seen:
+            seen.add(c["dir"])
+            out.append(c)
+    return out
+
+
+# Tokens that appear in circuit names but say nothing about *which* circuit.
+# Without this, "circuit" alone would make almost every F1 article look relevant.
+_GENERIC = {
+    "circuit", "grand", "prix", "international", "autodromo", "autodromme",
+    "street", "national", "nazionale", "speedway", "raceway", "motorsport",
+    "racing", "track", "park", "arena",
+}
 
 
 def _keywords_for(ctx):
@@ -114,16 +151,29 @@ def _keywords_for(ctx):
     kws = set()
     name = ctx.get("name", "").lower()          # "hungarian grand prix"
     kws.add(name.replace(" grand prix", "").strip())   # "hungarian"
-    circuit = ctx.get("circuit", "").lower()
-    for tok in re.split(r"[,\s]+", circuit):
-        if len(tok) > 4:
-            kws.add(tok)
+    cal = ctx.get("cal") or {}
+    for source in (ctx.get("circuit", ""), cal.get("country", ""), cal.get("location", "")):
+        for tok in re.split(r"[,\s]+", source.lower()):
+            if len(tok) > 4 and tok not in _GENERIC:
+                kws.add(tok)
     extra = {
         "hungary": {"hungary", "hungarian", "hungaroring", "budapest"},
         "belgium": {"belgium", "belgian", "spa", "spa-francorchamps"},
+        "netherlands": {"dutch", "zandvoort", "netherlands"},
+        "italy": {"italian", "monza", "italy", "tifosi"},
+        "spain": {"madrid", "madring", "spanish"},
+        "azerbaijan": {"azerbaijan", "baku"},
+        "bahrain": {"sepang", "malaysia", "malaysian", "bahrain"},
+        "singapore": {"singapore", "marina bay"},
+        "united-states": {"austin", "cota", "americas"},
+        "mexico": {"mexico", "mexican", "rodriguez"},
+        "brazil": {"brazil", "brazilian", "interlagos", "paulo"},
+        "las-vegas": {"vegas"},
+        "qatar": {"qatar", "lusail"},
+        "united-arab-emirates": {"abu dhabi", "yas marina", "emirates"},
     }
     kws |= extra.get(ctx.get("dir", ""), set())
-    return {k for k in kws if k}
+    return {k for k in kws if k and k not in _GENERIC}
 
 
 # --------------------------------------------------------------------------
@@ -527,6 +577,8 @@ def _pdf_text(url):
 def main():
     ap = argparse.ArgumentParser(description="LLM enrichment for the F1 hub.")
     ap.add_argument("--gp", help="only this GP dir (e.g. hungary)")
+    ap.add_argument("--all", action="store_true",
+                    help="enrich every registered GP instead of just the active window")
     ap.add_argument("--max", type=int, default=6,
                     help="max new articles processed per GP per run")
     args = ap.parse_args()
@@ -537,6 +589,9 @@ def main():
         if not gps:
             print(f"No GP with dir '{args.gp}'")
             return 1
+    elif not args.all:
+        gps = active_gps(gps)
+        print("Active window: " + ", ".join(f'{g["dir"]} ({g["status"]})' for g in gps))
 
     backend = ("HEURISTIC (LLM_FAKE)" if os.environ.get("LLM_FAKE")
                else os.environ.get("LLM_ENDPOINT", DEFAULT_ENDPOINT))

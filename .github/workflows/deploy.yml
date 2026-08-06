@@ -33,10 +33,25 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Refresh season calendar (Mondays / manual runs)
+        # Session times, circuit stats and track maps occasionally change as F1
+        # confirms details for later rounds. Re-scraping weekly keeps every
+        # upcoming GP page current without touching the build path, which stays
+        # offline-safe and stdlib-only.
+        continue-on-error: true
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%u)" = "1" ]; then
+            python3 calendar.py
+          else
+            echo "Skipping calendar refresh (not Monday, not a manual run)."
+          fi
+
       - name: Auto-enrich (LLM summaries + FIA decision structuring)
         # Summarises new F1.com / The Race articles into news cards and structures
-        # new FIA decision PDFs into penalty rows, via free GitHub Models. Fail-safe:
-        # exits 0 if the model is unavailable, leaving curated content untouched.
+        # new FIA decision PDFs into penalty rows, via free GitHub Models. Only the
+        # active window (live weekend, the next one once it's close, and the race
+        # just finished) is processed. Fail-safe: exits 0 if the model is
+        # unavailable, leaving curated content untouched.
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -45,16 +60,17 @@ jobs:
           python3 enrich.py
 
       - name: Persist enrichment data
-        # Commit data/ (news_auto.json, penalties_auto.json, _seen.json) back to main
-        # so the incremental cache survives to the next run. A push made with the
-        # default GITHUB_TOKEN does NOT trigger another workflow run (no loop).
+        # Commit data/ (calendar, news_auto.json, penalties_auto.json, _seen.json)
+        # and any newly downloaded track maps back to main so the incremental cache
+        # survives to the next run. A push made with the default GITHUB_TOKEN does
+        # NOT trigger another workflow run (no loop).
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ -n "$(git status --porcelain data 2>/dev/null)" ]; then
+          if [ -n "$(git status --porcelain data assets_src 2>/dev/null)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data
+            git add data assets_src
             git commit -qm "auto-enrichment $(date -u +%FT%TZ)"
             git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           else

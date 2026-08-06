@@ -193,7 +193,7 @@ def build_pages(ctx, env):
     PAGES["standings"] = dict(
         kicker="After Belgium",
         title="Championship & Form",
-        sub="The title picture after Round 13 &mdash; Antonelli and Mercedes in command.",
+        sub=f'The title picture after Round {ctx.get("round_no", "")} &mdash; Antonelli and Mercedes in command.',
         body=f"""
 <div class="stat-row">
   {stat("204", "Antonelli", "championship leader")}

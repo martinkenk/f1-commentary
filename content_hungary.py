@@ -23,7 +23,7 @@ def build_pages(ctx, env):
         sub="Everything at a glance before lights-out on the commentary desk — the last race before F1's 2026 summer break.",
         body=f"""
     <div class="stat-row">
-      {stat("14", "Round of 24")}
+      {stat(str(ctx.get("round_no", "")), f'Round of {(ctx.get("cal") or {}).get("total_rounds", "")}')}
       {stat("4.381 km", "Lap length")}
       {stat("70", "Race laps")}
       {stat("306.63 km", "Race distance")}

@@ -1,22 +1,101 @@
 """
 F1 Commentary Hub — build driver.
 
-Registers each Grand Prix (metadata + sessions + live-data sources + its content
-module) and builds the whole multi-GP site. Re-run at any point across a weekend:
-weather and session results refresh automatically, new content is picked up.
+Builds a weekend hub for every Grand Prix from ``FIRST_ROUND`` to the end of the
+season. Rather than hand-writing a content module per race, the calendar scraped
+by ``calendar.py`` (session times, circuit numbers, sprint format, track maps)
+is combined with the reference material in ``circuits.py`` and rendered through
+``content_generic``. Races that deserve bespoke treatment get it via ``BESPOKE``.
+
+Re-run at any point across a weekend — weather, session results, news and
+stewards' decisions all refresh, and pages that were waiting on a source fill
+themselves in once it publishes.
 
     python3 build.py
 
-Engine:   f1lib.py         (shell, CSS, weather, results, index, build)
-Content:  content_<gp>.py  (per-GP page prose)
+Engine:   f1lib.py            (shell, CSS, weather, results, index, build)
+Content:  content_<gp>.py     (bespoke per-GP prose)
+          content_generic.py  (everything else, progressive disclosure)
+Data:     data/calendar_2026.json  (refresh with: python3 calendar.py)
 """
+import datetime
+import json
+import os
+import urllib.parse
+
 import f1lib
+import circuits
+import content_generic
 import content_hungary
 import content_belgium
 
-# Shared 13-item sidebar. Slugs (except "results", auto-built by the engine)
-# must match the keys returned by each content module's build_pages().
+ROOT = os.path.dirname(os.path.abspath(__file__))
+SEASON = 2026
+
+# The hub covers this round onwards. Earlier rounds are finished history and
+# would only add build time; lower this to backfill them.
+FIRST_ROUND = 10
+
+# Races with hand-written prose. Everything else uses content_generic.
+BESPOKE = {
+    "hungary": content_hungary.build_pages,
+    "belgium": content_belgium.build_pages,
+}
+
+# Standings carried into the generic pages until each race supplies its own.
+LATEST_STANDINGS = {
+    "drivers": content_belgium.DRIVER_ROWS,
+    "ctors": content_belgium.CTOR_ROWS,
+    "as_of": "the Belgian Grand Prix",
+}
+
+FLAGS = {
+    "Australia": "🇦🇺", "China": "🇨🇳", "Japan": "🇯🇵", "United States": "🇺🇸",
+    "Canada": "🇨🇦", "Monaco": "🇲🇨", "Spain": "🇪🇸", "Austria": "🇦🇹",
+    "Great Britain": "🇬🇧", "Belgium": "🇧🇪", "Hungary": "🇭🇺",
+    "Netherlands": "🇳🇱", "Italy": "🇮🇹", "Azerbaijan": "🇦🇿",
+    "Singapore": "🇸🇬", "Mexico": "🇲🇽", "Brazil": "🇧🇷", "Las Vegas": "🇺🇸",
+    "Qatar": "🇶🇦", "Abu Dhabi": "🇦🇪", "Miami": "🇺🇸", "Bahrain": "🇧🇭",
+}
+# The 2026 Bahrain Grand Prix is staged at Sepang, so the venue flag is the
+# honest one to show on the card next to "Kuala Lumpur".
+FLAG_BY_SLUG = {"bahrain": "🇲🇾"}
+
+# European summer time in 2026: 29 March to 25 October.
+_EU_DST = (datetime.date(2026, 3, 29), datetime.date(2026, 10, 25))
+
+
+def _tallinn_offset(day):
+    """UTC offset for Tallinn on a given date: +3 in EEST, +2 in EET."""
+    return 3 if _EU_DST[0] <= day < _EU_DST[1] else 2
+
+
+def _gmt_offset_hours(text):
+    """'-05:00' -> -5.0"""
+    sign = -1 if text.startswith("-") else 1
+    hh, mm = text.lstrip("+-").split(":")
+    return sign * (int(hh) + int(mm) / 60)
+
+
+def tz_offset(event):
+    """Hours to add to circuit-local time to get Tallinn time.
+
+    Taken from the race day so a single figure covers the weekend; the engine
+    flags any session that lands on a different date in Tallinn.
+    """
+    sessions = event.get("sessions") or []
+    if not sessions:
+        return 1
+    race_day = datetime.date.fromisoformat(event["race_date"])
+    local = _gmt_offset_hours(sessions[-1].get("gmt_offset", "+00:00"))
+    off = _tallinn_offset(race_day) - local
+    return int(off) if off == int(off) else off
+
+
 def nav(circuit_label):
+    """The shared 17-item sidebar. Slugs must match the keys a content module
+    returns, except the ones the engine auto-builds (results, news, h2h,
+    reliability, penalties)."""
     return [
         ("overview",  "overview.html",  "bi-speedometer2",     "Overview",         "Weekend Overview"),
         ("news",      "news.html",      "bi-newspaper",        "Weekend News",     "Weekend News & Session Reports"),
@@ -37,41 +116,63 @@ def nav(circuit_label):
         ("notes",     "notes.html",     "bi-mic",              "Commentary Notes", "Commentator's Cheat Sheet"),
     ]
 
-HUNGARY = {
-    "name": "Hungarian Grand Prix", "year": "2026", "flag": "🇭🇺",
-    "circuit": "Hungaroring, Budapest", "round": "Round 14 of 24", "dir": "hungary",
-    "lat": 47.5789, "lon": 19.2486,
-    "tz_local": "Budapest (CEST)", "tz_east": "Tallinn (EEST)", "tz_offset": 1,
-    "sessions": [
-        ("Practice 1", "Fri 24 Jul", "2026-07-24", "13:30"),
-        ("Practice 2", "Fri 24 Jul", "2026-07-24", "17:00"),
-        ("Practice 3", "Sat 25 Jul", "2026-07-25", "12:30"),
-        ("Qualifying", "Sat 25 Jul", "2026-07-25", "16:00"),
-        ("Race",       "Sun 26 Jul", "2026-07-26", "15:00"),
-    ],
-    "race_id": "1291", "results_slug": "hungary",
-    "fia_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Hungarian%20Grand%20Prix",
-    "nav": nav("Hungaroring"),
-    "pages": content_hungary.build_pages,
-}
 
-BELGIUM = {
-    "name": "Belgian Grand Prix", "year": "2026", "flag": "🇧🇪",
-    "circuit": "Circuit de Spa-Francorchamps", "round": "Round 13 of 24", "dir": "belgium",
-    "lat": 50.4372, "lon": 5.9714,
-    "tz_local": "Spa (CEST)", "tz_east": "Tallinn (EEST)", "tz_offset": 1,
-    "sessions": [
-        ("Practice 1", "Fri 17 Jul", "2026-07-17", "13:30"),
-        ("Practice 2", "Fri 17 Jul", "2026-07-17", "17:00"),
-        ("Practice 3", "Sat 18 Jul", "2026-07-18", "12:30"),
-        ("Qualifying", "Sat 18 Jul", "2026-07-18", "16:00"),
-        ("Race",       "Sun 19 Jul", "2026-07-19", "15:00"),
-    ],
-    "race_id": "1290", "results_slug": "belgium",
-    "fia_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Belgian%20Grand%20Prix",
-    "nav": nav("Spa-Francorchamps"),
-    "pages": content_belgium.build_pages,
-}
+def fia_url(event):
+    """FIA event-document URL. The page only appears in the race week, so for
+    a distant round this is a forward link rather than a live one."""
+    name = urllib.parse.quote(event["name"])
+    return ("https://www.fia.com/documents/championships/"
+            "fia-formula-one-world-championship-14/season/season-2026-2072/"
+            f"event/{name}")
+
+
+def sessions_for(event):
+    """Calendar sessions -> the engine's (label, day-label, iso-date, HH:MM)."""
+    out = []
+    for s in event["sessions"]:
+        day = datetime.date.fromisoformat(s["date"])
+        out.append((s["label"], day.strftime("%a %-d %b"), s["date"], s["time"]))
+    return out
+
+
+def make_gp(event):
+    slug = event["slug"]
+    ref = circuits.get(slug)
+    lat, lon = ref.get("coords", (0.0, 0.0))
+    circuit = ref.get("circuit") or event["location"]
+    label = circuit.split(",")[0]
+    return {
+        "name": event["name"],
+        "year": str(SEASON),
+        "flag": FLAG_BY_SLUG.get(slug) or FLAGS.get(event["country"], "🏁"),
+        "circuit": circuit,
+        "round": f'Round {event["round"]} of {event["total_rounds"]}',
+        "round_no": event["round"],
+        "dir": slug,
+        "lat": lat, "lon": lon,
+        "tz_local": ref.get("tz_local", f'{event["location"]} (local)'),
+        "tz_east": ("Tallinn (EEST)"
+                    if _tallinn_offset(datetime.date.fromisoformat(event["race_date"])) == 3
+                    else "Tallinn (EET)"),
+        "tz_offset": tz_offset(event),
+        "sessions": sessions_for(event),
+        "race_id": event.get("race_id") or "",
+        "results_slug": event.get("results_slug", slug),
+        "race_date": event["race_date"],
+        "fia_url": fia_url(event),
+        "nav": nav(label),
+        "cal": event,
+        "ref": ref,
+        "standings": LATEST_STANDINGS,
+        "pages": BESPOKE.get(slug, content_generic.build_pages),
+    }
+
+
+def season_gps():
+    with open(os.path.join(ROOT, "data", f"calendar_{SEASON}.json")) as f:
+        events = json.load(f)["events"]
+    return [make_gp(e) for e in events if e["round"] >= FIRST_ROUND]
+
 
 if __name__ == "__main__":
-    f1lib.build_all([HUNGARY, BELGIUM])
+    f1lib.build_all(season_gps())

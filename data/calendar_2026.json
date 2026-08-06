@@ -1,0 +1,1293 @@
+{
+  "year": "2026",
+  "events": [
+    {
+      "slug": "australia",
+      "results_slug": "australia",
+      "name": "Australian Grand Prix",
+      "official_name": "FORMULA 1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026",
+      "country": "Australia",
+      "location": "Melbourne",
+      "circuit_length": "5.278km",
+      "laps": "58",
+      "race_distance": "306.124km",
+      "first_gp": "1996",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632426/common/f1/2026/track/2026trackmelbournedetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-03-06",
+          "time": "12:30",
+          "gmt_offset": "+11:00",
+          "timezone": "Australia/Melbourne"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-03-06",
+          "time": "16:00",
+          "gmt_offset": "+11:00",
+          "timezone": "Australia/Melbourne"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-03-07",
+          "time": "12:30",
+          "gmt_offset": "+11:00",
+          "timezone": "Australia/Melbourne"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-03-07",
+          "time": "16:00",
+          "gmt_offset": "+11:00",
+          "timezone": "Australia/Melbourne"
+        },
+        {
+          "label": "Race",
+          "date": "2026-03-08",
+          "time": "15:00",
+          "gmt_offset": "+11:00",
+          "timezone": "Australia/Melbourne"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-03-08",
+      "race_id": "1279",
+      "round": 1,
+      "total_rounds": 23,
+      "track_asset": "track-australia.png"
+    },
+    {
+      "slug": "china",
+      "results_slug": "china",
+      "name": "Chinese Grand Prix",
+      "official_name": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026",
+      "country": "China",
+      "location": "Shanghai",
+      "circuit_length": "5.451km",
+      "laps": "56",
+      "race_distance": "305.066km",
+      "first_gp": "2004",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632455/common/f1/2026/track/2026trackshanghaidetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-03-13",
+          "time": "11:30",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        {
+          "label": "Sprint Qualifying",
+          "date": "2026-03-13",
+          "time": "15:30",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        {
+          "label": "Sprint",
+          "date": "2026-03-14",
+          "time": "11:00",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-03-14",
+          "time": "15:00",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Shanghai"
+        },
+        {
+          "label": "Race",
+          "date": "2026-03-15",
+          "time": "15:00",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Shanghai"
+        }
+      ],
+      "is_sprint": true,
+      "race_date": "2026-03-15",
+      "race_id": "1280",
+      "round": 2,
+      "total_rounds": 23,
+      "track_asset": "track-china.png"
+    },
+    {
+      "slug": "japan",
+      "results_slug": "japan",
+      "name": "Japanese Grand Prix",
+      "official_name": "FORMULA 1 ARAMCO JAPANESE GRAND PRIX 2026",
+      "country": "Japan",
+      "location": "Suzuka",
+      "circuit_length": "5.807km",
+      "laps": "53",
+      "race_distance": "307.471km",
+      "first_gp": "1987",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632474/common/f1/2026/track/2026tracksuzukadetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-03-27",
+          "time": "11:30",
+          "gmt_offset": "+09:00",
+          "timezone": "Asia/Tokyo"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-03-27",
+          "time": "15:00",
+          "gmt_offset": "+09:00",
+          "timezone": "Asia/Tokyo"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-03-28",
+          "time": "11:30",
+          "gmt_offset": "+09:00",
+          "timezone": "Asia/Tokyo"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-03-28",
+          "time": "15:00",
+          "gmt_offset": "+09:00",
+          "timezone": "Asia/Tokyo"
+        },
+        {
+          "label": "Race",
+          "date": "2026-03-29",
+          "time": "14:00",
+          "gmt_offset": "+09:00",
+          "timezone": "Asia/Tokyo"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-03-29",
+      "race_id": "1281",
+      "round": 3,
+      "total_rounds": 23,
+      "track_asset": "track-japan.png"
+    },
+    {
+      "slug": "miami",
+      "results_slug": "miami",
+      "name": "Miami Grand Prix",
+      "official_name": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026",
+      "country": "Miami",
+      "location": "Miami Gardens",
+      "circuit_length": "5.412km",
+      "laps": "57",
+      "race_distance": "308.326km",
+      "first_gp": "2022",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632433/common/f1/2026/track/2026trackmiamidetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-05-01",
+          "time": "12:00",
+          "gmt_offset": "-04:00",
+          "timezone": "America/New_York"
+        },
+        {
+          "label": "Sprint Qualifying",
+          "date": "2026-05-01",
+          "time": "16:30",
+          "gmt_offset": "-04:00",
+          "timezone": "America/New_York"
+        },
+        {
+          "label": "Sprint",
+          "date": "2026-05-02",
+          "time": "12:00",
+          "gmt_offset": "-04:00",
+          "timezone": "America/New_York"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-05-02",
+          "time": "16:00",
+          "gmt_offset": "-04:00",
+          "timezone": "America/New_York"
+        },
+        {
+          "label": "Race",
+          "date": "2026-05-03",
+          "time": "13:00",
+          "gmt_offset": "-04:00",
+          "timezone": "America/New_York"
+        }
+      ],
+      "is_sprint": true,
+      "race_date": "2026-05-03",
+      "race_id": "1284",
+      "round": 4,
+      "total_rounds": 23,
+      "track_asset": "track-miami.png"
+    },
+    {
+      "slug": "canada",
+      "results_slug": "canada",
+      "name": "Canadian Grand Prix",
+      "official_name": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026",
+      "country": "Canada",
+      "location": "Montréal",
+      "circuit_length": "4.361km",
+      "laps": "70",
+      "race_distance": "305.27km",
+      "first_gp": "1978",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632441/common/f1/2026/track/2026trackmontrealdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-05-22",
+          "time": "12:30",
+          "gmt_offset": "-04:00",
+          "timezone": "America/Toronto"
+        },
+        {
+          "label": "Sprint Qualifying",
+          "date": "2026-05-22",
+          "time": "16:30",
+          "gmt_offset": "-04:00",
+          "timezone": "America/Toronto"
+        },
+        {
+          "label": "Sprint",
+          "date": "2026-05-23",
+          "time": "12:00",
+          "gmt_offset": "-04:00",
+          "timezone": "America/Toronto"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-05-23",
+          "time": "16:00",
+          "gmt_offset": "-04:00",
+          "timezone": "America/Toronto"
+        },
+        {
+          "label": "Race",
+          "date": "2026-05-24",
+          "time": "16:00",
+          "gmt_offset": "-04:00",
+          "timezone": "America/Toronto"
+        }
+      ],
+      "is_sprint": true,
+      "race_date": "2026-05-24",
+      "race_id": "1285",
+      "round": 5,
+      "total_rounds": 23,
+      "track_asset": "track-canada.png"
+    },
+    {
+      "slug": "monaco",
+      "results_slug": "monaco",
+      "name": "Monaco Grand Prix",
+      "official_name": "FORMULA 1 LOUIS VUITTON GRAND PRIX DE MONACO 2026",
+      "country": "Monaco",
+      "location": "Monte Carlo",
+      "circuit_length": "3.337km",
+      "laps": "78",
+      "race_distance": "260.286km",
+      "first_gp": "1950",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632437/common/f1/2026/track/2026trackmontecarlodetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-06-05",
+          "time": "13:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Monaco"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-06-05",
+          "time": "17:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Monaco"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-06-06",
+          "time": "12:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Monaco"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-06-06",
+          "time": "16:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Monaco"
+        },
+        {
+          "label": "Race",
+          "date": "2026-06-07",
+          "time": "15:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Monaco"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-06-07",
+      "race_id": "1286",
+      "round": 6,
+      "total_rounds": 23,
+      "track_asset": "track-monaco.png"
+    },
+    {
+      "slug": "barcelona-catalunya",
+      "results_slug": "barcelona-catalunya",
+      "name": "Barcelona Grand Prix",
+      "official_name": "FORMULA 1 MSC CRUISES GRAN PREMIO DE BARCELONA-CATALUNYA 2026",
+      "country": "Barcelona-Catalunya",
+      "location": "Barcelona",
+      "circuit_length": "4.657km",
+      "laps": "66",
+      "race_distance": "307.236km",
+      "first_gp": "1991",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632398/common/f1/2026/track/2026trackcatalunyadetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-06-12",
+          "time": "13:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-06-12",
+          "time": "17:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-06-13",
+          "time": "12:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-06-13",
+          "time": "16:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        },
+        {
+          "label": "Race",
+          "date": "2026-06-14",
+          "time": "15:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-06-14",
+      "race_id": "1287",
+      "round": 7,
+      "total_rounds": 23,
+      "track_asset": "track-barcelona-catalunya.png"
+    },
+    {
+      "slug": "austria",
+      "results_slug": "austria",
+      "name": "Austrian Grand Prix",
+      "official_name": "FORMULA 1 LENOVO AUSTRIAN GRAND PRIX 2026",
+      "country": "Austria",
+      "location": "Spielberg",
+      "circuit_length": "4.326km",
+      "laps": "71",
+      "race_distance": "307.018km",
+      "first_gp": "1970",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632470/common/f1/2026/track/2026trackspielbergdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-06-26",
+          "time": "13:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Vienna"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-06-26",
+          "time": "17:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Vienna"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-06-27",
+          "time": "12:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Vienna"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-06-27",
+          "time": "16:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Vienna"
+        },
+        {
+          "label": "Race",
+          "date": "2026-06-28",
+          "time": "15:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Vienna"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-06-28",
+      "race_id": "1288",
+      "round": 8,
+      "total_rounds": 23,
+      "track_asset": "track-austria.png"
+    },
+    {
+      "slug": "great-britain",
+      "results_slug": "great-britain",
+      "name": "British Grand Prix",
+      "official_name": "FORMULA 1 PIRELLI BRITISH GRAND PRIX 2026",
+      "country": "Great Britain",
+      "location": "Silverstone",
+      "circuit_length": "5.891km",
+      "laps": "52",
+      "race_distance": "306.198km",
+      "first_gp": "1950",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632458/common/f1/2026/track/2026tracksilverstonedetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-07-03",
+          "time": "12:30",
+          "gmt_offset": "+01:00",
+          "timezone": "Europe/London"
+        },
+        {
+          "label": "Sprint Qualifying",
+          "date": "2026-07-03",
+          "time": "16:30",
+          "gmt_offset": "+01:00",
+          "timezone": "Europe/London"
+        },
+        {
+          "label": "Sprint",
+          "date": "2026-07-04",
+          "time": "12:00",
+          "gmt_offset": "+01:00",
+          "timezone": "Europe/London"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-07-04",
+          "time": "16:00",
+          "gmt_offset": "+01:00",
+          "timezone": "Europe/London"
+        },
+        {
+          "label": "Race",
+          "date": "2026-07-05",
+          "time": "15:00",
+          "gmt_offset": "+01:00",
+          "timezone": "Europe/London"
+        }
+      ],
+      "is_sprint": true,
+      "race_date": "2026-07-05",
+      "race_id": "1289",
+      "round": 9,
+      "total_rounds": 23,
+      "track_asset": "track-great-britain.png"
+    },
+    {
+      "slug": "belgium",
+      "results_slug": "belgium",
+      "name": "Belgian Grand Prix",
+      "official_name": "FORMULA 1 MOËT \\u0026 CHANDON BELGIAN GRAND PRIX 2026",
+      "country": "Belgium",
+      "location": "Spa-Francorchamps",
+      "circuit_length": "7.004km",
+      "laps": "44",
+      "race_distance": "308.054km",
+      "first_gp": "1950",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632465/common/f1/2026/track/2026trackspafrancorchampsdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-07-17",
+          "time": "13:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Brussels"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-07-17",
+          "time": "17:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Brussels"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-07-18",
+          "time": "12:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Brussels"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-07-18",
+          "time": "16:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Brussels"
+        },
+        {
+          "label": "Race",
+          "date": "2026-07-19",
+          "time": "15:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Brussels"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-07-19",
+      "race_id": "1290",
+      "round": 10,
+      "total_rounds": 23,
+      "track_asset": "track-belgium.png"
+    },
+    {
+      "slug": "hungary",
+      "results_slug": "hungary",
+      "name": "Hungarian Grand Prix",
+      "official_name": "FORMULA 1 AWS HUNGARIAN GRAND PRIX 2026",
+      "country": "Hungary",
+      "location": "Budapest",
+      "circuit_length": "4.381km",
+      "laps": "70",
+      "race_distance": "306.63km",
+      "first_gp": "1986",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632402/common/f1/2026/track/2026trackhungaroringdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-07-24",
+          "time": "13:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Budapest"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-07-24",
+          "time": "17:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Budapest"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-07-25",
+          "time": "12:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Budapest"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-07-25",
+          "time": "16:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Budapest"
+        },
+        {
+          "label": "Race",
+          "date": "2026-07-26",
+          "time": "15:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Budapest"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-07-26",
+      "race_id": "1291",
+      "round": 11,
+      "total_rounds": 23,
+      "track_asset": "track-hungary.png"
+    },
+    {
+      "slug": "netherlands",
+      "results_slug": "netherlands",
+      "name": "Dutch Grand Prix",
+      "official_name": "FORMULA 1 HEINEKEN DUTCH GRAND PRIX 2026",
+      "country": "Netherlands",
+      "location": "Zandvoort",
+      "circuit_length": "4.259km",
+      "laps": "72",
+      "race_distance": "306.587km",
+      "first_gp": "1952",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632488/common/f1/2026/track/2026trackzandvoortdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-08-21",
+          "time": "12:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "label": "Sprint Qualifying",
+          "date": "2026-08-21",
+          "time": "16:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "label": "Sprint",
+          "date": "2026-08-22",
+          "time": "12:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-08-22",
+          "time": "16:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Amsterdam"
+        },
+        {
+          "label": "Race",
+          "date": "2026-08-23",
+          "time": "15:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Amsterdam"
+        }
+      ],
+      "is_sprint": true,
+      "race_date": "2026-08-23",
+      "race_id": "1292",
+      "round": 12,
+      "total_rounds": 23,
+      "track_asset": "track-netherlands.png"
+    },
+    {
+      "slug": "italy",
+      "results_slug": "italy",
+      "name": "Italian Grand Prix",
+      "official_name": "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2026",
+      "country": "Italy",
+      "location": "Monza",
+      "circuit_length": "5.793km",
+      "laps": "53",
+      "race_distance": "306.72km",
+      "first_gp": "1950",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632445/common/f1/2026/track/2026trackmonzadetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-09-04",
+          "time": "12:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-09-04",
+          "time": "16:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-09-05",
+          "time": "12:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-09-05",
+          "time": "16:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Rome"
+        },
+        {
+          "label": "Race",
+          "date": "2026-09-06",
+          "time": "15:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Rome"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-09-06",
+      "race_id": "1293",
+      "round": 13,
+      "total_rounds": 23,
+      "track_asset": "track-italy.png"
+    },
+    {
+      "slug": "spain",
+      "results_slug": "spain",
+      "name": "Spanish Grand Prix",
+      "official_name": "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026",
+      "country": "Spain",
+      "location": "Madrid",
+      "circuit_length": "5.416km",
+      "laps": "57",
+      "race_distance": "308.524km",
+      "first_gp": "2026",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1756285390/common/f1/2026/track/2026trackmadringdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-09-11",
+          "time": "13:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-09-11",
+          "time": "17:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-09-12",
+          "time": "12:30",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-09-12",
+          "time": "16:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        },
+        {
+          "label": "Race",
+          "date": "2026-09-13",
+          "time": "15:00",
+          "gmt_offset": "+02:00",
+          "timezone": "Europe/Madrid"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-09-13",
+      "race_id": "1294",
+      "round": 14,
+      "total_rounds": 23,
+      "track_asset": "track-spain.png"
+    },
+    {
+      "slug": "azerbaijan",
+      "results_slug": "azerbaijan",
+      "name": "Azerbaijan Grand Prix",
+      "official_name": "FORMULA 1 QATAR AIRWAYS AZERBAIJAN GRAND PRIX 2026",
+      "country": "Azerbaijan",
+      "location": "Baku",
+      "circuit_length": "6.003km",
+      "laps": "51",
+      "race_distance": "306.049km",
+      "first_gp": "2016",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632392/common/f1/2026/track/2026trackbakudetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-09-24",
+          "time": "12:30",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Baku"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-09-24",
+          "time": "16:00",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Baku"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-09-25",
+          "time": "12:30",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Baku"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-09-25",
+          "time": "16:00",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Baku"
+        },
+        {
+          "label": "Race",
+          "date": "2026-09-26",
+          "time": "15:00",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Baku"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-09-26",
+      "race_id": "1295",
+      "round": 15,
+      "total_rounds": 23,
+      "track_asset": "track-azerbaijan.png"
+    },
+    {
+      "slug": "bahrain",
+      "results_slug": "bahrain",
+      "name": "Bahrain Grand Prix",
+      "official_name": "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX IN MALAYSIA 2026",
+      "country": "Bahrain",
+      "location": "Kuala Lumpur",
+      "circuit_length": "5.543km",
+      "laps": "",
+      "race_distance": "",
+      "first_gp": "1999",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1785158493/common/f1/2026/track/2026trackkualalumpurdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-10-02",
+          "time": "12:30",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Kuala_Lumpur"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-10-02",
+          "time": "16:00",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Kuala_Lumpur"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-10-03",
+          "time": "12:30",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Kuala_Lumpur"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-10-03",
+          "time": "16:00",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Kuala_Lumpur"
+        },
+        {
+          "label": "Race",
+          "date": "2026-10-04",
+          "time": "15:00",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Kuala_Lumpur"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-10-04",
+      "race_id": "1308",
+      "round": 16,
+      "total_rounds": 23,
+      "track_asset": "track-bahrain.png"
+    },
+    {
+      "slug": "singapore",
+      "results_slug": "singapore",
+      "name": "Singapore Grand Prix",
+      "official_name": "FORMULA 1 SINGAPORE AIRLINES SINGAPORE GRAND PRIX 2026",
+      "country": "Singapore",
+      "location": "Marina Bay",
+      "circuit_length": "4.927km",
+      "laps": "62",
+      "race_distance": "305.337km",
+      "first_gp": "2008",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632462/common/f1/2026/track/2026tracksingaporedetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-10-09",
+          "time": "16:30",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Singapore"
+        },
+        {
+          "label": "Sprint Qualifying",
+          "date": "2026-10-09",
+          "time": "20:30",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Singapore"
+        },
+        {
+          "label": "Sprint",
+          "date": "2026-10-10",
+          "time": "17:00",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Singapore"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-10-10",
+          "time": "21:00",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Singapore"
+        },
+        {
+          "label": "Race",
+          "date": "2026-10-11",
+          "time": "20:00",
+          "gmt_offset": "+08:00",
+          "timezone": "Asia/Singapore"
+        }
+      ],
+      "is_sprint": true,
+      "race_date": "2026-10-11",
+      "race_id": "1296",
+      "round": 17,
+      "total_rounds": 23,
+      "track_asset": "track-singapore.png"
+    },
+    {
+      "slug": "united-states",
+      "results_slug": "united-states",
+      "name": "United States Grand Prix",
+      "official_name": "FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2026",
+      "country": "United States",
+      "location": "Austin",
+      "circuit_length": "5.513km",
+      "laps": "56",
+      "race_distance": "308.405km",
+      "first_gp": "2012",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632388/common/f1/2026/track/2026trackaustindetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-10-23",
+          "time": "12:30",
+          "gmt_offset": "-05:00",
+          "timezone": "US/Central"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-10-23",
+          "time": "16:00",
+          "gmt_offset": "-05:00",
+          "timezone": "US/Central"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-10-24",
+          "time": "12:30",
+          "gmt_offset": "-05:00",
+          "timezone": "US/Central"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-10-24",
+          "time": "16:00",
+          "gmt_offset": "-05:00",
+          "timezone": "US/Central"
+        },
+        {
+          "label": "Race",
+          "date": "2026-10-25",
+          "time": "15:00",
+          "gmt_offset": "-05:00",
+          "timezone": "US/Central"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-10-25",
+      "race_id": "1297",
+      "round": 18,
+      "total_rounds": 23,
+      "track_asset": "track-united-states.png"
+    },
+    {
+      "slug": "mexico",
+      "results_slug": "mexico",
+      "name": "Mexico City Grand Prix",
+      "official_name": "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026",
+      "country": "Mexico",
+      "location": "Mexico City",
+      "circuit_length": "4.304km",
+      "laps": "71",
+      "race_distance": "305.354km",
+      "first_gp": "1963",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632430/common/f1/2026/track/2026trackmexicocitydetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-10-30",
+          "time": "12:30",
+          "gmt_offset": "-06:00",
+          "timezone": "America/Mexico_City"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-10-30",
+          "time": "16:00",
+          "gmt_offset": "-06:00",
+          "timezone": "America/Mexico_City"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-10-31",
+          "time": "11:30",
+          "gmt_offset": "-06:00",
+          "timezone": "America/Mexico_City"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-10-31",
+          "time": "15:00",
+          "gmt_offset": "-06:00",
+          "timezone": "America/Mexico_City"
+        },
+        {
+          "label": "Race",
+          "date": "2026-11-01",
+          "time": "14:00",
+          "gmt_offset": "-06:00",
+          "timezone": "America/Mexico_City"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-11-01",
+      "race_id": "1298",
+      "round": 19,
+      "total_rounds": 23,
+      "track_asset": "track-mexico.png"
+    },
+    {
+      "slug": "brazil",
+      "results_slug": "brazil",
+      "name": "São Paulo Grand Prix",
+      "official_name": "FORMULA 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2026",
+      "country": "Brazil",
+      "location": "São Paulo",
+      "circuit_length": "4.309km",
+      "laps": "71",
+      "race_distance": "305.879km",
+      "first_gp": "1973",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632409/common/f1/2026/track/2026trackinterlagosdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-11-06",
+          "time": "12:30",
+          "gmt_offset": "-03:00",
+          "timezone": "America/Sao_Paulo"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-11-06",
+          "time": "16:00",
+          "gmt_offset": "-03:00",
+          "timezone": "America/Sao_Paulo"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-11-07",
+          "time": "11:30",
+          "gmt_offset": "-03:00",
+          "timezone": "America/Sao_Paulo"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-11-07",
+          "time": "15:00",
+          "gmt_offset": "-03:00",
+          "timezone": "America/Sao_Paulo"
+        },
+        {
+          "label": "Race",
+          "date": "2026-11-08",
+          "time": "14:00",
+          "gmt_offset": "-03:00",
+          "timezone": "America/Sao_Paulo"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-11-08",
+      "race_id": "1299",
+      "round": 20,
+      "total_rounds": 23,
+      "track_asset": "track-brazil.png"
+    },
+    {
+      "slug": "las-vegas",
+      "results_slug": "las-vegas",
+      "name": "Las Vegas Grand Prix",
+      "official_name": "FORMULA 1 HEINEKEN LAS VEGAS GRAND PRIX 2026",
+      "country": "Las Vegas",
+      "location": "Las Vegas",
+      "circuit_length": "6.201km",
+      "laps": "50",
+      "race_distance": "309.958km",
+      "first_gp": "2023",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632417/common/f1/2026/track/2026tracklasvegasdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-11-19",
+          "time": "16:30",
+          "gmt_offset": "-08:00",
+          "timezone": "America/Los_Angeles"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-11-19",
+          "time": "20:00",
+          "gmt_offset": "-08:00",
+          "timezone": "America/Los_Angeles"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-11-20",
+          "time": "16:30",
+          "gmt_offset": "-08:00",
+          "timezone": "America/Los_Angeles"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-11-20",
+          "time": "20:00",
+          "gmt_offset": "-08:00",
+          "timezone": "America/Los_Angeles"
+        },
+        {
+          "label": "Race",
+          "date": "2026-11-21",
+          "time": "20:00",
+          "gmt_offset": "-08:00",
+          "timezone": "America/Los_Angeles"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-11-21",
+      "race_id": "1300",
+      "round": 21,
+      "total_rounds": 23,
+      "track_asset": "track-las-vegas.png"
+    },
+    {
+      "slug": "qatar",
+      "results_slug": "qatar",
+      "name": "Qatar Grand Prix",
+      "official_name": "FORMULA 1 QATAR AIRWAYS QATAR GRAND PRIX 2026",
+      "country": "Qatar",
+      "location": "Lusail",
+      "circuit_length": "5.419km",
+      "laps": "57",
+      "race_distance": "308.611km",
+      "first_gp": "2021",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632421/common/f1/2026/track/2026tracklusaildetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-11-27",
+          "time": "16:30",
+          "gmt_offset": "+03:00",
+          "timezone": "Asia/Qatar"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-11-27",
+          "time": "20:00",
+          "gmt_offset": "+03:00",
+          "timezone": "Asia/Qatar"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-11-28",
+          "time": "17:30",
+          "gmt_offset": "+03:00",
+          "timezone": "Asia/Qatar"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-11-28",
+          "time": "21:00",
+          "gmt_offset": "+03:00",
+          "timezone": "Asia/Qatar"
+        },
+        {
+          "label": "Race",
+          "date": "2026-11-29",
+          "time": "19:00",
+          "gmt_offset": "+03:00",
+          "timezone": "Asia/Qatar"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-11-29",
+      "race_id": "1301",
+      "round": 22,
+      "total_rounds": 23,
+      "track_asset": "track-qatar.png"
+    },
+    {
+      "slug": "united-arab-emirates",
+      "results_slug": "abu-dhabi",
+      "name": "Abu Dhabi Grand Prix",
+      "official_name": "FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX 2026",
+      "country": "Abu Dhabi",
+      "location": "Yas Marina",
+      "circuit_length": "5.281km",
+      "laps": "58",
+      "race_distance": "306.183km",
+      "first_gp": "2009",
+      "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632483/common/f1/2026/track/2026trackyasmarinacircuitdetailed.png",
+      "sessions": [
+        {
+          "label": "Practice 1",
+          "date": "2026-12-04",
+          "time": "13:30",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Dubai"
+        },
+        {
+          "label": "Practice 2",
+          "date": "2026-12-04",
+          "time": "17:00",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Dubai"
+        },
+        {
+          "label": "Practice 3",
+          "date": "2026-12-05",
+          "time": "14:30",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Dubai"
+        },
+        {
+          "label": "Qualifying",
+          "date": "2026-12-05",
+          "time": "18:00",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Dubai"
+        },
+        {
+          "label": "Race",
+          "date": "2026-12-06",
+          "time": "17:00",
+          "gmt_offset": "+04:00",
+          "timezone": "Asia/Dubai"
+        }
+      ],
+      "is_sprint": false,
+      "race_date": "2026-12-06",
+      "race_id": "1302",
+      "round": 23,
+      "total_rounds": 23,
+      "track_asset": "track-united-arab-emirates.png"
+    }
+  ]
+}

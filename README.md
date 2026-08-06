@@ -3,7 +3,11 @@
 A good-looking, static, **multi-Grand-Prix** site to support **live TV commentary**.
 Left-hand sidebar menu; every Grand Prix gets its own landing page plus **17 subpages**.
 
-Currently loaded: **🇭🇺 Hungarian Grand Prix 2026** and **🇧🇪 Belgian Grand Prix 2026**.
+Loaded: **every remaining round of the 2026 season** — 14 Grands Prix from Belgium
+(round 10) to Abu Dhabi (round 23). Hungary and Belgium have hand-written prose; the
+rest are generated from the official calendar and a per-venue reference library, and
+**fill themselves in** as tyre allocations, rookie line-ups, upgrade filings, FIA
+documents and results are published.
 
 > Regenerate this for any GP — before or during the weekend — with **[SKILL.md](SKILL.md)**,
 > the step-by-step runbook (architecture, sources, FIA docs, weather, live results, build, verify).
@@ -49,12 +53,26 @@ python3 build.py
 ```
 
 ## Architecture
-- `build.py` – thin driver: registers each GP (metadata, sessions, live-data sources) and builds the site.
-- `f1lib.py` – engine: HTML shell, CSS, weather, live results, multi-GP index, build loop.
-- `content_<gp>.py` – per-GP page prose (`def build_pages(ctx, env)`), one module per race.
-- `assets_src/` – source images (2026 circuit maps on white); copied to `site/assets/` on build.
+- `calendar.py` – season scraper: session times, circuit stats and official track maps
+  → `data/calendar_2026.json` + `assets_src/track-<slug>.png`. Re-run when F1 confirms
+  more detail; CI does it weekly.
+- `circuits.py` – per-venue reference data: coordinates (for weather), circuit character,
+  key corners, overtaking, tyre behaviour, lap records, talking points.
+- `build.py` – driver: turns each calendar round into a GP context and builds the site.
+- `f1lib.py` – engine: HTML shell, CSS, weather, live results, season index, build loop.
+- `content_generic.py` – default page prose for any GP without a bespoke module.
+- `content_<gp>.py` – hand-written per-GP prose (`def build_pages(ctx, env)`).
+- `assets_src/` – source images (2026 circuit maps); copied to `site/assets/` on build.
 
-Add a race = one GP dict in `build.py` + one `content_<gp>.py`. The engine is untouched.
+Adding a race is not a manual step — it is already in the calendar. To give one
+hand-written treatment, add `content_<gp>.py` and register it in `BESPOKE` in `build.py`.
+
+### Progressive disclosure
+Pages render what is actually known and mark the rest with an explicit
+*"not published yet — fills in automatically"* callout rather than a gap or a guess.
+Fetching is gated on race proximity (no result requests for races that haven't run, no
+weather beyond Open-Meteo's 16-day horizon), so a 14-GP build still takes about 12
+seconds.
 
 ## Automated LLM enrichment
 `enrich.py` runs in CI (before the build) and, incrementally, summarises new
@@ -73,7 +91,10 @@ LLM_TOKEN=$(gh auth token) python3 enrich.py         # real run (needs models:re
 See **SKILL.md §9** for the full design.
 
 ## Times & weather
-- All times shown in **circuit-local + Tallinn (EEST)** — no other zones.
+- All times shown in **circuit-local + Tallinn** — no other zones. The offset is
+  computed per event from the GMT offset F1 publishes, against Tallinn's own (EEST
+  until 25 Oct 2026, EET after). Fly-away sessions that land on a different **date** in
+  Tallinn — every Las Vegas session does — are tagged with a red `+1d` marker.
 - Weather is fetched at build time from **Open-Meteo** (no API key): the forecast for
   upcoming sessions and ERA5 **actual** conditions for completed ones, each card tagged
   accordingly. Graceful fallback if offline.
