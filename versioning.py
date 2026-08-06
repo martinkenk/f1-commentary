@@ -98,10 +98,64 @@ def is_material(incoming_dir, raw_dir, threshold):
 # --------------------------------------------------------------------------
 # Snapshot / mirror helpers
 # --------------------------------------------------------------------------
-def _copytree(src, dst):
+# Binary assets (circuit maps) are large and effectively immutable. Copying them
+# into every pinned snapshot pushed the Pages artifact past 40 MB and made the
+# deployment time out, so snapshots share the live root's copies instead.
+BINARY_ASSET_EXT = (".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg", ".ico")
+
+
+def _snapshot(src, dst):
+    """Pin a build, sharing binary assets with the live root rather than copying.
+
+    Version history exists to roll back *content*, so a snapshot keeps its own
+    HTML and CSS but points at the root's images. Asset URLs in the snapshot are
+    rewritten to climb out of ``versions/<id>/`` to reach them.
+    """
     if os.path.exists(dst):
         shutil.rmtree(dst)
-    shutil.copytree(src, dst)
+    skipped = 0
+    for root, _dirs, files in os.walk(src):
+        rel_dir = os.path.relpath(root, src)
+        out_dir = os.path.join(dst, rel_dir) if rel_dir != "." else dst
+        os.makedirs(out_dir, exist_ok=True)
+        for name in files:
+            if name.lower().endswith(BINARY_ASSET_EXT):
+                skipped += 1
+                continue
+            shutil.copy2(os.path.join(root, name), os.path.join(out_dir, name))
+    _repoint_assets(dst)
+    return skipped
+
+
+def _repoint_assets(snapshot_dir):
+    """Rewrite image URLs in a snapshot to the shared copies at the public root.
+
+    A page at ``versions/<id>/<gp>/x.html`` reaches the root with ``../../../``,
+    so its existing ``../assets/foo.png`` needs two more levels; the snapshot's
+    own ``index.html`` needs ``../../``.
+    """
+    pattern = re.compile(r'((?:\.\./)*)assets/([^"\')\s]+)')
+
+    def fix(rel_depth):
+        def repl(m):
+            tail = m.group(2)
+            if not tail.lower().endswith(BINARY_ASSET_EXT):
+                return m.group(0)
+            return "../" * (rel_depth + 2) + "assets/" + tail
+        return repl
+
+    for root, _dirs, files in os.walk(snapshot_dir):
+        depth = 0 if root == snapshot_dir else os.path.relpath(root, snapshot_dir).count(os.sep) + 1
+        for name in files:
+            if not name.endswith(".html"):
+                continue
+            path = os.path.join(root, name)
+            with open(path, encoding="utf-8") as f:
+                text = f.read()
+            new = pattern.sub(fix(depth), text)
+            if new != text:
+                with open(path, "w", encoding="utf-8") as f:
+                    f.write(new)
 
 
 def _write_raw_mirror(incoming_dir, raw_dir):
@@ -125,6 +179,32 @@ def _refresh_root(incoming_dir, public_dir):
         src = os.path.join(incoming_dir, name)
         dst = os.path.join(public_dir, name)
         shutil.copytree(src, dst) if os.path.isdir(src) else shutil.copy2(src, dst)
+
+
+def _slim_existing(versions_dir):
+    """Strip binary assets from snapshots pinned before assets were shared.
+
+    Older snapshots each carried their own copy of every circuit map, which is
+    what pushed the Pages artifact past the deployment timeout. This runs on
+    every build and is idempotent, so the history heals itself.
+    """
+    if not os.path.isdir(versions_dir):
+        return 0
+    removed = 0
+    for vid in os.listdir(versions_dir):
+        snap = os.path.join(versions_dir, vid)
+        if not os.path.isdir(snap):
+            continue
+        touched = False
+        for root, _dirs, files in os.walk(snap):
+            for name in files:
+                if name.lower().endswith(BINARY_ASSET_EXT):
+                    os.remove(os.path.join(root, name))
+                    removed += 1
+                    touched = True
+        if touched:
+            _repoint_assets(snap)
+    return removed
 
 
 # --------------------------------------------------------------------------
@@ -243,17 +323,22 @@ def main():
 
     material = is_material(incoming, raw_dir, args.threshold)
 
+    freed = _slim_existing(versions_dir)
+    if freed:
+        print(f"versioning: removed {freed} duplicated binary asset(s) from existing snapshots")
+
     if material:
         vid, label, ts = _now_ids()
         os.makedirs(versions_dir, exist_ok=True)
-        _copytree(incoming, os.path.join(versions_dir, vid))
+        shared = _snapshot(incoming, os.path.join(versions_dir, vid))
         versions.insert(0, {"id": vid, "label": label, "ts": ts})
         # Prune old snapshots.
         for stale in versions[args.keep:]:
             shutil.rmtree(os.path.join(versions_dir, stale["id"]), ignore_errors=True)
         versions = versions[:args.keep]
         print(f"versioning: material change → pinned version {vid} ({label}); "
-              f"{len(versions)} snapshot(s) retained")
+              f"{len(versions)} snapshot(s) retained, "
+              f"{shared} binary asset(s) shared with the live root")
     else:
         print("versioning: no material change → live site refreshed, no new snapshot pinned")
 
