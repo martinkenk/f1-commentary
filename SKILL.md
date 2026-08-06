@@ -588,6 +588,22 @@ there is no loop — and `_seen.json` persists to make the next run incremental.
 
 ---
 
+### Deployment size (learned the hard way)
+Scaling from 2 GPs to a season took each build from 34 pages to ~240, and the Pages
+deployment started timing out. Two independent causes:
+
+- **Artifact size** — every pinned snapshot carried its own copy of all 23 circuit
+  maps (42 MB artifact). Snapshots now share the live root's binary assets and
+  rewrite their asset URLs accordingly; `versioning.py` also strips the duplicates
+  from snapshots pinned before that change, so history heals itself. → ~7.5 MB.
+- **File count** — 20 snapshots × 240 pages is ~4,800 files for the Pages backend to
+  process. Retention dropped to `--keep 8`, the `.raw` diff mirror is excluded from
+  the upload (it lives on the `site-history` branch, which is all it is needed for),
+  and `deploy-pages` gets a 20-minute timeout for headroom.
+
+If you add many more rounds or pages, expect to trade retention depth for deploy time
+again — file count matters more than bytes.
+
 ## Tooling notes / gotchas
 
 - **Two Pythons:** `build.py` uses **stdlib only** (system `python3`). Image/PDF work

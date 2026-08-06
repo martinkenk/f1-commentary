@@ -95,7 +95,10 @@ jobs:
           fi
 
       - name: Apply versioning (pin only material changes)
-        run: python3 versioning.py site public --threshold 3 --keep 20
+        # Each build is now ~240 pages, so every retained snapshot is 240 more files
+        # for the Pages backend to process. 8 keeps a useful rollback depth without
+        # pushing the deployment past its timeout.
+        run: python3 versioning.py site public --threshold 3 --keep 8
 
       - name: Persist version history
         env:
@@ -108,6 +111,12 @@ jobs:
           git add -A
           git commit -qm "site history $(date -u +%FT%TZ)" || echo "nothing to commit"
           git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" site-history
+
+      - name: Trim the Pages upload
+        # .raw is an HTML-only mirror used purely for the next run's diff. It has
+        # just been persisted to the site-history branch, so it does not need to be
+        # published — dropping it saves ~240 files from the deployment.
+        run: rm -rf public/.raw
 
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
@@ -123,3 +132,6 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          # The default 10 minutes is not enough now the tree spans a full season.
+          timeout: 1200000
