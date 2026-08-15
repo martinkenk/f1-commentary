@@ -266,10 +266,63 @@ def f1_articles(limit=30):
     return out
 
 
+_F1_PAGE_CACHE = {}
+_F1_BODY_CACHE = {}
+_F1_META_CACHE = {}
+
+
+def _f1_page(url):
+    """Fetch a Formula1.com article page once per run.
+
+    Both the body extractor and the headline/date extractor need the same HTML,
+    and relevance testing runs across every GP in the active window, so without
+    this a single article would be downloaded several times per run.
+    """
+    if url not in _F1_PAGE_CACHE:
+        try:
+            _F1_PAGE_CACHE[url] = _get(url)
+        except Exception:
+            _F1_PAGE_CACHE[url] = ""
+    return _F1_PAGE_CACHE[url]
+
+
+def _f1_body_cached(url):
+    if url not in _F1_BODY_CACHE:
+        _F1_BODY_CACHE[url] = f1_body(url)
+    return _F1_BODY_CACHE[url]
+
+
+def f1_meta(url):
+    """Real headline + publication date for a Formula1.com article.
+
+    The listing page only gives a URL slug, and a slug de-hyphenated into a
+    sentence reads badly on screen ("Half term report racing bulls best and
+    worst..."). The article page carries the proper headline and an ISO
+    datePublished, so use those when available.
+    """
+    if url in _F1_META_CACHE:
+        return _F1_META_CACHE[url]
+    meta = {"title": "", "when": ""}
+    page = _f1_page(url)
+    if not page:
+        _F1_META_CACHE[url] = meta
+        return meta
+    m = (re.search(r'"headline"\s*:\s*"([^"]{3,200})"', page)
+         or re.search(r"<title>([^<]{3,200})</title>", page))
+    if m:
+        meta["title"] = _strip(m.group(1)).split(" | ")[0].strip()
+    d = re.search(r'"datePublished"\s*:\s*"(\d{4})-(\d{2})-(\d{2})', page)
+    if d:
+        months = ("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+        meta["when"] = f"{int(d.group(3))} {months[int(d.group(2)) - 1]}"
+    _F1_META_CACHE[url] = meta
+    return meta
+
+
 def f1_body(url):
-    try:
-        page = _get(url)
-    except Exception:
+    page = _f1_page(url)
+    if not page:
         return ""
     m = re.search(r'"articleBody"\s*:\s*"(.*?)"\s*[,}]', page, re.S)
     if m:
@@ -303,7 +356,13 @@ def fia_decision_pdfs(ctx):
     try:
         page = _get(url)
     except Exception as e:
-        print(f"  ! FIA documents page unavailable: {e}")
+        # The FIA only creates an event page once it publishes that event's first
+        # document, and until then the URL returns HTTP 500. For a future round
+        # that is the normal state, not a failure worth flagging as an error.
+        if "500" in str(e):
+            print("  · FIA has not published documents for this event yet")
+        else:
+            print(f"  ! FIA documents page unavailable: {e}")
         return []
     out, seen = [], set()
     for path in re.findall(r"/system/files/decision-document/[^\"'?]+\.pdf", page):
@@ -324,12 +383,32 @@ def relevant(article, ctx):
     # Many weekend stories (driver/team angles) omit the GP name from the title
     # but reference "Hungaroring"/"Hungarian" in the text — the body check keeps
     # those without pulling in generic or other-GP news that never mentions it.
+    #
+    # The Race arrives from RSS with its body already attached, but Formula1.com
+    # only yields title+URL stubs, so for those the body has to be fetched here
+    # or the body check silently never applies to them. Season-preview and
+    # team-review pieces routinely bury the GP reference in the text, and those
+    # are exactly the ones a commentator wants.
     hay = " ".join((
         article.get("title", ""),
         article.get("url", ""),
         article.get("body", ""),
     )).lower()
-    return any(k in hay for k in ctx["keywords"])
+    if any(k in hay for k in ctx["keywords"]):
+        return True
+    if article.get("src_kind") == "f1" and not article.get("body"):
+        body = _f1_body_cached(article["url"])
+        if body:
+            article["body"] = body          # reused by summarise_article
+            if any(k in body.lower() for k in ctx["keywords"]):
+                meta = f1_meta(article["url"])
+                # Upgrade the slug-derived placeholder to the real headline/date.
+                if meta["title"]:
+                    article["title"] = meta["title"]
+                if meta["when"]:
+                    article["when"] = meta["when"]
+                return True
+    return False
 
 
 # --------------------------------------------------------------------------
@@ -516,8 +595,10 @@ def enrich_gp(ctx, max_items=6):
     added_news = added_pen = 0
 
     # --- news: The Race + Formula1.com --------------------------------------
+    # Seen-check first: relevance now fetches article bodies for Formula1.com,
+    # so testing already-processed URLs would re-download them on every run.
     candidates = [a for a in (the_race_articles() + f1_articles())
-                  if relevant(a, ctx) and a["url"] not in seen["articles"]]
+                  if a["url"] not in seen["articles"] and relevant(a, ctx)]
     for a in candidates[:max_items]:
         card = summarise_article(a, ctx)
         seen["articles"].append(a["url"])          # mark seen even if it failed
