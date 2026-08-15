@@ -355,13 +355,23 @@ def _result_table(block):
         row = (row + [""] * ncol)[:ncol]
         cells = []
         for h, val in zip(headers, row):
-            if h.lower().startswith("driver"):
+            low = h.lower()
+            if low.startswith("driver"):
                 nm, code = _split_driver(val)
                 val = f"{nm} <span class='drv-code'>{code}</span>" if code else nm
-            cls = " class='pos'" if h.lower().startswith("pos") else ""
+            if low.startswith("pos") or low.startswith("grid"):
+                cls = " class='pos'"
+            elif low.startswith(("team", "car")):
+                cls = " class='team'"
+            elif low.startswith(("pts", "points", "laps")):
+                cls = " class='num'"
+            else:
+                cls = ""
             cells.append(f"<td{cls}>{val}</td>")
         body.append("<tr>" + "".join(cells) + "</tr>")
-    return f"""<div class="table-wrap"><table class="data">
+    # Results are position-ordered, so the top three earn medal colours.
+    ranked = " ranked" if headers and headers[0].lower().startswith(("pos", "grid")) else ""
+    return f"""<div class="table-wrap"><table class="data{ranked}">
   <thead><tr>{thead}</tr></thead>
   <tbody>{''.join(body)}</tbody>
 </table></div>"""
@@ -944,8 +954,9 @@ def render_index(gps):
         state = {"past": "Completed", "live": "Under way", "future": "Upcoming"}[ctx["status"]]
         sprint = ' <span class="gp-badge">Sprint</span>' if (ctx.get("cal") or {}).get("is_sprint") else ""
         return (f'<tr class="cal-{ctx["status"]}"><td class="pos">{ctx.get("round_no", "")}</td>'
-                f'<td>{ctx["flag"]} <a href="{ctx["dir"]}/{first}">{ctx["name"]}</a>{sprint}</td>'
-                f'<td>{ctx["circuit"]}</td><td>{when}</td><td>{state}</td></tr>')
+                f'<td class="drv">{ctx["flag"]} <a href="{ctx["dir"]}/{first}">{ctx["name"]}</a>{sprint}</td>'
+                f'<td class="team">{ctx["circuit"]}</td><td class="nowrap">{when}</td>'
+                f'<td><span class="state state-{ctx["status"]}">{state}</span></td></tr>')
 
     sections = []
     if live:
@@ -963,7 +974,7 @@ def render_index(gps):
     {''.join(sections)}
 
     <h2 class="sec">Season calendar</h2>
-    <div class="tablewrap"><table class="tbl cal-tbl">
+    <div class="table-wrap"><table class="data cal-tbl">
       <thead><tr><th>Rd</th><th>Grand Prix</th><th>Circuit</th><th>Race day</th><th>Status</th></tr></thead>
       <tbody>{''.join(row(c) for c in gps)}</tbody>
     </table></div>
@@ -1125,16 +1136,73 @@ a:hover{color:#ffb3b0}
 .stat-sub{display:block;color:#6d6d82;font-size:12px;margin-top:2px}
 
 /* Tables */
-.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-bottom:18px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-bottom:18px;background:var(--panel)}
 table.data{width:100%;border-collapse:collapse;min-width:420px}
 table.data th,table.data td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
-table.data thead th{background:var(--panel2);color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
-table.data tbody tr:hover{background:rgba(255,255,255,.03)}
+table.data thead th{
+  background:var(--panel2);color:#fff;font-size:13px;text-transform:uppercase;
+  letter-spacing:.5px;
+  /* Standings run to 20+ rows, so keep the header visible while scrolling. */
+  position:sticky;top:0;z-index:2;box-shadow:inset 0 -1px 0 var(--line);
+}
+/* Zebra striping does the heavy lifting for scanning across a wide row. */
+table.data tbody tr:nth-child(even){background:rgba(255,255,255,.022)}
+table.data tbody tr:last-child td{border-bottom:none}
+table.data tbody tr:hover{background:rgba(255,255,255,.06)}
 table.data tbody tr.hi{background:rgba(225,6,0,.14)}
 table.data tbody tr.hi:hover{background:rgba(225,6,0,.20)}
 table.data tbody tr.hi td{border-bottom-color:rgba(225,6,0,.35)}
 table.data caption.tbl-cap{caption-side:top;text-align:left;color:var(--muted);font-size:13px;padding:0 0 8px;font-style:italic}
-table.data td.pos{font-weight:900;color:var(--f1-red);width:40px}
+
+/* Position column: fixed-width badge so the numbers form a clean left rail. */
+table.data td.pos{
+  font-weight:800;color:var(--muted);width:52px;text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+/* The top three of any ranked table (championship, session results, grid) get
+   medal colours; everything else stays quiet so it doesn't compete with the
+   driver names. Opt-in via `.ranked` — a schedule's first three rows are not a
+   podium, so this must not apply to every table. */
+table.data.ranked tbody tr:nth-child(1) td.pos{color:#e8c14a}
+table.data.ranked tbody tr:nth-child(2) td.pos{color:#c8ccd4}
+table.data.ranked tbody tr:nth-child(3) td.pos{color:#cd8544}
+
+/* Numeric columns align right on a common decimal rail. */
+table.data td.num,table.data th.num{text-align:right;font-variant-numeric:tabular-nums}
+table.data td.pts{
+  text-align:right;font-weight:800;color:#fff;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+table.data td.pts .pts-gap{
+  display:block;font-size:11px;font-weight:600;color:var(--muted);margin-top:1px;
+}
+/* Team name is secondary information next to the driver. */
+table.data td.team{color:var(--muted)}
+table.data td.drv{font-weight:600;color:#fff;white-space:nowrap}
+
+/* A thin team-colour rail makes team grouping readable at a glance. */
+table.data td.pos{border-left:3px solid transparent}
+table.data tr[data-team] td.pos{border-left-color:var(--team,transparent)}
+
+/* Standings layout: the drivers' table has four columns and needs more room
+   than the constructors' three, so this is deliberately not an even 2-up split.
+   The generic `.grid.cols-2` forced both into ~320px columns, which pushed the
+   420px-min tables into horizontal scroll — the main reason they read badly. */
+.standings-grid{display:grid;gap:18px;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+@media (max-width:1180px){.standings-grid{grid-template-columns:minmax(0,1fr)}}
+.standings-grid table.data{min-width:0}
+.standings-grid .table-wrap{margin-bottom:0}
+
+/* Status pills in the season calendar. */
+.state{
+  display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.4px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);
+  color:var(--muted);background:var(--panel2);white-space:nowrap;
+}
+.state-live{color:#fff;background:var(--f1-red);border-color:var(--f1-red)}
+.state-future{color:#8fd0ff;border-color:#2b4d66;background:rgba(60,140,200,.12)}
+.state-past{color:#8a8a9e}
+td.nowrap{white-space:nowrap}
 
 /* Results session tabs */
 .results-tabs{gap:8px;margin:0 0 18px;flex-wrap:wrap}
@@ -1252,7 +1320,11 @@ h2.sec{font-weight:800;font-size:24px;margin:30px 0 14px;padding-bottom:6px;bord
 
 
 CSS += r"""
-.drv-code{color:var(--muted);font-size:12px;font-weight:700}
+.drv-code{
+  color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.4px;
+  background:var(--panel2);border:1px solid var(--line);border-radius:4px;
+  padding:1px 5px;margin-left:4px;vertical-align:1px;
+}
 .wx-tag{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);
   border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:middle}
 .gp-grid{display:flex;flex-wrap:wrap;gap:20px}

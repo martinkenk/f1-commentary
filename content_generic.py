@@ -133,7 +133,7 @@ def build_pages(ctx, env):
 </div>
 
 <h2 class="sec">Session times</h2>
-<div class="tablewrap"><table class="tbl">
+<div class="table-wrap"><table class="data">
   <thead><tr><th>Session</th><th>Day</th><th>{tz_local}</th><th>{tz_east}</th></tr></thead>
   <tbody>{schedule_rows()}</tbody>
 </table></div>
@@ -236,20 +236,21 @@ def build_pages(ctx, env):
     if st.get("drivers"):
         standings_body = f"""
 <div class="callout"><strong>Standings as of {st.get('as_of', 'the most recent completed round')}.</strong>
-  These refresh as each subsequent race is built into the hub.</div>
+  These refresh as each subsequent race is built into the hub.
+  Gaps under each points total show the deficit to P1 and to the position ahead.</div>
 
-<div class="grid cols-2">
+<div class="standings-grid">
   <div>
     <h2 class="sec">Drivers</h2>
-    <div class="tablewrap"><table class="tbl">
-      <thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th>Pts</th></tr></thead>
+    <div class="table-wrap"><table class="data ranked">
+      <thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th class="num">Pts</th></tr></thead>
       <tbody>{st['drivers']}</tbody>
     </table></div>
   </div>
   <div>
     <h2 class="sec">Constructors</h2>
-    <div class="tablewrap"><table class="tbl">
-      <thead><tr><th>Pos</th><th>Team</th><th>Pts</th></tr></thead>
+    <div class="table-wrap"><table class="data ranked">
+      <thead><tr><th>Pos</th><th>Team</th><th class="num">Pts</th></tr></thead>
       <tbody>{st.get('ctors', '')}</tbody>
     </table></div>
   </div>
@@ -385,7 +386,7 @@ def build_pages(ctx, env):
 <div class="callout">{fmt_line}</div>
 
 <h2 class="sec">Session times</h2>
-<div class="tablewrap"><table class="tbl">
+<div class="table-wrap"><table class="data">
   <thead><tr><th>Session</th><th>Day</th><th>{tz_local}</th><th>{tz_east}</th></tr></thead>
   <tbody>{schedule_rows()}</tbody>
 </table></div>

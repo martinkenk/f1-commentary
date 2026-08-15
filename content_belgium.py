@@ -5,41 +5,13 @@ Formula1.com data pulled at build time; evergreen pages (circuit, facts,
 moments) use verified reference facts. Session results appear on the auto-built
 Results page. Edit prose here; the engine lives in f1lib.py.
 """
+import standings
 from f1lib import card, stat, ul, quote
 
-DRIVER_ROWS = """      <tr><td class="pos">1</td><td>Kimi Antonelli <span class="drv-code">ANT</span></td><td>Mercedes</td><td>204</td></tr>
-      <tr><td class="pos">2</td><td>Lewis Hamilton <span class="drv-code">HAM</span></td><td>Ferrari</td><td>159</td></tr>
-      <tr><td class="pos">3</td><td>George Russell <span class="drv-code">RUS</span></td><td>Mercedes</td><td>154</td></tr>
-      <tr><td class="pos">4</td><td>Charles Leclerc <span class="drv-code">LEC</span></td><td>Ferrari</td><td>126</td></tr>
-      <tr><td class="pos">5</td><td>Lando Norris <span class="drv-code">NOR</span></td><td>McLaren</td><td>103</td></tr>
-      <tr><td class="pos">6</td><td>Oscar Piastri <span class="drv-code">PIA</span></td><td>McLaren</td><td>92</td></tr>
-      <tr><td class="pos">7</td><td>Max Verstappen <span class="drv-code">VER</span></td><td>Red Bull Racing</td><td>91</td></tr>
-      <tr><td class="pos">8</td><td>Isack Hadjar <span class="drv-code">HAD</span></td><td>Red Bull Racing</td><td>60</td></tr>
-      <tr><td class="pos">9</td><td>Pierre Gasly <span class="drv-code">GAS</span></td><td>Alpine</td><td>42</td></tr>
-      <tr><td class="pos">10</td><td>Liam Lawson <span class="drv-code">LAW</span></td><td>Racing Bulls</td><td>39</td></tr>
-      <tr><td class="pos">11</td><td>Arvid Lindblad <span class="drv-code">LIN</span></td><td>Racing Bulls</td><td>22</td></tr>
-      <tr><td class="pos">12</td><td>Franco Colapinto <span class="drv-code">COL</span></td><td>Alpine</td><td>19</td></tr>
-      <tr><td class="pos">13</td><td>Oliver Bearman <span class="drv-code">BEA</span></td><td>Haas F1 Team</td><td>18</td></tr>
-      <tr><td class="pos">14</td><td>Gabriel Bortoleto <span class="drv-code">BOR</span></td><td>Audi</td><td>10</td></tr>
-      <tr><td class="pos">15</td><td>Carlos Sainz <span class="drv-code">SAI</span></td><td>Williams</td><td>6</td></tr>
-      <tr><td class="pos">16</td><td>Alexander Albon <span class="drv-code">ALB</span></td><td>Williams</td><td>5</td></tr>
-      <tr><td class="pos">17</td><td>Esteban Ocon <span class="drv-code">OCO</span></td><td>Haas F1 Team</td><td>3</td></tr>
-      <tr><td class="pos">18</td><td>Fernando Alonso <span class="drv-code">ALO</span></td><td>Aston Martin</td><td>1</td></tr>
-      <tr><td class="pos">19</td><td>Nico Hulkenberg <span class="drv-code">HUL</span></td><td>Audi</td><td>0</td></tr>
-      <tr><td class="pos">20</td><td>Valtteri Bottas <span class="drv-code">BOT</span></td><td>Cadillac</td><td>0</td></tr>
-      <tr><td class="pos">21</td><td>Sergio Perez <span class="drv-code">PER</span></td><td>Cadillac</td><td>0</td></tr>
-      <tr><td class="pos">22</td><td>Lance Stroll <span class="drv-code">STR</span></td><td>Aston Martin</td><td>0</td></tr>"""
-CTOR_ROWS = """      <tr><td class="pos">1</td><td>Mercedes</td><td>358</td></tr>
-      <tr><td class="pos">2</td><td>Ferrari</td><td>285</td></tr>
-      <tr><td class="pos">3</td><td>McLaren</td><td>195</td></tr>
-      <tr><td class="pos">4</td><td>Red Bull Racing</td><td>151</td></tr>
-      <tr><td class="pos">5</td><td>Alpine</td><td>61</td></tr>
-      <tr><td class="pos">6</td><td>Racing Bulls</td><td>61</td></tr>
-      <tr><td class="pos">7</td><td>Haas F1 Team</td><td>21</td></tr>
-      <tr><td class="pos">8</td><td>Williams</td><td>11</td></tr>
-      <tr><td class="pos">9</td><td>Audi</td><td>10</td></tr>
-      <tr><td class="pos">10</td><td>Aston Martin</td><td>1</td></tr>
-      <tr><td class="pos">11</td><td>Cadillac</td><td>0</td></tr>"""
+# Standings live in standings.py so the rows can carry team colours and
+# points gaps; re-exported here for the pages that already reference them.
+DRIVER_ROWS = standings.DRIVER_ROWS
+CTOR_ROWS = standings.CTOR_ROWS
 
 
 def build_pages(ctx, env):
@@ -202,10 +174,10 @@ def build_pages(ctx, env):
   {stat("73", "Merc margin", "over Ferrari")}
 </div>
 
-<div class="grid cols-2">
+<div class="standings-grid">
   {card("Drivers' Championship", '''
-  <div class="table-wrap"><table class="data">
-    <thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th>Pts</th></tr></thead>
+  <div class="table-wrap"><table class="data ranked">
+    <thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th class="num">Pts</th></tr></thead>
     <tbody>
 ''' + DRIVER_ROWS + '''
     </tbody>
@@ -213,8 +185,8 @@ def build_pages(ctx, env):
   ''', "bi-trophy", "accent")}
 
   {card("Constructors' Championship", '''
-  <div class="table-wrap"><table class="data">
-    <thead><tr><th>Pos</th><th>Team</th><th>Pts</th></tr></thead>
+  <div class="table-wrap"><table class="data ranked">
+    <thead><tr><th>Pos</th><th>Team</th><th class="num">Pts</th></tr></thead>
     <tbody>
 ''' + CTOR_ROWS + '''
     </tbody>
