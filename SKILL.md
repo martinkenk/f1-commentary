@@ -395,6 +395,35 @@ Rules:
   f-string body, use plain `'''…''' + ROWS + '''…'''` concatenation (triple-single
   inside the triple-double body) so you don't fight f-string brace escaping.
 
+#### Table markup contract
+There is exactly **one** set of table class names, all defined in the CSS block in
+`f1lib.py`. Invented names fail silently — the table still renders, just with raw
+browser defaults, which is how 49 tables once shipped completely unstyled. If a table
+looks plain, check the class name against this list first.
+
+```html
+<div class="table-wrap"><table class="data">…</table></div>
+```
+
+- `.table-wrap` — required scroll container. Never put `table.data` on the page bare.
+- `.data` — the only base table class. (`tbl` / `tablewrap` do **not** exist.)
+- Modifiers on the same element: `compact` (denser), `ranked`, `h2h`, `pen`, `cal-tbl`.
+- `ranked` gives the top three rows medal-coloured positions. Add it only to genuinely
+  ranked tables — championship order, session results, the grid. A schedule's first
+  three rows are not a podium.
+- Cell classes carry the alignment and emphasis: `td.pos` (position), `td.num`
+  (right-aligned tabular numerals — use for points, laps, times), `td.team`,
+  `td.drv`, `td.nowrap`. `th.num` right-aligns the matching header.
+- Row-level team colour: `<tr data-team="Ferrari" style="--team:#e8002d">` paints the
+  left rail on `td.pos`.
+
+Standings rows are **generated, not hand-written** — see `standings.py` (`DRIVERS`,
+`CONSTRUCTORS`, `driver_rows()`, `ctor_rows()`). After each race update those two
+tuples only; team colours, rails and points-gap labels all derive from them.
+
+Keep standings inside `.standings-grid`, not `.grid.cols-2`: the latter caps columns
+at ~320px while `table.data` has `min-width:420px`, which forces horizontal scroll.
+
 ### Running storylines (e.g. Aston Martin upgrades)
 Some threads run all weekend and deserve a **dedicated, visually distinct section**
 that grows as new sources drop. The Upgrades page uses a `.storyline` block (red
