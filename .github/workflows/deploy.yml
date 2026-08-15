@@ -6,10 +6,12 @@ on:
   push:
     branches: [main]
   schedule:
-    # Narrowed to race-weekend windows: Fri/Sat/Sun/Mon, every 2h from 06:00–20:00
-    # UTC (covers the 09:00–18:00-ish EEST/CEST session window). Best-effort; runs
-    # on the default branch. Tighten to specific race dates or widen as you like.
-    - cron: "0 6-20/2 * * 5,6,0,1"
+    # Narrowed to race-weekend windows: Thu–Mon, every 2h from 06:00–20:00 UTC
+    # (covers the 09:00–18:00-ish EEST/CEST session window). Thursday is included
+    # because that is when the FIA publishes a round's first documents — the Race
+    # Director's event notes and scrutineering papers — which is prep material for
+    # Friday running. Best-effort; runs on the default branch.
+    - cron: "0 6-20/2 * * 4,5,6,0,1"
   workflow_dispatch: {}
 
 # One deployment at a time. Do NOT cancel in progress — a cancelled run could

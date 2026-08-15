@@ -181,6 +181,18 @@ piece is member-only and not in RSS, ask the user to log in via the built-in bro
 The FIA keeps **publishing documents through the weekend** (revised race notes,
 scrutineering, penalties, PU details). Re-scrape the event page each run and diff
 against what you already have:
+
+**When do documents appear?** The FIA creates an event's page only when it
+publishes that event's *first* document — typically the Thursday of race week.
+Until then the event URL returns **HTTP 500**, and the event is simply absent
+from the season page's list. That 500 is the normal "not published yet" state
+for a future round, not a fault; `enrich.py` reports it as an informational
+line. To check whether a round has gone live, list the published events:
+```bash
+curl -sL -A "Mozilla/5.0" \
+  "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072" \
+  | grep -oE 'event/[A-Za-z0-9%20-]+' | sort -u
+```
 ```bash
 curl -sL -A "Mozilla/5.0" "<fia-event-url>" -o /tmp/fia.html   # grab .pdf hrefs
 curl -sL -A "Mozilla/5.0" "<pdf-url>" -o "fia_pdfs/<name>.pdf"
@@ -495,8 +507,10 @@ The site is deployed to **GitHub Pages** at
   the previous version from the dropdown.
 
 **Triggers:** push to `main`, `workflow_dispatch` (manual), and a narrowed cron
-`0 6-20/2 * * 5,6,0,1` (Fri/Sat/Sun/Mon, every 2h 06:00–20:00 UTC — the race-
-weekend session window). Tighten to specific race dates or widen as needed.
+`0 6-20/2 * * 4,5,6,0,1` (Thu–Mon, every 2h 06:00–20:00 UTC — the race-weekend
+session window). Thursday is included deliberately: it is when the FIA publishes
+a round's first documents, which is prep material for Friday running. Tighten to
+specific race dates or widen as needed.
 Note GitHub auto-pauses scheduled workflows after ~60 days of repo inactivity.
 
 **Workflow requirements:** `permissions: contents: write` (to push
@@ -531,6 +545,31 @@ trigger is needed.
    article into a 2–4 sentence news card and (b) extract `{doc, driver, team,
    session, fact, outcome, kind}` from a decision PDF (`pypdf` text).
 4. Writes `data/<gp>/news_auto.json` + `data/<gp>/penalties_auto.json`.
+
+**Relevance matching — why bodies are fetched.** A story counts for a GP when a
+venue keyword (`hungary`/`hungaroring`/`budapest`, `dutch`/`zandvoort`/…) appears
+in its title, URL **or body**. The body check matters: season previews, team
+half-term reviews and driver-market pieces routinely discuss a circuit without
+naming it in the headline, and those are prime commentary material.
+
+The Race arrives from RSS with full text attached, but Formula1.com only gives
+title+URL stubs, so for F1.com the article page is fetched *during* the relevance
+test (cached per run; the seen-check runs first so processed URLs are never
+re-downloaded). While that page is open, the real `headline` and `datePublished`
+are read from it — the listing page has neither, and a de-hyphenated slug reads
+badly on screen ("Half term report racing bulls best and worst moments…").
+
+Keyword choice is safety-critical here: because matching now reaches article
+bodies, a generic token would pull in nearly everything. `_GENERIC` strips words
+like "circuit"/"grand"/"prix" from the auto-derived keyword set.
+
+`backfill_meta.py` repairs cards stored before this existed. It always fills a
+missing date, but replaces a title **only** when it is plainly slug-derived, so
+the summariser's own (usually better) titles survive:
+```bash
+python3 backfill_meta.py --dry-run     # inspect first
+python3 backfill_meta.py [--gp hungary]
+```
 
 **LLM backend — free by default:**
 - Default: **GitHub Models** (`https://models.github.ai/inference`, model
