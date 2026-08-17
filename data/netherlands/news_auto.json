@@ -1,5 +1,18 @@
 [
   {
+    "id": "2ea6abe37fba",
+    "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-dutch-grand-prix.7zAWT5S8841xWaDZ5mUrJ0",
+    "title": "Its race week 5 storylines were excited about ahead of the 2026 dutch grand prix",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "",
+    "kind": "session",
+    "session": "Race",
+    "paragraphs": [
+      "After three long weekends without a Formula 1 race to look forward to, it’s time to get back to action following the summer shutdown. And there will be plenty of racing to look forward to between now and the end of the season as the second half kicks off with our final visit to Zandvoort. Teams and drivers have been enjoying a well-earned rest since the last Race Week feature was required, and the"
+    ]
+  },
+  {
     "id": "fe16ba44695a",
     "url": "https://www.formula1.com/en/latest/article/what-time-is-the-formula-1-2026-dutch-grand-prix-and-how-can-i-watch-it.Q0uYsmB43t2dpe7EsXYiS",
     "title": "What time is the formula 1 2026 dutch grand prix and how can i watch it",
@@ -143,6 +156,19 @@
     ]
   },
   {
+    "id": "7792819b4b0c",
+    "url": "https://www.formula1.com/en/latest/article/the-legends-league-a-second-chance-to-play-f1-fantasy-this-season.6pSkDlsiETmx0C1uxeZygw",
+    "title": "The Legends League – A second chance to play F1 Fantasy this season",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "17 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Missed the start of the season? Is your F1 Fantasy team having a bad first half? This is your chance to join a fresh league built for the second half of the year."
+    ]
+  },
+  {
     "id": "9c796ca759e3",
     "url": "https://www.formula1.com/en/latest/article/what-were-hearing-about-the-current-state-of-play-in-the-f1-driver-market.5WCC2OxeAEYE4IxzOnmjPY",
     "title": "The latest on the F1 driver market: What we're hearing ahead of 2027",
@@ -153,6 +179,19 @@
     "session": "",
     "paragraphs": [
       "Max Verstappen's future has been the talk of the town this year, despite the Dutchman having a contract with Red Bull until at the end of 2028. The four-time World Champion was linked with a move to Mercedes last year before saying he would stay on for at least this year. His management have done their job and assessed the market, which included talking to McLaren , who have already got Lando Norr"
+    ]
+  },
+  {
+    "id": "d7eb370d1222",
+    "url": "https://www.the-race.com/promoted/what-time-is-f1s-2026-dutch-grand-prix-full-weekend-schedule/",
+    "title": "What time is F1's 2026 Dutch Grand Prix? Full weekend schedule",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "17 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Presented by Apple TV As Formula 1 ® returns from its summer break, next up in the 2026 season is the ever eye-catching Dutch Grand Prix. Zandvoort won't be on the calendar next year - so this is the final chance for now to watch F1 cars navigate the crazy banking at Hugenholtz or the high-speed Scheivlak corner. And it's a sprint weekend!"
     ]
   }
 ]
