@@ -667,7 +667,8 @@ deployment started timing out. Two independent causes:
 - **File count** — 20 snapshots × 240 pages is ~4,800 files for the Pages backend to
   process. Retention dropped to `--keep 8`, the `.raw` diff mirror is excluded from
   the upload (it lives on the `site-history` branch, which is all it is needed for),
-  and `deploy-pages` gets a 20-minute timeout for headroom.
+  and `deploy-pages` uses its maximum 10-minute timeout. A transient API failure gets
+  one delayed retry.
 
 If you add many more rounds or pages, expect to trade retention depth for deploy time
 again — file count matters more than bytes.
