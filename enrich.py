@@ -54,6 +54,8 @@ import hashlib
 import argparse
 import urllib.request
 
+import f1lib
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(ROOT, "data")
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -120,7 +122,6 @@ def active_gps(gps, lead_days=10):
     reports and stewards' decisions are still landing), and the next one once it
     is close enough for genuine build-up coverage to exist.
     """
-    import f1lib
     today = datetime.date.today()
     for c in gps:
         c.setdefault("status", f1lib.event_status(c, today))
@@ -232,6 +233,7 @@ def the_race_articles():
             "title": html.unescape(t.group(1)).strip(),
             "url": (l.group(1) or "").strip(),
             "when": _fmt_date(d.group(1) if d else ""),
+            "date": _iso_date(d.group(1) if d else ""),
             "body": _strip(c.group(1))[:6000] if c else "",
             "source": "The Race", "src_kind": "race",
         })
@@ -302,7 +304,7 @@ def f1_meta(url):
     """
     if url in _F1_META_CACHE:
         return _F1_META_CACHE[url]
-    meta = {"title": "", "when": ""}
+    meta = {"title": "", "when": "", "date": ""}
     page = _f1_page(url)
     if not page:
         _F1_META_CACHE[url] = meta
@@ -316,6 +318,7 @@ def f1_meta(url):
         months = ("Jan", "Feb", "Mar", "Apr", "May", "Jun",
                   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
         meta["when"] = f"{int(d.group(3))} {months[int(d.group(2)) - 1]}"
+        meta["date"] = f"{d.group(1)}-{d.group(2)}-{d.group(3)}"
     _F1_META_CACHE[url] = meta
     return meta
 
@@ -346,6 +349,19 @@ def f1_body(url):
 def _fmt_date(rfc):
     m = re.search(r"(\d{1,2})\s+(\w{3})\s+\d{4}", rfc or "")
     return f"{m.group(1)} {m.group(2)}" if m else ""
+
+
+_RSS_MONTHS = ("jan", "feb", "mar", "apr", "may", "jun",
+               "jul", "aug", "sep", "oct", "nov", "dec")
+
+
+def _iso_date(rfc):
+    """ISO date from an RFC-822 pubDate, for sorting ('' if unparseable)."""
+    m = re.search(r"(\d{1,2})\s+(\w{3})\s+(\d{4})", rfc or "")
+    if not m or m.group(2).lower() not in _RSS_MONTHS:
+        return ""
+    month = _RSS_MONTHS.index(m.group(2).lower()) + 1
+    return f"{m.group(3)}-{month:02d}-{int(m.group(1)):02d}"
 
 
 def fia_decision_pdfs(ctx):
@@ -395,20 +411,41 @@ def relevant(article, ctx):
         article.get("body", ""),
     )).lower()
     if any(k in hay for k in ctx["keywords"]):
+        _upgrade_f1_meta(article)
         return True
     if article.get("src_kind") == "f1" and not article.get("body"):
         body = _f1_body_cached(article["url"])
         if body:
             article["body"] = body          # reused by summarise_article
             if any(k in body.lower() for k in ctx["keywords"]):
-                meta = f1_meta(article["url"])
-                # Upgrade the slug-derived placeholder to the real headline/date.
-                if meta["title"]:
-                    article["title"] = meta["title"]
-                if meta["when"]:
-                    article["when"] = meta["when"]
+                _upgrade_f1_meta(article)
                 return True
     return False
+
+
+def _upgrade_f1_meta(article):
+    """Replace a Formula1.com stub's slug-derived title and missing date with
+    the article page's real headline and publication date.
+
+    Every article about the current round matches on its URL slug alone, so the
+    keyword test above short-circuits before any body fetch. That used to mean
+    the round's *own* coverage — the stories most worth reading — was the only
+    coverage stored with an unreadable slug title ("Red bull confirm hadjar to
+    miss dutch grand prix...") and no date, while off-round stories that had to
+    fall through to the body check got proper metadata. Undated cards then sort
+    to the bottom of the wire feed, hiding that weekend's breaking news.
+    """
+    if article.get("src_kind") != "f1":
+        return
+    if article.get("title") and article.get("when") and article.get("date"):
+        return
+    meta = f1_meta(article["url"])
+    if meta["title"]:
+        article["title"] = meta["title"]
+    if meta["when"]:
+        article["when"] = meta["when"]
+    if meta["date"]:
+        article["date"] = meta["date"]
 
 
 # --------------------------------------------------------------------------
@@ -521,6 +558,7 @@ def summarise_article(a, ctx):
         "title": (js.get("title") or a["title"]).strip()[:120],
         "source": a["source"], "src_kind": a["src_kind"],
         "when": a.get("when", ""),
+        "date": a.get("date", ""),
         "kind": "session" if sess else "general",
         "session": sess,
         "paragraphs": paras[:2],
@@ -623,8 +661,10 @@ def enrich_gp(ctx, max_items=6):
             print(f"  + penalty: {rec['doc']} — {rec.get('driver','')} "
                   f"({rec.get('kind')})")
 
-    # sort for stable output
-    news.sort(key=lambda n: (n.get("when", ""), n.get("title", "")))
+    # sort for stable output. Chronological by real publication date — the old
+    # key sorted the display string ("12 Aug" before "6 Aug"), which scrambled
+    # the feed the moment a month rolled over.
+    news.sort(key=lambda n: (f1lib.news_sort_key(n), n.get("title", "")))
     pens.sort(key=lambda p: int(re.search(r"(\d+)", p.get("doc", "0")).group(1))
               if re.search(r"(\d+)", p.get("doc", "")) else 9999)
 

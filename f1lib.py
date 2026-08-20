@@ -18,6 +18,9 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
 # just returns nothing, so a full-season build skips it rather than paying for
 # a round trip per session.
 WEATHER_HORIZON_DAYS = 16
+# Championship year. Used to turn a card's short display date ("20 Aug") into
+# something sortable when it predates the ISO `date` field.
+SEASON = 2026
 
 
 # --------------------------------------------------------------------------
@@ -72,6 +75,33 @@ def _norm_title(t):
 def _doc_num(doc):
     m = re.search(r"(\d+)", doc or "")
     return int(m.group(1)) if m else 9999
+
+
+_MONTHS = ("jan", "feb", "mar", "apr", "may", "jun",
+           "jul", "aug", "sep", "oct", "nov", "dec")
+
+
+def news_sort_key(card):
+    """Sortable publication date for an auto news card, oldest -> newest.
+
+    Cards carry an ISO ``date`` for sorting and a short display ``when``
+    ("20 Aug"). ``when`` alone is useless as a key: it sorts lexically, so
+    "12 Aug" lands before "6 Aug" and any September story before every August
+    one. Older cards predate the ``date`` field, so fall back to parsing
+    ``when`` against the season year rather than dropping them to the bottom.
+
+    Undated cards sort *last* here — with newest-first rendering that puts
+    them at the end, where an item of unknown age belongs, instead of above
+    the day's breaking news.
+    """
+    iso = (card.get("date") or "").strip()
+    if re.match(r"^\d{4}-\d{2}-\d{2}$", iso):
+        return iso
+    m = re.match(r"^\s*(\d{1,2})\s+([A-Za-z]{3})", card.get("when") or "")
+    if m and m.group(2).lower() in _MONTHS:
+        month = _MONTHS.index(m.group(2).lower()) + 1
+        return f"{SEASON}-{month:02d}-{int(m.group(1)):02d}"
+    return ""
 
 
 def _auto_news_card(c):
@@ -500,6 +530,11 @@ def render_news(ctx, general_items, session_notes):
             auto_by_session.setdefault(sess, []).append(c)
         else:
             auto_general.append(c)
+    # Newest first. The wire feed runs to dozens of cards by race day, and a
+    # commentator scanning it wants today's driver-market bombshell at the top,
+    # not last week's preview — stored order is oldest-first, which buried
+    # exactly the stories the page exists to surface.
+    auto_general.sort(key=news_sort_key, reverse=True)
 
     out = []
     out.append('<h2 class="sec">Weekend headlines</h2>')

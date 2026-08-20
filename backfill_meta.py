@@ -17,6 +17,7 @@ import os
 import sys
 
 import enrich
+import f1lib
 
 DATA_DIR = "data"
 
@@ -38,7 +39,7 @@ def backfill(gp, dry_run=False):
         if card.get("src_kind") != "f1":
             continue
         slug_title = _slug_like(card.get("title", ""))
-        if card.get("when") and not slug_title:
+        if card.get("when") and card.get("date") and not slug_title:
             continue
         meta = enrich.f1_meta(card["url"])
         upd = []
@@ -51,12 +52,18 @@ def backfill(gp, dry_run=False):
         if meta["when"] and meta["when"] != card.get("when"):
             upd.append(f'when: {card.get("when", "")!r} -> {meta["when"]!r}')
             card["when"] = meta["when"]
+        # The ISO date is what the news feed actually sorts on; a card without
+        # one falls back to parsing `when` and, failing that, sinks to the
+        # bottom of the wire feed regardless of how recent it is.
+        if meta["date"] and meta["date"] != card.get("date"):
+            upd.append(f'date: {card.get("date", "")!r} -> {meta["date"]!r}')
+            card["date"] = meta["date"]
         if upd:
             changed += 1
             print(f"  ~ {' | '.join(upd)}")
 
     if changed and not dry_run:
-        news.sort(key=lambda n: (n.get("when", ""), n.get("title", "")))
+        news.sort(key=lambda n: (f1lib.news_sort_key(n), n.get("title", "")))
         with open(path, "w", encoding="utf-8") as fh:
             json.dump(news, fh, indent=1, ensure_ascii=False)
             fh.write("\n")
