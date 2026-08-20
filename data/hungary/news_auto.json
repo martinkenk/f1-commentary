@@ -1,460 +1,5 @@
 [
   {
-    "id": "0a16c97f07ef",
-    "url": "https://www.the-race.com/formula-1/are-f1s-blue-flag-rules-too-extreme/",
-    "title": "F1's blue flag rules are too extreme",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "01 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "The suitability of Formula 1's blue flag rules has been a big talking point since Oscar Piastri and Carlos Sainz's collision at the Hungarian Grand Prix last weekend. While Sainz was punished for an incident he could have avoided - even with the caveat of the malfunctioning of the automatic blue flag system - it has raised interesting questions about F1's blue flag rules themselves. The FIA's Inte"
-    ]
-  },
-  {
-    "id": "426cc9dd6c17",
-    "url": "https://www.the-race.com/formula-1/who-is-f1-2026-best-driver-our-verdict/",
-    "title": "Who is F1 2026's best driver so far? Our verdict",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "02 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Eleven races into the 2026 Formula 1 season, which of the 22 drivers has done the best job? Here's what our team thinks... Kimi Antonelli Edd Straw: A predictable choice, but Kimi Antonelli has consistently delivered a high level of performance and matched that to actual consistency in results too."
-    ]
-  },
-  {
-    "id": "059c588d8db1",
-    "url": "https://www.the-race.com/formula-1/red-bull-2026-concerns-exits-verstappen-horner-mekies/",
-    "title": "Red Bull is losing the traits that made it an F1 giant",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "04 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Red Bull’s ‘car degradation’ problems are well-publicised thanks to Max Verstappen’s Hungaroring complaints, but there’s a wider concern that’s difficult to pin down. That’s what might be called team degradation and the very real possibility that Red Bull’s Formula 1 empire is slowly crumbling before our eyes. Red Bull is not having a bad season, particularly when you consider the remarkable start"
-    ]
-  },
-  {
-    "id": "25fc43531f77",
-    "url": "https://www.the-race.com/formula-1/why-f1-cannot-remove-algorithms-drivers-hate/",
-    "title": "Why F1 can't ban algorithms that drivers hate",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "05 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "'Why can't Formula 1 drivers have 100% control of energy deployment?' It's a question many have asked this year, especially when weekends such as the Belgian Grand Prix exposed how much influence machine-learning algorithms are having on energy deployment and a driver's result in qualifying or the race. The likes of Oscar Piastri have called it a \"pretty crap way of going racing\" and there's been"
-    ]
-  },
-  {
-    "id": "bde6578d1309",
-    "url": "https://www.the-race.com/formula-1/f1-2026-mid-season-driver-rankings-edd-straw/",
-    "title": "Edd Straw's mid-season 2026 F1 driver rankings",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "07 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Every weekend, I've ranked the Formula 1 drivers from first to 22nd based on my evaluation of their performances across each grand prix weekend. The August break gives us the chance to take a look at how their performances stack up across the season so far. The rankings are dictated by all aspects of each driver's performance: speed, consistency, racecraft, performance relative to team-mate, mista"
-    ]
-  },
-  {
-    "id": "a5db1ecde76f",
-    "url": "https://www.the-race.com/formula-1/our-verdict-best-and-worst-races-of-f1-2026-so-far/",
-    "title": "Our verdict on the best and worst races of F1 2026 so far",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "08 Aug",
-    "kind": "session",
-    "session": "Race",
-    "paragraphs": [
-      "The 2026 Formula 1 season has delivered a real mix of races so far, eliciting plenty of positive and negative reactions. But which have been the best and worst? Here's what our team thinks."
-    ]
-  },
-  {
-    "id": "a37ef2f9ba31",
-    "url": "https://www.the-race.com/formula-1/how-a-failed-2024-upgrade-set-up-a-big-2026-f1-success-story/",
-    "title": "How a failed 2024 upgrade set up a big 2026 F1 success story",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "09 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "It is often said in Formula 1 that you learn nothing from success. It's the days you stumble and fail that prove to be far more valuable in making you stronger. So as Racing Bulls reflects on a robust first half to the 2026 season in which it has emerged at the top of that chasing pack behind the big four teams, it is no surprise to hear it credit an \"awful\" moment in its recent history for helpin"
-    ]
-  },
-  {
-    "id": "da5e024c483f",
-    "url": "https://www.the-race.com/formula-1/mercedes-drivers-facing-almost-inevitable-f1-grid-penalties/",
-    "title": "Take Monza pressure off Antonelli? Mercedes' grid penalty dilemma",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "10 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "The Formula 1 championship-leading Mercedes team is anticipating the need to take engine penalties with both George Russell and Kimi Antonelli in the upcoming second half of the season. Mercedes is 72 points clear of Ferrari in the constructors' standings, and Antonelli has a 50-point buffer in the drivers' contest, but the Mercedes W17 had come under more pressure from rivals in more recent races"
-    ]
-  },
-  {
-    "id": "16b0a67f08ea",
-    "url": "https://www.the-race.com/formula-1/gary-anderson-the-system-f1-really-needs-to-borrow/",
-    "title": "Gary Anderson: Why F1 needs a traffic light system",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "11 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Whenever Sky Sports or any other Formula 1 broadcaster analyses controversial incidents involving trackside flags or the lightboard warning systems, it’s almost impossible for them to make out if it was stationary, waved or double yellow. So just imagine what a driver goes through trying to work it out when traveling at 150mph or more. Formula 1 is constantly trying to reinvent the wheel, but shou"
-    ]
-  },
-  {
-    "id": "bc22d9ebf966",
-    "url": "https://www.the-race.com/formula-1/our-verdict-on-f1-2026s-biggest-disappointments-so-far/",
-    "title": "Our verdict on F1 2026's biggest disappointments so far",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "12 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Who or what has been the biggest disappointment of Formula 1's 2026 season so far? That's what we asked our team; here's what they said... Edd Straw: It has to be Aston Martin-Honda, given it wasn't long ago that it was seen as a team with the potential to emerge as a race-winning force thanks to the overhaul of the regulations."
-    ]
-  },
-  {
-    "id": "f857199ca8a8",
-    "url": "https://www.the-race.com/formula-1/gary-anderson-cadillac-underwhelming-f1-car-development-so-far/",
-    "title": "Gary Anderson: Why I expected more from Cadillac",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "13 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "As the newest team on the block, Cadillac has got a lot of ground to make up. Yes, it's the team's first season in Formula 1, but I'm sure deep down more was expected. It's a big challenge for new team boss Marcin Budkowski and perhaps partly explains Graeme Lowdon's shock exit."
-    ]
-  },
-  {
-    "id": "af86f332e1da",
-    "url": "https://www.formula1.com/en/latest/article/half-term-report-haas-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.7Bj30XX8bSTOcHzIHcCOW7",
-    "title": "HALF TERM REPORT: Haas’ best and worst moments from 2026 so far and driver head-to-heads",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "13 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "‘Inconsistent’ would be the one-word summary of Haas’ 2026 season so far – something that both Ollie Bearman and Esteban Ocon have generously admitted themselves. Instead of the gradual improvement to the top of the midfield they had dreamed of, they’ve managed to fall backwards to the point where they haven’t scored since Round 6. But with plenty of race weekends to go, can Haas finally unlock so"
-    ]
-  },
-  {
-    "id": "d352829470da",
-    "url": "https://www.formula1.com/en/latest/article/5-things-to-look-forward-to-over-the-second-half-of-the-2026-f1-season.5TmWAKML3SuQdQisQkYQ02",
-    "title": "5 things to look forward to over the second half of the 2026 F1 season",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "14 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "The F1 teams and drivers are currently enjoying some downtime during the sport’s traditional summer break – but there is plenty of action in store when the season resumes later this month. F1.com has rounded up five of the key things to get excited about over the second half of the 2026 campaign… Mercedes were tipped by many as the favourites prior to the first race of the 2026 season – but what h"
-    ]
-  },
-  {
-    "id": "fc00f2be7280",
-    "url": "https://www.formula1.com/en/latest/article/drive-to-survives-co-executive-producer-picks-his-standout-episodes-from-the-shows-history.6THA5TO3iKzVoGco06HRM7",
-    "title": "Drive to Survive’s Co-Executive Producer picks his standout episodes from the show’s history",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "14 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "F1 fans need to wait a little bit longer for racing action to return in 2026, but thankfully there is plenty to keep you occupied until then – including almost 80 episodes of Drive to Survive sitting on Netflix waiting to be watched again. Just before the summer break, F1.com sat down with the award-winning show’s Co-Executive Producer, Tom Rogers, and tasked him with choosing some of his standout"
-    ]
-  },
-  {
-    "id": "4b8a59dfce65",
-    "url": "https://www.formula1.com/en/latest/article/half-term-report-alpines-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.2pv3erf6i5jiYBAnjHQ6QB",
-    "title": "HALF TERM REPORT: Alpine’s best and worst moments from 2026 so far and driver head-to-heads",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "14 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "On the face of it, Alpine’s improvement from last season to this should be applauded. They’ve already nearly tripled their points total from 2025, when they finished bottom of the pile, and are still heavily invested in the fight against Racing Bulls to be crowned best of the rest. But there has been dwindling progress recently and that could be a worry, especially with half of the year gone."
-    ]
-  },
-  {
-    "id": "264f8a6c6bf3",
-    "url": "https://www.the-race.com/formula-1/why-top-f1-teams-face-a-big-six-million-dilemma/",
-    "title": "Why F1's top teams face a big $6million dilemma",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "14 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "There's a $6million dilemma facing the top four Formula 1 teams that could be crucial to deciding this year's title fight. The frontrunning teams know that the final championship outcome is going to rest on the development war. And as we're only 11 races into this regulation cycle, teams are still finding big chunks of laptime when adding the latest developments to their cars."
-    ]
-  },
-  {
-    "id": "e221395b2757",
-    "url": "https://www.formula1.com/en/latest/article/half-term-report-racing-bulls-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.7F7h4KHh6QrI85POwyQQHG",
-    "title": "HALF TERM REPORT: Racing Bulls’ best and worst moments from 2026 so far and driver head-to-heads",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "15 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Racing Bulls have emerged as the leaders of the midfield pack across the first half of 2026, the squad having risen to fifth in the Teams’ Championship after several double points finishes. Going forward, can they keep their rivals at bay and claim the best finish in the team’s history? Here is their half term report… The season quickly got off to a solid start for Racing Bulls , with rookie Arvid"
-    ]
-  },
-  {
-    "id": "10cbd1748096",
-    "url": "https://www.the-race.com/formula-1/key-f1-mistake-mclaren-cannot-correct-until-2027/",
-    "title": "The key F1 mistake McLaren can't correct until 2027",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "15 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "McLaren has admitted it pitched the wheelbase for its 2026 Formula 1 car too short, which will limit the potential of its aerodynamic development until a longer car can be made for 2027. McLaren has made several admissions over the past month or so that its 2026 car development paths have not been correct, with team principal Andrea Stella saying McLaren is running three months behind its main riv"
-    ]
-  },
-  {
-    "id": "60a85a2f195f",
-    "url": "https://www.formula1.com/en/latest/article/9-times-superhero-movies-made-it-onto-the-f1-grid.6qW2FZZxjZo7HUgHe34TxI",
-    "title": "9 times superhero movies made it onto the F1 grid – including Batman, Superman and Spider-Man",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "16 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Movies and motorsport are the perfect combination, and the two have crossed over countless times thanks to the world of superheroes. Whether you’re team Marvel or a DC Comics lover, Formula 1 has a strong link with the world’s biggest and best franchises, from special liveries and comic book collaborations to shoeys on the podium, these heroes have seen it all. Haas’ Esteban Ocon is a self-confess"
-    ]
-  },
-  {
-    "id": "66259ae204a8",
-    "url": "https://www.the-race.com/formula-1/alpines-about-to-face-most-critical-test-yet-of-new-era/",
-    "title": "Can this upgrade save an F1 season in decline?",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "16 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "What's happened to an Alpine team that started the 2026 Formula 1 season with designs on hunting down the big four, but has since slumped into the midfield? In Hungary, a second non-score in four race weekends, on a day when McLaren picked up the first win of its F1 title defence, was as good a reminder as any of where this new engine customer sits in the Mercedes-powered pecking order. If that se"
-    ]
-  },
-  {
-    "id": "cb6eb287c901",
-    "url": "https://www.formula1.com/en/latest/article/half-term-report-red-bulls-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.4dgRezawb01d6p6NKE4T8w",
-    "title": "HALF TERM REPORT: Red Bull’s best and worst moments from 2026 so far and driver head-to-heads",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "16 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "The new-for-2026 regulations were inevitably going to shake up the pecking order and, so far, it’s looked like Red Bull have been the primary victim given they were challenging for the 2025 drivers' title right until the end. Their season has had its fair share of reliability and balance concerns, as well as speculation surrounding Max Verstappen’s future at the team, but a handful of weekends hav"
-    ]
-  },
-  {
-    "id": "56d6380b4199",
-    "url": "https://www.formula1.com/en/latest/article/half-term-report-mclarens-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.3MFRs0BcxHFDmf24FAaE6t",
-    "title": "HALF TERM REPORT: McLaren’s best and worst moments from 2026 so far and driver head-to-heads",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "17 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "The 2025 season marked one of the strongest in McLaren’s illustrious history, but the Woking-based outfit’s title defence got off to a rocky start in 2026. Signs of progress have rapidly emerged across recent rounds, however, with Lando Norris claiming the team’s first win of the campaign just prior to the summer break. What more is to come from the reigning champions?"
-    ]
-  },
-  {
-    "id": "2ea6abe37fba",
-    "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-dutch-grand-prix.7zAWT5S8841xWaDZ5mUrJ0",
-    "title": "IT’S RACE WEEK: 5 storylines we’re excited about ahead of the 2026 Dutch Grand Prix",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "17 Aug",
-    "kind": "session",
-    "session": "Race",
-    "paragraphs": [
-      "After three long weekends without a Formula 1 race to look forward to, it’s time to get back to action following the summer shutdown. And there will be plenty of racing to look forward to between now and the end of the season as the second half kicks off with our final visit to Zandvoort. Teams and drivers have been enjoying a well-earned rest since the last Race Week feature was required, and the"
-    ]
-  },
-  {
-    "id": "659ef1db5ee0",
-    "url": "https://www.the-race.com/formula-1/is-this-f1-2026-team-mate-fight-too-skewed-to-trust/",
-    "title": "Is this F1 2026 team-mate fight too skewed to trust?",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "17 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "The raw statistics of one intra-team fight so far in Formula 1 2026 make for pretty grim reading for one side of the garage: 18-3 on points, 11-4 head-to-head in qualifying, 9-3 head-to-head in races. That's the current difference between Haas drivers Ollie Bearman and Esteban Ocon. But in the words of the clear winner, Bearman, it's \"not always [been] a fair fight\" because of a big issue Haas has"
-    ]
-  },
-  {
-    "id": "a140c0d8d6d8",
-    "url": "https://www.the-race.com/formula-1/just-spend-more-mercedes-intriguing-theory-for-mclarens-pu-deficit/",
-    "title": "Just spend more? Mercedes' intriguing theory for McLaren's PU deficit",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "17 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Mercedes has a different explanation for why customer team McLaren has not been able to exploit its 2026 Formula 1 power unit as effectively as the works operation. Defending champion McLaren not getting as much out of the power unit as Mercedes has been one of the major behind-the-scenes topics in the development of this year's title fight, and has been known to be a source of at least mild frust"
-    ]
-  },
-  {
-    "id": "fe16ba44695a",
-    "url": "https://www.formula1.com/en/latest/article/what-time-is-the-formula-1-2026-dutch-grand-prix-and-how-can-i-watch-it.Q0uYsmB43t2dpe7EsXYiS",
-    "title": "What time is the Formula 1 2026 Dutch Grand Prix and how can I watch it?",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "17 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "After its traditional summer break, Formula 1 returns to action this weekend at the Dutch Grand Prix for the 12th round on the calendar – and here are the global start times for Sunday’s race. Kimi Antonelli continues to lead the drivers’ standings by 50 points from Lewis Hamilton , while George Russell is nine points adrift of Hamilton in third. However, a win for Lando Norris last time out in Hu"
-    ]
-  },
-  {
-    "id": "2352e38164e3",
-    "url": "https://www.the-race.com/business/audi-bp-f1-return-castrol-sponsorship/",
-    "title": "Why a fuel giant ended its F1 exile",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "18 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "How does a Formula 1 sponsor measure success? For BP, which returned to the grid with Audi in 2026 after a decades-long absence, the victories are already stacking up alongside its lubricants brand, Castrol. Castrol boasts a formidable global motorsport pedigree - including recent F1 experience with Alpine and McLaren, plus legendary World Endurance Championship and World Rally Championship succes"
-    ]
-  },
-  {
-    "id": "387036b7a014",
-    "url": "https://www.formula1.com/en/latest/article/f1-fantasy-strategist-preview-what-you-need-to-know-for-the-dutch-grand-prix.2bBlmguc36rYcXurzQcz2O",
-    "title": "F1 FANTASY: Strategist Preview – What you need to know for the Dutch Grand Prix",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "19 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Formula 1 is back from its summer break, and what better place to reignite the title fight than the banked corners and roaring Orange Army of Zandvoort. With a Sprint thrown into the mix, F1 Fantasy managers have an extra session of points – and an extra chance for fortunes to swing. The tight, undulating layout places a real premium on grid position, making that a useful edge over the course of t"
-    ]
-  },
-  {
-    "id": "0142d942e46d",
-    "url": "https://www.formula1.com/en/latest/article/honda-reveal-details-of-spec-2-power-unit-set-to-debut-at-dutch-grand-prix.laNvOgrm2aIDTL3SA0Xny",
-    "title": "Honda reveal details of 'Spec 2' power unit set to debut at Dutch Grand Prix",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "19 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Honda have offered some insight into the updated power unit Aston Martin will run from the Dutch Grand Prix onwards, which should go hand-in-hand with their recent upgrades to help them improve through the midfield. Despite widespread excitement around their collaboration, the 2026 season got off to a difficult start as Aston Martin found themselves at the bottom of the pecking order with the powe"
-    ]
-  },
-  {
-    "id": "21e71b06dd07",
-    "url": "https://www.formula1.com/en/latest/article/how-to-stream-the-2026-dutch-grand-prix-on-f1-tv-premium.Z5u9yxG7Nk0hT6lpvNvIS",
-    "title": "How to stream the 2026 Dutch Grand Prix on F1 TV Premium",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "19 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "The 2026 Formula 1 season resumes this weekend at the Dutch Grand Prix, held at the Circuit Zandvoort. Here are all the details you need to follow the action live on F1 TV. Kimi Antonelli is still in P1 of the drivers’ standings , with a lead of 50 points from Lewis Hamilton ."
-    ]
-  },
-  {
-    "id": "31dca9da9cc2",
-    "url": "https://www.formula1.com/en/latest/article/piastri-sets-clear-target-for-second-half-of-the-season-as-he-picks-out-mclarens-real-strength.4DrUwjxNm5zUCiOwJJynNf",
-    "title": "Oscar Piastri sets clear target for second half of the season as he picks out McLaren’s ‘real strength’",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "19 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Oscar Piastri is optimistic that he can start “challenging for wins” more consistently over the second half of the season, with the McLaren driver admitting that his team’s rapid progress in previous years gives him confidence they can return to the front. It’s been a topsy-turvy season for Piastri so far – after fighting for a maiden Drivers’ Championship in 2025, he began 2026 by failing to star"
-    ]
-  },
-  {
-    "id": "2e17b3af1dbb",
-    "url": "https://www.the-race.com/formula-1/why-carlos-sainz-is-being-wasted-at-williams/",
-    "title": "Sainz is being wasted at Williams",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "19 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Toiling in obscurity down the field in Formula 1 condemns you to the fate of only catching the eye when you make a mistake. Ask most fans about Carlos Sainz's season so far and hitting race leader Oscar Piastri while being lapped in the Hungarian Grand Prix will leap to mind. Yet that blunder, which drew justified criticism, is incongruous with the rest of what has been an outstanding campaign."
-    ]
-  },
-  {
-    "id": "4cfcbc20968c",
-    "url": "https://www.formula1.com/en/latest/article/the-latest-brazilian-prodigy-eyeing-a-place-in-formula-1-who-is-ferrari-junior-rafael-camara.7rQS6bm1E1gdCizXn13CxK",
-    "title": "The latest Brazilian prodigy eyeing a place in Formula 1 – Who is Ferrari junior Rafael Camara?",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "19 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Formula 1’s silly season is in full swing, with teams working to finalise their driver line-ups for 2027 – and one name is being heavily linked with a place on next year’s grid. Ferrari Driver Academy member Rafael Camara is hot property at the moment, with the Brazilian boasting a huge reputation after a very successful start to his single seater career. Born in Recife, Brazil, Camara comes from"
-    ]
-  },
-  {
-    "id": "7f0a9f88543d",
-    "url": "https://www.the-race.com/formula-1/f1-2026-has-neutered-albons-biggest-strengths/",
-    "title": "F1 2026 has neutered Albon's biggest strengths",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "20 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Newly recommitted Williams Formula 1 driver Alex Albon believes the 2026 regulations have neutered his key strengths in a way that might partly explain his tricky season. Williams’s season so far has fallen well short of lofty expectations, meaning Albon and his team-mate Carlos Sainz have rarely had a chance of fighting for points. But Albon in particular has struggled, having been outqualified 1"
-    ]
-  },
-  {
-    "id": "d1e14e41f18b",
-    "url": "https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-dutch-grand-prix.7rXg1scAXG5IMsHc9k74g4",
-    "title": "NEED TO KNOW: The most important facts, stats and trivia ahead of the 2026 Dutch Grand Prix",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "20 Aug",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "The 2026 Formula 1 season resumes this weekend with Round 12 on the calendar, the Dutch Grand Prix. As the Sprint format makes its fourth appearance of the campaign, Free Practice 1 and Sprint Qualifying will take place on Friday, August 21, followed by the Sprint and Qualifying on Saturday, August 22, and the Grand Prix itself on Sunday, August 23. Jolyon Palmer, former Renault F1 driver: I’ve on"
-    ]
-  },
-  {
     "id": "297d0a39fe0e",
     "url": "https://www.the-race.com/formula-1/winners-losers-f1-2026-hungarian-gp-practice/",
     "title": "Winners and Losers from Hungarian GP F1 Practice",
@@ -1306,6 +851,461 @@
     "session": "",
     "paragraphs": [
       "United States Grand Prix boss Bobby Epstein says he has seen no evidence of fans being turned off by the 2026 rules – and has a fascinating theory about why Formula 1’s ticket sales are still booming. Despite this year’s new regulations being controversial off the back of criticism from drivers, they do not appear to have dimmed interest from those wanting to attend races. Epstein, who is chairman"
+    ]
+  },
+  {
+    "id": "0a16c97f07ef",
+    "url": "https://www.the-race.com/formula-1/are-f1s-blue-flag-rules-too-extreme/",
+    "title": "F1's blue flag rules are too extreme",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "01 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The suitability of Formula 1's blue flag rules has been a big talking point since Oscar Piastri and Carlos Sainz's collision at the Hungarian Grand Prix last weekend. While Sainz was punished for an incident he could have avoided - even with the caveat of the malfunctioning of the automatic blue flag system - it has raised interesting questions about F1's blue flag rules themselves. The FIA's Inte"
+    ]
+  },
+  {
+    "id": "426cc9dd6c17",
+    "url": "https://www.the-race.com/formula-1/who-is-f1-2026-best-driver-our-verdict/",
+    "title": "Who is F1 2026's best driver so far? Our verdict",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "02 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Eleven races into the 2026 Formula 1 season, which of the 22 drivers has done the best job? Here's what our team thinks... Kimi Antonelli Edd Straw: A predictable choice, but Kimi Antonelli has consistently delivered a high level of performance and matched that to actual consistency in results too."
+    ]
+  },
+  {
+    "id": "059c588d8db1",
+    "url": "https://www.the-race.com/formula-1/red-bull-2026-concerns-exits-verstappen-horner-mekies/",
+    "title": "Red Bull is losing the traits that made it an F1 giant",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "04 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Red Bull’s ‘car degradation’ problems are well-publicised thanks to Max Verstappen’s Hungaroring complaints, but there’s a wider concern that’s difficult to pin down. That’s what might be called team degradation and the very real possibility that Red Bull’s Formula 1 empire is slowly crumbling before our eyes. Red Bull is not having a bad season, particularly when you consider the remarkable start"
+    ]
+  },
+  {
+    "id": "25fc43531f77",
+    "url": "https://www.the-race.com/formula-1/why-f1-cannot-remove-algorithms-drivers-hate/",
+    "title": "Why F1 can't ban algorithms that drivers hate",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "05 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "'Why can't Formula 1 drivers have 100% control of energy deployment?' It's a question many have asked this year, especially when weekends such as the Belgian Grand Prix exposed how much influence machine-learning algorithms are having on energy deployment and a driver's result in qualifying or the race. The likes of Oscar Piastri have called it a \"pretty crap way of going racing\" and there's been"
+    ]
+  },
+  {
+    "id": "bde6578d1309",
+    "url": "https://www.the-race.com/formula-1/f1-2026-mid-season-driver-rankings-edd-straw/",
+    "title": "Edd Straw's mid-season 2026 F1 driver rankings",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "07 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Every weekend, I've ranked the Formula 1 drivers from first to 22nd based on my evaluation of their performances across each grand prix weekend. The August break gives us the chance to take a look at how their performances stack up across the season so far. The rankings are dictated by all aspects of each driver's performance: speed, consistency, racecraft, performance relative to team-mate, mista"
+    ]
+  },
+  {
+    "id": "a5db1ecde76f",
+    "url": "https://www.the-race.com/formula-1/our-verdict-best-and-worst-races-of-f1-2026-so-far/",
+    "title": "Our verdict on the best and worst races of F1 2026 so far",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "08 Aug",
+    "kind": "session",
+    "session": "Race",
+    "paragraphs": [
+      "The 2026 Formula 1 season has delivered a real mix of races so far, eliciting plenty of positive and negative reactions. But which have been the best and worst? Here's what our team thinks."
+    ]
+  },
+  {
+    "id": "a37ef2f9ba31",
+    "url": "https://www.the-race.com/formula-1/how-a-failed-2024-upgrade-set-up-a-big-2026-f1-success-story/",
+    "title": "How a failed 2024 upgrade set up a big 2026 F1 success story",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "09 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "It is often said in Formula 1 that you learn nothing from success. It's the days you stumble and fail that prove to be far more valuable in making you stronger. So as Racing Bulls reflects on a robust first half to the 2026 season in which it has emerged at the top of that chasing pack behind the big four teams, it is no surprise to hear it credit an \"awful\" moment in its recent history for helpin"
+    ]
+  },
+  {
+    "id": "da5e024c483f",
+    "url": "https://www.the-race.com/formula-1/mercedes-drivers-facing-almost-inevitable-f1-grid-penalties/",
+    "title": "Take Monza pressure off Antonelli? Mercedes' grid penalty dilemma",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "10 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The Formula 1 championship-leading Mercedes team is anticipating the need to take engine penalties with both George Russell and Kimi Antonelli in the upcoming second half of the season. Mercedes is 72 points clear of Ferrari in the constructors' standings, and Antonelli has a 50-point buffer in the drivers' contest, but the Mercedes W17 had come under more pressure from rivals in more recent races"
+    ]
+  },
+  {
+    "id": "16b0a67f08ea",
+    "url": "https://www.the-race.com/formula-1/gary-anderson-the-system-f1-really-needs-to-borrow/",
+    "title": "Gary Anderson: Why F1 needs a traffic light system",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "11 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Whenever Sky Sports or any other Formula 1 broadcaster analyses controversial incidents involving trackside flags or the lightboard warning systems, it’s almost impossible for them to make out if it was stationary, waved or double yellow. So just imagine what a driver goes through trying to work it out when traveling at 150mph or more. Formula 1 is constantly trying to reinvent the wheel, but shou"
+    ]
+  },
+  {
+    "id": "bc22d9ebf966",
+    "url": "https://www.the-race.com/formula-1/our-verdict-on-f1-2026s-biggest-disappointments-so-far/",
+    "title": "Our verdict on F1 2026's biggest disappointments so far",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "12 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Who or what has been the biggest disappointment of Formula 1's 2026 season so far? That's what we asked our team; here's what they said... Edd Straw: It has to be Aston Martin-Honda, given it wasn't long ago that it was seen as a team with the potential to emerge as a race-winning force thanks to the overhaul of the regulations."
+    ]
+  },
+  {
+    "id": "f857199ca8a8",
+    "url": "https://www.the-race.com/formula-1/gary-anderson-cadillac-underwhelming-f1-car-development-so-far/",
+    "title": "Gary Anderson: Why I expected more from Cadillac",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "13 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "As the newest team on the block, Cadillac has got a lot of ground to make up. Yes, it's the team's first season in Formula 1, but I'm sure deep down more was expected. It's a big challenge for new team boss Marcin Budkowski and perhaps partly explains Graeme Lowdon's shock exit."
+    ]
+  },
+  {
+    "id": "af86f332e1da",
+    "url": "https://www.formula1.com/en/latest/article/half-term-report-haas-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.7Bj30XX8bSTOcHzIHcCOW7",
+    "title": "HALF TERM REPORT: Haas’ best and worst moments from 2026 so far and driver head-to-heads",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "13 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "‘Inconsistent’ would be the one-word summary of Haas’ 2026 season so far – something that both Ollie Bearman and Esteban Ocon have generously admitted themselves. Instead of the gradual improvement to the top of the midfield they had dreamed of, they’ve managed to fall backwards to the point where they haven’t scored since Round 6. But with plenty of race weekends to go, can Haas finally unlock so"
+    ]
+  },
+  {
+    "id": "d352829470da",
+    "url": "https://www.formula1.com/en/latest/article/5-things-to-look-forward-to-over-the-second-half-of-the-2026-f1-season.5TmWAKML3SuQdQisQkYQ02",
+    "title": "5 things to look forward to over the second half of the 2026 F1 season",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "14 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The F1 teams and drivers are currently enjoying some downtime during the sport’s traditional summer break – but there is plenty of action in store when the season resumes later this month. F1.com has rounded up five of the key things to get excited about over the second half of the 2026 campaign… Mercedes were tipped by many as the favourites prior to the first race of the 2026 season – but what h"
+    ]
+  },
+  {
+    "id": "fc00f2be7280",
+    "url": "https://www.formula1.com/en/latest/article/drive-to-survives-co-executive-producer-picks-his-standout-episodes-from-the-shows-history.6THA5TO3iKzVoGco06HRM7",
+    "title": "Drive to Survive’s Co-Executive Producer picks his standout episodes from the show’s history",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "14 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "F1 fans need to wait a little bit longer for racing action to return in 2026, but thankfully there is plenty to keep you occupied until then – including almost 80 episodes of Drive to Survive sitting on Netflix waiting to be watched again. Just before the summer break, F1.com sat down with the award-winning show’s Co-Executive Producer, Tom Rogers, and tasked him with choosing some of his standout"
+    ]
+  },
+  {
+    "id": "4b8a59dfce65",
+    "url": "https://www.formula1.com/en/latest/article/half-term-report-alpines-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.2pv3erf6i5jiYBAnjHQ6QB",
+    "title": "HALF TERM REPORT: Alpine’s best and worst moments from 2026 so far and driver head-to-heads",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "14 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "On the face of it, Alpine’s improvement from last season to this should be applauded. They’ve already nearly tripled their points total from 2025, when they finished bottom of the pile, and are still heavily invested in the fight against Racing Bulls to be crowned best of the rest. But there has been dwindling progress recently and that could be a worry, especially with half of the year gone."
+    ]
+  },
+  {
+    "id": "264f8a6c6bf3",
+    "url": "https://www.the-race.com/formula-1/why-top-f1-teams-face-a-big-six-million-dilemma/",
+    "title": "Why F1's top teams face a big $6million dilemma",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "14 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "There's a $6million dilemma facing the top four Formula 1 teams that could be crucial to deciding this year's title fight. The frontrunning teams know that the final championship outcome is going to rest on the development war. And as we're only 11 races into this regulation cycle, teams are still finding big chunks of laptime when adding the latest developments to their cars."
+    ]
+  },
+  {
+    "id": "e221395b2757",
+    "url": "https://www.formula1.com/en/latest/article/half-term-report-racing-bulls-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.7F7h4KHh6QrI85POwyQQHG",
+    "title": "HALF TERM REPORT: Racing Bulls’ best and worst moments from 2026 so far and driver head-to-heads",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "15 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Racing Bulls have emerged as the leaders of the midfield pack across the first half of 2026, the squad having risen to fifth in the Teams’ Championship after several double points finishes. Going forward, can they keep their rivals at bay and claim the best finish in the team’s history? Here is their half term report… The season quickly got off to a solid start for Racing Bulls , with rookie Arvid"
+    ]
+  },
+  {
+    "id": "10cbd1748096",
+    "url": "https://www.the-race.com/formula-1/key-f1-mistake-mclaren-cannot-correct-until-2027/",
+    "title": "The key F1 mistake McLaren can't correct until 2027",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "15 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "McLaren has admitted it pitched the wheelbase for its 2026 Formula 1 car too short, which will limit the potential of its aerodynamic development until a longer car can be made for 2027. McLaren has made several admissions over the past month or so that its 2026 car development paths have not been correct, with team principal Andrea Stella saying McLaren is running three months behind its main riv"
+    ]
+  },
+  {
+    "id": "60a85a2f195f",
+    "url": "https://www.formula1.com/en/latest/article/9-times-superhero-movies-made-it-onto-the-f1-grid.6qW2FZZxjZo7HUgHe34TxI",
+    "title": "9 times superhero movies made it onto the F1 grid – including Batman, Superman and Spider-Man",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "16 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Movies and motorsport are the perfect combination, and the two have crossed over countless times thanks to the world of superheroes. Whether you’re team Marvel or a DC Comics lover, Formula 1 has a strong link with the world’s biggest and best franchises, from special liveries and comic book collaborations to shoeys on the podium, these heroes have seen it all. Haas’ Esteban Ocon is a self-confess"
+    ]
+  },
+  {
+    "id": "66259ae204a8",
+    "url": "https://www.the-race.com/formula-1/alpines-about-to-face-most-critical-test-yet-of-new-era/",
+    "title": "Can this upgrade save an F1 season in decline?",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "16 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "What's happened to an Alpine team that started the 2026 Formula 1 season with designs on hunting down the big four, but has since slumped into the midfield? In Hungary, a second non-score in four race weekends, on a day when McLaren picked up the first win of its F1 title defence, was as good a reminder as any of where this new engine customer sits in the Mercedes-powered pecking order. If that se"
+    ]
+  },
+  {
+    "id": "cb6eb287c901",
+    "url": "https://www.formula1.com/en/latest/article/half-term-report-red-bulls-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.4dgRezawb01d6p6NKE4T8w",
+    "title": "HALF TERM REPORT: Red Bull’s best and worst moments from 2026 so far and driver head-to-heads",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "16 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The new-for-2026 regulations were inevitably going to shake up the pecking order and, so far, it’s looked like Red Bull have been the primary victim given they were challenging for the 2025 drivers' title right until the end. Their season has had its fair share of reliability and balance concerns, as well as speculation surrounding Max Verstappen’s future at the team, but a handful of weekends hav"
+    ]
+  },
+  {
+    "id": "56d6380b4199",
+    "url": "https://www.formula1.com/en/latest/article/half-term-report-mclarens-best-and-worst-moments-from-2026-so-far-and-driver-head-to-heads.3MFRs0BcxHFDmf24FAaE6t",
+    "title": "HALF TERM REPORT: McLaren’s best and worst moments from 2026 so far and driver head-to-heads",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "17 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The 2025 season marked one of the strongest in McLaren’s illustrious history, but the Woking-based outfit’s title defence got off to a rocky start in 2026. Signs of progress have rapidly emerged across recent rounds, however, with Lando Norris claiming the team’s first win of the campaign just prior to the summer break. What more is to come from the reigning champions?"
+    ]
+  },
+  {
+    "id": "2ea6abe37fba",
+    "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-dutch-grand-prix.7zAWT5S8841xWaDZ5mUrJ0",
+    "title": "IT’S RACE WEEK: 5 storylines we’re excited about ahead of the 2026 Dutch Grand Prix",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "17 Aug",
+    "kind": "session",
+    "session": "Race",
+    "paragraphs": [
+      "After three long weekends without a Formula 1 race to look forward to, it’s time to get back to action following the summer shutdown. And there will be plenty of racing to look forward to between now and the end of the season as the second half kicks off with our final visit to Zandvoort. Teams and drivers have been enjoying a well-earned rest since the last Race Week feature was required, and the"
+    ]
+  },
+  {
+    "id": "659ef1db5ee0",
+    "url": "https://www.the-race.com/formula-1/is-this-f1-2026-team-mate-fight-too-skewed-to-trust/",
+    "title": "Is this F1 2026 team-mate fight too skewed to trust?",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "17 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The raw statistics of one intra-team fight so far in Formula 1 2026 make for pretty grim reading for one side of the garage: 18-3 on points, 11-4 head-to-head in qualifying, 9-3 head-to-head in races. That's the current difference between Haas drivers Ollie Bearman and Esteban Ocon. But in the words of the clear winner, Bearman, it's \"not always [been] a fair fight\" because of a big issue Haas has"
+    ]
+  },
+  {
+    "id": "a140c0d8d6d8",
+    "url": "https://www.the-race.com/formula-1/just-spend-more-mercedes-intriguing-theory-for-mclarens-pu-deficit/",
+    "title": "Just spend more? Mercedes' intriguing theory for McLaren's PU deficit",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "17 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Mercedes has a different explanation for why customer team McLaren has not been able to exploit its 2026 Formula 1 power unit as effectively as the works operation. Defending champion McLaren not getting as much out of the power unit as Mercedes has been one of the major behind-the-scenes topics in the development of this year's title fight, and has been known to be a source of at least mild frust"
+    ]
+  },
+  {
+    "id": "fe16ba44695a",
+    "url": "https://www.formula1.com/en/latest/article/what-time-is-the-formula-1-2026-dutch-grand-prix-and-how-can-i-watch-it.Q0uYsmB43t2dpe7EsXYiS",
+    "title": "What time is the Formula 1 2026 Dutch Grand Prix and how can I watch it?",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "17 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "After its traditional summer break, Formula 1 returns to action this weekend at the Dutch Grand Prix for the 12th round on the calendar – and here are the global start times for Sunday’s race. Kimi Antonelli continues to lead the drivers’ standings by 50 points from Lewis Hamilton , while George Russell is nine points adrift of Hamilton in third. However, a win for Lando Norris last time out in Hu"
+    ]
+  },
+  {
+    "id": "2352e38164e3",
+    "url": "https://www.the-race.com/business/audi-bp-f1-return-castrol-sponsorship/",
+    "title": "Why a fuel giant ended its F1 exile",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "18 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "How does a Formula 1 sponsor measure success? For BP, which returned to the grid with Audi in 2026 after a decades-long absence, the victories are already stacking up alongside its lubricants brand, Castrol. Castrol boasts a formidable global motorsport pedigree - including recent F1 experience with Alpine and McLaren, plus legendary World Endurance Championship and World Rally Championship succes"
+    ]
+  },
+  {
+    "id": "387036b7a014",
+    "url": "https://www.formula1.com/en/latest/article/f1-fantasy-strategist-preview-what-you-need-to-know-for-the-dutch-grand-prix.2bBlmguc36rYcXurzQcz2O",
+    "title": "F1 FANTASY: Strategist Preview – What you need to know for the Dutch Grand Prix",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "19 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Formula 1 is back from its summer break, and what better place to reignite the title fight than the banked corners and roaring Orange Army of Zandvoort. With a Sprint thrown into the mix, F1 Fantasy managers have an extra session of points – and an extra chance for fortunes to swing. The tight, undulating layout places a real premium on grid position, making that a useful edge over the course of t"
+    ]
+  },
+  {
+    "id": "0142d942e46d",
+    "url": "https://www.formula1.com/en/latest/article/honda-reveal-details-of-spec-2-power-unit-set-to-debut-at-dutch-grand-prix.laNvOgrm2aIDTL3SA0Xny",
+    "title": "Honda reveal details of 'Spec 2' power unit set to debut at Dutch Grand Prix",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "19 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Honda have offered some insight into the updated power unit Aston Martin will run from the Dutch Grand Prix onwards, which should go hand-in-hand with their recent upgrades to help them improve through the midfield. Despite widespread excitement around their collaboration, the 2026 season got off to a difficult start as Aston Martin found themselves at the bottom of the pecking order with the powe"
+    ]
+  },
+  {
+    "id": "21e71b06dd07",
+    "url": "https://www.formula1.com/en/latest/article/how-to-stream-the-2026-dutch-grand-prix-on-f1-tv-premium.Z5u9yxG7Nk0hT6lpvNvIS",
+    "title": "How to stream the 2026 Dutch Grand Prix on F1 TV Premium",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "19 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The 2026 Formula 1 season resumes this weekend at the Dutch Grand Prix, held at the Circuit Zandvoort. Here are all the details you need to follow the action live on F1 TV. Kimi Antonelli is still in P1 of the drivers’ standings , with a lead of 50 points from Lewis Hamilton ."
+    ]
+  },
+  {
+    "id": "31dca9da9cc2",
+    "url": "https://www.formula1.com/en/latest/article/piastri-sets-clear-target-for-second-half-of-the-season-as-he-picks-out-mclarens-real-strength.4DrUwjxNm5zUCiOwJJynNf",
+    "title": "Oscar Piastri sets clear target for second half of the season as he picks out McLaren’s ‘real strength’",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "19 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Oscar Piastri is optimistic that he can start “challenging for wins” more consistently over the second half of the season, with the McLaren driver admitting that his team’s rapid progress in previous years gives him confidence they can return to the front. It’s been a topsy-turvy season for Piastri so far – after fighting for a maiden Drivers’ Championship in 2025, he began 2026 by failing to star"
+    ]
+  },
+  {
+    "id": "2e17b3af1dbb",
+    "url": "https://www.the-race.com/formula-1/why-carlos-sainz-is-being-wasted-at-williams/",
+    "title": "Sainz is being wasted at Williams",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "19 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Toiling in obscurity down the field in Formula 1 condemns you to the fate of only catching the eye when you make a mistake. Ask most fans about Carlos Sainz's season so far and hitting race leader Oscar Piastri while being lapped in the Hungarian Grand Prix will leap to mind. Yet that blunder, which drew justified criticism, is incongruous with the rest of what has been an outstanding campaign."
+    ]
+  },
+  {
+    "id": "4cfcbc20968c",
+    "url": "https://www.formula1.com/en/latest/article/the-latest-brazilian-prodigy-eyeing-a-place-in-formula-1-who-is-ferrari-junior-rafael-camara.7rQS6bm1E1gdCizXn13CxK",
+    "title": "The latest Brazilian prodigy eyeing a place in Formula 1 – Who is Ferrari junior Rafael Camara?",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "19 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Formula 1’s silly season is in full swing, with teams working to finalise their driver line-ups for 2027 – and one name is being heavily linked with a place on next year’s grid. Ferrari Driver Academy member Rafael Camara is hot property at the moment, with the Brazilian boasting a huge reputation after a very successful start to his single seater career. Born in Recife, Brazil, Camara comes from"
+    ]
+  },
+  {
+    "id": "7f0a9f88543d",
+    "url": "https://www.the-race.com/formula-1/f1-2026-has-neutered-albons-biggest-strengths/",
+    "title": "F1 2026 has neutered Albon's biggest strengths",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "20 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Newly recommitted Williams Formula 1 driver Alex Albon believes the 2026 regulations have neutered his key strengths in a way that might partly explain his tricky season. Williams’s season so far has fallen well short of lofty expectations, meaning Albon and his team-mate Carlos Sainz have rarely had a chance of fighting for points. But Albon in particular has struggled, having been outqualified 1"
+    ]
+  },
+  {
+    "id": "d1e14e41f18b",
+    "url": "https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-dutch-grand-prix.7rXg1scAXG5IMsHc9k74g4",
+    "title": "NEED TO KNOW: The most important facts, stats and trivia ahead of the 2026 Dutch Grand Prix",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "20 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The 2026 Formula 1 season resumes this weekend with Round 12 on the calendar, the Dutch Grand Prix. As the Sprint format makes its fourth appearance of the campaign, Free Practice 1 and Sprint Qualifying will take place on Friday, August 21, followed by the Sprint and Qualifying on Saturday, August 22, and the Grand Prix itself on Sunday, August 23. Jolyon Palmer, former Renault F1 driver: I’ve on"
     ]
   }
 ]

@@ -6,12 +6,19 @@ on:
   push:
     branches: [main]
   schedule:
-    # Narrowed to race-weekend windows: Thu–Mon, every 2h from 06:00–20:00 UTC
-    # (covers the 09:00–18:00-ish EEST/CEST session window). Thursday is included
-    # because that is when the FIA publishes a round's first documents — the Race
-    # Director's event notes and scrutineering papers — which is prep material for
-    # Friday running. Best-effort; runs on the default branch.
+    # Race-weekend window: Thu–Mon, every 2h from 06:00–20:00 UTC (covers the
+    # 09:00–18:00-ish EEST/CEST session window). Thursday is included because
+    # that is when the FIA publishes a round's first documents — the Race
+    # Director's event notes and scrutineering papers — which is prep material
+    # for Friday running.
     - cron: "0 6-20/2 * * 4,5,6,0,1"
+    # Midweek, twice a day. The paddock's biggest stories routinely break on a
+    # Tuesday or Wednesday: the Albon/Williams re-signing landed on Tue 18 Aug
+    # 2026 and Hadjar's wrist injury on Wed 19 Aug, and with the schedule
+    # running Thu–Mon only, neither was picked up until Thursday morning. Two
+    # runs a day is enough to keep the news feed current without the weekend
+    # cadence, since there is no session timing or weather to chase.
+    - cron: "0 8,16 * * 2,3"
   workflow_dispatch: {}
 
 # One deployment at a time. Do NOT cancel in progress — a cancelled run could
@@ -54,12 +61,29 @@ jobs:
         # active window (live weekend, the next one once it's close, and the race
         # just finished) is processed. Fail-safe: exits 0 if the model is
         # unavailable, leaving curated content untouched.
+        #
+        # --max is well above the default 6. Driver-market news does not arrive
+        # evenly: a contract extension, an injury call-up and a re-signing can all
+        # break within a couple of hours, and a cap of 6 silently defers the rest
+        # to a later run — which on a Thursday means they are missing from the page
+        # for the run that matters. Each item is one small chat completion, so
+        # covering a burst day costs little.
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 -m pip install --quiet pypdf
-          python3 enrich.py
+          python3 enrich.py --max 25
+
+      - name: Backfill Formula1.com headlines and dates
+        # Formula1.com's listing page exposes only a URL slug, so a card can be
+        # stored with a de-hyphenated slug for a title and no publication date.
+        # Undated cards cannot be ordered against the rest of the feed, which is
+        # how genuinely breaking stories ended up below week-old previews. This
+        # repairs any such card from the article page itself and costs no model
+        # calls, so it is safe to run every time.
+        continue-on-error: true
+        run: python3 backfill_meta.py
 
       - name: Persist enrichment data
         # Commit data/ (calendar, news_auto.json, penalties_auto.json, _seen.json)
