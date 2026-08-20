@@ -95,12 +95,13 @@ def build_pages(ctx, env):
         body=f"""
     <h2 class="sec">Circuit map</h2>
     <figure class="circuit-fig">
-      <img src="../assets/zandvoort_circuit_map_2026.png" alt="Official 2026 Formula 1 Circuit Zandvoort map showing turn numbers, sectors, the straight mode zone, overtake detection/activation points and the speed trap"
+      <img src="../assets/zandvoort_circuit_map_2026.png" alt="Official 2026 Formula 1 Circuit Zandvoort map showing turn numbers, sectors, the two straight mode zones, overtake detection/activation points and the speed trap"
            class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
       <figcaption><strong>2026 Circuit Zandvoort map</strong> — turn numbers (1&ndash;14), the three sectors
-      (S1 pink / S2 yellow / S3 blue), the <strong>Straight Mode Zone</strong> on the run into Turn 10, the
-      <strong>Overtake Detection</strong> (T13) and <strong>Overtake Activation</strong> (T14 exit) points, and
-      the speed trap on the run up to Turn 1. <strong>Click the map to zoom / view full screen.</strong>
+      (S1 pink / S2 yellow / S3 blue), the two <strong>Straight Mode Zones</strong> (the pit straight before
+      Turn 1, and the short link between Turn 10 and Turn 11), the <strong>Overtake Detection</strong> point
+      (between Turns 12 and 13) and <strong>Overtake Activation</strong> point (approaching Turn 14), and the
+      speed trap on the pit straight. <strong>Click the map to zoom / view full screen.</strong>
       <span class="src">Source: Formula1.com 2026 track guide.</span></figcaption>
     </figure>
 
@@ -108,7 +109,7 @@ def build_pages(ctx, env):
       {stat("4.259 km", "Circuit length")}
       {stat("72", "Race laps")}
       {stat("306.587 km", "Race distance")}
-      {stat("1", "Straight Mode Zone", "T9 &rarr; T10")}
+      {stat("2", "Straight Mode Zones", "Pit straight & T10 &rarr; T11")}
     </div>
 
     <h2 class="sec">Corners that matter</h2>
