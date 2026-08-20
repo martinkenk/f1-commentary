@@ -28,6 +28,7 @@ import circuits
 import content_generic
 import content_hungary
 import content_belgium
+import content_netherlands
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SEASON = 2026
@@ -40,6 +41,7 @@ FIRST_ROUND = 10
 BESPOKE = {
     "hungary": content_hungary.build_pages,
     "belgium": content_belgium.build_pages,
+    "netherlands": content_netherlands.build_pages,
 }
 
 # Standings carried into the generic pages until each race supplies its own.

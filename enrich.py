@@ -372,27 +372,44 @@ def fia_decision_pdfs(ctx):
     try:
         page = _get(url)
     except Exception as e:
-        # Event pages can return 403 to GitHub-hosted runners even after documents
-        # are published. The season index exposes an event-specific AJAX endpoint
-        # containing the same document links.
+        # Event pages can return 403/502 to GitHub-hosted runners even after
+        # documents are published. Fall back to the season index, which embeds
+        # the same document links.
         season_url = url.split("/event/", 1)[0]
         try:
             season_page = _get(season_url)
             event_name = re.sub(r"[^a-z0-9]+", " ", ctx["name"].lower()).strip()
-            nodes = re.findall(
-                r'<a[^>]*href=["\'][^"\']*/decision-document-list/nojs/(\d+)'
-                r'["\'][^>]*>(.*?)</a>',
-                season_page, re.S | re.I)
-            node = next((node for node, label in nodes
-                         if event_name in re.sub(
-                             r"[^a-z0-9]+", " ", _strip(label).lower()).strip()),
-                        None)
-            if not node:
-                raise ValueError(f"{ctx['name']} is not listed in the FIA season index")
-            payload = json.loads(_get(
-                f"https://www.fia.com/decision-document-list/ajax/{node}"))
-            page = "".join(command.get("data", "") for command in payload
-                           if command.get("command") == "insert")
+            page = None
+
+            # The *current* event's documents are rendered inline on the season
+            # page itself (no AJAX round-trip needed) as
+            # <div class="event-title active">Dutch Grand Prix</div><ul ...>...
+            # A past/future event instead links out to an AJAX endpoint. Try the
+            # inline block first since it needs no extra request.
+            for m in re.finditer(
+                    r'<div class="event-title active">\s*(.*?)\s*</div>(.*?)'
+                    r'(?=<ul class="event-wrapper">|$)',
+                    season_page, re.S | re.I):
+                label, block = m.groups()
+                if event_name in re.sub(r"[^a-z0-9]+", " ", _strip(label).lower()).strip():
+                    page = block
+                    break
+
+            if page is None:
+                nodes = re.findall(
+                    r'<a[^>]*href=["\'][^"\']*/decision-document-list/nojs/(\d+)'
+                    r'["\'][^>]*>(.*?)</a>',
+                    season_page, re.S | re.I)
+                node = next((node for node, label in nodes
+                             if event_name in re.sub(
+                                 r"[^a-z0-9]+", " ", _strip(label).lower()).strip()),
+                            None)
+                if not node:
+                    raise ValueError(f"{ctx['name']} is not listed in the FIA season index")
+                payload = json.loads(_get(
+                    f"https://www.fia.com/decision-document-list/ajax/{node}"))
+                page = "".join(command.get("data", "") for command in payload
+                               if command.get("command") == "insert")
             print("  · FIA event page unavailable; checked season index instead")
         except Exception as fallback_error:
             # The FIA only creates an event page once it publishes that event's
@@ -404,7 +421,9 @@ def fia_decision_pdfs(ctx):
                       f"season fallback failed: {fallback_error}")
             return []
     out, seen = [], set()
-    for path in re.findall(r"/system/files/decision-document/[^\"'?]+\.pdf", page):
+    # Docs can sit under either /decision-document/ or /documents/ (e.g. the
+    # Power Unit Information doc uses the latter) — match both.
+    for path in re.findall(r"/system/files/(?:decision-document|documents)/[^\"'?]+\.pdf", page):
         fn = path.rsplit("/", 1)[-1].lower()
         if fn in seen:
             continue
