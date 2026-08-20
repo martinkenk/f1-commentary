@@ -321,6 +321,14 @@ the exact session labels from `RESULT_SESSIONS` ("Practice 1", "Qualifying", "Ra
 so notes attach to the right block. If you skip authoring a session's note, the live podium
 still appears automatically.
 
+**"A story is missing" is usually an ordering problem, not a scraping one.** Between
+the curated headlines and the session blocks sits the auto-summarised **"From the
+wires"** feed, which runs to 30+ cards by race day. It renders **newest-first** via
+`f1lib.news_sort_key` (§9). Before concluding a story was never picked up, grep
+`data/<gp>/news_auto.json` for it — the answer is usually that it is present but was
+rendered near the bottom. Promote anything genuinely important into curated
+`general_news`, which always renders above the wire feed.
+
 ---
 
 ## 4c. Data-driven pages: Head-to-Head, Reliability & Pit Stops, Penalties
@@ -535,11 +543,18 @@ The site is deployed to **GitHub Pages** at
   pages also get a "Back to latest" link. So if a rebuild breaks something, pick
   the previous version from the dropdown.
 
-**Triggers:** push to `main`, `workflow_dispatch` (manual), and a narrowed cron
-`0 6-20/2 * * 4,5,6,0,1` (Thu–Mon, every 2h 06:00–20:00 UTC — the race-weekend
-session window). Thursday is included deliberately: it is when the FIA publishes
-a round's first documents, which is prep material for Friday running. Tighten to
-specific race dates or widen as needed.
+**Triggers:** push to `main`, `workflow_dispatch` (manual), and two crons:
+- `0 6-20/2 * * 4,5,6,0,1` — Thu–Mon, every 2h 06:00–20:00 UTC, the race-weekend
+  session window. Thursday is included deliberately: it is when the FIA publishes
+  a round's first documents, which is prep material for Friday running.
+- `0 8,16 * * 2,3` — Tue/Wed, twice a day. **Do not drop this one.** The paddock's
+  biggest stories often break midweek: in 2026 the Albon–Williams re-signing
+  landed on Tuesday 18 Aug and Hadjar's wrist injury (and the Lawson/Tsunoda
+  call-up) on Wednesday 19 Aug. With a Thu–Mon-only schedule neither reached the
+  site until Thursday morning. There is no session timing or weather to chase
+  midweek, so twice a day is enough to keep the news feed current.
+
+Tighten to specific race dates or widen as needed.
 Note GitHub auto-pauses scheduled workflows after ~60 days of repo inactivity.
 
 **Workflow requirements:** `permissions: contents: write` (to push
@@ -588,17 +603,48 @@ re-downloaded). While that page is open, the real `headline` and `datePublished`
 are read from it — the listing page has neither, and a de-hyphenated slug reads
 badly on screen ("Half term report racing bulls best and worst moments…").
 
+That metadata upgrade must happen on **both** relevance paths. An article about
+the round currently being enriched matches on its URL slug alone, which
+short-circuits before any body fetch — so for a long time the round's *own*
+coverage was the only coverage stored with a slug title and no date, while
+off-round stories that fell through to the body check came out clean. Undated
+cards cannot be ordered, so the weekend's breaking news sank to the bottom of
+its own feed. `_upgrade_f1_meta()` is now called from both branches.
+
 Keyword choice is safety-critical here: because matching now reaches article
 bodies, a generic token would pull in nearly everything. `_GENERIC` strips words
 like "circuit"/"grand"/"prix" from the auto-derived keyword set.
 
 `backfill_meta.py` repairs cards stored before this existed. It always fills a
 missing date, but replaces a title **only** when it is plainly slug-derived, so
-the summariser's own (usually better) titles survive:
+the summariser's own (usually better) titles survive. It costs no model calls,
+so **the workflow runs it on every build** right after `enrich.py`:
 ```bash
 python3 backfill_meta.py --dry-run     # inspect first
 python3 backfill_meta.py [--gp hungary]
 ```
+
+### Ordering the news feed — dates, not display strings
+
+Each card stores **two** dates: `when` for display ("20 Aug") and an ISO `date`
+for sorting. Never sort on `when`. It sorts lexically, so `"12 Aug"` lands
+before `"6 Aug"` and a September story before every August one — and an empty
+string beats them all, so undated cards float to the front of an ascending sort.
+
+`f1lib.news_sort_key(card)` is the single source of truth, shared by `enrich.py`
+(stored order), `backfill_meta.py` and `f1lib.render_news()` (display order). It
+prefers ISO `date`, falls back to parsing `when` against `f1lib.SEASON` for
+cards written before the field existed, and returns `""` for genuinely undated
+ones. **The wires block renders newest-first** (`reverse=True`), which puts
+undated cards last — where an item of unknown age belongs.
+
+This is not cosmetic. On the Thursday of the 2026 Dutch GP the feed held 33
+cards, and Verstappen's contract extension, the Hadjar wrist injury / Lawson
+call-up and the Albon–Williams re-signing rendered as cards 32, 27 and 24 —
+below a fantasy-league promo, a "how to stream" explainer and a driver quiz. The
+stories had all been scraped correctly; the page simply showed them last. **If a
+story you know broke is "missing", check its position and its `date` before
+assuming the scrape failed.**
 
 **LLM backend — free by default:**
 - Default: **GitHub Models** (`https://models.github.ai/inference`, model
@@ -648,11 +694,20 @@ with `--gp <dir>`.
 
 **In CI (`deploy.yml`):** a "Refresh season calendar" step runs `calendar.py` on
 Mondays and manual dispatches, then "Auto-enrich" (`pip install pypdf` +
-`python3 enrich.py`, `continue-on-error: true` so a model outage can't break the
-deploy) runs before the build, then "Persist enrichment data" commits `data/` and
-`assets_src/` back to `main` with the default `GITHUB_TOKEN`. That push **does not**
-retrigger the workflow (GitHub suppresses `GITHUB_TOKEN`-authored pushes), so
-there is no loop — and `_seen.json` persists to make the next run incremental.
+`python3 enrich.py --max 25`, `continue-on-error: true` so a model outage can't
+break the deploy) runs before the build, then "Backfill Formula1.com headlines
+and dates" (`backfill_meta.py`, no model calls) repairs any slug-titled or
+undated card, then "Persist enrichment data" commits `data/` and `assets_src/`
+back to `main` with the default `GITHUB_TOKEN`. That push **does not** retrigger
+the workflow (GitHub suppresses `GITHUB_TOKEN`-authored pushes), so there is no
+loop — and `_seen.json` persists to make the next run incremental.
+
+`--max` is raised well above the default 6 on purpose. News does not arrive
+evenly — a contract extension, an injury call-up and a re-signing can all break
+within a couple of hours — and the default silently defers the overflow to a
+later run, which on a Thursday means it is missing from the page for the run
+that matters most. Each item is one small chat completion, so covering a burst
+day is cheap; keep the default low for ad-hoc local runs.
 
 ---
 

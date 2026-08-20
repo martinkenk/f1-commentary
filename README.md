@@ -83,11 +83,17 @@ decision PDFs** into penalty rows — the "LLM-type" work that used to be manual
 - Curated content stays **authoritative** — auto items only fill gaps, are deduped
   against hand-written ones, and always carry a **source link + "auto" badge** so
   you can verify before saying it on air.
+- The "From the wires" feed renders **newest-first**, so the day's breaking story
+  (a contract extension, an injury call-up) is at the top rather than buried under
+  week-old previews.
 - Incremental via `data/<gp>/_seen.json`; output in `data/<gp>/*_auto.json`.
 ```bash
 LLM_FAKE=1 python3 enrich.py --gp hungary --max 3   # offline plumbing test
 LLM_TOKEN=$(gh auth token) python3 enrich.py         # real run (needs models:read)
+python3 backfill_meta.py --dry-run                   # repair slug titles / missing dates
 ```
+CI runs it Thu–Mon every 2h during a race weekend, plus twice a day on Tue/Wed so
+midweek driver-market news isn't missed.
 See **SKILL.md §9** for the full design.
 
 ## Times & weather
