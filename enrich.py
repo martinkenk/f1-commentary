@@ -52,6 +52,7 @@ import time
 import datetime
 import hashlib
 import argparse
+import unicodedata
 import urllib.request
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -353,20 +354,36 @@ def fia_decision_pdfs(ctx):
     url = ctx.get("fia_url")
     if not url:
         return []
+    page = None
+    restrict_event = False
     try:
         page = _get(url)
     except Exception as e:
-        # The FIA only creates an event page once it publishes that event's first
-        # document, and until then the URL returns HTTP 500. For a future round
-        # that is the normal state, not a failure worth flagging as an error.
-        if "500" in str(e):
-            print("  · FIA has not published documents for this event yet")
-        else:
-            print(f"  ! FIA documents page unavailable: {e}")
-        return []
+        # Event pages can return 403 to GitHub-hosted runners even after documents
+        # are published. The season index contains the same links and is a safe
+        # fallback as long as its results are restricted to this event.
+        season_url = url.split("/event/", 1)[0]
+        try:
+            page = _get(season_url)
+            restrict_event = True
+            print("  · FIA event page unavailable; checked season index instead")
+        except Exception:
+            # The FIA only creates an event page once it publishes that event's
+            # first document. For a future round, 500 is the normal state.
+            if "500" in str(e):
+                print("  · FIA has not published documents for this event yet")
+            else:
+                print(f"  ! FIA documents page unavailable: {e}")
+            return []
     out, seen = [], set()
     for path in re.findall(r"/system/files/decision-document/[^\"'?]+\.pdf", page):
         fn = path.rsplit("/", 1)[-1].lower()
+        if restrict_event:
+            event = unicodedata.normalize("NFKD", ctx["name"])
+            event = event.encode("ascii", "ignore").decode()
+            prefix = re.sub(r"[^a-z0-9]+", "_", event.lower()).strip("_") + "_-_"
+            if prefix not in fn:
+                continue
         if fn in seen:
             continue
         seen.add(fn)
