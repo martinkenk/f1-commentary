@@ -356,14 +356,37 @@ def fia_decision_pdfs(ctx):
     try:
         page = _get(url)
     except Exception as e:
-        # The FIA only creates an event page once it publishes that event's first
-        # document, and until then the URL returns HTTP 500. For a future round
-        # that is the normal state, not a failure worth flagging as an error.
-        if "500" in str(e):
-            print("  · FIA has not published documents for this event yet")
-        else:
-            print(f"  ! FIA documents page unavailable: {e}")
-        return []
+        # Event pages can return 403 to GitHub-hosted runners even after documents
+        # are published. The season index exposes an event-specific AJAX endpoint
+        # containing the same document links.
+        season_url = url.split("/event/", 1)[0]
+        try:
+            season_page = _get(season_url)
+            event_name = re.sub(r"[^a-z0-9]+", " ", ctx["name"].lower()).strip()
+            nodes = re.findall(
+                r'<a[^>]*href=["\'][^"\']*/decision-document-list/nojs/(\d+)'
+                r'["\'][^>]*>(.*?)</a>',
+                season_page, re.S | re.I)
+            node = next((node for node, label in nodes
+                         if event_name in re.sub(
+                             r"[^a-z0-9]+", " ", _strip(label).lower()).strip()),
+                        None)
+            if not node:
+                raise ValueError(f"{ctx['name']} is not listed in the FIA season index")
+            payload = json.loads(_get(
+                f"https://www.fia.com/decision-document-list/ajax/{node}"))
+            page = "".join(command.get("data", "") for command in payload
+                           if command.get("command") == "insert")
+            print("  · FIA event page unavailable; checked season index instead")
+        except Exception as fallback_error:
+            # The FIA only creates an event page once it publishes that event's
+            # first document. For a future round, 500 is the normal state.
+            if "500" in str(e):
+                print("  · FIA has not published documents for this event yet")
+            else:
+                print(f"  ! FIA documents page unavailable: {e}; "
+                      f"season fallback failed: {fallback_error}")
+            return []
     out, seen = [], set()
     for path in re.findall(r"/system/files/decision-document/[^\"'?]+\.pdf", page):
         fn = path.rsplit("/", 1)[-1].lower()
