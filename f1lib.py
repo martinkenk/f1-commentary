@@ -791,11 +791,58 @@ _PEN_KIND = {
 }
 
 
+def _short_date(iso):
+    """'2026-08-20' -> '20 Aug' (unchanged if it is not an ISO date)."""
+    m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", (iso or "").strip())
+    if not m:
+        return iso or ""
+    return f"{int(m.group(3))} {_MONTHS[int(m.group(2)) - 1].capitalize()}"
+
+
+def _fia_docs_block(ctx, fia_url=""):
+    """List every FIA document published for this event, newest first.
+
+    The stewards' table only ever covers *decisions*. From the Thursday of a race
+    week the FIA publishes the material a commentator actually needs before any
+    decision exists — the Race Director's event notes, entry list, pit-lane and
+    scrutineering papers — and none of it reached the page while only decision
+    PDFs were indexed.
+    """
+    docs = _load_auto(ctx, "fia_docs")
+    if not docs:
+        return ""
+    rows = []
+    for d in sorted(docs, key=lambda x: (x.get("first_seen", ""),
+                                         x.get("title", "")), reverse=True):
+        title = d.get("title") or d.get("filename", "")
+        url = d.get("url", "")
+        link = (f'<a href="{url}" target="_blank" rel="noopener">{title}</a>'
+                if url else title)
+        tag = ("<span class='pen-badge pen-note'>Decision</span>"
+               if d.get("kind") == "decision" else "")
+        rows.append(f"<tr><td>{link}</td><td>{_short_date(d.get('first_seen',''))}</td>"
+                    f"<td>{tag}</td></tr>")
+    out = [f'<h2 class="sec">FIA event documents '
+           f'<span class="wire-tag">{len(docs)} published</span></h2>',
+           '<p class="lead-note">Every document the FIA has published for this '
+           "round — event notes, entry lists, scrutineering papers and stewards' "
+           'decisions. Each links straight to the official PDF.</p>',
+           '<div class="table-wrap"><table class="data"><thead><tr>'
+           '<th>Document</th><th>Logged</th><th></th></tr></thead><tbody>'
+           + "".join(rows) + "</tbody></table></div>"]
+    if fia_url:
+        out.append(f'<p class="src">Full index: <a href="{fia_url}" target="_blank" '
+                   f'rel="noopener">FIA — {ctx.get("name", "event")} documents</a>.</p>')
+    return "".join(out)
+
+
 def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
     """decisions: list of dicts {doc, session, driver, team, no, fact, outcome, kind, when}.
     Auto-extracted FIA decisions from data/<gp>/penalties_auto.json are merged in
-    (deduped by document number); curated entries take precedence."""
+    (deduped by document number); curated entries take precedence. Every FIA
+    document indexed for the round is listed below the tracker."""
     out = [intro_html] if intro_html else []
+    docs_block = _fia_docs_block(ctx, fia_url)
     decisions = list(decisions or [])
     seen = {_doc_num(d.get("doc", "")) for d in decisions}
     for a in _load_auto(ctx, "penalties_auto"):
@@ -807,7 +854,9 @@ def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
         out.append('<div class="callout watch"><strong>No stewards\' decisions logged yet.</strong> '
                    "This tracker is populated from the FIA event decision documents on each rebuild — "
                    "summons, infringements, penalties, fines and 'no further action' rulings.</div>")
-        if fia_url:
+        if docs_block:
+            out.append(docs_block)
+        elif fia_url:
             out.append(f'<p class="src">Source: <a href="{fia_url}" target="_blank" rel="noopener">'
                        f'FIA — {ctx.get("name", "event")} documents</a>.</p>')
         return "".join(out)
@@ -843,6 +892,8 @@ def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
     if fia_url:
         out.append(f'<p class="src">Source: <a href="{fia_url}" target="_blank" rel="noopener">'
                    f'FIA — {ctx.get("name", "event")} documents</a> (stewards\' decisions).</p>')
+    if docs_block:
+        out.append(docs_block)
     return "".join(out)
 
 

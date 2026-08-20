@@ -489,7 +489,8 @@ pre-weekend routine is short:
 
 ```bash
 python3 calendar.py     # only if session details may have changed (CI does this Mondays)
-python3 enrich.py       # LLM: new articles + FIA decisions for the active window
+python3 enrich.py       # LLM: new articles + FIA documents/decisions for the active window
+python3 enrich.py --prune  # re-file any card stored against the wrong race (offline)
 python3 build.py        # rebuild everything; verify per §6
 ```
 
@@ -579,22 +580,66 @@ trigger is needed.
 
 **What `enrich.py` does (per GP):**
 1. Scrapes candidate sources — The Race RSS, Formula1.com `/en/latest` slugs, and
-   the FIA event documents page (decision PDFs only: infringement / decision /
-   penalty / reprimand / fine / disqualification / protest; skips summons,
-   classifications, scrutineering, etc.).
+   the FIA event documents page. **Every** published FIA document is indexed;
+   only the decision ones (infringement / decision / penalty / reprimand / fine /
+   disqualification / protest, minus summons / classifications / scrutineering)
+   are sent to the model for structuring.
 2. **Incremental & idempotent** — skips anything already recorded in
    `data/<gp>/_seen.json` (article URLs + FIA filenames), so each run only spends
    tokens on genuinely new items.
 3. Calls an LLM with strict-JSON, temperature-0 prompts to (a) summarise an
    article into a 2–4 sentence news card and (b) extract `{doc, driver, team,
    session, fact, outcome, kind}` from a decision PDF (`pypdf` text).
-4. Writes `data/<gp>/news_auto.json` + `data/<gp>/penalties_auto.json`.
+4. Writes `data/<gp>/news_auto.json`, `data/<gp>/penalties_auto.json` and
+   `data/<gp>/fia_docs.json`.
 
-**Relevance matching — why bodies are fetched.** A story counts for a GP when a
-venue keyword (`hungary`/`hungaroring`/`budapest`, `dutch`/`zandvoort`/…) appears
-in its title, URL **or body**. The body check matters: season previews, team
+### The FIA document index — the page needs more than decisions
+
+The penalties tracker is built from *decision* PDFs, and on the Thursday of a race
+week there are none: what the FIA has published is the Race Director's event
+notes, the entry list, scrutineering and pit-lane papers. Indexing only decisions
+meant the round's own paperwork never reached its page — the Dutch GP's Penalties
+& Stewards page sat empty on race week with the documents already public.
+
+`fia_documents(ctx)` therefore returns every PDF on the event page, tagged
+`kind: decision|document` with a readable title derived from the filename
+(`2026_dutch_grand_prix_-_event_notes.pdf` → "Event Notes"). `merge_docs()` stores
+them additively with the date each was first seen, so a momentary FIA 403/500
+never deletes what has already been published, and `f1lib._fia_docs_block()`
+renders them — newest first, decisions badged — below the stewards' table on every
+race's Penalties & Stewards page.
+
+**Relevance matching — one story, the right race.** Three rules decide whether an
+article belongs to a GP, in order:
+
+1. its **headline or URL** names this GP → keep (even if another round is
+   mentioned too — previews legitimately reference both);
+2. its headline or URL names a **different** GP and not this one → reject;
+3. only the **body** mentions this GP → keep for the weekend that is running or
+   coming up, but **not** for a race that has already been run.
+
+Rule 2 exists because everything used to be matched against whole article bodies:
+the Dutch GP's race-week previews ("How to stream…", "NEED TO KNOW…") were filed
+onto the finished Hungarian GP's page because they mentioned Norris's Hungary win
+in passing. Rule 3 keeps the genuinely useful body matches — season previews, team
 half-term reviews and driver-market pieces routinely discuss a circuit without
-naming it in the headline, and those are prime commentary material.
+naming it in the headline — without back-filling a finished race with next
+weekend's build-up.
+
+**Keywords are matched as whole words** (`_matches()`), never as substrings. Spa's
+keyword is `spa`, which is inside "Spain", "space" and "spare" — that one
+substring test filed most of the Hungarian GP's coverage onto the Belgian GP's
+pages. For the same reason `_GENERIC` drops venue tokens that name people,
+sponsors or everyday things: `carlos` (from Interlagos' full name) matched every
+Carlos Sainz story, `emirates` the title sponsor, `marina` two venues at once.
+Multi-word forms ("marina bay", "united states", "yas marina") are kept — they are
+unambiguous.
+
+**Repairing what is already stored:** `python3 enrich.py --prune [--dry-run]`
+re-checks every stored card against rules 1–2 (headline/URL only, so no network
+or model calls) and drops the mis-filed ones. CI runs it on every build, so a card
+filed by an older rule cannot sit on the wrong race's page for the rest of the
+season.
 
 The Race arrives from RSS with full text attached, but Formula1.com only gives
 title+URL stubs, so for F1.com the article page is fetched *during* the relevance
@@ -671,9 +716,10 @@ assuming the scrape failed.**
   Unlocked" login**, so only the intro paragraphs are summarisable there (still
   enough for a headline card). Two easy-to-miss bugs are fixed: F1.com article
   URLs must keep their `.<id>` suffix (the slug-only URL 404s → empty body), and
-  relevance is matched against the article **body**, not just the title/URL, so
-  weekend stories that omit the GP name from the headline (e.g. a driver-focused
-  penalty or PU story) are still picked up while generic/other-GP news is not.
+  relevance also reads the article **body**, not just the title/URL — subject to
+  the rules above — so weekend stories that omit the GP name from the headline
+  (e.g. a driver-focused penalty or PU story) are still picked up while
+  generic/other-GP news is not.
 
 **Run it locally:**
 ```bash

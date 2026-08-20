@@ -104,10 +104,12 @@ def _strip(txt):
 def load_gps():
     """Import the GP contexts from build.py and attach enrichment hints."""
     import build
+    today = datetime.date.today()
     gps = []
     for ctx in build.season_gps():
         c = dict(ctx)
         c["keywords"] = _keywords_for(c)
+        c["status"] = f1lib.event_status(c, today)
         gps.append(c)
     return gps
 
@@ -142,8 +144,14 @@ def active_gps(gps, lead_days=10):
 # Without this, "circuit" alone would make almost every F1 article look relevant.
 _GENERIC = {
     "circuit", "grand", "prix", "international", "autodromo", "autodromme",
-    "street", "national", "nazionale", "speedway", "raceway", "motorsport",
-    "racing", "track", "park", "arena",
+    "autódromo", "street", "national", "nazionale", "speedway", "raceway",
+    "motorsport", "racing", "track", "park", "arena",
+    # Venue words that also name people, sponsors or everyday things. Each one
+    # was pulling unrelated stories onto a race's page: "carlos" (Interlagos'
+    # full name) matched every Carlos Sainz story, "emirates" the title sponsor,
+    # "marina" two different venues, "united"/"states"/"strip" ordinary prose.
+    # The multi-word forms ("marina bay", "united states", "yas marina") stay.
+    "carlos", "hermanos", "emirates", "marina", "united", "states", "strip",
 }
 
 
@@ -175,6 +183,38 @@ def _keywords_for(ctx):
     }
     kws |= extra.get(ctx.get("dir", ""), set())
     return {k for k in kws if k and k not in _GENERIC}
+
+
+def other_keywords(gps, ctx):
+    """Keywords that identify a *different* Grand Prix to ``ctx``.
+
+    Used to keep a round's page free of another round's coverage: a headline
+    that names the Dutch GP and nothing local belongs on the Dutch page, not on
+    the one for the race that has just finished.
+    """
+    mine = ctx.get("keywords") or set()
+    out = set()
+    for other in gps:
+        if other.get("dir") == ctx.get("dir"):
+            continue
+        out |= (other.get("keywords") or set())
+    return out - mine
+
+
+def _matches(text, keywords):
+    """True when any keyword appears in ``text`` as a whole word.
+
+    Substring matching is not safe here. Spa-Francorchamps' keyword is "spa",
+    which is inside "Spain", "space" and "spare" — that alone filed most of the
+    Hungarian GP's coverage onto the Belgian GP's pages.
+    """
+    low = (text or "").lower()
+    for kw in keywords:
+        if not kw:
+            continue
+        if re.search(r"(?<![a-z0-9])" + re.escape(kw) + r"(?![a-z0-9])", low):
+            return True
+    return False
 
 
 # --------------------------------------------------------------------------
@@ -364,8 +404,15 @@ def _iso_date(rfc):
     return f"{m.group(3)}-{month:02d}-{int(m.group(1)):02d}"
 
 
-def fia_decision_pdfs(ctx):
-    """Return [{filename, url}] for FIA decision documents for this GP."""
+def fia_documents(ctx):
+    """Return [{filename, url, title, kind}] for *every* FIA document published
+    for this event — event notes, entry lists, scrutineering papers and stewards'
+    decisions alike.
+
+    The decision PDFs feed the penalties tracker; the rest are what a
+    commentator actually reaches for on a Thursday, before any decision exists,
+    so they are indexed too and listed on the round's Penalties & Stewards page.
+    """
     url = ctx.get("fia_url")
     if not url:
         return []
@@ -409,40 +456,89 @@ def fia_decision_pdfs(ctx):
         if fn in seen:
             continue
         seen.add(fn)
-        if any(s in fn for s in FIA_SKIP_KEYS):
-            continue
-        if not any(k in fn for k in FIA_DECISION_KEYS):
-            continue
-        out.append({"filename": fn, "url": "https://www.fia.com" + path})
+        out.append({
+            "filename": fn,
+            "url": "https://www.fia.com" + path,
+            "title": doc_title(fn, ctx),
+            "kind": "decision" if is_decision(fn) else "document",
+        })
     return out
 
 
-def relevant(article, ctx):
-    # Match the GP keywords against the headline, the URL slug **and** the body.
-    # Many weekend stories (driver/team angles) omit the GP name from the title
-    # but reference "Hungaroring"/"Hungarian" in the text — the body check keeps
-    # those without pulling in generic or other-GP news that never mentions it.
-    #
-    # The Race arrives from RSS with its body already attached, but Formula1.com
-    # only yields title+URL stubs, so for those the body has to be fetched here
-    # or the body check silently never applies to them. Season-preview and
-    # team-review pieces routinely bury the GP reference in the text, and those
-    # are exactly the ones a commentator wants.
-    hay = " ".join((
-        article.get("title", ""),
-        article.get("url", ""),
-        article.get("body", ""),
-    )).lower()
-    if any(k in hay for k in ctx["keywords"]):
+def is_decision(filename):
+    """True for a stewards' document worth structuring into a penalty row."""
+    fn = (filename or "").lower()
+    if any(s in fn for s in FIA_SKIP_KEYS):
+        return False
+    return any(k in fn for k in FIA_DECISION_KEYS)
+
+
+def doc_title(filename, ctx):
+    """'2026_dutch_grand_prix_-_event_notes.pdf' -> 'Event Notes'."""
+    stem = re.sub(r"\.pdf$", "", filename or "", flags=re.I)
+    stem = re.sub(r"[_\s]+", " ", stem).strip()
+    event = re.sub(r"[_\s]+", " ",
+                   f'{ctx.get("year", "")} {ctx.get("name", "")}').strip().lower()
+    if event and stem.lower().startswith(event):
+        stem = stem[len(event):]
+    stem = stem.strip(" -_") or filename
+    # Trailing "0"/"1" counters the FIA appends to re-uploaded files add nothing.
+    stem = re.sub(r"\s+\d$", "", stem)
+    words = []
+    for w in stem.split(" "):
+        words.append(w.upper() if len(w) <= 2 and w.isalpha() else w.capitalize())
+    return " ".join(words).replace(" - ", " — ")
+
+
+def fia_decision_pdfs(ctx, docs=None):
+    """Return [{filename, url, ...}] for FIA *decision* documents for this GP."""
+    docs = fia_documents(ctx) if docs is None else docs
+    return [d for d in docs if d.get("kind") == "decision"]
+
+
+def article_head(article):
+    """The parts of an article that state what it is *about*: headline + URL."""
+    return " ".join((article.get("title", ""), article.get("url", ""))).lower()
+
+
+def belongs_to_other_gp(article, others):
+    """True when the headline/URL names a different round and this one only."""
+    return _matches(article_head(article), others)
+
+
+def relevant(article, ctx, others=()):
+    """True when this article belongs on ``ctx``'s pages.
+
+    Three rules, in order:
+
+    1. **Headline or URL names this GP** — it is this round's story. Kept even
+       if another round is mentioned too (a preview can reference both).
+    2. **Headline or URL names a different GP and not this one** — it is that
+       round's story, so it is rejected here. Without this, every article that
+       merely mentioned a venue in passing was filed against whichever race was
+       being enriched, and the Dutch GP's race-week previews landed on the
+       finished Hungarian GP's page.
+    3. **Only the body mentions this GP** — season previews, team reviews and
+       driver-market pieces routinely bury the venue in the text, and those are
+       prime commentary material, so they are kept for the weekend that is
+       running or coming up. A *finished* race does not take them: a passing
+       mention of the Hungaroring in a Dutch GP preview is not Hungarian GP news.
+    """
+    if _matches(article_head(article), ctx["keywords"]):
         _upgrade_f1_meta(article)
         return True
-    if article.get("src_kind") == "f1" and not article.get("body"):
+    if belongs_to_other_gp(article, others):
+        return False
+    body = article.get("body") or ""
+    if not body and article.get("src_kind") == "f1":
         body = _f1_body_cached(article["url"])
         if body:
             article["body"] = body          # reused by summarise_article
-            if any(k in body.lower() for k in ctx["keywords"]):
-                _upgrade_f1_meta(article)
-                return True
+    if body and _matches(body, ctx["keywords"]):
+        if ctx.get("status") == "past":
+            return False
+        _upgrade_f1_meta(article)
+        return True
     return False
 
 
@@ -646,11 +742,12 @@ def _fake_decision(text):
 # --------------------------------------------------------------------------
 # Per-GP enrichment
 # --------------------------------------------------------------------------
-def enrich_gp(ctx, max_items=6):
+def enrich_gp(ctx, max_items=6, others=()):
     print(f"{ctx['flag']} {ctx['name']}")
     seen = load_seen(ctx)
     news_path = os.path.join(DATA_DIR, ctx["dir"], "news_auto.json")
     pen_path = os.path.join(DATA_DIR, ctx["dir"], "penalties_auto.json")
+    docs_path = os.path.join(DATA_DIR, ctx["dir"], "fia_docs.json")
     news = load_list(news_path)
     pens = load_list(pen_path)
     added_news = added_pen = 0
@@ -659,7 +756,7 @@ def enrich_gp(ctx, max_items=6):
     # Seen-check first: relevance now fetches article bodies for Formula1.com,
     # so testing already-processed URLs would re-download them on every run.
     candidates = [a for a in (the_race_articles() + f1_articles())
-                  if a["url"] not in seen["articles"] and relevant(a, ctx)]
+                  if a["url"] not in seen["articles"] and relevant(a, ctx, others)]
     for a in candidates[:max_items]:
         card = summarise_article(a, ctx)
         seen["articles"].append(a["url"])          # mark seen even if it failed
@@ -668,8 +765,17 @@ def enrich_gp(ctx, max_items=6):
             added_news += 1
             print(f"  + news: {card['title']}")
 
+    # --- FIA documents ------------------------------------------------------
+    # The whole published set is indexed (event notes, entry lists, scrutineering
+    # papers, decisions), so the round's page carries its FIA paperwork from the
+    # Thursday onwards — long before the first stewards' decision exists.
+    docs = fia_documents(ctx)
+    added_docs = merge_docs(docs_path, docs)
+    if added_docs:
+        print(f"  + {added_docs} new FIA document(s)")
+
     # --- penalties: FIA decision PDFs ---------------------------------------
-    for pdf in fia_decision_pdfs(ctx):
+    for pdf in fia_decision_pdfs(ctx, docs):
         if pdf["filename"] in seen["fia"]:
             continue
         text = _pdf_text(pdf["url"])
@@ -694,9 +800,38 @@ def enrich_gp(ctx, max_items=6):
     save_json(news_path, news)
     save_json(pen_path, pens)
     save_json(_seen_path(ctx), seen)
-    print(f"  = {added_news} new news, {added_pen} new decisions "
-          f"({len(news)} / {len(pens)} total)")
-    return added_news + added_pen
+    print(f"  = {added_news} new news, {added_pen} new decisions, "
+          f"{added_docs} new documents "
+          f"({len(news)} / {len(pens)} totals)")
+    return added_news + added_pen + added_docs
+
+
+def merge_docs(path, docs):
+    """Merge freshly-listed FIA documents into the stored index.
+
+    Additive and idempotent: a document already indexed keeps its first-seen
+    date, and a listing that momentarily fails (FIA 403/500) never deletes what
+    has already been published. Returns the number of new documents.
+    """
+    if not docs:
+        return 0
+    stored = load_list(path)
+    by_name = {d.get("filename"): d for d in stored}
+    today = datetime.date.today().isoformat()
+    added = 0
+    for d in docs:
+        old = by_name.get(d["filename"])
+        if old:
+            old.update({k: v for k, v in d.items() if k != "first_seen"})
+            continue
+        rec = dict(d)
+        rec["first_seen"] = today
+        stored.append(rec)
+        by_name[rec["filename"]] = rec
+        added += 1
+    stored.sort(key=lambda d: (d.get("first_seen", ""), d.get("filename", "")))
+    save_json(path, stored)
+    return added
 
 
 def _pdf_text(url):
@@ -718,6 +853,36 @@ def _pdf_text(url):
 
 
 # --------------------------------------------------------------------------
+# Repair pass — re-file stored cards against the current relevance rules
+# --------------------------------------------------------------------------
+def prune_gp(ctx, others, dry_run=False):
+    """Drop stored news cards that belong to a different Grand Prix.
+
+    Earlier runs matched keywords as substrings and against whole article
+    bodies, which filed other rounds' coverage onto a race's page (Spa's "spa"
+    keyword matched "Spain"/"space"; a Dutch GP preview that mentioned the
+    Hungaroring landed on the Hungarian GP page). Cards are judged on headline
+    and URL only, so no network or model calls are needed.
+    """
+    path = os.path.join(DATA_DIR, ctx["dir"], "news_auto.json")
+    news = load_list(path)
+    keep, dropped = [], []
+    for card in news:
+        head = article_head(card)
+        if _matches(head, ctx["keywords"]) or not _matches(head, others):
+            keep.append(card)
+        else:
+            dropped.append(card)
+    for card in dropped:
+        print(f"  - {card.get('title', '')[:80]}")
+    if dropped and not dry_run:
+        save_json(path, keep)
+    print(f"  = {len(dropped)} mis-filed card(s)"
+          f"{' (dry run)' if dry_run else ' removed'}, {len(keep)} kept")
+    return len(dropped)
+
+
+# --------------------------------------------------------------------------
 def main():
     ap = argparse.ArgumentParser(description="LLM enrichment for the F1 hub.")
     ap.add_argument("--gp", help="only this GP dir (e.g. hungary)")
@@ -725,17 +890,36 @@ def main():
                     help="enrich every registered GP instead of just the active window")
     ap.add_argument("--max", type=int, default=6,
                     help="max new articles processed per GP per run")
+    ap.add_argument("--prune", action="store_true",
+                    help="re-check stored news cards and drop ones that belong "
+                         "to another Grand Prix (no network or model calls)")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="with --prune, report what would be dropped only")
     args = ap.parse_args()
 
-    gps = load_gps()
+    all_gps = load_gps()
+    gps = all_gps
     if args.gp:
         gps = [g for g in gps if g["dir"] == args.gp]
         if not gps:
             print(f"No GP with dir '{args.gp}'")
             return 1
+    elif args.prune:
+        # Every registered round is checked: a mis-filed card sits on a page long
+        # after that race has left the active enrichment window.
+        pass
     elif not args.all:
         gps = active_gps(gps)
         print("Active window: " + ", ".join(f'{g["dir"]} ({g["status"]})' for g in gps))
+
+    if args.prune:
+        total = 0
+        for ctx in gps:
+            print(f"{ctx['flag']} {ctx['name']}")
+            total += prune_gp(ctx, other_keywords(all_gps, ctx), args.dry_run)
+            print()
+        print(f"Done — {total} mis-filed card(s) across {len(gps)} GP(s).")
+        return 0
 
     backend = ("HEURISTIC (LLM_FAKE)" if os.environ.get("LLM_FAKE")
                else os.environ.get("LLM_ENDPOINT", DEFAULT_ENDPOINT))
@@ -744,7 +928,8 @@ def main():
     total = 0
     for ctx in gps:
         try:
-            total += enrich_gp(ctx, max_items=args.max)
+            total += enrich_gp(ctx, max_items=args.max,
+                               others=other_keywords(all_gps, ctx))
         except Exception as e:
             print(f"  ! {ctx['dir']} enrichment error: {e}")
         print()

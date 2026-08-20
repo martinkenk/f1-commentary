@@ -75,6 +75,15 @@ jobs:
           python3 -m pip install --quiet pypdf
           python3 enrich.py --max 25
 
+      - name: Re-file mis-assigned news cards
+        # Cheap, offline self-heal: re-checks every stored card against the
+        # relevance rules and drops the ones whose headline names a different
+        # round. Cards filed by an older, looser rule (or by a rule fixed after
+        # they were written) would otherwise sit on the wrong race's page for
+        # the rest of the season. No network or model calls.
+        continue-on-error: true
+        run: python3 enrich.py --prune
+
       - name: Backfill Formula1.com headlines and dates
         # Formula1.com's listing page exposes only a URL slug, so a card can be
         # stored with a de-hyphenated slug for a title and no publication date.
@@ -86,8 +95,9 @@ jobs:
         run: python3 backfill_meta.py
 
       - name: Persist enrichment data
-        # Commit data/ (calendar, news_auto.json, penalties_auto.json, _seen.json)
-        # and any newly downloaded track maps back to main so the incremental cache
+        # Commit data/ (calendar, news_auto.json, penalties_auto.json,
+        # fia_docs.json, _seen.json) and any newly downloaded track maps back to
+        # main so the incremental cache
         # survives to the next run. A push made with the default GITHUB_TOKEN does
         # NOT trigger another workflow run (no loop).
         env:

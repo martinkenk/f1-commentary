@@ -86,10 +86,19 @@ decision PDFs** into penalty rows — the "LLM-type" work that used to be manual
 - The "From the wires" feed renders **newest-first**, so the day's breaking story
   (a contract extension, an injury call-up) is at the top rather than buried under
   week-old previews.
-- Incremental via `data/<gp>/_seen.json`; output in `data/<gp>/*_auto.json`.
+- **Each story lands on one race's page.** A headline that names a different round
+  is rejected, venue keywords are matched as whole words (Spa's "spa" no longer
+  matches "Spain"), and a story that only mentions a circuit in passing is never
+  filed against a race that has already been run.
+- **Every FIA document for a round is indexed**, not just decisions: the Race
+  Director's event notes, entry list and scrutineering papers appear on that
+  race's *Penalties & Stewards* page from the Thursday, before any decision exists.
+- Incremental via `data/<gp>/_seen.json`; output in `data/<gp>/*_auto.json` and
+  `data/<gp>/fia_docs.json`.
 ```bash
 LLM_FAKE=1 python3 enrich.py --gp hungary --max 3   # offline plumbing test
 LLM_TOKEN=$(gh auth token) python3 enrich.py         # real run (needs models:read)
+python3 enrich.py --prune --dry-run                  # re-check where stored cards are filed
 python3 backfill_meta.py --dry-run                   # repair slug titles / missing dates
 ```
 CI runs it Thu–Mon every 2h during a race weekend, plus twice a day on Tue/Wed so

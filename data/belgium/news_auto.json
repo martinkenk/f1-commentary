@@ -1,282 +1,108 @@
 [
- {
-  "id": "b72805e582e1",
-  "url": "https://www.the-race.com/formula-1/aston-martin-flying-spare-parts-to-f1-hungarian-gp-for-upgraded-car/",
-  "title": "Aston Martin Upgrades Show Promise Ahead of Hungarian GP",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "24 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Aston Martin is sending spare parts to the Hungarian Grand Prix to ensure both drivers can utilize the upgraded AMR26 for qualifying. Despite a promising debut, Lance Stroll faced a suspension failure during FP1, limiting his track time. Fernando Alonso reported positive feedback on the upgrades, indicating the team is closing the gap to midfield rivals, although some vibrations were noted during practice."
-  ]
- },
- {
-  "id": "297d0a39fe0e",
-  "url": "https://www.the-race.com/formula-1/winners-losers-f1-2026-hungarian-gp-practice/",
-  "title": "Winners and Losers from Hungarian GP Practice Sessions",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "24 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "The Hungarian Grand Prix practice sessions highlighted key winners and losers, with Aston Martin's upgrades making headlines. Ferrari showed strong performance, with Charles Leclerc and Lewis Hamilton topping the sessions, while Mercedes struggled, with George Russell expressing concerns about the track's condition. Lance Stroll faced setbacks due to a suspension failure, and Alpine struggled without upgrades, leaving them at the back of the midfield."
-  ]
- },
- {
-  "id": "a8001cec2658",
-  "url": "https://www.the-race.com/formula-1/badly-resurfaced-hungary-track-is-breaking-up-and-f1-is-worried/",
-  "title": "F1 Monitors Hungaroring Surface After Driver Complaints",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "25 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "The FIA is monitoring the Hungaroring track surface after drivers reported issues with bumps and deterioration. Concerns were raised during a drivers' briefing, with George Russell highlighting the poor state of the asphalt. Following inspections, track officials worked to address the bumps, but the rough surface may impact tyre degradation and grip levels throughout the weekend."
-  ]
- },
- {
-  "id": "1c1f32905037",
-  "url": "https://www.the-race.com/formula-1/hungarian-grand-prix-2026-f1-qualifying-results/",
-  "title": "Hungarian Grand Prix 2026 F1 Qualifying Results",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "25 Jul",
-  "kind": "session",
-  "session": "Qualifying",
-  "paragraphs": [
-   "Lando Norris secured pole position for the F1 Belgian Grand Prix at the Hungaroring with a time of 1m17.207s. He was closely followed by Lewis Hamilton and Charles Leclerc, who finished second and third respectively.",
-   "The qualifying session saw notable performances from Kimi Antonelli and Oscar Piastri, while Max Verstappen and George Russell also made it into the top ten."
-  ]
- },
- {
-  "id": "4ce87a754d5f",
-  "url": "https://www.the-race.com/formula-1/new-contender-emerges-as-f1-2026-season-finale-back-up/",
-  "title": "Imola Emerges as Backup for F1's 2026 Season Finale",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "25 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Imola is being considered as a potential replacement for the 2026 Formula 1 season finale if the scheduled races in Qatar and Abu Dhabi are canceled due to escalating tensions in the Middle East. F1 is exploring options to ensure a 22-race season, with a decision on the Middle Eastern races expected soon.",
-   "While Portimao was initially a strong candidate, concerns about infrastructure work have led to doubts about its viability. Imola, which has hosted F1 races in recent years, could provide a suitable alternative, especially given its connection to F1 CEO Stefano Domenicali and the ongoing championship battles."
-  ]
- },
- {
-  "id": "e7b279ca4ef7",
-  "url": "https://www.the-race.com/formula-1/winners-and-losers-from-f1-2026-hungarian-gp-qualifying/",
-  "title": "Winners and Losers from F1 2026 Hungarian GP Qualifying",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "25 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "The 2026 Hungarian GP qualifying saw Lando Norris claim his first pole position of the season, while Aston Martin made significant strides with Fernando Alonso reaching Q2 for the first time this year. Mercedes faced challenges, with both drivers struggling for pace and Antonelli receiving a grid penalty. Max Verstappen also had a difficult session, citing issues with his car's performance."
-  ]
- },
- {
-  "id": "75d832bc6e10",
-  "url": "https://www.the-race.com/formula-1/f1-drivers-concerned-over-lottery-track-surface-at-hungarian-gp/",
-  "title": "F1 Drivers Concerned Over 'Lottery' Track Surface at Hungarian GP",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "26 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Drivers are expressing concerns about the resurfaced track at the Hungarian Grand Prix, describing it as a 'lottery' due to inconsistent grip levels. Notable issues include a significant bump at Turn 1 and poor asphalt quality, which have led to difficulties in achieving competitive lap times. Several drivers, including George Russell and Carlos Sainz, criticized the resurfacing work, suggesting it does not meet F1 standards."
-  ]
- },
- {
-  "id": "45235c876860",
-  "url": "https://www.formula1.com/en/latest/article/its-not-been-perfect-from-my-side-hamilton-despairs-of-costly-mistakes-in-hungarian-gp.7pHRjB2mLjsdiQJeefRpur",
-  "title": "Hamilton Reflects on Costly Mistakes at Hungarian GP",
-  "source": "Formula1.com",
-  "src_kind": "f1",
-  "when": "26 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Lewis Hamilton expressed frustration after finishing P5 at the Hungarian Grand Prix, following a three-place grid penalty for impeding another driver in qualifying. Despite starting P2, he faced setbacks during the race, including a five-second penalty for speeding in the pit lane. Hamilton acknowledged his mistakes and emphasized the need for improvement in the second half of the season.",
-   "Charles Leclerc also faced disappointment, starting on the front row but losing positions early on. He suggested a need for alternative strategies and noted that Ferrari's performance did not meet expectations despite a promising start."
-  ],
-  "date": "2026-07-26"
- },
- {
-  "id": "2b154f4da022",
-  "url": "https://www.the-race.com/formula-1/f1s-bahrain-gp-to-be-held-in-malaysia/",
-  "title": "Malaysia to Host One-Off Bahrain GP Amid Middle East Tensions",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "26 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Malaysia will host a one-off Formula 1 race this season, named the Gulf Air Bahrain Grand Prix, at the Sepang circuit. This unusual arrangement comes as Bahrain covers costs due to safety concerns preventing its own grand prix from taking place. F1 CEO Stefano Domenicali expressed excitement about the return of racing to Malaysia, which last hosted F1 events from 1999 to 2017.",
-   "The FIA's World Sport Council is expected to approve the race, while F1 is also monitoring the situation regarding the end-of-season races in Qatar and Abu Dhabi, with a decision needed by September."
-  ]
- },
- {
-  "id": "2e71171aab1b",
-  "url": "https://www.the-race.com/formula-1/dumb-driving-or-a-good-excuse-piastris-rage-at-sainz/",
-  "title": "Piastri and Sainz Clash Sparks Controversy at Hungarian GP",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "26 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Oscar Piastri expressed anger over Carlos Sainz's driving during the Hungarian Grand Prix, calling it 'unacceptable' after a blue flag malfunction led to a collision. Sainz defended his actions, citing confusion over the blue flags and a lack of communication from his team. Mercedes boss Toto Wolff criticized the handling of backmarkers, while Piastri's race was ultimately affected, leading to his retirement due to a gearbox failure."
-  ]
- },
- {
-  "id": "22a6833b97b8",
-  "url": "https://www.the-race.com/formula-1/winners-losers-f1-2026-hungarian-grand-prix/",
-  "title": "Winners and Losers from the 2026 Hungarian Grand Prix",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "26 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Lando Norris claimed victory at the 2026 Hungarian Grand Prix, showcasing impressive pace throughout the race. Max Verstappen finished second, benefiting from a strategic tire choice by Red Bull, while Kimi Antonelli secured third place, extending his championship lead. Oscar Piastri faced disappointment with a DNF after an incident with a backmarker, and Ferrari's performance fell short, finishing fourth and fifth despite expectations."
-  ]
- },
- {
-  "id": "3d972e974060",
-  "url": "https://www.the-race.com/formula-1/ferrari-big-opportunity-wasted-f1-hungarian-gp/",
-  "title": "Ferrari's Missed Opportunity at Hungarian Grand Prix",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "27 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Ferrari team principal Fred Vasseur expressed frustration over the team's performance at the Hungarian Grand Prix, citing poor execution and too many mistakes. Despite outscoring Mercedes by one point, Vasseur expected more from the SF-26, especially after a strong showing in practice. Drivers Charles Leclerc and Lewis Hamilton noted inconsistencies and strategic missteps that hindered their race, with Hamilton questioning the decision to pit late in the race."
-  ]
- },
- {
-  "id": "8e420ee06ade",
-  "url": "https://www.the-race.com/formula-1/lewis-hamilton-f1-2026-penalties-stewards/",
-  "title": "Hamilton's Penalty Woes: A Series of Missteps",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "27 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Lewis Hamilton has faced four penalties in three races, including a recent five-second penalty for speeding in the pitlane at the Hungarian Grand Prix. He acknowledges the need to avoid giving the FIA stewards reasons to penalize him, attributing some penalties to his own mistakes and misjudgments during races.",
-   "Hamilton's team principal, Fred Vasseur, noted that Hamilton's eagerness to gain time may have contributed to his infractions, emphasizing the importance of precision during pit stops. Despite the penalties, Hamilton does not believe there is a targeted campaign against him, but he recognizes the need for improvement."
-  ]
- },
- {
-  "id": "d56ac218548c",
-  "url": "https://www.the-race.com/formula-1/everything-we-learned-f1-hungarian-grand-prix-2026/",
-  "title": "Key Takeaways from F1's Hungarian Grand Prix",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "27 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "The Hungarian Grand Prix revealed significant challenges for top teams, particularly Ferrari, which failed to capitalize on a strong start and left without a podium. George Russell faced ongoing issues, while Red Bull's Max Verstappen struggled with aerodynamic degradation. Aston Martin's new 'B-spec' chassis impressed, raising concerns among rivals about their competitiveness moving forward."
-  ]
- },
- {
-  "id": "422b382eb364",
-  "url": "https://www.the-race.com/formula-1/george-russell-hungarian-gp-f1-start-mercedes/",
-  "title": "Russell's Start Issues Explained After Hungarian GP",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "27 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "George Russell faced a challenging start at the Hungarian Grand Prix, leading to a poor launch and a brief stint at the back of the field. Initially, it was suspected that he hit the top of the battery pack, but Mercedes later clarified that the issue stemmed from rev control management, causing the car to enter anti-stall.",
-   "Russell expressed frustration over the ongoing problems, emphasizing the team's commitment to understanding and resolving the issues affecting their performance this season."
-  ]
- },
- {
-  "id": "ee3b3579110a",
-  "url": "https://www.the-race.com/formula-1/ferrari-begun-trial-of-mercedes-f1-qualifying-trick/",
-  "title": "Ferrari's begun trial of Mercedes F1 qualifying trick",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "28 Jul",
-  "kind": "session",
-  "session": "Qualifying",
-  "paragraphs": [
-   "Ferrari has begun testing Mercedes' Formula 1 qualifying lift-off trick in a bid to help boost its challenge for pole positions. As first revealed by The Race , Mercedes has found a clever way to get around F1's ramp down rates to unleash maximum energy deployment across the timing line on qualifying laps. This means its drivers can enjoy a brief top speed boost at the end of a lap because they ar"
-  ]
- },
- {
-  "id": "e2f5ae0b8a72",
-  "url": "https://www.the-race.com/formula-1/mclaren-race-winning-f1-upgrade-explained/",
-  "title": "Gary Anderson on McLaren's 2026 race-winning F1 upgrade",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "28 Jul",
-  "kind": "session",
-  "session": "Race",
-  "paragraphs": [
-   "The upgrade that helped Lando Norris win Formula 1's Hungarian Grand Prix is part of what McLaren team principal Andrea Stella characterises as the need to “correct the course” with its 2026 car. The team is playing catch-up as pushing to the end of last year to ensure it won both the drivers’ and constructors’ championship put it on the back foot. On the positive side, it has also allowed them to"
-  ]
- },
- {
-  "id": "485349271b65",
-  "url": "https://www.the-race.com/formula-1/f1-calendar-chaos-2027-2026-middle-east-imola-planned-dates/",
-  "title": "The latest on F1 calendar chaos and 2027 season opener",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "29 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Formula 1 is to delay an announcement over its 2027 calendar until the autumn, amid uncertainty over whether plans to start next season in the Middle East can go ahead. The Iran war has already had a major impact on this year’s schedule – with the races in Bahrain and Saudi Arabia having been called off, and no guarantee yet that the final events in Qatar and Abu Dhabi can go ahead. While F1 has a"
-  ]
- },
- {
-  "id": "2fb250342975",
-  "url": "https://www.the-race.com/business/us-gp-chief-theory-for-f1-ticket-sales-boom/",
-  "title": "US GP chief's theory for F1 ticket sales boom",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "31 Jul",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "United States Grand Prix boss Bobby Epstein says he has seen no evidence of fans being turned off by the 2026 rules – and has a fascinating theory about why Formula 1’s ticket sales are still booming. Despite this year’s new regulations being controversial off the back of criticism from drivers, they do not appear to have dimmed interest from those wanting to attend races. Epstein, who is chairman"
-  ]
- },
- {
-  "id": "6824c48e9cc8",
-  "url": "https://www.the-race.com/business/briatore-says-he-and-trump-instigated-new-jersey-f1-bid/",
-  "title": "Briatore says he and Trump instigated New Jersey F1 bid",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "02 Aug",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "Alpine team boss Flavio Briatore says he and now United States president Donald Trump were the instigators of the ultimately unsuccessful plan for a Formula 1 grand prix on a New Jersey street track in the 2010s. Briatore recalled his story in The Race Business’s ‘In Conversation With…\" series with Darren Cox. He said that after the demise of the Indianapolis/F1 partnership in 2007, he joined forc"
-  ]
- },
- {
-  "id": "64fc73b3894d",
-  "url": "https://www.the-race.com/formula-1/fia-blames-manufacturer-resistance-for-f1-2026-problems/",
-  "title": "FIA blames manufacturer resistance for F1 2026 problems",
-  "source": "The Race",
-  "src_kind": "race",
-  "when": "03 Aug",
-  "kind": "general",
-  "session": "",
-  "paragraphs": [
-   "The FIA has pushed back at driver criticisms that it did not do its homework properly and failed to anticipate the scale of problems with Formula 1's 2026 rules. Instead it says it knew the potential pitfalls well in advance, but that its attempts to head off trouble by making rule changes before the cars began racing were derailed by resistance for change from manufacturers. Drivers unhappy The r"
-  ]
- }
+  {
+    "id": "4ce87a754d5f",
+    "url": "https://www.the-race.com/formula-1/new-contender-emerges-as-f1-2026-season-finale-back-up/",
+    "title": "Imola Emerges as Backup for F1's 2026 Season Finale",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "25 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Imola is being considered as a potential replacement for the 2026 Formula 1 season finale if the scheduled races in Qatar and Abu Dhabi are canceled due to escalating tensions in the Middle East. F1 is exploring options to ensure a 22-race season, with a decision on the Middle Eastern races expected soon.",
+      "While Portimao was initially a strong candidate, concerns about infrastructure work have led to doubts about its viability. Imola, which has hosted F1 races in recent years, could provide a suitable alternative, especially given its connection to F1 CEO Stefano Domenicali and the ongoing championship battles."
+    ]
+  },
+  {
+    "id": "8e420ee06ade",
+    "url": "https://www.the-race.com/formula-1/lewis-hamilton-f1-2026-penalties-stewards/",
+    "title": "Hamilton's Penalty Woes: A Series of Missteps",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "27 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Lewis Hamilton has faced four penalties in three races, including a recent five-second penalty for speeding in the pitlane at the Hungarian Grand Prix. He acknowledges the need to avoid giving the FIA stewards reasons to penalize him, attributing some penalties to his own mistakes and misjudgments during races.",
+      "Hamilton's team principal, Fred Vasseur, noted that Hamilton's eagerness to gain time may have contributed to his infractions, emphasizing the importance of precision during pit stops. Despite the penalties, Hamilton does not believe there is a targeted campaign against him, but he recognizes the need for improvement."
+    ]
+  },
+  {
+    "id": "ee3b3579110a",
+    "url": "https://www.the-race.com/formula-1/ferrari-begun-trial-of-mercedes-f1-qualifying-trick/",
+    "title": "Ferrari's begun trial of Mercedes F1 qualifying trick",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "28 Jul",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Ferrari has begun testing Mercedes' Formula 1 qualifying lift-off trick in a bid to help boost its challenge for pole positions. As first revealed by The Race , Mercedes has found a clever way to get around F1's ramp down rates to unleash maximum energy deployment across the timing line on qualifying laps. This means its drivers can enjoy a brief top speed boost at the end of a lap because they ar"
+    ]
+  },
+  {
+    "id": "e2f5ae0b8a72",
+    "url": "https://www.the-race.com/formula-1/mclaren-race-winning-f1-upgrade-explained/",
+    "title": "Gary Anderson on McLaren's 2026 race-winning F1 upgrade",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "28 Jul",
+    "kind": "session",
+    "session": "Race",
+    "paragraphs": [
+      "The upgrade that helped Lando Norris win Formula 1's Hungarian Grand Prix is part of what McLaren team principal Andrea Stella characterises as the need to “correct the course” with its 2026 car. The team is playing catch-up as pushing to the end of last year to ensure it won both the drivers’ and constructors’ championship put it on the back foot. On the positive side, it has also allowed them to"
+    ]
+  },
+  {
+    "id": "485349271b65",
+    "url": "https://www.the-race.com/formula-1/f1-calendar-chaos-2027-2026-middle-east-imola-planned-dates/",
+    "title": "The latest on F1 calendar chaos and 2027 season opener",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "29 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Formula 1 is to delay an announcement over its 2027 calendar until the autumn, amid uncertainty over whether plans to start next season in the Middle East can go ahead. The Iran war has already had a major impact on this year’s schedule – with the races in Bahrain and Saudi Arabia having been called off, and no guarantee yet that the final events in Qatar and Abu Dhabi can go ahead. While F1 has a"
+    ]
+  },
+  {
+    "id": "2fb250342975",
+    "url": "https://www.the-race.com/business/us-gp-chief-theory-for-f1-ticket-sales-boom/",
+    "title": "US GP chief's theory for F1 ticket sales boom",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "31 Jul",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "United States Grand Prix boss Bobby Epstein says he has seen no evidence of fans being turned off by the 2026 rules – and has a fascinating theory about why Formula 1’s ticket sales are still booming. Despite this year’s new regulations being controversial off the back of criticism from drivers, they do not appear to have dimmed interest from those wanting to attend races. Epstein, who is chairman"
+    ]
+  },
+  {
+    "id": "6824c48e9cc8",
+    "url": "https://www.the-race.com/business/briatore-says-he-and-trump-instigated-new-jersey-f1-bid/",
+    "title": "Briatore says he and Trump instigated New Jersey F1 bid",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "02 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Alpine team boss Flavio Briatore says he and now United States president Donald Trump were the instigators of the ultimately unsuccessful plan for a Formula 1 grand prix on a New Jersey street track in the 2010s. Briatore recalled his story in The Race Business’s ‘In Conversation With…\" series with Darren Cox. He said that after the demise of the Indianapolis/F1 partnership in 2007, he joined forc"
+    ]
+  },
+  {
+    "id": "64fc73b3894d",
+    "url": "https://www.the-race.com/formula-1/fia-blames-manufacturer-resistance-for-f1-2026-problems/",
+    "title": "FIA blames manufacturer resistance for F1 2026 problems",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "03 Aug",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The FIA has pushed back at driver criticisms that it did not do its homework properly and failed to anticipate the scale of problems with Formula 1's 2026 rules. Instead it says it knew the potential pitfalls well in advance, but that its attempts to head off trouble by making rule changes before the cars began racing were derailed by resistance for change from manufacturers. Drivers unhappy The r"
+    ]
+  }
 ]

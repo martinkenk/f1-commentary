@@ -64,9 +64,10 @@ def backfill(gp, dry_run=False):
 
     if changed and not dry_run:
         news.sort(key=lambda n: (f1lib.news_sort_key(n), n.get("title", "")))
-        with open(path, "w", encoding="utf-8") as fh:
-            json.dump(news, fh, indent=1, ensure_ascii=False)
-            fh.write("\n")
+        # Same writer as enrich.py so the two tools do not reformat each other's
+        # output — otherwise every CI run rewrote whole files with a different
+        # indent and buried the real change in the diff.
+        enrich.save_json(path, news)
     return changed
 
 
