@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "doc": "Doc 13",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "",
+    "outcome": "Deletion of the lap times shown.  NoteCompetitors are reminded that they have the right to appeal certain decisions of the Stewards, in accordance with Article 15 of the FIA International Sporting Cod",
+    "kind": "note",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_double_yellow.pdf"
+  },
+  {
+    "doc": "Doc 14",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International Sporting Code.  Note Competitors are reminded that they have the right to appeal certain decisions of the S",
+    "kind": "note",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"
+  }
+]
