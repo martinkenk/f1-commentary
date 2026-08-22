@@ -53,5 +53,27 @@
     "outcome": "Driver: Warning.",
     "kind": "warning",
     "source_pdf": "2026_dutch_grand_prix_-_infringement-_car_55_-_driving_unnecessarily_slowly_during_sprint_qualifying.pdf"
+  },
+  {
+    "doc": "Doc 29",
+    "no": "55",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The setup of the suspension has been changed while under parc fermé.",
+    "outcome": "Required to start the Sprint from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_55_-_changes_made_during_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 30",
+    "no": "14",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The setup of the suspension has been changed while under parc fermé.",
+    "outcome": "Required to start the Sprint from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_14_-_changes_made_during_parc_ferme.pdf"
   }
 ]
