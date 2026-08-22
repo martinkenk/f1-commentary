@@ -75,5 +75,93 @@
     "outcome": "Required to start the Sprint from the pit lane.",
     "kind": "note",
     "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_14_-_changes_made_during_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 33",
+    "no": "55",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 55 overtook Car 77 during the formation lap.",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_55_-_starting_procedure_infringement.pdf"
+  },
+  {
+    "doc": "Doc 36",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 car below did not use the track at turn 3.",
+    "outcome": "Deletion of the lap time shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_sprint_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 37",
+    "no": "77",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver of Car 77 stopped his car before Safety Car Line 1 when driving to the",
+    "outcome": "No penalty is applied.",
+    "kind": "penalty",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_77_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf"
+  },
+  {
+    "doc": "Doc 38",
+    "no": "44",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver of Car 44 stopped his car before Safety Car Line 1 when driving to the",
+    "outcome": "No penalty is applied.",
+    "kind": "penalty",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_44_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf"
+  },
+  {
+    "doc": "Doc 39",
+    "no": "3",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver of Car 3 stopped his car before Safety Car Line 1 when driving to the grid.",
+    "outcome": "No penalty is applied.",
+    "kind": "penalty",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_3_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf"
+  },
+  {
+    "doc": "Doc 40",
+    "no": "22",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver of Car 22 stopped his car before Safety Car Line 1 when driving to the",
+    "outcome": "No penalty is applied.",
+    "kind": "penalty",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_22_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf"
+  },
+  {
+    "doc": "Doc 41",
+    "no": "18",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver of Car 18 stopped his car before Safety Car Line 1 when driving to the",
+    "outcome": "No penalty is applied.",
+    "kind": "penalty",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf"
+  },
+  {
+    "doc": "Doc 42",
+    "no": "5",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 5 was released into the path of Car 87 on the way to the reconnaissance laps.",
+    "outcome": "Competitor: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_5_-_unsafe_release.pdf"
   }
 ]
