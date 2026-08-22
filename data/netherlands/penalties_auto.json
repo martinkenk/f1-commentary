@@ -163,5 +163,16 @@
     "outcome": "Competitor: Warning.",
     "kind": "warning",
     "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_5_-_unsafe_release.pdf"
+  },
+  {
+    "doc": "Doc 52",
+    "no": "10",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Alleged unsafe release of Car 10",
+    "outcome": "No further action.",
+    "kind": "note",
+    "source_pdf": "2026_dutch_grand_prix_-_decision_-_car_10_-_alleged_unsafe_release.pdf"
   }
 ]
