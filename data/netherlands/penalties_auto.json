@@ -174,5 +174,16 @@
     "outcome": "No further action.",
     "kind": "note",
     "source_pdf": "2026_dutch_grand_prix_-_decision_-_car_10_-_alleged_unsafe_release.pdf"
+  },
+  {
+    "doc": "Doc 59",
+    "no": "11",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The setup of the suspension has been changed while under parc fermé.",
+    "outcome": "Required to start the Race from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_11_-_changes_made_in_parc_ferme.pdf"
   }
 ]
