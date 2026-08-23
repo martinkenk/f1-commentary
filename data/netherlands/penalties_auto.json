@@ -251,5 +251,27 @@
     "outcome": "10 second time penalty.",
     "kind": "penalty",
     "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_55_-_collision_with_car_23.pdf"
+  },
+  {
+    "doc": "Doc 69",
+    "no": "87",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 87 left the pit lane when the light at the end of the pit lane was red.",
+    "outcome": "Driver: Reprimand (Driving).",
+    "kind": "reprimand",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_87_-_red_light_at_pit_exit.pdf"
+  },
+  {
+    "doc": "Doc 70",
+    "no": "5",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 5 left the pit lane when the light at the end of the pit lane was red.",
+    "outcome": "Driver: Reprimand (Driving).",
+    "kind": "reprimand",
+    "source_pdf": "2026_dutch_grand_prix_-_infringement_-_car_5_-_red_light_at_pit_exit.pdf"
   }
 ]
