@@ -151,6 +151,65 @@ demands, pressures and selected compounds. When it is published:
 If the article or information graphic is not yet published, keep that item
 explicitly pending; do not substitute unrelated artwork or invent an asset.
 
+### Enumerate every FIA decision document, not just the familiar categories
+
+The FIA documents hub for a GP (the pattern already used as `FIA_EVENT_URL` in
+the bespoke content modules) accumulates decision documents throughout the
+week, and new categories appear without warning — do not assume the set is
+limited to the Race Director's Competition Notes, Power Unit Information, Car
+Display Procedure and Heat Hazard declaration types already covered by
+earlier audits. Each run:
+
+1. Fetch the event's documents hub page and extract every
+   `.../decision-document/<slug>.pdf` link (`curl -s -A "Mozilla/5.0" <hub URL>
+   | grep -oE 'href="[^"]*decision-document[^"]*"'`), or use `web-fetch` with
+   `raw: true` if `curl` is unavailable in-sandbox.
+2. Diff that list against the source URLs already cited in the active GP's
+   `content_<gp>.py`. Treat any uncited document as a candidate gap.
+3. Open each candidate. Skip pure administrative paperwork with no
+   commentary-relevant content (competition visas, entry lists). Routine
+   technical/compliance reports (e.g. a Technical Delegate's post-race
+   compliance check carried over from the previous round) are worth a single
+   concise line on the Penalties or Reliability page when genuinely new
+   information, but do not force one in if there is nothing worth saying.
+4. For documents that are themselves circuit-map/pit-lane/emergency-exit
+   diagrams with no meaningful extractable prose, it is fine to leave them
+   uncited — do not guess at pit-box order or garage assignments from an
+   image you cannot read reliably.
+5. Tyre-specific FIA "Competition Notes" documents (titled along the lines of
+   "Competition Notes — Pirelli Preview") contain the official prescribed
+   starting/stabilised pressures and camber limits per axle and per compound
+   type (slicks/intermediates/wets), plus which compounds are the mandatory
+   race tyres versus the Q3-only tyre. Add this to the Tyres & Strategy page
+   alongside the Formula1.com/Pirelli graphic — it is a distinct, citable
+   source even when the graphic is already present.
+
+### Verify FIA PDF tables visually before transcribing numbers
+
+FIA power-unit/energy-map and tyre-prescription documents pack several
+tables with similarly-shaped numeric bands (megajoules, kilowatts, metres,
+psi) into a dense one- or two-page layout. Plain-text PDF extraction can
+silently reorder rows/columns relative to the visual table, which previously
+caused a published error: qualifying's distinct (and unusually low) recharge
+cap was merged into the wrong article's figures. Before writing any FIA
+numeric table into a page:
+
+1. Render the actual page as an image (`pip install pymupdf` if not already
+   available — the `python` network entry already covers this — then
+   `page.get_pixmap(matrix=fitz.Matrix(2,2)).save("page.png")` with `fitz`)
+   and view it, rather than trusting raw extracted text order.
+2. Match every number to its row label (session/article) and column header
+   exactly as they appear in the rendered image.
+3. Actively look for a value that is notably different from the other
+   sessions/rounds for the same parameter (for example, a session with a much
+   lower recharge cap, or a sector with a materially different power-curve
+   rule). When you find one, call it out explicitly as a "why this matters
+   here" highlight on the relevant page rather than only listing it inside a
+   flat bullet — that is usually the detail worth having ready on air. Keep
+   any causal explanation you add clearly framed as informed inference
+   (e.g. "the likely reason is..."), since the FIA documents state limits,
+   not rationale.
+
 ## Editing rules
 
 - Follow `SKILL.md` and existing content-module conventions.
