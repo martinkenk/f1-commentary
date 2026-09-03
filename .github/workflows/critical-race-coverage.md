@@ -102,6 +102,34 @@ missing-but-published, genuinely-not-published, or conflicting. Improve all
 material missing-but-published fields that can be handled in one coherent PR.
 Correct stale facts tightly coupled to those additions.
 
+### Required Pirelli tyre artwork
+
+For the Tyres & Strategy surface, always look for the round-specific
+Formula1.com article titled in the form **"What tyres will the teams and
+drivers have for the YEAR GRAND PRIX?"**. The 2026 Italian Grand Prix example
+is:
+
+`https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-italian-grand-prix.7nOpWdCgvCBFDGlnODs0gk`
+
+Open the article and inspect its media rather than assuming the social/hero
+image is the useful one. Locate the Pirelli information graphic that visually
+shows the event's selected compounds and tyre allocation. When it is published:
+
+1. Download the highest-resolution suitable version from Formula1.com's media
+   host into `assets_src/`, using a stable event-specific filename such as
+   `<gp>_pirelli_tyres_<year>.<ext>`. Keep the extension consistent with the
+   actual response content type.
+2. Verify the downloaded file is the tyre information graphic, not a generic
+   car photograph, logo, placeholder or previous event's artwork.
+3. Add it to the Tyres & Strategy page as a zoomable `<figure>` using the
+   existing `circuit-fig` / `circuit-img` pattern, meaningful alt text, and a
+   caption linking to and crediting the Formula1.com/Pirelli article.
+4. Confirm the build copies the file to `site/assets/`, the rendered image URL
+   resolves locally, and the figure is visible on the generated tyres page.
+
+If the article or information graphic is not yet published, keep that item
+explicitly pending; do not substitute unrelated artwork or invent an asset.
+
 ## Editing rules
 
 - Follow `SKILL.md` and existing content-module conventions.
