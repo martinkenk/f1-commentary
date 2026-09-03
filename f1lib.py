@@ -1209,8 +1209,18 @@ table.data td.pts{
   font-variant-numeric:tabular-nums;white-space:nowrap;
 }
 table.data td.pts .pts-gap{
-  display:block;font-size:11px;font-weight:600;color:var(--muted);margin-top:1px;
+  display:block;font-size:12.5px;font-weight:500;color:var(--muted);
+  margin-top:3px;line-height:1.4;letter-spacing:.1px;
 }
+/* The deficit number is the figure worth reading at a glance, so it gets a
+   warm, brighter tone and tabular numerals; the "to P__" reference stays
+   quiet so the eye lands on the number first. */
+table.data td.pts .pts-gap b{color:#ff9d6c;font-weight:700;font-variant-numeric:tabular-nums}
+/* Gap to the leader is the headline stat; gap to the car directly ahead is
+   secondary context, so it is a touch smaller/quieter on its own line. */
+table.data td.pts .pts-gap--ahead{font-size:11.5px;color:#84849a;margin-top:0}
+table.data td.pts .pts-gap--ahead b{color:#e0a684}
+table.data td.pts .pts-gap--lead{color:#e8c14a;font-weight:700}
 /* Team name is secondary information next to the driver. */
 table.data td.team{color:var(--muted)}
 table.data td.drv{font-weight:600;color:#fff;white-space:nowrap}

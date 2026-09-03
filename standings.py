@@ -77,24 +77,29 @@ def _gap_label(pts, leader, ahead_pts, ahead_pos):
     """Sub-label under a points figure: deficit to the leader and to the car ahead.
 
     This is the number most often wanted mid-broadcast and it is tedious to work
-    out live, so it is precomputed rather than left as mental arithmetic.
+    out live, so it is precomputed rather than left as mental arithmetic. The
+    deficit figures are the part worth reading at a glance, so they are bolded
+    and given their own colour; when both a leader-gap and an ahead-gap apply
+    they are stacked on two lines (rather than joined with "·") so neither
+    number gets lost against the other.
     """
     if ahead_pts is None:
-        return '<span class="pts-gap">championship leader</span>'
+        return '<span class="pts-gap pts-gap--lead">Championship leader</span>'
     if pts == 0:
         # A chain of "level with P20 / level with P21" down the bottom of the
         # table says nothing; the fact worth stating is that they are yet to score.
-        return '<span class="pts-gap">yet to score</span>'
+        return '<span class="pts-gap">Yet to score</span>'
     if ahead_pts == pts:
-        return f'<span class="pts-gap">level with P{ahead_pos}</span>'
+        return f'<span class="pts-gap">Level with P{ahead_pos}</span>'
     to_leader = leader - pts
     to_ahead = ahead_pts - pts
+    leader_line = f'<span class="pts-gap"><b>−{to_leader}</b> to P1</span>'
     # For P2 the leader and the car ahead are the same, so showing both reads
-    # as "−45 to P1 · −45 to P1".
+    # as "−45 to P1 / −45 to P1".
     if ahead_pos == 1:
-        return f'<span class="pts-gap">−{to_leader} to P1</span>'
-    return (f'<span class="pts-gap">−{to_leader} to P1 · '
-            f'−{to_ahead} to P{ahead_pos}</span>')
+        return leader_line
+    ahead_line = f'<span class="pts-gap pts-gap--ahead"><b>−{to_ahead}</b> to P{ahead_pos}</span>'
+    return leader_line + ahead_line
 
 
 def driver_rows():
