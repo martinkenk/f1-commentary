@@ -107,6 +107,15 @@ def build_pages(ctx, env):
                     "what-tyres-will-the-teams-and-drivers-have-for-the-2026-italian-grand-prix."
                     "7nOpWdCgvCBFDGlnODs0gk"),
             "2 Sep", "f1"),
+        news_item(
+            "Italian GP unveils one of F1's most unusual trophies",
+            "This year's winners lift FRAGILE, a trophy resembling a stack of cups and bowls "
+            "designed by Italian artist duo vedovamazzei. It goes to the top three finishers and a "
+            "representative of the winning constructor, continuing Monza's annual commission from "
+            "a different Italian artist since 2021.",
+            _source("The Race", "https://www.the-race.com/extra/"
+                    "italian-gp-unveils-one-of-f1s-most-unusual-trophies/"),
+            "1 Sep", "race"),
     ]
     pages["news"] = dict(
         kicker="Weekend News",
@@ -249,6 +258,8 @@ def build_pages(ctx, env):
   ]), "bi-tools", "accent")}
   {card("McLaren — H-Wing debut", ul([
      "New low-drag rear-wing specification with the first race-weekend use of McLaren's rotating H-Wing.",
+     "The rotating-wing family started with Ferrari's 'flip-flop' design in pre-season testing, followed by "
+     "Red Bull's own version at Miami; McLaren's take is named for its H-shaped mounting structure.",
      "Small aero and low-drag options will be evaluated before the qualifying specification is chosen.",
      "The package follows discrete floor, bodywork, diffuser, rear-wing and wheel-rim gains across Hungary and Zandvoort.",
   ]), "bi-tools")}
