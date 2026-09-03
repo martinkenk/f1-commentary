@@ -124,6 +124,14 @@ def build_pages(ctx, env):
   <strong>C3 hard, C4 medium and C5 soft</strong>. Each driver receives two hard sets,
   three mediums and eight softs, plus the wet-weather allocation.
 </div>
+<h2 class="sec">Compound allocation</h2>
+<figure class="circuit-fig">
+  <img src="../assets/italy_pirelli_tyres_2026.png" alt="FIA/Pirelli compound allocation table for the 2026 Italian Grand Prix showing tyre codes for C3, C4, C5, Intermediate and Wet, plus the mandatory race tyres box"
+       class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
+  <figcaption><strong>Official compound &amp; mandatory-tyre table</strong> — lifted directly from the FIA's
+  Competition Notes (Pirelli Preview) for this event.
+  <span class="src">Source: <a href="https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-italian-grand-prix.7nOpWdCgvCBFDGlnODs0gk" target="_blank" rel="noopener">Formula1.com</a> / FIA event documents, 2 Sep 2026.</span></figcaption>
+</figure>
 <div class="grid cols-2">
   {card("Pirelli's 2026 read", ul([
      "Team simulations predict lap times around <strong>two seconds faster</strong> than in 2025.",
