@@ -124,6 +124,15 @@ def build_pages(ctx, env):
   <strong>C3 hard, C4 medium and C5 soft</strong>. Each driver receives two hard sets,
   three mediums and eight softs, plus the wet-weather allocation.
 </div>
+<h2 class="sec">Pirelli's Monza preview graphic</h2>
+<figure class="circuit-fig">
+  <img src="../assets/italy_pirelli_tyres_2026.png" alt="Pirelli 2026 Italian Grand Prix Monza preview infographic showing circuit information, tyre stress ratings, minimum starting and stabilised running pressures, camber limits and the C3/C4/C5 compound selection"
+       class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
+  <figcaption><strong>Official Pirelli event-preview graphic</strong> — circuit data, tyre demand ratings
+  (traction, braking, tyre stress, asphalt grip/abrasion, lateral, track evolution), 18&Prime; minimum
+  starting/stabilised running pressures, camber limits and the confirmed C3/C4/C5 compound trio.
+  <span class="src">Source: <a href="https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-italian-grand-prix.7nOpWdCgvCBFDGlnODs0gk" target="_blank" rel="noopener">Formula1.com</a> / Pirelli, 2 Sep 2026.</span></figcaption>
+</figure>
 <div class="grid cols-2">
   {card("Pirelli's 2026 read", ul([
      "Team simulations predict lap times around <strong>two seconds faster</strong> than in 2025.",
@@ -218,6 +227,8 @@ def build_pages(ctx, env):
      "Norris arrives with consecutive pole-to-win weekends in Hungary and Zandvoort.",
      "New low-drag rear wing, first use of the rotating <strong>H-Wing</strong>, and smaller aero options to evaluate.",
      "Energy harvesting and deployment are expected to produce pace swings around the lap.",
+     "Team-mate context: Piastri, a title contender at this point last year, hasn't won since Zandvoort 2025 and is "
+     "now 55 points and three places behind Norris in the standings.",
   ]), "bi-speedometer2")}
   {card("Red Bull family", ul([
      "Lawson continues in Hadjar's Red Bull seat; Tsunoda continues at Racing Bulls.",
@@ -233,6 +244,7 @@ def build_pages(ctx, env):
      "Herta replaces Perez at Cadillac and samples the MAC-26 in low-drag trim for the first time.",
   ]), "bi-person-badge")}
 </div>
+<p class="src">Team-mate context: The Race, "What's gone wrong for this former F1 title contender", 2 Sep 2026.</p>
 """)
 
     pages["upgrades"] = dict(
@@ -313,6 +325,15 @@ The FIA filing will supersede the pre-event reporting once published.</p>
      "Lando Norris set a 1:20.901 fastest race lap.",
   ]), "bi-stopwatch")}
 </div>
+<div class="grid cols-2">
+  {card("This year's trophy", ul([
+     "The 2026 winners lift <strong>FRAGILE</strong>, a trophy resembling a stack of cups and bowls "
+     "designed by Italian artist duo vedovamazzei.",
+     "It goes to the top three finishers and a representative of the winning constructor.",
+     "Part of an annual initiative, launched in 2021, commissioning a different Italian artist each year.",
+  ]), "bi-trophy",
+  "accent")}
+</div>
 <h2 class="sec">Last five Italian Grands Prix</h2>
 <div class="table-wrap"><table class="data">
   <thead><tr><th>Year</th><th>Polesitter</th><th>Winner</th></tr></thead>
@@ -324,6 +345,7 @@ The FIA filing will supersede the pre-event reporting once published.</p>
     <tr><td>2021</td><td>Max Verstappen (Red Bull)</td><td>Daniel Ricciardo (McLaren)</td></tr>
   </tbody>
 </table></div>
+<p class="src">Trophy: The Race, "Italian GP unveils one of F1's most unusual trophies", 1 Sep 2026.</p>
 """)
 
     pages["moments"] = dict(

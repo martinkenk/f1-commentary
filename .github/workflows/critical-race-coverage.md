@@ -102,12 +102,20 @@ missing-but-published, genuinely-not-published, or conflicting. Improve all
 material missing-but-published fields that can be handled in one coherent PR.
 Correct stale facts tightly coupled to those additions.
 
-### Required Pirelli tyre artwork
+### Required Pirelli tyre artwork (every GP, every audit)
 
-For the Tyres & Strategy surface, always look for the round-specific
-Formula1.com article titled in the form **"What tyres will the teams and
-drivers have for the YEAR GRAND PRIX?"**. The 2026 Italian Grand Prix example
-is:
+**Every** round's Tyres & Strategy page needs Pirelli's official event-preview
+infographic, not just the round currently being audited in depth. Each time
+this workflow runs, in addition to the primary GP under audit, spot-check the
+Tyres & Strategy page of any other GP within the active window (the live/next
+race — see "Determine scope" above) for this graphic; treat it as missing
+whenever the round's own tyre-preview article has been published but the page
+has no infographic, or is carrying a lower-quality FIA-table substitute while
+the real Formula1.com graphic is now available.
+
+For each round, look for its Formula1.com article titled in the form **"What
+tyres will the teams and drivers have for the YEAR GRAND PRIX?"**. The 2026
+Italian Grand Prix (Monza) example is:
 
 `https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-italian-grand-prix.7nOpWdCgvCBFDGlnODs0gk`
 
@@ -115,11 +123,15 @@ Open the rendered article and inspect the images inside the article body rather
 than relying on page metadata or assuming the social/hero image is the useful
 one. The graphic normally appears after the compound-allocation paragraphs and
 its alt text or source filename follows a pattern such as
-`<round>-<country><year>-preview-en.jpg`. For Monza 2026 the inline image is
+`<round>-<country><year>-preview-en.jpg` — the round number and country/year
+code are specific to each GP (derive them from that event's own article; do
+not assume another round's values). For Monza 2026 the inline image is
 `13-it26-preview-en.jpg` (served by `media.formula1.com` as
-`13-it26-preview-en.webp`). Locate that complete Pirelli event-preview graphic,
-which includes the circuit information, tyre demands, pressures and selected
-compounds. When it is published:
+`13-it26-preview-en.webp`, and the *unresized* asset — request the URL without
+a `t_16by9Centre,c_lfill` crop transform, e.g. `.../q_auto/<version>/fom-website/<year>/<Country>/<round>-<cc><yy>-preview-en.webp`
+— to avoid clipping the bottom rows of the table). Locate that complete
+Pirelli event-preview graphic, which includes the circuit information, tyre
+demands, pressures and selected compounds. When it is published:
 
 1. Download the highest-resolution suitable version from Formula1.com's media
    host into `assets_src/`, using a stable event-specific filename such as
