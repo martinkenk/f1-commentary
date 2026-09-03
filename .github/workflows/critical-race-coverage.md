@@ -111,16 +111,25 @@ is:
 
 `https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-italian-grand-prix.7nOpWdCgvCBFDGlnODs0gk`
 
-Open the article and inspect its media rather than assuming the social/hero
-image is the useful one. Locate the Pirelli information graphic that visually
-shows the event's selected compounds and tyre allocation. When it is published:
+Open the rendered article and inspect the images inside the article body rather
+than relying on page metadata or assuming the social/hero image is the useful
+one. The graphic normally appears after the compound-allocation paragraphs and
+its alt text or source filename follows a pattern such as
+`<round>-<country><year>-preview-en.jpg`. For Monza 2026 the inline image is
+`13-it26-preview-en.jpg` (served by `media.formula1.com` as
+`13-it26-preview-en.webp`). Locate that complete Pirelli event-preview graphic,
+which includes the circuit information, tyre demands, pressures and selected
+compounds. When it is published:
 
 1. Download the highest-resolution suitable version from Formula1.com's media
    host into `assets_src/`, using a stable event-specific filename such as
    `<gp>_pirelli_tyres_<year>.<ext>`. Keep the extension consistent with the
    actual response content type.
-2. Verify the downloaded file is the tyre information graphic, not a generic
-   car photograph, logo, placeholder or previous event's artwork.
+2. Verify the downloaded file is the complete Formula1.com/Pirelli event
+   infographic, not the article hero photograph, a logo, placeholder, previous
+   event's artwork, or a cropped substitute from an FIA PDF. Use an FIA/Pirelli
+   document image only when the rendered Formula1.com article genuinely has no
+   inline event-preview graphic.
 3. Add it to the Tyres & Strategy page as a zoomable `<figure>` using the
    existing `circuit-fig` / `circuit-img` pattern, meaningful alt text, and a
    caption linking to and crediting the Formula1.com/Pirelli article.
