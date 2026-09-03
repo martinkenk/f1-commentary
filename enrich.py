@@ -1,41 +1,40 @@
 """
-F1 Commentary Hub — LLM enrichment pipeline.
+F1 Commentary Hub — incremental enrichment pipeline.
 
-This is the *intelligent* half of the skill. Where build.py deterministically
-parses live timing/weather, enrich.py does the LLM-type work that would
-otherwise need a human in the loop each time:
+Where build.py parses live timing and weather, enrich.py incrementally:
 
-  * reads new articles from The Race and Formula1.com and summarises each into a
-    factual news card (general story or session report);
-  * downloads new FIA event *decision* PDFs and turns each into a structured
-    stewards' record (driver, session, fact, ruling, kind).
+  * reads new articles from The Race and Formula1.com and extracts factual news
+    cards (general stories or session reports);
+  * downloads new FIA event *decision* PDFs and extracts structured stewards'
+    records (driver, session, fact, ruling, kind).
 
 Output is written to data/<gp>/news_auto.json and data/<gp>/penalties_auto.json,
 which the engine (f1lib.py) merges into the News and Penalties pages at build
 time — curated prose in the content_<gp>.py modules always takes precedence, so
-the LLM only ever *fills gaps*. Every auto item keeps a link/back-reference to
-its source so a commentator can verify it live.
+automation only ever *fills gaps*. Every auto item keeps a link/back-reference
+to its source so a commentator can verify it live.
 
 Design goals
 ------------
 * Incremental & idempotent — a manifest (data/<gp>/_seen.json) records every
   article URL and FIA filename already processed, so each run only sends *new*
-  material to the model. Safe to run at any point across a weekend, repeatedly.
-* Fail-safe — any single item that errors is skipped; if no model is reachable
-  the script exits 0 without changing anything, so the site build never breaks.
+  material to the extractor. Safe to run at any point across a weekend,
+  repeatedly.
+* Fail-safe — any single item that errors is skipped. If no external model is
+  configured, deterministic extraction is used so the site build never depends
+  on remote inference.
 
 LLM backend (configurable via environment)
 ------------------------------------------
-Default: **GitHub Models** — free, native to GitHub Actions, no secret needed.
-The workflow grants `permissions: models: read` and the built-in GITHUB_TOKEN is
-used automatically. To use Azure OpenAI instead (higher limits, your Azure
-credit), set LLM_ENDPOINT / LLM_MODEL / LLM_TOKEN (see README).
+GitHub Models was retired on 30 July 2026. CI now uses the deterministic
+fallback and delegates critical cross-page editing to a GitHub Copilot Agentic
+Workflow. To use an OpenAI-compatible provider directly, set
+LLM_ENDPOINT / LLM_MODEL / LLM_TOKEN (see README).
 
-    LLM_ENDPOINT   chat-completions URL   (default: GitHub Models)
-    LLM_MODEL      model id               (default: openai/gpt-4o-mini)
-    LLM_TOKEN      bearer token           (default: GITHUB_TOKEN, then GH_TOKEN)
-    LLM_FAKE=1     skip the network model and use a deterministic heuristic
-                   extractor (for offline plumbing tests only)
+    LLM_ENDPOINT   OpenAI-compatible chat-completions URL
+    LLM_MODEL      provider model id
+    LLM_TOKEN      bearer token
+    LLM_FAKE=1     skip the network model and use deterministic extraction
 
 Usage
 -----
@@ -61,8 +60,8 @@ DATA_DIR = os.path.join(ROOT, "data")
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Safari/537.36")
 
-DEFAULT_ENDPOINT = "https://models.github.ai/inference/chat/completions"
-DEFAULT_MODEL = "openai/gpt-4o-mini"
+DEFAULT_ENDPOINT = ""
+DEFAULT_MODEL = ""
 
 THE_RACE_RSS = "https://www.the-race.com/category/formula-1/rss/"
 F1_LATEST = "https://www.formula1.com/en/latest/all.html"
@@ -501,7 +500,7 @@ def llm_json(system, user, retries=2):
     model = os.environ.get("LLM_MODEL", DEFAULT_MODEL)
     token = (os.environ.get("LLM_TOKEN") or os.environ.get("GITHUB_TOKEN")
              or os.environ.get("GH_TOKEN"))
-    if not token:
+    if not endpoint or not model or not token:
         return None
     payload = {
         "model": model,
@@ -756,8 +755,9 @@ def main():
         gps = active_gps(gps)
         print("Active window: " + ", ".join(f'{g["dir"]} ({g["status"]})' for g in gps))
 
+    endpoint = os.environ.get("LLM_ENDPOINT", DEFAULT_ENDPOINT)
     backend = ("HEURISTIC (LLM_FAKE)" if os.environ.get("LLM_FAKE")
-               else os.environ.get("LLM_ENDPOINT", DEFAULT_ENDPOINT))
+               else endpoint or "HEURISTIC (no LLM configured)")
     print(f"Enrichment backend: {backend}\n")
 
     total = 0

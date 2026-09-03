@@ -31,7 +31,6 @@ permissions:
   contents: write      # push the site-history branch (version store) + data/ enrichment
   pages: write         # deploy to Pages
   id-token: write      # Pages OIDC
-  models: read         # free GitHub Models inference for the LLM enrichment step
 
 jobs:
   build:
@@ -55,22 +54,23 @@ jobs:
             echo "Skipping calendar refresh (not Monday, not a manual run)."
           fi
 
-      - name: Auto-enrich (LLM summaries + FIA decision structuring)
-        # Summarises new F1.com / The Race articles into news cards and structures
-        # new FIA decision PDFs into penalty rows, via free GitHub Models. Only the
+      - name: Auto-enrich (article cards + FIA decision structuring)
+        # Extracts new F1.com / The Race articles into news cards and structures
+        # new FIA decision PDFs into penalty rows. GitHub Models was retired in
+        # July 2026, so CI uses the deterministic fallback; the separate Copilot
+        # agentic workflow performs the critical cross-page editorial audit. Only the
         # active window (live weekend, the next one once it's close, and the race
-        # just finished) is processed. Fail-safe: exits 0 if the model is
-        # unavailable, leaving curated content untouched.
+        # just finished) is processed. Item-level failures are skipped, leaving
+        # curated content untouched.
         #
         # --max is well above the default 6. Driver-market news does not arrive
         # evenly: a contract extension, an injury call-up and a re-signing can all
         # break within a couple of hours, and a cap of 6 silently defers the rest
         # to a later run — which on a Thursday means they are missing from the page
-        # for the run that matters. Each item is one small chat completion, so
-        # covering a burst day costs little.
+        # for the run that matters. The deterministic extraction is inexpensive.
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LLM_FAKE: "1"
         run: |
           python3 -m pip install --quiet pypdf
           python3 enrich.py --max 25

@@ -4,6 +4,9 @@ site/
 # Version-history deploy tree (assembled in CI)
 public/
 
+# Local GitHub Agentic Workflows compiler cache and diagnostics
+.github/aw/
+
 # Python cache
 __pycache__/
 *.pyc

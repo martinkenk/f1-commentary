@@ -74,12 +74,18 @@ Fetching is gated on race proximity (no result requests for races that haven't r
 weather beyond Open-Meteo's 16-day horizon), so a 14-GP build still takes about 12
 seconds.
 
-## Automated LLM enrichment
+## Automated enrichment and critical coverage
 `enrich.py` runs in CI (before the build) and, incrementally, summarises new
 **Formula1.com / The Race** articles into news cards and structures new **FIA
-decision PDFs** into penalty rows — the "LLM-type" work that used to be manual.
-- Free by default via **GitHub Models** (built-in `GITHUB_TOKEN`, no secret);
-  override with `LLM_ENDPOINT`/`LLM_MODEL`/`LLM_TOKEN` for e.g. Azure OpenAI.
+decision PDFs** into penalty rows.
+- GitHub Models was retired in July 2026, so scheduled extraction uses the
+  deterministic fallback. An OpenAI-compatible provider remains optional via
+  `LLM_ENDPOINT`/`LLM_MODEL`/`LLM_TOKEN`.
+- The scheduled **GitHub Copilot Agentic Workflow** in
+  `.github/workflows/critical-race-coverage.md` performs the critical pass the
+  scraper cannot: it audits all 17 pages against current web and FIA material,
+  implements evidence-backed gaps, validates the full build, and opens one
+  tightly scoped draft PR for review.
 - Curated content stays **authoritative** — auto items only fill gaps, are deduped
   against hand-written ones, and always carry a **source link + "auto" badge** so
   you can verify before saying it on air.
@@ -88,8 +94,8 @@ decision PDFs** into penalty rows — the "LLM-type" work that used to be manual
   week-old previews.
 - Incremental via `data/<gp>/_seen.json`; output in `data/<gp>/*_auto.json`.
 ```bash
-LLM_FAKE=1 python3 enrich.py --gp hungary --max 3   # offline plumbing test
-LLM_TOKEN=$(gh auth token) python3 enrich.py         # real run (needs models:read)
+LLM_FAKE=1 python3 enrich.py --gp hungary --max 3   # deterministic/no-network run
+LLM_ENDPOINT=... LLM_MODEL=... LLM_TOKEN=... python3 enrich.py
 python3 backfill_meta.py --dry-run                   # repair slug titles / missing dates
 ```
 CI runs it Thu–Mon every 2h during a race weekend, plus twice a day on Tue/Wed so

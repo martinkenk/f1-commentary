@@ -569,13 +569,13 @@ flow) grants access without sharing a token with the build.
 
 ---
 
-## 9. Automated LLM enrichment (hands-off, runs in CI)
+## 9. Automated enrichment and coverage review (hands-off, runs in CI)
 
 The cron rebuild refreshes the **deterministic** data (weather, Formula1.com
-results tables) on its own. The **LLM-type** work — summarising articles into
-news cards and structuring FIA decision PDFs into penalty rows — is automated by
-`enrich.py`, which runs **in the same workflow, before the build**, so no manual
-trigger is needed.
+results tables) on its own. Article-to-news-card and FIA-decision-to-penalty-row
+extraction is automated by `enrich.py`, which runs **in the same workflow,
+before the build**, so no manual trigger is needed. CI uses deterministic
+extraction; an explicitly configured OpenAI-compatible provider can replace it.
 
 **What `enrich.py` does (per GP):**
 1. Scrapes candidate sources — The Race RSS, Formula1.com `/en/latest` slugs, and
@@ -584,10 +584,11 @@ trigger is needed.
    classifications, scrutineering, etc.).
 2. **Incremental & idempotent** — skips anything already recorded in
    `data/<gp>/_seen.json` (article URLs + FIA filenames), so each run only spends
-   tokens on genuinely new items.
-3. Calls an LLM with strict-JSON, temperature-0 prompts to (a) summarise an
-   article into a 2–4 sentence news card and (b) extract `{doc, driver, team,
-   session, fact, outcome, kind}` from a decision PDF (`pypdf` text).
+   extraction work on genuinely new items.
+3. Extracts (a) a 2–4 sentence news card from an article and (b)
+   `{doc, driver, team, session, fact, outcome, kind}` from a decision PDF
+   (`pypdf` text), using deterministic heuristics by default or strict-JSON,
+   temperature-0 prompts when an external provider is configured.
 4. Writes `data/<gp>/news_auto.json` + `data/<gp>/penalties_auto.json`.
 
 **Relevance matching — why bodies are fetched.** A story counts for a GP when a
@@ -617,8 +618,8 @@ like "circuit"/"grand"/"prix" from the auto-derived keyword set.
 
 `backfill_meta.py` repairs cards stored before this existed. It always fills a
 missing date, but replaces a title **only** when it is plainly slug-derived, so
-the summariser's own (usually better) titles survive. It costs no model calls,
-so **the workflow runs it on every build** right after `enrich.py`:
+the extractor's own (usually better) titles survive. It uses no model calls, so
+**the workflow runs it on every build** right after `enrich.py`:
 ```bash
 python3 backfill_meta.py --dry-run     # inspect first
 python3 backfill_meta.py [--gp hungary]
@@ -646,14 +647,13 @@ stories had all been scraped correctly; the page simply showed them last. **If a
 story you know broke is "missing", check its position and its `date` before
 assuming the scrape failed.**
 
-**LLM backend — free by default:**
-- Default: **GitHub Models** (`https://models.github.ai/inference`, model
-  `openai/gpt-4o-mini`) using the workflow's built-in `GITHUB_TOKEN` — **zero
-  secret setup**. The workflow just needs `permissions: models: read`.
-- Opt-in override (e.g. Azure OpenAI): set env `LLM_ENDPOINT` (full chat-
-  completions URL), `LLM_MODEL`, and `LLM_TOKEN`.
-- `LLM_FAKE=1` uses deterministic heuristic fallbacks (no network) — for testing
-  the fetch→diff→JSON→cache plumbing offline.
+**LLM backend:**
+- GitHub Models was retired on 30 July 2026. CI uses `LLM_FAKE=1` for
+  deterministic extraction and leaves critical cross-page reasoning to the
+  scheduled GitHub Copilot Agentic Workflow.
+- Optional external inference: set `LLM_ENDPOINT` (full OpenAI-compatible
+  chat-completions URL), `LLM_MODEL`, and `LLM_TOKEN`.
+- `LLM_FAKE=1` uses deterministic heuristic extraction with no inference API.
 
 **Curated content stays authoritative (anti-hallucination):** the engine
 (`f1lib.py`) *merges* the auto JSON into the curated pages — it never overwrites.
@@ -677,10 +677,10 @@ assuming the scrape failed.**
 
 **Run it locally:**
 ```bash
-# offline plumbing test (no tokens, heuristic output)
+# deterministic extraction (no inference token)
 LLM_FAKE=1 python3 enrich.py --gp hungary --max 3
-# real GitHub Models run (needs a token with models:read)
-LLM_TOKEN=$(gh auth token) python3 enrich.py --gp hungary
+# optional OpenAI-compatible provider
+LLM_ENDPOINT=... LLM_MODEL=... LLM_TOKEN=... python3 enrich.py --gp hungary
 python3 build.py        # merges data/<gp>/*.json into the pages
 ```
 (`enrich.py` needs `pypdf`; `build.py` stays stdlib-only and just reads the JSON.)
@@ -694,20 +694,26 @@ with `--gp <dir>`.
 
 **In CI (`deploy.yml`):** a "Refresh season calendar" step runs `calendar.py` on
 Mondays and manual dispatches, then "Auto-enrich" (`pip install pypdf` +
-`python3 enrich.py --max 25`, `continue-on-error: true` so a model outage can't
-break the deploy) runs before the build, then "Backfill Formula1.com headlines
+`LLM_FAKE=1 python3 enrich.py --max 25`, `continue-on-error: true`) runs before
+the build, then "Backfill Formula1.com headlines
 and dates" (`backfill_meta.py`, no model calls) repairs any slug-titled or
 undated card, then "Persist enrichment data" commits `data/` and `assets_src/`
 back to `main` with the default `GITHUB_TOKEN`. That push **does not** retrigger
 the workflow (GitHub suppresses `GITHUB_TOKEN`-authored pushes), so there is no
 loop — and `_seen.json` persists to make the next run incremental.
 
+The separate `critical-race-coverage.md` GitHub Copilot Agentic Workflow runs
+several times per race-week day. It inspects the complete rendered page set,
+researches current authoritative sources, and opens at most one reviewable draft
+PR for missing-but-published material. It emits no change while an earlier
+coverage PR remains open.
+
 `--max` is raised well above the default 6 on purpose. News does not arrive
 evenly — a contract extension, an injury call-up and a re-signing can all break
 within a couple of hours — and the default silently defers the overflow to a
 later run, which on a Thursday means it is missing from the page for the run
-that matters most. Each item is one small chat completion, so covering a burst
-day is cheap; keep the default low for ad-hoc local runs.
+that matters most. Deterministic extraction is inexpensive, so covering a burst
+day is safe; keep the default low for ad-hoc local runs.
 
 ---
 
