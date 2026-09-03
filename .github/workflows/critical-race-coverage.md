@@ -13,7 +13,7 @@ permissions:
 tools:
   edit: true
   web-fetch:
-  bash: ["*"]
+  bash: [":*"]
   github:
     mode: gh-proxy
 network:
