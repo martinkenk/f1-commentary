@@ -172,6 +172,27 @@ def build_pages(ctx, env):
 </div>
 {pending("Long-run degradation data", "after Friday practice", "bi-graph-down")}
 <p class="src">Source: Formula1.com / Pirelli Italian Grand Prix tyre preview, 2 Sep 2026.</p>
+
+<h2 class="sec">FIA tyre prescriptions (Document 3, Competition Notes — Pirelli Preview)</h2>
+<div class="callout">
+  <strong>Race-tyre nuance:</strong> the mandatory-race-tyre panel names only <strong>C3 and C4</strong>
+  &mdash; every driver must use both compounds across the race. The softest C5 is reserved for one-lap
+  pace: it is designated the <strong>Q3 tyre</strong>, so its heaviest race use is likely to come from
+  drivers eliminated in Q1/Q2 rather than the top-10 runners who start on their Q2 time.
+</div>
+<div class="table-wrap"><table class="data compact">
+  <thead><tr><th>Slick axle</th><th>Min. starting pressure</th><th>Expected stabilised pressure</th><th>Camber limit</th></tr></thead>
+  <tbody>
+    <tr><td class="drv">Front</td><td class="num">26.0 psi</td><td class="num">&ge;27.0 psi</td><td class="num">&minus;3&deg;</td></tr>
+    <tr><td class="drv">Rear</td><td class="num">26.0 psi</td><td class="num">&ge;27.0 psi</td><td class="num">&minus;2&deg;</td></tr>
+  </tbody>
+</table></div>
+<p class="src">Wet-weather prescriptions (for reference): intermediates run 28.0 psi minimum starting/&ge;29.0 psi
+stabilised on both axles (&minus;3.25&deg; front / &minus;2.5&deg; rear camber); wets run 26.0 psi minimum
+starting/&ge;29.0 psi stabilised (same camber limits as intermediates).
+Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_competition_notes_-_pirelli_preview.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Competition Notes: Pirelli Preview</a>
+(Document 3, issued 2 Sep 2026) via the
+<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
 """)
 
     pages["rookies"] = dict(
@@ -342,14 +363,39 @@ FIA car-presentation procedure: <a href="https://www.fia.com/system/files/decisi
   ]), "bi-gear")}
 </div>
 <h2 class="sec">FIA event power-and-energy map (Document 8, 3 Sep)</h2>
+<div class="callout watch">
+  <i class="bi bi-lightbulb"></i> <strong>Monza's qualifying quirk:</strong> the maximum recharge
+  permitted per lap in qualifying is just <strong>5.0 MJ</strong> &mdash; lower than every other
+  session (race, free practice and even out-laps) &mdash; yet qualifying is the <em>only</em> time a
+  car may run the higher "Base &ndash; Overtake" deployment curve across the <strong>whole lap</strong>
+  rather than only in the marked overtaking zone. With so little energy needing to be recovered under
+  braking, teams have little reason to manage harvesting on the way into the chicanes; the likely
+  trade-off is less need for the early lift-and-coast/"clipping" used elsewhere to protect the recharge
+  budget, so cars can carry deployment closer to the braking point at the end of each Monza straight.
+  This reading follows from the numbers below; the FIA document does not itself explain the rationale.
+</div>
 <div class="grid cols-2">
-  {card("Recharge and deployment caps", ul([
-     "Maximum recharge per lap: <strong>7.0 MJ</strong> with overtake not active, <strong>7.5 MJ</strong> with overtake active.",
-     "Maximum PU power reduction rate: <strong>5.0 MJ</strong> (not active) / <strong>7.5&ndash;9.0 MJ</strong> band (active) over a <strong>4218 m</strong> power-limited distance, rate limit <strong>50 kW/s</strong>.",
-     "Sector T4&ndash;T7 (2100&ndash;2800 m) carries a maximum PU power reduction of <strong>350 kW</strong>, with a Q/SQ-only alternate exit-Turn-11 window (5050&ndash;5350 m or 5300&ndash;5800 m for Overtake).",
+  {card("Maximum recharge per lap (Article C5.2.10)", ul([
+     "Race: <strong>7.0 MJ</strong> with overtake not active, <strong>7.5 MJ</strong> with overtake active.",
+     "Qualifying (any segment): <strong>5.0 MJ</strong> &mdash; the lowest cap of any session.",
+     "Free practice sessions: <strong>7.5 MJ</strong>.",
+     "Out-laps other than in the race: <strong>9.0 MJ</strong>.",
   ]), "bi-lightning-charge", "accent")}
+  {card("Maximum PU power reduction rate (Article C5.12.8)", ul([
+     "Power-limited distance: <strong>4218 m</strong>.",
+     "Rate limit: <strong>50 kW/s</strong> &mdash; this cap applies across sessions and is separate from the recharge-per-lap figures above.",
+     "Sector T4&ndash;T7 (2100&ndash;2800 m) carries a maximum PU power reduction of <strong>350 kW</strong> (Article C5.12.4), with a Sprint-Qualifying/Qualifying-only alternate window at the Turn 11 exit (5050&ndash;5350 m, or 5300&ndash;5800 m where the reduction-reset rule of Article C5.12.5 applies).",
+  ]), "bi-speedometer2")}
+</div>
+<div class="grid cols-2">
+  {card("Maximum DC power of ERS-K vs. car speed (Article C5.2.8)", ul([
+     "Sprint &amp; Race, main overtaking zone: <strong>Base &ndash; Standard</strong> curve (overtake not active) or <strong>Base &ndash; Overtake</strong> (overtake active).",
+     "Sprint &amp; Race, everywhere else on the lap: the reduced <strong>Alt 1</strong> curve, which falls away above roughly 290&ndash;300 km/h.",
+     "Any practice session, including all qualifying segments: <strong>Base &ndash; Overtake</strong> applies for the entire lap &mdash; there is no Alt 1 restriction in qualifying.",
+  ]), "bi-graph-up-arrow", "accent")}
   {card("Main overtaking zone", ul([
-     "Detection line at approximately <strong>5050 m</strong> (TBC), activation line at approximately <strong>5249 m</strong> lap distance (between corners L18 and L19, the Parabolica exit onto the pit straight).",
+     "Detection line at approximately <strong>5050 m</strong> (TBC), activation line at <strong>5249 m</strong> lap distance (between corners L18 and L19, the Parabolica exit onto the pit straight).",
+     "Detection gap: <strong>1.0 s</strong>.",
      "The Overtake power curve gives a materially higher MGU-K DC-power ceiling than the Base/Standard curve across the 220&ndash;360 km/h band, per the FIA's published power-vs-speed chart.",
   ]), "bi-record-circle")}
 </div>
