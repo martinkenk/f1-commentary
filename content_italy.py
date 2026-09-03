@@ -129,6 +129,22 @@ def build_pages(ctx, env):
 </div>
 <p class="src">Source: <a href="{FIA_RD_NOTES_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Race Director's Competition Notes</a> (Document 5, issued 3 Sep 2026) via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
+
+<h2 class="sec">Where the corner names come from</h2>
+<div class="grid cols-2">
+  {card("Chicanes named for what they are", ul([
+     "Prima Variante ('first chicane') was added in the 1972 refurbishment to cut the era's extreme speeds; it replaced the old Variante del Rettifilo, on the original start/finish straight, before a further 2000 reprofile.",
+     "Seconda Variante ('second chicane') dates from further 1976 safety changes and still carries generous run-off.",
+     "Variante Ascari, the final chicane before the pit straight, honours Alberto Ascari, the two-time champion killed at Monza in 1955; it was previously the Curva del Platano ('plane tree curve').",
+  ]), "bi-signpost-split", "accent")}
+  {card("Sweepers named for the local towns and families", ul([
+     "Turn 3, now Biassono, was long known as Curva Grande ('great curve') for its shape before taking the name of a nearby town in the 1970s changes.",
+     "Turns 6&ndash;7, Lesmo 1 &amp; 2, were originally Curva della Querce ('curve of the oaks') and take their modern name from the town of Lesmo.",
+     "Turn 8, sometimes called Curva della Roggia after a nearby stream, is best known for the 1995 Hill/Schumacher collision.",
+     "Turn 11, officially Curva Alboreto since a recent renaming for 1980s&ndash;90s driver Michele Alboreto, is still almost universally called Parabolica for its parabola-like shape.",
+  ]), "bi-book")}
+</div>
+<p class="src">Source: <a href="https://www.formula1.com/en/latest/article/explained-how-every-corner-at-monza-got-its-name.53lIthEwI2Ko9BC8YRnuZK" target="_blank" rel="noopener">Formula1.com, "EXPLAINED: How every corner at Monza got its name"</a>.</p>
 """
 
     pages["news"] = dict(
