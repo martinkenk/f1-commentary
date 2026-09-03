@@ -218,6 +218,8 @@ def build_pages(ctx, env):
      "Norris arrives with consecutive pole-to-win weekends in Hungary and Zandvoort.",
      "New low-drag rear wing, first use of the rotating <strong>H-Wing</strong>, and smaller aero options to evaluate.",
      "Energy harvesting and deployment are expected to produce pace swings around the lap.",
+     "Team-mate context: Piastri, a title contender at this point last year, hasn't won since Zandvoort 2025 and is "
+     "now 55 points and three places behind Norris in the standings.",
   ]), "bi-speedometer2")}
   {card("Red Bull family", ul([
      "Lawson continues in Hadjar's Red Bull seat; Tsunoda continues at Racing Bulls.",
@@ -233,6 +235,7 @@ def build_pages(ctx, env):
      "Herta replaces Perez at Cadillac and samples the MAC-26 in low-drag trim for the first time.",
   ]), "bi-person-badge")}
 </div>
+<p class="src">Team-mate context: The Race, "What's gone wrong for this former F1 title contender", 2 Sep 2026.</p>
 """)
 
     pages["upgrades"] = dict(
@@ -313,6 +316,15 @@ The FIA filing will supersede the pre-event reporting once published.</p>
      "Lando Norris set a 1:20.901 fastest race lap.",
   ]), "bi-stopwatch")}
 </div>
+<div class="grid cols-2">
+  {card("This year's trophy", ul([
+     "The 2026 winners lift <strong>FRAGILE</strong>, a trophy resembling a stack of cups and bowls "
+     "designed by Italian artist duo vedovamazzei.",
+     "It goes to the top three finishers and a representative of the winning constructor.",
+     "Part of an annual initiative, launched in 2021, commissioning a different Italian artist each year.",
+  ]), "bi-trophy",
+  "accent")}
+</div>
 <h2 class="sec">Last five Italian Grands Prix</h2>
 <div class="table-wrap"><table class="data">
   <thead><tr><th>Year</th><th>Polesitter</th><th>Winner</th></tr></thead>
@@ -324,6 +336,7 @@ The FIA filing will supersede the pre-event reporting once published.</p>
     <tr><td>2021</td><td>Max Verstappen (Red Bull)</td><td>Daniel Ricciardo (McLaren)</td></tr>
   </tbody>
 </table></div>
+<p class="src">Trophy: The Race, "Italian GP unveils one of F1's most unusual trophies", 1 Sep 2026.</p>
 """)
 
     pages["moments"] = dict(
