@@ -29,6 +29,7 @@ import content_generic
 import content_hungary
 import content_belgium
 import content_netherlands
+import content_italy
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SEASON = 2026
@@ -42,13 +43,14 @@ BESPOKE = {
     "hungary": content_hungary.build_pages,
     "belgium": content_belgium.build_pages,
     "netherlands": content_netherlands.build_pages,
+    "italy": content_italy.build_pages,
 }
 
 # Standings carried into the generic pages until each race supplies its own.
 LATEST_STANDINGS = {
     "drivers": content_belgium.DRIVER_ROWS,
     "ctors": content_belgium.CTOR_ROWS,
-    "as_of": "the Belgian Grand Prix",
+    "as_of": "the Dutch Grand Prix",
 }
 
 FLAGS = {

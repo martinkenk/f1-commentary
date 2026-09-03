@@ -4,10 +4,10 @@ A good-looking, static, **multi-Grand-Prix** site to support **live TV commentar
 Left-hand sidebar menu; every Grand Prix gets its own landing page plus **17 subpages**.
 
 Loaded: **every remaining round of the 2026 season** — 14 Grands Prix from Belgium
-(round 10) to Abu Dhabi (round 23). Hungary and Belgium have hand-written prose; the
-rest are generated from the official calendar and a per-venue reference library, and
-**fill themselves in** as tyre allocations, rookie line-ups, upgrade filings, FIA
-documents and results are published.
+(round 10) to Abu Dhabi (round 23). Belgium, Hungary, the Netherlands and Italy have
+hand-written prose; the rest are generated from the official calendar and a per-venue
+reference library, and **fill themselves in** as tyre allocations, rookie line-ups,
+upgrade filings, FIA documents and results are published.
 
 > Regenerate this for any GP — before or during the weekend — with **[SKILL.md](SKILL.md)**,
 > the step-by-step runbook (architecture, sources, FIA docs, weather, live results, build, verify).

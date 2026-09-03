@@ -105,10 +105,10 @@ CIRCUITS = {
             "braking are the thing to watch."
         ),
         "drs": 2,
-        "lap_record": "1:21.046 — Rubens Barrichello, 2004",
+        "lap_record": "1:20.901 — Lando Norris, 2025",
         "notes": [
             "Monza has hosted a Grand Prix in every World Championship season bar one (1980) since 1950.",
-            "Barrichello's 2004 lap remains one of the longest-standing records in the sport.",
+            "Norris reset a race-lap record in 2025 that had stood since Barrichello's 2004 victory.",
             "The old banking still stands beside the current circuit and is a reliable piece of colour.",
         ],
         "storylines": [
