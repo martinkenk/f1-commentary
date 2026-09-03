@@ -243,8 +243,14 @@ def build_pages(ctx, env):
      "Browning replaces Albon at Williams for FP1.",
      "Herta replaces Perez at Cadillac and samples the MAC-26 in low-drag trim for the first time.",
   ]), "bi-person-badge")}
+  {card("Aston Martin", ul([
+     "CTO Enrico Cardile says the AMR26's aero development is essentially done — no more upgrades planned beyond a stray part worth track-testing for 2027.",
+     "Weight-saving programme continues, targeted for completion by the Azerbaijan round.",
+     "Honda's Zandvoort Spec 2 engine (an estimated 10–30bhp step) is its last major 2026 hardware update; Alonso called it &quot;not a big improvement, to be honest&quot;.",
+  ]), "bi-tools")}
 </div>
-<p class="src">Team-mate context: The Race, "What's gone wrong for this former F1 title contender", 2 Sep 2026.</p>
+<p class="src">Team-mate context: The Race, "What's gone wrong for this former F1 title contender", 2 Sep 2026.
+Aston Martin/Honda development plan: The Race, "What Aston Martin revealed about 2026 (and 2027) upgrade plan", 3 Sep 2026.</p>
 """)
 
     pages["upgrades"] = dict(
@@ -268,9 +274,16 @@ def build_pages(ctx, env):
      "The package introduced on Gasly's car at Zandvoort is available to both race drivers at Monza.",
      "Aron's FP1 work provides a simulator-to-track comparison.",
   ]), "bi-tools")}
+  {card("Aston Martin &amp; Honda — development effectively closed for 2026", ul([
+     "CTO Enrico Cardile says the Hungary B-spec and its Zandvoort refinements are &quot;the last planned aero developments&quot; for the AMR26, barring a stray part worth track-testing for 2027 correlation.",
+     "The team's weight-saving programme continues and should be complete by Azerbaijan (24–26 Sep), after which the car runs in final 2026 form for the rest of the season.",
+     "Cardile: no design carryover into 2027 — &quot;every single part will be new,&quot; evolving this year's concept rather than repeating it.",
+     "Honda brought its Spec 2 engine upgrade at Zandvoort (estimated 10–30bhp) and says that is the only major 2026 hardware update; a driveability countermeasure from Honda's Sakura base follows, plus per-event calibration tweaks only.",
+  ]), "bi-tools")}
 </div>
 {pending("The complete FIA car-presentation submission", "on Friday of race week")}
 <p class="src">Pre-event sources: Formula1.com Tech Weekly and The Race, 31 Aug–2 Sep 2026.
+Aston Martin/Honda development-plan detail: The Race, "What Aston Martin revealed about 2026 (and 2027) upgrade plan", 3 Sep 2026.
 The FIA filing will supersede the pre-event reporting once published.</p>
 """)
 

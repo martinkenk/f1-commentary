@@ -785,6 +785,21 @@ def build_pages(ctx, env):
     """)
 
     # ---- 6b. UPGRADES --------------------------------------------------------
+    _amr_changed = card("What's actually changed on the car", ul([
+       "<strong>New-look sidepod, floor and rear wing</strong> were on the cars in the garage by Friday morning (barely visible on Thursday).",
+       "A bigger <strong>'mouse hole' on the floor</strong> and a <strong>different rear-wing actuator</strong> spotted trackside.",
+       "Clear modifications to the <strong>bargeboard area and sidepod profile</strong>.",
+       "Chassis &amp; gearbox architecture unchanged, but <strong>weight taken out of both</strong> — forced a re-homologation and crash-test of the forward chassis.",
+       "Front suspension unchanged; rear suspension slightly revised.",
+       "<strong>New nose and substantially revised aero surfaces</strong> — \"a big aerodynamic package coupled with significant weight reduction,\" targeting the weight limit.",
+    ]), "bi-tools", "accent")
+    _amr_plan = card("The two-step plan & what to watch", ul([
+       "<strong>Step 1 — Hungary:</strong> new bodywork/floor/wing debut; back-to-back data vs the old spec.",
+       "<strong>Step 2 — Zandvoort:</strong> the bigger step, landing with <strong>Honda's 2026 engine upgrade</strong> (see Power Unit page).",
+       "A move \"in a different direction\" from extreme choices such as the car's <strong>aggressive rear ride height</strong>.",
+       "Krack framed parts supply as a <strong>\"$1 million question\"</strong> — whether they'd have enough to run the package on both cars — but was \"quite confident we will be ready\".",
+       "A big test of the team's <strong>data and simulation tools</strong>: no winter testing, so they won't extract everything on run one.",
+    ]), "bi-diagram-3")
     PAGES["upgrades"] = dict(
         kicker="Car Development",
         title="Car Development & Upgrades",
@@ -799,22 +814,9 @@ def build_pages(ctx, env):
       move on from what they've called "the tough times".</p>
 
       <div class="grid cols-2">
-        {card("What's actually changed on the car", ul([
-           "<strong>New-look sidepod, floor and rear wing</strong> were on the cars in the garage by Friday morning (barely visible on Thursday).",
-           "A bigger <strong>'mouse hole' on the floor</strong> and a <strong>different rear-wing actuator</strong> spotted trackside.",
-           "Clear modifications to the <strong>bargeboard area and sidepod profile</strong>.",
-           "Chassis &amp; gearbox architecture unchanged, but <strong>weight taken out of both</strong> — forced a re-homologation and crash-test of the forward chassis.",
-           "Front suspension unchanged; rear suspension slightly revised.",
-           "<strong>New nose and substantially revised aero surfaces</strong> — \"a big aerodynamic package coupled with significant weight reduction,\" targeting the weight limit.",
-        ]), "bi-tools", "accent")}
+        {_amr_changed}
 
-        {card("The two-step plan & what to watch", ul([
-           "<strong>Step 1 — Hungary:</strong> new bodywork/floor/wing debut; back-to-back data vs the old spec.",
-           "<strong>Step 2 — Zandvoort:</strong> the bigger step, landing with <strong>Honda's 2026 engine upgrade</strong> (see Power Unit page).",
-           "A move \"in a different direction\" from extreme choices such as the car's <strong>aggressive rear ride height</strong>.",
-           "Krack framed parts supply as a <strong>\"$1 million question\"</strong> — whether they'd have enough to run the package on both cars — but was \"quite confident we will be ready\".",
-           "A big test of the team's <strong>data and simulation tools</strong>: no winter testing, so they won't extract everything on run one.",
-        ]), "bi-diagram-3")}
+        {_amr_plan}
       </div>
 
       {quote("When you bring substantial upgrades, it's something the track team will have to learn as quick as possible... We do not expect that we get everything out of it in the first run tomorrow. We need to learn how to manage this.", "Mike Krack, Chief Trackside Officer (The Race, Fri 24 Jul)")}

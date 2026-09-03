@@ -155,16 +155,16 @@ def build_pages(ctx, env):
 
     <div class="grid cols-2">
       {card("Pirelli's weekend preview", ul([
-         "\u201cThe track, situated just 40 km from Amsterdam, offers a low level of grip both because of "
+         "“The track, situated just 40 km from Amsterdam, offers a low level of grip both because of "
          "the nature of its asphalt&hellip; and because of the sand blown onto the circuit from the nearby "
-         "beaches,\u201d Pirelli's preview reads &mdash; grip can shift from one session to the next.",
-         "\u201cThe circuit is particularly demanding on tyres in terms of energy density, owing to its short "
+         "beaches,” Pirelli's preview reads &mdash; grip can shift from one session to the next.",
+         "“The circuit is particularly demanding on tyres in terms of energy density, owing to its short "
          "lap length and numerous corners&hellip; the two banked turns&hellip; generate extremely high "
-         "vertical and lateral forces on the tyres.\u201d",
-         "Aero-downforce demand is <strong>high</strong> &mdash; \u201cvery similar to&hellip; Budapest.\u201d",
+         "vertical and lateral forces on the tyres.”",
+         "Aero-downforce demand is <strong>high</strong> &mdash; “very similar to&hellip; Budapest.”",
          "Sprint format means only one hour of practice to settle on a set-up before parc fermé.",
-         "\u201cThe hard is likely to be the reference compound for Sunday&rsquo;s race, [while] the two "
-         "softer options could both prove effective choices for Saturday&rsquo;s Sprint.\u201d",
+         "“The hard is likely to be the reference compound for Sunday&rsquo;s race, [while] the two "
+         "softer options could both prove effective choices for Saturday&rsquo;s Sprint.”",
       ]), "bi-quote", "accent")}
 
       {card("Pressures &amp; camber (FIA Doc 2)", ul([
@@ -333,7 +333,7 @@ def build_pages(ctx, env):
          "are the sectors where a Power Limited Pending reduction may exceed 150 kW (up to 350 kW).",
          "A reset of MGU-K power reduction is permitted on the exit of Turn 14 (3700&ndash;4200 m).",
          "Outside Sprint &amp; Race, every session (including Qualifying) runs the more permissive "
-         "\u201cBase &ndash; Overtake\u201d power curve rather than the race-day standard map.",
+         "“Base &ndash; Overtake” power curve rather than the race-day standard map.",
       ]), "bi-battery-charging")}
     </div>
 
