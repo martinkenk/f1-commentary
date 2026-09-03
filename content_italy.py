@@ -11,6 +11,9 @@ FIA_EVENT_URL = ("https://www.fia.com/documents/championships/"
                  "fia-formula-one-world-championship-14/season/season-2026-2072/"
                  "event/Italian%20Grand%20Prix")
 
+FIA_RD_NOTES_URL = ("https://www.fia.com/system/files/decision-document/"
+                     "2026_italian_grand_prix_-_race_directors_competition_notes.pdf")
+
 
 def _source(name, url):
     return f'<a href="{url}" target="_blank" rel="noopener">{name}</a>'
@@ -108,6 +111,26 @@ def build_pages(ctx, env):
                     "7nOpWdCgvCBFDGlnODs0gk"),
             "2 Sep", "f1"),
     ]
+    circuit_page = pages.get("circuit")
+    if circuit_page:
+        circuit_page["body"] += f"""
+<h2 class="sec">Race-control notes (FIA Competition Notes, Document 5)</h2>
+<div class="grid cols-2">
+  {card("Track limits & escape roads", ul([
+     "Failing to negotiate <strong>Turn 11</strong> (Parabolica) during any timed session invalidates that lap and the following lap.",
+     "The Turn 1&ndash;2 escape road has four rows of polystyrene blocks; drivers must go around each row's end to re-join.",
+     "At the Turn 4&ndash;5 escape road, drivers who go straight and pass right of the gravel must stay right of the yellow line/bollard and re-join after Turn 5.",
+  ]), "bi-signpost-split", "accent")}
+  {card("Circuit changes since 2025", ul([
+     "New asphalt patch at Turn 2; new wall and debris fence on the left of the main straight.",
+     "New negative kerbs before Turns 1, 4 and 8 (100 m brake markers) on the relevant sides.",
+     "Part of the Turn 5 gravel bed (left) replaced by asphalt; new natural grass at Turn 9 apex; new fencing between Turns 10 and 11.",
+  ]), "bi-cone-striped")}
+</div>
+<p class="src">Source: <a href="{FIA_RD_NOTES_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Race Director's Competition Notes</a> (Document 5, issued 3 Sep 2026) via the
+<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
+"""
+
     pages["news"] = dict(
         kicker="Weekend News",
         title="Weekend News & Session Reports",
@@ -256,7 +279,7 @@ Aston Martin/Honda development plan: The Race, "What Aston Martin revealed about
     pages["upgrades"] = dict(
         kicker="Development · pre-event",
         title="Car Development & Upgrades",
-        sub="Confirmed and reported Monza packages before the FIA car-presentation filing.",
+        sub="Confirmed and reported Monza packages, plus the FIA's Friday car-presentation procedure.",
         body=f"""
 <div class="grid cols-2">
   {card("Ferrari — drag reduction beyond the wing", ul([
@@ -281,16 +304,25 @@ Aston Martin/Honda development plan: The Race, "What Aston Martin revealed about
      "Honda brought its Spec 2 engine upgrade at Zandvoort (estimated 10–30bhp) and says that is the only major 2026 hardware update; a driveability countermeasure from Honda's Sakura base follows, plus per-event calibration tweaks only.",
   ]), "bi-tools")}
 </div>
-{pending("The complete FIA car-presentation submission", "on Friday of race week")}
+<div class="grid cols-2">
+  {card("FIA car-presentation procedure (Document 7, confirmed)", ul([
+     "Between 11:00 and 12:00 on Friday, one car per team must sit in its pit-stop position with the other available for viewing inside the garage.",
+     "If only one car of the pair carries new major aero/bodywork components not previously run, that is the car that must be displayed to media.",
+     "In adverse weather the display may move into the garage area, with awnings used if it is raining.",
+  ]), "bi-camera")}
+</div>
 <p class="src">Pre-event sources: Formula1.com Tech Weekly and The Race, 31 Aug–2 Sep 2026.
 Aston Martin/Honda development-plan detail: The Race, "What Aston Martin revealed about 2026 (and 2027) upgrade plan", 3 Sep 2026.
-The FIA filing will supersede the pre-event reporting once published.</p>
+FIA car-presentation procedure: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_display_procedure.pdf" target="_blank" rel="noopener">FIA Document 7, issued 3 Sep 2026</a>. Team-by-team technical filings (car-presentation submission) had not been published at time of writing; see the
+<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA documents hub</a> for updates.</p>
 """)
 
+    FIA_PU_URL = ("https://www.fia.com/system/files/decision-document/"
+                  "2026_italian_grand_prix_-_power_unit_information.pdf")
     pages["powerunit"] = dict(
         kicker="2026 rules · Monza focus",
         title="Power Unit & Override",
-        sub="Energy management is a defining Monza variable; exact event-map values await the FIA document.",
+        sub="The FIA's event-specific power-and-energy map is confirmed for Monza.",
         body=f"""
 <div class="callout">
   <strong>Why it matters here:</strong> Pirelli and McLaren both identify energy management as an
@@ -307,11 +339,22 @@ The FIA filing will supersede the pre-event reporting once published.</p>
   {card("Power-unit changes", ul([
      "Antonelli is set for a full power-unit change and a back-of-grid start.",
      "Ferrari's ADUO 2 combustion-engine specification is ready, but its race-weekend introduction was not confirmed in the pre-event report.",
-     "The FIA event map will define the exact recharge caps, overtake detection point and activation parameters.",
   ]), "bi-gear")}
 </div>
-{pending("Monza-specific FIA power-and-energy map values", "with the event documents")}
-<p class="src"><a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents</a>.</p>
+<h2 class="sec">FIA event power-and-energy map (Document 8, 3 Sep)</h2>
+<div class="grid cols-2">
+  {card("Recharge and deployment caps", ul([
+     "Maximum recharge per lap: <strong>7.0 MJ</strong> with overtake not active, <strong>7.5 MJ</strong> with overtake active.",
+     "Maximum PU power reduction rate: <strong>5.0 MJ</strong> (not active) / <strong>7.5&ndash;9.0 MJ</strong> band (active) over a <strong>4218 m</strong> power-limited distance, rate limit <strong>50 kW/s</strong>.",
+     "Sector T4&ndash;T7 (2100&ndash;2800 m) carries a maximum PU power reduction of <strong>350 kW</strong>, with a Q/SQ-only alternate exit-Turn-11 window (5050&ndash;5350 m or 5300&ndash;5800 m for Overtake).",
+  ]), "bi-lightning-charge", "accent")}
+  {card("Main overtaking zone", ul([
+     "Detection line at approximately <strong>5050 m</strong> (TBC), activation line at approximately <strong>5249 m</strong> lap distance (between corners L18 and L19, the Parabolica exit onto the pit straight).",
+     "The Overtake power curve gives a materially higher MGU-K DC-power ceiling than the Base/Standard curve across the 220&ndash;360 km/h band, per the FIA's published power-vs-speed chart.",
+  ]), "bi-record-circle")}
+</div>
+<p class="src">Source: <a href="{FIA_PU_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Power Unit Information</a> (Document 8, issued 3 Sep 2026, 20:50) via the
+<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
 """)
 
     pages["facts"] = dict(
@@ -381,11 +424,17 @@ The FIA filing will supersede the pre-event reporting once published.</p>
     pages["schedule"] = dict(
         kicker="Timing · forecast",
         title="Schedule & Weather",
-        sub="Tallinn is one hour ahead of Monza this weekend; warm, mainly dry conditions are forecast.",
+        sub="Warm, mainly dry conditions are forecast; the FIA has declared a Heat Hazard for the race.",
         body=f"""
 <div class="callout">
   <strong>Published forecast:</strong> warm and sunny across the event, reaching up to
   <strong>34°C</strong>. Dry conditions are expected, with only a small chance of showers later Sunday.
+</div>
+<div class="callout watch">
+  <i class="bi bi-thermometer-sun"></i> <strong>FIA Heat Hazard declared (Document 4, 3 Sep, 08:24).</strong>
+  The Official Weather Service forecasts a Heat Index above <strong>31.0&deg;C</strong> at some point during
+  the race, triggering Article B1.5.10 driver cooling-system provisions.
+  <span class="src">Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_heat_hazard_declaration.pdf" target="_blank" rel="noopener">FIA Italian Grand Prix Heat Hazard declaration</a>.</span>
 </div>
 <h2 class="sec">Session times</h2>
 <div class="table-wrap"><table class="data">
