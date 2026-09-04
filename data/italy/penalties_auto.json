@@ -1,1 +1,46 @@
-[]
+[
+  {
+    "doc": "Doc 15",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars below did not use the track at turns 1, 2, 4, 5 and 7.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 16",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars passed through a double waved yellow flag marshalling sector.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow_flags.pdf"
+  },
+  {
+    "doc": "Doc 19",
+    "no": "12",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Drop of 30 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_12_-_changes_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 20",
+    "no": "23",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Drop of 20 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_23_-_changes_to_pu_elements.pdf"
+  }
+]
