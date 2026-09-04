@@ -3,7 +3,7 @@
 Race-week facts are drawn from Formula1.com, The Race and the FIA event hub.
 Unpublished FIA values remain explicit pending states in the generic baseline.
 """
-from f1lib import card, news_item, render_news, stat, ul
+from f1lib import card, news_item, render_news, render_penalties, stat, ul
 from content_generic import build_pages as build_generic, pending, ul_or, _fmt
 
 
@@ -211,6 +211,32 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
 """)
 
+    pages["penalties"] = dict(
+        kicker="Stewards · technical",
+        title="Penalties & Stewards",
+        sub="No Monza stewards' decisions yet; two pre-event FIA technical filings are worth flagging.",
+        body=render_penalties(
+            ctx,
+            intro_html=f"""
+<div class="grid cols-2">
+  {card("Zandvoort compliance check cleared (Document 2)", ul([
+     "Car number 10 (Gasly, Alpine) was randomly selected from the top ten after the Dutch GP for extensive physical inspection of its re-programmable electronic devices and SECU.",
+     "The FIA Technical Delegate found the software/source code, SECU configuration files and data offloads all compliant with the 2026 Technical Regulations.",
+     "No further action; carried over from the previous round as a routine post-race technical report.",
+  ]), "bi-check-circle", "accent")}
+  {card("Power-unit elements used per driver (Document 9)", ul([
+     "The FIA's season-to-date element count shows Antonelli on 4 ICE / 3 TC / 3 EXH / 2 MGU-K / 3 ES / 3 PU-CE / 5 PU-ANC — level with team-mate Russell on most counts.",
+     "Lawson (5 ICE / 5 TC / 5 EXH) and the two Aston Martins (4 ICE / 4 TC, Stroll also on 4 MGU-K/5 ES/5 PU-CE) currently carry the highest published counts on the grid.",
+     "The document lists cumulative use only; it does not itself state the per-element allocation limit or confirm which counts have triggered a penalty.",
+  ]), "bi-clipboard-data")}
+</div>
+<p class="src">Sources: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_post-race_checks_on_car_number_10_2026_dutch_gp.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Technical Delegate's Report, Post-Race Checks on Car Number 10 (2026 Dutch GP)</a> (Document 2, issued 2 Sep 2026) and
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Technical Delegate's Report, PU Elements Used per Driver up to Now</a> (Document 9, issued 4 Sep 2026), both via the
+<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
+""",
+            fia_url=FIA_EVENT_URL,
+        ))
+
     pages["rookies"] = dict(
         kicker="FP1 · four rookie substitutions",
         title="Rookies & Line-ups",
@@ -348,10 +374,53 @@ Aston Martin/Honda development plan: The Race, "What Aston Martin revealed about
      "In adverse weather the display may move into the garage area, with awnings used if it is raining.",
   ]), "bi-camera")}
 </div>
+
+<h2 class="sec">FIA car-presentation submissions (Document 10, filed 4 Sep)</h2>
+<div class="callout">
+  <strong>Now confirmed:</strong> every team's mandatory geometric-change declaration is published.
+  Ten of eleven teams filed new-part submissions; Audi filed none for this event.
+</div>
+<div class="grid cols-2">
+  {card("Ferrari", ul([
+     "Floor board: front floor-board elements re-optimised around a single vertical element.",
+     "Mirror stay shortened and reconnected to the sidepod; rear brake-duct winglet cascade removed.",
+     "RV tail gets a slotted central winglet element with trimmed side winglets.",
+     "All four changes are filed as circuit-specific drag-range items for Monza.",
+  ]), "bi-tools", "accent")}
+  {card("McLaren", ul([
+     "Rear wing: alternative straight-line-mode flap position paired with a less-loaded beam wing for a larger drag reduction — the filed description of the H-Wing debut.",
+     "Floor furniture updated for better flow conditioning and a further aerodynamic/drag gain.",
+  ]), "bi-tools")}
+  {card("Mercedes", ul([
+     "Rear wing: various winglet devices removed to reduce assembly camber and shed local downforce/drag at a ratio suited to Monza's low-drag/low-downforce ratio.",
+     "Front bodywork: mirror rear stays trimmed for the same circuit-specific drag reason.",
+  ]), "bi-tools")}
+  {card("Red Bull", ul([
+     "Rear corner: revised rear-suspension-to-wheel bodywork gaitor for reliability, with winglet junctions removed.",
+     "Floor body: revised bib-edge profile filed as a Monza evaluation of an alternative geometry for more local load.",
+     "Exhaust tailpipe bracket revised for reliability at Monza's specific power-unit demands.",
+  ]), "bi-tools")}
+</div>
+<div class="grid cols-2">
+  {card("Racing Bulls &amp; Williams", ul([
+     "Racing Bulls: new rear wing with updated straight-mode mechanism for increased flap travel, plus a repositioned exhaust tailpipe for better centreline flow.",
+     "Williams: a vertical fence added around the Halo for a circuit-specific efficiency gain, a reduced-chord front-wing-flap element for balance, and a local trim to the floor-board geometry.",
+  ]), "bi-tools")}
+  {card("Aston Martin, Haas &amp; Alpine", ul([
+     "Aston Martin: revised front-suspension fairings for onset-flow alignment and a floor-edge update ahead of the rear tyre for local load.",
+     "Haas: new front floor with revised side geometry/diffuser, new sidepod/coke-line with a narrower roll hoop and updated engine cover, plus re-optimised rear-corner fairings and realigned drum deflectors — its most extensive filing of the ten.",
+     "Alpine: revised front-wing footplate vane for local load, and a straight-mode pod-fairing removal on the rear wing to suit Monza's low-drag character.",
+  ]), "bi-tools")}
+  {card("Cadillac &amp; Audi", ul([
+     "Cadillac: updated forward floor-board stay with a higher outboard attachment point, plus a small vertical turning vane added to the outboard diffuser sidewall's inner trailing edge.",
+     "Audi: no updates submitted for this event.",
+  ]), "bi-tools")}
+</div>
 <p class="src">Pre-event sources: Formula1.com Tech Weekly and The Race, 31 Aug–2 Sep 2026.
 Aston Martin/Honda development-plan detail: The Race, "What Aston Martin revealed about 2026 (and 2027) upgrade plan", 3 Sep 2026.
-FIA car-presentation procedure: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_display_procedure.pdf" target="_blank" rel="noopener">FIA Document 7, issued 3 Sep 2026</a>. Team-by-team technical filings (car-presentation submission) had not been published at time of writing; see the
-<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA documents hub</a> for updates.</p>
+FIA car-presentation procedure: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_display_procedure.pdf" target="_blank" rel="noopener">FIA Document 7, issued 3 Sep 2026</a>.
+Team-by-team filings: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_presentation_submissions.pdf" target="_blank" rel="noopener">FIA Document 10, Car Presentation Submissions, issued 4 Sep 2026</a> via the
+<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA documents hub</a>.</p>
 """)
 
     FIA_PU_URL = ("https://www.fia.com/system/files/decision-document/"
