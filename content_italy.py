@@ -447,6 +447,18 @@ Team-by-team filings: <a href="https://www.fia.com/system/files/decision-documen
      "Ferrari's ADUO 2 combustion-engine specification is ready, but its race-weekend introduction was not confirmed in the pre-event report.",
   ]), "bi-gear")}
 </div>
+<div class="callout watch">
+  <i class="bi bi-lightbulb"></i> <strong>Why this matters here:</strong> drivers say Monza's energy
+  starvation is so severe that top speeds down the straights may actually be <em>lower</em> than at the
+  Hungaroring &mdash; the opposite of what Monza's low-downforce layout would normally suggest. Racing
+  Bulls' Arvid Lindblad: &ldquo;There's just not much battery. We don't actually go slower on the
+  straights. We just don't use any.&rdquo; McLaren's Oscar Piastri said sim running had the team quicker
+  down Hungary's front straight than Monza's. The likely reason is the FIA's 5.0&nbsp;MJ qualifying/low
+  race-recharge caps (see the power-and-energy map below): cars flatline well below their old 350&ndash;360
+  km/h peaks rather than reaching top speed and fading, and there is little spare energy left over for
+  the "super-clipping" braking technique used to protect the recharge budget at other energy-starved
+  circuits.
+</div>
 <h2 class="sec">FIA event power-and-energy map (Document 8, 3 Sep)</h2>
 <div class="callout watch">
   <i class="bi bi-lightbulb"></i> <strong>Monza's qualifying quirk:</strong> the maximum recharge
@@ -485,7 +497,8 @@ Team-by-team filings: <a href="https://www.fia.com/system/files/decision-documen
   ]), "bi-record-circle")}
 </div>
 <p class="src">Source: <a href="{FIA_PU_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Power Unit Information</a> (Document 8, issued 3 Sep 2026, 20:50) via the
-<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
+<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.
+Driver quotes: <a href="https://www.the-race.com/formula-1/slower-than-hungary-why-f1-drivers-think-italian-gp-will-be-weird/" target="_blank" rel="noopener">The Race, "Slower than Hungary? Why F1 drivers think Italian GP will be 'weird'"</a>, 4 Sep 2026.</p>
 """)
 
     pages["facts"] = dict(
