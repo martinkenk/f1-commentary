@@ -348,10 +348,63 @@ Aston Martin/Honda development plan: The Race, "What Aston Martin revealed about
      "In adverse weather the display may move into the garage area, with awnings used if it is raining.",
   ]), "bi-camera")}
 </div>
+
+<h2 class="sec">FIA car-presentation submissions (Document 10, 4 Sep) — every team's declared update</h2>
+<div class="callout">
+  <strong>What this is:</strong> each team's own filed description of every aero/bodywork change on their
+  car this weekend, submitted to the FIA Media Delegate ahead of Friday's car display. It is the most
+  complete official record of who has actually brought something new to Monza and why.
+</div>
+<div class="grid cols-2">
+  {card("McLaren", ul([
+     "Rear wing: alternative straight-line-mode flap position paired with a less-loaded beam wing, for a larger drag reduction.",
+     "Floor furniture updated for flow conditioning.",
+  ]), "bi-tools", "accent")}
+  {card("Mercedes", ul([
+     "Rear wing: various winglet devices removed to reduce drag at a ratio suited to Monza's low-downforce demands.",
+     "Front bodywork: mirror stays trimmed for lower local drag.",
+  ]), "bi-tools")}
+  {card("Red Bull", ul([
+     "Rear corner: revised rear-suspension-to-bodywork gaitor for reliability, removing winglet junctions.",
+     "Floor body: revised bib-edge profile for local load.",
+  ]), "bi-tools")}
+  {card("Ferrari", ul([
+     "Floor board: front elements optimised (single vertical element) — a Monza-specific package trading downforce for drag saving at a favourable ratio for this track.",
+     "Mirror stay shortened, rear-brake-duct winglet cascade removed, and a new slotted RV-tail winglet — all further drag-range items.",
+  ]), "bi-tools", "accent")}
+  {card("Williams", ul([
+     "Halo: a vertical fence added around the Halo geometry to change the downstream flow field for Monza-specific efficiency.",
+     "Front wing chord reduced and a floor-board local trim added, both tuning the downforce/drag balance for this circuit.",
+  ]), "bi-tools")}
+  {card("Racing Bulls", ul([
+     "Rear wing: new assembly with an updated straight-line-mode mechanism for increased flap travel and drag reduction.",
+     "Exhaust tailpipe repositioned to improve flow to the floor and rear wing.",
+  ]), "bi-tools")}
+  {card("Aston Martin", ul([
+     "Front suspension: revised fairings on one member to improve flow alignment.",
+     "Floor edge ahead of the rear tyre modified to increase load in that area.",
+  ]), "bi-tools")}
+  {card("Haas", ul([
+     "New front floor with revised side geometry and diffuser, developed alongside a new sidepod/coke-line, narrower roll-hoop and updated engine cover.",
+     "Rear-corner fairings and drum deflectors realigned to suit the new floor and bodywork package.",
+  ]), "bi-tools", "accent")}
+  {card("Audi", ul([
+     "No updates submitted for this event.",
+  ]), "bi-dash-circle")}
+  {card("Alpine", ul([
+     "Front-wing endplate vane redesigned for increased local load.",
+     "Rear wing: straight-line-mode pod fairing removed to suit Monza's low-drag characteristics.",
+  ]), "bi-tools")}
+  {card("Cadillac", ul([
+     "Forward floor board stay repositioned with a higher outboard attachment point, for flow conditioning and structural stability.",
+     "A small turning vane added to the inner trailing edge of the outboard diffuser sidewall for extra rear load.",
+  ]), "bi-tools")}
+</div>
 <p class="src">Pre-event sources: Formula1.com Tech Weekly and The Race, 31 Aug–2 Sep 2026.
 Aston Martin/Honda development-plan detail: The Race, "What Aston Martin revealed about 2026 (and 2027) upgrade plan", 3 Sep 2026.
-FIA car-presentation procedure: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_display_procedure.pdf" target="_blank" rel="noopener">FIA Document 7, issued 3 Sep 2026</a>. Team-by-team technical filings (car-presentation submission) had not been published at time of writing; see the
-<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA documents hub</a> for updates.</p>
+FIA car-presentation procedure: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_display_procedure.pdf" target="_blank" rel="noopener">FIA Document 7, issued 3 Sep 2026</a>.
+FIA car-presentation submissions: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_presentation_submissions.pdf" target="_blank" rel="noopener">FIA Document 10, issued 4 Sep 2026, 09:54</a> via the
+<a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA documents hub</a>.</p>
 """)
 
     FIA_PU_URL = ("https://www.fia.com/system/files/decision-document/"
@@ -417,6 +470,28 @@ FIA car-presentation procedure: <a href="https://www.fia.com/system/files/decisi
 </div>
 <p class="src">Source: <a href="{FIA_PU_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Power Unit Information</a> (Document 8, issued 3 Sep 2026, 20:50) via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
+
+{card("Penalty watch — PU elements used so far (Document 9, 4 Sep)", f'''
+<p>The FIA <strong>Technical Delegate's report</strong> lists how many of each power-unit element every
+driver has used this season <em>before</em> Antonelli's Monza change below is applied. The heaviest users
+are the ones to watch for further <strong>grid-penalty risk</strong> &mdash; both <strong>Aston Martins
+stand out</strong>, and <strong>Liam Lawson</strong> leads the field on the combustion side:</p>
+<div class="table-wrap"><table class="data compact">
+  <thead><tr><th>Driver</th><th>ICE</th><th>TC</th><th>EXH</th><th>MGU-K</th><th>ES</th><th>PU-CE</th><th>PU-ANC</th></tr></thead>
+  <tbody>
+    <tr class="upcoming"><td>Fernando Alonso (Aston)</td><td>4</td><td>4</td><td>2</td><td>4</td><td>5</td><td>5</td><td>7</td></tr>
+    <tr class="upcoming"><td>Lance Stroll (Aston)</td><td>4</td><td>4</td><td>3</td><td>4</td><td>5</td><td>5</td><td>6</td></tr>
+    <tr><td>Liam Lawson (Red Bull)</td><td>5</td><td>5</td><td>5</td><td>3</td><td>4</td><td>4</td><td>5</td></tr>
+    <tr><td>Kimi Antonelli (Mercedes)</td><td>4</td><td>3</td><td>3</td><td>2</td><td>3</td><td>3</td><td>5</td></tr>
+    <tr><td class="muted-cell" colspan="8">Most of the rest of the grid sit on 2&ndash;4 of each &mdash; full 22-driver table in the FIA document.</td></tr>
+  </tbody>
+</table></div>
+<p class="src">Both Astons remain deepest into their <strong>Energy Store, Control-Electronics and
+ancillary</strong> pools (Alonso already on his 7th ancillary component), continuing the pattern flagged at
+Hungary. Lawson leads the <strong>ICE/turbo/exhaust</strong> side on 5 of each. Antonelli's own count above
+predates today's confirmed full power-unit change and back-of-grid start &mdash; expect his row to move up
+across the board once the FIA publishes the resulting infringement notice.</p>
+''', "bi-exclamation-triangle", "watch")}
 """)
 
     pages["facts"] = dict(
