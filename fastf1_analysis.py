@@ -132,10 +132,14 @@ def analyse_session(year, round_no, code, label, event_name, slug):
     try:
         session = fastf1.get_session(year, round_no, code)
         session.load(telemetry=True, laps=True, weather=False, messages=False)
+        laps = session.laps
     except Exception as e:
+        # session.load() can "succeed" (no exception) even when every
+        # underlying fetch failed — accessing .laps is what actually raises
+        # fastf1.exceptions.DataNotLoadedError in that case, so it must be
+        # inside this same try/except rather than checked afterwards.
         print(f"    · {label}: not available yet ({e})")
         return None
-    laps = session.laps
     if laps is None or laps.empty:
         print(f"    · {label}: no lap data")
         return None
@@ -382,8 +386,13 @@ def main():
         for c in gps:
             c.setdefault("status", f1lib.event_status(c, today))
         live = [c for c in gps if c["status"] == "live"]
-        past = [c for c in gps if c["status"] == "past"]
-        active_slugs = {c["dir"] for c in (live + past[-1:])}
+        # Only the currently-live GP: unlike enrich.py's news/decision sweep,
+        # there is nothing new to compute for a GP once its weekend is over
+        # (every session is already analysed), and re-fetching an old event's
+        # data from FastF1 is exactly what triggered the crash below (live
+        # timing fallback data becomes unavailable once the weekend is well
+        # past, and FastF1 doesn't always raise a clean exception for that).
+        active_slugs = {c["dir"] for c in live}
         print(f"Active GP(s) for this run: {sorted(active_slugs) or '(none)'}")
 
     for event in cal["events"]:
@@ -404,7 +413,16 @@ def main():
             if not cal_session or not _session_already_run(cal_session, now):
                 continue
             print(f"  · analysing {label} ({code}) ...")
-            result = analyse_session(args.year, round_no, code, label, event["name"], slug)
+            try:
+                result = analyse_session(args.year, round_no, code, label, event["name"], slug)
+            except Exception as e:
+                # Never let one bad session (flaky fetch, incomplete upstream
+                # data, etc.) abort the whole run and skip every later
+                # session/event — this previously meant a single failure on
+                # an earlier GP in the calendar silently dropped analysis for
+                # every GP after it, including the live one.
+                print(f"    ! {label} failed, skipping: {e}")
+                continue
             if result:
                 out_sessions.append(result)
         if not out_sessions:

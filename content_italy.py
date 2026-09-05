@@ -214,11 +214,22 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
     pages["penalties"] = dict(
         kicker="Stewards · technical",
         title="Penalties & Stewards",
-        sub="Friday practice brought two grid-drop power-unit penalties, a pit-lane fine and a warning, "
-            "plus two pre-event FIA technical filings worth flagging.",
+        sub="Liam Lawson takes a 35-place grid penalty for new power-unit elements after qualifying "
+            "P4 \u2014 headlining a weekend that also produced two Friday grid-drop PU penalties, a "
+            "resolved CDS fine, two yellow-flag reviews and a pit-lane fine.",
         body=render_penalties(
             ctx,
             decisions=[
+                dict(doc="Doc 41", no="30", driver="Liam Lawson", team="Oracle Red Bull Racing",
+                     session="Free Practice 3",
+                     fact="6th ICE, 6th Turbocharger, 6th Exhaust Set, 4th MGU-K and 7th Power Unit "
+                          "Ancillary Component fitted, breaching the season element allocation "
+                          "(Article B8.2.2/B8.2.3).",
+                     outcome="Drop of 35 grid positions for the next race the driver participates in "
+                             "(5 places for the ICE/TC/EXH, 10 for the MGU-K, 10 for the PU-ANC, plus "
+                             "the standard accumulation) \u2014 applied to Sunday's race after he "
+                             "qualified P4.",
+                     kind="penalty"),
                 dict(doc="Doc 19", no="12", driver="Kimi Antonelli", team="Mercedes-AMG PETRONAS F1 Team",
                      session="Free Practice 1",
                      fact="Fifth ICE, 4th Energy Store and 4th Control Electronics Unit fitted, breaching "
@@ -230,6 +241,30 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
                      fact="Fifth ICE and 4th Control Electronics Unit fitted, breaching the season element "
                           "allocation (Article B8.2.2/B8.2.3).",
                      outcome="Drop of 20 grid positions for the next race the driver participates in.",
+                     kind="penalty"),
+                dict(doc="Doc 32", no="25", driver="Colton Herta", team="Cadillac Formula 1 Team",
+                     session="Free Practice 1",
+                     fact="The Clutch Disengagement System (CDS) did not function when the car stopped "
+                          "on track at 12:47, breaching Article C9.3 \u2014 the third reported CDS "
+                          "failure of the season.",
+                     outcome="Competitor (Cadillac F1 Team) fined \u20ac30,000, \u20ac25,000 of which is "
+                             "suspended for 12 months subject to no further breaches; the team traced "
+                             "the fault to a failed cell in a third-party-supplied battery.",
+                     kind="fine"),
+                dict(doc="Doc 39", no="23", driver="Alexander Albon", team="Atlassian Williams F1 Team",
+                     session="Free Practice 3",
+                     fact="Failed to slow for double waved yellow flags at 13:02.",
+                     outcome="Driver: Reprimand (Driving) \u2014 his 2nd of the season. Stewards accepted "
+                             "mitigation that the green (all-clear) light was visible for under 2 seconds "
+                             "while he was looking at the apex, reducing the standard 10-grid-place "
+                             "guideline penalty to a reprimand.",
+                     kind="reprimand"),
+                dict(doc="Doc 40", no="55", driver="Carlos Sainz", team="Atlassian Williams F1 Team",
+                     session="Free Practice 3",
+                     fact="Appeared to fail to slow for double waved yellow flags at 13:02, in the same "
+                          "marshalling sector as team-mate Albon.",
+                     outcome="No penalty \u2014 telemetry confirmed he lifted off as soon as he noticed the "
+                             "yellow light, just past the flagged zone.",
                      kind="penalty"),
                 dict(doc="Doc 27", no="12", driver="Kimi Antonelli", team="Mercedes-AMG PETRONAS F1 Team",
                      session="Free Practice 2",
@@ -243,13 +278,18 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
                      kind="warning"),
             ],
             intro_html=f"""
-<div class="callout watch">
-  <i class="bi bi-hourglass-split"></i> <strong>Pending hearing — Car 25 (Colton Herta, Cadillac):</strong>
-  when Herta stopped on track in FP1, marshals pressed the car-stopped signal (CDS) at 12:47 but the
-  Technical Delegate found it was not working as required by Article C9.3 (Document 17). The team was
-  summoned (Document 22) and the hearing was <strong>adjourned to 10:30 on Saturday 5 September</strong>
-  to allow it more time to gather evidence (Document 29) &mdash; no verdict was published in this
-  document set. Check for a follow-up stewards' decision once the hearing concludes.
+<div class="callout alert">
+  <i class="bi bi-flag-fill"></i> <strong>Grid-penalty headline: Liam Lawson starts from the back.</strong>
+  Lawson qualified P4 but his Free Practice 3 power-unit change (Document 41 &mdash; 6th ICE, 6th
+  turbo, 6th exhaust, 4th MGU-K, 7th PU-ANC) carries a <strong>35-place grid drop</strong>, so he'll
+  line up at the back of the field for Sunday's race regardless of Saturday's result.
+</div>
+<div class="callout accent">
+  <i class="bi bi-check-circle"></i> <strong>Car 25 CDS hearing resolved (Document 32):</strong>
+  the Friday-adjourned case (Documents 17/22/29) concluded with Cadillac fined &euro;30,000
+  (&euro;25,000 suspended for 12 months) after tracing Herta's non-functioning car-stopped signal to a
+  failed cell in a third-party battery &mdash; the Stewards noted this is the season's third CDS
+  failure and warned future incidents may draw sporting penalties too.
 </div>
 <div class="grid cols-2">
   {card("Zandvoort compliance check cleared (Document 2)", ul([
@@ -259,15 +299,19 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
   ]), "bi-check-circle", "accent")}
   {card("Power-unit elements used per driver (Document 9)", ul([
      "The FIA's season-to-date element count shows Antonelli on 4 ICE / 3 TC / 3 EXH / 2 MGU-K / 3 ES / 3 PU-CE / 5 PU-ANC — level with team-mate Russell on most counts.",
-     "Lawson (5 ICE / 5 TC / 5 EXH) and the two Aston Martins (4 ICE / 4 TC, Stroll also on 4 MGU-K/5 ES/5 PU-CE) currently carry the highest published counts on the grid.",
+     "Lawson (5 ICE / 5 TC / 5 EXH at the time of publication, now 6/6/6 after Document 41) and the two Aston Martins (4 ICE / 4 TC, Stroll also on 4 MGU-K/5 ES/5 PU-CE) currently carry the highest published counts on the grid.",
      "The document lists cumulative use only; it does not itself state the per-element allocation limit or confirm which counts have triggered a penalty.",
   ]), "bi-clipboard-data")}
 </div>
-<p class="src">Sources: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_post-race_checks_on_car_number_10_2026_dutch_gp.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Technical Delegate's Report, Post-Race Checks on Car Number 10 (2026 Dutch GP)</a> (Document 2, issued 2 Sep 2026) and
-<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Technical Delegate's Report, PU Elements Used per Driver up to Now</a> (Document 9, issued 4 Sep 2026); car 25 CDS matter:
+<p class="src">Sources: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_post-race_checks_on_car_number_10_2026_dutch_gp.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Technical Delegate's Report, Post-Race Checks on Car Number 10 (2026 Dutch GP)</a> (Document 2, issued 2 Sep 2026),
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Technical Delegate's Report, PU Elements Used per Driver up to Now</a> (Document 9, issued 4 Sep 2026) and
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_30_-_change_to_pu_elements.pdf" target="_blank" rel="noopener">Infringement Report, Car 30 &mdash; Change to PU Elements</a> (Document 41, issued 5 Sep 2026); car 25 CDS matter:
 <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_25_cds_not_functioning_when_car_stopped_on_the_track.pdf" target="_blank" rel="noopener">Technical Delegate's Report</a> (Document 17),
-<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_summons_-_car_25_-_alleged_technical_non-compliance_-_cds.pdf" target="_blank" rel="noopener">Summons</a> (Document 22) and
-<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_hearing_adjournment_-_car_25_-_alleged_technical_non-compliance_cds.pdf" target="_blank" rel="noopener">Hearing Adjournment</a> (Document 29); all via the
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_summons_-_car_25_-_alleged_technical_non-compliance_-_cds.pdf" target="_blank" rel="noopener">Summons</a> (Document 22),
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_hearing_adjournment_-_car_25_-_alleged_technical_non-compliance_cds.pdf" target="_blank" rel="noopener">Hearing Adjournment</a> (Document 29) and
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_25_-_technical_non-conformity_cds.pdf" target="_blank" rel="noopener">Infringement Decision</a> (Document 32, issued 5 Sep 2026); yellow-flag reviews:
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_23_-_failure_to_slow_for_double_yellow_flags.pdf" target="_blank" rel="noopener">Car 23</a> (Document 39) and
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_double_yellow_flags.pdf" target="_blank" rel="noopener">Car 55</a> (Document 40); all via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
 """,
             fia_url=FIA_EVENT_URL,

@@ -1452,6 +1452,8 @@ td.nowrap{white-space:nowrap}
   border:1px solid var(--line);border-left:4px solid var(--f1-red);
   border-radius:12px;padding:16px 20px;margin-bottom:18px}
 .callout.watch{border-left-color:var(--hun-green)}
+.callout.accent{border-left-color:var(--hun-green);background:linear-gradient(90deg,rgba(0,166,80,.1),transparent)}
+.callout.alert{border-left-color:var(--f1-red)}
 .src{color:#6d6d82;font-size:13px;font-style:italic}
 
 /* Index landing */
