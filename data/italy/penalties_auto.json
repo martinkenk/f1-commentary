@@ -42,5 +42,49 @@
     "outcome": "Drop of 20 grid positions for the next Race in which the driver participates.",
     "kind": "penalty",
     "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_23_-_changes_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 24",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars below did not use the track at turns 1, 4, 5, 6 and 10.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 25",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars below did not use the track at turns 1, 2, 4, 5 and 7.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_corrected.pdf"
+  },
+  {
+    "doc": "Doc 27",
+    "no": "12",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Pit lane speeding – 80.1 km/h",
+    "outcome": "The competitor (Mercedes-AMG PETRONAS F1 Team) is fined €100.",
+    "kind": "fine",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_12_-_pit_lane_speeding.pdf"
+  },
+  {
+    "doc": "Doc 28",
+    "no": "18",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 18 impeded Car 1 prior to turn 1.",
+    "outcome": "Competitor: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_18_-_impeding_of_car_1.pdf"
   }
 ]
