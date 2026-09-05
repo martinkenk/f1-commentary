@@ -88,6 +88,17 @@
     "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_18_-_impeding_of_car_1.pdf"
   },
   {
+    "doc": "Doc 32",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The Clutch Disengagement System (“CDS”) did not function when the car stopped on",
+    "outcome": "The competitor (Cadillac F1 Team) is fined €30,000, €25,000 of which is suspended",
+    "kind": "fine",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_25_-_technical_non-conformity_cds.pdf"
+  },
+  {
     "doc": "Doc 37",
     "no": "",
     "driver": "",
@@ -108,5 +119,38 @@
     "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
     "kind": "note",
     "source_pdf": "2026_italian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_yellow_flags.pdf"
+  },
+  {
+    "doc": "Doc 39",
+    "no": "23",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver of Car 23 failed to slow for double Yellow Flags.",
+    "outcome": "Driver: Reprimand (Driving).",
+    "kind": "reprimand",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_23_-_failure_to_slow_for_double_yellow_flags.pdf"
+  },
+  {
+    "doc": "Doc 40",
+    "no": "55",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 55 appeared to fail to slow for double Yellow Flags.",
+    "outcome": "No penalty is applied.",
+    "kind": "penalty",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_double_yellow_flags.pdf"
+  },
+  {
+    "doc": "Doc 41",
+    "no": "30",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Drop of 35 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_30_-_change_to_pu_elements.pdf"
   }
 ]
