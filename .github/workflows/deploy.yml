@@ -87,7 +87,7 @@ jobs:
         # of the build.
         continue-on-error: true
         run: |
-          python3 -m pip install --quiet fastf1 matplotlib pandas numpy
+          python3 -m pip install --quiet fastf1 pandas numpy
           python3 fastf1_analysis.py --active
 
       - name: Backfill Formula1.com headlines and dates

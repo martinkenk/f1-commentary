@@ -2,7 +2,7 @@
 
 Pulls real lap timing + car telemetry for completed sessions of the current
 season via the FastF1 library (https://docs.fastf1.dev/) and distils it into
-a small JSON summary plus two chart images per session:
+a small JSON summary per session:
 
   * Fastest-lap leaderboard, each driver's *theoretical optimal lap* (their
     own best sector times added together) and the gap between the two —
@@ -12,10 +12,11 @@ a small JSON summary plus two chart images per session:
     green-flag, non-in/out laps, with the single slowest lap of each stint
     dropped as an outlier before averaging — a rough proxy for what teams
     call "clean average pace" on a given tyre.
-  * A speed-vs-distance trace for the session's top drivers' fastest laps
-    (who is fastest where on track).
-  * A delta-time-vs-distance trace against the session's outright fastest
-    lap (where exactly a driver gains or loses time around the lap).
+  * A speed-vs-distance and delta-vs-fastest-lap trace for the session's top
+    drivers' fastest laps, downsampled onto a shared distance grid and
+    shipped as plain JSON (not a static image) so the Results page can
+    render it as an interactive, per-driver-toggleable, zoom-to-fullscreen
+    chart (see assets_src/pace-chart.js).
 
 Output, per event directory (e.g. data/italy/fastf1_pace.json):
     {
@@ -28,16 +29,19 @@ Output, per event directory (e.g. data/italy/fastf1_pace.json):
           "long_runs": [ {code, driver, team, stint, compound, laps,
                            avg_time, std_dev, tyre_life_start,
                            tyre_life_end}, ... ]
-          "charts": {"speed": "assets/italy_fp1_speed.png",
-                     "delta": "assets/italy_fp1_delta.png"}
+          "traces": {"distance": [...],
+                     "speed": {"unit": "km/h", "series": [{code, driver,
+                               team, color, dash, values}, ...]},
+                     "delta": {"unit": "s", "ref_code": "...",
+                               "series": [...]}}
           "narrative": ["...", ...]
         }, ...
       ]
     }
 
-Needs `pip install fastf1 matplotlib pandas` (not part of build.py's stdlib
+Needs `pip install fastf1 pandas numpy` (not part of build.py's stdlib
 runtime — this script is run separately, like enrich.py, and commits its
-JSON/PNG output for the stdlib-only build to pick up and render).
+JSON output for the stdlib-only build to pick up and render).
 
 IMPORTANT: this repo has a top-level ``calendar.py`` which shadows the
 stdlib ``calendar`` module that FastF1's dependencies need. We drop the
@@ -55,9 +59,6 @@ if "" in sys.path:
 import fastf1  # noqa: E402
 import fastf1.plotting  # noqa: E402
 import pandas as pd  # noqa: E402
-import matplotlib  # noqa: E402
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
 
 sys.path.insert(0, _HERE)
 import standings  # noqa: E402
@@ -203,26 +204,29 @@ def analyse_session(year, round_no, code, label, event_name, slug):
         ))
     long_runs.sort(key=lambda r: r["avg_time"])
 
-    charts = _make_charts(session, laps, fastest_rows, event_name, slug, code)
+    traces = _make_trace_data(laps, fastest_rows, code)
     narrative = _narrative(fastest_rows, long_runs, event_name, label)
     narrative += _news_context(fastest_rows, long_runs, slug)
 
     return dict(session=code, label=label, fastest=fastest_rows,
-                long_runs=long_runs, charts=charts, narrative=narrative)
+                long_runs=long_runs, traces=traces, narrative=narrative)
 
 
-def _make_charts(session, laps, fastest_rows, event_name, slug, code):
-    charts = {}
+TRACE_POINTS = 300
+
+
+def _make_trace_data(laps, fastest_rows, code):
+    """Downsampled speed + delta-to-fastest traces (onto a shared distance
+    grid) for the top N drivers, as a small embeddable JSON payload. A
+    client-side canvas chart (assets_src/pace-chart.js) renders this
+    interactively — toggle individual drivers on/off, view fullscreen — which
+    a static PNG can't offer."""
     top = fastest_rows[:TOP_N_CHART_DRIVERS]
     if len(top) < 2:
-        return charts
-    assets_dir = os.path.join(ROOT, "assets_src")
-    os.makedirs(assets_dir, exist_ok=True)
+        return None
 
-    fig, ax = plt.subplots(figsize=(9, 5), dpi=140)
-    ref_lap = None
     telemetries = {}
-    seen_teams = {}
+    ref_code = None
     for row in top:
         drv_code = row["code"]
         drv_laps = laps.pick_driver(drv_code)
@@ -232,64 +236,48 @@ def _make_charts(session, laps, fastest_rows, event_name, slug, code):
         except Exception:
             continue
         telemetries[drv_code] = tel
-        if ref_lap is None:
-            ref_lap = (drv_code, best)
-        color = _team_color(row["team"])
-        # Team-mates share a colour; give the second one a dashed line so
-        # both are readable on the same chart.
+        if ref_code is None:
+            ref_code = drv_code
+    if not telemetries or ref_code is None or len(telemetries) < 2:
+        return None
+
+    import numpy as np
+    max_dist = float(telemetries[ref_code]["Distance"].max())
+    grid = np.linspace(0, max_dist, TRACE_POINTS)
+    ref_t = np.interp(grid, telemetries[ref_code]["Distance"].to_numpy(),
+                       telemetries[ref_code]["Time"].dt.total_seconds().to_numpy())
+
+    seen_teams = {}
+    speed_series, delta_series = [], []
+    for row in top:
+        drv_code = row["code"]
+        if drv_code not in telemetries:
+            continue
+        tel = telemetries[drv_code]
         n_seen = seen_teams.get(row["team"], 0)
         seen_teams[row["team"]] = n_seen + 1
-        style = "-" if n_seen == 0 else "--"
-        ax.plot(tel["Distance"], tel["Speed"], label=f"{drv_code} ({row['lap_time']})",
-                color=color, linewidth=1.6, linestyle=style)
-    ax.set_xlabel("Lap distance (m)")
-    ax.set_ylabel("Speed (km/h)")
-    ax.set_title(f"{event_name} {code} — fastest-lap speed trace")
-    ax.legend(fontsize=8, loc="lower center", ncol=len(top))
-    ax.grid(alpha=0.25)
-    fig.tight_layout()
-    speed_path = os.path.join(assets_dir, f"{slug}_{code.lower()}_speed.png")
-    fig.savefig(speed_path, facecolor="white")
-    plt.close(fig)
-    charts["speed"] = f"../assets/{slug}_{code.lower()}_speed.png"
+        dash = n_seen > 0
+        color = _team_color(row["team"])
+        speed_vals = np.interp(grid, tel["Distance"].to_numpy(), tel["Speed"].to_numpy())
+        speed_series.append(dict(
+            code=drv_code, driver=row["driver"], team=row["team"],
+            color=color, dash=dash,
+            values=[round(float(v), 1) for v in speed_vals],
+        ))
+        t_vals = np.interp(grid, tel["Distance"].to_numpy(),
+                            tel["Time"].dt.total_seconds().to_numpy())
+        delta_vals = t_vals - ref_t
+        delta_series.append(dict(
+            code=drv_code, driver=row["driver"], team=row["team"],
+            color=color, dash=dash,
+            values=[round(float(v), 3) for v in delta_vals],
+        ))
 
-    # Delta-time trace against the outright fastest lap, using each driver's
-    # own telemetry interpolated onto the reference lap's distance axis.
-    if ref_lap and len(telemetries) > 1:
-        ref_code, ref_best = ref_lap
-        ref_tel = telemetries[ref_code]
-        fig, ax = plt.subplots(figsize=(9, 4.2), dpi=140)
-        import numpy as np
-        seen_teams_delta = {}
-        for row in top:
-            n_seen = seen_teams_delta.get(row["team"], 0)
-            seen_teams_delta[row["team"]] = n_seen + 1
-            drv_code = row["code"]
-            if drv_code == ref_code or drv_code not in telemetries:
-                continue
-            tel = telemetries[drv_code]
-            # crude but robust: interpolate each driver's elapsed time onto a
-            # common distance grid, then take the difference.
-            grid = ref_tel["Distance"].to_numpy()
-            t_ref = ref_tel["Time"].dt.total_seconds().to_numpy()
-            t_drv_interp = np.interp(grid, tel["Distance"].to_numpy(),
-                                      tel["Time"].dt.total_seconds().to_numpy())
-            delta = t_drv_interp - t_ref
-            color = _team_color(row["team"])
-            style = "-" if n_seen == 0 else "--"
-            ax.plot(grid, delta, label=drv_code, color=color, linewidth=1.6, linestyle=style)
-        ax.axhline(0, color="#888", linewidth=1, linestyle="--")
-        ax.set_xlabel("Lap distance (m)")
-        ax.set_ylabel(f"Delta to {ref_code}'s lap (s)")
-        ax.set_title(f"{event_name} {code} — gap to the fastest lap around the lap")
-        ax.legend(fontsize=8, loc="upper left")
-        ax.grid(alpha=0.25)
-        fig.tight_layout()
-        delta_path = os.path.join(assets_dir, f"{slug}_{code.lower()}_delta.png")
-        fig.savefig(delta_path, facecolor="white")
-        plt.close(fig)
-        charts["delta"] = f"../assets/{slug}_{code.lower()}_delta.png"
-    return charts
+    return dict(
+        distance=[round(float(d), 1) for d in grid],
+        speed=dict(unit="km/h", series=speed_series),
+        delta=dict(unit="s", ref_code=ref_code, series=delta_series),
+    )
 
 
 def _narrative(fastest_rows, long_runs, event_name, label):
