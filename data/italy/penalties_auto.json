@@ -152,5 +152,16 @@
     "outcome": "Drop of 35 grid positions for the next Race in which the driver participates.",
     "kind": "penalty",
     "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_30_-_change_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 47",
+    "no": "81",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 81 impeded car 30 at turn 2.",
+    "outcome": "Drop of 3 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_81_-_impeding_of_car_30.pdf"
   }
 ]
