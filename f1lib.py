@@ -495,7 +495,9 @@ def render_pace_analysis(ctx):
            "via <a href=\"https://docs.fastf1.dev/\" target=\"_blank\" rel=\"noopener\">FastF1</a>: "
            "each driver's fastest lap vs. the theoretical lap built from their own best sector "
            "times, best clean long-run pace by tyre stint (slowest lap of each stint dropped as "
-           "an outlier), and speed/delta traces around the lap for the fastest runners.</div>"]
+           "an outlier), and speed/delta traces around the lap for the fastest runners. Click a "
+           "driver in a chart's legend to isolate or hide their trace, or use the fullscreen "
+           "button for a bigger view.</div>"]
 
     def _driver_cell(v, r):
         code = r.get("code", "")
@@ -538,17 +540,39 @@ def render_pace_analysis(ctx):
                 ("gap_to_optimal", "Time left on table", _gap),
                 ("top_speed", "Speed trap", _speed),
             ]))
-        charts = s.get("charts") or {}
-        if charts.get("speed") or charts.get("delta"):
-            pane.append('<div class="grid cols-2">')
-            if charts.get("speed"):
-                pane.append(f'<figure class="chart"><img src="{charts["speed"]}" '
-                            f'alt="{s["label"]} fastest-lap speed trace" loading="lazy">'
-                            f'<figcaption>Speed vs. distance, fastest laps</figcaption></figure>')
-            if charts.get("delta"):
-                pane.append(f'<figure class="chart"><img src="{charts["delta"]}" '
-                            f'alt="{s["label"]} delta to fastest lap" loading="lazy">'
-                            f'<figcaption>Gap to the outright fastest lap, around the lap</figcaption></figure>')
+        charts_needed = False
+        traces = s.get("traces") or {}
+        for kind, title, ylabel_title in (
+            ("speed", "Speed vs. distance, fastest laps", "Speed trace"),
+            ("delta", "Gap to the outright fastest lap, around the lap", "Delta trace"),
+        ):
+            block = traces.get(kind)
+            if not block or not block.get("series"):
+                continue
+            if not charts_needed:
+                pane.append('<div class="pace-chart-grid">')
+                charts_needed = True
+            chart_id = f"{sid}-{kind}"
+            payload = dict(
+                distance=traces.get("distance"),
+                unit=block.get("unit"),
+                series=block.get("series"),
+            )
+            if kind == "delta":
+                payload["refCode"] = block.get("ref_code")
+            payload_json = json.dumps(payload).replace("</", "<\\/")
+            pane.append(
+                f'<figure class="pace-chart" data-chart-id="{chart_id}">'
+                f'<figcaption class="pace-chart-head"><span>{title}</span>'
+                f'<button type="button" class="pace-chart-expand" title="View fullscreen">'
+                f'<i class="bi bi-arrows-fullscreen"></i> Fullscreen</button></figcaption>'
+                f'<div class="pace-chart-canvas-wrap"><canvas class="pace-chart-canvas"></canvas></div>'
+                f'<div class="pace-chart-legend"></div>'
+                f'</figure>'
+                f'<script type="application/json" class="pace-chart-data" data-for="{chart_id}">'
+                f'{payload_json}</script>'
+            )
+        if charts_needed:
             pane.append('</div>')
         if s.get("long_runs"):
             pane.append('<h3 class="sec">Long-run pace (clean laps, outlier dropped)</h3>')
@@ -566,6 +590,7 @@ def render_pace_analysis(ctx):
 
     out.append('<ul class="nav nav-pills results-tabs" role="tablist">' + "".join(tabs) + "</ul>")
     out.append('<div class="tab-content">' + "".join(panes) + "</div>")
+    out.append('<script src="../assets/pace-chart.js" defer></script>')
     return "".join(out)
 
 
@@ -1460,6 +1485,35 @@ h2.sec{font-weight:800;font-size:24px;margin:30px 0 14px;padding-bottom:6px;bord
 figure.chart{margin:0 0 18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
 figure.chart img{max-width:100%;height:auto;border-radius:8px;background:#fff}
 figure.chart figcaption{color:var(--muted);font-size:13px;margin-top:8px}
+
+/* Interactive FastF1 pace-trace charts */
+.pace-chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:18px;margin-bottom:20px}
+.pace-chart{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+.pace-chart-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 8px;
+  color:var(--ink);font-weight:700;font-size:14px}
+.pace-chart-expand{background:transparent;border:1px solid var(--line);border-radius:8px;color:var(--muted);
+  font-size:12px;padding:5px 10px;cursor:pointer;transition:border-color .15s,color .15s}
+.pace-chart-expand:hover{border-color:var(--f1-red);color:#fff}
+.pace-chart-canvas-wrap{width:100%}
+.pace-chart-canvas-wrap-full{height:70vh}
+.pace-chart-canvas{display:block;width:100%}
+.pace-chart-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pace-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(148,163,184,.12);
+  border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--ink);
+  cursor:pointer;transition:opacity .15s,border-color .15s}
+.pace-chip.off{opacity:.35}
+.pace-chip:hover{border-color:var(--f1-red)}
+.pace-chip-all{font-weight:700;color:var(--muted)}
+.pace-chip-swatch{width:16px;height:0;border-top:3px solid var(--swatch-color,#999);display:inline-block}
+.pace-chip-swatch.dashed{border-top-style:dashed}
+.pace-chart-fullscreen .pace-chart-expand{display:none}
+.pace-chart-modal{position:fixed;inset:0;z-index:2100;display:none;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.92);padding:32px}
+.pace-chart-modal.open{display:flex}
+.pace-chart-modal-body{width:min(1100px,94vw);max-height:92vh;overflow:auto}
+.pace-chart-modal-body .pace-chart-fullscreen{width:100%}
+.pace-chart-modal-close{position:absolute;top:16px;right:26px;color:#fff;font-size:44px;line-height:1;
+  cursor:pointer;font-weight:700;background:transparent;border:0}
 .lightbox{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;
   background:rgba(0,0,0,.92);padding:24px;cursor:zoom-out}
 .lightbox.open{display:flex}
