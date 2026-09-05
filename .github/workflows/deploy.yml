@@ -75,6 +75,21 @@ jobs:
           python3 -m pip install --quiet pypdf
           python3 enrich.py --max 25
 
+      - name: FastF1 pace analysis (fastest laps, long runs, speed/delta charts)
+        # Pulls real lap-timing + telemetry for completed sessions of the active
+        # GP via FastF1 (https://docs.fastf1.dev/) and renders it as a "Pace
+        # analysis" section on the Results page: fastest-lap vs. theoretical
+        # optimal-lap leaderboard, clean long-run pace by tyre stint, and
+        # speed/delta trace charts. --active limits this to the live/just-
+        # finished GP so a full-season run doesn't happen every 2 hours.
+        # continue-on-error because FastF1's upstream (F1 live timing / Ergast)
+        # can be slow or briefly unavailable — this must never block the rest
+        # of the build.
+        continue-on-error: true
+        run: |
+          python3 -m pip install --quiet fastf1 matplotlib pandas numpy
+          python3 fastf1_analysis.py --active
+
       - name: Backfill Formula1.com headlines and dates
         # Formula1.com's listing page exposes only a URL slug, so a card can be
         # stored with a de-hyphenated slug for a title and no publication date.
