@@ -86,5 +86,27 @@
     "outcome": "Competitor: Warning.",
     "kind": "warning",
     "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_18_-_impeding_of_car_1.pdf"
+  },
+  {
+    "doc": "Doc 37",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars below did not use the track at turns 1, 4, 5, 6, 7, 9 and 11.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 38",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars passed through a double waved yellow flag marshalling sector.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_yellow_flags.pdf"
   }
 ]
