@@ -214,10 +214,43 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
     pages["penalties"] = dict(
         kicker="Stewards · technical",
         title="Penalties & Stewards",
-        sub="No Monza stewards' decisions yet; two pre-event FIA technical filings are worth flagging.",
+        sub="Friday practice brought two grid-drop power-unit penalties, a pit-lane fine and a warning, "
+            "plus two pre-event FIA technical filings worth flagging.",
         body=render_penalties(
             ctx,
+            decisions=[
+                dict(doc="Doc 19", no="12", driver="Kimi Antonelli", team="Mercedes-AMG PETRONAS F1 Team",
+                     session="Free Practice 1",
+                     fact="Fifth ICE, 4th Energy Store and 4th Control Electronics Unit fitted, breaching "
+                          "the season element allocation (Article B8.2.2/B8.2.3).",
+                     outcome="Drop of 30 grid positions for the next race the driver participates in.",
+                     kind="penalty"),
+                dict(doc="Doc 20", no="23", driver="Alexander Albon", team="Atlassian Williams F1 Team",
+                     session="Free Practice 1",
+                     fact="Fifth ICE and 4th Control Electronics Unit fitted, breaching the season element "
+                          "allocation (Article B8.2.2/B8.2.3).",
+                     outcome="Drop of 20 grid positions for the next race the driver participates in.",
+                     kind="penalty"),
+                dict(doc="Doc 27", no="12", driver="Kimi Antonelli", team="Mercedes-AMG PETRONAS F1 Team",
+                     session="Free Practice 2",
+                     fact="Pit lane speeding \u2013 80.1 km/h against an 80 km/h limit.",
+                     outcome="Competitor (Mercedes-AMG PETRONAS F1 Team) fined \u20ac100.",
+                     kind="fine"),
+                dict(doc="Doc 28", no="18", driver="Lance Stroll", team="Aston Martin Aramco F1 Team",
+                     session="Free Practice 2",
+                     fact="Car 18 impeded Car 1 (Norris) prior to Turn 1.",
+                     outcome="Competitor and driver: Warning.",
+                     kind="warning"),
+            ],
             intro_html=f"""
+<div class="callout watch">
+  <i class="bi bi-hourglass-split"></i> <strong>Pending hearing — Car 25 (Colton Herta, Cadillac):</strong>
+  when Herta stopped on track in FP1, marshals pressed the car-stopped signal (CDS) at 12:47 but the
+  Technical Delegate found it was not working as required by Article C9.3 (Document 17). The team was
+  summoned (Document 22) and the hearing was <strong>adjourned to 10:30 on Saturday 5 September</strong>
+  to allow it more time to gather evidence (Document 29) &mdash; no verdict was published in this
+  document set. Check for a follow-up stewards' decision once the hearing concludes.
+</div>
 <div class="grid cols-2">
   {card("Zandvoort compliance check cleared (Document 2)", ul([
      "Car number 10 (Gasly, Alpine) was randomly selected from the top ten after the Dutch GP for extensive physical inspection of its re-programmable electronic devices and SECU.",
@@ -231,7 +264,10 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
   ]), "bi-clipboard-data")}
 </div>
 <p class="src">Sources: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_post-race_checks_on_car_number_10_2026_dutch_gp.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Technical Delegate's Report, Post-Race Checks on Car Number 10 (2026 Dutch GP)</a> (Document 2, issued 2 Sep 2026) and
-<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Technical Delegate's Report, PU Elements Used per Driver up to Now</a> (Document 9, issued 4 Sep 2026), both via the
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Technical Delegate's Report, PU Elements Used per Driver up to Now</a> (Document 9, issued 4 Sep 2026); car 25 CDS matter:
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_25_cds_not_functioning_when_car_stopped_on_the_track.pdf" target="_blank" rel="noopener">Technical Delegate's Report</a> (Document 17),
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_summons_-_car_25_-_alleged_technical_non-compliance_-_cds.pdf" target="_blank" rel="noopener">Summons</a> (Document 22) and
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_hearing_adjournment_-_car_25_-_alleged_technical_non-compliance_cds.pdf" target="_blank" rel="noopener">Hearing Adjournment</a> (Document 29); all via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
 """,
             fia_url=FIA_EVENT_URL,
@@ -442,9 +478,10 @@ Team-by-team filings: <a href="https://www.fia.com/system/files/decision-documen
      "Heavy braking gives harvesting opportunities, but the long full-throttle sections make deployment costly.",
      "Watch for lift-and-coast, early clipping and changing relative speed late on each straight.",
   ]), "bi-battery-charging", "accent")}
-  {card("Power-unit changes", ul([
-     "Antonelli is set for a full power-unit change and a back-of-grid start.",
-     "Ferrari's ADUO 2 combustion-engine specification is ready, but its race-weekend introduction was not confirmed in the pre-event report.",
+  {card("New PU elements confirmed for Monza (Documents 13 &amp; 18)", ul([
+     "Eleven cars started this race weekend on a new internal combustion engine: Piastri, Norris, Antonelli, Leclerc, Hamilton, Albon, Sainz, Bearman, Bortoleto, Gasly and Colapinto.",
+     "Antonelli (5th ICE of 4 allowed) and Albon (5th ICE of 4 allowed) are the two whose new engines exceed the season allocation, triggering their grid-drop penalties above.",
+     "Leclerc and Hamilton also each fitted a new power-unit ancillary component (PU-ANC) &mdash; the 1st of 6 permitted for the season, so within the allowance and penalty-free.",
   ]), "bi-gear")}
 </div>
 <div class="callout watch">
@@ -460,6 +497,7 @@ Team-by-team filings: <a href="https://www.fia.com/system/files/decision-documen
   circuits.
 </div>
 <h2 class="sec">FIA event power-and-energy map (Document 8, 3 Sep)</h2>
+
 <div class="callout watch">
   <i class="bi bi-lightbulb"></i> <strong>Monza's qualifying quirk:</strong> the maximum recharge
   permitted per lap in qualifying is just <strong>5.0 MJ</strong> &mdash; lower than every other
@@ -496,7 +534,9 @@ Team-by-team filings: <a href="https://www.fia.com/system/files/decision-documen
      "The Overtake power curve gives a materially higher MGU-K DC-power ceiling than the Base/Standard curve across the 220&ndash;360 km/h band, per the FIA's published power-vs-speed chart.",
   ]), "bi-record-circle")}
 </div>
-<p class="src">Source: <a href="{FIA_PU_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Power Unit Information</a> (Document 8, issued 3 Sep 2026, 20:50) via the
+<p class="src">Sources: <a href="{FIA_PU_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Power Unit Information</a> (Document 8, issued 3 Sep 2026, 20:50);
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition.pdf" target="_blank" rel="noopener">Technical Delegate's Report, New PU Elements</a> (Document 13) and
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition_0.pdf" target="_blank" rel="noopener">New PU-ANC Report</a> (Document 18); all via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.
 Driver quotes: <a href="https://www.the-race.com/formula-1/slower-than-hungary-why-f1-drivers-think-italian-gp-will-be-weird/" target="_blank" rel="noopener">The Race, "Slower than Hungary? Why F1 drivers think Italian GP will be 'weird'"</a>, 4 Sep 2026.</p>
 """)
