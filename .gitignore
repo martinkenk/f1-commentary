@@ -16,3 +16,6 @@ fia_pdfs/
 
 # OS cruft
 .DS_Store
+
+# FastF1 local response cache (not needed to build; re-downloaded on demand)
+.fastf1_cache/

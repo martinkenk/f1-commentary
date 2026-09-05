@@ -450,7 +450,123 @@ def render_results(ctx):
         + '</ul><div class="tab-content">'
         + "".join(panes)
         + "</div>"
+        + render_pace_analysis(ctx)
     )
+
+
+# --------------------------------------------------------------------------
+# FastF1 pace analysis (data/<gp>/fastf1_pace.json, written by
+# fastf1_analysis.py from real lap timing + telemetry — see that script's
+# docstring). Purely additive: renders nothing if the file is absent, so it
+# is safe to call unconditionally from render_results() for every GP.
+# --------------------------------------------------------------------------
+def _load_pace(ctx):
+    path = os.path.join(DATA_DIR, ctx.get("dir", ""), "fastf1_pace.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("sessions") or [] if isinstance(data, dict) else []
+    except Exception:
+        return []
+
+
+def _pace_table(rows, cols):
+    """cols: list of (key, header, formatter-or-None)."""
+    thead = "".join(f"<th>{h}</th>" for _key, h, _fmt in cols)
+    body = []
+    for r in rows:
+        cells = []
+        for key, _h, fmt in cols:
+            val = r.get(key)
+            if fmt:
+                val = fmt(val, r)
+            cells.append(f"<td>{val if val is not None else '—'}</td>")
+        body.append("<tr>" + "".join(cells) + "</tr>")
+    return (f'<div class="table-wrap"><table class="data compact">'
+            f'<thead><tr>{thead}</tr></thead><tbody>{"".join(body)}</tbody></table></div>')
+
+
+def render_pace_analysis(ctx):
+    sessions = _load_pace(ctx)
+    if not sessions:
+        return ""
+    out = ['<h2 class="sec">Pace analysis (FastF1 telemetry)</h2>',
+           '<div class="callout"><strong>Built from real lap timing and car telemetry</strong> '
+           "via <a href=\"https://docs.fastf1.dev/\" target=\"_blank\" rel=\"noopener\">FastF1</a>: "
+           "each driver's fastest lap vs. the theoretical lap built from their own best sector "
+           "times, best clean long-run pace by tyre stint (slowest lap of each stint dropped as "
+           "an outlier), and speed/delta traces around the lap for the fastest runners.</div>"]
+
+    def _driver_cell(v, r):
+        code = r.get("code", "")
+        return f"{v} <span class='drv-code'>{code}</span>" if code else v
+
+    def _gap(v, _r):
+        if v is None:
+            return "on the pace"
+        return f"+{v:.3f}s"
+
+    def _speed(v, _r):
+        return f"{v:.1f} km/h" if v is not None else None
+
+    def _avg(v, _r):
+        if v is None:
+            return None
+        m, s = divmod(v, 60)
+        return f"{int(m)}:{s:06.3f}"
+
+    tabs, panes = [], []
+    for i, s in enumerate(sessions):
+        sid = f"pace-{_slugify(s['label'])}"
+        is_active = (i == len(sessions) - 1)
+        tabs.append(
+            f'<li class="nav-item" role="presentation">'
+            f'<button class="nav-link{" active" if is_active else ""}" id="{sid}-tab" '
+            f'data-bs-toggle="pill" data-bs-target="#{sid}" type="button" role="tab" '
+            f'aria-controls="{sid}" aria-selected="{"true" if is_active else "false"}">'
+            f'{s["label"]}</button></li>')
+
+        pane = [f'<h3 class="sec">{s["label"]} &mdash; fastest laps vs. theoretical optimal</h3>']
+        if s.get("narrative"):
+            pane.append(ul(s["narrative"]))
+        if s.get("fastest"):
+            pane.append(_pace_table(s["fastest"], [
+                ("driver", "Driver", _driver_cell),
+                ("team", "Team", None),
+                ("lap_time", "Fastest lap", None),
+                ("optimal_time", "Theoretical optimal", None),
+                ("gap_to_optimal", "Time left on table", _gap),
+                ("top_speed", "Speed trap", _speed),
+            ]))
+        charts = s.get("charts") or {}
+        if charts.get("speed") or charts.get("delta"):
+            pane.append('<div class="grid cols-2">')
+            if charts.get("speed"):
+                pane.append(f'<figure class="chart"><img src="{charts["speed"]}" '
+                            f'alt="{s["label"]} fastest-lap speed trace" loading="lazy">'
+                            f'<figcaption>Speed vs. distance, fastest laps</figcaption></figure>')
+            if charts.get("delta"):
+                pane.append(f'<figure class="chart"><img src="{charts["delta"]}" '
+                            f'alt="{s["label"]} delta to fastest lap" loading="lazy">'
+                            f'<figcaption>Gap to the outright fastest lap, around the lap</figcaption></figure>')
+            pane.append('</div>')
+        if s.get("long_runs"):
+            pane.append('<h3 class="sec">Long-run pace (clean laps, outlier dropped)</h3>')
+            pane.append(_pace_table(s["long_runs"], [
+                ("driver", "Driver", _driver_cell),
+                ("team", "Team", None),
+                ("compound", "Compound", None),
+                ("laps", "Laps", None),
+                ("avg_time", "Avg. clean lap", _avg),
+                ("std_dev", "Consistency (σ)", lambda v, _r: f"{v:.3f}s" if v is not None else None),
+            ]))
+        panes.append(
+            f'<div class="tab-pane fade{" show active" if is_active else ""}" id="{sid}" '
+            f'role="tabpanel" aria-labelledby="{sid}-tab" tabindex="0">{"".join(pane)}</div>')
+
+    out.append('<ul class="nav nav-pills results-tabs" role="tablist">' + "".join(tabs) + "</ul>")
+    out.append('<div class="tab-content">' + "".join(panes) + "</div>")
+    return "".join(out)
 
 
 # --------------------------------------------------------------------------
@@ -1341,6 +1457,9 @@ h2.sec{font-weight:800;font-size:24px;margin:30px 0 14px;padding-bottom:6px;bord
   transition:transform .15s,box-shadow .15s}
 .circuit-img:hover{transform:scale(1.01);box-shadow:0 0 0 3px rgba(225,6,0,.35)}
 .circuit-fig figcaption{color:var(--muted);font-size:14px;margin-top:12px;text-align:left}
+figure.chart{margin:0 0 18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+figure.chart img{max-width:100%;height:auto;border-radius:8px;background:#fff}
+figure.chart figcaption{color:var(--muted);font-size:13px;margin-top:8px}
 .lightbox{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;
   background:rgba(0,0,0,.92);padding:24px;cursor:zoom-out}
 .lightbox.open{display:flex}
