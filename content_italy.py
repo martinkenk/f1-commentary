@@ -120,6 +120,7 @@ def build_pages(ctx, env):
      "Failing to negotiate <strong>Turn 11</strong> (Parabolica) during any timed session invalidates that lap and the following lap.",
      "The Turn 1&ndash;2 escape road has four rows of polystyrene blocks; drivers must go around each row's end to re-join.",
      "At the Turn 4&ndash;5 escape road, drivers who go straight and pass right of the gravel must stay right of the yellow line/bollard and re-join after Turn 5.",
+     "Drivers must stay below <strong>1:42.0</strong> between the two Safety Car lines on any lap after Qualifying ends, or during reconnaissance laps once the pit exit opens for the Race &mdash; the confirmed threshold under Document 5's &ldquo;unnecessarily slowly&rdquo; rule.",
   ]), "bi-signpost-split", "accent")}
   {card("Circuit changes since 2025", ul([
      "New asphalt patch at Turn 2; new wall and debris fence on the left of the main straight.",
@@ -127,7 +128,8 @@ def build_pages(ctx, env):
      "Part of the Turn 5 gravel bed (left) replaced by asphalt; new natural grass at Turn 9 apex; new fencing between Turns 10 and 11.",
   ]), "bi-cone-striped")}
 </div>
-<p class="src">Source: <a href="{FIA_RD_NOTES_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Race Director's Competition Notes</a> (Document 5, issued 3 Sep 2026) via the
+<p class="src">Sources: <a href="{FIA_RD_NOTES_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Race Director's Competition Notes</a> (Document 5, issued 3 Sep 2026) and
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf" target="_blank" rel="noopener">Note to Teams &mdash; SC2/SC1 Times</a> (Document 26, issued 4 Sep 2026); both via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
 
 <h2 class="sec">Where the corner names come from</h2>
