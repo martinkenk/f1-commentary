@@ -176,7 +176,7 @@ def build_pages(ctx, env):
 
 <div class="standings-grid">
   {card("Drivers' Championship", '''
-  <div class="table-wrap"><table class="data ranked">
+  <div class="table-wrap"><table class="data ranked filterable">
     <thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th class="num">Pts</th></tr></thead>
     <tbody>
 ''' + DRIVER_ROWS + '''
@@ -185,7 +185,7 @@ def build_pages(ctx, env):
   ''', "bi-trophy", "accent")}
 
   {card("Constructors' Championship", '''
-  <div class="table-wrap"><table class="data ranked">
+  <div class="table-wrap"><table class="data ranked filterable">
     <thead><tr><th>Pos</th><th>Team</th><th class="num">Pts</th></tr></thead>
     <tbody>
 ''' + CTOR_ROWS + '''

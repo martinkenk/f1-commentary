@@ -14,6 +14,36 @@ FIA_EVENT_URL = ("https://www.fia.com/documents/championships/"
 FIA_RD_NOTES_URL = ("https://www.fia.com/system/files/decision-document/"
                      "2026_italian_grand_prix_-_race_directors_competition_notes.pdf")
 
+# Official per-driver "Tyres Available for Race" allocation, as published
+# ahead of the race (grid order). Each tuple is
+# (soft_new, soft_used, medium_new, medium_used, hard_new, hard_used) — sets
+# of each compound each driver has left after the mandatory practice/
+# qualifying hand-backs, split into brand-new vs. already-scrubbed sets.
+TYRES_AVAILABLE_FOR_RACE = {
+    "GAS": (0, 4, 1, 0, 1, 0),
+    "RUS": (0, 3, 1, 1, 1, 0),
+    "LEC": (1, 3, 1, 0, 1, 0),
+    "HAM": (1, 3, 1, 0, 1, 0),
+    "VER": (1, 3, 1, 0, 1, 0),
+    "PIA": (1, 3, 1, 0, 1, 0),
+    "COL": (0, 4, 1, 0, 1, 0),
+    "NOR": (1, 3, 1, 0, 1, 0),
+    "LIN": (0, 4, 1, 0, 1, 0),
+    "BOR": (1, 4, 1, 0, 1, 0),
+    "BEA": (1, 4, 1, 0, 1, 0),
+    "HUL": (1, 4, 1, 0, 1, 0),
+    "SAI": (1, 4, 1, 0, 1, 0),
+    "OCO": (1, 4, 1, 0, 1, 0),
+    "TSU": (3, 2, 1, 0, 1, 0),
+    "BOT": (2, 3, 1, 0, 1, 0),
+    "PER": (2, 3, 1, 0, 1, 0),
+    "ALO": (3, 1, 2, 0, 1, 0),
+    "STR": (2, 2, 2, 0, 1, 0),
+    "ANT": (1, 2, 2, 0, 1, 0),
+    "LAW": (1, 3, 1, 1, 1, 0),
+    "ALB": (3, 1, 2, 0, 1, 0),
+}
+
 
 def _source(name, url):
     return f'<a href="{url}" target="_blank" rel="noopener">{name}</a>'
@@ -209,7 +239,7 @@ starting/&ge;29.0 psi stabilised (same camber limits as intermediates).
 Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_competition_notes_-_pirelli_preview.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Competition Notes: Pirelli Preview</a>
 (Document 3, issued 2 Sep 2026) via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
-{render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes={
+{render_tyre_availability(ctx, hard=2, medium=3, soft=8, official=TYRES_AVAILABLE_FOR_RACE, fp1_substitutes={
     "BRO": "ALB",  # Browning replaces Albon in FP1
     "ARO": "GAS",  # Aron replaces Gasly in FP1
     "HER": "PER",  # Herta replaces Perez in FP1
@@ -361,11 +391,11 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
   Antonelli has 242 points, 59 ahead of both Russell and Hamilton; Russell holds second on countback.
   Norris is up to fourth after consecutive victories in Hungary and the Netherlands.</div>
 <div class="standings-grid">
-  <div><h2 class="sec">Drivers</h2><div class="table-wrap"><table class="data ranked">
+  <div><h2 class="sec">Drivers</h2><div class="table-wrap"><table class="data ranked filterable">
     <thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th class="num">Pts</th></tr></thead>
     <tbody>{st["drivers"]}</tbody>
   </table></div></div>
-  <div><h2 class="sec">Constructors</h2><div class="table-wrap"><table class="data ranked">
+  <div><h2 class="sec">Constructors</h2><div class="table-wrap"><table class="data ranked filterable">
     <thead><tr><th>Pos</th><th>Team</th><th class="num">Pts</th></tr></thead>
     <tbody>{st["ctors"]}</tbody>
   </table></div></div>

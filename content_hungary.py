@@ -277,7 +277,7 @@ def build_pages(ctx, env):
         '3-place penalty. The Results page will mirror the official timing once Formula1.com publishes it.</p>'
         '<div class="grid cols-2">'
         '<div class="card"><div class="card-h"><i class="bi bi-stopwatch"></i><h3>Qualifying classification</h3></div>'
-        '<table class="data"><thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th>Gap</th></tr></thead><tbody>'
+        '<table class="data filterable"><thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th>Gap</th></tr></thead><tbody>'
         + ''.join(f'<tr><td class="num">{p}</td><td>{d}</td><td class="tm">{t}</td><td class="muted">{g}</td></tr>'
                   for p, d, t, g in [
             (1, "Lando Norris", "McLaren", "1:17.207"),
