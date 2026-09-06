@@ -530,12 +530,26 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
             if code and code not in driver_info:
                 driver_info[code] = (row.get("driver") or code, row.get("team") or "")
 
-    def _level(total):
-        if total <= 0:
+    def _level(new_count):
+        # Colour is driven by how many *unscrubbed* new sets remain — that's
+        # the number that actually matters for race strategy (a scrubbed set
+        # still works, but a driver low on genuinely fresh rubber has fewer
+        # options for a late-race attack or a fresh-tyre out-lap).
+        if new_count <= 0:
             return "tyre-out"
-        if total == 1:
+        if new_count == 1:
             return "tyre-low"
         return "tyre-ok"
+
+    def _pair_cell(new, used):
+        total = new + used
+        cls = _level(new)
+        scrub = f"<span class='tyre-badge tyre-scrub'>{used} scrubbed</span>" if used else ""
+        return (
+            f"<td class='tyre-cell' data-sort='{new}'>"
+            f"<span class='tyre-pair'><span class='tyre-badge {cls}'>{new} new</span>{scrub}</span>"
+            f"<span class='tyre-used-note'>{total} left in total</span></td>"
+        )
 
     if official:
         rows = []
@@ -546,23 +560,20 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
         body = []
         for name, team, code, (sn, su, mn, mu, hn, hu) in rows:
             cells = [f"<td>{name} <span class='drv-code'>{code}</span></td>", f"<td>{team}</td>"]
-            for new, used, total_sort in ((hn, hu, hn + hu), (mn, mu, mn + mu), (sn, su, sn + su)):
-                total = new + used
-                note = f"{new} new + {used} scrubbed" if used else f"{new} new"
-                cells.append(
-                    f"<td class='tyre-cell' data-sort='{total}'><span class='tyre-badge {_level(total)}'>{total} left</span>"
-                    f"<span class='tyre-used-note'>{note}</span></td>"
-                )
+            cells.append(_pair_cell(hn, hu))
+            cells.append(_pair_cell(mn, mu))
+            cells.append(_pair_cell(sn, su))
             body.append("<tr>" + "".join(cells) + "</tr>")
         return f"""
 <h2 class="sec">Tyre sets available for the race (official)</h2>
 <div class="callout"><strong>Official per-driver tyre-set availability</strong> for the race, as
 published ahead of the event: how many sets of each compound each driver has left after the
-mandatory hand-backs following practice and qualifying, split into brand-new and
-already-scrubbed-but-unused sets (a scrubbed set still counts as available, it just isn't a
-fresh one).
-<span class="tyre-legend"><span class="tyre-badge tyre-ok">2+ left</span>
-<span class="tyre-badge tyre-low">1 left</span><span class="tyre-badge tyre-out">0 left</span></span></div>
+mandatory hand-backs following practice and qualifying, split into brand-new (unscrubbed)
+sets and already-scrubbed-but-unused sets (a scrubbed set still works for the race, it just
+isn't a genuinely fresh one — the colour below reflects the <strong>new</strong> count, since
+that's what matters most for a late-race attack or a fresh out-lap).
+<span class="tyre-legend"><span class="tyre-badge tyre-ok">2+ new</span>
+<span class="tyre-badge tyre-low">1 new</span><span class="tyre-badge tyre-out">0 new</span></span></div>
 <div class="table-wrap"><table class="data compact tyre-avail filterable">
 <thead><tr><th>Driver</th><th>Team</th><th>Hard (C3)</th><th>Medium (C4)</th><th>Soft (C5)</th></tr></thead>
 <tbody>{"".join(body)}</tbody></table></div>
@@ -1715,6 +1726,8 @@ td.tyre-cell{padding-top:8px;padding-bottom:8px}
 .tyre-badge.tyre-ok{background:#16a34a}
 .tyre-badge.tyre-low{background:#d97706}
 .tyre-badge.tyre-out{background:#dc2626}
+.tyre-badge.tyre-scrub{background:#3f4654;color:#c9d0dd;font-weight:600;min-width:0;padding:3px 9px}
+.tyre-pair{display:inline-flex;gap:5px;flex-wrap:wrap;justify-content:center;align-items:center}
 .tyre-used-note{display:block;color:var(--muted);font-size:11px;font-weight:400;margin-top:3px}
 .tyre-legend{display:inline-flex;gap:6px;margin-left:8px;vertical-align:middle}
 .tyre-legend .tyre-badge{min-width:0;padding:2px 8px;font-size:11px}
