@@ -3,7 +3,7 @@
 Race-week facts are drawn from Formula1.com, The Race and the FIA event hub.
 Unpublished FIA values remain explicit pending states in the generic baseline.
 """
-from f1lib import card, news_item, render_news, render_penalties, stat, ul
+from f1lib import card, news_item, render_news, render_penalties, render_tyre_availability, stat, ul
 from content_generic import build_pages as build_generic, pending, ul_or, _fmt
 
 
@@ -209,7 +209,7 @@ starting/&ge;29.0 psi stabilised (same camber limits as intermediates).
 Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_competition_notes_-_pirelli_preview.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Competition Notes: Pirelli Preview</a>
 (Document 3, issued 2 Sep 2026) via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
-""")
+{render_tyre_availability(ctx, hard=2, medium=3, soft=8)}""")
 
     pages["penalties"] = dict(
         kicker="Stewards · technical",

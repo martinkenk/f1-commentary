@@ -16,7 +16,16 @@ a small JSON summary per session:
     drivers' fastest laps, downsampled onto a shared distance grid and
     shipped as plain JSON (not a static image) so the Results page can
     render it as an interactive, per-driver-toggleable, zoom-to-fullscreen
-    chart (see assets_src/pace-chart.js).
+    chart (see assets_src/pace-chart.js). Comparison laps are aligned onto
+    the reference driver's distance axis by nearest physical position (X/Y),
+    not by each lap's own independently-integrated "Distance" — two laps
+    rarely share an identical racing line, and comparing raw per-lap
+    distance 1:1 lets that drift compound into multi-second phantom swings
+    right in braking zones, where a small position mismatch = a large
+    apparent time gap.
+  * For qualifying (and sprint qualifying) sessions, an additional
+    Q1/Q2/Q3-segmented fastest-lap leaderboard (who set what before being
+    knocked out), split via FastF1's own session-status-based segmenter.
 
 Output, per event directory (e.g. data/italy/fastf1_pace.json):
     {
@@ -26,6 +35,8 @@ Output, per event directory (e.g. data/italy/fastf1_pace.json):
           "session": "FP1", "label": "Practice 1",
           "fastest": [ {code, driver, team, lap_time, optimal_time,
                         gap_to_optimal, top_speed}, ... ]  # sorted by pace
+          "qualifying_segments": {"Q1": [...], "Q2": [...], "Q3": [...]}
+                                  # only present for Q/SQ sessions
           "long_runs": [ {code, driver, team, stint, compound, laps,
                            avg_time, std_dev, tyre_life_start,
                            tyre_life_end}, ... ]
@@ -59,6 +70,7 @@ if "" in sys.path:
 import fastf1  # noqa: E402
 import fastf1.plotting  # noqa: E402
 import pandas as pd  # noqa: E402
+import numpy as np  # noqa: E402
 
 sys.path.insert(0, _HERE)
 import standings  # noqa: E402
@@ -128,6 +140,42 @@ def _session_already_run(cal_session, now):
     return now >= start + datetime.timedelta(minutes=buffer_min)
 
 
+def _fastest_rows_from_laps(seg_laps, drv_map):
+    """Fastest-lap leaderboard (+ theoretical optimal lap) for a set of laps —
+    shared by the whole-session table and, for qualifying, each of the
+    Q1/Q2/Q3 segment tables."""
+    rows = []
+    if seg_laps is None or seg_laps.empty:
+        return rows
+    for code_, drv_laps in seg_laps.groupby("Driver"):
+        best = drv_laps.pick_fastest()
+        if best is None or pd.isna(best.get("LapTime")):
+            continue
+        s1 = drv_laps["Sector1Time"].min()
+        s2 = drv_laps["Sector2Time"].min()
+        s3 = drv_laps["Sector3Time"].min()
+        optimal = None
+        if pd.notna(s1) and pd.notna(s2) and pd.notna(s3):
+            optimal = s1 + s2 + s3
+        top_speed = drv_laps["SpeedST"].max()
+        if pd.isna(top_speed):
+            top_speed = drv_laps["SpeedFL"].max()
+        drv_name, team = _code_team(code_, drv_map)
+        rows.append(dict(
+            code=code_, driver=drv_name, team=team,
+            lap_time=_fmt_td(best["LapTime"]),
+            lap_time_s=best["LapTime"].total_seconds(),
+            optimal_time=_fmt_td(optimal),
+            gap_to_optimal=(round((best["LapTime"] - optimal).total_seconds(), 3)
+                            if optimal is not None else None),
+            top_speed=(round(float(top_speed), 1) if pd.notna(top_speed) else None),
+        ))
+    rows.sort(key=lambda r: r["lap_time_s"])
+    for r in rows:
+        del r["lap_time_s"]
+    return rows
+
+
 def analyse_session(year, round_no, code, label, event_name, slug):
     try:
         session = fastf1.get_session(year, round_no, code)
@@ -145,33 +193,27 @@ def analyse_session(year, round_no, code, label, event_name, slug):
         return None
     drv_map = _session_driver_map(session)
 
-    fastest_rows = []
-    for code_, drv_laps in laps.groupby("Driver"):
-        best = drv_laps.pick_fastest()
-        if best is None or pd.isna(best.get("LapTime")):
-            continue
-        s1 = drv_laps["Sector1Time"].min()
-        s2 = drv_laps["Sector2Time"].min()
-        s3 = drv_laps["Sector3Time"].min()
-        optimal = None
-        if pd.notna(s1) and pd.notna(s2) and pd.notna(s3):
-            optimal = s1 + s2 + s3
-        top_speed = drv_laps["SpeedST"].max()
-        if pd.isna(top_speed):
-            top_speed = drv_laps["SpeedFL"].max()
-        drv_name, team = _code_team(code_, drv_map)
-        fastest_rows.append(dict(
-            code=code_, driver=drv_name, team=team,
-            lap_time=_fmt_td(best["LapTime"]),
-            lap_time_s=best["LapTime"].total_seconds(),
-            optimal_time=_fmt_td(optimal),
-            gap_to_optimal=(round((best["LapTime"] - optimal).total_seconds(), 3)
-                            if optimal is not None else None),
-            top_speed=(round(float(top_speed), 1) if pd.notna(top_speed) else None),
-        ))
-    fastest_rows.sort(key=lambda r: r["lap_time_s"])
-    for r in fastest_rows:
-        del r["lap_time_s"]
+    fastest_rows = _fastest_rows_from_laps(laps, drv_map)
+
+    # Qualifying (and sprint-qualifying) sessions run in three knockout
+    # segments with different cars on track each time — a single combined
+    # "fastest lap of the session" table hides who set what in Q1/Q2 before
+    # being knocked out, so build a per-segment leaderboard too.
+    qualifying_segments = None
+    if code in ("Q", "SQ"):
+        try:
+            seg_laps = laps.split_qualifying_sessions()
+        except Exception as e:
+            seg_laps = None
+            print(f"    · {label}: could not split Q1/Q2/Q3 ({e})")
+        if seg_laps:
+            qualifying_segments = {}
+            for seg_name, seg in zip(("Q1", "Q2", "Q3"), seg_laps):
+                seg_rows = _fastest_rows_from_laps(seg, drv_map)
+                if seg_rows:
+                    qualifying_segments[seg_name] = seg_rows
+            if not qualifying_segments:
+                qualifying_segments = None
 
     # Long-run pace: green-flag laps, no in/out laps, grouped by stint.
     long_runs = []
@@ -208,15 +250,73 @@ def analyse_session(year, round_no, code, label, event_name, slug):
         ))
     long_runs.sort(key=lambda r: r["avg_time"])
 
+    # Tyre-set usage: every stint (not just the >=4-lap ones long_runs keeps)
+    # counted separately so downstream pages can tally how many *new* sets of
+    # each compound a driver has mounted across the weekend so far, to work
+    # out how many they have left against the season's starting allocation.
+    tyre_stints = []
+    for (code_, stint), grp in laps.groupby(["Driver", "Stint"]):
+        compound = grp["Compound"].mode()
+        compound = compound.iloc[0] if not compound.empty else "?"
+        if compound not in ("SOFT", "MEDIUM", "HARD"):
+            continue  # skip intermediates/wets/unknown for the slick-set tally
+        fresh = grp["FreshTyre"].mode() if "FreshTyre" in grp else pd.Series([])
+        fresh = bool(fresh.iloc[0]) if not fresh.empty else True
+        tyre_stints.append(dict(
+            code=code_, stint=int(stint), compound=compound,
+            laps=int(len(grp)), fresh=fresh,
+        ))
+
     traces = _make_trace_data(laps, fastest_rows, code)
     narrative = _narrative(fastest_rows, long_runs, event_name, label)
     narrative += _news_context(fastest_rows, long_runs, slug)
 
-    return dict(session=code, label=label, fastest=fastest_rows,
-                long_runs=long_runs, traces=traces, narrative=narrative)
+    result = dict(session=code, label=label, fastest=fastest_rows,
+                  long_runs=long_runs, traces=traces, narrative=narrative)
+    if qualifying_segments:
+        result["qualifying_segments"] = qualifying_segments
+    if tyre_stints:
+        result["tyre_stints"] = tyre_stints
+    return result
 
 
 TRACE_POINTS = 300
+
+
+def _project_onto_reference(ref_xy, ref_dist, comp_xy, window=60):
+    """Map each point of a comparison lap onto the reference lap's distance
+    axis by nearest physical position (X/Y), not by each lap's own
+    independently-integrated "Distance". Two cars' fastest laps rarely
+    trace the exact same line (different apexes/braking points), so lining
+    them up by raw integrated distance lets small per-lap measurement drift
+    compound into multi-second phantom swings right where it matters most —
+    braking zones, where speed (and therefore elapsed time) changes fastest
+    per metre. Matching by nearest point in space is what the lap actually
+    physically did, corner by corner, regardless of how each lap's own
+    speed trace was integrated.
+
+    The search is a *local* nearest-neighbour around the previous match
+    (both laps start their telemetry at distance 0, i.e. the start/finish
+    line) rather than a global search of the whole lap: on a closed circuit
+    the start/finish straight is where distance 0 and the full lap distance
+    are the same physical point, so an unconstrained global search can
+    occasionally (mis)match an early-lap sample to a point near the end of
+    the reference lap (or vice versa) purely because they're geographically
+    close — a local window rules that out."""
+    n_ref = len(ref_dist)
+    mapped = np.empty(len(comp_xy))
+    prev_idx = 0
+    for i in range(len(comp_xy)):
+        lo = max(0, prev_idx - window)
+        hi = min(n_ref, prev_idx + window + 1)
+        d2 = ((ref_xy[lo:hi] - comp_xy[i]) ** 2).sum(axis=1)
+        best = lo + int(d2.argmin())
+        mapped[i] = ref_dist[best]
+        prev_idx = best
+    # A car only ever moves forward along the lap, so enforce a
+    # non-decreasing mapped distance (guards against a nearest-point match
+    # briefly jumping backwards within its search window).
+    return np.maximum.accumulate(mapped)
 
 
 def _make_trace_data(laps, fastest_rows, code):
@@ -233,11 +333,13 @@ def _make_trace_data(laps, fastest_rows, code):
     ref_code = None
     for row in top:
         drv_code = row["code"]
-        drv_laps = laps.pick_driver(drv_code)
+        drv_laps = laps.pick_drivers(drv_code)
         best = drv_laps.pick_fastest()
         try:
-            tel = best.get_telemetry().add_distance()
+            tel = best.get_telemetry().add_distance().dropna(subset=["X", "Y", "Distance", "Speed"])
         except Exception:
+            continue
+        if tel.empty:
             continue
         telemetries[drv_code] = tel
         if ref_code is None:
@@ -245,11 +347,12 @@ def _make_trace_data(laps, fastest_rows, code):
     if not telemetries or ref_code is None or len(telemetries) < 2:
         return None
 
-    import numpy as np
-    max_dist = float(telemetries[ref_code]["Distance"].max())
+    ref_tel = telemetries[ref_code]
+    ref_xy = ref_tel[["X", "Y"]].to_numpy()
+    ref_dist = ref_tel["Distance"].to_numpy()
+    max_dist = float(ref_dist.max())
     grid = np.linspace(0, max_dist, TRACE_POINTS)
-    ref_t = np.interp(grid, telemetries[ref_code]["Distance"].to_numpy(),
-                       telemetries[ref_code]["Time"].dt.total_seconds().to_numpy())
+    ref_t = np.interp(grid, ref_dist, ref_tel["Time"].dt.total_seconds().to_numpy())
 
     seen_teams = {}
     speed_series, delta_series = [], []
@@ -262,15 +365,21 @@ def _make_trace_data(laps, fastest_rows, code):
         seen_teams[row["team"]] = n_seen + 1
         dash = n_seen > 0
         color = _team_color(row["team"])
-        speed_vals = np.interp(grid, tel["Distance"].to_numpy(), tel["Speed"].to_numpy())
+        drv_time = tel["Time"].dt.total_seconds().to_numpy()
+
+        if drv_code == ref_code:
+            mapped_dist = ref_dist
+        else:
+            mapped_dist = _project_onto_reference(ref_xy, ref_dist, tel[["X", "Y"]].to_numpy())
+
+        speed_vals = np.interp(grid, mapped_dist, tel["Speed"].to_numpy())
         speed_series.append(dict(
             code=drv_code, driver=row["driver"], team=row["team"],
             color=color, dash=dash,
             values=[round(float(v), 1) for v in speed_vals],
         ))
-        t_vals = np.interp(grid, tel["Distance"].to_numpy(),
-                            tel["Time"].dt.total_seconds().to_numpy())
-        delta_vals = t_vals - ref_t
+        t_vals = np.interp(grid, mapped_dist, drv_time)
+        delta_vals = _smooth_delta(t_vals - ref_t)
         delta_series.append(dict(
             code=drv_code, driver=row["driver"], team=row["team"],
             color=color, dash=dash,
@@ -282,6 +391,22 @@ def _make_trace_data(laps, fastest_rows, code):
         speed=dict(unit="km/h", series=speed_series),
         delta=dict(unit="s", ref_code=ref_code, series=delta_series),
     )
+
+
+def _smooth_delta(values, window=5):
+    """Light centred moving-average smoothing to take the edge off sample-
+    to-sample noise in the delta trace (interpolation jitter) without hiding
+    genuine, sustained pace swings. The trace's own start and end points (0
+    and the real final gap) are preserved exactly."""
+    n = len(values)
+    if n < window * 2:
+        return values
+    kernel = np.ones(window) / window
+    padded = np.pad(values, (window // 2, window // 2), mode="edge")
+    smoothed = np.convolve(padded, kernel, mode="valid")[:n]
+    smoothed[0] = values[0]
+    smoothed[-1] = values[-1]
+    return smoothed
 
 
 def _narrative(fastest_rows, long_runs, event_name, label):

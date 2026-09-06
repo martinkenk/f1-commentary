@@ -486,6 +486,74 @@ def _pace_table(rows, cols):
             f'<thead><tr>{thead}</tr></thead><tbody>{"".join(body)}</tbody></table></div>')
 
 
+def _parse_laptime(s):
+    """'1:21.786' -> 81.786 seconds (for on-the-fly gap calculations where
+    only the formatted string, not the raw float, was kept)."""
+    if not s:
+        return None
+    try:
+        m, sec = s.split(":")
+        return int(m) * 60 + float(sec)
+    except Exception:
+        return None
+
+
+def render_tyre_availability(ctx, hard=2, medium=3, soft=8):
+    """Per-driver dry-tyre-set usage/remaining table, built from real FastF1
+    stint data (every distinct fresh-tyre stint across every session run so
+    far this weekend, grouped by compound) against the known starting
+    allocation for the event. Purely additive: renders nothing once there is
+    no pace data yet (e.g. before FP1)."""
+    sessions = _load_pace(ctx)
+    if not sessions:
+        return ""
+    driver_info = {}
+    usage = {}
+    for s in sessions:
+        for row in s.get("fastest") or []:
+            code = row.get("code")
+            if code and code not in driver_info:
+                driver_info[code] = (row.get("driver") or code, row.get("team") or "")
+        for t in s.get("tyre_stints") or []:
+            if not t.get("fresh"):
+                continue  # a re-mounted/scrubbed set doesn't consume a new one
+            code = t.get("code")
+            compound = t.get("compound")
+            if not code or compound not in ("HARD", "MEDIUM", "SOFT"):
+                continue
+            usage.setdefault(code, {"HARD": 0, "MEDIUM": 0, "SOFT": 0})
+            usage[code][compound] += 1
+    if not usage:
+        return ""
+    allocation = {"HARD": hard, "MEDIUM": medium, "SOFT": soft}
+    rows = []
+    for code, counts in usage.items():
+        name, team = driver_info.get(code, (code, ""))
+        rows.append((name, team, code, counts))
+    rows.sort(key=lambda r: (r[1], r[0]))
+    body = []
+    for name, team, code, counts in rows:
+        cells = [f"<td>{name} <span class='drv-code'>{code}</span></td>", f"<td>{team}</td>"]
+        for comp in ("HARD", "MEDIUM", "SOFT"):
+            used = counts.get(comp, 0)
+            remaining = max(allocation[comp] - used, 0)
+            cls = " class='num warn'" if remaining <= 1 else " class='num'"
+            cells.append(f"<td{cls}>{used} used / {remaining} left</td>")
+        body.append("<tr>" + "".join(cells) + "</tr>")
+    return f"""
+<h2 class="sec">Tyre sets used &amp; remaining (from real stint data)</h2>
+<div class="callout"><strong>Built from FastF1 lap/stint data</strong> across every session run
+so far this weekend: each distinct fresh-tyre stint (i.e. a new set mounted, not a re-fitted
+scrubbed set) is counted against the confirmed starting allocation of <strong>{hard} hard,
+{medium} medium and {soft} soft</strong> sets per driver. Sets used in a session that hasn't
+happened yet obviously can't be counted, so this table fills in as the weekend progresses.</div>
+<div class="table-wrap"><table class="data compact">
+<thead><tr><th>Driver</th><th>Team</th><th>Hard (C3)</th><th>Medium (C4)</th><th>Soft (C5)</th></tr></thead>
+<tbody>{"".join(body)}</tbody></table></div>
+<p class="src">Source: FastF1 timing/stint data (via <a href="https://docs.fastf1.dev/" target="_blank" rel="noopener">docs.fastf1.dev</a>), aggregated from every session analysed so far.</p>
+"""
+
+
 def render_pace_analysis(ctx):
     sessions = _load_pace(ctx)
     if not sessions:
@@ -540,6 +608,40 @@ def render_pace_analysis(ctx):
                 ("gap_to_optimal", "Time left on table", _gap),
                 ("top_speed", "Speed trap", _speed),
             ]))
+        segments = s.get("qualifying_segments")
+        if segments:
+            pane.append('<h3 class="sec">Q1 / Q2 / Q3 &mdash; who set what, before elimination</h3>')
+            pane.append(
+                '<p class="src">Each knockout segment run separately (17 laps for Q1, then the '
+                'slowest cars drop out before Q2, then Q3), so the combined "fastest lap of the '
+                "session\" table above hides who was quick in a segment they didn't survive. "
+                "Gap is to that segment's own fastest time.</p>")
+            for seg_name, seg_rows in segments.items():
+                if not seg_rows:
+                    continue
+                pole_s = _parse_laptime(seg_rows[0].get("lap_time"))
+                rows = []
+                for r in seg_rows:
+                    r = dict(r)
+                    lap_s = _parse_laptime(r.get("lap_time"))
+                    r["seg_gap"] = (round(lap_s - pole_s, 3)
+                                    if lap_s is not None and pole_s is not None else None)
+                    rows.append(r)
+                n = len(rows)
+                cutoff = {"Q1": 15, "Q2": 10}.get(seg_name)
+                note = (f" &mdash; top {cutoff} advance to {('Q2' if seg_name == 'Q1' else 'Q3')}"
+                        if cutoff and n > cutoff else "")
+                pane.append(
+                    f'<details class="pace-quali-seg"{" open" if seg_name == "Q3" else ""}>'
+                    f'<summary>{seg_name} <span class="src">({n} drivers{note})</span></summary>')
+                pane.append(_pace_table(rows, [
+                    ("driver", "Driver", _driver_cell),
+                    ("team", "Team", None),
+                    ("lap_time", f"{seg_name} time", None),
+                    ("seg_gap", f"Gap to {seg_name} fastest", _gap),
+                    ("top_speed", "Speed trap", _speed),
+                ]))
+                pane.append('</details>')
         charts_needed = False
         traces = s.get("traces") or {}
         for kind, title, ylabel_title in (
@@ -1345,6 +1447,7 @@ table.data.ranked tbody tr:nth-child(3) td.pos{color:#cd8544}
 
 /* Numeric columns align right on a common decimal rail. */
 table.data td.num,table.data th.num{text-align:right;font-variant-numeric:tabular-nums}
+table.data td.num.warn{color:#f59e0b;font-weight:700}
 table.data td.pts{
   text-align:right;font-weight:800;color:#fff;
   font-variant-numeric:tabular-nums;white-space:nowrap;
@@ -1508,6 +1611,14 @@ figure.chart figcaption{color:var(--muted);font-size:13px;margin-top:8px}
 .pace-chip-all{font-weight:700;color:var(--muted)}
 .pace-chip-swatch{width:16px;height:0;border-top:3px solid var(--swatch-color,#999);display:inline-block}
 .pace-chip-swatch.dashed{border-top-style:dashed}
+.pace-quali-seg{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:12px 16px;margin-bottom:12px}
+.pace-quali-seg summary{cursor:pointer;font-weight:700;color:var(--ink);list-style:none}
+.pace-quali-seg summary::-webkit-details-marker{display:none}
+.pace-quali-seg summary::before{content:"\25B8";display:inline-block;margin-right:8px;
+  transition:transform .15s;color:var(--f1-red)}
+.pace-quali-seg[open] summary::before{transform:rotate(90deg)}
+.pace-quali-seg .table-wrap{margin-top:10px}
 .pace-chart-fullscreen .pace-chart-expand{display:none}
 .pace-chart-modal{position:fixed;inset:0;z-index:2100;display:none;align-items:center;justify-content:center;
   background:rgba(0,0,0,.92);padding:32px}
