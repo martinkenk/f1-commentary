@@ -498,12 +498,18 @@ def _parse_laptime(s):
         return None
 
 
-def render_tyre_availability(ctx, hard=2, medium=3, soft=8):
+def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None):
     """Per-driver dry-tyre-set usage/remaining table, built from real FastF1
     stint data (every distinct fresh-tyre stint across every session run so
     far this weekend, grouped by compound) against the known starting
     allocation for the event. Purely additive: renders nothing once there is
-    no pace data yet (e.g. before FP1)."""
+    no pace data yet (e.g. before FP1).
+
+    fp1_substitutes: optional {substitute_code: race_driver_code} map for
+    reserve/rookie drivers who only ran FP1 in another driver's car — their
+    stints are folded into the race driver's tally (it's the same car's
+    tyre allocation) and they're dropped from the table (they aren't racing
+    this weekend, so a standalone row for them is just noise)."""
     sessions = _load_pace(ctx)
     if not sessions:
         return ""
@@ -525,6 +531,13 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8):
             usage[code][compound] += 1
     if not usage:
         return ""
+    for sub_code, main_code in (fp1_substitutes or {}).items():
+        if sub_code not in usage:
+            continue
+        sub_counts = usage.pop(sub_code)
+        usage.setdefault(main_code, {"HARD": 0, "MEDIUM": 0, "SOFT": 0})
+        for comp, n in sub_counts.items():
+            usage[main_code][comp] += n
     allocation = {"HARD": hard, "MEDIUM": medium, "SOFT": soft}
     rows = []
     for code, counts in usage.items():
@@ -1639,10 +1652,10 @@ figure.chart figcaption{color:var(--muted);font-size:13px;margin-top:8px}
 table.tyre-avail th,table.tyre-avail td.tyre-cell{text-align:center;vertical-align:middle}
 td.tyre-cell{padding-top:8px;padding-bottom:8px}
 .tyre-badge{display:inline-block;min-width:52px;padding:3px 10px;border-radius:999px;
-  font-weight:700;font-size:13px;line-height:1.4}
-.tyre-badge.tyre-ok{background:rgba(34,197,94,.16);color:#22c55e;border:1px solid rgba(34,197,94,.4)}
-.tyre-badge.tyre-low{background:rgba(245,158,11,.16);color:#f59e0b;border:1px solid rgba(245,158,11,.4)}
-.tyre-badge.tyre-out{background:rgba(239,68,68,.16);color:#ef4444;border:1px solid rgba(239,68,68,.4)}
+  font-weight:800;font-size:13px;line-height:1.4;color:#fff}
+.tyre-badge.tyre-ok{background:#16a34a}
+.tyre-badge.tyre-low{background:#d97706}
+.tyre-badge.tyre-out{background:#dc2626}
 .tyre-used-note{display:block;color:var(--muted);font-size:11px;font-weight:400;margin-top:3px}
 .tyre-legend{display:inline-flex;gap:6px;margin-left:8px;vertical-align:middle}
 .tyre-legend .tyre-badge{min-width:0;padding:2px 8px;font-size:11px}

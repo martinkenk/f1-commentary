@@ -209,7 +209,12 @@ starting/&ge;29.0 psi stabilised (same camber limits as intermediates).
 Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_competition_notes_-_pirelli_preview.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Competition Notes: Pirelli Preview</a>
 (Document 3, issued 2 Sep 2026) via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
-{render_tyre_availability(ctx, hard=2, medium=3, soft=8)}""")
+{render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes={
+    "BRO": "ALB",  # Browning replaces Albon in FP1
+    "ARO": "GAS",  # Aron replaces Gasly in FP1
+    "HER": "PER",  # Herta replaces Perez in FP1
+    "IWA": "VER",  # Iwasa replaces Verstappen in FP1
+})}""")
 
     pages["penalties"] = dict(
         kicker="Stewards · technical",
