@@ -196,5 +196,60 @@
     "outcome": "Required to start the Race from the pit lane.",
     "kind": "note",
     "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_30_-_changes_made_under_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 60",
+    "no": "11",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver failed to follow the Race Directors Instruction for the Pit Exit",
+    "outcome": "Driver: Reprimand (Driving).",
+    "kind": "reprimand",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_11_-_failure_to_follow_race_directors_instruction_-_pit_exit.pdf"
+  },
+  {
+    "doc": "Doc 61",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver failed to follow the Race Directors Instruction – Practice Start",
+    "outcome": "Driver: Reprimand (Driving).",
+    "kind": "reprimand",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_43_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+  },
+  {
+    "doc": "Doc 63",
+    "no": "30",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 30 was defending against car 27 on the approach to turn 4 and caused car 27 to",
+    "outcome": "No further action.",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_decision_-_car_30_-_turn_4_incident_with_car_27.pdf"
+  },
+  {
+    "doc": "Doc 64",
+    "no": "11",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver failed to follow the Race Director’s Competition Notes at Turns 1 and 2.",
+    "outcome": "5 second time penalty.",
+    "kind": "penalty",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_11_-_failure_to_follow_race_directors_instruction_-_turns_1_and_2.pdf"
+  },
+  {
+    "doc": "Doc 65",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Allegedly the driver failed to slow for a single yellow flag at Turns 1 and 2.",
+    "outcome": "No further action.",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_decision_-_car_63_-_alleged_failure_to_slow_for_yellow_flags.pdf"
   }
 ]
