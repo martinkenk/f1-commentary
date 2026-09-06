@@ -1512,6 +1512,15 @@ table.data th.sortable-th.sort-desc .sort-arrow::after{content:"\2193"}
   border-radius:10px;padding:6px 12px;margin-bottom:10px;max-width:320px;color:var(--muted)}
 .table-filter input{flex:1;background:transparent;border:0;color:var(--ink);font-size:13px;outline:none}
 .table-filter input::placeholder{color:var(--muted)}
+.driver-chip-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:8px}
+.driver-chip-label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.5px;margin-right:2px}
+.driver-chip{background:var(--panel2);border:1px solid var(--line);color:var(--ink);
+  font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;
+  transition:background .12s,border-color .12s,color .12s}
+.driver-chip:hover{border-color:var(--f1-red)}
+.driver-chip.active{background:var(--f1-red);border-color:var(--f1-red);color:#fff}
+.driver-chip-clear{color:var(--muted);font-weight:600}
+.driver-chip-clear:hover{color:#fff;border-color:var(--muted)}
 table.data thead th{
   background:var(--panel2);color:#fff;font-size:13px;text-transform:uppercase;
   letter-spacing:.5px;

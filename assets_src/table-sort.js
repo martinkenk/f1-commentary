@@ -3,9 +3,13 @@
  * Applies to every <table class="data"> on the page (results, standings,
  * pace-analysis, tyre-availability, penalties, etc.) without any per-page
  * wiring: clicking a <th> sorts the table by that column (toggling
- * ascending/descending), and a small filter box is injected above tables
- * that opt in via class="data filterable" to do a live text search across
- * every row.
+ * ascending/descending). Tables that opt in via class="data filterable"
+ * additionally get: (1) a live text-search box, and (2) if every row
+ * identifies its driver via a ".drv-code" span in the first cell, a row of
+ * clickable driver "chips" — click one or more to show only those drivers
+ * (e.g. click VER, NOR and LEC to compare just those three), click a
+ * selected chip again to remove it, or "Clear" to reset. The two filters
+ * combine (AND) with each other.
  *
  * Sort comparison: numeric-aware — cells are compared as numbers when the
  * visible text (with the most common decorations stripped: units, "+"
@@ -103,6 +107,23 @@
     });
   }
 
+  // Rows can be hidden for more than one reason at once (text search AND
+  // driver-chip selection). Each wired predicate is stored on the table and
+  // a row is shown only when every predicate currently accepts it.
+  function applyRowFilters(table) {
+    var rows = table.tBodies[0] ? table.tBodies[0].rows : [];
+    var predicates = table._rowFilterPredicates || [];
+    Array.prototype.forEach.call(rows, function (row) {
+      var visible = predicates.every(function (p) { return p(row); });
+      row.style.display = visible ? "" : "none";
+    });
+  }
+
+  function addRowFilterPredicate(table, predicate) {
+    if (!table._rowFilterPredicates) table._rowFilterPredicates = [];
+    table._rowFilterPredicates.push(predicate);
+  }
+
   function wireFilter(table) {
     if (table.dataset.filterWired) return;
     table.dataset.filterWired = "1";
@@ -112,13 +133,89 @@
     box.innerHTML = '<i class="bi bi-search"></i><input type="search" placeholder="Filter rows\u2026" aria-label="Filter table rows">';
     wrap.parentNode.insertBefore(box, wrap);
     var input = box.querySelector("input");
+    var query = "";
+    addRowFilterPredicate(table, function (row) {
+      return query === "" || row.textContent.toLowerCase().indexOf(query) !== -1;
+    });
     input.addEventListener("input", function () {
-      var q = input.value.trim().toLowerCase();
-      var rows = table.tBodies[0] ? table.tBodies[0].rows : [];
-      Array.prototype.forEach.call(rows, function (row) {
-        var text = row.textContent.toLowerCase();
-        row.style.display = q === "" || text.indexOf(q) !== -1 ? "" : "none";
+      query = input.value.trim().toLowerCase();
+      applyRowFilters(table);
+    });
+  }
+
+  // Per-driver "chip" picker: click one or more driver chips to show only
+  // those drivers' rows (click a selected chip again to deselect it; with
+  // nothing selected every row shows, same as before). Only wired for
+  // tables where every body row identifies its driver via a ".drv-code"
+  // span somewhere in the row (results, standings, tyre/pace tables, etc. —
+  // the code's column position varies per table, e.g. standings has a
+  // leading position-number column, so this isn't assumed to be cell 0).
+  function rowDriverCode(row) {
+    var span = row.querySelector(".drv-code");
+    return span ? span.textContent.trim() : "";
+  }
+
+  function driverCodesForTable(table) {
+    var rows = table.tBodies[0] ? table.tBodies[0].rows : [];
+    var codes = [];
+    var seen = {};
+    for (var i = 0; i < rows.length; i++) {
+      var code = rowDriverCode(rows[i]);
+      if (!code) return null; // needs a code on every row to be reliable
+      if (seen[code]) continue;
+      seen[code] = true;
+      codes.push(code);
+    }
+    return codes.length > 1 ? codes : null;
+  }
+
+  function wireDriverFilter(table) {
+    if (table.dataset.driverFilterWired) return;
+    var codes = driverCodesForTable(table);
+    if (!codes) return;
+    table.dataset.driverFilterWired = "1";
+    var wrap = table.closest(".table-wrap") || table.parentElement;
+    var bar = document.createElement("div");
+    bar.className = "driver-chip-bar";
+    var label = document.createElement("span");
+    label.className = "driver-chip-label";
+    label.textContent = "Drivers:";
+    bar.appendChild(label);
+    var selected = {};
+    var chips = {};
+    function refresh() {
+      Object.keys(chips).forEach(function (code) {
+        chips[code].classList.toggle("active", !!selected[code]);
       });
+    }
+    codes.forEach(function (code) {
+      var chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "driver-chip";
+      chip.textContent = code;
+      chip.addEventListener("click", function () {
+        if (selected[code]) delete selected[code];
+        else selected[code] = true;
+        refresh();
+        applyRowFilters(table);
+      });
+      chips[code] = chip;
+      bar.appendChild(chip);
+    });
+    var clearBtn = document.createElement("button");
+    clearBtn.type = "button";
+    clearBtn.className = "driver-chip driver-chip-clear";
+    clearBtn.textContent = "Clear";
+    clearBtn.addEventListener("click", function () {
+      selected = {};
+      refresh();
+      applyRowFilters(table);
+    });
+    bar.appendChild(clearBtn);
+    wrap.parentNode.insertBefore(bar, wrap);
+    addRowFilterPredicate(table, function (row) {
+      if (Object.keys(selected).length === 0) return true;
+      return !!selected[rowDriverCode(row)];
     });
   }
 
@@ -131,7 +228,11 @@
       // body rows for sorting/filtering to be useful.
       if (table.tBodies[0].rows.length < 2) return;
       wireSort(table);
-      if (table.classList.contains("filterable")) wireFilter(table);
+      if (table.classList.contains("filterable")) {
+        wireDriverFilter(table);
+        wireFilter(table);
+        applyRowFilters(table);
+      }
     });
   }
 
