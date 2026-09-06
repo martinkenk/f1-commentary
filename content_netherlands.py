@@ -229,14 +229,14 @@ def build_pages(ctx, env):
     <div class="standings-grid">
       <div>
         <h2 class="sec">Drivers</h2>
-        <div class="table-wrap"><table class="data ranked">
+        <div class="table-wrap"><table class="data ranked filterable">
           <thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th class="num">Pts</th></tr></thead>
           <tbody>{st['drivers']}</tbody>
         </table></div>
       </div>
       <div>
         <h2 class="sec">Constructors</h2>
-        <div class="table-wrap"><table class="data ranked">
+        <div class="table-wrap"><table class="data ranked filterable">
           <thead><tr><th>Pos</th><th>Team</th><th class="num">Pts</th></tr></thead>
           <tbody>{st.get('ctors', '')}</tbody>
         </table></div>

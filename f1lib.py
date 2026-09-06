@@ -401,7 +401,7 @@ def _result_table(block):
         body.append("<tr>" + "".join(cells) + "</tr>")
     # Results are position-ordered, so the top three earn medal colours.
     ranked = " ranked" if headers and headers[0].lower().startswith(("pos", "grid")) else ""
-    return f"""<div class="table-wrap"><table class="data{ranked}">
+    return f"""<div class="table-wrap"><table class="data{ranked} filterable">
   <thead><tr>{thead}</tr></thead>
   <tbody>{''.join(body)}</tbody>
 </table></div>"""
@@ -482,7 +482,7 @@ def _pace_table(rows, cols):
                 val = fmt(val, r)
             cells.append(f"<td>{val if val is not None else '—'}</td>")
         body.append("<tr>" + "".join(cells) + "</tr>")
-    return (f'<div class="table-wrap"><table class="data compact">'
+    return (f'<div class="table-wrap"><table class="data compact filterable">'
             f'<thead><tr>{thead}</tr></thead><tbody>{"".join(body)}</tbody></table></div>')
 
 
@@ -498,15 +498,25 @@ def _parse_laptime(s):
         return None
 
 
-def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None):
-    """Per-driver dry-tyre-set usage/remaining table, built from real FastF1
-    stint data (every distinct fresh-tyre stint across every session run so
-    far this weekend, grouped by compound) against the known starting
-    allocation for the event. Purely additive: renders nothing once there is
-    no pace data yet (e.g. before FP1).
+def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None, official=None):
+    """Per-driver dry-tyre-set availability table.
+
+    official: optional {code: (soft_new, soft_used, medium_new, medium_used,
+    hard_new, hard_used)} sourced from the FIA/team-published "Tyres
+    Available for Race" breakdown. When given, this authoritative data is
+    rendered directly instead of being estimated. (Verified against a real
+    published graphic: the FastF1-derived estimate below systematically
+    overstates usage, because it treats the first stint of every session as
+    a newly-mounted set — FastF1's FreshTyre flag can't see a tyre's history
+    from an earlier session, so a set carried over unused from FP2 into FP3
+    looks "fresh" again and gets double-counted. Prefer official data
+    whenever it's available; the estimate is a same-shape fallback for
+    events/weekends where it isn't.)
 
     fp1_substitutes: optional {substitute_code: race_driver_code} map for
-    reserve/rookie drivers who only ran FP1 in another driver's car — their
+    reserve/rookie drivers who only ran FP1 in another driver's car — only
+    used by the FastF1-estimate path (the official data is already
+    published per race-entrant, so no merging is needed there). Their
     stints are folded into the race driver's tally (it's the same car's
     tyre allocation) and they're dropped from the table (they aren't racing
     this weekend, so a standalone row for them is just noise)."""
@@ -514,12 +524,54 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
     if not sessions:
         return ""
     driver_info = {}
-    usage = {}
     for s in sessions:
         for row in s.get("fastest") or []:
             code = row.get("code")
             if code and code not in driver_info:
                 driver_info[code] = (row.get("driver") or code, row.get("team") or "")
+
+    def _level(total):
+        if total <= 0:
+            return "tyre-out"
+        if total == 1:
+            return "tyre-low"
+        return "tyre-ok"
+
+    if official:
+        rows = []
+        for code, vals in official.items():
+            name, team = driver_info.get(code, (code, ""))
+            rows.append((name, team, code, vals))
+        rows.sort(key=lambda r: (r[1], r[0]))
+        body = []
+        for name, team, code, (sn, su, mn, mu, hn, hu) in rows:
+            cells = [f"<td>{name} <span class='drv-code'>{code}</span></td>", f"<td>{team}</td>"]
+            for new, used, total_sort in ((hn, hu, hn + hu), (mn, mu, mn + mu), (sn, su, sn + su)):
+                total = new + used
+                note = f"{new} new + {used} scrubbed" if used else f"{new} new"
+                cells.append(
+                    f"<td class='tyre-cell' data-sort='{total}'><span class='tyre-badge {_level(total)}'>{total} left</span>"
+                    f"<span class='tyre-used-note'>{note}</span></td>"
+                )
+            body.append("<tr>" + "".join(cells) + "</tr>")
+        return f"""
+<h2 class="sec">Tyre sets available for the race (official)</h2>
+<div class="callout"><strong>Official per-driver tyre-set availability</strong> for the race, as
+published ahead of the event: how many sets of each compound each driver has left after the
+mandatory hand-backs following practice and qualifying, split into brand-new and
+already-scrubbed-but-unused sets (a scrubbed set still counts as available, it just isn't a
+fresh one).
+<span class="tyre-legend"><span class="tyre-badge tyre-ok">2+ left</span>
+<span class="tyre-badge tyre-low">1 left</span><span class="tyre-badge tyre-out">0 left</span></span></div>
+<div class="table-wrap"><table class="data compact tyre-avail filterable">
+<thead><tr><th>Driver</th><th>Team</th><th>Hard (C3)</th><th>Medium (C4)</th><th>Soft (C5)</th></tr></thead>
+<tbody>{"".join(body)}</tbody></table></div>
+<p class="src">Source: Official 2026 Italian Grand Prix "Tyres Available for Race" allocation data, published ahead of the race.</p>
+"""
+
+    driver_info2 = driver_info
+    usage = {}
+    for s in sessions:
         for t in s.get("tyre_stints") or []:
             if not t.get("fresh"):
                 continue  # a re-mounted/scrubbed set doesn't consume a new one
@@ -541,7 +593,7 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
     allocation = {"HARD": hard, "MEDIUM": medium, "SOFT": soft}
     rows = []
     for code, counts in usage.items():
-        name, team = driver_info.get(code, (code, ""))
+        name, team = driver_info2.get(code, (code, ""))
         rows.append((name, team, code, counts))
     rows.sort(key=lambda r: (r[1], r[0]))
     body = []
@@ -550,29 +602,21 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
         for comp in ("HARD", "MEDIUM", "SOFT"):
             used = counts.get(comp, 0)
             remaining = max(allocation[comp] - used, 0)
-            # Green = plenty left, amber = one left, red = none left (so a
-            # driver low on a compound stands out at a glance).
-            if remaining == 0:
-                level = "tyre-out"
-            elif remaining == 1:
-                level = "tyre-low"
-            else:
-                level = "tyre-ok"
             cells.append(
-                f"<td class='tyre-cell'><span class='tyre-badge {level}'>{remaining} left</span>"
+                f"<td class='tyre-cell' data-sort='{remaining}'><span class='tyre-badge {_level(remaining)}'>{remaining} left</span>"
                 f"<span class='tyre-used-note'>{used} used</span></td>"
             )
         body.append("<tr>" + "".join(cells) + "</tr>")
     return f"""
-<h2 class="sec">Tyre sets used &amp; remaining (from real stint data)</h2>
-<div class="callout"><strong>Built from FastF1 lap/stint data</strong> across every session run
-so far this weekend: each distinct fresh-tyre stint (i.e. a new set mounted, not a re-fitted
-scrubbed set) is counted against the confirmed starting allocation of <strong>{hard} hard,
-{medium} medium and {soft} soft</strong> sets per driver. Sets used in a session that hasn't
-happened yet obviously can't be counted, so this table fills in as the weekend progresses.
+<h2 class="sec">Tyre sets used &amp; remaining (estimated from FastF1 stint data)</h2>
+<div class="callout"><strong>Estimated from FastF1 lap/stint data</strong> across every session run
+so far this weekend (no official allocation data published yet): each distinct fresh-tyre stint
+is counted against the confirmed starting allocation of <strong>{hard} hard, {medium} medium and
+{soft} soft</strong> sets per driver. This can overstate usage slightly for sets carried over
+unused between sessions.
 <span class="tyre-legend"><span class="tyre-badge tyre-ok">2+ left</span>
 <span class="tyre-badge tyre-low">1 left</span><span class="tyre-badge tyre-out">0 left</span></span></div>
-<div class="table-wrap"><table class="data compact tyre-avail">
+<div class="table-wrap"><table class="data compact tyre-avail filterable">
 <thead><tr><th>Driver</th><th>Team</th><th>Hard (C3)</th><th>Medium (C4)</th><th>Soft (C5)</th></tr></thead>
 <tbody>{"".join(body)}</tbody></table></div>
 <p class="src">Source: FastF1 timing/stint data (via <a href="https://docs.fastf1.dev/" target="_blank" rel="noopener">docs.fastf1.dev</a>), aggregated from every session analysed so far.</p>
@@ -1202,6 +1246,7 @@ def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{base}assets/table-sort.js" defer></script>
 <script>
 function zoomImg(el){{
   var lb=document.getElementById('lightbox');
@@ -1336,6 +1381,7 @@ def render_index(gps):
   </main>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/table-sort.js" defer></script>
 </body></html>"""
 
 
@@ -1442,6 +1488,19 @@ a:hover{color:#ffb3b0}
 .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-bottom:18px;background:var(--panel)}
 table.data{width:100%;border-collapse:collapse;min-width:420px}
 table.data th,table.data td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+table.data th.sortable-th{cursor:pointer;user-select:none;white-space:nowrap;position:relative;
+  transition:color .15s}
+table.data th.sortable-th:hover{color:#fff}
+table.data th.sortable-th .sort-arrow{display:inline-block;width:10px;margin-left:4px;opacity:.35;font-size:10px}
+table.data th.sortable-th .sort-arrow::after{content:"\2195"}
+table.data th.sortable-th.sort-asc .sort-arrow,table.data th.sortable-th.sort-desc .sort-arrow{
+  opacity:1;color:var(--f1-red)}
+table.data th.sortable-th.sort-asc .sort-arrow::after{content:"\2191"}
+table.data th.sortable-th.sort-desc .sort-arrow::after{content:"\2193"}
+.table-filter{display:flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:10px;padding:6px 12px;margin-bottom:10px;max-width:320px;color:var(--muted)}
+.table-filter input{flex:1;background:transparent;border:0;color:var(--ink);font-size:13px;outline:none}
+.table-filter input::placeholder{color:var(--muted)}
 table.data thead th{
   background:var(--panel2);color:#fff;font-size:13px;text-transform:uppercase;
   letter-spacing:.5px;

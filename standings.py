@@ -114,7 +114,7 @@ def driver_rows():
             f'      <tr{_rail(team)}><td class="pos">{pos}</td>'
             f'<td class="drv">{name} <span class="drv-code">{code}</span></td>'
             f'<td class="team">{team}</td>'
-            f'<td class="pts">{pts}{gap}</td></tr>')
+            f'<td class="pts" data-sort="{pts}">{pts}{gap}</td></tr>')
     return "\n".join(out)
 
 
@@ -129,7 +129,7 @@ def ctor_rows():
         out.append(
             f'      <tr{_rail(team)}><td class="pos">{pos}</td>'
             f'<td class="drv">{team}</td>'
-            f'<td class="pts">{pts}{gap}</td></tr>')
+            f'<td class="pts" data-sort="{pts}">{pts}{gap}</td></tr>')
     return "\n".join(out)
 
 
