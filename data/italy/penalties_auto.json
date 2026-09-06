@@ -163,5 +163,16 @@
     "outcome": "Drop of 3 grid positions for the next Race in which the driver participates.",
     "kind": "penalty",
     "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_81_-_impeding_of_car_30.pdf"
+  },
+  {
+    "doc": "Doc 55",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver failed to follow the Race Directors Instructions at Turns 4 and 5",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_23_-_failure_to_follow_race_directors_instructions_.pdf"
   }
 ]
