@@ -537,8 +537,18 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8):
         for comp in ("HARD", "MEDIUM", "SOFT"):
             used = counts.get(comp, 0)
             remaining = max(allocation[comp] - used, 0)
-            cls = " class='num warn'" if remaining <= 1 else " class='num'"
-            cells.append(f"<td{cls}>{used} used / {remaining} left</td>")
+            # Green = plenty left, amber = one left, red = none left (so a
+            # driver low on a compound stands out at a glance).
+            if remaining == 0:
+                level = "tyre-out"
+            elif remaining == 1:
+                level = "tyre-low"
+            else:
+                level = "tyre-ok"
+            cells.append(
+                f"<td class='tyre-cell'><span class='tyre-badge {level}'>{remaining} left</span>"
+                f"<span class='tyre-used-note'>{used} used</span></td>"
+            )
         body.append("<tr>" + "".join(cells) + "</tr>")
     return f"""
 <h2 class="sec">Tyre sets used &amp; remaining (from real stint data)</h2>
@@ -546,8 +556,10 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8):
 so far this weekend: each distinct fresh-tyre stint (i.e. a new set mounted, not a re-fitted
 scrubbed set) is counted against the confirmed starting allocation of <strong>{hard} hard,
 {medium} medium and {soft} soft</strong> sets per driver. Sets used in a session that hasn't
-happened yet obviously can't be counted, so this table fills in as the weekend progresses.</div>
-<div class="table-wrap"><table class="data compact">
+happened yet obviously can't be counted, so this table fills in as the weekend progresses.
+<span class="tyre-legend"><span class="tyre-badge tyre-ok">2+ left</span>
+<span class="tyre-badge tyre-low">1 left</span><span class="tyre-badge tyre-out">0 left</span></span></div>
+<div class="table-wrap"><table class="data compact tyre-avail">
 <thead><tr><th>Driver</th><th>Team</th><th>Hard (C3)</th><th>Medium (C4)</th><th>Soft (C5)</th></tr></thead>
 <tbody>{"".join(body)}</tbody></table></div>
 <p class="src">Source: FastF1 timing/stint data (via <a href="https://docs.fastf1.dev/" target="_blank" rel="noopener">docs.fastf1.dev</a>), aggregated from every session analysed so far.</p>
@@ -1619,6 +1631,21 @@ figure.chart figcaption{color:var(--muted);font-size:13px;margin-top:8px}
   transition:transform .15s;color:var(--f1-red)}
 .pace-quali-seg[open] summary::before{transform:rotate(90deg)}
 .pace-quali-seg .table-wrap{margin-top:10px}
+
+/* Tyre-set availability table: header/data columns both centered so the
+   short numeric-badge headers line up with the badges below them instead
+   of drifting apart (headers left-aligned by default vs. right-aligned
+   numeric data was the original mismatch). */
+table.tyre-avail th,table.tyre-avail td.tyre-cell{text-align:center;vertical-align:middle}
+td.tyre-cell{padding-top:8px;padding-bottom:8px}
+.tyre-badge{display:inline-block;min-width:52px;padding:3px 10px;border-radius:999px;
+  font-weight:700;font-size:13px;line-height:1.4}
+.tyre-badge.tyre-ok{background:rgba(34,197,94,.16);color:#22c55e;border:1px solid rgba(34,197,94,.4)}
+.tyre-badge.tyre-low{background:rgba(245,158,11,.16);color:#f59e0b;border:1px solid rgba(245,158,11,.4)}
+.tyre-badge.tyre-out{background:rgba(239,68,68,.16);color:#ef4444;border:1px solid rgba(239,68,68,.4)}
+.tyre-used-note{display:block;color:var(--muted);font-size:11px;font-weight:400;margin-top:3px}
+.tyre-legend{display:inline-flex;gap:6px;margin-left:8px;vertical-align:middle}
+.tyre-legend .tyre-badge{min-width:0;padding:2px 8px;font-size:11px}
 .pace-chart-fullscreen .pace-chart-expand{display:none}
 .pace-chart-modal{position:fixed;inset:0;z-index:2100;display:none;align-items:center;justify-content:center;
   background:rgba(0,0,0,.92);padding:32px}
