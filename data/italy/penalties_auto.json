@@ -174,5 +174,27 @@
     "outcome": "Driver: Warning.",
     "kind": "warning",
     "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_23_-_failure_to_follow_race_directors_instructions_.pdf"
+  },
+  {
+    "doc": "Doc 56",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Required to start the Race from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_14_-_pu_elements_changed_during_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 57",
+    "no": "30",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The rear wing assembly has been changed while under parc fermé without the",
+    "outcome": "Required to start the Race from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_italian_grand_prix_-_infringement_-_car_30_-_changes_made_under_parc_ferme.pdf"
   }
 ]
