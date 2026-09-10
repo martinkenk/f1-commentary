@@ -1,758 +1,567 @@
-# SKILL — F1 Commentary Hub generator
+---
+name: f1-commentary-coverage
+description: Refresh, audit, repair and publish evidence-backed Grand Prix commentary coverage, including FIA PDFs, screenshots, Pirelli artwork, standings and historical feature parity.
+---
 
-Build a good-looking, static, **multi-Grand-Prix commentary-prep site**. One hub
-landing page plus, for every GP, a 17-item left sidebar leading to 17 subpages:
-weekend overview, **weekend news + session reports**, circuit guide (with the
-official zoomable circuit map), live **session results**, tyres + **stint/strategy
-predictor**, rookies/line-ups, standings + **championship permutations**,
-**team-mate head-to-head**, team watch, upgrades, power unit, **penalties &
-stewards**, **reliability & pit stops**, facts + **this-track driver history**,
-historic moments, schedule + **live weather**, and a commentator's cheat sheet.
-Content is collated from Formula1.com, The Race, and the FIA event documents.
+# F1 Commentary Hub: periodic coverage editor
 
-**This file is a runbook.** Follow it before *or during* any GP weekend and you get
-the same result. The generator is **safe to re-run at any point** — it refreshes
-weather, pulls in whatever session results Formula1.com has published so far, and
-regenerates every page from the current content modules. Run it Thursday for the
-preview, again after FP1/qualifying/the race, and each time the site fills in with
-the latest data.
+This is the portable operating runbook for this repository. Read it on every
+scheduled run, then **do the work**, not merely summarize what ought to change.
+Use the current UTC date and the checked-out calendar, never a date remembered
+from an earlier conversation. Last comprehensive Italy/Spain audit: **10 September
+2026**. The examples in section 10 are dated evidence, not defaults for other GPs.
+
+The output is a useful, sourced on-air briefing, not just 17 nonempty HTML files.
+A linked document does not mean its contents have been covered. An automatic
+screenshot does not mean the numerical transcription is correct.
+
+## 1. External-agent contract and scheduling
+
+Run from a checkout of `martinkenk/f1-commentary`; no particular username,
+operating system, absolute path, model provider or agent product is required.
+Python 3.12 is the CI reference. The build itself uses the standard library.
+Optional collection dependencies are listed in section 3.
+
+An external scheduler can invoke its chosen agent with this prompt:
+
+> Read and execute the repository's SKILL.md. Select all active GP coverage and
+> the recent post-race follow-up using today's UTC date. Refresh available
+> sources, inspect all 17 rendered surfaces and their subfeatures, compare with
+> earlier bespoke GPs, fix missing-but-published and stale material, and preserve
+> explicit pending/conflicting/inapplicable states. Complete the source, image
+> and deployment checks in the skill. Do not stop because a coverage PR exists.
+> Report the GPs audited, changes made, source failures, remaining pending
+> material, and whether the changes are merely proposed or actually live.
+> Publication policy: REVIEW (open/update a scoped PR; do not merge).
+
+Set that last policy to **PUBLISH** only when the repository owner explicitly
+authorizes that external agent to commit/push approved work or merge its own
+reviewed coverage PR. In PUBLISH mode follow section 9 through live verification.
+Do not invent command-line flags for an unspecified agent provider. The scheduler
+supplies the prompt, checkout, credentials and a **single-run lock**. Schedule
+jobs after session finishes as well as before the weekend; use the UTC cadences
+below as defaults. GitHub schedules are best-effort, not exact-time guarantees.
+
+Before modifying anything, inspect `git status`, the current branch, recent
+commits, open coverage PRs and the latest deployment/audit runs. Preserve others'
+edits. Use a dedicated clean checkout/worktree for unattended work; do not reset,
+stash away or overwrite somebody else's work. Fetch latest main before starting.
+Never run two writers against the same data/asset checkout.
+
+**Scope:** `enrich.active_gps()` uses UTC and selects every live weekend, the next
+GP once its first session is within 10 days, and the most recently completed GP.
+The latter remains selected even during a long break. Audit its post-race claims
+especially in the first seven days. Use explicit `--gp` for an older correction;
+do not run all-season article enrichment by default. Inventory **all** registered
+rounds periodically, but do not attach today's generic news to distant events.
+
+**Existing automation, already enabled on main:**
+
+| Workflow | UTC schedule | Publication behavior |
+|---|---|---|
+| `deploy.yml` | Thu-Mon 06:00-20:00 every 2h; Tue/Wed 08:00 and 16:00; main pushes; manual dispatch | Collects data/assets, commits them, builds and publishes directly |
+| `critical-race-coverage.md` / `.lock.yml` | Sun/Mon/Thu/Fri/Sat 05:23, 11:23, 17:23, 21:23; Tue/Wed 08:23, 17:23; manual dispatch | Researches and fixes editorial coverage in draft PRs; review/merge still required |
+
+**An open PR must never suppress an audit.** Choose the event before matching a
+PR. An Italy PR cannot block Spain. Inspect its branch, diff, body and sources.
+For a matching same-repository PR, preserve its edits and add new scoped changes.
+The built-in workflow's safe-output patch generator uses
+`origin/<PR-head>..<local-tip>`: **do not merge main onto the PR head**. That would
+send unrelated engine/workflow commits through the content allowlist and fail.
+Audit/test a temporary integration worktree combining latest main and the PR;
+transfer only the newly needed allowed edits back to the PR head, then use
+`push_to_pull_request_branch` and `update_pull_request`. Report conflicts.
+Only emit a no-op after a real audit, and distinguish pending review from live.
+
+## 2. Architecture and inventory
+
+`build.py` reads `data/calendar_2026.json`, uses chronological rounds from
+`FIRST_ROUND`, creates contexts and calls `f1lib.build_all`. Currently there are
+**14 GPs / 238 subpages**, plus the season index. `BESPOKE` registers Belgium,
+Hungary, Netherlands, Italy and Spain; other rounds inherit `content_generic.py`.
+New calendar rounds need no hand-written module unless their prose outgrows the
+generic content. `circuits.py` supplies venue coordinates, character and history.
+
+| File/surface | Responsibility |
+|---|---|
+| `calendar.py` | F1 calendar, local session times, race/result IDs, statistics, official maps |
+| `standings.py` | Atomic official driver **and** constructor snapshot; derived gaps and freshness |
+| `enrich.py`, `backfill_meta.py` | Complete FIA discovery, decision/article extraction, retries and news metadata |
+| `fia_media.py` | Source-faithful PDF screenshot download/render/cache; no invented interpretation |
+| `fastf1_analysis.py`, `assets_src/pace-chart.js` | Optional lap/long-run/telemetry analysis and interactive charts |
+| `f1lib.py` | Shared HTML/CSS, source galleries, results, weather, news/H2H/reliability/penalties |
+| `content_<gp>.py` | Reviewed event-specific stories, tables, decisions, strategy and context |
+| `coverage_inventory.py` | Offline JSON inventory of data/assets, missing pages, broken local images and source status |
+| `versioning.py` | Material-change history, shared assets, version picker |
+| `assets_src/` | Committed source assets, copied to `site/assets/` |
+| `site/`, `public/` | Generated build/history output; never hand-edit or commit on main |
+
+Run `python3 coverage_inventory.py --all --check` **after building**. The report
+lists each module, available JSON shapes/counts, event assets, discovery errors,
+PDFs without automatic screenshots and broken image references. `--check` fails
+for missing pages/broken local images, **not** for legitimately pending sources.
+An uncached PDF can have a manual figure; verify it before adding duplicates.
+The inventory cannot certify factual/editorial completeness.
+
+Earlier reference modules are feature examples, not current fact sources:
+Hungary has especially rich strategy, season H2H, track-history and context;
+Belgium has completed-event/results/reliability patterns; Netherlands has sprint,
+replacement-lineup and heat-hazard examples. Italy has detailed FIA PU usage,
+tyre-set inventory, upgrade submissions and FastF1 analysis. Spain is a **new
+Madrid venue**, not Barcelona: inherited Spanish GP history is not Madrid history.
+Do not downgrade a new bespoke module to generic placeholders where these
+features are applicable and published.
+
+The 10 September offline inventory found the following committed source coverage
+(counts are records, **not** independent verified facts; regenerate the inventory
+instead of treating these numbers as a future completeness target):
+
+| GP | News cards | Penalty records | FIA listing / automatic images |
+|---|---:|---:|---|
+| Belgium | 21 | 24 | Older curated sources/assets; no new-style discovery manifest |
+| Hungary | 120 | 15 | Older curated sources/assets; no new-style discovery manifest |
+| Netherlands | 213 | 25 | Older curated sources/assets; no new-style discovery manifest |
+| Italy | 204 | 25 | 70 PDFs discovered; 12 categorized PDFs / 50 substantive screenshot pages |
+| Spain | 40 | 0 | 6 PDFs discovered; 5 categorized PDFs / 15 substantive screenshot pages |
+| Azerbaijan through Abu Dhabi (nine rounds) | 0 | 0 | Generic/reference pages and map assets; no local enrichment yet |
+
+Only Italy had `fastf1_pace.json` at that audit. Older rich prose does not imply
+that all corresponding structured datasets exist. Hungary's approximate season
+H2H/scenarios are not a reusable verified season-results database. A missing
+older FIA manifest does not mean its already-curated official content is absent.
+Hungary's stint presentation uses `.strat-grid`, `.strat-card`, `.stint`, `.seg`
+and `.prob`; its historic moments use a local `_tl` helper. These are presentation
+patterns, not fitted models. Italy's stored long runs cover FP1/FP2/FP3/Q, not Race;
+they contain clean-lap counts, compound, tyre-life bounds, mean time and consistency.
+
+### Stored data contracts
+
+| Record | Shape / meaning |
+|---|---|
+| `calendar_<year>.json` | Object with `events`; each has slug, chronological round, dates/sessions, sprint, race_id/results_slug, circuit stats/map |
+| `standings_<year>.json` | Official timestamped driver/constructor snapshot and source URLs; use `standings.context(SEASON)` rather than duplicate point constants |
+| `<gp>/news_auto.json` | Array: title, summary, source URL, source kind, session label, display `when`, sortable ISO `date` |
+| `<gp>/penalties_auto.json` | Array of document/no/driver/team/session/fact/outcome/kind and source URL |
+| `<gp>/_seen.json` | Incremental successful-extraction identities; not a list of successfully covered facts |
+| `<gp>/fia_documents.json` | Last-good `retrieved_at`, source URL, complete `documents` with filename/URL |
+| `<gp>/fia_discovery_status.json` | Latest discovery attempt, success/failure/error; independent of retained last-good listing |
+| `<gp>/fia_media.json` | `checked_at`, `discovery_retrieved_at`, documents with URL/filename/categories/SHA256/fetched_at/page+asset pairs, and per-URL errors |
+| `<gp>/fastf1_pace.json` | Session analysis, driver identity, fastest/optimal laps, qualifying segments, long runs, tyre stints, speed/delta traces |
+
+Inspect actual keys in the current code/data before writing a new consumer.
+Missing optional timing is normal before running, not license to fabricate it.
+Corrupt JSON is a real error and must not silently become "nothing published."
+
+## 3. Refresh sequence
+
+First run existing commands with the available interpreter. Install dependencies
+only if missing or intentionally setting up a new worker. Use a virtualenv
+outside tracked source, or the CI environment; no machine-specific Python 3.11
+assumption. Collection needs `pypdf`, screenshot rendering needs `pymupdf`,
+FastF1 needs `fastf1 pandas numpy`. Pillow is optional for manual image conversion.
+Do not add these as mandatory imports to the standard-library build.
 
 ```bash
-cd /Users/martin/Documents/code/f1-commentary
-python3 build.py        # rebuild everything (safe to run repeatedly)
+python3 standings.py
+python3 calendar.py --maps-only
+LLM_FAKE=1 python3 enrich.py --max 25
+python3 fia_media.py
+python3 fastf1_analysis.py --active
+python3 backfill_meta.py
+python3 build.py
+python3 coverage_inventory.py --all --check
 ```
 
----
+Run full `python3 calendar.py` on Mondays, manual deployment dispatches or known
+schedule/statistic changes. Existing maps refresh within 10 days before / 7 days
+after the race, rather than being cached forever. An explicit media backfill is
+`python3 fia_media.py --gp italy`; article/decision collection also supports
+`--gp <slug>` and `--all` (use the latter sparingly).
 
-## 0. Architecture (what the code looks like)
+`LLM_FAKE=1` is the production deterministic extractor, not a claim the data is
+fictional. Optional external inference uses `LLM_ENDPOINT` (full compatible
+chat-completions URL), `LLM_MODEL`, `LLM_TOKEN`. Only use an owner-approved provider;
+never commit tokens or send repository/secrets to an arbitrary service.
 
-The old single-file generator was split into a reusable engine + per-GP content so
-new races are cheap to add and re-runs are trivial:
+Check **each** step's outcome. A failed discovery must not prevent rendering
+already-known public PDFs or publishing unrelated successful updates. CI records
+warnings, preserves last-good records, and continues for optional upstream
+failures. Never append `|| true` and call a failed refresh complete. Record source
+URL, attempt time, failure and retained snapshot; retry later.
 
-```
-calendar.py         ← season scraper: session times, circuit stats, track maps
-                       -> data/calendar_<year>.json + assets_src/track-<slug>.png
-circuits.py         ← per-venue reference data: coordinates, character, corners,
-                       overtaking, tyre notes, lap records, talking points
-build.py            ← driver: turns the calendar into a GP dict per round and
-                       calls f1lib.build_all([...])
-f1lib.py            ← engine: HTML shell, CSS, weather, live results, index, build loop
-content_generic.py  ← default page prose for any GP without a bespoke module
-content_hungary.py  ← Hungary page prose  (def build_pages(ctx, env) -> {slug: page})
-content_belgium.py  ← Belgium page prose  (same shape)
-assets_src/         ← source images (circuit maps); copied to site/assets/ on build
-site/               ← generated output (git-ignore or publish this)
-  index.html                 ← season calendar + GP cards
-  <gpdir>/*.html             ← 17 subpages per GP
-  assets/style.css, *.png
-```
+Standings updates are all-or-nothing across both official tables. Minimum 2026
+validation is 22 drivers/11 constructors, ordered unique positions/entries and no
+loss of prior reserve-driver entries. Never sum driver totals to infer constructor
+points. Tables and all current headline/gap prose use the same context `summary`,
+`as_of`, `notice`, driver and constructor rows. More than 24h old warns visibly.
+Current season totals are not historical "entering this GP" standings.
 
-**The whole remaining season is built automatically.** `build.py` reads
-`data/calendar_2026.json` and registers every round from `FIRST_ROUND` onwards, so
-adding a race is not a manual step at all — it is already there. A race only needs a
-bespoke `content_<gp>.py` when you want hand-written prose; register it in the
-`BESPOKE` dict and it takes over from `content_generic`.
+## 4. Sources, FIA PDFs and images
 
-### Progressive disclosure
-A round months away still has a circuit, session times, a format and a history, and
-those render immediately. Results, standings, news and FIA source links refresh automatically. Interpreted
-tyre tables, rookie line-ups, upgrade summaries and power-unit transcriptions
-still require the scheduled coverage editor's reviewed content changes.
-Do not confuse a pending transcription with an unpublished source or a failed
-fetch. The document index links published material while prose awaits review.
+Primary sources first: FIA decisions/technical papers, Formula1.com official
+results/calendar and reports, Pirelli, official team/driver announcements. The Race
+provides attributed analysis and its public RSS. Open actual source URLs, including
+the complete Formula1.com article `.<id>` suffix; slug-only URLs can 404.
+Article bodies/JSON-LD often carry headline/datePublished not present in listings.
+Access varies per article: do not assume everything past the lede is gated, and
+do not bypass access controls. Summarize facts and short necessary attributed
+quotations; do not copy whole articles.
 
-Design: Bootstrap 5.3 + Bootstrap Icons + Titillium Web font, dark theme, F1-red
-(`#e10600`) accents, mobile offcanvas sidebar, lightbox for the circuit map.
+### Complete FIA discovery
 
-**Times rule:** show **circuit-local time + Tallinn only** (Tallinn = local +
-`tz_offset`). No UK/US columns. `tz_offset` is computed per event in `build.py` from
-the GMT offset F1 publishes for the race day, against Tallinn's own offset (EEST,
-UTC+3, until 25 Oct 2026; EET, UTC+2, after). Fly-away rounds regularly land on a
-different **date** in Tallinn — every Las Vegas session does — so the engine tags
-those cells with a red `+1d` marker and shifts the weather lookup to match.
+The current 2026 event URL is:
 
----
+`https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/<URL-encoded GP name>`
 
-## 1. The season calendar and the GP context dict
+Use the event page, then the season-index fallback implemented in `enrich.py`.
+Do not assume this season ID will apply next year. Enumerate **every PDF**, not
+just filenames containing penalty/decision. Discovery and extraction are separate.
+Compare URL, filename, document number, publication time, version and all
+substantive pages against both existing prose and figures. A citation alone is
+not completion; a familiar URL may hold a revised PDF.
 
-### Refreshing the calendar
-`calendar.py` is the only step that needs the network *before* a build. It scrapes
-Formula1.com for every round of the season and writes `data/calendar_<year>.json`,
-downloading the official detailed track map for each venue into `assets_src/`:
+**HTTP 403 or 500 is not proof of non-publication.** FIA listings have been blocked
+on GitHub runners while the same local listing and already-known public PDF URLs
+work. Keep last-good discovery, visibly report its failure, and try normal public
+fallbacks; never bypass a block or guess filenames to claim discovery. Missing,
+not yet discovered, blocked, conflicting and genuinely unpublished are different.
+
+| Document family | Required treatment |
+|---|---|
+| Power Unit Information | PU tables/curves and unusual event-specific constraints, with original screenshots |
+| PU elements used / new elements | Before/after/allowed counts, date/session scope, allowance watches; actual penalties separately sourced |
+| Circuit/pitlane/emergency/red-zone maps | Zoomable substantive diagrams; Straight Mode, Overtake, timing lines and revisions |
+| Race Director notes / SC2-SC1 | Track limits, starts, exits/rejoins, SC rules, maximum times when actually published |
+| Pirelli preview/prescriptions | Compounds, axle/type pressures/camber, blankets, mandatory race and Q3 tyres |
+| Car presentation submissions | Every team's component list, count, rationale, nil returns; screenshots of **all** teams |
+| Car display procedure | Display times/logistics only; not evidence of submitted upgrades |
+| Decisions/infringements | Fact, ruling, consequences, source PDF, subsequent revisions/appeals |
+| Summons, classifications, scrutineering, visas, entry lists, heat declarations | Classify individually; summons is not a penalty, entry lists can matter for line-ups, heat is not inferred from forecast |
+
+Administrative paperwork need not become filler. Diagrams **must not be skipped**
+because text extraction is empty. Show what is legible; do not invent garage order.
+
+### Automatic screenshots and visual transcription
+
+`fia_media.py` reads the saved listing, fetches categorized official HTTPS FIA
+PDFs (including same-URL revisions), validates PDF bytes/redirects, and renders
+opaque PNGs at 2x using **`import pymupdf`**, not the unrelated `fitz` package.
+It skips only a recognizable first-page FIA publication cover on multi-page
+documents; all substantive pages are retained. Limits are 20 MiB/PDF, 40 pages,
+8 million rendered pixels/page; oversize/encrypted/failed inputs report errors.
+
+Assets are `fia-<gp>-<URL hash>-<PDF hash>-p<N>.png`. Unchanged files reuse
+images; missing images regenerate; changed hashes create new filenames. Retain
+old hashed assets because history shares them. Do not overwrite old screenshots
+or purge apparently unused binaries without checking all retained versions.
+The manifest associates each image with its PDF hash, page and fetch time.
+Its revision counter ensures a revised same-URL PDF is not hidden behind an
+older curated image; only a figure using the new hashed image suppresses it.
+Retrieval time is **not** the FIA issue date.
+
+`f1lib.shell()` appends category-specific source galleries after curated content
+on circuit/PU/tyres/upgrades, including generic pages. First unseen document opens;
+others use expandable details, lazy images and the existing lightbox.
+A curated `<figure>` citing the same PDF `#page=N` (or caption page N) suppresses
+that duplicate. A bare prose link does not. Cite each page accurately: do not
+make a single figure claim it represents every page of a multi-page filing.
+The complete PDF/source index remains alongside curated coverage.
+
+Before transcribing **any** numeric FIA table, view the actual screenshot and
+match row, column, unit, session/article, footnote and document revision.
+Plain PDF text can reorder columns. Preserve signs, ranges, TBC and asterisks.
+Do not conflate recharge with deployment; kW with MJ; metres with timing-loop
+identifiers; starting with running pressure; normal with low-grip mode; or a
+part-use report with a penalty ruling. Explain a distinctive constraint on air,
+but label proposed engineering rationale as inference, not an FIA statement.
+Automatic images never automatically verify old numerical prose.
+
+### Pirelli artwork is a separate requirement
+
+For every active GP, find Formula1.com's **"What tyres will the teams and drivers
+have for the YEAR GRAND PRIX?"** article. Inspect inline body images, not just its
+hero/social metadata. Download the complete event-preview infographic from
+`media.formula1.com` using the source URL found there, without center/16:9 crop
+transforms. Typical `<round>-<country><year>-preview-en` filenames are clues, not
+permission to guess. Preserve every row, pressures and compound key.
+
+Save an event/year-specific file in `assets_src/` with the actual media format,
+credit/link the article and use zoomable `circuit-fig` / `circuit-img` markup.
+Verify the full image visually. A cropped FIA pressure table is **not** a
+substitute when the complete Pirelli graphic exists; show the FIA prescriptions
+as a separate, newer/precise source. If no graphic is confirmed, record pending.
+Transparent map WebPs need white compositing, not simple RGB conversion onto black.
+FIA PNG rendering is already opaque. Keep map legends, mode lines and labels.
+
+## 5. The 17-page coverage contract
+
+Every row includes **subfeatures** to audit. Give each a state: current/populated,
+stale, missing-but-published, pending after source review, blocked, conflicting,
+or inapplicable. Fix all relevant published gaps, not just one showcase table.
+
+| Page | Required coverage and parity |
+|---|---|
+| Overview | Current phase, key storylines, venue facts, local/Tallinn sessions, consistent current points; after race, stop predicting a result already known |
+| News | Curated important stories, newest-first wires, source/date, completed-session reports and live podiums; promote major breaking stories above minor feed items |
+| Circuit | Current official layout/map; every Straight Mode and Overtake point, normal/low-grip differences, sectors/speed trap, corners, overtaking, pitlane/emergency diagrams, race-control notes |
+| Results | All published classifications, latest-completed active tab, starting grid; available FastF1 lap/optimal/Q-segment/long-run/speed/delta analysis |
+| Tyres | Full Pirelli infographic, FIA prescriptions, nominated/mandatory compounds, wear/evolution, sourced pit-loss estimate, strategy alternatives, stint predictor, official new/used race-set inventory when published |
+| Rookies | Actual event entrants, FP1 substitutes and replaced drivers, meaningful bios/context; race lineup is not identical to FP1 or season standings |
+| Standings | Both official tables, readable leader/previous gaps, freshness, form with date; useful mathematically correct permutations with explicit scenario/points rules |
+| H2H | Event practice/qualifying/race comparisons from results plus sourced season qualifying/race scoreline when available; define sprint/DNS/substitute counting |
+| Teams | All teams' relevant event-specific watch items, drivers, form, context and sourced developments; no generic repeated filler |
+| Upgrades | FIA submissions for every team, component counts/descriptions/reasons and nil returns, display procedure, follow-up technical storylines; distinguish declared items from speculation |
+| Power unit | Recharge by race off/on/Q/FP/outlap; power-limited distance/rate and curves, sector exceptions, detection/activation/gap, TBCs; usage/new-parts reports and separately linked sanctions |
+| Penalties | Actual decisions, fines/warnings/no-action, deleted laps, grid/pitlane consequences and later changes; auto data must remain integrated with curated rows |
+| Reliability | Race finishers/retirements, only sourced causes, fastest laps, pit-stop table and whether timing means stationary or pitlane elapsed; separate current watch from known outcome |
+| Facts | Correct venue/layout/length/records, recent winners, current-grid this-track history; debut venue history is inapplicable, not Barcelona data copied into Madrid |
+| Moments | Concrete sourced historic venue moments with dates/results; debut venues use clearly labelled inaugural context rather than invented races |
+| Schedule | Actual sprint/standard format, circuit-local and Tallinn only, date rollover, DST, weather forecast/actual labels and missing-data state; heat-hazard rules require FIA declaration |
+| Notes | Compact updated on-air cheat sheet surfacing the important technical/tyre/lineup/standings/penalty changes and source links; synchronize with detailed pages |
+
+Strategies/stints are commentary scenarios, not measured forecasts. State lap
+windows, compound assumptions, stops and disruption/rain caveats. Championship
+scenarios must use the current scoring regulations (including sprint points),
+not assume a fastest-lap bonus: [F1 confirmed its removal from 2025](https://www.formula1.com/en/latest/article/fastest-lap-point-to-be-scrapped-in-2025-after-latest-fia-world-motor-sport.4pUjDzWnGRN7KVWENLc1BY).
+The former Hungary 26-point example was corrected to 25; a 45-point lead is
+safe from being overturned in one standard race, not a season-title clinch.
+Do not label a hypothetical pre-race scenario as
+the race's actual championship swing. Do not hand-update current points.
+
+Historical parity does **not** require manufacturing data: Madrid has no prior
+venue GP wins; pre-FP1 Spain has no event timing, race pit stops or race-used sets.
+Keep useful context and an explicit source-based pending/inapplicable state.
+
+## 6. Shared helper and content conventions
+
+`build_pages(ctx, env)` returns `{slug: {kicker, title, sub, body}}`. The context
+contains event calendar/reference/standings, source URL, sessions, navigation,
+and prepared `results` / `extra`. `env` binds `schedule_rows`, `weather_cards`,
+`weather_ok`. Build a bespoke module by extending generic pages where useful and
+registering its callable in `build.BESPOKE`.
+
+The engine fills absent `results`, `news`, `h2h`, `reliability`, `penalties`;
+other 12 pages are required. **Overriding an auto page must preserve its helper**,
+otherwise new data can silently stop appearing on an apparently richer page.
+
+| Helper | Important contract |
+|---|---|
+| `render_news(ctx, general_items, session_notes)` | Curated headlines plus auto wires; notes keyed by exact session label render only for completed sessions |
+| `news_item(...)`, `news_sort_key(card)` | ISO `date` sorts, `when` displays; descending; undated last; curated titles dedupe normalized auto titles |
+| `render_h2h(ctx, intro_html="", tally_html="")` | Event classifications are live; season tallies are a separately sourced editorial input |
+| `render_reliability(ctx, intro_html="")` | Race retirement/finisher data and `ctx["extra"]` pitstops/fastestlaps; no pre-race invented results |
+| `render_penalties(ctx, decisions, intro_html, fia_url)` | Curated rows win by document number; keep real auto source URLs and late decisions |
+| `render_tyre_availability(ctx, ..., official=None, compounds=None, source_url="")` | Official inventory renders even without FastF1; compounds are `(hard, medium, soft)` labels, not initial set counts |
+| `render_fia_documents`, `render_fia_media` | Shared source panels/galleries, not a replacement for verified event prose |
+
+Official tyre inventory shape is `{code: (soft_new, soft_used, medium_new,
+medium_used, hard_new, hard_used)}`. Counts are nonnegative integers. The helper's
+`hard=2, medium=3, soft=8` arguments are initial **set counts**, not C-numbers.
+Supply event compounds and a source URL. Do not hard-code Italy attribution or
+C3/C4/C5 for future venues. Event results/timing supply driver identities; no
+invented team assignments from an unrelated/current roster.
+
+FastF1's `FreshTyre` can double-count sets reused across sessions. Its estimate
+is never an official remaining inventory. Prefer FIA/Pirelli/team published
+race-set graphics, map FP1 substitutes to the race driver's allocation, and do
+not say an official report is unpublished merely because it is not loaded.
+FastF1 analysis is optional and must not hide independently available FIA data.
+Preserve the `calendar.py` stdlib-shadowing workaround in `fastf1_analysis.py`.
+Do not imply absent timing means a completed session did not happen.
+
+HTML uses `<div class="table-wrap"><table class="data">`; `tbl` / `tablewrap`
+do not exist. Available modifiers: `compact`, `ranked`, `h2h`, `pen`, `cal-tbl`.
+Use `pos`, `num`, `team`, `drv`, `nowrap` cells and `.standings-grid`.
+Only actual rankings get medal styling. Reuse `.storyline` and
+`.fia-upgrade-box.confirmed` for developed team narratives and verified filings.
+Escape literal braces in f-strings; escape untrusted text/attributes.
+Images use `circuit-fig`, `circuit-img`, `onclick="zoomImg(this)"`, useful alt text
+and source/page captions. Verify dark-theme contrast, white maps, mobile scrolling
+and lightbox closing with Esc. Do not invent CSS class names.
+
+## 7. Live results, weather and extraction gotchas
+
+Results use `/en/results/<year>/races/<race_id>/<results_slug>/<endpoint>`.
+Practice is `practice/1`, not `practice-1`; also qualifying, starting-grid,
+race-result, sprint-qualifying and sprint-results. Slugs can differ from racing
+calendar slugs (Abu Dhabi is an example). Future events skip results requests;
+an absent table alone is not an authoritative cancellation or no-running claim.
+Tabs default to the latest completed session. Driver strings such as
+`Kimi AntonelliANT` are split into name/code. Preserve all published entrants.
+The pit-stop summary contains both **Time of Day** and **Time**. Select the exact
+`Time` column, not the first `time` prefix match; otherwise clock times get ranked
+and displayed as seconds. These are pit-lane elapsed durations, not stationary
+wheel changes or net pit loss. Source stationary records independently.
+
+Weather is Open-Meteo, using actual venue coordinates, hourly indices aligned
+to `Europe/Tallinn`. Future sessions use forecasts within the 16-day horizon;
+past sessions use ERA5 archive estimates, normally delayed around five days.
+Label forecast versus actual/archive; missing recent archive values are not
+observed dry weather. Show circuit-local plus Tallinn (EEST/EET as appropriate),
+including date rollover (e.g. Las Vegas `+1d`), never a blanket European +1h.
+
+The Race RSS can contain full public text; member-only material may not.
+Formula1.com metadata upgrade must occur both for URL/title relevance matches
+and body matches. Generic "circuit"/"grand"/"prix" keywords must not capture every
+article. Retain full article IDs. `backfill_meta.py` repairs missing dates and
+obvious slug titles, preserving editorial titles. Check stored card position/date
+before declaring a news story absent: poor ordering previously buried breaking
+lineup/contract news below promotions.
+
+`_seen.json` records successful extraction, not attempts. Legacy seen records
+are reconciled against actual output citations; failed PDFs/articles retry.
+Unextractable betting promotions/live blogs may remain failures; do not mark
+them successful or invent summaries. Curated news/penalties win deduplication,
+but an inaccurate curated row must itself be corrected.
+
+## 8. Validation and evidence
+
+Run the smallest existing targeted regression tests while editing; before
+publishing an integrated multi-surface change:
 
 ```bash
-python3 calendar.py            # ~30s, 23 events + 23 track maps
+python3 -m unittest discover -p 'test_*.py'
+python3 build.py
+python3 coverage_inventory.py --all --check
+git diff --check
 ```
 
-Re-run it whenever F1 confirms more detail (session times and lap counts for later
-rounds do change). CI runs it automatically on Mondays and on manual dispatch,
-and refreshes maps with `python3 calendar.py --maps-only` on other runs. Existing
-maps within ten days before / seven days after a race are re-downloaded rather
-than cached forever. CI commits any changes back to `main`. `build.py` itself never touches the network for
-calendar data — it just reads the JSON, which keeps builds fast and offline-safe.
+Inspect all 17 pages of each changed GP, not just the source module. Compare
+headlines/tables with authoritative sources and all applicable section 5 features.
+Check Italy/Spain corrections against section 10. Confirm images are visible,
+uncropped, correct page/version, local files exist and duplicate figures are
+suppressed. The index must show every registered GP; each page has 17 GP nav links,
+one active item, and the separate all-GPs link. Results have one active latest tab.
+Check for leaked template syntax, stale "awaiting"/"before the race" statements,
+wrong venue/team names and archived timestamps mislabelled as current.
 
-Each event records: round number (derived from **race-date chronology**, because
-Formula1.com's page order is scrambled), session labels/dates/times/GMT offsets,
-sprint flag, circuit length, laps, race distance, first Grand Prix, `race_id` and
-`results_slug` for live results, and the track-map asset name. Fields that F1 has not
-published yet are stored empty on purpose and render as "to be confirmed".
+For browser inspection run `python3 -m http.server 8000 --directory site` in a
+managed foreground/background session. Verify it responds, view desktop/mobile
+pages and lightboxes, then terminate that specific server process/session.
+Do not leave unmanaged background servers or raw PDF scratch files in the repo.
 
-### Per-venue reference data
-`circuits.py` holds what the scrape cannot give you: **coordinates** (these drive the
-weather forecast, so they need to be accurate), the local-time label, and the
-commentary material — circuit character, key corners, where the passes happen, tyre
-behaviour, DRS zone count, lap record, trivia and storylines. Add an entry keyed by
-the Formula1.com racing slug before a new venue can render a useful page.
-
-### The GP context dict
-`build.py` builds one of these per round from the calendar plus `circuits.py`; you do
-not normally write them by hand:
-
-```python
-{
-    "name": "Dutch Grand Prix", "year": "2026", "flag": "🇳🇱",
-    "circuit": "Circuit Zandvoort", "round": "Round 12 of 23", "dir": "netherlands",
-    "lat": 52.3888, "lon": 4.5409,                  # from circuits.py, for weather
-    "tz_local": "Zandvoort (CEST)", "tz_east": "Tallinn (EEST)", "tz_offset": 1,
-    "sessions": [                                    # (label, "Fri 21 Aug", ISO date, local HH:MM)
-        ("Practice 1",        "Fri 21 Aug", "2026-08-21", "12:30"),
-        ("Sprint Qualifying", "Fri 21 Aug", "2026-08-21", "16:30"),
-        ("Race",              "Sun 23 Aug", "2026-08-23", "15:00"),
-    ],
-    "race_id": "1293", "results_slug": "netherlands",  # live Formula1.com results
-    "cal": {...}, "ref": {...},                        # calendar event + circuits.py entry
-    "nav": nav("Circuit Zandvoort"),                   # shared 17-item sidebar
-    "pages": content_generic.build_pages,              # or a bespoke module
-}
-```
-
-Knobs in `build.py`:
-
-- `FIRST_ROUND` — the earliest round to build. Lower it to backfill finished races.
-- `BESPOKE` — `{slug: build_pages}` for races with hand-written prose.
-- `standings.context(SEASON)` — timestamped current-season driver and constructor
-  tables from `data/standings_<year>.json`. Refresh with `python3 standings.py`
-  (CI does this every run); never update points in hand-written constants.
-  Use the context's `summary`, `as_of` and `notice` alongside its table rows so
-  headlines, source dates and freshness warnings stay consistent.
-
-The shared `nav(circuit_label)` helper defines the 17 sidebar slugs. **Five are
-auto-built by the engine** — `results`, `news`, `h2h`, `reliability` and `penalties` —
-so content modules do not author them. All other slugs must be returned by
-`build_pages`.
-
-### Fetch gating (why a 14-GP build still takes ~12s)
-`f1lib.prepare()` classifies each event as `past`, `live` or `future` from its session
-dates and skips work that cannot produce anything:
-
-- **Future events**: no result fetches at all (nothing has run).
-- **More than 16 days out**: no weather fetch (beyond Open-Meteo's forecast horizon).
-
-Without this, a full season would fire roughly 300 pointless HTTP requests per build.
-
-### Finding `race_id` / `results_slug`
-`calendar.py` resolves these automatically from the Formula1.com results index. They
-appear in the URL:
-```
-https://www.formula1.com/en/results/<year>/races/<race_id>/<results_slug>/<endpoint>
-```
-Note the racing slug and the results slug differ for some events (Abu Dhabi is
-`united-arab-emirates` for racing pages, `abu-dhabi` for results); `RESULTS_SLUG_FIX`
-in `calendar.py` handles the exceptions.
-
----
-
-## 2. Gather / refresh the sources
-
-`web_fetch` is unreliable on JS-heavy F1.com/FIA pages — use `curl` + a small
-extractor. Re-run this section whenever you rebuild to pick up new material.
-
-### 2a. Formula1.com articles & facts
-```bash
-curl -sL -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" \
-  "<article-url>" -o /tmp/art.html
-```
-Strip `<script>/<style>`, pull `<h1..h3> <p> <li>`, `html.unescape`. Use the need-to-know
-page for facts/stats and the circuit-map image URL.
-
-### 2b. The Race (full-text RSS — no paywall)
-```bash
-curl -sL "https://www.the-race.com/category/formula-1/rss/" -o /tmp/race.xml
-```
-The `<content:encoded>` CDATA blocks contain the **complete** articles. If a specific
-piece is member-only and not in RSS, ask the user to log in via the built-in browser.
-
-### 2c. FIA documents (PDF) — **re-check every rebuild**
-The FIA keeps **publishing documents through the weekend** (revised race notes,
-scrutineering, penalties, PU details). Re-scrape the event page each run and diff
-against what you already have:
-
-**When do documents appear?** The FIA creates an event's page only when it
-publishes that event's *first* document — typically the Thursday of race week.
-Until then the event URL returns **HTTP 500**, and the event is simply absent
-from the season page's list. That 500 is the normal "not published yet" state
-for a future round, not a fault; `enrich.py` reports it as an informational
-line. To check whether a round has gone live, list the published events:
-```bash
-curl -sL -A "Mozilla/5.0" \
-  "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072" \
-  | grep -oE 'event/[A-Za-z0-9%20-]+' | sort -u
-```
-```bash
-curl -sL -A "Mozilla/5.0" "<fia-event-url>" -o /tmp/fia.html   # grab .pdf hrefs
-curl -sL -A "Mozilla/5.0" "<pdf-url>" -o "fia_pdfs/<name>.pdf"
-```
-Extract with **python3.11** (`pypdf`, `pillow`, `pymupdf`/`fitz` installed there;
-system `python3` is stdlib-only):
-```bash
-python3.11 - <<'PY'
-from pypdf import PdfReader
-for pg in PdfReader("fia_pdfs/power_unit_information.pdf").pages:
-    print(pg.extract_text())
-PY
-```
-Pull out for the pages:
-- **Car Presentation Submissions** (Doc ~9, usually published Fri midday): the
-  **official per-team upgrade list** — every declared updated component, its
-  reason (Performance / Circuit-specific) and a short description. This is the
-  authoritative source for the Upgrades page: fill the `.fia-upgrade-box`
-  (mark it `confirmed`), build the per-team item-count table, and feed the
-  headline into the storyline. Count rows with `^\s*\d+\s+[A-Z]` per team block
-  (split on `Car Presentation – <GP>`); "No updates submitted" = nil return.
-- **PU Elements Used per Driver** (Technical Delegate report): elements used so
-  far per driver → **grid-penalty watch** card on the Power Unit page (flag the
-  heaviest users of ICE/TC/EXH/MGU-K/ES/PU-CE/PU-ANC).
-- **Power Unit / override:** override energy (e.g. 2026 8.5→9.0 MJ), deployment
-  distance, **the FP and Qualifying power/energy limits** (highlight these — the user
-  specifically wants them called out), power-cut zones, detection point, overtake zones.
-- **Race Control notes:** track-limits corners, kerb/asphalt changes, Straight-Mode /
-  override detection line, practice-start areas, SC restart point.
-- **Pirelli:** nominated compounds and deg notes.
-
-### 2d. Circuit map (2026 layout, white background)
-Use the **2026** map (DRS is gone; show the **Straight Mode Zones** + overtake
-detection/activation). Prefer the Formula1.com need-to-know track image, e.g.
-`…/2026/Hungary/2026trackhungaroringdetailed.webp`. These are **transparent WebP** —
-**composite onto solid white** or you get jagged halos on the dark theme:
-```bash
-python3.11 - <<'PY'
-from PIL import Image
-import urllib.request
-urllib.request.urlretrieve("<map-url>", "/tmp/map.webp")
-im = Image.open("/tmp/map.webp").convert("RGBA")
-bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
-bg.alpha_composite(im)
-bg.convert("RGB").save("assets_src/<circuit>_circuit_map_2026.png")
-PY
-```
-Verify the corner pixel is `(255,255,255)`. The circuit page's `<figure>` panel CSS is
-white-backed and wires the map to `zoomImg()` (click → full-screen lightbox, Esc to
-close). Reuse the existing markup in `content_hungary.py`'s `circuit` page.
-
----
-
-## 3. Weather (live, forecast **and** actuals)
-
-Open-Meteo, no API key. `f1lib.fetch_weather(ctx)` runs at build time and picks the
-endpoint per session automatically:
-- **Upcoming session** → `api.open-meteo.com/v1/forecast` (temp, precip probability, wind, code).
-- **Past session** → `archive-api.open-meteo.com/v1/archive` (ERA5 **actual** conditions).
-
-It requests `timezone=Europe/Tallinn` so hourly indices align to EEST. Each weather
-card is tagged **forecast** or **actual**. ERA5 has a ~5-day lag, so a *very* recent
-past session may return null → the card falls back gracefully. Offline → a "rebuild
-online" note. Nothing to configure beyond `lat`/`lon` in the ctx.
-
----
-
-## 4. Live session results (fills in as the weekend runs)
-
-`f1lib.fetch_results(ctx)` fetches every session endpoint for the GP and renders only
-the ones Formula1.com has published. **This is what makes re-runs valuable** — run
-after FP1 and FP1 appears; run after the race and the full classification appears.
-
-- Endpoints (`RESULT_SESSIONS` in `f1lib.py`): `practice/1`, `practice/2`,
-  `practice/3`, `sprint-qualifying`, `sprint-results`, `qualifying`, `starting-grid`,
-  `race-result`. **Practice uses `practice/1`, not `practice-1`** (the latter 404s).
-- A completed session returns a `<table>` (`<th>` headers + `<tbody>`); an absent /
-  not-yet-run session contains "No results available" and is skipped.
-- Driver cells arrive as name+code concatenated, e.g. `"Kimi AntonelliANT"`; the engine
-  splits them with `^(.*?)([A-Z]{3})$` into `Kimi Antonelli` + a styled `ANT` code.
-- Sprint endpoints simply return "No results available" on a standard weekend, so the
-  same code handles sprint and non-sprint GPs with no changes.
-
-The Results page renders each session as a **Bootstrap pill tab** (`render_results`),
-not a long stacked list — so there's no scrolling to reach the race. The tabs default
-to the **most recent completed session** (e.g. the Race once it's run). Tab styling
-lives in the `.results-tabs` CSS block; Bootstrap's bundle JS (already loaded in the
-shell) drives the switching.
-
-If the results page is empty, that's correct for early in the week — it's not an error.
-
----
-
-## 4b. Weekend News & session reports (`news` page)
-
-A dedicated **Weekend News** page (nav slug `news`, second in the sidebar) collates the
-paddock storylines and gives a **session-by-session report that grows as the weekend
-runs**. Split into two parts:
-
-1. **Weekend headlines** — general stories from Formula1.com and The Race (paddock news,
-   upgrades, calendar, support races). Authored as `news_item(...)` cards.
-2. **Session by session** — one block per **completed** session (driven by the live
-   results, so blocks only appear for sessions that have actually run). Each block shows a
-   **live top-three podium strip** (pulled from `ctx["results"]`) plus any authored notes.
-
-Engine helpers in `f1lib.py`:
-- `news_item(title, summary, source="", when="", src_kind="")` — one card; `summary` is a
-  string or list of paragraphs; `src_kind` is `''`/`'f1'`/`'race'` for the coloured source
-  badge.
-- `render_news(ctx, general_items, session_notes)` — composes the page. `general_items` is
-  a list of `news_item` HTML; `session_notes` is `{session_label: [news_item, ...]}` and is
-  **only rendered for sessions present in `ctx["results"]`**. Completed sessions with no
-  authored note still get the auto podium strip, so the page never lies about what's run.
-- `auto_news(ctx)` — engine fallback used when a content module doesn't author its own News
-  page (build.py injects it automatically, exactly like the Results page). Produces the
-  session podiums straight from results with no prose.
-
-Authoring in `content_<gp>.py` (see `content_hungary.py`): import `news_item, render_news`,
-build `general_news = [...]` and `session_news = {"Practice 1": [...], "Practice 2": [...]}`,
-then `PAGES["news"] = dict(kicker=..., title=..., sub=..., body=render_news(ctx, general_news, session_news))`.
-
-**On every re-run:** re-scrape The Race RSS (§2b) and Formula1.com latest (§2a) for new
-weekend/session stories, add fresh `news_item`s to `general_news`, and add a
-`session_news[label]` entry for each newly-completed session (FP3, Qualifying, Race…). Use
-the exact session labels from `RESULT_SESSIONS` ("Practice 1", "Qualifying", "Race", etc.)
-so notes attach to the right block. If you skip authoring a session's note, the live podium
-still appears automatically.
-
-**"A story is missing" is usually an ordering problem, not a scraping one.** Between
-the curated headlines and the session blocks sits the auto-summarised **"From the
-wires"** feed, which runs to 30+ cards by race day. It renders **newest-first** via
-`f1lib.news_sort_key` (§9). Before concluding a story was never picked up, grep
-`data/<gp>/news_auto.json` for it — the answer is usually that it is present but was
-rendered near the bottom. Promote anything genuinely important into curated
-`general_news`, which always renders above the wire feed.
-
----
-
-## 4c. Data-driven pages: Head-to-Head, Reliability & Pit Stops, Penalties
-
-Three more sidebar pages that fill in **live from the timing / FIA docs**. All three have an
-**engine auto-fallback** (injected in `build_all`, exactly like Results/News) so any GP gets
-a working page even with no curated prose; content modules layer curated context on top.
-
-**Head-to-Head (`h2h`)** — team-mate battles for the event, `render_h2h(ctx, intro_html, tally_html)`.
-Groups each completed session's classification by team and shows who beat their team-mate
-(green = ahead), across up to three columns (best practice + Qualifying + Race). Pure
-derivation from `ctx["results"]` — no external data. Hungary appends a hand-kept **2026 season
-qualifying scoreline** table for context; refresh those numbers after each qualifying.
-
-**Reliability & Pit Stops (`reliability`)** — `render_reliability(ctx, intro_html)`. From the
-Race classification: finisher vs DNF counts and a retirements table (driver / team / lap /
-reason, DNFs detected via non-numeric `Pos.` = "NC"). Plus **fastest pit stops** (ranked by
-stationary time) and the **fastest lap**, both pulled from two extra endpoints fetched in
-`prepare()` → `ctx["extra"]` via `fetch_extra(ctx)`: `pit-stop-summary` and `fastest-laps`.
-Everything degrades gracefully before the race runs (Hungary shows the pre-race reliability
-watch; Belgium shows the full data).
-
-**Penalties & Stewards (`penalties`)** — `render_penalties(ctx, decisions, intro_html, fia_url)`.
-The FIA event page can't be PDF-parsed in CI, so **author the decisions per GP**: scrape the
-FIA event documents (§2c), read each *Decision / Infringement / Summons* PDF, and build a list
-of dicts `{doc, no, driver, team, session, fact, outcome, kind}` where `kind` ∈
-`penalty | fine | warning | reprimand | noaction | note` (drives the coloured badge + the
-tally row). The engine renders the table + a source link to `ctx["fia_url"]` (set per GP in
-`build.py`). Fallback (no decisions) just links to the FIA docs. **On every re-run, re-scrape
-the FIA page** — new decisions (grid drops, in-race time penalties, post-race DSQs) appear
-through the weekend; download the fresh *Decision*/*Infringement* PDFs, extract the ruling,
-and append to the `decisions` list. Track-limits "deleted lap times" docs → `kind="note"`.
-
-Extraction recipe (homebrew `python3.11` + `pypdf`, same as §2c): the ruling is on the
-`Decision` line ("No further action", "€400 fine", "Driver: Warning", "3-place grid
-penalty…"), the `Fact` line summarises the incident, and the header block gives car number,
-driver, competitor and session. Keep `fia_pdfs/` gitignored — the extracted text is baked
-into `content_<gp>.py`, so `build.py` never reads a PDF at build time (CI-safe).
-
----
-
-## 5. Write the content module (`content_<gp>.py`)
-
-Shape:
-```python
-from f1lib import (card, stat, ul, quote, news_item, render_news,
-                   render_h2h, render_reliability, render_penalties)
-
-def build_pages(ctx, env):
-    schedule_rows = env["schedule_rows"]   # zero-arg, bound to this ctx
-    weather_cards = env["weather_cards"]   # zero-arg, bound to this ctx
-    WEATHER_OK    = env["weather_ok"]
-    TZ_LOCAL_LABEL = ctx["tz_local"]
-    TZ_EAST_LABEL  = ctx["tz_east"]
-    PAGES = {}
-    PAGES["overview"] = dict(kicker=..., title=..., sub=..., body=f"""...""")
-    # ... every nav slug EXCEPT "results" (and "news" is optional — auto-built if omitted)
-    return PAGES
-```
-
-Rules:
-- Return a page for **every** nav slug except `results`, `news`, `h2h`, `reliability` and
-  `penalties` (all engine-built if omitted). Missing any other slug raises a build error;
-  that's the safety net.
-- Page bodies are f-strings — **double any literal `{ }`** as `{{ }}`.
-- Use the helpers `card()`, `stat()`, `ul()`, `quote()`, plus `schedule_rows()` and
-  `weather_cards()` from `env`.
-- **Ground every claim in scraped data.** For evergreen framing (e.g. a PU page before
-  the FIA doc drops), caption it as generic and say "confirm against the FIA document"
-  rather than inventing numbers.
-- **Standings / results tables:** to embed a big pre-built rows block inside an
-  f-string body, use plain `'''…''' + ROWS + '''…'''` concatenation (triple-single
-  inside the triple-double body) so you don't fight f-string brace escaping.
-
-#### Table markup contract
-There is exactly **one** set of table class names, all defined in the CSS block in
-`f1lib.py`. Invented names fail silently — the table still renders, just with raw
-browser defaults, which is how 49 tables once shipped completely unstyled. If a table
-looks plain, check the class name against this list first.
-
-```html
-<div class="table-wrap"><table class="data">…</table></div>
-```
-
-- `.table-wrap` — required scroll container. Never put `table.data` on the page bare.
-- `.data` — the only base table class. (`tbl` / `tablewrap` do **not** exist.)
-- Modifiers on the same element: `compact` (denser), `ranked`, `h2h`, `pen`, `cal-tbl`.
-- `ranked` gives the top three rows medal-coloured positions. Add it only to genuinely
-  ranked tables — championship order, session results, the grid. A schedule's first
-  three rows are not a podium.
-- Cell classes carry the alignment and emphasis: `td.pos` (position), `td.num`
-  (right-aligned tabular numerals — use for points, laps, times), `td.team`,
-  `td.drv`, `td.nowrap`. `th.num` right-aligns the matching header.
-- Row-level team colour: `<tr data-team="Ferrari" style="--team:#e8002d">` paints the
-  left rail on `td.pos`.
-
-Standings rows are **generated, not hand-written** — see `standings.py` (`DRIVERS`,
-`CONSTRUCTORS`, `driver_rows()`, `ctor_rows()`). Those rows load the official JSON
-snapshot; refresh it with `python3 standings.py`, never edit point totals by hand.
-Team colours, rails and points-gap labels all derive from the same snapshot.
-
-Keep standings inside `.standings-grid`, not `.grid.cols-2`: the latter caps columns
-at ~320px while `table.data` has `min-width:420px`, which forces horizontal scroll.
-
-### Running storylines (e.g. Aston Martin upgrades)
-Some threads run all weekend and deserve a **dedicated, visually distinct section**
-that grows as new sources drop. The Upgrades page uses a `.storyline` block (red
-left-border card with a "Storyline to follow" tag) for the **Aston Martin B-spec**
-saga, merging Formula1.com facts with The Race's trackside article, plus a dashed
-`.fia-upgrade-box` placeholder for the **FIA official upgrade list**.
-
-When updating a storyline on a re-run:
-- Re-scrape The Race RSS (§2b) for new pieces on that team/topic and fold the fresh
-  detail into the section (keep the author + date attribution in the source line).
-- When the FIA publishes its **car-presentation / technical upgrade list** for the
-  event, replace the `.fia-upgrade-box` placeholder text with the confirmed parts and
-  their stated purpose (performance vs. circuit-specific).
-- Reuse `.storyline` / `.storyline-tag` / `.storyline-title` / `.storyline-lead` /
-  `.fia-upgrade-box` (all defined in the CSS in `f1lib.py`) for any other big story.
-
----
-
-## 6. Build & verify
+Only when workflow source changes, compile it with the installed GitHub Agentic
+Workflows extension:
 
 ```bash
-cd /Users/martin/Documents/code/f1-commentary
-
-# syntax-check every module (catches f-string/brace errors)
-for m in build.py f1lib.py content_*.py; do
-  python3 -c "import ast;ast.parse(open('$m').read())" && echo "$m OK"
-done
-
-python3 build.py            # weather + results fetched live; falls back offline
-
-cd site && python3 -m http.server 8770 >/tmp/f1.log 2>&1 &
-# check pages 200:
-for f in index.html $(ls hungary/*.html belgium/*.html); do
-  echo "$f -> $(curl -s -o /dev/null -w '%{http_code}' http://localhost:8770/$f)"
-done
+gh aw compile critical-race-coverage --no-check-update
 ```
 
-Checklist:
-- [ ] `index.html` lists **every** registered GP; each GP has all 17 subpages, all **200**.
-- [ ] Exactly **one** `nav-link active` per page; 14 sidebar links (13 pages + "All Grands Prix").
-- [ ] Circuit PNG loads (200), corner pixel white, `zoomImg` + lightbox present.
-- [ ] Weather cards render, tagged forecast/actual; times local + Tallinn only.
-- [ ] Results page shows whatever sessions are published (or a clean "none yet" note),
-      rendered as **pill tabs** with exactly one active pane (defaults to the latest session).
-- [ ] No template leakage — grep for `{{`, `PAGES[`, `__` placeholders.
+Commit both Markdown and generated lock file; do not hand-edit the lock.
+Inspect generated diff and allowlists. The coverage agent itself may edit only
+its permitted content/data/assets/tests, not grant itself workflow permissions.
 
-Stop the temp server: `lsof -ti tcp:8770` → `kill <pid>` (numeric PID required).
+## 9. Publication, version history and diagnosing stalls
 
----
+In REVIEW mode open/update a scoped `[coverage]` PR with audited GP(s), facts
+fixed, real sources, pending/conflicting/blocked material and evidence. Be clear
+it is not deployed. In owner-authorized PUBLISH mode review the final diff,
+commit only intended files, synchronize concurrent bot changes safely and push
+main (or merge the authorized PR). Never force-push main or blindly merge arbitrary
+pending PR code. Include the repository's requested coauthor trailer when applicable.
 
-## 7. Running this before a Grand Prix (summary)
-
-Every remaining round of the season already exists in the hub, so the normal
-pre-weekend routine is short:
+Track the deployment for **that commit**, not any older green run:
 
 ```bash
-python3 calendar.py     # only if session details may have changed (CI does this Mondays)
-python3 enrich.py       # LLM: new articles + FIA decisions for the active window
-python3 build.py        # rebuild everything; verify per §6
+gh run list --workflow deploy.yml --limit 5
+gh run view <run-id>
+gh run watch <run-id> --exit-status
 ```
 
-That alone gives a usable page set: circuit guide with the official map, session times
-in both zones, weather once inside the 16-day window, the power-unit explainer, facts,
-history, and auto-collected news, results, head-to-head, reliability and penalties.
+Inspect optional-step warnings even if the overall run is green. Verify actual
+live changed pages and new images under
+`https://martinkenk.github.io/f1-commentary/`; match distinctive text/asset URLs.
+A successful build or push alone is not publication. To rerun an existing deployed
+revision use `gh workflow run deploy.yml`; editorial audits can likewise be
+manually dispatched by their compiled workflow name/file.
 
-**To promote a round to bespoke treatment** (worth it for the race you are actually
-commentating):
+CI persists data/assets to main before building. Its `GITHUB_TOKEN` push does not
+trigger another workflow, so no loop. The deploy concurrency group serializes
+runs without cancelling an in-progress history update. Concurrent outside pushes
+can still require reconciling a rejected data push; do not solve this by forcing.
 
-1. Check `circuits.py` has a rich entry for the venue — that alone lifts every generic
-   page.
-2. Scrape its sources (§2) and, if you want a curated map, composite the **2026**
-   circuit map onto white → `assets_src/<circuit>_circuit_map_2026.png` (§2d).
-3. Write `content_<gp>.py` with `build_pages(ctx, env)` (§5), grounded in the scrape.
-4. Register it in `BESPOKE` in `build.py` and `import content_<gp>`.
-5. `python3 build.py` and verify (§6).
+Version history lives on orphan `site-history`, not main. Production uses:
 
-The engine, CSS, sidebar structure, weather and results machinery are all reused
-unchanged. A bespoke module only has to return the 12 non-auto pages.
+`python3 versioning.py site public --threshold 3 --keep 8`
 
----
+Timestamps/version widgets are ignored for material-change detection. Archived
+HTML shares root binary assets; content-hashed FIA revisions preserve old images.
+Keep eight snapshots in production; CLI defaults may differ. `.raw` is a history
+diff mirror excluded from Pages upload. File count caused past deployment
+timeouts: 20 x ~240 pages was too much. Pages gets a 10-minute timeout and one
+delayed retry. Do not casually increase retention or duplicate every image into
+every version. Do not delete history to hide a failure.
 
-## 8. Hosting & version history (GitHub Pages)
+When automation seems broken, inspect **outcome and logs**, not just schedule:
+was the workflow enabled, delayed, source-blocked, parsing incorrectly, marking
+failures seen, reusing old maps, stuck behind a PR, or publishing a stale checkout?
+Was the new material merely linked, transcribed but not illustrated, or proposed
+in a draft PR never merged? These are distinct fixes. Older gh-aw runs also hit
+sandbox network/proxy failures; check actual allowed host/connectivity errors
+rather than repeatedly changing prose. Do not weaken access controls.
 
-The site is deployed to **GitHub Pages** at
-`https://<user>.github.io/f1-commentary/`, rebuilt automatically by
-`.github/workflows/deploy.yml`.
+## 10. Dated Italy / Spain source lessons (10 September 2026)
 
-**What the workflow does on each run:**
-1. `python3 build.py` on the runner — so weather + Formula1.com results are
-   re-fetched live (the runner has fresh data, not your local snapshot).
-2. Restores the persistent **version store** by cloning the orphan
-   `site-history` branch into `public/` (first run: starts empty).
-3. `python3 versioning.py site public --threshold 3 --keep 20` — merges the new
-   build into the version store (see below).
-4. Force-pushes `public/` back to `site-history` (single-commit mirror) and
-   uploads it as the Pages artifact.
+Use these to catch regressions, not as values for other circuits or later documents.
+Reopen originals on subsequent audits. Italy raced **6 September**; Spain/Madrid
+is **13 September**, not another Barcelona round.
 
-**Versioning (`versioning.py`) — rollback support:**
-- Diffs the new build against the live one, **ignoring** the timestamp line and
-  the injected version widget. A build is *material* if it's the first ever, the
-  set of pages changed, or the normalized diff exceeds `--threshold` lines
-  (default 3). Trivial rebuilds (e.g. only the "Updated …" stamp changed) are
-  **not** pinned — keeps the history clean.
-- Material builds are pinned as immutable, self-contained snapshots under
-  `public/versions/<id>/` (id = Tallinn timestamp) and recorded in
-  `public/versions.json`. Keeps the last `--keep` (default 20); prunes older.
-- A **Version** dropdown is injected at the top of every page (right after
-  `<main class="content">`). It only appears once **≥2** versions exist; archived
-  pages also get a "Back to latest" link. So if a rebuild breaks something, pick
-  the previous version from the dropdown.
+**Italy:** FIA Doc 8 PU page 2: race recharge 7.0/7.5 MJ (Overtake off/on),
+Q 5.0, FP 7.5, non-race outlap 9.0; power-limited distance 4218 m, 50 kW/s.
+FP **and** Q use Base-Overtake. Alt 1 is identified T4-T7 / 2100-2800 m, not
+blanket all other straights. Detection 5050 m remains TBC, L18; activation
+5249 m, L19; gap 1.0s. L18/L19 are loops, not corners. Show four Straight Mode
+zones from the official map.
+Doc 26 (4 September, 18:01) requires **below 1:42.0 between the Safety Car lines**
+during **and after** qualifying and during race reconnaissance when the pit exit
+is open. The old coverage PR omitted "during"; use the actual note, not its diff.
 
-**Triggers:** push to `main`, `workflow_dispatch` (manual), and two crons:
-- `0 6-20/2 * * 4,5,6,0,1` — Thu–Mon, every 2h 06:00–20:00 UTC, the race-weekend
-  session window. Thursday is included deliberately: it is when the FIA publishes
-  a round's first documents, which is prep material for Friday running.
-- `0 8,16 * * 2,3` — Tue/Wed, twice a day. **Do not drop this one.** The paddock's
-  biggest stories often break midweek: in 2026 the Albon–Williams re-signing
-  landed on Tuesday 18 Aug and Hadjar's wrist injury (and the Lawson/Tsunoda
-  call-up) on Wednesday 19 Aug. With a Thu–Mon-only schedule neither reached the
-  site until Thursday morning. There is no session timing or weather to chase
-  midweek, so twice a day is enough to keep the news feed current.
+Doc 9 PU usage is a **4 September pre-running** snapshot, not post-race totals.
+Doc 33 (`new_pu_elements_for_this_competition_1.pdf`, 5 September 12:40)
+has two substantive pages, **2 and 3**. Lawson previous/new/allowed:
+ICE/TC/EXH 5/6/4; MGU-K 3/4/3; PU-ANC 6/7/6. Doc 41's 35-place penalty
+and Doc 57's later parc-ferme pitlane start are distinct. Alonso Doc 56
+pitlane start covers sixth ES, sixth PU-CE and fifth MGU-K.
+Ferrari Doc 18 ancillary elements were sixth, not first.
+The full car-presentation submission includes every team, not just its first page.
 
-Tighten to specific race dates or widen as needed.
-Note GitHub auto-pauses scheduled workflows after ~60 days of repo inactivity.
+**Spain:** Six FIA papers were discovered on 10 September: Doc 1 Pirelli preview,
+visa, Doc 3 PU, Doc 4 display procedure, Doc 5 race notes, Doc 6 maps.
+Map has substantive circuit/emergency/pitlane pages 2/3/4. Notes have nine
+substantive pages. Display procedure is not the yet-to-be-filed team upgrade list.
 
-**Workflow requirements:** `permissions: contents: write` (to push
-`site-history`) + `pages: write` + `id-token: write`; and
-`concurrency.cancel-in-progress: false` so a cancelled run can't corrupt the
-history push. Pushing `site-history` does **not** retrigger the workflow (the
-push trigger is `branches: [main]` only).
+PU: race recharge 8.5/9.0 MJ, Q 7.5, FP/outlap 9.0; 3206 m, 100 kW/s.
+Alt 1 T5-T22 / 1500-5100 m* (preserve unexplained asterisk).
+350 kW exceptions: T15-T16 3600-3800, T18-T19 4100-4300,
+T20-T21 4600-4800. Q-only exit-T22 reduction 5100-5300 and reset 5200-5400.
+Gap 1.0s, loops L24/L25; both absolute Overtake distances **TBC**.
 
-**First-time setup (already done for this repo):** create a public repo, enable
-Pages with source = "GitHub Actions", push `main`. `gh auth login --web` (device
-flow) grants access without sharing a token with the build.
+Map v3 is **5.414 km**, sectors 1.839/2.049/1.526; PU/Pirelli/calendar say
+**5.416 km**. Show the discrepancy; do not silently recompute the published
+57 laps / 308.524 km. Two Straight Mode zones: A1 100m after T22
+(low grip 130m), A2 40m after T3 (low grip 90m). Overtake detection is
+entry T22, activation 20m after T22; these relative locations do not resolve
+the PU sheet's absolute TBCs. Timing: I1 85m before T7, I2 40m before T16,
+speed trap 160m before T5.
 
----
+C2 hard / C3 medium / C4 soft; C2/C3 mandatory race, C4 Q3.
+FIA starting / expected running / camber: slick F 26.5 / >=27.5 / -2.75 deg,
+R 25.5 / >=26.5 / -1.5; inter F 28 / >=29 / -3, R 26.5 / >=27.5 / -2;
+wet F 27 / >=29 / -3, R 25 / >=27.5 / -2. Maximum blanket time 2h,
+slick/inter 70 C, wet 40 C (actual tyre-surface temperatures).
+Pirelli's 25s pit loss is an **estimate**, not measured; evolution 5/5,
+lateral demand 4/5, abrasion 2/5. Full artwork is `14-es26-preview-en.webp`
+from the event's Formula1.com tyre article, not a cropped FIA table.
 
-## 9. Automated enrichment and coverage review (hands-off, runs in CI)
+Race notes: T22 can delete current/following classified laps; SC2-SC1 maximum
+to follow FP2 (no known number yet); double-yellow FP lap deletion; blue warning
+3.0s / panels 1.2s; two extra FP2 grid-start laps; no normal pit-exit/Q starts,
+specific race-recon exception in 13.6; narrow-pitlane merge rules; SC resumption
+waits before T18; prescribed T1/T2 and T5/T5A runoff routes and T11 block rejoin.
+Display Fri 12:00-13:00 Madrid / 13:00-14:00 Tallinn; race Sun 15:00 / 16:00.
+No prior Madrid GP winners, venue records or actual 2026 race-set inventory before
+running: explicitly distinguish those from general Spanish GP heritage.
 
-The cron rebuild refreshes the **deterministic** data (weather, Formula1.com
-results tables) on its own. Article-to-news-card and FIA-decision-to-penalty-row
-extraction is automated by `enrich.py`, which runs **in the same workflow,
-before the build**, so no manual trigger is needed. CI uses deterministic
-extraction; an explicitly configured OpenAI-compatible provider can replace it.
-
-**What `enrich.py` does (per GP):**
-1. Scrapes candidate sources — The Race RSS, Formula1.com `/en/latest` slugs, and
-   the FIA event documents page (decision PDFs only: infringement / decision /
-   penalty / reprimand / fine / disqualification / protest; skips summons,
-   classifications, scrutineering, etc.).
-2. **Incremental & idempotent** — skips anything already recorded in
-   `data/<gp>/_seen.json` (article URLs + FIA filenames), so each run only spends
-   extraction work on genuinely new items.
-3. Extracts (a) a 2–4 sentence news card from an article and (b)
-   `{doc, driver, team, session, fact, outcome, kind}` from a decision PDF
-   (`pypdf` text), using deterministic heuristics by default or strict-JSON,
-   temperature-0 prompts when an external provider is configured.
-4. Writes `data/<gp>/news_auto.json` + `data/<gp>/penalties_auto.json`.
-
-**Relevance matching — why bodies are fetched.** A story counts for a GP when a
-venue keyword (`hungary`/`hungaroring`/`budapest`, `dutch`/`zandvoort`/…) appears
-in its title, URL **or body**. The body check matters: season previews, team
-half-term reviews and driver-market pieces routinely discuss a circuit without
-naming it in the headline, and those are prime commentary material.
-
-The Race arrives from RSS with full text attached, but Formula1.com only gives
-title+URL stubs, so for F1.com the article page is fetched *during* the relevance
-test (cached per run; the seen-check runs first so processed URLs are never
-re-downloaded). While that page is open, the real `headline` and `datePublished`
-are read from it — the listing page has neither, and a de-hyphenated slug reads
-badly on screen ("Half term report racing bulls best and worst moments…").
-
-That metadata upgrade must happen on **both** relevance paths. An article about
-the round currently being enriched matches on its URL slug alone, which
-short-circuits before any body fetch — so for a long time the round's *own*
-coverage was the only coverage stored with a slug title and no date, while
-off-round stories that fell through to the body check came out clean. Undated
-cards cannot be ordered, so the weekend's breaking news sank to the bottom of
-its own feed. `_upgrade_f1_meta()` is now called from both branches.
-
-Keyword choice is safety-critical here: because matching now reaches article
-bodies, a generic token would pull in nearly everything. `_GENERIC` strips words
-like "circuit"/"grand"/"prix" from the auto-derived keyword set.
-
-`backfill_meta.py` repairs cards stored before this existed. It always fills a
-missing date, but replaces a title **only** when it is plainly slug-derived, so
-the extractor's own (usually better) titles survive. It uses no model calls, so
-**the workflow runs it on every build** right after `enrich.py`:
-```bash
-python3 backfill_meta.py --dry-run     # inspect first
-python3 backfill_meta.py [--gp hungary]
-```
-
-### Ordering the news feed — dates, not display strings
-
-Each card stores **two** dates: `when` for display ("20 Aug") and an ISO `date`
-for sorting. Never sort on `when`. It sorts lexically, so `"12 Aug"` lands
-before `"6 Aug"` and a September story before every August one — and an empty
-string beats them all, so undated cards float to the front of an ascending sort.
-
-`f1lib.news_sort_key(card)` is the single source of truth, shared by `enrich.py`
-(stored order), `backfill_meta.py` and `f1lib.render_news()` (display order). It
-prefers ISO `date`, falls back to parsing `when` against `f1lib.SEASON` for
-cards written before the field existed, and returns `""` for genuinely undated
-ones. **The wires block renders newest-first** (`reverse=True`), which puts
-undated cards last — where an item of unknown age belongs.
-
-This is not cosmetic. On the Thursday of the 2026 Dutch GP the feed held 33
-cards, and Verstappen's contract extension, the Hadjar wrist injury / Lawson
-call-up and the Albon–Williams re-signing rendered as cards 32, 27 and 24 —
-below a fantasy-league promo, a "how to stream" explainer and a driver quiz. The
-stories had all been scraped correctly; the page simply showed them last. **If a
-story you know broke is "missing", check its position and its `date` before
-assuming the scrape failed.**
-
-**LLM backend:**
-- GitHub Models was retired on 30 July 2026. CI uses `LLM_FAKE=1` for
-  deterministic extraction and leaves critical cross-page reasoning to the
-  scheduled GitHub Copilot Agentic Workflow.
-- Optional external inference: set `LLM_ENDPOINT` (full OpenAI-compatible
-  chat-completions URL), `LLM_MODEL`, and `LLM_TOKEN`.
-- `LLM_FAKE=1` uses deterministic heuristic extraction with no inference API.
-
-**Curated content stays authoritative (anti-hallucination):** the engine
-(`f1lib.py`) *merges* the auto JSON into the curated pages — it never overwrites.
-- Auto **news** cards are deduped against curated stories by normalised `<h3>`
-  title; session-tagged cards drop into that session's block, the rest into a
-  clearly-labelled **"From the wires"** block *below* the curated headlines. Every
-  auto card carries a **source link** + an **"auto" badge** so a commentator can
-  verify it live before saying it on air.
-- Auto **penalties** are deduped by FIA document number; a hand-written row always
-  wins over the auto one for the same doc.
-
-**Source coverage notes (`enrich.py`):**
-- **The Race** (full-text RSS) is the fuller source — the summariser gets the
-  whole article. **Formula1.com gates everything past the lede behind "F1
-  Unlocked" login**, so only the intro paragraphs are summarisable there (still
-  enough for a headline card). Two easy-to-miss bugs are fixed: F1.com article
-  URLs must keep their `.<id>` suffix (the slug-only URL 404s → empty body), and
-  relevance is matched against the article **body**, not just the title/URL, so
-  weekend stories that omit the GP name from the headline (e.g. a driver-focused
-  penalty or PU story) are still picked up while generic/other-GP news is not.
-
-**Run it locally:**
-```bash
-# deterministic extraction (no inference token)
-LLM_FAKE=1 python3 enrich.py --gp hungary --max 3
-# optional OpenAI-compatible provider
-LLM_ENDPOINT=... LLM_MODEL=... LLM_TOKEN=... python3 enrich.py --gp hungary
-python3 build.py        # merges data/<gp>/*.json into the pages
-```
-(`enrich.py` needs `pypdf`; `build.py` stays stdlib-only and just reads the JSON.)
-
-**Active window (important now the whole season is registered):** `enrich.py`
-only processes the weekend currently running, the race that just finished, and the
-next round once it is within 10 days. Enriching all 14 registered GPs would waste
-tokens on races with no coverage yet and — worse — file general 2026 stories against a
-Grand Prix they have nothing to do with. Override with `--all`, or target one race
-with `--gp <dir>`.
-
-**In CI (`deploy.yml`):** a "Refresh season calendar" step runs `calendar.py` on
-Mondays and manual dispatches, then "Auto-enrich" (`pip install pypdf` +
-`LLM_FAKE=1 python3 enrich.py --max 25`, `continue-on-error: true`) runs before
-the build, then "Backfill Formula1.com headlines
-and dates" (`backfill_meta.py`, no model calls) repairs any slug-titled or
-undated card, then "Persist enrichment data" commits `data/` and `assets_src/`
-back to `main` with the default `GITHUB_TOKEN`. That push **does not** retrigger
-the workflow (GitHub suppresses `GITHUB_TOKEN`-authored pushes), so there is no
-loop — and `_seen.json` persists to make the next run incremental.
-
-The separate `critical-race-coverage.md` GitHub Copilot Agentic Workflow runs
-several times per race-week day. It inspects the complete rendered page set,
-researches current authoritative sources, and opens at most one reviewable draft
-PR for missing-but-published material. It emits no change while an earlier
-coverage PR remains open.
-
-`--max` is raised well above the default 6 on purpose. News does not arrive
-evenly — a contract extension, an injury call-up and a re-signing can all break
-within a couple of hours — and the default silently defers the overflow to a
-later run, which on a Thursday means it is missing from the page for the run
-that matters most. Deterministic extraction is inexpensive, so covering a burst
-day is safe; keep the default low for ad-hoc local runs.
-
----
-
-### Deployment size (learned the hard way)
-Scaling from 2 GPs to a season took each build from 34 pages to ~240, and the Pages
-deployment started timing out. Two independent causes:
-
-- **Artifact size** — every pinned snapshot carried its own copy of all 23 circuit
-  maps (42 MB artifact). Snapshots now share the live root's binary assets and
-  rewrite their asset URLs accordingly; `versioning.py` also strips the duplicates
-  from snapshots pinned before that change, so history heals itself. → ~7.5 MB.
-- **File count** — 20 snapshots × 240 pages is ~4,800 files for the Pages backend to
-  process. Retention dropped to `--keep 8`, the `.raw` diff mirror is excluded from
-  the upload (it lives on the `site-history` branch, which is all it is needed for),
-  and `deploy-pages` uses its maximum 10-minute timeout. A transient API failure gets
-  one delayed retry.
-
-If you add many more rounds or pages, expect to trade retention depth for deploy time
-again — file count matters more than bytes.
-
-## Tooling notes / gotchas
-
-- **Two Pythons:** `build.py` uses **stdlib only** (system `python3`). Image/PDF work
-  (Pillow, pypdf, pymupdf/fitz) needs homebrew **`python3.11`**
-  (`pip3.11 install pypdf pillow pymupdf`).
-- **Transparent WebP maps** must be composited onto white (`alpha_composite`), never
-  `.convert("RGB")` alone — that flattens onto black and creates jagged halos.
-- **The Race RSS** is the reliable, paywall-free path to full articles.
-- **Re-runs are idempotent & safe:** the engine wipes and regenerates `site/` each run,
-  re-fetching weather and results. Run it as often as you like across the weekend.
-- **Timezones:** while both cities are on summer time, Tallinn (EEST, UTC+3) = circuit
-  local (CEST, UTC+2) + 1h (`tz_offset`). Re-check if a GP sits outside CEST.
-- **FIA docs are published incrementally** — re-scrape the event page every rebuild.
-- **Version store lives on the `site-history` branch**, not `main`. `public/` is
-  git-ignored locally; it's assembled only in CI. To reset the history, delete the
-  `site-history` branch and re-run the workflow.
+The standings snapshot at this audit showed Antonelli 267, Russell 201
+(66 behind), Hamilton 191; Mercedes 468. These are a dated example only:
+future runs must fetch the official tables, not preserve these numbers in prose.

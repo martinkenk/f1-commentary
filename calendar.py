@@ -159,7 +159,7 @@ def scrape_event(year, slug):
     }
 
 
-def fetch_track_maps(events, year):
+def fetch_track_maps(events, year, failures=None):
     """Download each official track map into assets_src/ so the built site is
     self-contained (the build itself never reaches out for images)."""
     out_dir = os.path.join(ROOT, "assets_src")
@@ -187,14 +187,16 @@ def fetch_track_maps(events, year):
             os.replace(temporary, path)
             got += 1
             print(f"  + track map: {fname} ({len(raw) // 1024} kB)")
-        except Exception as e:
+        except (OSError, ValueError) as e:
             print(f"  ! track map {ev['slug']}: {e}")
+            if failures is not None:
+                failures.append(f"{ev['slug']}: {e}")
             if not os.path.exists(path):
                 ev["track_asset"] = ""
     return got
 
 
-def build(year):
+def build(year, failures=None):
     print(f"Scraping the {year} Formula 1 calendar…\n")
     ids = race_ids(year)
     events = []
@@ -215,7 +217,7 @@ def build(year):
         ev["total_rounds"] = len(events)
 
     print("\nTrack maps:")
-    maps = fetch_track_maps(events, year)
+    maps = fetch_track_maps(events, year, failures)
 
     os.makedirs(DATA, exist_ok=True)
     path = os.path.join(DATA, f"calendar_{year}.json")
@@ -244,10 +246,13 @@ if __name__ == "__main__":
     ap.add_argument("--maps-only", action="store_true",
                     help="refresh existing calendar maps, including active-event revisions")
     args = ap.parse_args()
+    failures = []
     if args.maps_only:
         events = load(args.year)
         if not events:
             raise SystemExit("No calendar available for track-map refresh")
-        fetch_track_maps(events, args.year)
+        fetch_track_maps(events, args.year, failures)
     else:
-        build(args.year)
+        build(args.year, failures)
+    if failures:
+        raise SystemExit(f"{len(failures)} track-map refresh(es) failed; prior assets retained")

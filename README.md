@@ -6,7 +6,8 @@ Left-hand sidebar menu; every Grand Prix gets its own landing page plus **17 sub
 Loaded: **every remaining round of the 2026 season** — 14 Grands Prix from Belgium
 (round 10) to Abu Dhabi (round 23). Belgium, Hungary, the Netherlands, Italy and Spain have
 hand-written prose; the rest are generated from the official calendar and a per-venue
-reference library. Results, championship standings, news and FIA document links
+reference library. Results, championship standings, news, FIA document links and
+source-faithful PDF screenshot galleries
 refresh automatically; interpreted technical tables and curated race-week prose
 are proposed by the coverage editor and require PR review before publication.
 
@@ -35,7 +36,7 @@ python3 -m http.server 8000
 10. **Upgrades** – car development / upgrade packages
 11. **Power Unit** – 2026 power-unit + energy-override data (with FP & Qualifying power limits highlighted)
 12. **Penalties & Stewards** – **FIA decision-document tracker** (fines, warnings, penalties, track limits)
-13. **Reliability & Pit Stops** – **DNF/finisher tracker** + **fastest pit stops** + fastest lap (live from results)
+13. **Reliability & Pit Stops** – **DNF/finisher tracker** + **pit-lane elapsed times** (not stationary wheel changes) + fastest lap (live from results)
 14. **Facts & Records** – lap record, poles/wins, past winners, trivia + **current-grid this-track history**
 15. **Top Moments** – historic drama at the venue (timeline)
 16. **Schedule & Weather** – session times in **circuit-local + Tallinn/EEST** with **live weather** (forecast + actuals)
@@ -60,6 +61,11 @@ python3 build.py
 - `standings.py` – fetches both official championship tables into
   `data/standings_2026.json` every CI run. Both must parse successfully before the
   timestamped snapshot is replaced; builds use the last successful snapshot.
+- `fia_media.py` – refreshes all categorized FIA PDF pages into content-hashed,
+  zoomable screenshots; same-URL revisions get new images without overwriting
+  historical versions. Last-good images survive source failures.
+- `coverage_inventory.py` – inventories every GP's data/assets and source failures,
+  checks generated pages/local images, and flags uncached PDFs for editorial review.
 - `circuits.py` – per-venue reference data: coordinates (for weather), circuit character,
   key corners, overtaking, tyre behaviour, lap records, talking points.
 - `build.py` – driver: turns each calendar round into a GP context and builds the site.
@@ -74,8 +80,9 @@ hand-written treatment, add `content_<gp>.py` and register it in `BESPOKE` in `b
 ### Progressive disclosure
 Pages render known material and explicit pending states rather than guesses.
 Automatic source discovery is distinct from editorial transcription: published
-FIA PDFs are linked on the relevant page even while a curated numeric table awaits
-review. A source-fetch failure must not be treated as proof it is unpublished.
+FIA PDFs and screenshots appear on relevant pages even while a curated numeric
+table awaits review. Screenshots do not verify or update existing numerical prose.
+A source-fetch failure must not be treated as proof it is unpublished.
 Fetching is gated on race proximity (no result requests for races that haven't run, no
 weather beyond Open-Meteo's 16-day horizon), so a 14-GP build still takes about 12
 seconds.
@@ -112,13 +119,21 @@ decision PDFs** into penalty rows.
 - Incremental via `data/<gp>/_seen.json`; output in `data/<gp>/*_auto.json`.
 ```bash
 python3 standings.py                            # official points refresh
+python3 fia_media.py --gp spain                    # requires pymupdf; saved FIA listing
 LLM_FAKE=1 python3 enrich.py --gp hungary --max 3   # deterministic extraction, no model calls
 LLM_ENDPOINT=... LLM_MODEL=... LLM_TOKEN=... python3 enrich.py
 python3 backfill_meta.py --dry-run                   # repair slug titles / missing dates
 ```
 CI runs it Thu–Mon every 2h during a race weekend, plus twice a day on Tue/Wed so
 midweek driver-market news isn't missed.
-See **SKILL.md §9** for the full design.
+See **[SKILL.md](SKILL.md)** for the full design and a provider-neutral external-agent
+scheduling prompt. It documents all 17 pages' subfeatures, earlier-GP parity,
+source/revision handling, optional dependencies, review versus authorized publish
+modes, and live deployment confirmation.
+
+After building, run `python3 coverage_inventory.py --all --check` for an offline
+inventory of every registered GP. This catches missing pages and local images;
+it is not a substitute for the skill's factual/editorial audit.
 
 ## Times & weather
 - All times shown in **circuit-local + Tallinn** — no other zones. The offset is

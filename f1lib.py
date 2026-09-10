@@ -146,6 +146,75 @@ def render_fia_documents(ctx, category):
     return card("FIA official " + labels[category], "".join(out), "bi-file-earmark-pdf")
 
 
+def render_fia_media(ctx, category, curated_html=""):
+    """Show verified-download PDF pages, not invented technical summaries."""
+    if category not in ("powerunit", "circuit", "tyres", "upgrades"):
+        return ""
+    record = _load_fia_record(ctx, "fia_media")
+    figures = re.findall(r"<figure\b.*?</figure>", curated_html, re.S | re.I)
+    sections = []
+    for document in record.get("documents", []):
+        url = document.get("url", "")
+        if not _official_fia_url(url) or category not in fia_document_categories(document.get("filename", "")):
+            continue
+        covered = set()
+        for figure in figures:
+            if document.get("revision", 0):
+                # A same-URL revision must not be hidden by an older manual figure.
+                for item in document.get("pages", []):
+                    if f'../assets/{item["asset"]}' in figure:
+                        covered.add(item["page"])
+                continue
+            for href in re.findall(r'href=["\']([^"\']+)["\']', figure):
+                parsed = urllib.parse.urlsplit(html.unescape(href))
+                if urllib.parse.urlunsplit(parsed._replace(fragment="")) != url:
+                    continue
+                page = re.search(r"(?:^|&)page=(\d+)", parsed.fragment)
+                if not page:
+                    page = re.search(r"\bpage\s+(\d+)", _clean(figure), re.I)
+                if page:
+                    covered.add(int(page.group(1)))
+                elif len(document.get("pages", [])) == 1:
+                    covered.add(document["pages"][0]["page"])
+        images = []
+        for page in document.get("pages", []):
+            name = page.get("asset", "")
+            if not re.fullmatch(r"fia-[a-z0-9-]+-p\d+\.png", name):
+                raise ValueError(f"Invalid FIA screenshot asset: {name!r}")
+            if page["page"] in covered:
+                continue
+            source = html.escape(url + f'#page={page["page"]}', quote=True)
+            title = html.escape(document["filename"])
+            images.append(
+                f'<figure class="circuit-fig"><img src="../assets/{name}" '
+                f'alt="{title}, PDF page {page["page"]}" class="circuit-img" '
+                'loading="lazy" onclick="zoomImg(this)" title="Click to zoom / full screen">'
+                f'<figcaption><a href="{source}" target="_blank" rel="noopener">'
+                f'Official PDF, page {page["page"]}</a>. Source-faithful automatic screenshot; '
+                'click to zoom.</figcaption></figure>')
+        if images:
+            title = html.escape(document["filename"])
+            fetched = html.escape(document.get("fetched_at", ""))
+            sections.append(
+                f'<details{" open" if not sections else ""}><summary>{title}</summary>'
+                f'<p class="src">PDF retrieved {fetched}; this is not its issue date.'
+                + (' Revised at the same source URL; older curated figures may be superseded.'
+                   if document.get("revision", 0) else '') + '</p>'
+                + "".join(images) + "</details>")
+    if not sections and not record.get("errors"):
+        return ""
+    warning = ""
+    if record.get("errors"):
+        warning = ('<p><strong>Some FIA screenshots could not be refreshed.</strong> '
+                   'Any existing images are from successful earlier downloads; '
+                   'use the original PDFs to check later revisions.</p>')
+    return card("Official FIA document screenshots",
+                warning + '<p>Automatically rendered from the official PDFs. These figures '
+                'do not update or verify the curated numeric transcriptions above. '
+                'Unchanged pages already illustrated above are not repeated here.</p>'
+                + "".join(sections), "bi-images")
+
+
 def _norm_title(t):
     t = re.sub(r"<[^>]+>", "", t or "")
     return re.sub(r"[^a-z0-9]+", " ", t.lower()).strip()
@@ -577,7 +646,8 @@ def _parse_laptime(s):
         return None
 
 
-def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None, official=None):
+def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None,
+                             official=None, compounds=None, source_url=""):
     """Per-driver dry-tyre-set availability table.
 
     official: optional {code: (soft_new, soft_used, medium_new, medium_used,
@@ -600,9 +670,17 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
     tyre allocation) and they're dropped from the table (they aren't racing
     this weekend, so a standalone row for them is just noise)."""
     sessions = _load_pace(ctx)
-    if not sessions:
+    if not sessions and not official:
         return ""
+    if compounds is not None and len(compounds) != 3:
+        raise ValueError("Provide three compound labels in hard/medium/soft order")
+    labels = [html.escape(f"{name} ({compounds[i]})" if compounds else name)
+              for i, name in enumerate(("Hard", "Medium", "Soft"))]
     driver_info = {}
+    for block in ctx.get("results", []):
+        for row in _classified(block):
+            if row["code"]:
+                driver_info[row["code"]] = (row["name"], row["team"])
     for s in sessions:
         for row in s.get("fastest") or []:
             code = row.get("code")
@@ -623,7 +701,7 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
     def _pair_cell(new, used):
         total = new + used
         cls = _level(new)
-        scrub = f"<span class='tyre-badge tyre-scrub'>{used} scrubbed</span>" if used else ""
+        scrub = f"<span class='tyre-badge tyre-scrub'>{used} used</span>" if used else ""
         return (
             f"<td class='tyre-cell' data-sort='{new}'>"
             f"<span class='tyre-pair'><span class='tyre-badge {cls}'>{new} new</span>{scrub}</span>"
@@ -633,6 +711,8 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
     if official:
         rows = []
         for code, vals in official.items():
+            if len(vals) != 6 or any(type(value) is not int or value < 0 for value in vals):
+                raise ValueError(f"Invalid official tyre-set counts for {code}")
             name, team = driver_info.get(code, (code, ""))
             rows.append((name, team, code, vals))
         rows.sort(key=lambda r: (r[1], r[0]))
@@ -643,20 +723,26 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
             cells.append(_pair_cell(mn, mu))
             cells.append(_pair_cell(sn, su))
             body.append("<tr>" + "".join(cells) + "</tr>")
+        source = html.escape(
+            f"Official {ctx.get('year', SEASON)} {ctx.get('name', 'Grand Prix')} "
+            '"Tyres Available for Race" allocation data.')
+        if source_url:
+            source += (f' <a href="{html.escape(source_url, quote=True)}" target="_blank" '
+                       'rel="noopener">Original source</a>.')
         return f"""
 <h2 class="sec">Tyre sets available for the race (official)</h2>
 <div class="callout"><strong>Official per-driver tyre-set availability</strong> for the race, as
-published ahead of the event: how many sets of each compound each driver has left after the
+published ahead of the race: how many sets of each compound each driver has left after the
 mandatory hand-backs following practice and qualifying, split into brand-new (unscrubbed)
-sets and already-scrubbed-but-unused sets (a scrubbed set still works for the race, it just
+sets and used sets, including scrubbed tyres (a used set can still work for the race, it just
 isn't a genuinely fresh one — the colour below reflects the <strong>new</strong> count, since
 that's what matters most for a late-race attack or a fresh out-lap).
 <span class="tyre-legend"><span class="tyre-badge tyre-ok">2+ new</span>
 <span class="tyre-badge tyre-low">1 new</span><span class="tyre-badge tyre-out">0 new</span></span></div>
 <div class="table-wrap"><table class="data compact tyre-avail filterable">
-<thead><tr><th>Driver</th><th>Team</th><th>Hard (C3)</th><th>Medium (C4)</th><th>Soft (C5)</th></tr></thead>
+<thead><tr><th>Driver</th><th>Team</th><th>{labels[0]}</th><th>{labels[1]}</th><th>{labels[2]}</th></tr></thead>
 <tbody>{"".join(body)}</tbody></table></div>
-<p class="src">Source: Official 2026 Italian Grand Prix "Tyres Available for Race" allocation data, published ahead of the race.</p>
+<p class="src">Source: {source}</p>
 """
 
     driver_info2 = driver_info
@@ -700,14 +786,14 @@ that's what matters most for a late-race attack or a fresh out-lap).
     return f"""
 <h2 class="sec">Tyre sets used &amp; remaining (estimated from FastF1 stint data)</h2>
 <div class="callout"><strong>Estimated from FastF1 lap/stint data</strong> across every session run
-so far this weekend (no official allocation data published yet): each distinct fresh-tyre stint
-is counted against the confirmed starting allocation of <strong>{hard} hard, {medium} medium and
-{soft} soft</strong> sets per driver. This can overstate usage slightly for sets carried over
-unused between sessions.
+so far this weekend (no verified official allocation loaded): each distinct fresh-tyre stint
+is counted against an assumed starting allocation of <strong>{hard} hard, {medium} medium and
+{soft} soft</strong> sets per driver. This can overstate usage for sets carried over
+between sessions and does not model all mandatory hand-backs. It is not an official inventory.
 <span class="tyre-legend"><span class="tyre-badge tyre-ok">2+ left</span>
 <span class="tyre-badge tyre-low">1 left</span><span class="tyre-badge tyre-out">0 left</span></span></div>
 <div class="table-wrap"><table class="data compact tyre-avail filterable">
-<thead><tr><th>Driver</th><th>Team</th><th>Hard (C3)</th><th>Medium (C4)</th><th>Soft (C5)</th></tr></thead>
+<thead><tr><th>Driver</th><th>Team</th><th>{labels[0]}</th><th>{labels[1]}</th><th>{labels[2]}</th></tr></thead>
 <tbody>{"".join(body)}</tbody></table></div>
 <p class="src">Source: FastF1 timing/stint data (via <a href="https://docs.fastf1.dev/" target="_blank" rel="noopener">docs.fastf1.dev</a>), aggregated from every session analysed so far.</p>
 """
@@ -993,10 +1079,10 @@ def _block(ctx, label):
     return None
 
 
-def _col(headers, *starts):
+def _col(headers, *starts, exact=False):
     low = [h.lower() for h in headers]
     for i, h in enumerate(low):
-        if any(h.startswith(s) for s in starts):
+        if any(h == s or (not exact and h.startswith(s)) for s in starts):
             return i
     return None
 
@@ -1122,7 +1208,7 @@ def render_reliability(ctx, intro_html=""):
         else:
             out.append('<div class="callout watch">Every starter was classified — a clean, full-distance race.</div>')
     else:
-        out.append('<div class="callout watch"><strong>The race hasn\'t run yet.</strong> '
+        out.append('<div class="callout watch"><strong>Race classification unavailable in this build.</strong> '
                    "Retirements and finisher counts appear here automatically once the race "
                    "classification is published.</div>")
 
@@ -1130,18 +1216,19 @@ def render_reliability(ctx, intro_html=""):
     ps = extra.get("pitstops")
     if ps:
         h = ps["headers"]
-        di, ti, tti, si, li = (_col(h, "driver"), _col(h, "time"), _col(h, "total"),
+        di, ti, tti, si, li = (_col(h, "driver"), _col(h, "time", exact=True), _col(h, "total"),
                                _col(h, "stops"), _col(h, "lap"))
-        # fastest single stationary stop = min 'Time'
+        # Formula1.com's summary measures pit-lane elapsed time, not the wheel change.
         def to_f(x):
             try:
                 return float(x)
             except Exception:
                 return 999.0
         ranked = sorted(ps["rows"], key=lambda r: to_f(r[ti]) if ti is not None and ti < len(r) else 999.0)
-        out.append('<h2 class="sec">Fastest pit stops</h2>')
-        out.append('<p class="lead-note">Quickest stationary times of the race (pit crew performance, '
-                   'not counting the pit-lane drive-through).</p>')
+        out.append('<h2 class="sec">Shortest pit-lane times</h2>')
+        out.append('<p class="lead-note">Formula1.com pit-stop-summary elapsed times include '
+                   'pit-lane transit and the stop. These are not stationary wheel-change '
+                   'times or net race-time pit losses.</p>')
         rws = []
         for n, r in enumerate(ranked[:10]):
             nm, code = _split_driver(r[di]) if di is not None and di < len(r) else (r[-1], "")
@@ -1152,7 +1239,7 @@ def render_reliability(ctx, intro_html=""):
                        f"<td class='tm'>{nm} <span class='drv-code'>{code}</span></td>"
                        f"<td class='num'>{t}s</td><td class='num'>L{lap}</td></tr>")
         out.append('<div class="table-wrap"><table class="data compact"><thead><tr>'
-                   '<th>#</th><th>Driver</th><th>Stationary</th><th>Lap</th></tr></thead>'
+                   '<th>#</th><th>Driver</th><th>Pit-lane time</th><th>Lap</th></tr></thead>'
                    f'<tbody>{"".join(rws)}</tbody></table></div>')
 
     # Fastest lap
@@ -1167,9 +1254,10 @@ def render_reliability(ctx, intro_html=""):
         avg = top[ai] if ai is not None and ai < len(top) else ""
         out.append('<h2 class="sec">Fastest lap of the race</h2>')
         out.append(card(f"{nm} — {t}",
-                        f"<p>Set on lap {lap} at an average of {avg} km/h. The fastest-lap point goes "
-                        "to a top-10 finisher; watch for a late free-stop 'fastest lap' grab if a car has "
-                        "a spare set of softs and a pit-window cushion.</p>", "bi-stopwatch", "accent"))
+                        f"<p>Set on lap {lap} at an average of {avg} km/h. "
+                        "Fastest lap carries no championship bonus point under the current "
+                        "regulations; the bonus was removed from 2025.</p>",
+                        "bi-stopwatch", "accent"))
 
     if not race and not ps and not fl:
         pass
@@ -1261,7 +1349,8 @@ def auto_penalties(ctx):
 # --------------------------------------------------------------------------
 def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_html, depth=1):
     GP = ctx
-    body_html = render_fia_documents(ctx, active_slug) + body_html
+    body_html = (render_fia_documents(ctx, active_slug) + body_html
+                 + render_fia_media(ctx, active_slug, body_html))
     base = "../" * depth
     items = []
     for slug, fname, icon, short, _long in ctx["nav"]:

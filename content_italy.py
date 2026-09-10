@@ -3,7 +3,8 @@
 Race-week facts are drawn from Formula1.com, The Race and the FIA event hub.
 FIA maps and tables were visually checked against the PDFs on 10 September 2026.
 """
-from f1lib import card, news_item, render_news, render_penalties, render_tyre_availability, stat, ul
+from f1lib import (auto_h2h, card, news_item, render_news, render_penalties,
+                  render_reliability, render_tyre_availability, stat, ul)
 from content_generic import build_pages as build_generic, pending, ul_or, _fmt
 
 
@@ -25,6 +26,42 @@ FIA_ALONSO_PITLANE_URL = ("https://www.fia.com/system/files/decision-document/"
                          "2026_italian_grand_prix_-_infringement_-_car_14_-_pu_elements_changed_during_parc_ferme.pdf")
 FIA_LAWSON_PITLANE_URL = ("https://www.fia.com/system/files/decision-document/"
                          "2026_italian_grand_prix_-_infringement_-_car_30_-_changes_made_under_parc_ferme.pdf")
+RACE_REPORT_URL = ("https://www.formula1.com/en/latest/article/"
+                   "antonelli-beats-russell-to-italian-grand-prix-win-with-stunning-comeback-drive."
+                   "15WtFEBT5JEe4drdeO88t2")
+FIA_SC_TIME_URL = ("https://www.fia.com/system/files/decision-document/"
+                   "2026_italian_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf")
+
+
+def _race_review():
+    return card("6 September: Antonelli wins from P19", """
+<p><strong>Kimi Antonelli beat George Russell and Max Verstappen</strong> after starting
+19th following his PU penalty. Norris beat Piastri to fourth; Hamilton finished sixth.
+Polesitter Gasly finished seventh, ahead of Lindblad, Colapinto and Tsunoda.</p>
+<ol>
+  <li><strong>Qualifying and grid:</strong> Gasly took pole ahead of Russell.
+  Piastri qualified third but received a three-place grid penalty for impeding Lawson;
+  Leclerc and Hamilton consequently shared the second row.</li>
+  <li><strong>Opening laps:</strong> Gasly retained the lead at the start; Russell passed
+  him on lap 2. Hamilton lost ground in his first-chicane fight with Leclerc.
+  Leclerc then crashed separately at Curva Alboreto on lap 2, bringing a red flag
+  and barrier repairs. He climbed out unaided; that observation is not a medical diagnosis.</li>
+  <li><strong>Restart:</strong> Tsunoda's incorrect grid positioning caused an aborted
+  start. Russell led the eventual restart; Verstappen and the recovering Antonelli
+  worked through the order. Antonelli first took the lead on lap 18.</li>
+  <li><strong>Strategy split:</strong> Stroll's hydraulic retirement brought a Virtual
+  Safety Car. Antonelli stopped for fresh mediums and Verstappen for hards;
+  Russell stayed on the hards fitted during the red flag.</li>
+  <li><strong>Finish:</strong> after running through the gravel on lap 49, Antonelli
+  recovered and passed Russell between Lesmo 2 and Ascari on lap 50.
+  Alonso (suspected damage), Stroll (hydraulics) and Leclerc were the retirements.</li>
+</ol>
+""" + f'<p class="src">Verified against the <a href="{RACE_REPORT_URL}" '
+        'target="_blank" rel="noopener">Formula1.com race report, 6 September 2026</a>. '
+        '<a href="results.html">Full classification and practice telemetry</a> / '
+        '<a href="penalties.html">Subsequent stewards decisions</a>. '
+        'The report describes events on race day; later rulings take precedence.</p>',
+        "bi-flag-fill", "accent")
 
 # Official per-driver "Tyres Available for Race" allocation, as published
 # ahead of the race (grid order). Each tuple is
@@ -71,10 +108,9 @@ def build_pages(ctx, env):
     st = ctx.get("standings") or {}
 
     pages["overview"] = dict(
-        kicker="Round 13 · Weekend briefing",
+        kicker="Round 13 · Completed 6 September",
         title="Weekend Overview",
-        sub=("The Temple of Speed hosts Ferrari's home race, Kimi Antonelli's "
-             "homecoming and the final European double-header opener."),
+        sub="Antonelli's P19-to-victory recovery led a Mercedes one-two; Verstappen completed the podium.",
         body=f"""
 <div class="stat-row">
   {stat("5.793 km", "Lap length")}
@@ -83,19 +119,22 @@ def build_pages(ctx, env):
   {stat("Standard", "Format", "3 practice sessions")}
 </div>
 
+{_race_review()}
+<details>
+<summary>Pre-race briefing archive — context, not the final result</summary>
 <div class="callout">
-  <strong>The weekend setup:</strong> Mercedes' planned power-unit change brought Antonelli a
+  <strong>The pre-race setup:</strong> Mercedes' planned power-unit change brought Antonelli a
   grid penalty; Ferrari brought a home-race low-drag programme and Schumacher tribute.
   <a href="standings.html">Championship &amp; Form</a> carries the latest sourced points rather
   than a frozen pre-Monza championship gap.
 </div>
 
-<h2 class="sec">Storylines to have loaded for FP1</h2>
+<h2 class="sec">Storylines going into FP1</h2>
 <div class="grid cols-2">
   {card("Antonelli: home hero, title leader, recovery drive", ul([
      "Antonelli arrived for his home race after finishing second at Zandvoort.",
      "His fifth ICE, fourth energy store and fourth control electronics brought a 30-place grid penalty (FIA Document 19).",
-     "No Italian has won the Italian Grand Prix since Ludovico Scarfiotti in 1966.",
+     "Before this race, the last Italian winner of the Italian Grand Prix was Ludovico Scarfiotti in 1966.",
   ]), "bi-trophy", "accent")}
   {card("Ferrari and the tifosi", ul([
      "Ferrari's special livery and race suits mark 30 years since Michael Schumacher joined the team.",
@@ -114,6 +153,7 @@ def build_pages(ctx, env):
      "McLaren expect a possible 'yo-yo effect' as cars harvest and deploy at different places around the lap.",
   ]), "bi-battery-charging")}
 </div>
+</details>
 
 <h2 class="sec">Session times</h2>
 <div class="table-wrap"><table class="data">
@@ -123,6 +163,12 @@ def build_pages(ctx, env):
 """)
 
     curated_news = [
+        news_item(
+            "Antonelli wins at Monza from P19; Mercedes finish one-two",
+            "The championship leader recovered from his engine penalty and passed Russell "
+            "on lap 50. Verstappen finished third; Leclerc's lap-two crash caused a red flag. "
+            "The overview carries a chronological account, with the full results on the Results page.",
+            _source("Formula1.com race report", RACE_REPORT_URL), "6 Sep", "f1"),
         news_item(
             "Toto Wolff explains decision behind Monza engine penalty for Kimi Antonelli",
             "Pre-event report: Mercedes selected Monza for a planned power-unit change, choosing "
@@ -198,6 +244,9 @@ and activation at T11. See <a href="powerunit.html">Power Unit &amp; Override</a
      "Failing to negotiate <strong>Turn 11</strong> (Parabolica) during a lap-time-classified session can lead the Stewards to invalidate that lap and the following lap.",
      "The Turn 1&ndash;2 escape road has four rows of polystyrene blocks; drivers must go around each row's end to re-join.",
      "At the Turn 4&ndash;5 escape road, drivers who go straight and pass right of the gravel must stay right of the yellow line/bollard and re-join after Turn 5.",
+     f'Drivers must stay below <strong>1:42.0 between the Safety Car lines</strong> '
+     f'on laps during and after qualifying, and during race reconnaissance when the pit exit is open '
+     f'(<a href="{FIA_SC_TIME_URL}" target="_blank" rel="noopener">FIA Document 26, 4 September, 18:01</a>).',
   ]), "bi-signpost-split", "accent")}
   {card("Circuit changes since 2025", ul([
      "New asphalt patch at Turn 2; new wall and debris fence on the left of the main straight.",
@@ -228,8 +277,8 @@ and activation at T11. See <a href="powerunit.html">Power Unit &amp; Override</a
     pages["news"] = dict(
         kicker="Weekend News",
         title="Weekend News & Session Reports",
-        sub="The key Monza stories first, followed by the full automatically refreshed wire feed.",
-        body=render_news(ctx, curated_news, {}))
+        sub="The completed race first, then pre-event context and the automatically refreshed wire feed.",
+        body=render_news(ctx, curated_news, {"Race": [_race_review()]}))
 
     pages["tyres"] = dict(
         kicker="Pirelli · confirmed",
@@ -261,18 +310,35 @@ and activation at T11. See <a href="powerunit.html">Power Unit &amp; Override</a
      "Monza is traditionally low degradation and a one-stop race, but the softest allocation broadens the undercut window.",
      "Track position is less binding than at many circuits because slipstreaming and late braking offer recovery chances.",
      "Hot conditions increase the risk of rear-tyre overheating under traction.",
-     "Friday long runs will determine the real degradation picture under the new rules.",
+     "The completed Friday long runs are available on Results; fuel load, traffic and run plans prevent a like-for-like race-pace ranking.",
   ]), "bi-diagram-3")}
 </div>
-{pending("Long-run degradation data", "after Friday practice", "bi-graph-down")}
+<div class="callout">
+  <strong>Practice evidence is available:</strong>
+  <a href="results.html">FP2 clean-lap long runs</a> (select Practice 2 under Pace analysis) include compound,
+  lap count, average time and consistency; the same Results page carries FP1/FP3,
+  qualifying segments, theoretical best laps and speed/delta traces.
+  These are measured samples, not a fitted degradation curve or a guaranteed stint limit.
+</div>
 <p class="src">Source: Formula1.com / Pirelli Italian Grand Prix tyre preview, 2 Sep 2026.</p>
+
+<h2 class="sec">What the race actually did — not a pre-race stint predictor</h2>
+<p>Antonelli started on hards, changed to mediums during the early red flag and took
+fresh mediums under the later VSC. Russell started on mediums and stayed on the hards
+fitted during the red flag. Antonelli's fresher tyres enabled his lap-50 winning pass.
+The red flag and VSC changed the strategic comparison; this is not evidence that a
+particular green-flag pit window was optimal.</p>
+<p class="src">Source: <a href="{RACE_REPORT_URL}" target="_blank" rel="noopener">
+Formula1.com race report, 6 September</a>. The stored FastF1 dataset covers practice and
+qualifying, not race telemetry; no race degradation model is claimed.</p>
 
 <h2 class="sec">FIA tyre prescriptions (Document 3, Competition Notes — Pirelli Preview)</h2>
 <div class="callout">
   <strong>Race-tyre nuance:</strong> the mandatory-race-tyre panel names only <strong>C3 and C4</strong>
-  &mdash; every driver must use both compounds across the race. The softest C5 is reserved for one-lap
-  pace: it is designated the <strong>Q3 tyre</strong>, so its heaviest race use is likely to come from
-  drivers eliminated in Q1/Q2 rather than the top-10 runners who start on their Q2 time.
+  as the designated mandatory race compounds; this does <strong>not</strong> require every
+  driver to use both. C5 is the designated <strong>Q3 tyre</strong>, not a ban on racing
+  the soft compound. There is no requirement for top-ten qualifiers to start on their Q2 tyres:
+  the official race report records Leclerc, Hamilton and Verstappen starting on softs.
 </div>
 <div class="table-wrap"><table class="data compact">
   <thead><tr><th>Slick axle</th><th>Min. starting pressure</th><th>Expected stabilised pressure</th><th>Camber limit</th></tr></thead>
@@ -287,7 +353,8 @@ starting/&ge;29.0 psi stabilised (same camber limits as intermediates).
 Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_competition_notes_-_pirelli_preview.pdf" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Competition Notes: Pirelli Preview</a>
 (Document 3, issued 2 Sep 2026) via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
-{render_tyre_availability(ctx, hard=2, medium=3, soft=8, official=TYRES_AVAILABLE_FOR_RACE, fp1_substitutes={
+{render_tyre_availability(ctx, hard=2, medium=3, soft=8, compounds=("C3", "C4", "C5"),
+    official=TYRES_AVAILABLE_FOR_RACE, fp1_substitutes={
     "BRO": "ALB",  # Browning replaces Albon in FP1
     "ARO": "GAS",  # Aron replaces Gasly in FP1
     "HER": "PER",  # Herta replaces Perez in FP1
@@ -473,12 +540,41 @@ Selected decisions, not an exhaustive post-race stewards log.</p>
         title="Championship & Form",
         sub=st.get("summary") or "Latest available current-season championship snapshot.",
         body=standings_body + (st.get("notice") or ""))
+    pages["h2h"] = dict(
+        kicker="Team-mate battles",
+        title="Head-to-Head",
+        sub="Monza session comparisons, distinct from any season-long scoreline.",
+        body=auto_h2h(ctx) + card("Season qualifying/race tally: not yet verified", """
+<p>These comparisons use Monza's timing only. No audited season-long head-to-head
+ledger is stored here; the approximate pre-Hungary tally is not a current season
+result. Race-seat replacements (Lawson/Tsunoda) and FP1-only rookies must be
+identified separately before aggregating qualifying or race comparisons.</p>
+""", "bi-arrow-left-right"))
+    pages["reliability"] = dict(
+        kicker="Reliability · completed race",
+        title="Reliability & Pit Stops",
+        sub="Sourced retirement context plus the automatic classification and pit-stop analysis.",
+        body=render_reliability(ctx, intro_html=card("Reported retirements and driver safety", ul([
+            "<strong>Leclerc:</strong> lap-two crash at Curva Alboreto; he exited the car unaided. "
+            "The red flag allowed barrier repairs. This does not establish medical clearance.",
+            "<strong>Alonso:</strong> retired with suspected car damage, as described by the race report; "
+            "no specific failed component is confirmed there.",
+            "<strong>Stroll:</strong> stopped with a hydraulic issue, prompting the VSC used by Antonelli and Verstappen to pit.",
+            "The FIA's pre-race Heat Hazard declaration is retained on Schedule &amp; Weather. "
+            "It should not be confused with an individual medical report or the cause of a retirement.",
+        ]) + f'<p class="src"><a href="{RACE_REPORT_URL}" target="_blank" rel="noopener">'
+              'Formula1.com race report, 6 September 2026</a> / '
+              '<a href="schedule.html">Heat Hazard declaration</a>. '
+              'Pit-stop table durations are not automatically stationary wheel-change times.</p>',
+            "bi-wrench-adjustable", "accent")))
 
     pages["teams"] = dict(
         kicker="Team watch",
         title="Team Watch & News",
-        sub="The team-level stories most likely to shape the Italian Grand Prix.",
+        sub="Race outcome first; the dated pre-event team briefing is retained for context.",
         body=f"""
+{_race_review()}
+<h2 class="sec">Pre-event team briefing archive</h2>
 <div class="grid cols-2">
   {card("Mercedes", ul([
      "Antonelli's full power-unit change is strategic rather than the result of a new failure.",
@@ -521,7 +617,7 @@ Aston Martin/Honda development plan: The Race, "What Aston Martin revealed about
 """)
 
     pages["upgrades"] = dict(
-        kicker="Development · pre-event",
+        kicker="Development · FIA filing 4 September",
         title="Car Development & Upgrades",
         sub="Confirmed and reported Monza packages, plus the FIA's Friday car-presentation procedure.",
         body=f"""
@@ -750,6 +846,7 @@ The PDFs and their tables were visually checked on 10 September 2026.</p>
      "Michael Schumacher and Lewis Hamilton share the driver record with <strong>five wins</strong> each.",
      "Ferrari are the most successful constructor at their home race.",
      "Monza has hosted every World Championship Italian GP except 1980.",
+     "Antonelli won the 2026 race from P19, ending the Italian-driver home-win wait since Scarfiotti in 1966.",
      "The preserved banking beside the modern circuit remains one of the venue's defining sights.",
   ]), "bi-trophy", "accent")}
   {card("2025 benchmark", ul([
@@ -767,7 +864,7 @@ The PDFs and their tables were visually checked on 10 September 2026.</p>
   ]), "bi-trophy",
   "accent")}
 </div>
-<h2 class="sec">Last five Italian Grands Prix</h2>
+<h2 class="sec">Five previous Italian Grands Prix (2021–2025)</h2>
 <div class="table-wrap"><table class="data">
   <thead><tr><th>Year</th><th>Polesitter</th><th>Winner</th></tr></thead>
   <tbody>
@@ -779,32 +876,43 @@ The PDFs and their tables were visually checked on 10 September 2026.</p>
   </tbody>
 </table></div>
 <p class="src">Trophy: The Race, "Italian GP unveils one of F1's most unusual trophies", 1 Sep 2026.</p>
+<h2 class="sec">Current-grid track-history reference</h2>
+<p>The recent results above identify Monza wins for Verstappen (2022, 2023, 2025) and
+Leclerc (2024); the historical moments below add Leclerc's 2019 and Gasly's 2020 victories.
+Hamilton shares the five-win venue record. Antonelli joins the winners in 2026.
+This is a selected winners reference, not a complete current-grid table of starts,
+poles or best finishes; those totals require a separate historical-results audit.</p>
+<p class="src"><a href="moments.html">Sourced Monza moments</a> /
+<a href="{RACE_REPORT_URL}" target="_blank" rel="noopener">2026 Formula1.com race report</a>.
+Driver records must be kept distinct from the team for which each historic win was achieved.</p>
 """)
 
     pages["moments"] = dict(
         kicker="History",
         title="Great Moments",
-        sub="Seven Monza stories spanning home triumph, shocks and emotional milestones.",
+        sub="Eight Monza stories spanning home triumph, shocks and emotional milestones.",
         body=f"""
 <div class="grid cols-2">
-  {card("1966 — the last Italian home winner", "<p>Ludovico Scarfiotti won for Ferrari. No Italian driver has won the Italian Grand Prix since.</p>", "bi-flag", "accent")}
+  {card("1966 — the benchmark for a sixty-year wait", "<p>Ludovico Scarfiotti won for Ferrari. His Italian-driver home-win milestone stood until Antonelli's 2026 victory.</p>", "bi-flag", "accent")}
   {card("1988 — Ferrari after Enzo", "<p>Gerhard Berger led Michele Alboreto in a Ferrari one-two, less than a month after Enzo Ferrari's death.</p>", "bi-heart")}
   {card("2000 — Schumacher's tears", "<p>Michael Schumacher equalled Ayrton Senna's 41 wins and broke down in the post-race press conference.</p>", "bi-trophy")}
   {card("2008 — Vettel's first win", "<p>Sebastian Vettel won a wet race from pole for Toro Rosso, becoming F1's youngest winner at the time.</p>", "bi-cloud-rain")}
   {card("2019 — Leclerc delivers", "<p>Charles Leclerc resisted Mercedes to give Ferrari its first Monza victory since 2010.</p>", "bi-flag")}
   {card("2020 — Gasly's breakthrough", "<p>Pierre Gasly won a disrupted race for AlphaTauri, holding off Carlos Sainz for his maiden victory.</p>", "bi-stars")}
   {card("2021 — Ricciardo and McLaren", "<p>Daniel Ricciardo led a McLaren one-two after Verstappen and Hamilton collided at the first chicane.</p>", "bi-stars")}
+  {card("2026 — Antonelli wins from nineteenth", '<p>Antonelli recovered from his PU penalty, used fresh mediums after a VSC stop and passed Russell on lap 50 to win at home.</p>'
+        + f'<p class="src"><a href="{RACE_REPORT_URL}" target="_blank" rel="noopener">Formula1.com race report, 6 September 2026</a>.</p>', "bi-flag", "accent")}
 </div>
 <p class="src">Source: Formula1.com, “7 memorable Italian Grand Prix moments from Monza”, 31 Aug 2026.</p>
 """)
 
     pages["schedule"] = dict(
-        kicker="Timing · forecast",
+        kicker="Timing · weekend archive",
         title="Schedule & Weather",
-        sub="Warm, mainly dry conditions are forecast; the FIA has declared a Heat Hazard for the race.",
+        sub="Original session schedule, archived forecast and the FIA's race-week Heat Hazard declaration.",
         body=f"""
 <div class="callout">
-  <strong>Published forecast:</strong> warm and sunny across the event, reaching up to
+  <strong>Pre-event forecast (not observed race weather):</strong> warm and sunny across the event, reaching up to
   <strong>34°C</strong>. Dry conditions are expected, with only a small chance of showers later Sunday.
 </div>
 <div class="callout watch">
@@ -818,7 +926,7 @@ The PDFs and their tables were visually checked on 10 September 2026.</p>
   <thead><tr><th>Session</th><th>Day</th><th>{ctx["tz_local"]}</th><th>{ctx["tz_east"]}</th></tr></thead>
   <tbody>{schedule_rows()}</tbody>
 </table></div>
-<h2 class="sec">Live session forecast</h2>
+<h2 class="sec">Session weather feed</h2>
 {weather_cards()}
 <p class="src">Weekend outlook: Formula1.com, 2 Sep 2026. Session cards refresh from Open-Meteo on every build.</p>
 """)
@@ -828,6 +936,8 @@ The PDFs and their tables were visually checked on 10 September 2026.</p>
         title="Commentator's Cheat Sheet",
         sub="The Monza essentials, compressed for live use.",
         body=f"""
+{_race_review()}
+<h2 class="sec">Archived weekend reference</h2>
 <div class="grid cols-2">
   {card("Numbers to have ready", ul([
      "5.793 km; <strong>53 laps</strong>; 306.72 km.",
@@ -855,7 +965,9 @@ The PDFs and their tables were visually checked on 10 September 2026.</p>
   Exact power/energy-map values, car-presentation submissions and stewards' decisions should be read
   from there as they publish.
 </div>
-{pending("Session-by-session commentary notes", "as the weekend runs", "bi-mic")}
+<p><a href="news.html">Session-by-session reports</a> and
+<a href="results.html">all completed session classifications</a> remain available.
+Pre-event forecasts and plans above must not be read as the final race outcome.</p>
 """)
 
     return pages

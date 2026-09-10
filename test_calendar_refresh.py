@@ -32,11 +32,14 @@ class TrackMapRefreshTests(unittest.TestCase):
             with open(path, "wb") as handle:
                 handle.write(b"previous verified map")
             event = self.event()
+            failures = []
             with patch.object(calendar, "ROOT", directory), patch.object(calendar, "_get", return_value=b"<html>blocked</html>"):
-                calendar.fetch_track_maps([event], 2026)
+                calendar.fetch_track_maps([event], 2026, failures)
             with open(path, "rb") as handle:
                 self.assertEqual(handle.read(), b"previous verified map")
             self.assertEqual(event["track_asset"], "track-test.png")
+            self.assertEqual(len(failures), 1)
+            self.assertIn("not a PNG", failures[0])
 
     def test_distant_existing_map_does_not_need_redownload(self):
         with tempfile.TemporaryDirectory() as directory:

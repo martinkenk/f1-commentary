@@ -130,7 +130,7 @@ def active_gps(gps, lead_days=10):
     reports and stewards' decisions are still landing), and the next one once it
     is close enough for genuine build-up coverage to exist.
     """
-    today = datetime.date.today()
+    today = datetime.datetime.now(datetime.timezone.utc).date()
     for c in gps:
         c.setdefault("status", f1lib.event_status(c, today))
     live = [c for c in gps if c["status"] == "live"]

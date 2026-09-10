@@ -715,7 +715,7 @@ def build_pages(ctx, env):
     <div class="grid cols-2">
       {card("Drivers' title", ul([
          "<strong>Antonelli leads Hamilton by 45 pts</strong> — a full win (25) plus more. Hamilton must out-score him by chunks to make Budapest interesting.",
-         "Max points swing in one race is <strong>26</strong> (win + fastest lap vs. a rival scoring nothing), so the lead is <em>not</em> mathematically safe but is comfortable.",
+         "Maximum swing in this standard Grand Prix is <strong>25 points</strong> (win versus no points; no fastest-lap bonus). A 45-point lead cannot be overturned in this race alone, but is not a season-title clinch.",
          "Russell sits 5 pts behind Hamilton — an intra-Mercedes scrap for 2nd is the live sub-plot.",
          "If Antonelli wins and Hamilton finishes lower than 2nd, the lead stretches beyond 50 into the break.",
       ]), "bi-trophy", "accent")}

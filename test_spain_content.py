@@ -27,9 +27,10 @@ class SpainContentTests(unittest.TestCase):
         self.assertIs(build.BESPOKE["spain"], content_spain.build_pages)
         generic = content_generic.build_pages(self.ctx, self.env)
         pages = self.pages()
-        for slug in ("standings", "schedule", "rookies", "teams", "moments"):
-            self.assertEqual(pages[slug], generic[slug], slug)
+        self.assertIn(generic["standings"]["body"], pages["standings"]["body"])
         self.assertIn("SCHEDULE_ROWS", pages["overview"]["body"])
+        self.assertIn("SCHEDULE_ROWS", pages["schedule"]["body"])
+        self.assertIn("WEATHER_CARDS", pages["schedule"]["body"])
 
     def test_published_fia_material_renders_in_all_event_states(self):
         for state in ("future", "live", "past"):

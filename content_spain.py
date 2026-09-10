@@ -1,6 +1,6 @@
 """Madrid 2026: FIA material checked against the published PDFs on 10 September."""
 from content_generic import build_pages as build_generic, pending
-from f1lib import auto_penalties, card, stat, ul
+from f1lib import auto_h2h, auto_penalties, card, stat, ul
 
 
 FIA_BASE = "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_"
@@ -12,6 +12,14 @@ FIA_DISPLAY_URL = FIA_BASE + "car_display_procedure.pdf"
 PIRELLI_URL = ("https://www.formula1.com/en/latest/article/"
                "what-tyres-will-the-teams-and-drivers-have-for-the-2026-spanish-grand-prix."
                "2vlcVOBnZUFRCooVcqWG7n")
+PREVIEW_URL = ("https://www.formula1.com/en/latest/article/"
+               "need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-"
+               "2026-spanish-grand-prix-madrid-madring.0VbYQHCnrBCibxbkwygP0")
+GUIDE_URL = ("https://www.formula1.com/en/latest/article/"
+             "circuit-guide-everything-you-need-to-know-about-the-madring.NF7Mh3iag3w9GUPlihwJA")
+LINEUP_URL = ("https://www.formula1.com/en/latest/article/"
+              "lawson-to-stay-at-red-bull-for-third-race-weekend-in-madrid-as-hadjars-"
+              "recovery-continues.Bxrk9FOVDChcWCo5vxY8v")
 
 LENGTH_NOTE = f"""
 <div class="callout watch">
@@ -36,6 +44,39 @@ def _figure(asset, alt, caption):
 
 def build_pages(ctx, env):
     pages = build_generic(ctx, env)
+    debut = card("A new venue, not Barcelona or Jarama", """
+<p><strong>No previous Formula 1 Grand Prix has been held at the Madring.</strong>
+Past winners, polesitters, race lap records and current-grid starts or best finishes
+at this circuit are therefore <strong>not applicable before its debut</strong>,
+not missing historical research. Simulator laps and Formula 3 testing are not F1 race records.</p>
+<p>Madrid's earlier Grands Prix were at <strong>Jarama</strong>, first used in 1968
+and last used for a World Championship Grand Prix in 1981. Those are different-track
+history; neither Jarama nor Barcelona results should be relabelled as Madring records.</p>
+""" + f'<p class="src"><a href="{GUIDE_URL}" target="_blank" rel="noopener">'
+        'Formula1.com circuit guide, 10 September 2026</a>.</p>', "bi-stars", "accent")
+    lineup = card("Confirmed race-driver replacements", ul([
+        "<strong>Liam Lawson</strong> continues alongside Max Verstappen at Red Bull for a third weekend.",
+        "<strong>Yuki Tsunoda</strong> continues alongside Arvid Lindblad at Racing Bulls.",
+        "<strong>Isack Hadjar</strong> remains out while recovering from his wrist injury. "
+        "The team says recovery is progressing and he will support them in Madrid; no return date is asserted here.",
+        "These are race-seat substitutions, not announcements of mandatory rookie FP1 outings.",
+    ]) + f'<p class="src"><a href="{LINEUP_URL}" target="_blank" rel="noopener">'
+          'Formula1.com / Red Bull announcement, 7 September 2026</a>.</p>',
+        "bi-people", "accent")
+    team_brief = card("The form carried into Madrid", ul([
+        "<strong>Mercedes:</strong> Antonelli arrives after winning at Monza from P19; "
+        "the new venue tests both drivers' adaptation rather than a known circuit-specific form line.",
+        "<strong>Ferrari:</strong> Hamilton and Leclerc's opening-lap Monza fight and "
+        "Leclerc's separate crash frame the team's response; the published preview discusses team-order questions, not an announced new policy.",
+        "<strong>McLaren:</strong> Norris beat Piastri to P4 at Monza after they were allowed to race. "
+        "The previous Hungary and Zandvoort wins do not guarantee the same pace here.",
+        "<strong>Red Bull:</strong> Verstappen arrives from a Monza podium, with Lawson continuing to substitute.",
+        "<strong>Alpine / Racing Bulls:</strong> Gasly's Monza pole became P7 in the race, ahead of "
+        "Lindblad, Colapinto and Tsunoda. Madrid's new layout gives no historical basis to carry over Alpine's Monza advantage.",
+    ]) + f'<p class="src"><a href="{PREVIEW_URL}" target="_blank" rel="noopener">'
+          'Formula1.com Need to Know, 10 September 2026</a>. This is pre-Madrid context, '
+          'not a forecast ranking or a complete eleven-team upgrade filing.</p>',
+        "bi-people", "accent")
     brief = card("Madrid: FIA facts to have ready", ul([
         '<strong>Two Straight Mode zones</strong>: after T22 and after T3. '
         'The separate Overtake detection is at entry to T22, with activation 20 m after T22.',
@@ -52,9 +93,59 @@ def build_pages(ctx, env):
     pages["overview"]["sub"] = (
         "Madrid's debut: published FIA aero zones, energy limits, tyre prescriptions "
         "and race-control instructions.")
-    pages["overview"]["body"] = brief + LENGTH_NOTE + pages["overview"]["body"]
-    pages["notes"]["body"] = brief + LENGTH_NOTE + pages["notes"]["body"]
-    pages["facts"]["body"] = LENGTH_NOTE + pages["facts"]["body"]
+    pages["overview"]["body"] = brief + LENGTH_NOTE + lineup + team_brief + pages["overview"]["body"]
+    pages["notes"]["body"] = brief + LENGTH_NOTE + lineup + pages["notes"]["body"]
+    pages["facts"]["body"] = LENGTH_NOTE + debut + pages["facts"]["body"]
+    pages["facts"]["body"] = pages["facts"]["body"].replace(
+        pending("Past winners, polesitters and weekend-specific trivia",
+                "in the official preview material for the round", "bi-bar-chart"), "")
+    pages["moments"] = dict(
+        kicker="Debut venue · historical context",
+        title="Great Moments",
+        sub="Madring has no previous Grand Prix moments; Madrid's older F1 history belongs to Jarama.",
+        body=debut + card("What becomes this circuit's first chapter?", """
+<p>The inaugural pole, first race winner and first official race lap record can only
+be established after the relevant sessions on 11–13 September. The first event's
+reports will appear on <a href="news.html">Weekend News</a> and its classifications on
+<a href="results.html">Results</a>; no historical winner list is being invented.</p>
+""", "bi-flag"))
+    pages["rookies"]["body"] = lineup + pages["rookies"]["body"].replace(
+        pending("Reserve or replacement driver changes", "as teams confirm them", "bi-people"), "")
+    pages["teams"] = dict(
+        kicker="Team watch · 10 September",
+        title="Team Watch & News",
+        sub="Verified pre-Madrid form and the confirmed Red Bull-family substitutions.",
+        body=team_brief + lineup + '<p><a href="news.html">Latest team news</a> / '
+             '<a href="upgrades.html">Car presentation procedure and filing status</a>. '
+             'A news story about another circuit is background, not a Madrid component declaration.</p>')
+    pages["standings"]["body"] += card("Championship permutations — 10 September snapshot", """
+<p><strong>Pre-Madrid reference, not a live points calculator:</strong> Antonelli
+leads Russell by 66 points; Hamilton is another 10 behind Russell.</p>
+<ul>
+  <li>If Russell wins for 25 points and Antonelli scores zero, the gap becomes
+  <strong>41 points</strong>. Madrid is a standard, non-Sprint weekend.</li>
+  <li>Hamilton must outscore Russell by <strong>more than 10 points</strong> to move
+  ahead outright. A net gain of exactly 10 produces a points tie, which requires
+  countback rather than automatically handing Hamilton second place.</li>
+  <li>These are single-round scenarios, not a claim that the championship can be
+  clinched here. Check the latest totals above before reusing this dated arithmetic.</li>
+</ul>
+""" + f'<p class="src"><a href="{PREVIEW_URL}" target="_blank" rel="noopener">'
+        'Formula1.com Need to Know, 10 September 2026</a>, current-form section; '
+        '25-point win scenario follows the '
+        '<a href="https://www.formula1.com/en/results/2026/drivers" target="_blank" '
+        'rel="noopener">official championship scoring</a>. No fastest-lap bonus is added.</p>',
+        "bi-trophy", "accent")
+    pages["h2h"] = dict(
+        kicker="Team-mate battles",
+        title="Head-to-Head",
+        sub="Event comparisons update from official timing; no unverified season tally is carried forward.",
+        body=auto_h2h(ctx) + card("Season tally is a separate dataset", """
+<p>The session comparisons above are <strong>this event only</strong>. A verified
+2026 season qualifying/race head-to-head ledger is not stored for Madrid. Hungary's
+dated approximate scoreline must not be reused. A season audit must separate
+Lawson's Red Bull outings from his Racing Bulls starts and exclude FP1-only substitutes.</p>
+""", "bi-arrow-left-right"))
 
     pages["circuit"] = dict(
         kicker="FIA Document 6 / map version 3, 10 Sep",
@@ -226,6 +317,12 @@ slicks and intermediates, <strong>40&deg;C</strong> for wets. These are tyre-sur
 temperatures, not blanket-controller settings. FIA/Pirelli may revise the prescriptions
 during the weekend; the preview flags possible changes after FP2.</p>
 {pending("Measured long-run degradation and stint strategy", "after representative practice running", "bi-graph-down")}
+<h2 class="sec">Stint predictor and remaining tyre sets</h2>
+<p>No Madrid F1 practice or race sample exists before Friday running. The confirmed
+compound nomination and pressure prescription do not establish an optimal pit window,
+degradation rate or each driver's remaining new/used sets. A lap-number strategy
+prediction and a post-qualifying tyre-set table await their own evidence;
+Italy's counts and stint lengths are not transferred here.</p>
 """)
 
     pages["upgrades"] = dict(
@@ -259,4 +356,12 @@ during the weekend; the preview flags possible changes after FP2.</p>
         sub="Published operating rules and the automatically updated decision tracker.",
         body=rules + auto_penalties(ctx),
     )
+    pages["schedule"]["body"] += card("Heat and medical status: separate evidence", """
+<p>The six FIA documents discovered on 10 September contain no Madrid Heat Hazard
+declaration. A hot weather forecast is not such a declaration; Monza's 31&deg;C
+trigger and cooling instructions must not be treated as a Madrid ruling.
+Check subsequent FIA filings during the weekend. Hadjar's team-confirmed absence
+is covered on <a href="rookies.html">Rookies &amp; Line-ups</a>; it is not an inferred
+medical clearance or a prognosis.</p>
+""", "bi-thermometer-sun")
     return pages

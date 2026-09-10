@@ -38,6 +38,7 @@ safe-outputs:
       - "content_*.py"
       - "circuits.py"
       - "build.py"
+      - "test_*.py"
       - "data/**/*.json"
       - "assets_src/**"
     protected-files: blocked
@@ -56,6 +57,7 @@ safe-outputs:
       - "circuits.py"
       - "standings.py"
       - "build.py"
+      - "test_*.py"
       - "data/**/*.json"
       - "assets_src/**"
     protected-files: request_review
@@ -67,6 +69,11 @@ Act as a skeptical Formula 1 commentary editor. Keep the current or next Grand
 Prix as complete as published evidence allows. This is not an article-summary
 task: inspect the whole information surface, identify what the regular scraper
 and build have missed, and make the bounded repository improvements yourself.
+**Read and execute `SKILL.md` first.** It is the authoritative portable runbook,
+including the 17-page subfeature matrix, source schemas, failure semantics,
+historical parity and dated Italy/Spain regression examples. This workflow uses
+its REVIEW policy: deterministic data/screenshots auto-publish separately;
+editorial PR changes still require review/merge. Do not claim otherwise.
 
 ## Avoid duplicate work
 
@@ -99,9 +106,21 @@ state separately what is still awaiting review and therefore not deployed.
    - the most recently completed race for post-event corrections.
 3. Also check the most recently completed GP within seven days for stale
    pre-race claims, final classifications and later FIA decisions.
-4. Run `python3 standings.py`, then `python3 build.py` and inspect all 17 generated pages under
-   `site/<gp>/`. Treat rendered output, not merely source files, as the coverage
-   contract.
+4. Run `python3 standings.py`, `python3 calendar.py --maps-only`,
+   `LLM_FAKE=1 python3 enrich.py --max 25`, `python3 fia_media.py`, and
+   `python3 backfill_meta.py`. Install `pypdf`/`pymupdf` only if absent. Inspect
+   each outcome: a failed listing must not prevent rendering saved public PDF
+   URLs. Keep last-good records and report source errors; do not hide them.
+5. Run `python3 build.py`, then `python3 coverage_inventory.py --all --check`.
+   Inspect all 17 generated pages for each active GP. Review existing FastF1 data
+   and completed-session gaps; the deployment's timing refresh is independent.
+   Inventory all registered GPs, but do not enrich distant events with current news.
+6. Compare applicable **subfeatures** against Hungary, Belgium and Netherlands,
+   not just page counts. Include stint predictor, official race tyre-set inventory,
+   season H2H, championship scenarios, current-grid venue history, concrete moments,
+   rookies/replacements, heat declarations, upgrades and post-race updates. Preserve
+   their live helpers. For a debut venue, document inapplicability rather than
+   inventing history. An unavailable local dataset is not proof of non-publication.
 
 ## Research critically
 
@@ -135,8 +154,8 @@ Compare both tables and any leader/gap prose with the timestamped
 totals "after Zandvoort" once Monza has run, or let a pre-race editorial headline
 contradict the current table. Preserve historical context only when dated.
 
-For each surface classify the state mentally as populated, stale,
-missing-but-published, genuinely-not-published, or conflicting. Improve all
+For each surface classify the state as populated, stale, missing-but-published,
+pending after source review, blocked, conflicting, or inapplicable. Improve all
 material missing-but-published fields that can be handled in one coherent PR.
 Correct stale facts tightly coupled to those additions.
 
@@ -202,18 +221,24 @@ earlier audits. Each run:
    `.../decision-document/<slug>.pdf` link (`curl -s -A "Mozilla/5.0" <hub URL>
    | grep -oE 'href="[^"]*decision-document[^"]*"'`), or use `web-fetch` with
    `raw: true` if `curl` is unavailable in-sandbox.
-2. Diff that list against the source URLs already cited in the active GP's
-   `content_<gp>.py`. Treat any uncited document as a candidate gap.
+2. Diff that list against saved discovery/media manifests and the source URLs,
+   figures and interpreted content in the GP's module. Treat an unrepresented
+   substantive page as a candidate gap even if the PDF is already linked.
+   Same-URL PDF revisions also count. HTTP 403/500 is a retrieval failure, not
+   evidence the FIA has not published anything. Use the normal season-index
+   fallback and saved known public URLs; never guess filenames or bypass blocks.
 3. Open each candidate. Skip pure administrative paperwork with no
-   commentary-relevant content (competition visas, entry lists). Routine
+   commentary-relevant content (e.g. competition visas; entry lists can matter
+   for changed line-ups). Routine
    technical/compliance reports (e.g. a Technical Delegate's post-race
    compliance check carried over from the previous round) are worth a single
    concise line on the Penalties or Reliability page when genuinely new
    information, but do not force one in if there is nothing worth saying.
-4. For documents that are themselves circuit-map/pit-lane/emergency-exit
-   diagrams with no meaningful extractable prose, it is fine to leave them
-   uncited — do not guess at pit-box order or garage assignments from an
-   image you cannot read reliably.
+4. Render and include all substantive circuit/pit-lane/emergency/red-zone maps
+   and technical/report pages. Diagrams cannot be skipped because text extraction
+   is empty. `fia_media.py` and shared galleries automate these images, preserving
+   revisions and avoiding already-curated page duplicates. Verify actual rendered
+   output, legends and captions. Do not guess pit-box order or garage assignments.
 5. Tyre-specific FIA "Competition Notes" documents (titled along the lines of
    "Competition Notes — Pirelli Preview") contain the official prescribed
    starting/stabilised pressures and camber limits per axle and per compound
@@ -234,7 +259,8 @@ numeric table into a page:
 
 1. Render the actual page as an image (`pip install pymupdf` if not already
    available — the `python` network entry already covers this — then
-   `page.get_pixmap(matrix=fitz.Matrix(2,2)).save("page.png")` with `fitz`)
+   `page.get_pixmap(matrix=pymupdf.Matrix(2,2), alpha=False).save("page.png")`
+   with `import pymupdf`, or inspect the `fia_media.py` output)
    and view it, rather than trusting raw extracted text order.
 2. Match every number to its row label (session/article) and column header
    exactly as they appear in the rendered image.
@@ -266,7 +292,9 @@ Run:
 
 ```bash
 python3 -m py_compile build.py circuits.py standings.py content_generic.py content_*.py
+python3 -m unittest discover -p 'test_*.py'
 python3 build.py
+python3 coverage_inventory.py --all --check
 git diff --check
 ```
 
@@ -281,4 +309,6 @@ Otherwise create or update one draft pull request describing:
 - published gaps filled
 - authoritative sources used
 - information intentionally left pending
+- blocked sources, conflicting values and inapplicable historical features
+- feature-parity gaps checked and full-source screenshot/Pirelli artwork coverage
 - validation performed

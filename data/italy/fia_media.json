@@ -1,0 +1,339 @@
+{
+  "checked_at": "2026-09-10T18:37:25+00:00",
+  "discovery_retrieved_at": "2026-09-10T18:01:12.548443+00:00",
+  "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_race_directors_competition_notes_v2.pdf",
+      "filename": "2026_italian_grand_prix_-_race_directors_competition_notes_v2.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "36d45fadbe49c7dedab5fdd9c0eba19452b2b3e7bce9316db6169491661d36c7",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-e7eb61d6d028-36d45fadbe49c7de-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-e7eb61d6d028-36d45fadbe49c7de-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-italy-e7eb61d6d028-36d45fadbe49c7de-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-italy-e7eb61d6d028-36d45fadbe49c7de-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-italy-e7eb61d6d028-36d45fadbe49c7de-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-italy-e7eb61d6d028-36d45fadbe49c7de-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-italy-e7eb61d6d028-36d45fadbe49c7de-p8.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition_1.pdf",
+      "filename": "2026_italian_grand_prix_-_new_pu_elements_for_this_competition_1.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "716959e94aab722e545cb0b58ab28c3b869fd0cc9c665a8a79b82487c5bbb9cc",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-c030696e488d-716959e94aab722e-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-c030696e488d-716959e94aab722e-p3.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "filename": "2026_italian_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "814c5fcb05dd85ea39f8acc82e2f92451f6843c09740fefeb03f76efd844c23b",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-9b2aae370864-814c5fcb05dd85ea-p1.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition_0.pdf",
+      "filename": "2026_italian_grand_prix_-_new_pu_elements_for_this_competition_0.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "54304a55100a2501485afb0002a284783c9f1ac85a669ea5a76262434546cdb9",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-d53fcc6fa312-54304a55100a2501-p2.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "filename": "2026_italian_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "215c01e940136067f812eb87a8d8ef13bb5f286ea5e3aee51d9a9c9ba6a7e7ec",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-890da7ff10aa-215c01e940136067-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-890da7ff10aa-215c01e940136067-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-italy-890da7ff10aa-215c01e940136067-p4.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_presentation_submissions.pdf",
+      "filename": "2026_italian_grand_prix_-_car_presentation_submissions.pdf",
+      "categories": [
+        "upgrades"
+      ],
+      "sha256": "55541780261498d2f329dae1748df636a871072f26a580dd027de78669442d81",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p8.png"
+        },
+        {
+          "page": 9,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p9.png"
+        },
+        {
+          "page": 10,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p10.png"
+        },
+        {
+          "page": 11,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p11.png"
+        },
+        {
+          "page": 12,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p12.png"
+        },
+        {
+          "page": 13,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p13.png"
+        },
+        {
+          "page": 14,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p14.png"
+        },
+        {
+          "page": 15,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p15.png"
+        },
+        {
+          "page": 16,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p16.png"
+        },
+        {
+          "page": 17,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p17.png"
+        },
+        {
+          "page": 18,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p18.png"
+        },
+        {
+          "page": 19,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p19.png"
+        },
+        {
+          "page": 20,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p20.png"
+        },
+        {
+          "page": 21,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p21.png"
+        },
+        {
+          "page": 22,
+          "asset": "fia-italy-a7e078fa439a-55541780261498d2-p22.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "filename": "2026_italian_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "d9032aabd19fd761d6f2c9e2e901db84bf8677377716105ae271ca0e1bc0db9d",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-8805a5a5373a-d9032aabd19fd761-p2.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_power_unit_information.pdf",
+      "filename": "2026_italian_grand_prix_-_power_unit_information.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "23b0be8677e19c6254c2e169b75c2f882053d0b5814780eb34ca9a71e64e0aff",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-5fb1bcd7c851-23b0be8677e19c62-p2.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_car_display_procedure.pdf",
+      "filename": "2026_italian_grand_prix_-_car_display_procedure.pdf",
+      "categories": [
+        "upgrades"
+      ],
+      "sha256": "355a0049d6e5209ac53b79bbb68d518efb3c6cb17a178e8ba7e96e32d2e53fc7",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-ad1d46d14dde-355a0049d6e5209a-p2.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
+      "filename": "2026_italian_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "799756ca8cd77b376f7c0dc24aabb00b2535fc5ce4c6ad4e70f66ec244e0f4f7",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-44adaaae607b-799756ca8cd77b37-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-44adaaae607b-799756ca8cd77b37-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-italy-44adaaae607b-799756ca8cd77b37-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-italy-44adaaae607b-799756ca8cd77b37-p5.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_race_directors_competition_notes.pdf",
+      "filename": "2026_italian_grand_prix_-_race_directors_competition_notes.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "ed77015d5a909b9698a3b3830b6f214637ddc483845bc049df58fabe2ad2b26f",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-faa3cfc2b582-ed77015d5a909b96-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-faa3cfc2b582-ed77015d5a909b96-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-italy-faa3cfc2b582-ed77015d5a909b96-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-italy-faa3cfc2b582-ed77015d5a909b96-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-italy-faa3cfc2b582-ed77015d5a909b96-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-italy-faa3cfc2b582-ed77015d5a909b96-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-italy-faa3cfc2b582-ed77015d5a909b96-p8.png"
+        }
+      ]
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "filename": "2026_italian_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "categories": [
+        "tyres"
+      ],
+      "sha256": "d3d0d4245f8736439f30eb2e206a8f9c046f54d91254162892e91817347ceee1",
+      "fetched_at": "2026-09-10T18:37:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-aec2950fd4c6-d3d0d4245f873643-p2.png"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -56,6 +56,7 @@ jobs:
           echo "## Standings refresh failed — serving last successful snapshot" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Refresh calendar weekly and active track maps every run
+        id: calendar
         # Session times, circuit stats and track maps occasionally change as F1
         # confirms details for later rounds. Re-scraping weekly keeps every
         # upcoming GP page current without touching the build path, which stays
@@ -67,6 +68,12 @@ jobs:
           else
             python3 calendar.py --maps-only
           fi
+
+      - name: Report incomplete calendar refresh
+        if: steps.calendar.outcome == 'failure'
+        run: |
+          echo "::warning::Calendar/map refresh failed. Retaining previous source data; inspect logs."
+          echo "## Calendar/map refresh incomplete — serving retained source data" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Auto-enrich (article cards + FIA decision structuring)
         id: enrichment
@@ -96,7 +103,21 @@ jobs:
           echo "::warning::Enrichment was incomplete; inspect the extraction logs. Failed items will be retried."
           echo "## Enrichment incomplete — inspect extraction logs" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Refresh FIA document screenshots
+        id: fia_media
+        continue-on-error: true
+        run: |
+          python3 -m pip install --quiet pymupdf
+          python3 fia_media.py
+
+      - name: Report incomplete FIA screenshots
+        if: steps.fia_media.outcome == 'failure'
+        run: |
+          echo "::warning::Some FIA screenshots could not be refreshed; previous verified downloads are retained."
+          echo "## FIA screenshot refresh incomplete — inspect download/render logs" >> "$GITHUB_STEP_SUMMARY"
+
       - name: FastF1 pace analysis (fastest laps, long runs, speed/delta charts)
+        id: pace
         # Pulls real lap-timing + telemetry for completed sessions of the active
         # GP via FastF1 (https://docs.fastf1.dev/) and renders it as a "Pace
         # analysis" section on the Results page: fastest-lap vs. theoretical
@@ -110,6 +131,12 @@ jobs:
         run: |
           python3 -m pip install --quiet fastf1 pandas numpy
           python3 fastf1_analysis.py --active
+
+      - name: Report incomplete timing analysis
+        if: steps.pace.outcome == 'failure'
+        run: |
+          echo "::warning::FastF1 analysis failed. Existing timing analysis is retained."
+          echo "## FastF1 refresh incomplete — inspect timing-source logs" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Backfill Formula1.com headlines and dates
         # Formula1.com's listing page exposes only a URL slug, so a card can be
@@ -141,6 +168,9 @@ jobs:
 
       - name: Build site (fetches live weather + results)
         run: python3 build.py
+
+      - name: Inventory all GP pages and source assets
+        run: python3 coverage_inventory.py --all --check
 
       - name: Restore version history
         env:
