@@ -19,6 +19,7 @@ applies on that date, which is what the engine needs to render the local /
 Tallinn pair correctly even across the October DST changeover.
 """
 import argparse
+import datetime
 import json
 import os
 import re
@@ -171,18 +172,25 @@ def fetch_track_maps(events, year):
         fname = f"track-{ev['slug']}.png"
         path = os.path.join(out_dir, fname)
         ev["track_asset"] = fname
-        if os.path.exists(path):
+        days_to_race = (datetime.date.fromisoformat(ev["race_date"])
+                        - datetime.datetime.now(datetime.timezone.utc).date()).days
+        if os.path.exists(path) and not -7 <= days_to_race <= 10:
             got += 1
             continue
         try:
             raw = _get(url, timeout=45, binary=True)
-            with open(path, "wb") as f:
+            if not raw.startswith(b"\x89PNG\r\n\x1a\n"):
+                raise ValueError("track-map response is not a PNG")
+            temporary = path + ".tmp"
+            with open(temporary, "wb") as f:
                 f.write(raw)
+            os.replace(temporary, path)
             got += 1
             print(f"  + track map: {fname} ({len(raw) // 1024} kB)")
         except Exception as e:
             print(f"  ! track map {ev['slug']}: {e}")
-            ev["track_asset"] = ""
+            if not os.path.exists(path):
+                ev["track_asset"] = ""
     return got
 
 
@@ -233,4 +241,13 @@ def load(year):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--year", default="2026")
-    build(ap.parse_args().year)
+    ap.add_argument("--maps-only", action="store_true",
+                    help="refresh existing calendar maps, including active-event revisions")
+    args = ap.parse_args()
+    if args.maps_only:
+        events = load(args.year)
+        if not events:
+            raise SystemExit("No calendar available for track-map refresh")
+        fetch_track_maps(events, args.year)
+    else:
+        build(args.year)

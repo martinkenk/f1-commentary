@@ -1,0 +1,228 @@
+{
+  "year": 2026,
+  "sources": {
+    "drivers": "https://www.formula1.com/en/results/2026/drivers",
+    "constructors": "https://www.formula1.com/en/results/2026/team"
+  },
+  "drivers": [
+    [
+      1,
+      "Kimi Antonelli",
+      "ANT",
+      "Mercedes",
+      267
+    ],
+    [
+      2,
+      "George Russell",
+      "RUS",
+      "Mercedes",
+      201
+    ],
+    [
+      3,
+      "Lewis Hamilton",
+      "HAM",
+      "Ferrari",
+      191
+    ],
+    [
+      4,
+      "Lando Norris",
+      "NOR",
+      "McLaren",
+      171
+    ],
+    [
+      5,
+      "Charles Leclerc",
+      "LEC",
+      "Ferrari",
+      155
+    ],
+    [
+      6,
+      "Max Verstappen",
+      "VER",
+      "Red Bull Racing",
+      127
+    ],
+    [
+      7,
+      "Oscar Piastri",
+      "PIA",
+      "McLaren",
+      116
+    ],
+    [
+      8,
+      "Isack Hadjar",
+      "HAD",
+      "Red Bull Racing",
+      71
+    ],
+    [
+      9,
+      "Liam Lawson",
+      "LAW",
+      "Racing Bulls",
+      51
+    ],
+    [
+      10,
+      "Pierre Gasly",
+      "GAS",
+      "Alpine",
+      41
+    ],
+    [
+      11,
+      "Arvid Lindblad",
+      "LIN",
+      "Racing Bulls",
+      29
+    ],
+    [
+      12,
+      "Franco Colapinto",
+      "COL",
+      "Alpine",
+      21
+    ],
+    [
+      13,
+      "Oliver Bearman",
+      "BEA",
+      "Haas F1 Team",
+      18
+    ],
+    [
+      14,
+      "Gabriel Bortoleto",
+      "BOR",
+      "Audi",
+      10
+    ],
+    [
+      15,
+      "Nico Hulkenberg",
+      "HUL",
+      "Audi",
+      6
+    ],
+    [
+      16,
+      "Carlos Sainz",
+      "SAI",
+      "Williams",
+      6
+    ],
+    [
+      17,
+      "Alexander Albon",
+      "ALB",
+      "Williams",
+      5
+    ],
+    [
+      18,
+      "Esteban Ocon",
+      "OCO",
+      "Haas F1 Team",
+      3
+    ],
+    [
+      19,
+      "Fernando Alonso",
+      "ALO",
+      "Aston Martin",
+      3
+    ],
+    [
+      20,
+      "Yuki Tsunoda",
+      "TSU",
+      "Racing Bulls",
+      1
+    ],
+    [
+      21,
+      "Lance Stroll",
+      "STR",
+      "Aston Martin",
+      0
+    ],
+    [
+      22,
+      "Valtteri Bottas",
+      "BOT",
+      "Cadillac",
+      0
+    ],
+    [
+      23,
+      "Sergio Perez",
+      "PER",
+      "Cadillac",
+      0
+    ]
+  ],
+  "constructors": [
+    [
+      1,
+      "Mercedes",
+      468
+    ],
+    [
+      2,
+      "Ferrari",
+      346
+    ],
+    [
+      3,
+      "McLaren",
+      287
+    ],
+    [
+      4,
+      "Red Bull Racing",
+      204
+    ],
+    [
+      5,
+      "Racing Bulls",
+      75
+    ],
+    [
+      6,
+      "Alpine",
+      62
+    ],
+    [
+      7,
+      "Haas F1 Team",
+      21
+    ],
+    [
+      8,
+      "Audi",
+      16
+    ],
+    [
+      9,
+      "Williams",
+      11
+    ],
+    [
+      10,
+      "Aston Martin",
+      3
+    ],
+    [
+      11,
+      "Cadillac",
+      0
+    ]
+  ],
+  "fetched_at": "2026-09-10T17:06:54+00:00"
+}

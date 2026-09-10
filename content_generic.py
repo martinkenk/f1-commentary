@@ -7,10 +7,9 @@ still has plenty of genuinely useful material: the circuit, the session times,
 the format, the history, the power-unit rules, the talking points. What it
 doesn't have is tyre allocations, rookie line-ups, upgrade filings or results.
 
-So every page renders what is actually known and marks the rest with an explicit
-"not published yet" state rather than inventing it or leaving a hole. Each
-rebuild picks up whatever has since appeared, so a page fills itself in as the
-weekend approaches without anyone editing this file.
+Every page renders known material and labels missing editorial detail as
+awaiting verification, not as proof that the source is unpublished. Automated
+FIA source links can appear before the detailed transcription is reviewed.
 
 Reference material comes from ``circuits.py``; hard numbers and session times
 come from ``data/calendar_2026.json`` via ``calendar.py``.
@@ -20,16 +19,16 @@ import datetime
 
 
 def pending(what, when="", icon="bi-hourglass-split"):
-    """The standard 'this fills in automatically' block.
+    """Mark missing coverage without asserting that its source is unpublished.
 
     Being explicit about *what* is missing and *when* it lands is the difference
     between a page that looks unfinished and one that looks scheduled.
     """
     tail = f" Usually published {when}." if when else ""
     return (f'<div class="callout watch"><i class="bi {icon}"></i> '
-            f"<strong>{what} not published yet.</strong>{tail} "
-            "This section fills in automatically the next time the site is built "
-            "after the source goes live.</div>")
+            f"<strong>{what}: awaiting a verified update.</strong>{tail} "
+            "Check the linked official sources for published material. Source discovery "
+            "refreshes automatically; detailed editorial coverage requires review.</div>")
 
 
 def _fmt(value, fallback="To be confirmed"):
@@ -236,8 +235,9 @@ def build_pages(ctx, env):
     if st.get("drivers"):
         standings_body = f"""
 <div class="callout"><strong>Standings as of {st.get('as_of', 'the most recent completed round')}.</strong>
-  These refresh as each subsequent race is built into the hub.
+  {st.get('summary', '')}
   Gaps under each points total show the deficit to P1 and to the position ahead.</div>
+{st.get('notice', '')}
 
 <div class="standings-grid">
   <div>

@@ -30,6 +30,22 @@ network:
     - api.open-meteo.com
     - archive-api.open-meteo.com
 safe-outputs:
+  push-to-pull-request-branch:
+    target: "*"
+    required-title-prefix: "[coverage] "
+    fallback-as-pull-request: false
+    allowed-files:
+      - "content_*.py"
+      - "circuits.py"
+      - "build.py"
+      - "data/**/*.json"
+      - "assets_src/**"
+    protected-files: blocked
+  update-pull-request:
+    target: "*"
+    required-title-prefix: "[coverage] "
+    title: true
+    body: true
   create-pull-request:
     title-prefix: "[coverage] "
     draft: true
@@ -54,9 +70,23 @@ and build have missed, and make the bounded repository improvements yourself.
 
 ## Avoid duplicate work
 
-Use `gh pr list` to check for an open pull request whose title starts with
-`[coverage]`. If one exists, emit `noop` explaining that the previous audit is
-still awaiting review. Do not create competing coverage pull requests.
+Use `gh pr list` to inspect open `[coverage]` pull requests, including their
+body, changed files and head branch. **An open PR must never skip the audit.**
+Choose the GP first; a pending Italy PR must not block Spain or later rounds.
+For the same GP, fetch and check out its existing same-repository coverage branch.
+Do **not** merge main's commits onto that branch: the safe-output incremental
+patch would include unrelated engine/workflow files and fail the file allowlist.
+Instead create a temporary integration worktree from latest `origin/main`, merge
+the coverage branch there, and use that worktree for the audit and validation.
+Apply only the new, allowed content/data/asset edits back to the PR head and
+commit them there (no integration merge commits). Preserve its existing edits.
+Use
+`push_to_pull_request_branch` with its PR number, then `update_pull_request` to
+refresh the evidence/pending-items summary. Do not push directly or force-push.
+If there is no matching PR, start from main and create one.
+If the integration merge conflicts, report the concrete blocker rather than claiming coverage
+is complete. Only emit `noop` after actually auditing and finding no new gaps;
+state separately what is still awaiting review and therefore not deployed.
 
 ## Determine scope
 
@@ -67,7 +97,9 @@ still awaiting review. Do not create competing coverage pull requests.
    - a live race weekend, otherwise
    - the next race when it is within 10 days, otherwise
    - the most recently completed race for post-event corrections.
-3. Run `python3 build.py` and inspect all 17 generated pages under
+3. Also check the most recently completed GP within seven days for stale
+   pre-race claims, final classifications and later FIA decisions.
+4. Run `python3 standings.py`, then `python3 build.py` and inspect all 17 generated pages under
    `site/<gp>/`. Treat rendered output, not merely source files, as the coverage
    contract.
 
@@ -96,6 +128,12 @@ Audit every supported surface:
 15. curated historic moments
 16. schedule and weather
 17. concise commentary notes
+
+Standings are a deterministic source refresh, not manually maintained constants.
+Compare both tables and any leader/gap prose with the timestamped
+`data/standings_2026.json` and its Formula1.com sources. Do not call current
+totals "after Zandvoort" once Monza has run, or let a pre-race editorial headline
+contradict the current table. Preserve historical context only when dated.
 
 For each surface classify the state mentally as populated, stale,
 missing-but-published, genuinely-not-published, or conflicting. Improve all
@@ -237,7 +275,7 @@ visible, superseded placeholders are gone, all source links are valid, and all
 17 pages still generate.
 
 If nothing material is missing, emit `noop` with a concise coverage summary.
-Otherwise create one draft pull request describing:
+Otherwise create or update one draft pull request describing:
 
 - the GP audited
 - published gaps filled

@@ -41,7 +41,21 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Refresh season calendar (Mondays / manual runs)
+      - name: Data refresh regression tests
+        run: python3 -m unittest discover -p 'test_*.py'
+
+      - name: Refresh official championship standings
+        id: standings
+        continue-on-error: true
+        run: python3 standings.py
+
+      - name: Report stale standings fallback
+        if: steps.standings.outcome == 'failure'
+        run: |
+          echo "::warning::Official standings refresh failed. Publishing the last timestamped snapshot."
+          echo "## Standings refresh failed — serving last successful snapshot" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Refresh calendar weekly and active track maps every run
         # Session times, circuit stats and track maps occasionally change as F1
         # confirms details for later rounds. Re-scraping weekly keeps every
         # upcoming GP page current without touching the build path, which stays
@@ -51,10 +65,11 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%u)" = "1" ]; then
             python3 calendar.py
           else
-            echo "Skipping calendar refresh (not Monday, not a manual run)."
+            python3 calendar.py --maps-only
           fi
 
       - name: Auto-enrich (article cards + FIA decision structuring)
+        id: enrichment
         # Extracts new F1.com / The Race articles into news cards and structures
         # new FIA decision PDFs into penalty rows. GitHub Models was retired in
         # July 2026, so CI uses the deterministic fallback; the separate Copilot
@@ -74,6 +89,12 @@ jobs:
         run: |
           python3 -m pip install --quiet pypdf
           python3 enrich.py --max 25
+
+      - name: Report incomplete enrichment
+        if: steps.enrichment.outcome == 'failure'
+        run: |
+          echo "::warning::Enrichment was incomplete; inspect the extraction logs. Failed items will be retried."
+          echo "## Enrichment incomplete — inspect extraction logs" >> "$GITHUB_STEP_SUMMARY"
 
       - name: FastF1 pace analysis (fastest laps, long runs, speed/delta charts)
         # Pulls real lap-timing + telemetry for completed sessions of the active

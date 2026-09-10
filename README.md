@@ -6,8 +6,9 @@ Left-hand sidebar menu; every Grand Prix gets its own landing page plus **17 sub
 Loaded: **every remaining round of the 2026 season** — 14 Grands Prix from Belgium
 (round 10) to Abu Dhabi (round 23). Belgium, Hungary, the Netherlands and Italy have
 hand-written prose; the rest are generated from the official calendar and a per-venue
-reference library, and **fill themselves in** as tyre allocations, rookie line-ups,
-upgrade filings, FIA documents and results are published.
+reference library. Results, championship standings, news and FIA document links
+refresh automatically; interpreted technical tables and curated race-week prose
+are proposed by the coverage editor and require PR review before publication.
 
 > Regenerate this for any GP — before or during the weekend — with **[SKILL.md](SKILL.md)**,
 > the step-by-step runbook (architecture, sources, FIA docs, weather, live results, build, verify).
@@ -55,7 +56,10 @@ python3 build.py
 ## Architecture
 - `calendar.py` – season scraper: session times, circuit stats and official track maps
   → `data/calendar_2026.json` + `assets_src/track-<slug>.png`. Re-run when F1 confirms
-  more detail; CI does it weekly.
+  more detail; CI refreshes the calendar weekly and active-event maps every run.
+- `standings.py` – fetches both official championship tables into
+  `data/standings_2026.json` every CI run. Both must parse successfully before the
+  timestamped snapshot is replaced; builds use the last successful snapshot.
 - `circuits.py` – per-venue reference data: coordinates (for weather), circuit character,
   key corners, overtaking, tyre behaviour, lap records, talking points.
 - `build.py` – driver: turns each calendar round into a GP context and builds the site.
@@ -68,8 +72,10 @@ Adding a race is not a manual step — it is already in the calendar. To give on
 hand-written treatment, add `content_<gp>.py` and register it in `BESPOKE` in `build.py`.
 
 ### Progressive disclosure
-Pages render what is actually known and mark the rest with an explicit
-*"not published yet — fills in automatically"* callout rather than a gap or a guess.
+Pages render known material and explicit pending states rather than guesses.
+Automatic source discovery is distinct from editorial transcription: published
+FIA PDFs are linked on the relevant page even while a curated numeric table awaits
+review. A source-fetch failure must not be treated as proof it is unpublished.
 Fetching is gated on race proximity (no result requests for races that haven't run, no
 weather beyond Open-Meteo's 16-day horizon), so a 14-GP build still takes about 12
 seconds.
@@ -84,8 +90,19 @@ decision PDFs** into penalty rows.
 - The scheduled **GitHub Copilot Agentic Workflow** in
   `.github/workflows/critical-race-coverage.md` performs the critical pass the
   scraper cannot: it audits all 17 pages against current web and FIA material,
-  implements evidence-backed gaps, validates the full build, and opens one
-  tightly scoped draft PR for review.
+  implements evidence-backed gaps, validates the full build, and opens or updates
+  a tightly scoped draft PR for review. A pending PR does **not** stop later
+  audits or block coverage of another GP. These editorial changes do not go live
+  until their PR is merged.
+- Standings do not depend on that editorial gate: CI runs `python3 standings.py`
+  before the build, persists the official driver/constructor snapshot, and derives
+  the displayed gaps from it. Pages show the retrieval time and warn if the
+  snapshot is over 24 hours old. Current tables are labelled as season totals,
+  not falsely attributed to an earlier race.
+- FIA discovery retains a complete document index, not only penalty-shaped
+  filenames. Failed extraction is retried instead of permanently marked seen.
+  Incomplete enrichment and failed standings refreshes produce workflow warnings
+  and a job-summary entry while preserving the last usable data.
 - Curated content stays **authoritative** — auto items only fill gaps, are deduped
   against hand-written ones, and always carry a **source link + "auto" badge** so
   you can verify before saying it on air.
@@ -94,7 +111,8 @@ decision PDFs** into penalty rows.
   week-old previews.
 - Incremental via `data/<gp>/_seen.json`; output in `data/<gp>/*_auto.json`.
 ```bash
-LLM_FAKE=1 python3 enrich.py --gp hungary --max 3   # deterministic/no-network run
+python3 standings.py                            # official points refresh
+LLM_FAKE=1 python3 enrich.py --gp hungary --max 3   # deterministic extraction, no model calls
 LLM_ENDPOINT=... LLM_MODEL=... LLM_TOKEN=... python3 enrich.py
 python3 backfill_meta.py --dry-run                   # repair slug titles / missing dates
 ```

@@ -30,6 +30,7 @@ import content_hungary
 import content_belgium
 import content_netherlands
 import content_italy
+import standings
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SEASON = 2026
@@ -44,13 +45,6 @@ BESPOKE = {
     "belgium": content_belgium.build_pages,
     "netherlands": content_netherlands.build_pages,
     "italy": content_italy.build_pages,
-}
-
-# Standings carried into the generic pages until each race supplies its own.
-LATEST_STANDINGS = {
-    "drivers": content_belgium.DRIVER_ROWS,
-    "ctors": content_belgium.CTOR_ROWS,
-    "as_of": "the Dutch Grand Prix",
 }
 
 FLAGS = {
@@ -167,7 +161,7 @@ def make_gp(event):
         "nav": nav(label),
         "cal": event,
         "ref": ref,
-        "standings": LATEST_STANDINGS,
+        "standings": standings.context(SEASON),
         "pages": BESPOKE.get(slug, content_generic.build_pages),
     }
 

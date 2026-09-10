@@ -7,7 +7,7 @@ results (fetched from Formula1.com), the multi-GP landing index, and the build
 driver. Per-Grand-Prix content lives in the content_<gp>.py modules; each is
 wired up in build.py.
 """
-import os, re, html, shutil, json, datetime, urllib.request
+import os, re, html, shutil, json, datetime, urllib.request, urllib.parse
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "site")
@@ -65,6 +65,85 @@ def _load_auto(ctx, name):
         return data if isinstance(data, list) else []
     except Exception:
         return []
+
+
+def fia_document_categories(filename):
+    """Route explicit filename subjects, not inferred PDF contents or numbers."""
+    name = re.sub(r"[^a-z0-9]+", " ", filename.lower()).strip()
+    categories = []
+    if re.search(r"\b(power unit information|pu elements used|new pu elements)\b", name):
+        categories.append("powerunit")
+    if re.search(r"\b(circuit map|track map|race director(?:s| s)? "
+                 r"(?:(?:event|competition) )?notes)\b", name):
+        categories.append("circuit")
+    if re.search(r"\b(tyres?|tires?|pirelli preview)\b", name):
+        categories.append("tyres")
+    if re.search(r"\b(car presentation|car component|upgrade submissions)\b", name):
+        categories.append("upgrades")
+    return categories
+
+
+def _load_fia_record(ctx, name):
+    try:
+        path = os.path.join(DATA_DIR, ctx.get("dir", ""), name + ".json")
+        with open(path, encoding="utf-8") as f:
+            record = json.load(f)
+        if not isinstance(record, dict):
+            raise ValueError(f"Invalid FIA discovery record: {path}")
+        return record
+    except FileNotFoundError:
+        return {}
+
+
+def _official_fia_url(url):
+    parsed = urllib.parse.urlparse(url or "")
+    return parsed.scheme == "https" and parsed.hostname in ("fia.com", "www.fia.com")
+
+
+def render_fia_documents(ctx, category):
+    """Add source documents without replacing reviewed tables or circuit maps."""
+    labels = {"powerunit": "power-unit documents", "circuit": "maps & race-director notes",
+              "tyres": "tyre documents", "upgrades": "car-presentation & upgrade documents"}
+    if category not in labels:
+        return ""
+    manifest = _load_fia_record(ctx, "fia_documents")
+    status = _load_fia_record(ctx, "fia_discovery_status")
+    source = manifest.get("source_url") or ctx.get("fia_url", "")
+    if not manifest and not status and not source:
+        return ""
+    out = ['<p><strong>Official source; curated transcription may await review.</strong> '
+           'Linked PDFs are the authority. Discovery does not extract or verify numeric '
+           'values, and does not replace the curated material below.</p>']
+    retrieved = manifest.get("retrieved_at")
+    if status.get("ok") is False:
+        checked = html.escape(str(status.get("checked_at", "unknown")))
+        out.append(f'<p><strong>Latest discovery attempt failed ({checked}).</strong> '
+                   'Publication status could not be verified; any links below are '
+                   'from the last successful discovery.</p>')
+    if retrieved:
+        out.append(f'<p class="src">Last successful FIA document discovery: '
+                   f'{html.escape(str(retrieved))}. This is retrieval time, not issue time; '
+                   'newer revisions may exist.</p>')
+    elif status.get("ok") is not False:
+        out.append('<p>Automatic discovery has not yet been recorded. '
+                   'This does not mean the FIA has not published documents.</p>')
+    documents = [d for d in manifest.get("documents", [])
+                 if isinstance(d, dict) and _official_fia_url(d.get("url"))
+                 and category in fia_document_categories(d.get("filename", ""))]
+    if documents:
+        out.append("<ul>")
+        for doc in documents:
+            out.append(f'<li><a href="{html.escape(doc["url"], quote=True)}" '
+                       f'target="_blank" rel="noopener">'
+                       f'{html.escape(doc["filename"])}</a> (official PDF)</li>')
+        out.append("</ul>")
+    elif retrieved:
+        out.append('<p>No matching filenames were identified in the saved discovery. '
+                   'Check the complete FIA listing; this is not a statement of non-publication.</p>')
+    if _official_fia_url(source):
+        out.append(f'<p class="src"><a href="{html.escape(source, quote=True)}" '
+                   'target="_blank" rel="noopener">Complete FIA event document listing</a></p>')
+    return card("FIA official " + labels[category], "".join(out), "bi-file-earmark-pdf")
 
 
 def _norm_title(t):
@@ -1129,7 +1208,7 @@ def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
     if not decisions:
         out.append('<div class="callout watch"><strong>No stewards\' decisions logged yet.</strong> '
                    "This tracker is populated from the FIA event decision documents on each rebuild — "
-                   "summons, infringements, penalties, fines and 'no further action' rulings.</div>")
+                   "infringements, penalties, fines and 'no further action' rulings.</div>")
         if fia_url:
             out.append(f'<p class="src">Source: <a href="{fia_url}" target="_blank" rel="noopener">'
                        f'FIA — {ctx.get("name", "event")} documents</a>.</p>')
@@ -1149,13 +1228,17 @@ def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
     rws = []
     for d in decisions:
         cls, badge = _PEN_KIND.get(d.get("kind", "note"), _PEN_KIND["note"])
+        doc_label = html.escape(d.get("doc", ""))
+        if _official_fia_url(d.get("source_url")):
+            doc_label = (f'<a href="{html.escape(d["source_url"], quote=True)}" '
+                         f'target="_blank" rel="noopener">{doc_label}</a>')
         who = d.get("driver", "")
         if d.get("no"):
             who = f"<strong>#{d['no']}</strong> {who}"
         if d.get("team"):
             who += f"<br><span class='muted'>{d['team']}</span>"
         rws.append(
-            f"<tr><td class='doc'>{d.get('doc','')}</td>"
+            f"<tr><td class='doc'>{doc_label}</td>"
             f"<td>{who}</td>"
             f"<td>{d.get('session','')}</td>"
             f"<td>{d.get('fact','')}</td>"
@@ -1178,6 +1261,7 @@ def auto_penalties(ctx):
 # --------------------------------------------------------------------------
 def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_html, depth=1):
     GP = ctx
+    body_html = render_fia_documents(ctx, active_slug) + body_html
     base = "../" * depth
     items = []
     for slug, fname, icon, short, _long in ctx["nav"]:

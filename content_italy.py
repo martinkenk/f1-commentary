@@ -1,7 +1,7 @@
 """Italian Grand Prix 2026 bespoke page content.
 
 Race-week facts are drawn from Formula1.com, The Race and the FIA event hub.
-Unpublished FIA values remain explicit pending states in the generic baseline.
+FIA maps and tables were visually checked against the PDFs on 10 September 2026.
 """
 from f1lib import card, news_item, render_news, render_penalties, render_tyre_availability, stat, ul
 from content_generic import build_pages as build_generic, pending, ul_or, _fmt
@@ -12,7 +12,17 @@ FIA_EVENT_URL = ("https://www.fia.com/documents/championships/"
                  "event/Italian%20Grand%20Prix")
 
 FIA_RD_NOTES_URL = ("https://www.fia.com/system/files/decision-document/"
-                     "2026_italian_grand_prix_-_race_directors_competition_notes.pdf")
+                     "2026_italian_grand_prix_-_race_directors_competition_notes_v2.pdf")
+FIA_MAP_URL = ("https://www.fia.com/system/files/decision-document/"
+               "2026_italian_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf")
+FIA_PU_URL = ("https://www.fia.com/system/files/decision-document/"
+              "2026_italian_grand_prix_-_power_unit_information.pdf")
+FIA_PU_USAGE_URL = ("https://www.fia.com/system/files/decision-document/"
+                    "2026_italian_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf")
+FIA_ALONSO_PITLANE_URL = ("https://www.fia.com/system/files/decision-document/"
+                         "2026_italian_grand_prix_-_infringement_-_car_14_-_pu_elements_changed_during_parc_ferme.pdf")
+FIA_LAWSON_PITLANE_URL = ("https://www.fia.com/system/files/decision-document/"
+                         "2026_italian_grand_prix_-_infringement_-_car_30_-_changes_made_under_parc_ferme.pdf")
 
 # Official per-driver "Tyres Available for Race" allocation, as published
 # ahead of the race (grid order). Each tuple is
@@ -50,6 +60,8 @@ def _source(name, url):
 
 
 def build_pages(ctx, env):
+    ctx = {**ctx, "cal": {**(ctx.get("cal") or {}),
+                         "track_asset": "italy_fia_circuit_map_2026.png"}}
     pages = build_generic(ctx, env)
     schedule_rows = env["schedule_rows"]
     weather_cards = env["weather_cards"]
@@ -57,9 +69,9 @@ def build_pages(ctx, env):
     st = ctx.get("standings") or {}
 
     pages["overview"] = dict(
-        kicker="Round 13 · Race week",
+        kicker="Round 13 · Weekend briefing",
         title="Weekend Overview",
-        sub=("The Temple of Speed hosts Ferrari's home race, championship leader Kimi Antonelli's "
+        sub=("The Temple of Speed hosts Ferrari's home race, Kimi Antonelli's "
              "homecoming and the final European double-header opener."),
         body=f"""
 <div class="stat-row">
@@ -70,16 +82,17 @@ def build_pages(ctx, env):
 </div>
 
 <div class="callout">
-  <strong>The one-line setup:</strong> Antonelli arrives 59 points clear but is set to start from the
-  back after Mercedes' planned power-unit change; Ferrari bring a home-race low-drag programme and
-  Schumacher tribute; and two-time consecutive winner Lando Norris leads McLaren's challenge.
+  <strong>The weekend setup:</strong> Mercedes' planned power-unit change brought Antonelli a
+  grid penalty; Ferrari brought a home-race low-drag programme and Schumacher tribute.
+  <a href="standings.html">Championship &amp; Form</a> carries the latest sourced points rather
+  than a frozen pre-Monza championship gap.
 </div>
 
 <h2 class="sec">Storylines to have loaded for FP1</h2>
 <div class="grid cols-2">
   {card("Antonelli: home hero, title leader, recovery drive", ul([
-     "The Mercedes driver leads George Russell and Lewis Hamilton by <strong>59 points</strong> after finishing second at Zandvoort.",
-     "Mercedes plan a full power-unit change, sending him to the back of the grid at a circuit selected for its overtaking potential.",
+     "Antonelli arrived for his home race after finishing second at Zandvoort.",
+     "His fifth ICE, fourth energy store and fourth control electronics brought a 30-place grid penalty (FIA Document 19).",
      "No Italian has won the Italian Grand Prix since Ludovico Scarfiotti in 1966.",
   ]), "bi-trophy", "accent")}
   {card("Ferrari and the tifosi", ul([
@@ -110,8 +123,8 @@ def build_pages(ctx, env):
     curated_news = [
         news_item(
             "Toto Wolff explains decision behind Monza engine penalty for Kimi Antonelli",
-            "Mercedes selected Monza for a planned full power-unit change. The championship leader "
-            "arrives 59 points clear after finishing second at Zandvoort.",
+            "Pre-event report: Mercedes selected Monza for a planned power-unit change, choosing "
+            "a circuit with overtaking opportunities to limit the sporting cost.",
             _source("Formula1.com", "https://www.formula1.com/en/latest/article/"
                     "wolff-explains-decision-behind-monza-engine-penalty-for-antonelli."
                     "2kQ3tVnHJXRsloH0lmlh9I"),
@@ -143,11 +156,44 @@ def build_pages(ctx, env):
     ]
     circuit_page = pages.get("circuit")
     if circuit_page:
+        before, _, rest = circuit_page["body"].partition('<figure class="circuit-fig">')
+        _, _, after = rest.partition("</figure>")
+        circuit_page["body"] = before + f"""<figure class="circuit-fig">
+  <img src="../assets/italy_fia_circuit_map_2026.png"
+       alt="Official FIA 2026 Monza circuit map, four Straight Mode active-aero zones A1 to A4, normal-grip and low-grip activation lines, and Overtake detection and activation at Turn 11"
+       class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
+  <figcaption><strong>Official FIA event circuit map — version 2, 3 September 2026.</strong>
+  Four Straight Mode zones: red marks normal-grip activation and blue marks low-grip activation.
+  Green marks the separate Overtake detection and activation lines.
+  <strong>Click to zoom / full screen.</strong>
+  <span class="src">Source: <a href="{FIA_MAP_URL}" target="_blank" rel="noopener">FIA Document 6, page 2</a>.
+  © 2026 Formula One World Championship Limited; original legend and attribution retained.</span></figcaption>
+</figure>
+<h2 class="sec">Active aero: four Straight Mode zones</h2>
+<div class="table-wrap"><table class="data compact">
+  <thead><tr><th>Zone</th><th>Normal-grip activation</th><th>Low-grip activation</th></tr></thead>
+  <tbody>
+    <tr><td>A1</td><td>30 m after T11 / pit exit</td><td>100 m after T11 / pit exit</td></tr>
+    <tr><td>A2</td><td>70 m after T3</td><td>110 m after T3</td></tr>
+    <tr><td>A3</td><td>170 m after T7</td><td>230 m after T7</td></tr>
+    <tr><td>A4</td><td>130 m after T10</td><td>180 m after T10</td></tr>
+  </tbody>
+</table></div>
+<p>Straight Mode is the low-drag active-aero setting, not the old DRS system.
+The separate electrical <strong>Overtake</strong> aid has detection at the entry to T11
+and activation at T11. See <a href="powerunit.html">Power Unit &amp; Override</a> for the
+1.0-second detection gap and the FIA's still-TBC detection distance.</p>
+""" + after
+        drs = ref.get("drs")
+        old_zones = f"{drs} zone{'s' if drs != 1 else ''}" if drs else "TBC"
+        circuit_page["body"] = circuit_page["body"].replace(
+            stat(old_zones, "Overtaking zones", "DRS / straight mode"),
+            stat("4 zones", "Active aero", "Straight Mode"))
         circuit_page["body"] += f"""
-<h2 class="sec">Race-control notes (FIA Competition Notes, Document 5)</h2>
+<h2 class="sec">Race-control notes (FIA Competition Notes V2, Document 48)</h2>
 <div class="grid cols-2">
   {card("Track limits & escape roads", ul([
-     "Failing to negotiate <strong>Turn 11</strong> (Parabolica) during any timed session invalidates that lap and the following lap.",
+     "Failing to negotiate <strong>Turn 11</strong> (Parabolica) during a lap-time-classified session can lead the Stewards to invalidate that lap and the following lap.",
      "The Turn 1&ndash;2 escape road has four rows of polystyrene blocks; drivers must go around each row's end to re-join.",
      "At the Turn 4&ndash;5 escape road, drivers who go straight and pass right of the gravel must stay right of the yellow line/bollard and re-join after Turn 5.",
   ]), "bi-signpost-split", "accent")}
@@ -157,7 +203,7 @@ def build_pages(ctx, env):
      "Part of the Turn 5 gravel bed (left) replaced by asphalt; new natural grass at Turn 9 apex; new fencing between Turns 10 and 11.",
   ]), "bi-cone-striped")}
 </div>
-<p class="src">Source: <a href="{FIA_RD_NOTES_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Race Director's Competition Notes</a> (Document 5, issued 3 Sep 2026) via the
+<p class="src">Source: <a href="{FIA_RD_NOTES_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Race Director's Competition Notes V2</a> (Document 48, issued 5 Sep 2026, 19:24) via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.</p>
 
 <h2 class="sec">Where the corner names come from</h2>
@@ -165,12 +211,12 @@ def build_pages(ctx, env):
   {card("Chicanes named for what they are", ul([
      "Prima Variante ('first chicane') was added in the 1972 refurbishment to cut the era's extreme speeds; it replaced the old Variante del Rettifilo, on the original start/finish straight, before a further 2000 reprofile.",
      "Seconda Variante ('second chicane') dates from further 1976 safety changes and still carries generous run-off.",
-     "Variante Ascari, the final chicane before the pit straight, honours Alberto Ascari, the two-time champion killed at Monza in 1955; it was previously the Curva del Platano ('plane tree curve').",
+     "Variante Ascari (Turns 8–10), the final chicane before Parabolica, honours Alberto Ascari, the two-time champion killed at Monza in 1955; it was previously the Curva del Platano ('plane tree curve').",
   ]), "bi-signpost-split", "accent")}
   {card("Sweepers named for the local towns and families", ul([
      "Turn 3, now Biassono, was long known as Curva Grande ('great curve') for its shape before taking the name of a nearby town in the 1970s changes.",
      "Turns 6&ndash;7, Lesmo 1 &amp; 2, were originally Curva della Querce ('curve of the oaks') and take their modern name from the town of Lesmo.",
-     "Turn 8, sometimes called Curva della Roggia after a nearby stream, is best known for the 1995 Hill/Schumacher collision.",
+     "The second chicane (Turns 4–5), Variante della Roggia, takes its name from a nearby stream and was the site of the 1995 Hill/Schumacher collision.",
      "Turn 11, officially Curva Alboreto since a recent renaming for 1980s&ndash;90s driver Michele Alboreto, is still almost universally called Parabolica for its parabola-like shape.",
   ]), "bi-book")}
 </div>
@@ -249,21 +295,32 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
     pages["penalties"] = dict(
         kicker="Stewards · technical",
         title="Penalties & Stewards",
-        sub="Liam Lawson takes a 35-place grid penalty for new power-unit elements after qualifying "
-            "P4 \u2014 headlining a weekend that also produced two Friday grid-drop PU penalties, a "
-            "resolved CDS fine, two yellow-flag reviews and a pit-lane fine.",
+        sub="Race-day update: Lawson and Alonso were required to start from the pit lane. "
+            "Earlier PU grid penalties and selected weekend decisions are retained below.",
         body=render_penalties(
             ctx,
             decisions=[
+                dict(doc="Doc 57", no="30", driver="Liam Lawson", team="Oracle Red Bull Racing",
+                     session="Qualifying / pre-race parc fermé",
+                     fact="Rear wing changed without Technical Delegate approval and suspension "
+                          "set-up changed under parc fermé.",
+                     outcome="Required to start the race from the pit lane, superseding the "
+                             "back-of-grid expectation following Document 41.",
+                     kind="penalty"),
+                dict(doc="Doc 56", no="14", driver="Fernando Alonso", team="Aston Martin Aramco F1 Team",
+                     session="Qualifying / pre-race parc fermé",
+                     fact="Sixth energy store, sixth control electronics and fifth MGU-K fitted "
+                          "without Technical Delegate approval under parc fermé.",
+                     outcome="Required to start the race from the pit lane.",
+                     kind="penalty"),
                 dict(doc="Doc 41", no="30", driver="Liam Lawson", team="Oracle Red Bull Racing",
                      session="Free Practice 3",
                      fact="6th ICE, 6th Turbocharger, 6th Exhaust Set, 4th MGU-K and 7th Power Unit "
                           "Ancillary Component fitted, breaching the season element allocation "
                           "(Article B8.2.2/B8.2.3).",
                      outcome="Drop of 35 grid positions for the next race the driver participates in "
-                             "(5 places for the ICE/TC/EXH, 10 for the MGU-K, 10 for the PU-ANC, plus "
-                             "the standard accumulation) \u2014 applied to Sunday's race after he "
-                             "qualified P4.",
+                             "(5 each for ICE, TC and EXH; 10 each for MGU-K and PU-ANC). "
+                             "Document 57 subsequently required a pit-lane start.",
                      kind="penalty"),
                 dict(doc="Doc 19", no="12", driver="Kimi Antonelli", team="Mercedes-AMG PETRONAS F1 Team",
                      session="Free Practice 1",
@@ -314,11 +371,19 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
             ],
             intro_html=f"""
 <div class="callout alert">
-  <i class="bi bi-flag-fill"></i> <strong>Grid-penalty headline: Liam Lawson starts from the back.</strong>
-  Lawson qualified P4 but his Free Practice 3 power-unit change (Document 41 &mdash; 6th ICE, 6th
-  turbo, 6th exhaust, 4th MGU-K, 7th PU-ANC) carries a <strong>35-place grid drop</strong>, so he'll
-  line up at the back of the field for Sunday's race regardless of Saturday's result.
+  <i class="bi bi-flag-fill"></i> <strong>Race-day update: Lawson and Alonso required to start from the pit lane.</strong>
+  Lawson's earlier <strong>35-place PU grid penalty</strong> (Document 41) was followed by
+  unapproved rear-wing and suspension changes under parc fermé (Document 57).
+  Alonso's unapproved PU changes also required a pit-lane start (Document 56).
+  These 6 September decisions replace the earlier back-of-grid expectation.
 </div>
+<p class="src">Race-day sources:
+<a href="{FIA_LAWSON_PITLANE_URL}" target="_blank" rel="noopener">FIA Document 57, Lawson</a>;
+<a href="{FIA_ALONSO_PITLANE_URL}" target="_blank" rel="noopener">FIA Document 56, Alonso</a>.
+Earlier PU grid penalties:
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_12_-_changes_to_pu_elements.pdf" target="_blank" rel="noopener">Document 19, Antonelli</a>;
+<a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_23_-_changes_to_pu_elements.pdf" target="_blank" rel="noopener">Document 20, Albon</a>.
+Selected decisions, not an exhaustive post-race stewards log.</p>
 <div class="callout accent">
   <i class="bi bi-check-circle"></i> <strong>Car 25 CDS hearing resolved (Document 32):</strong>
   the Friday-adjourned case (Documents 17/22/29) concluded with Cadillac fined &euro;30,000
@@ -333,8 +398,8 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
      "No further action; carried over from the previous round as a routine post-race technical report.",
   ]), "bi-check-circle", "accent")}
   {card("Power-unit elements used per driver (Document 9)", ul([
-     "The FIA's season-to-date element count shows Antonelli on 4 ICE / 3 TC / 3 EXH / 2 MGU-K / 3 ES / 3 PU-CE / 5 PU-ANC — level with team-mate Russell on most counts.",
-     "Lawson (5 ICE / 5 TC / 5 EXH at the time of publication, now 6/6/6 after Document 41) and the two Aston Martins (4 ICE / 4 TC, Stroll also on 4 MGU-K/5 ES/5 PU-CE) currently carry the highest published counts on the grid.",
+     "The pre-running snapshot (4 September, 08:30) shows Antonelli on 4 ICE / 3 TC / 3 EXH / 2 MGU-K / 3 ES / 3 PU-CE / 5 PU-ANC. It is not a post-Monza total.",
+     "Lawson had 5 ICE / 5 TC / 5 EXH in that snapshot, rising to 6/6/6 in Document 41. Both Aston Martins already had 4 MGU-K / 5 ES / 5 PU-CE; Alonso's race-day changes are recorded separately in Document 56.",
      "The document lists cumulative use only; it does not itself state the per-element allocation limit or confirm which counts have triggered a penalty.",
   ]), "bi-clipboard-data")}
 </div>
@@ -387,9 +452,8 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
 
     if st.get("drivers"):
         standings_body = f"""
-<div class="callout"><strong>Standings after the Dutch Grand Prix.</strong>
-  Antonelli has 242 points, 59 ahead of both Russell and Hamilton; Russell holds second on countback.
-  Norris is up to fourth after consecutive victories in Hungary and the Netherlands.</div>
+<div class="callout"><strong>Standings as of {st.get("as_of") or "the latest verified snapshot"}.</strong>
+  {st.get("summary") or "See the championship tables below."}</div>
 <div class="standings-grid">
   <div><h2 class="sec">Drivers</h2><div class="table-wrap"><table class="data ranked filterable">
     <thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th class="num">Pts</th></tr></thead>
@@ -397,16 +461,16 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
   </table></div></div>
   <div><h2 class="sec">Constructors</h2><div class="table-wrap"><table class="data ranked filterable">
     <thead><tr><th>Pos</th><th>Team</th><th class="num">Pts</th></tr></thead>
-    <tbody>{st["ctors"]}</tbody>
+    <tbody>{st.get("ctors") or ""}</tbody>
   </table></div></div>
 </div>"""
     else:
-        standings_body = pending("Championship standings", "after the Dutch Grand Prix", "bi-trophy")
+        standings_body = pending("Championship standings", "when a verified snapshot is available", "bi-trophy")
     pages["standings"] = dict(
-        kicker="Championship · after Zandvoort",
+        kicker="Championship",
         title="Championship & Form",
-        sub="Antonelli leads by 59 points; Norris arrives on the season's first back-to-back wins.",
-        body=standings_body)
+        sub=st.get("summary") or "Latest available current-season championship snapshot.",
+        body=standings_body + (st.get("notice") or ""))
 
     pages["teams"] = dict(
         kicker="Team watch",
@@ -417,7 +481,7 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
   {card("Mercedes", ul([
      "Antonelli's full power-unit change is strategic rather than the result of a new failure.",
      "Monza was selected because passing opportunities reduce the likely cost of starting at the back.",
-     "Russell is level with Hamilton for second in the championship, 59 points behind Antonelli.",
+     "See Championship &amp; Form for the latest sourced standings and championship gaps.",
   ]), "bi-lightning-charge", "accent")}
   {card("Ferrari", ul([
      "Home-race Schumacher tribute livery and race suits.",
@@ -428,8 +492,8 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
      "Norris arrives with consecutive pole-to-win weekends in Hungary and Zandvoort.",
      "New low-drag rear wing, first use of the rotating <strong>H-Wing</strong>, and smaller aero options to evaluate.",
      "Energy harvesting and deployment are expected to produce pace swings around the lap.",
-     "Team-mate context: Piastri, a title contender at this point last year, hasn't won since Zandvoort 2025 and is "
-     "now 55 points and three places behind Norris in the standings.",
+     "Pre-event team-mate context: Piastri's previous win was Zandvoort 2025; the current points "
+     "comparison is on Championship &amp; Form.",
   ]), "bi-speedometer2")}
   {card("Red Bull family", ul([
      "Lawson continues in Hadjar's Red Bull seat; Tsunoda continues at Racing Bulls.",
@@ -538,10 +602,8 @@ Team-by-team filings: <a href="https://www.fia.com/system/files/decision-documen
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA documents hub</a>.</p>
 """)
 
-    FIA_PU_URL = ("https://www.fia.com/system/files/decision-document/"
-                  "2026_italian_grand_prix_-_power_unit_information.pdf")
     pages["powerunit"] = dict(
-        kicker="2026 rules · Monza focus",
+        kicker="FIA confirmed · checked 10 Sep 2026",
         title="Power Unit & Override",
         sub="The FIA's event-specific power-and-energy map is confirmed for Monza.",
         body=f"""
@@ -560,33 +622,25 @@ Team-by-team filings: <a href="https://www.fia.com/system/files/decision-documen
   {card("New PU elements confirmed for Monza (Documents 13 &amp; 18)", ul([
      "Eleven cars started this race weekend on a new internal combustion engine: Piastri, Norris, Antonelli, Leclerc, Hamilton, Albon, Sainz, Bearman, Bortoleto, Gasly and Colapinto.",
      "Antonelli (5th ICE of 4 allowed) and Albon (5th ICE of 4 allowed) are the two whose new engines exceed the season allocation, triggering their grid-drop penalties above.",
-     "Leclerc and Hamilton also each fitted a new power-unit ancillary component (PU-ANC) &mdash; the 1st of 6 permitted for the season, so within the allowance and penalty-free.",
+     "Document 18 lists five previously used PU-ANC for both Leclerc and Hamilton: the newly fitted component was each driver's sixth, within the six-component allowance, not their first.",
   ]), "bi-gear")}
 </div>
-<div class="callout watch">
-  <i class="bi bi-lightbulb"></i> <strong>Why this matters here:</strong> drivers say Monza's energy
-  starvation is so severe that top speeds down the straights may actually be <em>lower</em> than at the
-  Hungaroring &mdash; the opposite of what Monza's low-downforce layout would normally suggest. Racing
-  Bulls' Arvid Lindblad: &ldquo;There's just not much battery. We don't actually go slower on the
-  straights. We just don't use any.&rdquo; McLaren's Oscar Piastri said sim running had the team quicker
-  down Hungary's front straight than Monza's. The likely reason is the FIA's 5.0&nbsp;MJ qualifying/low
-  race-recharge caps (see the power-and-energy map below): cars flatline well below their old 350&ndash;360
-  km/h peaks rather than reaching top speed and fading, and there is little spare energy left over for
-  the "super-clipping" braking technique used to protect the recharge budget at other energy-starved
-  circuits.
-</div>
 <h2 class="sec">FIA event power-and-energy map (Document 8, 3 Sep)</h2>
-
+<figure class="circuit-fig">
+  <img src="../assets/italy_fia_power_unit_2026.png"
+       alt="FIA Monza power unit information: recharge limits, ERS-K curves, exception sectors and Overtake detection"
+       class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
+  <figcaption>Official FIA Document 8, page 2, issued 3 September 2026 at 20:50.
+  <a href="{FIA_PU_URL}" target="_blank" rel="noopener">Open the original PDF</a>.
+  The session columns and exception windows are transcribed below.</figcaption>
+</figure>
 <div class="callout watch">
   <i class="bi bi-lightbulb"></i> <strong>Monza's qualifying quirk:</strong> the maximum recharge
-  permitted per lap in qualifying is just <strong>5.0 MJ</strong> &mdash; lower than every other
-  session (race, free practice and even out-laps) &mdash; yet qualifying is the <em>only</em> time a
-  car may run the higher "Base &ndash; Overtake" deployment curve across the <strong>whole lap</strong>
-  rather than only in the marked overtaking zone. With so little energy needing to be recovered under
-  braking, teams have little reason to manage harvesting on the way into the chicanes; the likely
-  trade-off is less need for the early lift-and-coast/"clipping" used elsewhere to protect the recharge
-  budget, so cars can carry deployment closer to the braking point at the end of each Monza straight.
-  This reading follows from the numbers below; the FIA document does not itself explain the rationale.
+  permitted per lap is <strong>5.0 MJ</strong>, versus <strong>7.5 MJ in free practice</strong>.
+  <strong>Both free practice and qualifying</strong> use the Base &ndash; Overtake ERS-K power curve.
+  Recharge energy and the speed-dependent power ceiling are different limits: the higher curve does
+  not mean unlimited deployment, and the lower recharge cap alone does not establish a
+  lift-and-coast or clipping strategy.
 </div>
 <div class="grid cols-2">
   {card("Maximum recharge per lap (Article C5.2.10)", ul([
@@ -597,27 +651,49 @@ Team-by-team filings: <a href="https://www.fia.com/system/files/decision-documen
   ]), "bi-lightning-charge", "accent")}
   {card("Maximum PU power reduction rate (Article C5.12.8)", ul([
      "Power-limited distance: <strong>4218 m</strong>.",
-     "Rate limit: <strong>50 kW/s</strong> &mdash; this cap applies across sessions and is separate from the recharge-per-lap figures above.",
-     "Sector T4&ndash;T7 (2100&ndash;2800 m) carries a maximum PU power reduction of <strong>350 kW</strong> (Article C5.12.4), with a Sprint-Qualifying/Qualifying-only alternate window at the Turn 11 exit (5050&ndash;5350 m, or 5300&ndash;5800 m where the reduction-reset rule of Article C5.12.5 applies).",
+     "Rate limit: <strong>50 kW/s</strong>, separate from the recharge-per-lap figures above.",
+     "Article C5.12.4 permits a <strong>350 kW</strong> reduction at the start of a Power Limited Pending period in T4&ndash;T7 (<strong>2100&ndash;2800 m</strong>).",
+     "Qualifying-only additional reduction window: exit T11, <strong>5050&ndash;5350 m</strong>, also <strong>350 kW</strong>. The separate MGU-K power-reduction reset window (C5.12.5) is <strong>5300&ndash;5800 m</strong>, qualifying only.",
+     "The bracketed exceptions are labelled SQ/Q in the FIA template; Monza had a standard weekend with no Sprint Qualifying.",
   ]), "bi-speedometer2")}
 </div>
 <div class="grid cols-2">
   {card("Maximum DC power of ERS-K vs. car speed (Article C5.2.8)", ul([
      "Sprint &amp; Race, main overtaking zone: <strong>Base &ndash; Standard</strong> curve (overtake not active) or <strong>Base &ndash; Overtake</strong> (overtake active).",
-     "Sprint &amp; Race, everywhere else on the lap: the reduced <strong>Alt 1</strong> curve, which falls away above roughly 290&ndash;300 km/h.",
+     "The alternative <strong>Alt 1</strong> curve's identified race sector is <strong>T4&ndash;T7, 2100&ndash;2800 m</strong> (Article C5.2.8iii). Do not treat it as a blanket restriction on every other straight.",
      "Any practice session, including all qualifying segments: <strong>Base &ndash; Overtake</strong> applies for the entire lap &mdash; there is no Alt 1 restriction in qualifying.",
   ]), "bi-graph-up-arrow", "accent")}
   {card("Main overtaking zone", ul([
-     "Detection line at approximately <strong>5050 m</strong> (TBC), activation line at <strong>5249 m</strong> lap distance (between corners L18 and L19, the Parabolica exit onto the pit straight).",
+     "Detection line: <strong>5050 m (TBC)</strong>, timing loop <strong>L18</strong>; activation line: <strong>5249 m</strong>, loop <strong>L19</strong>. These are timing-loop identifiers, not corner numbers.",
      "Detection gap: <strong>1.0 s</strong>.",
-     "The Overtake power curve gives a materially higher MGU-K DC-power ceiling than the Base/Standard curve across the 220&ndash;360 km/h band, per the FIA's published power-vs-speed chart.",
+     "The circuit map locates detection at the entry to T11 and activation at T11. The PU document still marks the detection distance TBC; no unqualified replacement distance is asserted here.",
+     "Base &ndash; Standard and Base &ndash; Overtake share the 350 kW plateau at lower speeds; Overtake retains the higher ceiling later in the speed range. See the original graph rather than treating the difference as constant.",
+     "No higher-speed-threshold sector is specified under Article C5.12.7 (the table contains dashes).",
   ]), "bi-record-circle")}
 </div>
 <p class="src">Sources: <a href="{FIA_PU_URL}" target="_blank" rel="noopener">FIA 2026 Italian Grand Prix — Power Unit Information</a> (Document 8, issued 3 Sep 2026, 20:50);
 <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition.pdf" target="_blank" rel="noopener">Technical Delegate's Report, New PU Elements</a> (Document 13) and
 <a href="https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition_0.pdf" target="_blank" rel="noopener">New PU-ANC Report</a> (Document 18); all via the
 <a href="{FIA_EVENT_URL}" target="_blank" rel="noopener">FIA Italian Grand Prix documents hub</a>.
-Driver quotes: <a href="https://www.the-race.com/formula-1/slower-than-hungary-why-f1-drivers-think-italian-gp-will-be-weird/" target="_blank" rel="noopener">The Race, "Slower than Hungary? Why F1 drivers think Italian GP will be 'weird'"</a>, 4 Sep 2026.</p>
+The PDFs and their tables were visually checked on 10 September 2026.</p>
+<h2 class="sec">PU element usage and penalty watch</h2>
+<figure class="circuit-fig">
+  <img src="../assets/italy_fia_pu_usage_2026.png"
+       alt="FIA Document 9 pre-running table of all 22 drivers' ICE, TC, exhaust, MGU-K, energy-store, control-electronics and ancillary-component counts"
+       class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
+  <figcaption><strong>Pre-running snapshot, not final post-Monza totals.</strong>
+  <a href="{FIA_PU_USAGE_URL}" target="_blank" rel="noopener">FIA Document 9</a>,
+  4 September 2026, 08:30, page 2. Later changes are separate reports.</figcaption>
+</figure>
+<div class="callout">
+  <strong>Later decisions:</strong> Antonelli received a 30-place grid penalty (Document 19);
+  Albon 20 places (Document 20); Lawson 35 places (Document 41: sixth ICE/TC/EXH,
+  fourth MGU-K, seventh PU-ANC). Race-day parc-fermé changes then required
+  <a href="{FIA_LAWSON_PITLANE_URL}" target="_blank" rel="noopener">Lawson (Document 57)</a> and
+  <a href="{FIA_ALONSO_PITLANE_URL}" target="_blank" rel="noopener">Alonso (Document 56)</a>
+  to start from the pit lane. Alonso's decision records his sixth ES, sixth PU-CE and fifth MGU-K.
+  See <a href="penalties.html">Penalties &amp; Stewards</a> for the individual rulings.
+</div>
 """)
 
     pages["facts"] = dict(
@@ -719,7 +795,7 @@ Driver quotes: <a href="https://www.the-race.com/formula-1/slower-than-hungary-w
      "5.793 km; <strong>53 laps</strong>; 306.72 km.",
      "Race lap record in the circuit library: <strong>" + _fmt(ref.get("lap_record")) + "</strong>.",
      "Pirelli: <strong>C3 / C4 / C5</strong>, the softest 2026 trio.",
-     "Antonelli leads by <strong>59 points</strong> but is set for a back-of-grid start.",
+     "Antonelli: <strong>30-place PU grid penalty</strong>; Lawson and Alonso: <strong>pit-lane starts</strong>. Current points are on Championship &amp; Form.",
      "Forecast: mainly sunny, up to <strong>34°C</strong>, small late-Sunday shower risk.",
   ]), "bi-list-ol", "accent")}
   {card("Grid and practice changes", ul([

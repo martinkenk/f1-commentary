@@ -222,9 +222,8 @@ def build_pages(ctx, env):
     if st.get("drivers"):
         standings_body = f"""
     <div class="callout"><strong>Standings as of {st.get('as_of', 'the most recent completed round')}.</strong>
-      Antonelli leads Hamilton by 50 points and Russell by a wider margin heading into Zandvoort, with
-      Leclerc 22 points behind third-placed Russell — these refresh as each subsequent race is built into
-      the hub.</div>
+      {st.get('summary', '')}</div>
+    {st.get('notice', '')}
 
     <div class="standings-grid">
       <div>
@@ -248,7 +247,7 @@ def build_pages(ctx, env):
     PAGES["standings"] = dict(
         kicker="Championship",
         title="Championship & Form",
-        sub="Antonelli holds a 50-point lead as the season resumes from the summer break.",
+        sub=st.get("summary", "Official current-season standings."),
         body=standings_body)
 
     # ---- 6. TEAM WATCH --------------------------------------------------------

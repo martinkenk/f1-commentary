@@ -55,11 +55,11 @@ bespoke `content_<gp>.py` when you want hand-written prose; register it in the
 
 ### Progressive disclosure
 A round months away still has a circuit, session times, a format and a history, and
-those render immediately. Everything else — tyre allocation, rookie FP1 line-ups,
-upgrade filings, the FIA power-unit map, results — renders as an explicit
-*"not published yet — fills in automatically"* callout instead of a gap or a guess.
-Each rebuild picks up whatever has since appeared, so pages complete themselves as
-the weekend approaches. Nothing needs editing to make that happen.
+those render immediately. Results, standings, news and FIA source links refresh automatically. Interpreted
+tyre tables, rookie line-ups, upgrade summaries and power-unit transcriptions
+still require the scheduled coverage editor's reviewed content changes.
+Do not confuse a pending transcription with an unpublished source or a failed
+fetch. The document index links published material while prose awaits review.
 
 Design: Bootstrap 5.3 + Bootstrap Icons + Titillium Web font, dark theme, F1-red
 (`#e10600`) accents, mobile offcanvas sidebar, lightbox for the circuit map.
@@ -85,8 +85,10 @@ python3 calendar.py            # ~30s, 23 events + 23 track maps
 ```
 
 Re-run it whenever F1 confirms more detail (session times and lap counts for later
-rounds do change). CI runs it automatically on Mondays and on manual dispatch, and
-commits any changes back to `main`. `build.py` itself never touches the network for
+rounds do change). CI runs it automatically on Mondays and on manual dispatch,
+and refreshes maps with `python3 calendar.py --maps-only` on other runs. Existing
+maps within ten days before / seven days after a race are re-downloaded rather
+than cached forever. CI commits any changes back to `main`. `build.py` itself never touches the network for
 calendar data — it just reads the JSON, which keeps builds fast and offline-safe.
 
 Each event records: round number (derived from **race-date chronology**, because
@@ -128,8 +130,11 @@ Knobs in `build.py`:
 
 - `FIRST_ROUND` — the earliest round to build. Lower it to backfill finished races.
 - `BESPOKE` — `{slug: build_pages}` for races with hand-written prose.
-- `LATEST_STANDINGS` — championship tables carried into generic pages until each
-  race supplies its own.
+- `standings.context(SEASON)` — timestamped current-season driver and constructor
+  tables from `data/standings_<year>.json`. Refresh with `python3 standings.py`
+  (CI does this every run); never update points in hand-written constants.
+  Use the context's `summary`, `as_of` and `notice` alongside its table rows so
+  headlines, source dates and freshness warnings stay consistent.
 
 The shared `nav(circuit_label)` helper defines the 17 sidebar slugs. **Five are
 auto-built by the engine** — `results`, `news`, `h2h`, `reliability` and `penalties` —
@@ -426,8 +431,9 @@ looks plain, check the class name against this list first.
   left rail on `td.pos`.
 
 Standings rows are **generated, not hand-written** — see `standings.py` (`DRIVERS`,
-`CONSTRUCTORS`, `driver_rows()`, `ctor_rows()`). After each race update those two
-tuples only; team colours, rails and points-gap labels all derive from them.
+`CONSTRUCTORS`, `driver_rows()`, `ctor_rows()`). Those rows load the official JSON
+snapshot; refresh it with `python3 standings.py`, never edit point totals by hand.
+Team colours, rails and points-gap labels all derive from the same snapshot.
 
 Keep standings inside `.standings-grid`, not `.grid.cols-2`: the latter caps columns
 at ~320px while `table.data` has `min-width:420px`, which forces horizontal scroll.

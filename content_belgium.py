@@ -5,13 +5,7 @@ Formula1.com data pulled at build time; evergreen pages (circuit, facts,
 moments) use verified reference facts. Session results appear on the auto-built
 Results page. Edit prose here; the engine lives in f1lib.py.
 """
-import standings
 from f1lib import card, stat, ul, quote
-
-# Standings live in standings.py so the rows can carry team colours and
-# points gaps; re-exported here for the pages that already reference them.
-DRIVER_ROWS = standings.DRIVER_ROWS
-CTOR_ROWS = standings.CTOR_ROWS
 
 
 def build_pages(ctx, env):
@@ -162,24 +156,20 @@ def build_pages(ctx, env):
 """)
 
     # ---- STANDINGS -------------------------------------------------------
+    st = ctx.get("standings") or {}
     PAGES["standings"] = dict(
-        kicker="After Belgium",
+        kicker="Championship",
         title="Championship & Form",
-        sub=f'The title picture after Round {ctx.get("round_no", "")} &mdash; Antonelli and Mercedes in command.',
+        sub=st.get("summary", "Official current-season standings."),
         body=f"""
-<div class="stat-row">
-  {stat("204", "Antonelli", "championship leader")}
-  {stat("45", "Lead over P2", "Hamilton on 159")}
-  {stat("358", "Mercedes", "constructors' leader")}
-  {stat("73", "Merc margin", "over Ferrari")}
-</div>
+{st.get("notice", "")}
 
 <div class="standings-grid">
   {card("Drivers' Championship", '''
   <div class="table-wrap"><table class="data ranked filterable">
     <thead><tr><th>Pos</th><th>Driver</th><th>Team</th><th class="num">Pts</th></tr></thead>
     <tbody>
-''' + DRIVER_ROWS + '''
+''' + st.get("drivers", "") + '''
     </tbody>
   </table></div>
   ''', "bi-trophy", "accent")}
@@ -188,12 +178,11 @@ def build_pages(ctx, env):
   <div class="table-wrap"><table class="data ranked filterable">
     <thead><tr><th>Pos</th><th>Team</th><th class="num">Pts</th></tr></thead>
     <tbody>
-''' + CTOR_ROWS + '''
+''' + st.get("ctors", "") + '''
     </tbody>
   </table></div>
   ''', "bi-people-fill", "accent")}
 </div>
-<p class="src">Standings: Formula1.com, after the 2026 Belgian Grand Prix.</p>
 """)
 
     # ---- TEAM WATCH ------------------------------------------------------

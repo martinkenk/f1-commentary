@@ -5,8 +5,8 @@ Where build.py parses live timing and weather, enrich.py incrementally:
 
   * reads new articles from The Race and Formula1.com and extracts factual news
     cards (general stories or session reports);
-  * downloads new FIA event *decision* PDFs and extracts structured stewards'
-    records (driver, session, fact, ruling, kind).
+  * discovers all FIA event PDFs, retaining a cited document manifest, and
+    extracts structured stewards' records only from decision/infringement PDFs.
 
 Output is written to data/<gp>/news_auto.json and data/<gp>/penalties_auto.json,
 which the engine (f1lib.py) merges into the News and Penalties pages at build
@@ -20,7 +20,8 @@ Design goals
   article URL and FIA filename already processed, so each run only sends *new*
   material to the extractor. Safe to run at any point across a weekend,
   repeatedly.
-* Fail-safe — any single item that errors is skipped. If no external model is
+* Fail-safe — failed items remain retryable and hard failures make the run
+  exit nonzero after saving successful work. If no external model is
   configured, deterministic extraction is used so the site build never depends
   on remote inference.
 
@@ -52,6 +53,7 @@ import datetime
 import hashlib
 import argparse
 import urllib.request
+import urllib.parse
 
 import f1lib
 
@@ -75,6 +77,13 @@ FIA_SKIP_KEYS = ("summons", "classification", "scrutineering", "entry_list",
 
 SESSION_LABELS = ["Practice 1", "Practice 2", "Practice 3",
                   "Qualifying", "Sprint Qualifying", "Sprint", "Race"]
+
+FAILURES = []
+
+
+def _failure(message):
+    FAILURES.append(message)
+    print(f"  ! {message}")
 
 
 # --------------------------------------------------------------------------
@@ -218,7 +227,10 @@ def the_race_articles():
     try:
         xml = _get(THE_RACE_RSS)
     except Exception as e:
-        print(f"  ! The Race RSS unavailable: {e}")
+        _failure(f"The Race RSS unavailable: {e}")
+        return []
+    if not re.search(r"<(?:rss|feed)\b", xml, re.I):
+        _failure("The Race RSS returned an unrecognised response")
         return []
     out = []
     for item in re.findall(r"<item>(.*?)</item>", xml, re.S):
@@ -244,7 +256,7 @@ def f1_articles(limit=30):
     try:
         page = _get(F1_LATEST)
     except Exception as e:
-        print(f"  ! Formula1.com latest unavailable: {e}")
+        _failure(f"Formula1.com latest unavailable: {e}")
         return []
     # Capture the slug AND the trailing ID (article URLs are "<slug>.<id>"); the
     # ID is required — the slug-only URL 404s, which used to make f1_body empty.
@@ -264,6 +276,8 @@ def f1_articles(limit=30):
             "when": "", "body": "", "source": "Formula1.com", "src_kind": "f1",
             "slug": slug,
         })
+    if not pairs:
+        _failure("Formula1.com latest returned no recognisable article links")
     return out
 
 
@@ -282,7 +296,8 @@ def _f1_page(url):
     if url not in _F1_PAGE_CACHE:
         try:
             _F1_PAGE_CACHE[url] = _get(url)
-        except Exception:
+        except Exception as e:
+            _failure(f"Formula1.com article unavailable ({url}): {e}")
             _F1_PAGE_CACHE[url] = ""
     return _F1_PAGE_CACHE[url]
 
@@ -363,13 +378,16 @@ def _iso_date(rfc):
     return f"{m.group(3)}-{month:02d}-{int(m.group(1)):02d}"
 
 
-def fia_decision_pdfs(ctx):
-    """Return [{filename, url}] for FIA decision documents for this GP."""
+def fia_documents(ctx):
+    """Discover every event PDF; raise on failure rather than report no docs."""
     url = ctx.get("fia_url")
     if not url:
         return []
     try:
         page = _get(url)
+        if not re.search(r"/system/files/|event-title|document-row|document-list|"
+                         r"no documents|no decisions", page, re.I):
+            raise ValueError("unrecognised FIA event response")
     except Exception as e:
         # Event pages can return 403/502 to GitHub-hosted runners even after
         # documents are published. Fall back to the season index, which embeds
@@ -411,28 +429,61 @@ def fia_decision_pdfs(ctx):
                                if command.get("command") == "insert")
             print("  · FIA event page unavailable; checked season index instead")
         except Exception as fallback_error:
-            # The FIA only creates an event page once it publishes that event's
-            # first document. For a future round, 500 is the normal state.
-            if "500" in str(e):
-                print("  · FIA has not published documents for this event yet")
-            else:
-                print(f"  ! FIA documents page unavailable: {e}; "
-                      f"season fallback failed: {fallback_error}")
-            return []
+            raise RuntimeError(f"FIA documents page unavailable: {e}; "
+                               f"season fallback failed: {fallback_error}") from fallback_error
     out, seen = [], set()
-    # Docs can sit under either /decision-document/ or /documents/ (e.g. the
-    # Power Unit Information doc uses the latter) — match both.
-    for path in re.findall(r"/system/files/(?:decision-document|documents)/[^\"'?]+\.pdf", page):
-        fn = path.rsplit("/", 1)[-1].lower()
-        if fn in seen:
+    # Do not constrain the storage subdirectory: technical PDFs also live
+    # outside /decision-document/.
+    for path in re.findall(
+            r"/system/files/[^\"'<>\s?]+?\.pdf",
+            html.unescape(page), re.I):
+        fn = urllib.parse.unquote(path.rsplit("/", 1)[-1])
+        if path in seen:
             continue
-        seen.add(fn)
-        if any(s in fn for s in FIA_SKIP_KEYS):
-            continue
-        if not any(k in fn for k in FIA_DECISION_KEYS):
-            continue
-        out.append({"filename": fn, "url": "https://www.fia.com" + path})
+        seen.add(path)
+        out.append({"filename": fn, "url": "https://www.fia.com" + path,
+                    "categories": f1lib.fia_document_categories(fn)})
+    if not out and not re.search(
+            r'event-title|document-row|document-list|no documents|no decisions',
+            page, re.I):
+        raise ValueError("FIA response has no PDFs or recognisable document listing")
     return out
+
+
+def is_fia_decision(pdf):
+    """Keep broad discovery separate from stewards' extraction."""
+    fn = re.sub(r"[\s-]+", "_", pdf["filename"].lower())
+    return (not any(s in fn for s in FIA_SKIP_KEYS)
+            and any(re.search(r"(?:^|_)" + k, fn) for k in FIA_DECISION_KEYS))
+
+
+def fia_decision_pdfs(ctx):
+    """Compatibility helper: only actual decision/infringement candidates."""
+    return [pdf for pdf in fia_documents(ctx) if is_fia_decision(pdf)]
+
+
+def discover_fia(ctx):
+    """Persist last good discovery separately from the latest attempt status."""
+    if not ctx.get("fia_url"):
+        return []
+    directory = os.path.join(DATA_DIR, ctx["dir"])
+    checked_at = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    status = {"checked_at": checked_at, "source_url": ctx["fia_url"]}
+    try:
+        documents = fia_documents(ctx)
+    except Exception as e:
+        status.update(ok=False, error=str(e))
+        save_json(os.path.join(directory, "fia_discovery_status.json"), status)
+        _failure(f"{ctx['dir']} FIA discovery failed: {e}")
+        return []
+    save_json(os.path.join(directory, "fia_documents.json"), {
+        "source_url": ctx["fia_url"], "retrieved_at": checked_at,
+        "documents": documents,
+    })
+    status["ok"] = True
+    save_json(os.path.join(directory, "fia_discovery_status.json"), status)
+    print(f"  · FIA discovery: {len(documents)} documents")
+    return documents
 
 
 def relevant(article, ctx):
@@ -671,7 +722,13 @@ def enrich_gp(ctx, max_items=6):
     pen_path = os.path.join(DATA_DIR, ctx["dir"], "penalties_auto.json")
     news = load_list(news_path)
     pens = load_list(pen_path)
+    # Older versions marked failed attempts as seen. Output citations are the
+    # evidence of successful extraction, so orphaned entries must be retryable.
+    seen["articles"] = sorted({n["url"] for n in news if n.get("url")})
+    seen["fia"] = sorted({p["source_pdf"] for p in pens if p.get("source_pdf")})
     added_news = added_pen = 0
+
+    documents = discover_fia(ctx)
 
     # --- news: The Race + Formula1.com --------------------------------------
     # Seen-check first: relevance now fetches article bodies for Formula1.com,
@@ -679,24 +736,38 @@ def enrich_gp(ctx, max_items=6):
     candidates = [a for a in (the_race_articles() + f1_articles())
                   if a["url"] not in seen["articles"] and relevant(a, ctx)]
     for a in candidates[:max_items]:
-        card = summarise_article(a, ctx)
-        seen["articles"].append(a["url"])          # mark seen even if it failed
-        if card and not any(n.get("id") == card["id"] for n in news):
+        try:
+            card = summarise_article(a, ctx)
+        except Exception as e:
+            _failure(f"Article extraction failed ({a['url']}): {e}")
+            continue
+        if not card:
+            _failure(f"Article extraction returned no usable content ({a['url']})")
+            continue
+        seen["articles"].append(a["url"])
+        if not any(n.get("id") == card["id"] for n in news):
             news.append(card)
             added_news += 1
             print(f"  + news: {card['title']}")
 
     # --- penalties: FIA decision PDFs ---------------------------------------
-    for pdf in fia_decision_pdfs(ctx):
+    for pdf in documents:
+        if not is_fia_decision(pdf):
+            continue
         if pdf["filename"] in seen["fia"]:
             continue
-        text = _pdf_text(pdf["url"])
-        seen["fia"].append(pdf["filename"])
-        if not text:
+        try:
+            text = _pdf_text(pdf["url"])
+            rec = structure_decision(text, pdf["filename"]) if text.strip() else None
+        except Exception as e:
+            _failure(f"Decision extraction failed ({pdf['url']}): {e}")
             continue
-        rec = structure_decision(text, pdf["filename"])
-        if rec and rec.get("doc") and not any(
-                p.get("doc") == rec["doc"] for p in pens):
+        if not rec or not rec.get("doc") or not rec.get("outcome"):
+            _failure(f"Decision extraction returned no usable ruling ({pdf['url']})")
+            continue
+        seen["fia"].append(pdf["filename"])
+        rec["source_url"] = pdf["url"]
+        if not any(p.get("doc") == rec["doc"] for p in pens):
             pens.append(rec)
             added_pen += 1
             print(f"  + penalty: {rec['doc']} — {rec.get('driver','')} "
@@ -737,6 +808,10 @@ def _pdf_text(url):
 
 # --------------------------------------------------------------------------
 def main():
+    FAILURES.clear()
+    _F1_PAGE_CACHE.clear()
+    _F1_BODY_CACHE.clear()
+    _F1_META_CACHE.clear()
     ap = argparse.ArgumentParser(description="LLM enrichment for the F1 hub.")
     ap.add_argument("--gp", help="only this GP dir (e.g. hungary)")
     ap.add_argument("--all", action="store_true",
@@ -765,9 +840,12 @@ def main():
         try:
             total += enrich_gp(ctx, max_items=args.max)
         except Exception as e:
-            print(f"  ! {ctx['dir']} enrichment error: {e}")
+            _failure(f"{ctx['dir']} enrichment error: {e}")
         print()
     print(f"Done — {total} new item(s) added across {len(gps)} GP(s).")
+    if FAILURES:
+        print(f"Failed — {len(FAILURES)} error(s); successful work saved, failed items will retry.")
+        return 1
     return 0
 
 
