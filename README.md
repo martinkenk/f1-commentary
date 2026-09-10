@@ -66,6 +66,10 @@ python3 build.py
   historical versions. Last-good images survive source failures.
 - `coverage_inventory.py` – inventories every GP's data/assets and source failures,
   checks generated pages/local images, and flags uncached PDFs for editorial review.
+- `news_briefing.py` – highlights collated top stories on Overview and Weekend News.
+  Editors maintain `data/<gp>/news_highlights.json` with sourced summaries and
+  on-air implications. Every build detects expiry, new sessions and changed
+  priority reporting, replacing stale selections with labelled automatic headlines.
 - `circuits.py` – per-venue reference data: coordinates (for weather), circuit character,
   key corners, overtaking, tyre behaviour, lap records, talking points.
 - `build.py` – driver: turns each calendar round into a GP context and builds the site.

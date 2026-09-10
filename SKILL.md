@@ -93,6 +93,7 @@ generic content. `circuits.py` supplies venue coordinates, character and history
 | `calendar.py` | F1 calendar, local session times, race/result IDs, statistics, official maps |
 | `standings.py` | Atomic official driver **and** constructor snapshot; derived gaps and freshness |
 | `enrich.py`, `backfill_meta.py` | Complete FIA discovery, decision/article extraction, retries and news metadata |
+| `news_briefing.py` | Top-of-page collated news; expiry, session/feed-change detection and automatic priority fallback |
 | `fia_media.py` | Source-faithful PDF screenshot download/render/cache; no invented interpretation |
 | `fastf1_analysis.py`, `assets_src/pace-chart.js` | Optional lap/long-run/telemetry analysis and interactive charts |
 | `f1lib.py` | Shared HTML/CSS, source galleries, results, weather, news/H2H/reliability/penalties |
@@ -147,6 +148,7 @@ they contain clean-lap counts, compound, tyre-life bounds, mean time and consist
 | `calendar_<year>.json` | Object with `events`; each has slug, chronological round, dates/sessions, sprint, race_id/results_slug, circuit stats/map |
 | `standings_<year>.json` | Official timestamped driver/constructor snapshot and source URLs; use `standings.context(SEASON)` rather than duplicate point constants |
 | `<gp>/news_auto.json` | Array: title, summary, source URL, source kind, session label, display `when`, sortable ISO `date` |
+| `<gp>/news_highlights.json` | Reviewed `items` with topic/title/date/summary/why_it_matters/sources, `reviewed_at`, `expires_at`, `through_session`, `feed_fingerprint` |
 | `<gp>/penalties_auto.json` | Array of document/no/driver/team/session/fact/outcome/kind and source URL |
 | `<gp>/_seen.json` | Incremental successful-extraction identities; not a list of successfully covered facts |
 | `<gp>/fia_documents.json` | Last-good `retrieved_at`, source URL, complete `documents` with filename/URL |
@@ -339,6 +341,56 @@ venue GP wins; pre-FP1 Spain has no event timing, race pit stops or race-used se
 Keep useful context and an explicit source-based pending/inapplicable state.
 
 ## 6. Shared helper and content conventions
+
+### Collated priority news: every active GP, every editorial run
+
+Maintain **three to five most important stories**, not simply the latest articles,
+in `data/<gp>/news_highlights.json`. The shared shell displays them prominently
+at the top of both **Overview and Weekend News**; all other pages remain uncluttered.
+The full curated/wire/session feed stays below, reachable at `news.html#full-news`.
+
+Read the actual sources and synthesize multiple reports about the same development
+into one topic. Write a concise factual `summary` plus a separate `why_it_matters`
+for the commentator. Rank by consequence: safety/line-up, actual session outcome,
+sanctions, championship implications, important team/technical developments.
+Keep predictions, claims, decisions and confirmed facts distinct. Exclude betting,
+ticket promotions, quizzes, fantasy games, viewing guides and unrelated lifestyle
+articles. Do not promote another GP's preview just because its body mentions this one.
+Never pad the selection to reach a quota.
+
+Each item contains plain-text `topic`, `title`, ISO `date`, `summary`,
+`why_it_matters`, and `sources: [{label, url}]`. Sources must be opened HTTPS URLs;
+credit multiple sources where the synthesis uses them. Keep numeric championship
+gaps out unless explicitly dated, and avoid claiming a discussion equals a new policy.
+Italy/Spain's checked-in files are examples, not a permanent list of top stories.
+
+After refreshing and reading the priority feed, get its reproducible fingerprint:
+
+```bash
+python3 news_briefing.py --gp spain
+```
+
+Set `reviewed_at` and `expires_at` to timezone-aware ISO timestamps; expiry must be
+within 24 hours, preferably before the next editorial run/session. Set
+`through_session` to the latest completed on-track classification (`null` before
+running; not Starting Grid), and save the printed `feed_fingerprint`.
+**Never just advance the timestamp/fingerprint without reviewing new evidence.**
+Commit the JSON with its editorial PR; no bespoke module is needed.
+
+Every ordinary deployment automatically reselects the briefing. Expiry, a different
+available session, or changed priority-feed content removes the old editorial
+selection from the top. It then shows clearly labelled **automatic grouped source
+headlines**, not a fabricated editorial synthesis. Promotions and feed reordering
+do not invalidate a review. Automatic headlines use a bounded event/date window;
+older completed GPs do not become a feed of the next race's previews.
+Original source dates remain visible. The fallback uses headlines rather than
+wire paragraphs, which can be truncated mid-sentence.
+
+Check both pages after building: briefing before other body content, one card per
+topic, source links, useful synthesis/implications, a working full-feed anchor, and
+legible desktop/mobile layout. Verify old pre-race stories cannot stay pinned after
+new results or priority reporting. An expired or auto-selected briefing is a request
+for editorial review, **not** permission to blindly renew the old selection.
 
 `build_pages(ctx, env)` returns `{slug: {kicker, title, sub, body}}`. The context
 contains event calendar/reference/standings, source URL, sessions, navigation,

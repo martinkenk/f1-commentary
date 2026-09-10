@@ -1,0 +1,63 @@
+{
+  "reviewed_at": "2026-09-10T20:25:45Z",
+  "expires_at": "2026-09-11T06:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "c335dde8e470a27f59e6be08a8e2b36964573f134f5a8c73e6f23604cea15053",
+  "items": [
+    {
+      "topic": "Ferrari aftermath",
+      "title": "Ferrari clear the air, but no new racing rules yet",
+      "date": "2026-09-10",
+      "summary": "Hamilton and Leclerc say they have discussed their Monza opening-lap fight. Leclerc accepts he went too far at Turn 2; Hamilton praises their communication. The Race reports that introducing rules of engagement was not part of Hamilton's subsequent discussion with Vasseur.",
+      "why_it_matters": "Do not turn a repaired relationship into a claim that Ferrari have introduced team orders. How they race each other remains a Madrid storyline.",
+      "sources": [
+        {"label": "Formula1.com: Hamilton", "url": "https://www.formula1.com/en/latest/article/nothing-lingers-hamilton-opens-up-on-racing-relationship-with-leclerc-after-monza-clash.6EsZLX5y7cIfWh6oQzkyOQ"},
+        {"label": "The Race: post-Monza talks", "url": "https://www.the-race.com/formula-1/what-ferrari-drivers-have-revealed-about-post-monza-talks/"}
+      ]
+    },
+    {
+      "topic": "Madrid debut",
+      "title": "The Madring's first laps are the weekend's big unknown",
+      "date": "2026-09-10",
+      "summary": "Drivers arrive with simulator preparation rather than an F1 race baseline. Their briefing identifies a demanding sequence of corners, battery-use optimisation and the balance between front-tyre warm-up and rear overheating as key qualifying challenges.",
+      "why_it_matters": "Friday running matters more than inherited circuit form. Separate driver expectations from measured pace, degradation and a proven strategy.",
+      "sources": [
+        {"label": "Formula1.com: driver-identified challenges", "url": "https://www.formula1.com/en/latest/article/the-key-challenges-f1-drivers-will-tackle-at-the-madring-as-identified-by-them.5z9TallnbetIJZhoF4VwS9"},
+        {"label": "Formula1.com: circuit guide", "url": "https://www.formula1.com/en/latest/article/circuit-guide-everything-you-need-to-know-about-the-madring.NF7Mh3iag3w9GUPlihwJA"}
+      ]
+    },
+    {
+      "topic": "Championship",
+      "title": "Russell credits Antonelli's form but keeps fighting",
+      "date": "2026-09-10",
+      "summary": "After losing out to Antonelli at Monza, Russell says his team-mate deserves to lead the championship. He is targeting race wins and acknowledges that he needs luck to overturn the title situation, rather than conceding the contest.",
+      "why_it_matters": "The Mercedes contest is still live. Use the current standings table for points, not an old article's frozen deficit.",
+      "sources": [
+        {"label": "Formula1.com: Russell's assessment", "url": "https://www.formula1.com/en/latest/article/russell-concedes-my-team-mate-has-done-a-better-job-than-me.3s3P399CjchZyixhDnromZ"},
+        {"label": "Official driver standings", "url": "https://www.formula1.com/en/results/2026/drivers"}
+      ]
+    },
+    {
+      "topic": "Confirmed line-up",
+      "title": "Lawson and Tsunoda continue; Hadjar is not ready to return",
+      "date": "2026-09-07",
+      "summary": "Lawson remains alongside Verstappen at Red Bull for a third weekend, with Tsunoda continuing alongside Lindblad at Racing Bulls. Red Bull says Hadjar's recovery is progressing, but he is not ready for the cockpit and will support the team in Madrid.",
+      "why_it_matters": "These are confirmed race-seat substitutions, not rookie FP1 nominations or a confirmed date for Hadjar's comeback.",
+      "sources": [
+        {"label": "Formula1.com / Red Bull announcement", "url": "https://www.formula1.com/en/latest/article/lawson-to-stay-at-red-bull-for-third-race-weekend-in-madrid-as-hadjars-recovery-continues.Bxrk9FOVDChcWCo5vxY8v"}
+      ]
+    },
+    {
+      "topic": "FIA operating rules",
+      "title": "Madrid's aero, recharge and track-limit rules are published",
+      "date": "2026-09-10",
+      "summary": "The FIA map confirms two Straight Mode zones. The PU sheet sets qualifying recharge at 7.5 MJ versus 9.0 MJ in practice. Race notes warn that exceeding limits at Turn 22 can invalidate both the current and following lap in lap-time-classified sessions.",
+      "why_it_matters": "These are usable on-air facts now. The conflicting circuit lengths and absolute Overtake distances marked TBC remain unresolved, not numbers to infer.",
+      "sources": [
+        {"label": "FIA circuit map", "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf"},
+        {"label": "FIA power-unit information", "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_power_unit_information.pdf"},
+        {"label": "FIA race-director notes", "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_race_directors_competition_notes.pdf"}
+      ]
+    }
+  ]
+}

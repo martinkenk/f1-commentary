@@ -130,6 +130,23 @@ Search current material from Formula1.com, the FIA event documents, Pirelli,
 The Race, and official team or driver announcements. Prefer primary sources.
 Every factual addition must be traceable to a URL you actually opened.
 
+### Required collated top-news briefing
+
+On every run, refresh `data/<gp>/news_highlights.json` for each active GP using
+the priority-news contract in `SKILL.md`. Open sources and collate three to five
+consequential developments, one card per topic, with a concise synthesis,
+why-it-matters explanation, date and all supporting links. Rank importance, not
+just recency; exclude promotions and combine duplicate coverage. Include actual
+session outcomes, changed line-ups/sanctions and major team/technical developments.
+
+Set honest review/expiry timestamps (at most 24h), the latest on-track
+`through_session`, and the fingerprint from `python3 news_briefing.py --gp <slug>`
+after reviewing refreshed data. Do not renew a fingerprint/timestamp without reading
+the changed evidence. Normal builds expire stale selections and use labelled
+automatic priority headlines until reviewed prose is merged. Confirm the collated
+briefing leads both Overview and Weekend News, with the complete feed preserved.
+Document missing sources and any new priority reporting not covered by the PR.
+
 Audit every supported surface:
 
 1. overview and key storylines

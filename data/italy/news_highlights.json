@@ -1,0 +1,39 @@
+{
+  "reviewed_at": "2026-09-10T20:25:45Z",
+  "expires_at": "2026-09-11T06:00:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "ed6f0c1bd441c8153726ff3b607a3a5c3bdcf85f9a4d225c80970fdb9d2f3c49",
+  "items": [
+    {
+      "topic": "Race outcome",
+      "title": "Antonelli turns P19 into a home victory",
+      "date": "2026-09-06",
+      "summary": "Antonelli recovered from his power-unit grid penalty to beat Russell, with Verstappen third. His decisive pass came on lap 50 after an earlier excursion through the gravel. Norris beat Piastri to fourth.",
+      "why_it_matters": "The headline is the completed Mercedes one-two and Antonelli's recovery, not a pre-race prediction about damage limitation.",
+      "sources": [
+        {"label": "Formula1.com race report", "url": "https://www.formula1.com/en/latest/article/antonelli-beats-russell-to-italian-grand-prix-win-with-stunning-comeback-drive.15WtFEBT5JEe4drdeO88t2"}
+      ]
+    },
+    {
+      "topic": "Strategy",
+      "title": "Red flag and VSC reshape the tyre comparison",
+      "date": "2026-09-06",
+      "summary": "Russell stayed on the hards fitted during the early red flag. Antonelli took fresh mediums during the later VSC, while Verstappen switched to hards. That tyre-age split shaped the final fight for the win.",
+      "why_it_matters": "Do not present this disrupted race as proof of an optimal green-flag pit window. Pit-lane elapsed times are also not stationary wheel-change times.",
+      "sources": [
+        {"label": "Formula1.com race chronology", "url": "https://www.formula1.com/en/latest/article/antonelli-beats-russell-to-italian-grand-prix-win-with-stunning-comeback-drive.15WtFEBT5JEe4drdeO88t2"}
+      ]
+    },
+    {
+      "topic": "Ferrari follow-up",
+      "title": "Separate the opening-lap dispute from Leclerc's later crash",
+      "date": "2026-09-10",
+      "summary": "Hamilton's first-chicane battle with Leclerc cost him ground; Leclerc's separate lap-two crash at Curva Alboreto caused the red flag. In their Madrid follow-up, both drivers say they have cleared the air, with Leclerc accepting his Turn 2 error.",
+      "why_it_matters": "Keep the incidents and dates distinct. The discussion afterward is not evidence of a new Ferrari team-orders policy.",
+      "sources": [
+        {"label": "Formula1.com race report", "url": "https://www.formula1.com/en/latest/article/antonelli-beats-russell-to-italian-grand-prix-win-with-stunning-comeback-drive.15WtFEBT5JEe4drdeO88t2"},
+        {"label": "The Race: Thursday follow-up", "url": "https://www.the-race.com/formula-1/what-ferrari-drivers-have-revealed-about-post-monza-talks/"}
+      ]
+    }
+  ]
+}

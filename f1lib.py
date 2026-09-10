@@ -1026,17 +1026,17 @@ def render_news(ctx, general_items, session_notes):
 
     out = []
     out.append('<h2 class="sec">Weekend headlines</h2>')
-    out.append('<p class="lead-note">Editor-curated stories from around the paddock so far this weekend '
-               '(Formula1.com &amp; The Race). Refreshed every time the site is rebuilt.</p>')
+    out.append('<p class="lead-note">Additional editor-curated stories and dated context '
+               '(Formula1.com &amp; The Race). The priority briefing above is maintained separately.</p>')
     out.append(news_list(general_items) if general_items
-               else '<div class="callout watch">No general news collated yet.</div>')
+               else '<div class="callout watch">No additional editor-authored articles for this event.</div>')
 
     # Auto-summarised wire feed in its own clearly-labelled block, so the curated
     # analysis leads and the machine-summarised source links read as a supplement.
     if auto_general:
         out.append('<h2 class="sec">From the wires <span class="wire-tag">auto-summarised</span></h2>')
         out.append('<p class="lead-note">Every other weekend article picked up automatically from '
-                   'Formula1.com &amp; The Race, summarised by an LLM. Each card links to the '
+                   'Formula1.com &amp; The Race, extracted automatically. Each card links to the '
                    'source so you can verify before air.</p>')
         out.append(news_list([_auto_news_card(c) for c in auto_general]))
 
@@ -1348,7 +1348,13 @@ def auto_penalties(ctx):
 # Page shell (sidebar + hero + body). GP context drives all labels/nav.
 # --------------------------------------------------------------------------
 def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_html, depth=1):
+    import news_briefing
+
     GP = ctx
+    if active_slug == "news":
+        body_html = '<div id="full-news"></div>' + body_html
+    if active_slug in ("overview", "news"):
+        body_html = news_briefing.render(ctx, os.path.join(DATA_DIR, ctx["dir"])) + body_html
     body_html = (render_fia_documents(ctx, active_slug) + body_html
                  + render_fia_media(ctx, active_slug, body_html))
     base = "../" * depth
@@ -2007,6 +2013,13 @@ CSS += r"""
 
 /* Weekend News */
 .news-list{display:flex;flex-direction:column;gap:14px;margin:6px 0 4px}
+.news-briefing{border:1px solid var(--f1-red);border-top:4px solid var(--f1-red);
+  border-radius:12px;padding:20px;margin:0 0 28px;background:var(--panel2)}
+.briefing-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.briefing-heading h2{font-size:25px;font-weight:900;margin:4px 0 8px}
+.briefing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.news-briefing .briefing-impact{color:#ffe0a6}
+.briefing-notice{color:#ffe0a6;font-weight:600}
 .news-item{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--f1-red);
   border-radius:10px;padding:14px 18px}
 .news-item h3{font-size:17px;font-weight:800;margin:0 0 6px;line-height:1.3}
