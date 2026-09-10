@@ -19,6 +19,8 @@ FIA_PU_URL = ("https://www.fia.com/system/files/decision-document/"
               "2026_italian_grand_prix_-_power_unit_information.pdf")
 FIA_PU_USAGE_URL = ("https://www.fia.com/system/files/decision-document/"
                     "2026_italian_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf")
+FIA_NEW_PU_URL = ("https://www.fia.com/system/files/decision-document/"
+                  "2026_italian_grand_prix_-_new_pu_elements_for_this_competition_1.pdf")
 FIA_ALONSO_PITLANE_URL = ("https://www.fia.com/system/files/decision-document/"
                          "2026_italian_grand_prix_-_infringement_-_car_14_-_pu_elements_changed_during_parc_ferme.pdf")
 FIA_LAWSON_PITLANE_URL = ("https://www.fia.com/system/files/decision-document/"
@@ -624,6 +626,42 @@ Team-by-team filings: <a href="https://www.fia.com/system/files/decision-documen
      "Antonelli (5th ICE of 4 allowed) and Albon (5th ICE of 4 allowed) are the two whose new engines exceed the season allocation, triggering their grid-drop penalties above.",
      "Document 18 lists five previously used PU-ANC for both Leclerc and Hamilton: the newly fitted component was each driver's sixth, within the six-component allowance, not their first.",
   ]), "bi-gear")}
+</div>
+<h2 class="sec">New-elements report: Lawson (Document 33, 5 Sep)</h2>
+<p>The Technical Delegate's
+<strong>New PU elements for this Competition</strong> report, issued
+<strong>5 September 2026 at 12:40</strong>, records five new elements for
+<strong>Liam Lawson, car 30</strong>, each beyond its season allowance.</p>
+<div class="table-wrap"><table class="data">
+  <thead><tr><th>Element</th><th class="num">Previously used</th>
+    <th class="num">New element number</th><th class="num">Season allowance</th></tr></thead>
+  <tbody>
+    <tr><td>Internal combustion engine (ICE)</td><td class="num">5</td><td class="num">6</td><td class="num">4</td></tr>
+    <tr><td>Turbocharger (TC)</td><td class="num">5</td><td class="num">6</td><td class="num">4</td></tr>
+    <tr><td>Exhaust set (EXH)</td><td class="num">5</td><td class="num">6</td><td class="num">4</td></tr>
+    <tr><td>Motor generator unit-kinetic (MGU-K)</td><td class="num">3</td><td class="num">4</td><td class="num">3</td></tr>
+    <tr><td>Power-unit ancillary component (PU-ANC)</td><td class="num">6</td><td class="num">7</td><td class="num">6</td></tr>
+  </tbody>
+</table></div>
+<p>This report identifies the component infringements; it is not itself the
+penalty decision. The later 35-place grid penalty and subsequent pit-lane-start
+ruling are distinguished in the penalty watch below. These are Lawson's reported
+changes, not an updated whole-grid usage table.</p>
+<div class="grid cols-2">
+  <figure class="circuit-fig">
+    <img src="../assets/italy_fia_new_pu_doc33_page2_2026.png"
+         alt="FIA Document 33 page 2: Lawson's new ICE, turbocharger, exhaust set and previously used MGU-K count"
+         class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
+    <figcaption><a href="{FIA_NEW_PU_URL}#page=2" target="_blank" rel="noopener">FIA Document 33, page 2</a>.
+    Original report, 5 September 2026, 12:40. Click to zoom.</figcaption>
+  </figure>
+  <figure class="circuit-fig">
+    <img src="../assets/italy_fia_new_pu_doc33_page3_2026.png"
+         alt="FIA Document 33 page 3: Lawson's fourth MGU-K and seventh PU ancillary component exceed their allowances"
+         class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
+    <figcaption><a href="{FIA_NEW_PU_URL}#page=3" target="_blank" rel="noopener">FIA Document 33, page 3</a>.
+    Continuation covering MGU-K and PU-ANC; the PDF's first page is its cover sheet.</figcaption>
+  </figure>
 </div>
 <h2 class="sec">FIA event power-and-energy map (Document 8, 3 Sep)</h2>
 <figure class="circuit-fig">
