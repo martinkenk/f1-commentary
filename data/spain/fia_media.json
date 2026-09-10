@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-10T20:36:36+00:00",
+  "checked_at": "2026-09-10T20:58:11+00:00",
   "discovery_retrieved_at": "2026-09-10T20:36:28.533692+00:00",
   "documents": [
     {
@@ -123,5 +123,26 @@
       "revision": 0
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_race_directors_competition_notes.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_car_display_procedure.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_power_unit_information.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ]
 }
