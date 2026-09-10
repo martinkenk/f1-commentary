@@ -30,6 +30,8 @@ network:
     - api.open-meteo.com
     - archive-api.open-meteo.com
 safe-outputs:
+  # Multi-page FIA/Pirelli evidence can exceed the default 4 MiB patch limit.
+  max-patch-size: 10240
   push-to-pull-request-branch:
     target: "*"
     required-title-prefix: "[coverage] "
@@ -277,6 +279,11 @@ numeric table into a page:
 ## Editing rules
 
 - Follow `SKILL.md` and existing content-module conventions.
+- The pinned compiler permits at most 10 MiB per patch. If an automatic FIA
+  screenshot backfill exceeds it, commit the verified discovery URLs, not a
+  `fia_media.json` referring to uncommitted images; the normal deployment renders
+  those public PDFs. Keep temporary screenshots for visual verification and do
+  not duplicate media already committed on main. Report any remaining fetch block.
 - Prefer a bespoke `content_<gp>.py` module when race-week material has outgrown
   the generic page. Register it in `build.py` when required.
 - Keep curated prose concise and useful on air.

@@ -72,6 +72,12 @@ Audit/test a temporary integration worktree combining latest main and the PR;
 transfer only the newly needed allowed edits back to the PR head, then use
 `push_to_pull_request_branch` and `update_pull_request`. Report conflicts.
 Only emit a no-op after a real audit, and distinguish pending review from live.
+The coverage workflow permits patches up to **10 MiB**, the pinned compiler's
+maximum (the default 4 MiB can reject a valid image backfill). Prefer the normal
+deployment's committed automatic media. If a new automatic FIA backfill exceeds
+that limit, commit verified discovery URLs but not an oversized media manifest/
+image set; deployment renders the discovered public PDFs. Never commit a media
+manifest pointing at uncommitted images, and report any remaining source block.
 
 ## 2. Architecture and inventory
 
