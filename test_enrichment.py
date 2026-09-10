@@ -85,6 +85,7 @@ class EnrichmentTests(unittest.TestCase):
             "competition_notes_-_pirelli_preview": ["tyres"],
             "available_tyres": ["tyres"],
             "car_presentation_submissions": ["upgrades"],
+            "car_display_procedure": ["upgrades"],
             "infringement_-_car_30_-_change_to_pu_elements": [],
             "race_scrutineering": [],
         }

@@ -122,8 +122,9 @@ CIRCUITS = {
         "tz_local": "Madrid (CEST)",
         "character": (
             "Brand new for 2026 — a part-street, part-permanent lap around the IFEMA "
-            "exhibition grounds, including a banked corner. Nobody has real race running "
-            "here, so every reference point, tyre number and strategy call is provisional."
+            "exhibition grounds, including a banked corner. There is no previous Grand Prix "
+            "here to benchmark: the FIA's operating limits are published, while measured "
+            "degradation and strategy depend on this weekend's running."
         ),
         "key_corners": [
             ("Turn 1", "First heavy braking zone off the start straight; the obvious opening-lap risk point."),
@@ -136,14 +137,15 @@ CIRCUITS = {
             "treat any confident prediction with scepticism on air."
         ),
         "tyre_notes": (
-            "No historic data. Expect Pirelli to nominate conservatively for the debut and "
-            "for teams to spend Friday hunting basic warm-up and graining answers."
+            "Pirelli has confirmed C2 hard, C3 medium and C4 soft for the debut. "
+            "There is no historic race data; Friday is about establishing warm-up, "
+            "degradation and graining behaviour."
         ),
         "drs": None,
         "lap_record": "No record yet — first Grand Prix",
         "notes": [
             "Madrid takes over as Spain's championship round; Barcelona-Catalunya also appears on the 2026 calendar earlier in the year.",
-            "First Grand Prix: 2026. Every lap set in the race weekend is, by definition, a lap record.",
+            "First Grand Prix: 2026. Qualifying and the race establish separate lap-time benchmarks.",
             "A debut venue means the FIA circuit notes and track-limits definitions are worth reading closely before FP1.",
         ],
         "storylines": [

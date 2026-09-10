@@ -4,7 +4,7 @@ A good-looking, static, **multi-Grand-Prix** site to support **live TV commentar
 Left-hand sidebar menu; every Grand Prix gets its own landing page plus **17 subpages**.
 
 Loaded: **every remaining round of the 2026 season** — 14 Grands Prix from Belgium
-(round 10) to Abu Dhabi (round 23). Belgium, Hungary, the Netherlands and Italy have
+(round 10) to Abu Dhabi (round 23). Belgium, Hungary, the Netherlands, Italy and Spain have
 hand-written prose; the rest are generated from the official calendar and a per-venue
 reference library. Results, championship standings, news and FIA document links
 refresh automatically; interpreted technical tables and curated race-week prose

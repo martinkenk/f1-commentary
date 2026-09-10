@@ -78,7 +78,7 @@ def fia_document_categories(filename):
         categories.append("circuit")
     if re.search(r"\b(tyres?|tires?|pirelli preview)\b", name):
         categories.append("tyres")
-    if re.search(r"\b(car presentation|car component|upgrade submissions)\b", name):
+    if re.search(r"\b(car presentation|car display procedure|car component|upgrade submissions)\b", name):
         categories.append("upgrades")
     return categories
 
