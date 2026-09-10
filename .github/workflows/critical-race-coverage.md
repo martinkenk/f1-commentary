@@ -108,7 +108,7 @@ state separately what is still awaiting review and therefore not deployed.
    - the most recently completed race for post-event corrections.
 3. Also check the most recently completed GP within seven days for stale
    pre-race claims, final classifications and later FIA decisions.
-4. Run `python3 standings.py`, `python3 calendar.py --maps-only`,
+4. Run `python3 standings.py`, `python3 calendar.py --maps-only`, `python3 season_h2h.py`,
    `LLM_FAKE=1 python3 enrich.py --max 25`, `python3 fia_media.py`, and
    `python3 backfill_meta.py`. Install `pypdf`/`pymupdf` only if absent. Inspect
    each outcome: a failed listing must not prevent rendering saved public PDF
@@ -172,6 +172,13 @@ Compare both tables and any leader/gap prose with the timestamped
 `data/standings_2026.json` and its Formula1.com sources. Do not call current
 totals "after Zandvoort" once Monza has run, or let a pre-race editorial headline
 contradict the current table. Preserve historical context only when dated.
+
+Season teammate scores likewise come from `season_h2h.py`, not hand-written
+approximations. Check both qualifying and race tallies, compared/excluded counts,
+replacement-driver pairings and the expandable official-source evidence. Preserve
+the counting policy in `SKILL.md`; keep the event comparison below the season
+table, including on upcoming GP pages. Use `--force` if an older ruling changes
+classification; report retained/missing sources rather than inventing a score.
 
 For each surface classify the state as populated, stale, missing-but-published,
 pending after source review, blocked, conflicting, or inapplicable. Improve all

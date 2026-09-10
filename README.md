@@ -31,7 +31,7 @@ python3 -m http.server 8000
 5. **Tyres & Strategy** – Pirelli compounds, degradation, one- vs two-stop + **stint/strategy predictor**
 6. **Rookies & Line-ups** – rookie outings / driver line-up notes with bios
 7. **Standings & Form** – title picture, how the last race reshaped it + **championship permutations**
-8. **Head-to-Head** – **team-mate qualifying/race battles** (live from timing) + 2026 season scoreline
+8. **Head-to-Head** – **season qualifying/race scorelines** for each actual teammate pairing, compared/excluded counts and round-by-round official sources, followed by the event comparisons
 9. **Team Watch** – team-by-team news watch
 10. **Upgrades** – car development / upgrade packages
 11. **Power Unit** – 2026 power-unit + energy-override data (with FP & Qualifying power limits highlighted)
@@ -61,6 +61,10 @@ python3 build.py
 - `standings.py` – fetches both official championship tables into
   `data/standings_2026.json` every CI run. Both must parse successfully before the
   timestamped snapshot is replaced; builds use the last successful snapshot.
+- `season_h2h.py` – collects all completed calendar rounds into
+  `data/season_h2h_2026.json`, including rounds before the site's first GP.
+  It refreshes automatically, preserves replacement pairings and last-good data,
+  and provides season qualifying/race comparisons on every H2H page.
 - `fia_media.py` – refreshes all categorized FIA PDF pages into content-hashed,
   zoomable screenshots; same-URL revisions get new images without overwriting
   historical versions. Last-good images survive source failures.

@@ -139,13 +139,8 @@ leads Russell by 66 points; Hamilton is another 10 behind Russell.</p>
     pages["h2h"] = dict(
         kicker="Team-mate battles",
         title="Head-to-Head",
-        sub="Event comparisons update from official timing; no unverified season tally is carried forward.",
-        body=auto_h2h(ctx) + card("Season tally is a separate dataset", """
-<p>The session comparisons above are <strong>this event only</strong>. A verified
-2026 season qualifying/race head-to-head ledger is not stored for Madrid. Hungary's
-dated approximate scoreline must not be reused. A season audit must separate
-Lawson's Red Bull outings from his Racing Bulls starts and exclude FP1-only substitutes.</p>
-""", "bi-arrow-left-right"))
+        sub="Season qualifying/race scorelines, with Madrid comparisons as sessions finish.",
+        body=auto_h2h(ctx))
 
     pages["circuit"] = dict(
         kicker="FIA Document 6 / map version 3, 10 Sep",

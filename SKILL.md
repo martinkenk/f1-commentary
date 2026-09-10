@@ -92,6 +92,7 @@ generic content. `circuits.py` supplies venue coordinates, character and history
 |---|---|
 | `calendar.py` | F1 calendar, local session times, race/result IDs, statistics, official maps |
 | `standings.py` | Atomic official driver **and** constructor snapshot; derived gaps and freshness |
+| `season_h2h.py` | Official season qualifying/race ledger, replacement-aware scorelines and per-round evidence |
 | `enrich.py`, `backfill_meta.py` | Complete FIA discovery, decision/article extraction, retries and news metadata |
 | `news_briefing.py` | Top-of-page collated news; expiry, session/feed-change detection and automatic priority fallback |
 | `fia_media.py` | Source-faithful PDF screenshot download/render/cache; no invented interpretation |
@@ -133,8 +134,9 @@ instead of treating these numbers as a future completeness target):
 | Azerbaijan through Abu Dhabi (nine rounds) | 0 | 0 | Generic/reference pages and map assets; no local enrichment yet |
 
 Only Italy had `fastf1_pace.json` at that audit. Older rich prose does not imply
-that all corresponding structured datasets exist. Hungary's approximate season
-H2H/scenarios are not a reusable verified season-results database. A missing
+that all corresponding structured datasets exist. Hungary's approximate H2H table
+has since been replaced by the official `season_h2h_2026.json` ledger; its manually
+authored championship scenarios remain a different feature. A missing
 older FIA manifest does not mean its already-curated official content is absent.
 Hungary's stint presentation uses `.strat-grid`, `.strat-card`, `.stint`, `.seg`
 and `.prob`; its historic moments use a local `_tl` helper. These are presentation
@@ -147,6 +149,7 @@ they contain clean-lap counts, compound, tyre-life bounds, mean time and consist
 |---|---|
 | `calendar_<year>.json` | Object with `events`; each has slug, chronological round, dates/sessions, sprint, race_id/results_slug, circuit stats/map |
 | `standings_<year>.json` | Official timestamped driver/constructor snapshot and source URLs; use `standings.context(SEASON)` rather than duplicate point constants |
+| `season_h2h_<year>.json` | `year`, `checked_at`, expected session keys, per-source errors, cached qualifying/race sessions with actual drivers/teams/positions/status and source URLs |
 | `<gp>/news_auto.json` | Array: title, summary, source URL, source kind, session label, display `when`, sortable ISO `date` |
 | `<gp>/news_highlights.json` | Reviewed `items` with topic/title/date/summary/why_it_matters/sources, `reviewed_at`, `expires_at`, `through_session`, `feed_fingerprint` |
 | `<gp>/penalties_auto.json` | Array of document/no/driver/team/session/fact/outcome/kind and source URL |
@@ -171,6 +174,7 @@ Do not add these as mandatory imports to the standard-library build.
 
 ```bash
 python3 standings.py
+python3 season_h2h.py
 python3 calendar.py --maps-only
 LLM_FAKE=1 python3 enrich.py --max 25
 python3 fia_media.py
@@ -316,7 +320,7 @@ or inapplicable. Fix all relevant published gaps, not just one showcase table.
 | Tyres | Full Pirelli infographic, FIA prescriptions, nominated/mandatory compounds, wear/evolution, sourced pit-loss estimate, strategy alternatives, stint predictor, official new/used race-set inventory when published |
 | Rookies | Actual event entrants, FP1 substitutes and replaced drivers, meaningful bios/context; race lineup is not identical to FP1 or season standings |
 | Standings | Both official tables, readable leader/previous gaps, freshness, form with date; useful mathematically correct permutations with explicit scenario/points rules |
-| H2H | Event practice/qualifying/race comparisons from results plus sourced season qualifying/race scoreline when available; define sprint/DNS/substitute counting |
+| H2H | Shared official season qualifying/race scorelines, compared/excluded counts and round-by-round evidence; retain event comparisons below and separate replacement pairings |
 | Teams | All teams' relevant event-specific watch items, drivers, form, context and sourced developments; no generic repeated filler |
 | Upgrades | FIA submissions for every team, component counts/descriptions/reasons and nil returns, display procedure, follow-up technical storylines; distinguish declared items from speculation |
 | Power unit | Recharge by race off/on/Q/FP/outlap; power-limited distance/rate and curves, sector exceptions, detection/activation/gap, TBCs; usage/new-parts reports and separately linked sanctions |
@@ -341,6 +345,48 @@ venue GP wins; pre-FP1 Spain has no event timing, race pit stops or race-used se
 Keep useful context and an explicit source-based pending/inapplicable state.
 
 ## 6. Shared helper and content conventions
+
+### Season teammate comparisons
+
+`python3 season_h2h.py` populates `data/season_h2h_<year>.json` from **every**
+completed calendar round, including races before `build.FIRST_ROUND`. It runs
+automatically in deployment. The initial 10 September backfill covers all 13
+qualifying sessions and 13 Grands Prix through Monza, across all eleven teams.
+`render_h2h()` displays current-season scores before the event comparison, even
+before the selected GP has started. Do not reintroduce hardcoded approximate
+scorelines or "no season dataset" placeholders.
+
+Scores read Driver A minus Driver B. Qualification uses the official qualifying
+classification, **not** penalty-adjusted starting-grid positions. Race uses official
+classification, including classified retirements; a classified driver beats an
+unclassified driver. DNS, DSQ, no qualifying time and two unclassified drivers are
+excluded, with counts and per-round reasons shown. This is a results scoreline,
+not a mechanical-failure-adjusted measure of pace. Sprint/Sprint Qualifying and
+practice are excluded from the season tallies. Do not silently change these
+criteria or add unsupported "driver-fault" adjustments.
+
+Group drivers by their team **in that session**, keyed by actual driver-code pair.
+Lawson/Hadjar and Lawson/Tsunoda replacement pairings must remain separate; never
+merge a replacement's wins into somebody else's tally or use today's standings
+roster to reconstruct earlier events. Race entrants identify omitted qualifying
+drivers where possible; absent/no-time entries are not invented qualifying wins.
+The expandable evidence includes every compared/excluded session and the official
+source link. These are current season totals everywhere, not historical
+"entering Hungary" snapshots.
+
+Collection begins after scheduled qualifying start +1h and race start +2h, using
+the published local UTC offset. An extended/delayed session can still be pending.
+Rounds within ten days refresh every deployment; older successful classifications
+refresh weekly. `python3 season_h2h.py --force` refreshes the full season for an
+appeal or older correction. Failed records retry even when cached, while successful
+work and last-good records survive. A lost calendar event or disappearing
+previously recorded entrant raises an explicit failure rather than silently
+erasing results. Pages expose incomplete/stale coverage and source timestamps.
+
+Preserve empty `<td>` cells in the shared F1 results parser: blank Q2/Q3 cells
+must not shift the lap count into a timing column. Classification parsing rejects
+malformed/short tables, duplicate identities or positions and unknown statuses.
+Inspect changes in source schema instead of weakening validation to obtain scores.
 
 ### Collated priority news: every active GP, every editorial run
 
@@ -406,7 +452,7 @@ otherwise new data can silently stop appearing on an apparently richer page.
 |---|---|
 | `render_news(ctx, general_items, session_notes)` | Curated headlines plus auto wires; notes keyed by exact session label render only for completed sessions |
 | `news_item(...)`, `news_sort_key(card)` | ISO `date` sorts, `when` displays; descending; undated last; curated titles dedupe normalized auto titles |
-| `render_h2h(ctx, intro_html="", tally_html="")` | Event classifications are live; season tallies are a separately sourced editorial input |
+| `render_h2h(ctx, intro_html="", tally_html="")` | Shared season scorelines/evidence first, then live event comparisons; optional extra context remains supported |
 | `render_reliability(ctx, intro_html="")` | Race retirement/finisher data and `ctx["extra"]` pitstops/fastestlaps; no pre-race invented results |
 | `render_penalties(ctx, decisions, intro_html, fia_url)` | Curated rows win by document number; keep real auto source URLs and late decisions |
 | `render_tyre_availability(ctx, ..., official=None, compounds=None, source_url="")` | Official inventory renders even without FastF1; compounds are `(hard, medium, soft)` labels, not initial set counts |

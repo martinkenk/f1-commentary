@@ -75,7 +75,7 @@ class GPParityTests(unittest.TestCase):
              patch.object(content_italy, "render_reliability", return_value="PIT_DATA") as pits:
             pages = self.italy()
         self.assertIn("EVENT_H2H", pages["h2h"]["body"])
-        self.assertIn("No audited season-long", pages["h2h"]["body"])
+        self.assertNotIn("No audited season-long", pages["h2h"]["body"])
         self.assertEqual(pages["reliability"]["body"], "PIT_DATA")
         self.assertIn("suspected car damage", pits.call_args.kwargs["intro_html"])
         self.assertIn("not establish medical clearance", pits.call_args.kwargs["intro_html"])

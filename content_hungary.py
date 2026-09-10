@@ -1335,38 +1335,14 @@ def build_pages(ctx, env):
     )
 
     # ---- HEAD-TO-HEAD --------------------------------------------------------
-    h2h_intro = ('<p class="lead-note">Team-mate battles are the cleanest performance read on the grid — same '
-                 'car, same day. Below: this weekend\'s sessions live from the timing, then the 2026 season '
-                 'scoreline for context.</p>')
-    season_h2h_rows = "".join(
-        f"<tr><td class='tm'>{tm}</td><td>{a}</td><td class='num'>{qa}–{qb}</td>"
-        f"<td>{b}</td><td>{note}</td></tr>"
-        for tm, a, qa, qb, b, note in [
-            ("Mercedes", "Antonelli", "6", "5", "Russell", "Antonelli leads the title; Russell's Spa deployment issue now fixed."),
-            ("McLaren", "Norris", "7", "4", "Piastri", "Piastri has the qualifying edge; very tight in race trim."),
-            ("Ferrari", "Leclerc", "6", "5", "Hamilton", "Leclerc shades qualifying; Hamilton strong on Fridays here (topped FP2)."),
-            ("Red Bull", "Verstappen", "10", "1", "Hadjar", "Verstappen dominant vs rookie team-mate Hadjar."),
-            ("Williams", "Albon", "8", "3", "Sainz", "Albon well on top; Sainz caught up in FP1 stewarding here."),
-            ("Aston Martin", "Alonso", "9", "2", "Stroll", "Alonso comfortably ahead; Stroll lost Friday to the suspension failure."),
-            ("Haas", "Bearman", "11", "3", "Ocon", "Bearman leads 11–3 in qualifying — but parts inconsistency clouds it."),
-            ("Racing Bulls", "Lawson", "7", "4", "Lindblad", "Rookie Lindblad beat Lawson at Spa; closer than the score looks."),
-            ("Audi", "Hulkenberg", "6", "5", "Bortoleto", "Rookie Bortoleto matching Hulkenberg — impressive P6 in FP1."),
-            ("Cadillac", "Bottas", "7", "3", "Perez", "Bottas ahead; new-team pairing still finding its feet."),
-        ])
-    season_h2h = (
-        '<h2 class="sec">2026 qualifying head-to-head (season)</h2>'
-        '<p class="lead-note">Season-long team-mate qualifying scoreline going into Hungary — '
-        'a quick reference for "who\'s really quicker" lines.</p>'
-        '<div class="table-wrap"><table class="data compact"><thead><tr>'
-        '<th>Team</th><th>Driver</th><th>Quali H2H</th><th>Driver</th><th>Notes</th>'
-        f'</tr></thead><tbody>{season_h2h_rows}</tbody></table></div>'
-        '<p class="src">Season scoreline approximate, compiled from 2026 qualifying results to date. '
-        'The live table above always reflects the official timing for this event.</p>')
+    h2h_intro = ('<p class="lead-note">Current season results are shown first, followed by '
+                 'this event. Classification scorelines reflect reliability and incidents as '
+                 'well as pace; replacement-driver pairings are kept separate.</p>')
     PAGES["h2h"] = dict(
         kicker="Team-mate battles",
         title="Head-to-Head",
         sub="Team-mate qualifying and race head-to-heads — live for this event, plus the 2026 season scoreline.",
-        body=render_h2h(ctx, intro_html=h2h_intro) + season_h2h,
+        body=render_h2h(ctx, intro_html=h2h_intro),
     )
 
     # ---- RELIABILITY & PIT STOPS ---------------------------------------------

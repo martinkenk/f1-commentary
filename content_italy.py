@@ -543,13 +543,8 @@ Selected decisions, not an exhaustive post-race stewards log.</p>
     pages["h2h"] = dict(
         kicker="Team-mate battles",
         title="Head-to-Head",
-        sub="Monza session comparisons, distinct from any season-long scoreline.",
-        body=auto_h2h(ctx) + card("Season qualifying/race tally: not yet verified", """
-<p>These comparisons use Monza's timing only. No audited season-long head-to-head
-ledger is stored here; the approximate pre-Hungary tally is not a current season
-result. Race-seat replacements (Lawson/Tsunoda) and FP1-only rookies must be
-identified separately before aggregating qualifying or race comparisons.</p>
-""", "bi-arrow-left-right"))
+        sub="Season qualifying/race scorelines, followed by Monza's session comparisons.",
+        body=auto_h2h(ctx))
     pages["reliability"] = dict(
         kicker="Reliability · completed race",
         title="Reliability & Pit Stops",

@@ -458,7 +458,6 @@ def _parse_result_table(t):
     rows = []
     for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", body.group(1), re.S):
         cells = [_clean(c) for c in re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)]
-        cells = [c for c in cells if c != ""]
         if cells:
             rows.append(cells)
     if not ths or not rows:
@@ -1117,11 +1116,15 @@ def _teams_from(block):
 
 
 def render_h2h(ctx, intro_html="", tally_html=""):
-    """Teammate head-to-head for this event, built from whatever sessions have run."""
+    """Current season scorelines followed by this event's session comparisons."""
+    import season_h2h
+
+    prefix = (intro_html + season_h2h.render(int(ctx.get("year", SEASON))) + tally_html
+              + '<h2 class="sec">This Grand Prix</h2>')
     order = ["Qualifying", "Race", "Practice 3", "Practice 2", "Practice 1"]
     labels = [l for l in order if _block(ctx, l)]
     if not labels:
-        return (intro_html + '<div class="callout watch"><strong>No sessions have run yet.</strong> '
+        return (prefix + '<div class="callout watch"><strong>No event classifications loaded yet.</strong> '
                 "Teammate head-to-heads fill in automatically from the official timing as each "
                 "session is completed.</div>")
     # choose up to 3 columns, prefer Qualifying + Race + best practice
@@ -1166,7 +1169,7 @@ def render_h2h(ctx, intro_html="", tally_html=""):
            f'<th>Team</th>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>')
     note = ('<p class="src">Green driver = ahead of their team-mate in that session '
             '(qualifying position, or race classification). Built live from Formula1.com timing.</p>')
-    return intro_html + tally_html + tbl + note
+    return prefix + tbl + note
 
 
 def auto_h2h(ctx):
@@ -2052,6 +2055,9 @@ CSS += r"""
 .data .muted{color:var(--muted);font-size:11px;font-weight:600}
 .h2h .h2h-win{color:#8fdca3;font-weight:800}
 .h2h .h2h-v{color:var(--muted);margin:0 2px}
+.h2h-count{display:block;font-size:11px;font-weight:400;color:var(--muted);white-space:nowrap}
+.season-h2h details{margin:8px 0}
+.season-h2h summary{font-weight:700;cursor:pointer}
 .data.h2h td{white-space:nowrap}
 
 /* Penalties & Stewards */

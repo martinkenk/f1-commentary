@@ -75,6 +75,17 @@ jobs:
           echo "::warning::Calendar/map refresh failed. Retaining previous source data; inspect logs."
           echo "## Calendar/map refresh incomplete — serving retained source data" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Refresh season teammate comparisons
+        id: season_h2h
+        continue-on-error: true
+        run: python3 season_h2h.py
+
+      - name: Report incomplete season comparisons
+        if: steps.season_h2h.outcome == 'failure'
+        run: |
+          echo "::warning::Season head-to-head refresh incomplete; last-good classifications are retained."
+          echo "## Season head-to-head refresh incomplete — inspect official results logs" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Auto-enrich (article cards + FIA decision structuring)
         id: enrichment
         # Extracts new F1.com / The Race articles into news cards and structures
