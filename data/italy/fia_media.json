@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-10T20:58:15+00:00",
+  "checked_at": "2026-09-10T22:08:03+00:00",
   "discovery_retrieved_at": "2026-09-10T20:36:31.807995+00:00",
   "documents": [
     {
@@ -101,7 +101,7 @@
         "powerunit"
       ],
       "sha256": "215c01e940136067f812eb87a8d8ef13bb5f286ea5e3aee51d9a9c9ba6a7e7ec",
-      "fetched_at": "2026-09-10T20:36:40+00:00",
+      "fetched_at": "2026-09-10T22:08:03+00:00",
       "pages": [
         {
           "page": 2,
@@ -362,10 +362,6 @@
     },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition_0.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition.pdf",
       "error": "HTTP Error 403: Forbidden"
     },
     {
