@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-09-10T19:57:07+00:00",
-  "discovery_retrieved_at": "2026-09-10T19:57:02.683059+00:00",
+  "checked_at": "2026-09-10T20:36:36+00:00",
+  "discovery_retrieved_at": "2026-09-10T20:36:28.533692+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
@@ -9,7 +9,7 @@
         "circuit"
       ],
       "sha256": "85336f07aa823a1935f28367608057e1129c317fe059eef4d367cc41db66246a",
-      "fetched_at": "2026-09-10T19:57:07+00:00",
+      "fetched_at": "2026-09-10T20:36:36+00:00",
       "pages": [
         {
           "page": 2,
@@ -33,7 +33,7 @@
         "circuit"
       ],
       "sha256": "0d8f31d66990bf25991ecba2fe1b840ca9497453441364b67db5ca0e05da1ed6",
-      "fetched_at": "2026-09-10T19:57:07+00:00",
+      "fetched_at": "2026-09-10T20:36:36+00:00",
       "pages": [
         {
           "page": 2,
@@ -81,7 +81,7 @@
         "upgrades"
       ],
       "sha256": "a4eac73a9368cc7ff656cbec477333b1c740fd270591f3752c59c0fa658e5d17",
-      "fetched_at": "2026-09-10T19:57:07+00:00",
+      "fetched_at": "2026-09-10T20:36:36+00:00",
       "pages": [
         {
           "page": 2,
@@ -97,7 +97,7 @@
         "powerunit"
       ],
       "sha256": "820758e2b83199437eba6db299af8d01d562815ffba80beca0c72a3043d2afcb",
-      "fetched_at": "2026-09-10T19:57:07+00:00",
+      "fetched_at": "2026-09-10T20:36:36+00:00",
       "pages": [
         {
           "page": 2,
@@ -113,7 +113,7 @@
         "tyres"
       ],
       "sha256": "1bd77c738a55e551d3f01f0e4252e1507fd1c75c453acf2a86c6de7cf832ab78",
-      "fetched_at": "2026-09-10T19:57:07+00:00",
+      "fetched_at": "2026-09-10T20:36:36+00:00",
       "pages": [
         {
           "page": 2,

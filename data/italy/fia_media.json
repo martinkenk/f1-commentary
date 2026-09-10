@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-09-10T19:57:10+00:00",
-  "discovery_retrieved_at": "2026-09-10T19:57:04.349953+00:00",
+  "checked_at": "2026-09-10T20:36:40+00:00",
+  "discovery_retrieved_at": "2026-09-10T20:36:31.807995+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_race_directors_competition_notes_v2.pdf",
@@ -9,7 +9,7 @@
         "circuit"
       ],
       "sha256": "36d45fadbe49c7dedab5fdd9c0eba19452b2b3e7bce9316db6169491661d36c7",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -49,7 +49,7 @@
         "powerunit"
       ],
       "sha256": "716959e94aab722e545cb0b58ab28c3b869fd0cc9c665a8a79b82487c5bbb9cc",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -69,7 +69,7 @@
         "circuit"
       ],
       "sha256": "814c5fcb05dd85ea39f8acc82e2f92451f6843c09740fefeb03f76efd844c23b",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 1,
@@ -85,7 +85,7 @@
         "powerunit"
       ],
       "sha256": "54304a55100a2501485afb0002a284783c9f1ac85a669ea5a76262434546cdb9",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -101,7 +101,7 @@
         "powerunit"
       ],
       "sha256": "215c01e940136067f812eb87a8d8ef13bb5f286ea5e3aee51d9a9c9ba6a7e7ec",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -125,7 +125,7 @@
         "upgrades"
       ],
       "sha256": "55541780261498d2f329dae1748df636a871072f26a580dd027de78669442d81",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -221,7 +221,7 @@
         "powerunit"
       ],
       "sha256": "d9032aabd19fd761d6f2c9e2e901db84bf8677377716105ae271ca0e1bc0db9d",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -237,7 +237,7 @@
         "powerunit"
       ],
       "sha256": "23b0be8677e19c6254c2e169b75c2f882053d0b5814780eb34ca9a71e64e0aff",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -253,7 +253,7 @@
         "upgrades"
       ],
       "sha256": "355a0049d6e5209ac53b79bbb68d518efb3c6cb17a178e8ba7e96e32d2e53fc7",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -269,7 +269,7 @@
         "circuit"
       ],
       "sha256": "799756ca8cd77b376f7c0dc24aabb00b2535fc5ce4c6ad4e70f66ec244e0f4f7",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -297,7 +297,7 @@
         "circuit"
       ],
       "sha256": "ed77015d5a909b9698a3b3830b6f214637ddc483845bc049df58fabe2ad2b26f",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
@@ -337,7 +337,7 @@
         "tyres"
       ],
       "sha256": "d3d0d4245f8736439f30eb2e206a8f9c046f54d91254162892e91817347ceee1",
-      "fetched_at": "2026-09-10T19:57:10+00:00",
+      "fetched_at": "2026-09-10T20:36:40+00:00",
       "pages": [
         {
           "page": 2,
