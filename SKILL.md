@@ -288,6 +288,16 @@ part-use report with a penalty ruling. Explain a distinctive constraint on air,
 but label proposed engineering rationale as inference, not an FIA statement.
 Automatic images never automatically verify old numerical prose.
 
+When a car-presentation filing appears, reconcile the bespoke page immediately:
+remove its pending-submission notice and stale links, enumerate all eleven teams,
+count declared component rows rather than diagrams, and preserve each filed reason
+(especially reliability versus performance versus circuit-specific changes).
+Keep nil returns explicit. Textless companion pages can be component-location
+diagrams and must remain visible. Group declaration/diagram screenshots by team
+with page-specific citations; the shared gallery suppresses those duplicates and
+still exposes later same-URL revisions. A published source index or screenshot
+alone does not replace the team-by-team editorial summary.
+
 ### Pirelli artwork is a separate requirement
 
 For every active GP, find Formula1.com's **"What tyres will the teams and drivers
@@ -632,7 +642,17 @@ The full car-presentation submission includes every team, not just its first pag
 **Spain:** Six FIA papers were discovered on 10 September: Doc 1 Pirelli preview,
 visa, Doc 3 PU, Doc 4 display procedure, Doc 5 race notes, Doc 6 maps.
 Map has substantive circuit/emergency/pitlane pages 2/3/4. Notes have nine
-substantive pages. Display procedure is not the yet-to-be-filed team upgrade list.
+substantive pages. Display procedure is separate from the team upgrade list.
+
+On 11 September, **Document 11 Car Presentation Submissions** supplied ten
+declared items across six teams: McLaren 1 (page 2), Mercedes 3 (page 4),
+Red Bull 2 (page 6), Ferrari 1 (page 8), Alpine 1 (page 15), Cadillac 2 (page 17).
+Their companion pages 3/5/7/9/16/18 are location diagrams, not blank pages.
+Williams, Racing Bulls, Aston Martin, Haas and Audi filed nil returns on pages
+10-14 respectively. Both Red Bull items are labelled **Reliability**. All 17
+post-cover pages are displayed, grouped by team, in `content_spain.py`.
+The PU-elements-used report was also discovered and rendered; do not retain
+the earlier prose claiming no driver-by-driver filing is published.
 
 PU: race recharge 8.5/9.0 MJ, Q 7.5, FP/outlap 9.0; 3206 m, 100 kW/s.
 Alt 1 T5-T22 / 1500-5100 m* (preserve unexplained asterisk).

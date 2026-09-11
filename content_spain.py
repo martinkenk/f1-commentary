@@ -1,4 +1,4 @@
-"""Madrid 2026: FIA material checked against the published PDFs on 10 September."""
+"""Madrid 2026: source-checked FIA material, including Friday's upgrade filings."""
 from content_generic import build_pages as build_generic, pending
 from f1lib import auto_h2h, auto_penalties, card, stat, ul
 
@@ -9,6 +9,58 @@ FIA_PU_URL = FIA_BASE + "power_unit_information.pdf"
 FIA_TYRES_URL = FIA_BASE + "competition_notes_-_pirelli_preview.pdf"
 FIA_NOTES_URL = FIA_BASE + "race_directors_competition_notes.pdf"
 FIA_DISPLAY_URL = FIA_BASE + "car_display_procedure.pdf"
+FIA_UPGRADES_URL = FIA_BASE + "car_presentation_submissions.pdf"
+FIA_UPGRADES_ASSET = "fia-spain-f5b87d349e3b-c92e9191ede7c2bb"
+UPGRADE_SUBMISSIONS = (
+    ("McLaren", 2, (
+        ("Rear wing", "Performance - Flow Conditioning",
+         "Additional rear-wing elements condition the airflow onto the mainplane and flap."),
+    )),
+    ("Mercedes", 4, (
+        ("Rear wing", "Circuit specific - Drag Range",
+         "A shorter central winglet above the flap reduces local downforce and drag "
+         "to suit Madrid's lift-to-drag requirements."),
+        ("Exhaust tailpipe", "Circuit specific - Drag Range",
+         "An extra winglet behind the exhaust turns the exhaust flow to generate "
+         "load and drag in a ratio suited to Madrid."),
+        ("Front drum", "Performance - Flow Conditioning",
+         "A reprofiled front lip improves flow attachment across steering angles "
+         "and the airflow reaching the rear of the car."),
+    )),
+    ("Red Bull", 6, (
+        ("Rear corner", "Reliability",
+         "The more robust rear-wheel bodywork gaitor developed from Monza gains "
+         "winglets behind the suspension fairings, aiming to recover earlier load "
+         "while keeping the wheel bodywork sealed."),
+        ("Floor bib", "Reliability",
+         "Revised laminate and geometry between floor and chassis reduce local "
+         "strain when the assembly deflects, aiming to prevent structural and "
+         "aerodynamic-surface deterioration."),
+    )),
+    ("Ferrari", 8, (
+        ("Rear suspension", "Performance - Local Load",
+         "The rearward leg fairing of the rear upper wishbone is reprofiled, "
+         "adjusting incidence and spanwise loading for a local aerodynamic gain."),
+    )),
+    ("Williams", 10, ()),
+    ("Racing Bulls", 11, ()),
+    ("Aston Martin", 12, ()),
+    ("Haas", 13, ()),
+    ("Audi", 14, ()),
+    ("Alpine", 15, (
+        ("Floor board", "Performance - Local Load",
+         "An extra element on the forward floor board changes pressure distribution "
+         "and flow management to generate efficient local downforce."),
+    )),
+    ("Cadillac", 17, (
+        ("Rear wing flap", "Performance - Local Load",
+         "A revised central trailing-edge winglet is reintroduced to increase rear "
+         "load and improve aerodynamic stability across operating conditions."),
+        ("Diffuser vane", "Performance - Local Load",
+         "A small vertical turning vane on the inner trailing edge of the outboard "
+         "diffuser sidewall improves outer-floor-channel performance and rear load."),
+    )),
+)
 PIRELLI_URL = ("https://www.formula1.com/en/latest/article/"
                "what-tyres-will-the-teams-and-drivers-have-for-the-2026-spanish-grand-prix."
                "2vlcVOBnZUFRCooVcqWG7n")
@@ -40,6 +92,66 @@ def _figure(asset, alt, caption):
        onclick="zoomImg(this)" title="Click to zoom / full screen" loading="lazy">
   <figcaption>{caption} <strong>Click to zoom / full screen.</strong></figcaption>
 </figure>"""
+
+
+def _upgrade_filing():
+    rows, teams = [], []
+    for team, page, updates in UPGRADE_SUBMISSIONS:
+        areas = ", ".join(component for component, _, _ in updates) or "No updates submitted"
+        rows.append(
+            f'<tr><td>{team}</td><td class="num">{len(updates)}</td><td>{areas}</td>'
+            f'<td><a href="{FIA_UPGRADES_URL}#page={page}" target="_blank" rel="noopener">'
+            f'Page {page}</a></td></tr>')
+        evidence = []
+        for source_page in ([page, page + 1] if updates else [page]):
+            if source_page != page:
+                label = "component-location diagram"
+            else:
+                label = "component declaration" if updates else "nil-return declaration"
+            evidence.append(_figure(
+                f"{FIA_UPGRADES_ASSET}-p{source_page}.png",
+                f"{team} Spanish GP {label}, FIA Document 11 page {source_page}",
+                f'{team}: {label}. <a href="{FIA_UPGRADES_URL}#page={source_page}" '
+                f'target="_blank" rel="noopener">FIA Document 11, page {source_page}</a>, '
+                '11 September 2026.'))
+        description = ul([
+            f"<strong>{component}:</strong> {summary} "
+            f"<em>Filed reason: {reason}.</em>"
+            for component, reason, summary in updates
+        ]) if updates else "<p>No updates submitted for this event.</p>"
+        teams.append(card(
+            f'{team} &mdash; {len(updates)} declared item{"s" if len(updates) != 1 else ""}',
+            description + '<details><summary>View official declaration'
+            + (" and diagram" if updates else "") + "</summary>"
+            + "".join(evidence) + "</details>", "bi-tools", "accent" if updates else ""))
+    total = sum(len(updates) for _, _, updates in UPGRADE_SUBMISSIONS)
+    updated = sum(bool(updates) for _, _, updates in UPGRADE_SUBMISSIONS)
+    return f"""
+<div class="stat-row">
+  {stat(str(total), "Declared items", "FIA Document 11")}
+  {stat(str(updated), "Teams with updates", "of eleven teams")}
+  {stat(str(len(UPGRADE_SUBMISSIONS) - updated), "Nil returns", "explicit no-update submissions")}
+</div>
+<div class="callout">
+  <strong>Friday's confirmed filing:</strong> Mercedes has the largest list with three items;
+  Red Bull's two are both filed for reliability, not as pure performance upgrades.
+  McLaren, Ferrari, Alpine and Cadillac account for the other five items.
+</div>
+<p class="src">Source: <a href="{FIA_UPGRADES_URL}" target="_blank" rel="noopener">
+FIA Document 11, Car Presentation Submissions</a>, issued 11 September 2026.
+All eleven teams are included. Counts refer to declared component rows, not a
+ranking of performance gains or confirmation that both cars raced every item.</p>
+<h2 class="sec">Team-by-team car presentation submissions</h2>
+<div class="table-wrap"><table class="data">
+  <thead><tr><th>Team</th><th class="num">Items</th><th>Declared areas</th><th>FIA source</th></tr></thead>
+  <tbody>{"".join(rows)}</tbody>
+</table></div>
+<h2 class="sec">What changed and why</h2>
+<p>The explanations below summarise each team's stated rationale, not independently
+measured lap-time gains. A nil return means no updates submitted for this event;
+it does not rule out setup changes or previously introduced parts.</p>
+<div class="grid cols-2">{"".join(teams)}</div>
+"""
 
 
 def build_pages(ctx, env):
@@ -116,7 +228,7 @@ reports will appear on <a href="news.html">Weekend News</a> and its classificati
         title="Team Watch & News",
         sub="Verified pre-Madrid form and the confirmed Red Bull-family substitutions.",
         body=team_brief + lineup + '<p><a href="news.html">Latest team news</a> / '
-             '<a href="upgrades.html">Car presentation procedure and filing status</a>. '
+             '<a href="upgrades.html">Confirmed team upgrades and car-display procedure</a>. '
              'A news story about another circuit is background, not a Madrid component declaration.</p>')
     pages["standings"]["body"] += card("Championship permutations — 10 September snapshot", """
 <p><strong>Pre-Madrid reference, not a live points calculator:</strong> Antonelli
@@ -265,9 +377,11 @@ These are instructions, not individual stewards' decisions.</p>
 <p class="src">Source: <a href="{FIA_PU_URL}" target="_blank" rel="noopener">FIA Power Unit Information,
 Document 3</a>. Tables and graph visually checked against the original PDF, not inferred from another circuit.</p>
 <h2 class="sec">Driver-by-driver component use</h2>
-<p>The six documents discovered on 10 September include the event energy sheet, but
-not a driver-by-driver PU-usage or new-elements report. Those counts and any resulting
-penalties remain awaiting their own filings; Italy's component totals are not reused.</p>
+<p>The driver-by-driver <a href="{FIA_BASE}pu_elements_used_per_driver_up_to_now.pdf"
+target="_blank" rel="noopener">FIA PU-elements-used report</a> is now published;
+its original table is reproduced in the official screenshots below. A component-use
+report is not itself a penalty ruling. New-element declarations and any sanctions
+must be read from their own filings; Italy's component totals are not reused.</p>
 """)
 
     pages["tyres"] = dict(
@@ -321,20 +435,17 @@ Italy's counts and stint lengths are not transferred here.</p>
 """)
 
     pages["upgrades"] = dict(
-        kicker="FIA Document 4, 10 Sep",
+        kicker="FIA Document 11, 11 Sep",
         title="Car Development & Upgrades",
-        sub="Car-display procedure is published; team-by-team component submissions are a separate filing.",
-        body=card("Friday car presentation: confirmed procedure", ul([
+        sub="Ten declared items across six teams, five nil returns, and every team's official submission.",
+        body=_upgrade_filing() + card("Friday car presentation: confirmed procedure", ul([
             "<strong>12:00&ndash;13:00 Friday, Madrid local time (13:00&ndash;14:00 Tallinn)</strong>.",
             "One car from each team must be outside in its pit-stop position; the other must be available to view inside the garage.",
             "If only one car carries major new aerodynamic/bodywork components intended for this event, that is the car which must be displayed to media.",
             "The outside car may be used for pit-stop practice but must return to its display position when practice stops.",
         ]) + f'<p class="src"><a href="{FIA_DISPLAY_URL}" target="_blank" rel="noopener">'
               'FIA Document 4, Car Display Procedure</a>, 10 September 2026.</p>',
-            "bi-tools", "accent")
-        + pending("Team-by-team car presentation submissions", "with the Friday car display")
-        + "<p>The display procedure does not identify individual upgrades. Component descriptions "
-          "will be added from the teams' actual submissions, not inferred from this timetable.</p>",
+            "bi-tools", "accent"),
     )
     rules = card("Published race-control watchlist", ul([
         "Turn 22 can affect both the current and following lap time in lap-time classified sessions.",

@@ -1,7 +1,103 @@
 {
-  "checked_at": "2026-09-11T10:19:16+00:00",
+  "checked_at": "2026-09-11T11:17:53+00:00",
   "discovery_retrieved_at": "2026-09-11T10:19:08.918248+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_car_presentation_submissions.pdf",
+      "filename": "2026_spanish_grand_prix_-_car_presentation_submissions.pdf",
+      "categories": [
+        "upgrades"
+      ],
+      "sha256": "c92e9191ede7c2bbb5aeabb8b2026f599d3f71fe432bc55311d63cfa1cb6f6a7",
+      "fetched_at": "2026-09-11T11:17:53+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p8.png"
+        },
+        {
+          "page": 9,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p9.png"
+        },
+        {
+          "page": 10,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p10.png"
+        },
+        {
+          "page": 11,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p11.png"
+        },
+        {
+          "page": 12,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p12.png"
+        },
+        {
+          "page": 13,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p13.png"
+        },
+        {
+          "page": 14,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p14.png"
+        },
+        {
+          "page": 15,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p15.png"
+        },
+        {
+          "page": 16,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p16.png"
+        },
+        {
+          "page": 17,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p17.png"
+        },
+        {
+          "page": 18,
+          "asset": "fia-spain-f5b87d349e3b-c92e9191ede7c2bb-p18.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "filename": "2026_spanish_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "93f9ced8f349fe8d3a6f62890ed32eeb9b9ef9002583d08315403a0c8c12d969",
+      "fetched_at": "2026-09-11T11:17:53+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-spain-d4d9985d532e-93f9ced8f349fe8d-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
       "filename": "2026_spanish_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
@@ -9,7 +105,7 @@
         "circuit"
       ],
       "sha256": "85336f07aa823a1935f28367608057e1129c317fe059eef4d367cc41db66246a",
-      "fetched_at": "2026-09-10T20:36:36+00:00",
+      "fetched_at": "2026-09-11T11:17:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -33,7 +129,7 @@
         "circuit"
       ],
       "sha256": "0d8f31d66990bf25991ecba2fe1b840ca9497453441364b67db5ca0e05da1ed6",
-      "fetched_at": "2026-09-10T20:36:36+00:00",
+      "fetched_at": "2026-09-11T11:17:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -81,7 +177,7 @@
         "upgrades"
       ],
       "sha256": "a4eac73a9368cc7ff656cbec477333b1c740fd270591f3752c59c0fa658e5d17",
-      "fetched_at": "2026-09-10T20:36:36+00:00",
+      "fetched_at": "2026-09-11T11:17:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -97,7 +193,7 @@
         "powerunit"
       ],
       "sha256": "820758e2b83199437eba6db299af8d01d562815ffba80beca0c72a3043d2afcb",
-      "fetched_at": "2026-09-10T20:36:36+00:00",
+      "fetched_at": "2026-09-11T11:17:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -113,7 +209,7 @@
         "tyres"
       ],
       "sha256": "1bd77c738a55e551d3f01f0e4252e1507fd1c75c453acf2a86c6de7cf832ab78",
-      "fetched_at": "2026-09-10T20:36:36+00:00",
+      "fetched_at": "2026-09-11T11:17:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -123,34 +219,5 @@
       "revision": 0
     }
   ],
-  "errors": [
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_car_presentation_submissions.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_race_directors_competition_notes.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_car_display_procedure.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_power_unit_information.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    }
-  ]
+  "errors": []
 }

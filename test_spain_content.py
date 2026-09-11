@@ -8,6 +8,7 @@ from unittest.mock import patch
 import build
 import content_generic
 import content_spain
+import f1lib
 
 
 class SpainContentTests(unittest.TestCase):
@@ -108,6 +109,50 @@ class SpainContentTests(unittest.TestCase):
         tracker.assert_called_once_with(self.ctx)
         self.assertIn("LIVE_DECISION_TRACKER", body)
         self.assertIn("not penalties already imposed", body)
+
+    def test_complete_friday_upgrade_submissions_replace_pending_notice(self):
+        expected = {
+            "McLaren": (2, 1), "Mercedes": (4, 3), "Red Bull": (6, 2),
+            "Ferrari": (8, 1), "Williams": (10, 0), "Racing Bulls": (11, 0),
+            "Aston Martin": (12, 0), "Haas": (13, 0), "Audi": (14, 0),
+            "Alpine": (15, 1), "Cadillac": (17, 2),
+        }
+        self.assertEqual({
+            team: (page, len(updates))
+            for team, page, updates in content_spain.UPGRADE_SUBMISSIONS
+        }, expected)
+        for state in ("future", "live", "past"):
+            with self.subTest(state=state):
+                self.ctx["status"] = state
+                page = self.pages()["upgrades"]
+                body = page["body"]
+                self.assertIn("FIA Document 11", page["kicker"])
+                self.assertNotIn("awaiting", body.lower())
+                self.assertNotIn("will be added", body)
+                self.assertEqual(body.count("Filed reason:"), 10)
+                self.assertEqual(body.count("Filed reason: Reliability."), 2)
+                for team, (source_page, count) in expected.items():
+                    self.assertIn(f'<tr><td>{team}</td><td class="num">{count}</td>', body)
+                    self.assertIn(f"{content_spain.FIA_UPGRADES_URL}#page={source_page}", body)
+                for item in ("Front drum", "Floor bib", "Diffuser vane", "Rear suspension"):
+                    self.assertIn(item, body)
+                self.assertIn("not independently", body)
+                self.assertIn("Friday car presentation: confirmed procedure", body)
+
+    def test_all_submission_pages_render_once_with_diagrams_and_nil_returns(self):
+        body = self.pages()["upgrades"]["body"]
+        for page in range(2, 19):
+            asset = f"{content_spain.FIA_UPGRADES_ASSET}-p{page}.png"
+            self.assertEqual(body.count(f'src="../assets/{asset}"'), 1)
+            self.assertTrue((Path(build.ROOT) / "assets_src" / asset).is_file(), asset)
+            self.assertIn(f"{content_spain.FIA_UPGRADES_URL}#page={page}", body)
+        gallery = f1lib.render_fia_media(self.ctx, "upgrades", body)
+        self.assertNotIn(content_spain.FIA_UPGRADES_ASSET, gallery)
+
+    def test_published_pu_usage_no_longer_claimed_pending(self):
+        body = self.pages()["powerunit"]["body"]
+        self.assertIn("pu_elements_used_per_driver_up_to_now.pdf", body)
+        self.assertNotIn("penalties remain awaiting", body)
 
 
 if __name__ == "__main__":
