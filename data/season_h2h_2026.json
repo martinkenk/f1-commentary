@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-09-11T11:24:20+00:00",
+  "checked_at": "2026-09-11T14:56:29+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -4527,7 +4527,7 @@
       "label": "Qualifying",
       "date": "2026-09-05",
       "url": "https://www.formula1.com/en/results/2026/races/1293/italy/qualifying",
-      "fetched_at": "2026-09-11T11:24:20+00:00",
+      "fetched_at": "2026-09-11T14:56:29+00:00",
       "drivers": [
         {
           "code": "GAS",
@@ -4715,7 +4715,7 @@
       "label": "Race",
       "date": "2026-09-06",
       "url": "https://www.formula1.com/en/results/2026/races/1293/italy/race-result",
-      "fetched_at": "2026-09-11T11:24:20+00:00",
+      "fetched_at": "2026-09-11T14:56:29+00:00",
       "drivers": [
         {
           "code": "ANT",
