@@ -1,7 +1,31 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Spanish%20Grand%20Prix",
-  "retrieved_at": "2026-09-10T20:36:28.533692+00:00",
+  "retrieved_at": "2026-09-11T10:19:08.918248+00:00",
   "documents": [
+    {
+      "filename": "2026_spanish_grand_prix_-_car_presentation_submissions.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_car_presentation_submissions.pdf",
+      "categories": [
+        "upgrades"
+      ]
+    },
+    {
+      "filename": "2026_spanish_grand_prix_-_entry_list.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_entry_list.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_spanish_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "categories": [
+        "powerunit"
+      ]
+    },
+    {
+      "filename": "2026_spanish_grand_prix_-_self_scrutineering.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_self_scrutineering.pdf",
+      "categories": []
+    },
     {
       "filename": "2026_spanish_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
