@@ -1440,6 +1440,7 @@ def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{base}assets/table-sort.js" defer></script>
+<script src="{base}assets/document-reader.js" defer></script>
 <script>
 function zoomImg(el){{
   var lb=document.getElementById('lightbox');
@@ -1935,6 +1936,24 @@ td.tyre-cell{padding-top:8px;padding-bottom:8px}
 .lightbox.open{display:flex}
 .lightbox img{max-width:96vw;max-height:92vh;border-radius:8px;background:#fff}
 .lightbox-close{position:absolute;top:16px;right:26px;color:#fff;font-size:44px;line-height:1;cursor:pointer;font-weight:700}
+
+/* Native modal keeps keyboard focus inside the source reader and supports Escape. */
+html.document-reader-open{overflow:hidden}
+.document-reader{width:min(1200px,96vw);height:94vh;max-width:96vw;max-height:94vh;
+  padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--ink)}
+.document-reader[open]{display:flex;flex-direction:column;gap:12px}
+.document-reader::backdrop{background:rgba(0,0,0,.85)}
+.document-reader header,.document-reader nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.document-reader header h2{flex:1;font-size:20px;margin:0}
+.document-reader button{border:1px solid var(--line);border-radius:6px;padding:8px 12px;
+  background:var(--panel2);color:var(--ink);font:inherit;cursor:pointer}
+.document-reader button:disabled{opacity:.45;cursor:default}
+.document-reader button:focus-visible,.document-reader a:focus-visible{outline:2px solid var(--f1-red);outline-offset:3px}
+.document-reader-viewport{flex:1;min-height:0;overflow:auto;background:#fff;overscroll-behavior:contain}
+.document-reader-viewport img{display:block;width:100%;height:auto}
+.document-reader-viewport.zoomed img{width:max(200%,var(--document-native-width,200%));max-width:none}
+.document-reader-status,.document-reader-caption{margin:0;font-size:13px}
+.document-reader-status:empty{display:none}
 
 /* Weather cards */
 .wx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:8px}

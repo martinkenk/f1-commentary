@@ -298,6 +298,15 @@ with page-specific citations; the shared gallery suppresses those duplicates and
 still exposes later same-URL revisions. A published source index or screenshot
 alone does not replace the team-by-team editorial summary.
 
+Prefer an inline reader over a direct PDF link in submission tables: FIA can
+force downloads, ignoring `#page=N`. The shared `assets_src/document-reader.js`
+opens existing figures from a details element via a link with
+`href="#<details-id>"`, `data-document-reader` and `data-reader-title`.
+Keep each figure's page-specific original-PDF citation and useful image alt text.
+The reader supplies page navigation, zoom, keyboard focus handling and Escape;
+the existing inline details remain the fallback. Never duplicate the PDF pages
+or introduce an external PDF-viewing service just to offer inline reading.
+
 ### Pirelli artwork is a separate requirement
 
 For every active GP, find Formula1.com's **"What tyres will the teams and drivers

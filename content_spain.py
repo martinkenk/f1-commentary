@@ -100,8 +100,10 @@ def _upgrade_filing():
         areas = ", ".join(component for component, _, _ in updates) or "No updates submitted"
         rows.append(
             f'<tr><td>{team}</td><td class="num">{len(updates)}</td><td>{areas}</td>'
-            f'<td><a href="{FIA_UPGRADES_URL}#page={page}" target="_blank" rel="noopener">'
-            f'Page {page}</a></td></tr>')
+            f'<td><a href="#upgrade-submission-{page}" data-document-reader '
+            f'data-reader-title="{team} - FIA Document 11" '
+            f'aria-label="Read {team} submission, FIA page {page}">'
+            f'Read page {page}</a></td></tr>')
         evidence = []
         for source_page in ([page, page + 1] if updates else [page]):
             if source_page != page:
@@ -121,7 +123,7 @@ def _upgrade_filing():
         ]) if updates else "<p>No updates submitted for this event.</p>"
         teams.append(card(
             f'{team} &mdash; {len(updates)} declared item{"s" if len(updates) != 1 else ""}',
-            description + '<details><summary>View official declaration'
+            description + f'<details id="upgrade-submission-{page}"><summary>View official declaration'
             + (" and diagram" if updates else "") + "</summary>"
             + "".join(evidence) + "</details>", "bi-tools", "accent" if updates else ""))
     total = sum(len(updates) for _, _, updates in UPGRADE_SUBMISSIONS)
@@ -142,6 +144,9 @@ FIA Document 11, Car Presentation Submissions</a>, issued 11 September 2026.
 All eleven teams are included. Counts refer to declared component rows, not a
 ranking of performance gains or confirmation that both cars raced every item.</p>
 <h2 class="sec">Team-by-team car presentation submissions</h2>
+<p>Choose <strong>Read page</strong> to view the team's official declaration here,
+with its diagram where supplied. The reader supports zoom and keeps the original
+PDF available as a separate source link.</p>
 <div class="table-wrap"><table class="data">
   <thead><tr><th>Team</th><th class="num">Items</th><th>Declared areas</th><th>FIA source</th></tr></thead>
   <tbody>{"".join(rows)}</tbody>

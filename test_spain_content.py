@@ -154,6 +154,16 @@ class SpainContentTests(unittest.TestCase):
         self.assertIn("pu_elements_used_per_driver_up_to_now.pdf", body)
         self.assertNotIn("penalties remain awaiting", body)
 
+    def test_upgrade_table_opens_team_reader_instead_of_downloading_pdf(self):
+        body = self.pages()["upgrades"]["body"]
+        table = re.search(r'<table class="data">.*?</table>', body, re.S)[0]
+        self.assertNotIn(".pdf", table)
+        for team, page, _ in content_spain.UPGRADE_SUBMISSIONS:
+            self.assertIn(f'href="#upgrade-submission-{page}" data-document-reader', table)
+            self.assertIn(f'data-reader-title="{team} - FIA Document 11"', table)
+            self.assertIn(f'<details id="upgrade-submission-{page}">', body)
+        self.assertEqual(table.count("data-document-reader"), 11)
+
 
 if __name__ == "__main__":
     unittest.main()
