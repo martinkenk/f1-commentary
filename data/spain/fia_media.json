@@ -1,7 +1,27 @@
 {
-  "checked_at": "2026-09-12T09:51:45+00:00",
-  "discovery_retrieved_at": "2026-09-12T09:51:38.808656+00:00",
+  "checked_at": "2026-09-12T13:16:41+00:00",
+  "discovery_retrieved_at": "2026-09-12T13:16:29.778213+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "filename": "2026_spanish_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "a26ab68eb60435ca64e6c8e3fee2ac7f52830d49886d9f331db2141c6d7c8854",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-spain-0f734bc5795f-a26ab68eb60435ca-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-spain-0f734bc5795f-a26ab68eb60435ca-p3.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_race_directors_competition_notes_v2.pdf",
       "filename": "2026_spanish_grand_prix_-_race_directors_competition_notes_v2.pdf",
@@ -9,7 +29,7 @@
         "circuit"
       ],
       "sha256": "7aec5a0edf101a6583c4b99a9efe24470846abf68f3baa7fa29d8ce8e4edada3",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 2,
@@ -61,7 +81,7 @@
         "powerunit"
       ],
       "sha256": "654f1f9fae6f4ab87c9ca86c562a9105d01cfa702d71a05a7b7b0077d05c46d1",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 2,
@@ -77,7 +97,7 @@
         "circuit"
       ],
       "sha256": "f9081086a40e7603e8804052a9b752d82a79899bc9667f80d759a4b3e0fff8df",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 1,
@@ -93,7 +113,7 @@
         "upgrades"
       ],
       "sha256": "c92e9191ede7c2bbb5aeabb8b2026f599d3f71fe432bc55311d63cfa1cb6f6a7",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 2,
@@ -173,7 +193,7 @@
         "powerunit"
       ],
       "sha256": "93f9ced8f349fe8d3a6f62890ed32eeb9b9ef9002583d08315403a0c8c12d969",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 2,
@@ -189,7 +209,7 @@
         "circuit"
       ],
       "sha256": "85336f07aa823a1935f28367608057e1129c317fe059eef4d367cc41db66246a",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 2,
@@ -213,7 +233,7 @@
         "circuit"
       ],
       "sha256": "0d8f31d66990bf25991ecba2fe1b840ca9497453441364b67db5ca0e05da1ed6",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 2,
@@ -261,7 +281,7 @@
         "upgrades"
       ],
       "sha256": "a4eac73a9368cc7ff656cbec477333b1c740fd270591f3752c59c0fa658e5d17",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 2,
@@ -277,7 +297,7 @@
         "powerunit"
       ],
       "sha256": "820758e2b83199437eba6db299af8d01d562815ffba80beca0c72a3043d2afcb",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 2,
@@ -293,7 +313,7 @@
         "tyres"
       ],
       "sha256": "1bd77c738a55e551d3f01f0e4252e1507fd1c75c453acf2a86c6de7cf832ab78",
-      "fetched_at": "2026-09-12T09:51:45+00:00",
+      "fetched_at": "2026-09-12T13:16:41+00:00",
       "pages": [
         {
           "page": 2,
