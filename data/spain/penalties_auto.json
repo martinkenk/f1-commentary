@@ -142,5 +142,89 @@
     "kind": "penalty",
     "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_55_-_impeding_of_car_77.pdf",
     "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_55_-_impeding_of_car_77.pdf"
+  },
+  {
+    "doc": "Doc 47",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars below did not use the track at turns 5, 6, 11, 15 and 17.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 48",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 car passed through a double waved yellow flag marshalling sector.",
+    "outcome": "Deletion of the lap time shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf"
+  },
+  {
+    "doc": "Doc 49",
+    "no": "5",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 5 exceeded the time limit between the Safety Car lines.",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_5_-_failure_to_follow_rd_instructions_scl2_-_scl1.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_5_-_failure_to_follow_rd_instructions_scl2_-_scl1.pdf"
+  },
+  {
+    "doc": "Doc 50",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars below exceeded the 1:42.0 time limit between the Safety Car lines.",
+    "outcome": "- Qualifying SC2-SC1 Times",
+    "kind": "note",
+    "source_pdf": "2026_spanish_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf"
+  },
+  {
+    "doc": "Doc 51",
+    "no": "12",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 12 exceeded the time limit between the Saftety Car lines.",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_12_-_failure_to_follow_rd_instructions_scl2_-_scl1.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_12_-_failure_to_follow_rd_instructions_scl2_-_scl1.pdf"
+  },
+  {
+    "doc": "Doc 52",
+    "no": "63",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The driver failed to follow the Race Director’s Competition Notes at Turn 5 by not",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_63_-_failure_to_follow_race_director_instructions_-_scl2_-_scl1.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_63_-_failure_to_follow_race_director_instructions_-_scl2_-_scl1.pdf"
+  },
+  {
+    "doc": "Doc 53",
+    "no": "16",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 16 exceeded the time limit between the Safety Car lines.",
+    "outcome": "Competitor: Reprimand.",
+    "kind": "reprimand",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_16_-_failure_to_follow_rd_instructions_scl2_-_scl1.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_16_-_failure_to_follow_rd_instructions_scl2_-_scl1.pdf"
   }
 ]
