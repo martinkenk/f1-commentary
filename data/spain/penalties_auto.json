@@ -106,5 +106,41 @@
     "kind": "note",
     "source_pdf": "2026_spanish_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_yellow_flags.pdf",
     "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_yellow_flags.pdf"
+  },
+  {
+    "doc": "Doc 36",
+    "no": "1",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Pit lane speeding – 88.5 km/h",
+    "outcome": "The competitor (McLaren Mastercard F1 Team) is fined €900.",
+    "kind": "fine",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_1_-_pit_lane_speeding.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_1_-_pit_lane_speeding.pdf"
+  },
+  {
+    "doc": "Doc 41",
+    "no": "18",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Drop of 40 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_18_-_pu_elements_changed.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_18_-_pu_elements_changed.pdf"
+  },
+  {
+    "doc": "Doc 46",
+    "no": "55",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 55 impeded Car 77 at Turns 6 and 7.",
+    "outcome": "Drop of 3 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_55_-_impeding_of_car_77.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_55_-_impeding_of_car_77.pdf"
   }
 ]

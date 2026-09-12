@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-09-12T13:16:28+00:00",
+  "checked_at": "2026-09-12T16:39:45+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -27,7 +27,8 @@
     "netherlands/qualifying",
     "netherlands/race-result",
     "italy/qualifying",
-    "italy/race-result"
+    "italy/race-result",
+    "spain/qualifying"
   ],
   "errors": [],
   "sessions": [
@@ -4527,7 +4528,7 @@
       "label": "Qualifying",
       "date": "2026-09-05",
       "url": "https://www.formula1.com/en/results/2026/races/1293/italy/qualifying",
-      "fetched_at": "2026-09-12T13:16:28+00:00",
+      "fetched_at": "2026-09-12T16:39:45+00:00",
       "drivers": [
         {
           "code": "GAS",
@@ -4715,7 +4716,7 @@
       "label": "Race",
       "date": "2026-09-06",
       "url": "https://www.formula1.com/en/results/2026/races/1293/italy/race-result",
-      "fetched_at": "2026-09-12T13:16:28+00:00",
+      "fetched_at": "2026-09-12T16:39:45+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -4892,6 +4893,178 @@
           "position": null,
           "status": "unclassified",
           "raw_position": "NC"
+        }
+      ]
+    },
+    {
+      "key": "spain/qualifying",
+      "round": 14,
+      "gp": "spain",
+      "name": "Spanish Grand Prix",
+      "label": "Qualifying",
+      "date": "2026-09-12",
+      "url": "https://www.formula1.com/en/results/2026/races/1294/spain/qualifying",
+      "fetched_at": "2026-09-12T16:39:45+00:00",
+      "drivers": [
+        {
+          "code": "NOR",
+          "name": "Lando Norris",
+          "team": "McLaren",
+          "position": 1,
+          "status": "classified",
+          "raw_position": "1"
+        },
+        {
+          "code": "ANT",
+          "name": "Kimi Antonelli",
+          "team": "Mercedes",
+          "position": 2,
+          "status": "classified",
+          "raw_position": "2"
+        },
+        {
+          "code": "VER",
+          "name": "Max Verstappen",
+          "team": "Red Bull Racing",
+          "position": 3,
+          "status": "classified",
+          "raw_position": "3"
+        },
+        {
+          "code": "HAM",
+          "name": "Lewis Hamilton",
+          "team": "Ferrari",
+          "position": 4,
+          "status": "classified",
+          "raw_position": "4"
+        },
+        {
+          "code": "LEC",
+          "name": "Charles Leclerc",
+          "team": "Ferrari",
+          "position": 5,
+          "status": "classified",
+          "raw_position": "5"
+        },
+        {
+          "code": "RUS",
+          "name": "George Russell",
+          "team": "Mercedes",
+          "position": 6,
+          "status": "classified",
+          "raw_position": "6"
+        },
+        {
+          "code": "PIA",
+          "name": "Oscar Piastri",
+          "team": "McLaren",
+          "position": 7,
+          "status": "classified",
+          "raw_position": "7"
+        },
+        {
+          "code": "LAW",
+          "name": "Liam Lawson",
+          "team": "Red Bull Racing",
+          "position": 8,
+          "status": "classified",
+          "raw_position": "8"
+        },
+        {
+          "code": "COL",
+          "name": "Franco Colapinto",
+          "team": "Alpine",
+          "position": 9,
+          "status": "classified",
+          "raw_position": "9"
+        },
+        {
+          "code": "LIN",
+          "name": "Arvid Lindblad",
+          "team": "Racing Bulls",
+          "position": 10,
+          "status": "classified",
+          "raw_position": "10"
+        },
+        {
+          "code": "HUL",
+          "name": "Nico Hulkenberg",
+          "team": "Audi",
+          "position": 11,
+          "status": "classified",
+          "raw_position": "11"
+        },
+        {
+          "code": "BOR",
+          "name": "Gabriel Bortoleto",
+          "team": "Audi",
+          "position": 12,
+          "status": "classified",
+          "raw_position": "12"
+        },
+        {
+          "code": "OCO",
+          "name": "Esteban Ocon",
+          "team": "Haas F1 Team",
+          "position": 13,
+          "status": "classified",
+          "raw_position": "13"
+        },
+        {
+          "code": "GAS",
+          "name": "Pierre Gasly",
+          "team": "Alpine",
+          "position": 14,
+          "status": "classified",
+          "raw_position": "14"
+        },
+        {
+          "code": "TSU",
+          "name": "Yuki Tsunoda",
+          "team": "Racing Bulls",
+          "position": 15,
+          "status": "classified",
+          "raw_position": "15"
+        },
+        {
+          "code": "ALB",
+          "name": "Alexander Albon",
+          "team": "Williams",
+          "position": 16,
+          "status": "classified",
+          "raw_position": "16"
+        },
+        {
+          "code": "SAI",
+          "name": "Carlos Sainz",
+          "team": "Williams",
+          "position": 17,
+          "status": "classified",
+          "raw_position": "17"
+        },
+        {
+          "code": "ALO",
+          "name": "Fernando Alonso",
+          "team": "Aston Martin",
+          "position": 18,
+          "status": "classified",
+          "raw_position": "18"
+        },
+        {
+          "code": "PER",
+          "name": "Sergio Perez",
+          "team": "Cadillac",
+          "position": 19,
+          "status": "classified",
+          "raw_position": "19"
+        },
+        {
+          "code": "BOT",
+          "name": "Valtteri Bottas",
+          "team": "Cadillac",
+          "position": 20,
+          "status": "classified",
+          "raw_position": "20"
         }
       ]
     }
