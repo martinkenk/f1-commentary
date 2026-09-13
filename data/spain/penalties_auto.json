@@ -226,5 +226,65 @@
     "kind": "reprimand",
     "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_16_-_failure_to_follow_rd_instructions_scl2_-_scl1.pdf",
     "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_16_-_failure_to_follow_rd_instructions_scl2_-_scl1.pdf"
+  },
+  {
+    "doc": "Doc 63",
+    "no": "87",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Required to start the Race from the Pit Lane.",
+    "kind": "note",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_87_-_pu_elements_changed_during_parc_ferme.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_87_-_pu_elements_changed_during_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 66",
+    "no": "22",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Pit lane speeding – 81.4 km/h",
+    "outcome": "The competitor (Visa Cash App Racing Bulls F1 Team) is fined €200.",
+    "kind": "fine",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_22_-_pit_lane_speeding.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_22_-_pit_lane_speeding.pdf"
+  },
+  {
+    "doc": "Doc 67",
+    "no": "55",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 55 moved under braking and made contact with Car 14 in Turn 5.",
+    "outcome": "5 second time penalty.",
+    "kind": "penalty",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_55_-_causing_a_collision_with_car_14.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_55_-_causing_a_collision_with_car_14.pdf"
+  },
+  {
+    "doc": "Doc 68",
+    "no": "10",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Pit lane speeding – 81.2 km/h",
+    "outcome": "5 second time penalty.",
+    "kind": "penalty",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_10_-_pit_lane_speeding.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_10_-_pit_lane_speeding.pdf"
+  },
+  {
+    "doc": "Doc 69",
+    "no": "5",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Car 5 moved under braking into Turn 5.",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_spanish_grand_prix_-_infringement_-_car_5_-_moving_under_braking.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_infringement_-_car_5_-_moving_under_braking.pdf"
   }
 ]
