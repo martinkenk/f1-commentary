@@ -10,14 +10,14 @@
       "Kimi Antonelli",
       "ANT",
       "Mercedes",
-      267
+      292
     ],
     [
       2,
       "George Russell",
       "RUS",
       "Mercedes",
-      201
+      211
     ],
     [
       3,
@@ -31,28 +31,28 @@
       "Lando Norris",
       "NOR",
       "McLaren",
-      171
+      186
     ],
     [
       5,
       "Charles Leclerc",
       "LEC",
       "Ferrari",
-      155
+      167
     ],
     [
       6,
       "Max Verstappen",
       "VER",
       "Red Bull Racing",
-      127
+      145
     ],
     [
       7,
       "Oscar Piastri",
       "PIA",
       "McLaren",
-      116
+      120
     ],
     [
       8,
@@ -65,8 +65,8 @@
       9,
       "Liam Lawson",
       "LAW",
-      "Racing Bulls",
-      51
+      "Red Bull Racing",
+      59
     ],
     [
       10,
@@ -80,14 +80,14 @@
       "Arvid Lindblad",
       "LIN",
       "Racing Bulls",
-      29
+      31
     ],
     [
       12,
       "Franco Colapinto",
       "COL",
       "Alpine",
-      21
+      27
     ],
     [
       13,
@@ -108,7 +108,7 @@
       "Nico Hulkenberg",
       "HUL",
       "Audi",
-      6
+      7
     ],
     [
       16,
@@ -171,32 +171,32 @@
     [
       1,
       "Mercedes",
-      468
+      503
     ],
     [
       2,
       "Ferrari",
-      346
+      358
     ],
     [
       3,
       "McLaren",
-      287
+      306
     ],
     [
       4,
       "Red Bull Racing",
-      204
+      230
     ],
     [
       5,
       "Racing Bulls",
-      75
+      77
     ],
     [
       6,
       "Alpine",
-      62
+      68
     ],
     [
       7,
@@ -206,7 +206,7 @@
     [
       8,
       "Audi",
-      16
+      17
     ],
     [
       9,
@@ -224,5 +224,5 @@
       0
     ]
   ],
-  "fetched_at": "2026-09-13T15:22:30+00:00"
+  "fetched_at": "2026-09-13T18:26:20+00:00"
 }
