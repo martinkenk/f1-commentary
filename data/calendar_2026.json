@@ -402,7 +402,7 @@
       "location": "Spielberg",
       "circuit_length": "4.326km",
       "laps": "71",
-      "race_distance": "307.018km",
+      "race_distance": "307.026km",
       "first_gp": "1970",
       "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632470/common/f1/2026/track/2026trackspielbergdetailed.png",
       "sessions": [
@@ -514,7 +514,7 @@
       "location": "Spa-Francorchamps",
       "circuit_length": "7.004km",
       "laps": "44",
-      "race_distance": "308.052km",
+      "race_distance": "308.054km",
       "first_gp": "1950",
       "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632465/common/f1/2026/track/2026trackspafrancorchampsdetailed.png",
       "sessions": [
@@ -626,7 +626,7 @@
       "location": "Zandvoort",
       "circuit_length": "4.259km",
       "laps": "72",
-      "race_distance": "306.587km",
+      "race_distance": "306.592km",
       "first_gp": "1952",
       "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632488/common/f1/2026/track/2026trackzandvoortdetailed.png",
       "sessions": [
@@ -736,9 +736,9 @@
       "official_name": "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026",
       "country": "Spain",
       "location": "Madrid",
-      "circuit_length": "5.416km",
+      "circuit_length": "5.414km",
       "laps": "57",
-      "race_distance": "308.524km",
+      "race_distance": "308.399km",
       "first_gp": "2026",
       "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1756285390/common/f1/2026/track/2026trackmadringdetailed.png",
       "sessions": [
@@ -850,7 +850,7 @@
       "location": "Kuala Lumpur",
       "circuit_length": "5.543km",
       "laps": "56",
-      "race_distance": "310.408km",
+      "race_distance": "310.418km",
       "first_gp": "1999",
       "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1785158493/common/f1/2026/track/2026trackkualalumpurdetailed.png",
       "sessions": [
@@ -962,7 +962,7 @@
       "location": "Austin",
       "circuit_length": "5.513km",
       "laps": "56",
-      "race_distance": "308.405km",
+      "race_distance": "308.432km",
       "first_gp": "2012",
       "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632388/common/f1/2026/track/2026trackaustindetailed.png",
       "sessions": [
@@ -1242,7 +1242,7 @@
       "location": "Yas Marina",
       "circuit_length": "5.281km",
       "laps": "58",
-      "race_distance": "306.183km",
+      "race_distance": "306.188km",
       "first_gp": "2009",
       "track_image": "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632483/common/f1/2026/track/2026trackyasmarinacircuitdetailed.png",
       "sessions": [
