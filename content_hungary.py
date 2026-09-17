@@ -1088,23 +1088,16 @@ def build_pages(ctx, env):
     </div>
     <p class="src">Source: Formula1.com 'Need to Know' (*probabilities from the last eight races in Hungary).</p>
 
-    <h2 class="sec">The current grid at the Hungaroring</h2>
-    <p class="lead-note">Which of today's drivers go well here — the "he's strong at this track" lines,
-      ready for the grid walk.</p>
-    <div class="table-wrap"><table class="data compact">
-      <thead><tr><th>Driver</th><th>Wins</th><th>Poles</th><th>Best</th><th>Note</th></tr></thead>
-      <tbody>
-        <tr class="upcoming"><td class="tm">Lewis Hamilton</td><td class="num">8</td><td class="num">9</td><td>Win</td><td>King of the Hungaroring — most wins &amp; poles ever; holds the lap record. Topped FP2.</td></tr>
-        <tr><td class="tm">Max Verstappen</td><td class="num">2</td><td class="num">1</td><td>Win</td><td>Back-to-back wins 2022–23; strong at slow tracks (front row Monaco 2026).</td></tr>
-        <tr><td class="tm">Lando Norris</td><td class="num">1</td><td class="num">1</td><td>Win</td><td>Won here in 2025 from P3; McLaren has been the car to beat at this circuit.</td></tr>
-        <tr><td class="tm">Oscar Piastri</td><td class="num">1</td><td class="num">0</td><td>Win</td><td>Maiden F1 win came here in 2024.</td></tr>
-        <tr><td class="tm">Charles Leclerc</td><td class="num">0</td><td class="num">1</td><td>P2</td><td>Took pole in 2025 but is still chasing a first Hungaroring win.</td></tr>
-        <tr><td class="tm">George Russell</td><td class="num">0</td><td class="num">1</td><td>P3</td><td>Pole in 2022; a slow-corner circuit that suits his precision — if the car cooperates.</td></tr>
-        <tr><td class="tm">Fernando Alonso</td><td class="num">2</td><td class="num">1</td><td>Win</td><td>Breakthrough 2003 win here and again in 2005; loves a technical lap.</td></tr>
-        <tr><td class="tm">Esteban Ocon</td><td class="num">1</td><td class="num">0</td><td>Win</td><td>His sole F1 win — the 2021 Hungarian GP.</td></tr>
-      </tbody>
-    </table></div>
-    <p class="src">Career Hungaroring records for current drivers, compiled from F1 results.</p>
+    <h2 class="sec">Hungaroring driver storylines</h2>
+    <p class="lead-note">Use the automatically refreshed record book above for every driver's
+      starts, wins, poles and best classified finish, with its explicit pre-weekend cutoff.
+      These selected historical talking points complement it rather than duplicate the totals.</p>
+    <ul>
+      <li>Alonso's breakthrough Formula 1 victory came here in 2003.</li>
+      <li>Piastri took his maiden Grand Prix win here in 2024; Norris followed with victory in 2025.</li>
+      <li>Russell's first pole came here in 2022; Leclerc took the 2025 pole.</li>
+      <li>Ocon's first Grand Prix victory came at the 2021 Hungarian GP.</li>
+    </ul>
     """)
 
 

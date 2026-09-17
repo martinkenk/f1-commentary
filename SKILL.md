@@ -353,6 +353,11 @@ Regression examples include the Baku name change, debut venues, same-name GPs
 at different circuits, strict date cutoffs, driver/constructor identity,
 classification exclusions and retention of last-good data. Check all covered
 GPs through `coverage_inventory.py`, not only the next event.
+When adding the automatic tables, Hungary's duplicate hand-maintained driver
+table was removed: it incorrectly credited Alonso with a 2005 win and could
+contradict the sourced best-finish records. Keep the useful historical storylines,
+but do not restore a second manually maintained statistical table below the
+automatic one.
 
 ### Complete FIA discovery
 

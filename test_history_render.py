@@ -153,6 +153,16 @@ class HistoryRenderTests(unittest.TestCase):
 
 
 class PublishedHistoryIntegrationTests(unittest.TestCase):
+    def test_hungary_does_not_duplicate_incorrect_manually_maintained_driver_totals(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "hungary")
+        ctx.update(status="past", results=[], extra={}, weather={}, weather_ok=False)
+        env = {"schedule_rows": lambda: "", "weather_cards": lambda: "",
+               "weather": {}, "weather_ok": False}
+        body = ctx["pages"](ctx, env)["facts"]["body"]
+        self.assertIn("automatically refreshed record book", body)
+        self.assertNotIn("again in 2005", body)
+        self.assertNotIn("<th>Best</th><th>Note</th>", body)
+
     def test_all_registered_gps_have_sourced_history_on_relevant_surfaces(self):
         for ctx in build.season_gps():
             for page in ("overview", "circuit", "facts", "h2h"):
