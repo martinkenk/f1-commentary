@@ -1,62 +1,92 @@
 {
-  "reviewed_at": "2026-09-10T20:25:45Z",
-  "expires_at": "2026-09-11T06:00:00Z",
-  "through_session": null,
-  "feed_fingerprint": "c335dde8e470a27f59e6be08a8e2b36964573f134f5a8c73e6f23604cea15053",
+  "reviewed_at": "2026-09-17T05:58:16Z",
+  "expires_at": "2026-09-17T23:58:16Z",
+  "through_session": "Race",
+  "feed_fingerprint": "08fabcd5a974555a22c5212304735cd488b4e474d9e449aeb86791dee3978d26",
   "items": [
     {
-      "topic": "Ferrari aftermath",
-      "title": "Ferrari clear the air, but no new racing rules yet",
-      "date": "2026-09-10",
-      "summary": "Hamilton and Leclerc say they have discussed their Monza opening-lap fight. Leclerc accepts he went too far at Turn 2; Hamilton praises their communication. The Race reports that introducing rules of engagement was not part of Hamilton's subsequent discussion with Vasseur.",
-      "why_it_matters": "Do not turn a repaired relationship into a claim that Ferrari have introduced team orders. How they race each other remains a Madrid storyline.",
+      "topic": "Race result",
+      "title": "Antonelli wins Madrid's debut race as a VSC undoes Norris",
+      "date": "2026-09-13",
+      "summary": "Kimi Antonelli took his eighth win of the season, beating Max Verstappen and pole-sitter Lando Norris. Norris led from pole but a Virtual Safety Car for Lance Stroll's stopped Aston Martin fell just after his pit window closed, letting Antonelli and Verstappen pit almost for free and jump him. Lewis Hamilton retired early with a brake issue after contact with Verstappen at the start.",
+      "why_it_matters": "This is the confirmed final result, not a pre-race prediction: Norris finished third, not first, and Hamilton did not finish. Any commentary using the earlier pre-race form guide must be updated to this classification.",
       "sources": [
-        {"label": "Formula1.com: Hamilton", "url": "https://www.formula1.com/en/latest/article/nothing-lingers-hamilton-opens-up-on-racing-relationship-with-leclerc-after-monza-clash.6EsZLX5y7cIfWh6oQzkyOQ"},
-        {"label": "The Race: post-Monza talks", "url": "https://www.the-race.com/formula-1/what-ferrari-drivers-have-revealed-about-post-monza-talks/"}
+        {
+          "label": "Formula1.com: race report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-clinches-victory-over-verstappen-and-norris-in-spanish-gp.644ZZfPzRPEaUh2JBHcB9"
+        },
+        {
+          "label": "Formula1.com: official grid and result context",
+          "url": "https://www.formula1.com/en/latest/article/official-grid-whos-where-in-spain-as-bearman-starts-from-pit-lane.60kOIMQ1SjZXrrvW4qIHV7"
+        }
       ]
     },
     {
-      "topic": "Madrid debut",
-      "title": "The Madring's first laps are the weekend's big unknown",
-      "date": "2026-09-10",
-      "summary": "Drivers arrive with simulator preparation rather than an F1 race baseline. Their briefing identifies a demanding sequence of corners, battery-use optimisation and the balance between front-tyre warm-up and rear overheating as key qualifying challenges.",
-      "why_it_matters": "Friday running matters more than inherited circuit form. Separate driver expectations from measured pace, degradation and a proven strategy.",
+      "topic": "VSC controversy",
+      "title": "Norris's lost win reopens F1's Virtual Safety Car timing debate",
+      "date": "2026-09-16",
+      "summary": "The VSC that cost Norris the lead was triggered five seconds after he passed the pit entry and ended just before he could complete his own stop, forcing him to pay the full pit-lane time loss. Sources say the Sporting Advisory Committee will discuss the VSC rules at its next meeting because of this incident.",
+      "why_it_matters": "This is a live rules-review story, not a settled outcome. Do not present the race classification as evidence the VSC rule will change before any committee decision is confirmed.",
       "sources": [
-        {"label": "Formula1.com: driver-identified challenges", "url": "https://www.formula1.com/en/latest/article/the-key-challenges-f1-drivers-will-tackle-at-the-madring-as-identified-by-them.5z9TallnbetIJZhoF4VwS9"},
-        {"label": "Formula1.com: circuit guide", "url": "https://www.formula1.com/en/latest/article/circuit-guide-everything-you-need-to-know-about-the-madring.NF7Mh3iag3w9GUPlihwJA"}
+        {
+          "label": "The Race: VSC rule debate",
+          "url": "https://www.the-race.com/formula-1/f1-virtual-safety-car-rule-lando-norris-no-easy-fix/"
+        },
+        {
+          "label": "Formula1.com: Norris reaction",
+          "url": "https://www.formula1.com/en/latest/article/believe-i-deserved-it-today-norris-reflects-on-losing-spanish-gp-victory-after-ill-timed-vsc.3xLTCM9C1ADjwOFOZi1ccq"
+        }
+      ]
+    },
+    {
+      "topic": "Team orders",
+      "title": "Red Bull ordered Verstappen to give back places after a first-lap tangle",
+      "date": "2026-09-14",
+      "summary": "Verstappen kept third place at the start only after cutting Turn 1 during contact with Hamilton, and Red Bull's Laurent Mekies had him hand the places back to Antonelli and Hamilton to avoid a penalty. Verstappen recovered to finish P2 after Hamilton's retirement and a favourable VSC pit stop.",
+      "why_it_matters": "This explains Verstappen's second place without needing a stewards' penalty — a team-management decision, not a ruling. Keep the causal chain (contact, corner-cut, team instruction, recovery) explicit rather than compressing it into a bare result line.",
+      "sources": [
+        {
+          "label": "Formula1.com: Mekies explains decision",
+          "url": "https://www.formula1.com/en/latest/article/red-bulls-mekies-explains-decision-to-ask-verstappen-to-give-back-places-in-madrid.3BUc5lifiWM4Gq8PagJHek"
+        }
+      ]
+    },
+    {
+      "topic": "Circuit assessment",
+      "title": "Madring organisers plan 2027 changes after a near-processional debut",
+      "date": "2026-09-14",
+      "summary": "The Race reports the Spanish Grand Prix's promoters are already planning changes in three areas of the Madring layout for 2027, after Sunday's race produced very few on-track overtakes outside the first-lap shuffle — reportedly fewer passes than even Monaco.",
+      "why_it_matters": "This is reported forward planning, not a confirmed FIA-approved 2027 layout change. Treat named changes as provisional until an official circuit-map revision is published.",
+      "sources": [
+        {
+          "label": "The Race: 2027 circuit changes",
+          "url": "https://www.the-race.com/formula-1/madring-f1-spanish-gp-circuit-three-changes-planned-2027/"
+        },
+        {
+          "label": "Formula1.com: what we learned",
+          "url": "https://www.formula1.com/en/latest/article/what-we-learned-from-f1s-first-visit-to-the-madring.7gkOP8vYszgWmb9e2SyfgD"
+        }
       ]
     },
     {
       "topic": "Championship",
-      "title": "Russell credits Antonelli's form but keeps fighting",
-      "date": "2026-09-10",
-      "summary": "After losing out to Antonelli at Monza, Russell says his team-mate deserves to lead the championship. He is targeting race wins and acknowledges that he needs luck to overturn the title situation, rather than conceding the contest.",
-      "why_it_matters": "The Mercedes contest is still live. Use the current standings table for points, not an old article's frozen deficit.",
+      "title": "Antonelli extends title lead to 81 points; Russell concedes the fight",
+      "date": "2026-09-13",
+      "summary": "The Madrid win stretches Antonelli's Drivers' Championship lead over team-mate Russell to 81 points, and Russell has since said he no longer considers himself in the title fight. Use the current standings table for the exact points and gap, since totals change every round.",
+      "why_it_matters": "Supersedes the pre-race framing that the Mercedes contest was still open; the standings and Russell's own words now describe an effectively decided intra-team battle.",
       "sources": [
-        {"label": "Formula1.com: Russell's assessment", "url": "https://www.formula1.com/en/latest/article/russell-concedes-my-team-mate-has-done-a-better-job-than-me.3s3P399CjchZyixhDnromZ"},
-        {"label": "Official driver standings", "url": "https://www.formula1.com/en/results/2026/drivers"}
-      ]
-    },
-    {
-      "topic": "Confirmed line-up",
-      "title": "Lawson and Tsunoda continue; Hadjar is not ready to return",
-      "date": "2026-09-07",
-      "summary": "Lawson remains alongside Verstappen at Red Bull for a third weekend, with Tsunoda continuing alongside Lindblad at Racing Bulls. Red Bull says Hadjar's recovery is progressing, but he is not ready for the cockpit and will support the team in Madrid.",
-      "why_it_matters": "These are confirmed race-seat substitutions, not rookie FP1 nominations or a confirmed date for Hadjar's comeback.",
-      "sources": [
-        {"label": "Formula1.com / Red Bull announcement", "url": "https://www.formula1.com/en/latest/article/lawson-to-stay-at-red-bull-for-third-race-weekend-in-madrid-as-hadjars-recovery-continues.Bxrk9FOVDChcWCo5vxY8v"}
-      ]
-    },
-    {
-      "topic": "FIA operating rules",
-      "title": "Madrid's aero, recharge and track-limit rules are published",
-      "date": "2026-09-10",
-      "summary": "The FIA map confirms two Straight Mode zones. The PU sheet sets qualifying recharge at 7.5 MJ versus 9.0 MJ in practice. Race notes warn that exceeding limits at Turn 22 can invalidate both the current and following lap in lap-time-classified sessions.",
-      "why_it_matters": "These are usable on-air facts now. The conflicting circuit lengths and absolute Overtake distances marked TBC remain unresolved, not numbers to infer.",
-      "sources": [
-        {"label": "FIA circuit map", "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf"},
-        {"label": "FIA power-unit information", "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_power_unit_information.pdf"},
-        {"label": "FIA race-director notes", "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_race_directors_competition_notes.pdf"}
+        {
+          "label": "Formula1.com: race report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-clinches-victory-over-verstappen-and-norris-in-spanish-gp.644ZZfPzRPEaUh2JBHcB9"
+        },
+        {
+          "label": "Formula1.com: Russell concedes title fight",
+          "url": "https://www.formula1.com/en/latest/article/im-not-in-the-fight-for-the-drivers-russell-concedes-doubts-over-title-challenge-after-antonellis-madrid-win.7KEnyGkZGdpac7a5RD8sx9"
+        },
+        {
+          "label": "Official driver standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
       ]
     }
   ]
