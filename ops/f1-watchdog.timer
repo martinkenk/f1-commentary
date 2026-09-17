@@ -1,0 +1,11 @@
+[Unit]
+Description=Hourly F1 automation and page audit
+
+[Timer]
+OnCalendar=*-*-* *:37:00 UTC
+Persistent=true
+RandomizedDelaySec=120
+Unit=f1-watchdog.service
+
+[Install]
+WantedBy=timers.target

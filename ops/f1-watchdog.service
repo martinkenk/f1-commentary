@@ -1,0 +1,23 @@
+[Unit]
+Description=F1 commentary automation and coverage watchdog
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/projects/f1-commentary-watchdog
+Environment=PATH=%h/.local/share/f1-watchdog/venv/bin:/usr/local/bin:/usr/bin:/bin
+Environment=PYTHONUNBUFFERED=1
+ExecStart=%h/.local/share/f1-watchdog/venv/bin/python3 %h/projects/f1-commentary-watchdog/ops/watchdog.py
+TimeoutStartSec=50min
+TimeoutStopSec=30s
+KillMode=control-group
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=%h/projects/f1-commentary-watchdog %h/.local/state/f1-watchdog %h/.copilot %h/.cache %h/.config/gh
+ReadOnlyPaths=%h/.ssh
+MemoryMax=3G
+TasksMax=256
+

@@ -1,0 +1,5 @@
+pypdf>=6,<7
+pymupdf>=1.26,<2
+fastf1>=3.6,<4
+pandas>=2,<4
+numpy>=2,<3

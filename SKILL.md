@@ -17,6 +17,13 @@ screenshot does not mean the numerical transcription is correct.
 
 ## 1. External-agent contract and scheduling
 
+The persistent host deployment is documented in `ops/README.md`, with a bounded
+runner in `ops/watchdog.py` and the session-context handoff/authority contract in
+`ops/watchdog-context.md`. Read that handoff when running as the host watchdog.
+Its owner-authorized PUBLISH mode is separate from the GitHub editor's REVIEW
+policy; authentication and active-writer checks can downgrade any run to
+READ_ONLY. Never treat a read-only audit or an unmerged PR as a published fix.
+
 Run from a checkout of `martinkenk/f1-commentary`; no particular username,
 operating system, absolute path, model provider or agent product is required.
 Python 3.12 is the CI reference. The build itself uses the standard library.

@@ -14,6 +14,10 @@ are proposed by the coverage editor and require PR review before publication.
 > Regenerate this for any GP — before or during the weekend — with **[SKILL.md](SKILL.md)**,
 > the step-by-step runbook (architecture, sources, FIA docs, weather, live results, build, verify).
 
+A separate owner-authorized [host watchdog](ops/README.md) audits automation and
+live coverage hourly using that runbook. It may publish verified repairs when
+authenticated; read-only runs explicitly report blocked publication.
+
 ## View it
 Open `site/index.html` (the multi-GP hub), or serve the folder:
 
