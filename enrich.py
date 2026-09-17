@@ -701,6 +701,26 @@ def _fake_decision(text):
     car = re.search(r"\bCar\s+(\d+)", text)
     fact = after("Fact")
     dec = after("Decision") or after("Infringement")
+    session = ""
+    if not dec:
+        # Some administrative rulings are prose, without a Decision/Fact table.
+        flat = re.sub(r"\s+", " ", text).strip()
+        permission = re.search(
+            r"the Stewards determine the following F1 Cars are eligible to start the Race:"
+            r"\s*(.+?)\s*The F1 Cars will be placed", flat, re.I)
+        stop = re.search(
+            r"The Stewards, exercising their authority.{1,300}?"
+            r"decided to temporarily stop (Free Practice [123])\.", flat, re.I)
+        if permission:
+            fact, session = "Permission to start", "Race"
+            dec = "Eligible to start the Race: " + permission.group(1)
+        elif stop:
+            fact = "Temporary session stoppage"
+            session = stop.group(1).replace("Free Practice", "Practice")
+            completion = re.search(r"the remainder of the session was completed\.",
+                                   flat[stop.start():], re.I)
+            dec = (flat[stop.start():stop.start() + completion.end()]
+                   if completion else stop.group(0))
     low = (fact + " " + dec).lower()
     kind = ("fine" if "fine" in low else
             "noaction" if "no further action" in low or "take no action" in low else
@@ -708,7 +728,7 @@ def _fake_decision(text):
             "warning" if "warning" in low else
             "reprimand" if "reprimand" in low else "note")
     return {"doc": f"Doc {doc.group(1)}" if doc else "", "no": car.group(1) if car else "",
-            "driver": "", "team": "", "session": "", "fact": fact,
+            "driver": "", "team": "", "session": session, "fact": fact,
             "outcome": dec, "kind": kind}
 
 

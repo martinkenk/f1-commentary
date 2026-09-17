@@ -263,8 +263,9 @@ narrative is on <a href="news.html">Weekend News</a>.</p>
              'A news story about another circuit is background, not a Madrid component declaration.</p>')
     pages["standings"]["body"] += card("Madrid's effect on the title fight", """
 <p><strong>Antonelli's eighth win of the season widened his lead, it did not narrow it.</strong>
-Check the table above for the current exact gap rather than reusing a pre-race figure —
-Madrid added a full winner's margin on top of whatever Antonelli led by beforehand.
+Antonelli scored 25 points and fifth-placed Russell scored 10, increasing the lead
+by <strong>15 points, from 66 to 81</strong> after Madrid. Check the table above for
+the current exact gap rather than treating that dated post-race figure as permanent.
 Russell has since said publicly that he no longer considers himself in the title fight.</p>
 <ul>
   <li>Norris's lost win (see <a href="news.html">Weekend News</a> for the VSC timing) cost McLaren
@@ -495,11 +496,12 @@ cheap pit stops for the leaders, but does not give exact stint lengths.</p>
           'FIA Competition Notes, Document 5</a>, 10 September. These are standing instructions, '
           'not penalties already imposed. <a href="circuit.html">Full circuit notes</a>.</p>',
         "bi-flag", "accent")
-    race_control = card("Verstappen's first-lap cut: team-managed, not stewards-penalised", """
+    race_control = card("Verstappen's first-lap cut: Red Bull gave the places back", """
 <p>Verstappen kept his P3 starting position after cutting Turn 1 while racing Hamilton for it.
-Rather than a stewards' investigation, Red Bull's Laurent Mekies had him give the places back to
-Antonelli and Hamilton on track. No FIA infringement document was issued for this incident;
-the automatic tracker below lists the separately issued penalties and warnings that were.</p>
+Red Bull's Laurent Mekies explained that the team instructed him to give the places back to
+Antonelli and Hamilton on track to avoid a potential penalty. That team account is not
+evidence about whether the stewards opened an investigation; separately published FIA
+rulings appear in the automatic tracker below.</p>
 """ + '<p class="src"><a href="https://www.formula1.com/en/latest/article/red-bulls-mekies-explains-'
       'decision-to-ask-verstappen-to-give-back-places-in-madrid.3BUc5lifiWM4Gq8PagJHek" '
       'target="_blank" rel="noopener">Formula1.com: Mekies explains the decision</a>.</p>',

@@ -198,6 +198,42 @@ class EnrichmentTests(unittest.TestCase):
         self.assertEqual(self.read("penalties_auto"), [])
         self.assertTrue(enrich.FAILURES)
 
+    def test_permission_to_start_prose_preserves_both_drivers_as_a_note(self):
+        text = (
+            "Document\n55\nIn accordance with Article B2.4.3b of the FIA F1 Regulations, "
+            "the Stewards determine the following F1 Cars are eligible to start the Race:\n"
+            "1. 87 - Oliver Bearman - TGR Haas F1 Team\n"
+            "2. 18 - Lance Stroll - Aston Martin Aramco F1 Team\n"
+            "The F1 Cars will be placed on the grid in accordance with Article B2.5.4."
+        ).replace(" ", "\u00a0")
+        with patch.object(enrich, "llm_json", return_value=None):
+            record = enrich.structure_decision(text, "decision_-_permission_to_start.pdf")
+        self.assertEqual(record["doc"], "Doc 55")
+        self.assertEqual(record["kind"], "note")
+        self.assertEqual(record["session"], "Race")
+        self.assertIn("87 - Oliver Bearman", record["outcome"])
+        self.assertIn("18 - Lance Stroll", record["outcome"])
+        self.assertNotIn("grid", record["outcome"])
+        self.assertEqual(record["no"], "")
+
+    def test_session_stoppage_prose_is_not_a_driver_penalty(self):
+        text = (
+            "The Stewards, exercising their authority given under Article 11.7.3.r "
+            "of the FIA International Sporting Code, decided to temporarily stop Free Practice 3.\n"
+            "Free Practice 3 was red flagged at 12:53:17 for barrier repairs. "
+            "The session was stopped at 13:14:22 with 15 minutes and 38 seconds remaining.\n"
+            "The session was restarted at 13:32:00 and the remainder of the session was completed.\n"
+            "The Stewards\nFrom\nThe Stewards\nDocument\n31\nDate\n12 September 2026"
+        )
+        record = enrich._fake_decision(text)
+        self.assertEqual(record["doc"], "Doc 31")
+        self.assertEqual(record["kind"], "note")
+        self.assertEqual(record["session"], "Practice 3")
+        for time in ("12:53:17", "13:14:22", "13:32:00", "15 minutes and 38 seconds"):
+            self.assertIn(time, record["outcome"])
+        self.assertNotIn("Document", record["outcome"])
+        self.assertEqual(enrich._fake_decision("Document 31 No ruling text")["outcome"], "")
+
     def test_source_http_failures_are_visible(self):
         error = urllib.error.HTTPError("https://example.test", 503, "Unavailable", {}, None)
         self.addCleanup(error.close)

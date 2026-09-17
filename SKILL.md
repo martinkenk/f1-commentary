@@ -291,6 +291,15 @@ Compare URL, filename, document number, publication time, version and all
 substantive pages against both existing prose and figures. A citation alone is
 not completion; a familiar URL may hold a revised PDF.
 
+An HTTP-200 PDF with an empty structured ruling is an **extraction failure**,
+not an upstream outage. Inspect the actual text before changing discovery or
+marking it seen. Administrative rulings can omit the `Fact`/`Decision` labels:
+Madrid documents 55 (permission for Bearman and Stroll to start) and 31 (temporary
+FP3 stoppage) required prose parsing on 17 September. These belong in the automatic
+tracker as `note`, not invented driver penalties. Keep every named beneficiary
+when one ruling covers multiple cars; incomplete/unknown formats must remain
+retryable. `test_enrichment.py` covers both administrative formats.
+
 **HTTP 403 or 500 is not proof of non-publication.** FIA listings have been blocked
 on GitHub runners while the same local listing and already-known public PDF URLs
 work. Keep last-good discovery, visibly report its failure, and try normal public
@@ -417,6 +426,9 @@ The former Hungary 26-point example was corrected to 25; a 45-point lead is
 safe from being overturned in one standard race, not a season-title clinch.
 Do not label a hypothetical pre-race scenario as
 the race's actual championship swing. Do not hand-update current points.
+For an actual lead change, subtract the rival's earned points from the leader's:
+Madrid's 25 versus 10 widened the lead by **15**, from 66 to 81, not by 25.
+Label that as the 13 September result; it must not override later live standings.
 
 Historical parity does **not** require manufacturing data: Madrid has no prior
 venue GP wins; pre-FP1 Spain has no event timing, race pit stops or race-used sets.
@@ -481,6 +493,10 @@ Keep predictions, claims, decisions and confirmed facts distinct. Exclude bettin
 ticket promotions, quizzes, fantasy games, viewing guides and unrelated lifestyle
 articles. Do not promote another GP's preview just because its body mentions this one.
 Never pad the selection to reach a quota.
+An account of a team returning places to avoid a potential penalty does not prove
+that no stewards' investigation or FIA document exists. Attribute the team account
+and keep it separate from the official decision tracker instead of inventing
+categorical negative claims.
 
 Each item contains plain-text `topic`, `title`, ISO `date`, `summary`,
 `why_it_matters`, and `sources: [{label, url}]`. Sources must be opened HTTPS URLs;

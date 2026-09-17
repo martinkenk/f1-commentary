@@ -164,6 +164,12 @@ class SpainContentTests(unittest.TestCase):
             self.assertIn(f'<details id="upgrade-submission-{page}">', body)
         self.assertEqual(table.count("data-document-reader"), 11)
 
+    def test_post_race_points_are_net_of_russells_score(self):
+        pages = self.pages()
+        self.assertIn("15 points, from 66 to 81", pages["standings"]["body"])
+        self.assertNotIn("full winner's margin", pages["standings"]["body"])
+        self.assertNotIn("No FIA infringement document was issued", pages["penalties"]["body"])
+
 
 if __name__ == "__main__":
     unittest.main()
