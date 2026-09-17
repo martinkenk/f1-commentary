@@ -1,6 +1,6 @@
 """Madrid 2026: source-checked FIA material, including Friday's upgrade filings."""
 from content_generic import build_pages as build_generic, pending
-from f1lib import auto_h2h, auto_penalties, card, stat, ul
+from f1lib import auto_h2h, auto_penalties, card, render_reliability, stat, ul
 
 
 FIA_BASE = "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_"
@@ -563,4 +563,30 @@ Check subsequent FIA filings during the weekend. Hadjar's team-confirmed absence
 is covered on <a href="rookies.html">Rookies &amp; Line-ups</a>; it is not an inferred
 medical clearance or a prognosis.</p>
 """, "bi-thermometer-sun")
+    retirement_context = card("Four retirements: what Formula1.com's race report says caused each", ul([
+        "<strong>Hamilton:</strong> retired early with a brake issue, reported as worsening "
+        "steadily until Ferrari withdrew the car; he never fell back onto Verstappen's pace again.",
+        "<strong>Stroll:</strong> stopped at Turn 20 with the same brake failure mode as Hamilton's "
+        "car, triggering the Virtual Safety Car that reshuffled the pit-stop order and decided the race.",
+        "<strong>Perez:</strong> retired with what Formula1.com describes as a suspected cooling/"
+        "water-system issue; the FIA has not published a separate technical bulletin confirming a cause.",
+        "<strong>Sainz:</strong> continued to the flag with floor damage from first-lap contact, "
+        "but the team withdrew the car after 43 laps once the resulting pace loss made finishing pointless.",
+        "Two related FIA scrutineering filings (cars 41 and 87) record survival-cell changes after "
+        "practice crashes for Lindblad and Bearman; car 87 (Bearman) was separately required to start "
+        "the race from the pit lane after a parc-fermé power-unit-element change (Doc 63, on Penalties).",
+    ]) + '<p class="src"><a href="https://www.formula1.com/en/latest/article/'
+         'antonelli-clinches-victory-over-verstappen-and-norris-in-spanish-gp.644ZZfPzRPEaUh2JBHcB9" '
+         'target="_blank" rel="noopener">Formula1.com race report, 13 September 2026</a> / '
+         f'<a href="{FIA_BASE}car_41_-_self_scrutineering_after_chassis_change.pdf" target="_blank" '
+         'rel="noopener">FIA Document 29, car 41</a> / '
+         f'<a href="{FIA_BASE}car_87_-_self_scrutineering_after_chassis_change.pdf" target="_blank" '
+         'rel="noopener">FIA Document 62, car 87</a>. Causes above are as reported; the FIA has not '
+         'published separate technical failure-analysis bulletins for these retirements.</p>',
+        "bi-wrench-adjustable", "accent")
+    pages["reliability"] = dict(
+        kicker="Reliability · completed race",
+        title="Reliability & Pit Stops",
+        sub="Sourced retirement causes plus the automatic classification and pit-stop analysis.",
+        body=render_reliability(ctx, intro_html=retirement_context))
     return pages
