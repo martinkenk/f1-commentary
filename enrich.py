@@ -132,6 +132,7 @@ def active_gps(gps, lead_days=10):
     """
     today = datetime.datetime.now(datetime.timezone.utc).date()
     for c in gps:
+        c.setdefault("dir", c.get("slug") or c.get("name", "").lower().replace(" ", "-"))
         c.setdefault("status", f1lib.event_status(c, today))
     live = [c for c in gps if c["status"] == "live"]
     future = [c for c in gps if c["status"] == "future"]

@@ -5,7 +5,9 @@ import unittest
 from unittest.mock import patch
 
 import calendar
+import json
 
+import enrich
 import f1lib
 
 
@@ -22,6 +24,16 @@ class SessionCompatibilityTests(unittest.TestCase):
         self.assertIn("Race", rows)
         self.assertIn("11:30", rows)
         self.assertIn("Fri", rows)
+
+    def test_active_gps_accepts_raw_calendar_events(self):
+        events = [
+            {"slug": "spain", "name": "Spanish Grand Prix", "race_date": "2026-09-13",
+             "sessions": [{"label": "Race", "date": "2026-09-13", "time": "15:00"}]},
+            {"slug": "azerbaijan", "name": "Azerbaijan Grand Prix", "race_date": "2026-09-26",
+             "sessions": [{"label": "Race", "date": "2026-09-26", "time": "14:00"}]},
+        ]
+        picked = enrich.active_gps(events)
+        self.assertEqual({c["slug"] for c in picked}, {"spain", "azerbaijan"})
 
 
 class TrackMapRefreshTests(unittest.TestCase):
