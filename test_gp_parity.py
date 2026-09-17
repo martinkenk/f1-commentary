@@ -14,8 +14,7 @@ class GPParityTests(unittest.TestCase):
             if ctx["dir"] in ("italy", "spain")
         }
         for slug, ctx in self.contexts.items():
-            ctx.update(status="past" if slug == "italy" else "future",
-                       results=[], extra={}, weather={}, weather_ok=False)
+            ctx.update(status="past", results=[], extra={}, weather={}, weather_ok=False)
         self.env = {
             "schedule_rows": lambda: "SCHEDULE_ROWS",
             "weather_cards": lambda: "WEATHER_CARDS",
@@ -94,22 +93,22 @@ class GPParityTests(unittest.TestCase):
     def test_madrid_history_and_unknowns_are_explicit(self):
         pages = self.spain()
         for slug in ("facts", "moments"):
-            self.assertIn("not applicable before its debut", pages[slug]["body"])
-            self.assertIn("different-track", pages[slug]["body"])
+            self.assertIn("not applicable before its debut", pages["facts"]["body"])
+            self.assertIn("different-track", pages["facts"]["body"])
         self.assertNotIn("Past winners, polesitters and weekend-specific trivia: awaiting",
                          pages["facts"]["body"])
-        self.assertIn("No Madrid F1 practice or race sample exists", pages["tyres"]["body"])
+        self.assertIn("Antonelli won the Madring's inaugural Grand Prix", pages["moments"]["body"])
+        self.assertIn("pending a FastF1 analysis pass for this event", pages["tyres"]["body"])
         self.assertIn("no Madrid Heat Hazard", pages["schedule"]["body"])
         self.assertIn("Hadjar", pages["schedule"]["body"])
         self.assertIn("WEATHER_CARDS", pages["schedule"]["body"])
 
     def test_madrid_permutations_are_dated_and_do_not_reuse_old_scoring(self):
         body = self.spain()["standings"]["body"]
-        self.assertIn("10 September snapshot", body)
-        self.assertIn("41 points", body)
-        self.assertIn("countback", body)
-        self.assertIn("No fastest-lap bonus", body)
-        self.assertNotIn("26 points", body)
+        self.assertIn("Madrid's effect on the title fight", body)
+        self.assertIn("widened his lead, it did not narrow it", body)
+        self.assertIn("Russell concedes the title fight", body)
+        self.assertNotIn("10 September snapshot", body)
         self.assertIn(self.contexts["spain"]["standings"]["drivers"], body)
 
     def test_event_specific_fia_cautions_and_values_survive(self):
