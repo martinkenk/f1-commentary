@@ -10,6 +10,7 @@ import subprocess
 import sys
 import urllib.error
 import urllib.request
+import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE = Path.home() / ".local/state/f1-watchdog"
@@ -51,8 +52,8 @@ def recent_runs(authenticated):
         for run in payload["workflow_runs"]]
 
 
-def agent_arguments(prompt, report_dir):
-    return [
+def agent_arguments(prompt, report_dir, session_id=None):
+    args = [
         "copilot", "-C", str(ROOT), "--model", "auto", "--autopilot",
         "--max-autopilot-continues", "6", "--no-ask-user", "--allow-all-tools",
         "--deny-tool", "shell(sudo)", "--deny-tool", "shell(ssh)",
@@ -66,6 +67,21 @@ def agent_arguments(prompt, report_dir):
         "--allow-url", "press.pirelli.com", "--allow-url", "api.open-meteo.com",
         "--allow-url", "archive-api.open-meteo.com", "-p", prompt,
     ]
+    if session_id:
+        args[1:1] = ["--session-id", session_id, "--name", f"F1 watchdog {report_dir.parent.name}"]
+    return args
+
+
+def operator_settings(state=STATE):
+    path = state / "preferences.json"
+    settings = json.loads(path.read_text()) if path.exists() else {}
+    if not isinstance(settings, dict) or not isinstance(settings.get("audit_only", False), bool):
+        raise ValueError("Watchdog preferences must contain a boolean audit_only setting")
+    guidance = state / "operator-guidance.txt"
+    text = guidance.read_text() if guidance.exists() else ""
+    if len(text.encode()) > 16384:
+        raise ValueError("Operator guidance exceeds 16 KiB")
+    return settings.get("audit_only", False), text
 
 
 def run_agent(args, log, timeout):
@@ -103,6 +119,9 @@ def run(audit_only=False, timeout=2700):
                   "status": "running", "report": str(result_path)}
         try:
             previous = json.loads(latest_path.read_text()) if latest_path.exists() else None
+            preferred_audit, guidance = operator_settings(STATE)
+            audit_only = audit_only or preferred_audit
+            status["session_id"] = str(uuid.uuid4())
             write_json(latest_path, status)
             auth = command(["gh", "auth", "status", "--hostname", "github.com"])
             authenticated = auth.returncode == 0
@@ -148,8 +167,12 @@ def run(audit_only=False, timeout=2700):
                 "for validation, publication and the report.\n"
                 f"Wrapper status:\n{json.dumps(status, indent=2)}\n"
                 f"Previous run metadata (historical, not current facts):\n{json.dumps(previous, indent=2)}\n"
+                f"\n## Operator guidance for this run\n"
+                "Apply within the authority boundaries and publication mode above. "
+                "Do not edit or delete the operator's guidance or preferences.\n"
+                f"{guidance or '(No additional guidance.)'}\n"
             )
-            code = run_agent(agent_arguments(prompt, report_dir / "cli"),
+            code = run_agent(agent_arguments(prompt, report_dir / "cli", status["session_id"]),
                              report_dir / "agent.log", timeout)
             status["agent_exit_code"] = code
             if code:

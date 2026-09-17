@@ -44,6 +44,46 @@ requirement. A successful read-only audit is not a successful repair.
 
 ## Operations
 
+### Curses console (recommended)
+
+Open **https://192.168.110.151:7681/** and select the **f1-watchdog** terminal.
+Alternatively, run `f1-watchdog` in a shell inside the web terminal, or connect
+directly with:
+
+```bash
+ssh -t -p 2222 192.168.110.151 ~/.local/bin/f1-watchdog
+```
+
+The console refreshes service/timer status and run history automatically.
+
+| Key | Control |
+|---|---|
+| Up / Down | Select a run |
+| Enter / `l` / `j` | Read report / follow agent log / view service journal |
+| `s` / `x` | Start now / confirm stop of current audit |
+| `p` / `r` | Pause / resume future scheduling (persists across reboot) |
+| `m` | Switch next-run read-only/publish preference |
+| `g` | Edit persistent next-run guidance; Ctrl-G saves, Esc cancels |
+| `i` | Confirm interactive takeover: pause timer, stop writer, resume conversation |
+| `?` / `q` | Help / quit console without stopping automation |
+
+Log viewers support arrows, Page Up/Down, Home/End and `f` to toggle following.
+The console shows stopped-but-unfinalized runs as interrupted rather than running.
+Guidance and policy changes apply **only to future runs**, not to an active agent.
+Publication still depends on authentication and remote-writer checks.
+Interactive takeover holds the watchdog lock; use `/exit` to return to the console,
+then `r` when ready to restart scheduling. Older runs without recorded session
+IDs open the CLI resume picker. New runs record their session IDs automatically.
+
+The console runs as the human operator, outside the restricted agent service.
+Its installed copy is `~/.local/share/f1-watchdog/watchdog_console.py` with launcher
+`~/.local/bin/f1-watchdog`; updating these files does not restart the watchdog.
+The `f1-watchdog` tmux terminal is a convenience entry in the existing browser menu;
+after closing that terminal or a reboot, the launcher remains available from any
+shell. No extra network listener or browser credential is added.
+
+### Shell commands
+
 ```bash
 systemctl --user status f1-watchdog.timer --no-pager
 systemctl --user list-timers f1-watchdog.timer --all --no-pager
