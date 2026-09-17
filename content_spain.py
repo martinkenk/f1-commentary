@@ -10,6 +10,7 @@ FIA_TYRES_URL = FIA_BASE + "competition_notes_-_pirelli_preview.pdf"
 FIA_NOTES_URL = FIA_BASE + "race_directors_competition_notes.pdf"
 FIA_DISPLAY_URL = FIA_BASE + "car_display_procedure.pdf"
 FIA_UPGRADES_URL = FIA_BASE + "car_presentation_submissions.pdf"
+FIA_SC2SC1_URL = FIA_BASE + "race_director_notes_-_sc2_-_sc1_times.pdf"
 FIA_UPGRADES_ASSET = "fia-spain-f5b87d349e3b-c92e9191ede7c2bb"
 UPGRADE_SUBMISSIONS = (
     ("McLaren", 2, (
@@ -332,8 +333,9 @@ Russell has since said publicly that he no longer considers himself in the title
 </table></div>
 <p>Straight Mode is the active-aero system, not the electrical Overtake allowance.
 The map places <strong>Overtake detection at entry to T22</strong> and
-<strong>activation 20 m after T22</strong>. The PU sheet identifies loops L24/L25
-but still marks their absolute lap distances <strong>TBC</strong>.</p>
+<strong>activation 20 m after T22</strong>. FIA Document 25 (Power Unit Information V2,
+11 September) confirms the absolute loop distances: detection <strong>L24 at 5160 m</strong>,
+activation <strong>L25 at 5230 m</strong>, consistent with the map's relative description.</p>
 <div class="grid cols-2">
   {card("Sector and timing references", ul([
       "Map sectors: <strong>1.839 / 2.049 / 1.526 km</strong>.",
@@ -355,15 +357,26 @@ but still marks their absolute lap distances <strong>TBC</strong>.</p>
       "During the race, a released car must safely merge into the fast lane as soon as possible, slowing to let existing fast-lane traffic pass if needed. All parts of the car must cross the separating line.",
   ]), "bi-cone-striped")}
   {card("Race-control details", ul([
-      "The SC2-to-SC1 maximum time for qualifying and race reconnaissance will be communicated <strong>after FP2</strong>; Document 5 gives no numeric maximum yet.",
+      "The SC2-to-SC1 maximum time for qualifying and race reconnaissance was published after FP2: drivers had to stay <strong>below 1:42.0</strong> between the Safety Car lines shown on the pit-lane drawing, both during and after Qualifying, and during race reconnaissance whenever the pit exit was open (FIA Document 22, 11 September, 18:59).",
       "A double-yellow sector in free practice means deletion of that lap time.",
       "Blue-flag pre-warning: <strong>3.0 s</strong>; blue panels/cockpit lights: <strong>1.2 s</strong>.",
       "After a suspension the Safety Car leaves the pits one minute before resumption and waits <strong>before T18</strong>.",
       "Turn 12 light panels are mirrored; panel 6 has two physical panels, and panel 11 is mirrored on panel 10.",
+      "Added in V3 (13 September, paragraph 28): if a Qualifying period is interrupted with under <strong>90 seconds</strong> remaining, that period does not resume.",
+      "Added in V3 (paragraph 30): pit-lane starters queuing in the fast lane must form up before a marked dashed line ahead of the pit exit lights, only moving once the formation lap starts &mdash; a direct consequence of the pit exit's limited space.",
   ]), "bi-flag")}
 </div>
+<div class="callout">
+  <strong>V3 circuit-line realignments (13 September, paragraph 29):</strong> the FIA
+  relocated the white line at the <strong>Turn 17 exit</strong> and at the
+  <strong>apex of Turns 18 and 19</strong>, plus the <strong>pit-entry white line</strong>,
+  after running through the weekend. These are track-limits reference changes, not new
+  penalties.
+</div>
 <p class="src">Operational rules: <a href="{FIA_NOTES_URL}" target="_blank" rel="noopener">FIA Document 5,
-Race Director's Competition Notes</a>, 10 September, paragraphs 1, 2, 9, 13, 16, 22, 25&ndash;27.
+Race Director's Competition Notes</a>, 10 September, paragraphs 1, 2, 9, 13, 16, 22, 25&ndash;27, and
+<a href="{FIA_NOTES_URL.replace('.pdf', '_v3.pdf')}" target="_blank" rel="noopener">Document 61 (V3)</a>,
+13 September, paragraphs 28&ndash;30.
 These are instructions, not individual stewards' decisions.</p>
 <h2 class="sec">Pit-lane and recovery reference maps</h2>
 {_figure("spain_fia_pit_lane_2026.png",
@@ -378,14 +391,19 @@ These are instructions, not individual stewards' decisions.</p>
 """)
 
     pages["powerunit"] = dict(
-        kicker="FIA Document 3, 10 Sep",
+        kicker="FIA Document 25 (V2), 11 Sep",
         title="Power Unit & Override",
-        sub="Madrid's confirmed recharge limits and ERS-K curves, with unresolved distances explicitly marked.",
+        sub="Madrid's confirmed recharge limits and ERS-K curves, including the Overtake detection/activation distances confirmed after FP2.",
         body=f"""
 <h2 class="sec">Official FIA power-and-energy sheet</h2>
 {_figure("spain_fia_power_unit_2026.png",
          "FIA Madrid power-unit table: recharge by session, 3206 metre power-limited distance, ERS-K curves and exception sectors",
          f'<a href="{FIA_PU_URL}#page=2" target="_blank" rel="noopener">FIA Document 3, page 2</a>, issued 10 September 2026 at 15:53.')}
+{_figure("spain_fia_power_unit_v2_2026.png",
+         "FIA Madrid power-unit table V2: the same sheet reissued with the Overtake Detection Line (5160 m) and Activation Line (5230 m) filled in",
+         f'<a href="{FIA_PU_URL.replace("power_unit_information.pdf", "power_unit_information_v2.pdf")}#page=2" '
+         'target="_blank" rel="noopener">FIA Document 25, Power Unit Information V2, page 2</a>, '
+         '11 September 2026 at 22:05, superseding Document 3&rsquo;s "TBC" entries.')}
 <div class="callout accent">
   <strong>Qualifying is not the FP energy allowance:</strong> maximum recharge drops
   from <strong>9.0 MJ in free practice to 7.5 MJ in qualifying</strong>, even though
@@ -419,16 +437,18 @@ These are instructions, not individual stewards' decisions.</p>
   ]), "bi-lightning-charge")}
 </div>
 <div class="callout watch">
-  <strong>Overtake: confirmed gap, unresolved absolute distances.</strong>
-  The detection gap is <strong>1.0 s</strong>. The PU sheet gives detection loop
-  <strong>L24</strong> and activation loop <strong>L25</strong>, but both lap-distance
-  values remain <strong>TBC</strong>. The later circuit map locates detection at entry
-  to T22 and activation 20 m after T22; those relative locations do not supply missing
-  absolute metre values. <a href="circuit.html">View the FIA circuit map</a>.
+  <strong>Overtake: detection and activation distances now confirmed.</strong>
+  The detection gap is <strong>1.0 s</strong>. FIA Document 25 (Power Unit Information V2,
+  11 September, superseding Document 3) fills in detection loop <strong>L24 at 5160 m</strong>
+  and activation loop <strong>L25 at 5230 m</strong> &mdash; both were marked "TBC" in the
+  original 10 September sheet. The circuit map's relative description (detection at entry
+  to T22, activation 20 m after T22) is consistent with these absolute values.
+  <a href="circuit.html">View the FIA circuit map</a>.
 </div>
 {LENGTH_NOTE}
-<p class="src">Source: <a href="{FIA_PU_URL}" target="_blank" rel="noopener">FIA Power Unit Information,
-Document 3</a>. Tables and graph visually checked against the original PDF, not inferred from another circuit.</p>
+<p class="src">Sources: <a href="{FIA_PU_URL}" target="_blank" rel="noopener">FIA Power Unit Information,
+Document 3</a> and <a href="{FIA_PU_URL.replace("power_unit_information.pdf", "power_unit_information_v2.pdf")}" target="_blank" rel="noopener">Document 25 (V2)</a>.
+Tables and graph visually checked against the original PDFs, not inferred from another circuit.</p>
 <h2 class="sec">Driver-by-driver component use</h2>
 <p>The driver-by-driver <a href="{FIA_BASE}pu_elements_used_per_driver_up_to_now.pdf"
 target="_blank" rel="noopener">FIA PU-elements-used report</a> is now published;
@@ -512,9 +532,11 @@ cheap pit stops for the leaders, but does not give exact stint lengths.</p>
         "Turn 22 can affect both the current and following lap time in lap-time classified sessions.",
         "Double-yellow sectors in free practice trigger lap-time deletion.",
         "The narrow-pit-lane merge rule requires the released car to yield to existing fast-lane traffic when necessary.",
-        "The qualifying/reconnaissance SC2-to-SC1 maximum time is to be announced after FP2.",
+        "The qualifying/reconnaissance SC2-to-SC1 maximum was set at <strong>below 1:42.0</strong> between the Safety Car lines (FIA Document 22, 11 September).",
     ]) + f'<p class="src"><a href="{FIA_NOTES_URL}" target="_blank" rel="noopener">'
-          'FIA Competition Notes, Document 5</a>, 10 September. These are standing instructions, '
+          'FIA Competition Notes, Document 5</a>, 10 September, and '
+          f'<a href="{FIA_SC2SC1_URL}" target="_blank" rel="noopener">'
+          'Document 22</a>, 11 September. These are standing instructions, '
           'not penalties already imposed. <a href="circuit.html">Full circuit notes</a>.</p>',
         "bi-flag", "accent")
     race_control = card("Verstappen's first-lap cut: Red Bull gave the places back", """

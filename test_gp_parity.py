@@ -124,7 +124,9 @@ class GPParityTests(unittest.TestCase):
             self.assertIn("5.414 km", spain[slug]["body"])
             self.assertIn("5.416 km", spain[slug]["body"])
         self.assertIn("7.5 MJ", spain["powerunit"]["body"])
-        self.assertIn("values remain <strong>TBC", spain["powerunit"]["body"])
+        self.assertIn("L24 at 5160 m", spain["powerunit"]["body"])
+        self.assertIn("L25 at 5230 m", spain["powerunit"]["body"])
+        self.assertIn("Document 25", spain["powerunit"]["body"])
         self.assertIn("Team-by-team car presentation submissions", spain["upgrades"]["body"])
 
 
