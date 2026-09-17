@@ -11,6 +11,8 @@ FIA_NOTES_URL = FIA_BASE + "race_directors_competition_notes.pdf"
 FIA_DISPLAY_URL = FIA_BASE + "car_display_procedure.pdf"
 FIA_UPGRADES_URL = FIA_BASE + "car_presentation_submissions.pdf"
 FIA_SC2SC1_URL = FIA_BASE + "race_director_notes_-_sc2_-_sc1_times.pdf"
+FIA_PARC_FERME_URL = FIA_BASE + "parc_ferme_issues.pdf"
+FIA_PARTS_CHANGED_URL = FIA_BASE + "parts_and_parameters_replaced_and_or_changed_during_parc_ferme.pdf"
 FIA_UPGRADES_ASSET = "fia-spain-f5b87d349e3b-c92e9191ede7c2bb"
 UPGRADE_SUBMISSIONS = (
     ("McLaren", 2, (
@@ -584,9 +586,29 @@ medical clearance or a prognosis.</p>
          'rel="noopener">FIA Document 62, car 87</a>. Causes above are as reported; the FIA has not '
          'published separate technical failure-analysis bulletins for these retirements.</p>',
         "bi-wrench-adjustable", "accent")
+    parc_ferme_context = card("Technical Delegate's parc-fermé reports (Docs 60 and 64)", ul([
+        "<strong>Car 87 (Bearman), Doc 60:</strong> the Technical Delegate's report explains the "
+        "exact pit-lane-start breach on Penalties &mdash; Bearman's team fitted a <em>fourth</em> "
+        "energy store, control-electronics unit and MGU-K, one more than the three of each allowed "
+        "for the season under Article B8.2.2, and the car was not resealed within two hours of Q3 "
+        "as required. This is the underlying reason for the pit-lane-start penalty, not just a "
+        "generic \u201cPU element changed\u201d note.",
+        "<strong>Doc 64 parts-and-parameters report:</strong> separately from any penalty, the same "
+        "Technical Delegate approved several teams' parc-fermé part changes under Article B3.5.4, "
+        "including Aston Martin's car 18 (Stroll) ICE inlet water pipe, radiator feed/return pipes "
+        "and header-tank/PRV assembly, and Cadillac's car 77 (Bottas) front brake friction material "
+        "and seals. These are FIA-approved technical replacements, not evidence about the separate "
+        "brake and cooling failures reported above for Stroll's race retirement and Perez's car; the "
+        "FIA has not linked this parts report to either retirement's cause.",
+    ]) + f'<p class="src"><a href="{FIA_PARC_FERME_URL}" target="_blank" rel="noopener">'
+         'FIA Document 60, Technical Delegate\'s Report</a> and '
+         f'<a href="{FIA_PARTS_CHANGED_URL}" target="_blank" rel="noopener">'
+         'FIA Document 64, Parts and Parameters Replaced/Changed During Parc Fermé</a>, '
+         '13 September 2026.</p>',
+        "bi-file-earmark-text", "accent")
     pages["reliability"] = dict(
         kicker="Reliability · completed race",
         title="Reliability & Pit Stops",
         sub="Sourced retirement causes plus the automatic classification and pit-stop analysis.",
-        body=render_reliability(ctx, intro_html=retirement_context))
+        body=render_reliability(ctx, intro_html=retirement_context + parc_ferme_context))
     return pages
