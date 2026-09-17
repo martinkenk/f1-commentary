@@ -183,6 +183,11 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add data assets_src
             git commit -qm "auto-enrichment $(date -u +%FT%TZ)"
+            # A watchdog/editor push may land while this run is refreshing data.
+            # Rebase the small generated commit onto the current main tip so
+            # persistence does not fail merely because the checkout is stale.
+            git fetch origin main
+            git rebase origin/main
             git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           else
             echo "No enrichment changes to persist."
