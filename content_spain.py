@@ -231,7 +231,16 @@ discuss the VSC timing rules that decided the result.</p>
         "Madrid's debut is complete: Antonelli won after a VSC decided the race; "
         "see published FIA aero zones, energy limits and tyre prescriptions below.")
     pages["overview"]["body"] = race_recap + brief + LENGTH_NOTE + lineup + team_brief + pages["overview"]["body"]
-    pages["notes"]["body"] = race_recap + brief + LENGTH_NOTE + lineup + pages["notes"]["body"]
+    pages["notes"]["body"] = (
+        race_recap + brief + LENGTH_NOTE + lineup + pages["notes"]["body"]
+    ).replace(
+        pending("Session-by-session commentary notes", "as the weekend runs", "bi-mic"),
+        card("Session-by-session commentary notes", """
+<p>The Madrid race recap and FIA operating notes above are the verified post-race
+brief. Completed-session classifications and the detailed race sequence are in
+<a href="results.html">Results</a> and <a href="news.html">Weekend News</a>;
+this page does not retain a generic pre-weekend placeholder.</p>
+""", "bi-mic"))
     pages["facts"]["body"] = LENGTH_NOTE + debut + pages["facts"]["body"]
     pages["facts"]["body"] = pages["facts"]["body"].replace(
         pending("Past winners, polesitters and weekend-specific trivia",
@@ -253,6 +262,14 @@ narrative is on <a href="news.html">Weekend News</a>.</p>
       'as-he-reflects-on-one-of-the-best-laps-ive-done-ever.5doHkyflrsYEFZAopuwgdZ" target="_blank" '
       'rel="noopener">Norris on the first pole</a>.</p>', "bi-flag"))
     pages["rookies"]["body"] = lineup + pages["rookies"]["body"].replace(
+        pending("Rookie FP1 line-ups for this round", "in the week before the event"),
+        card("Rookie FP1 line-ups", """
+<p>No separate Madrid FP1 rookie entry is represented in the verified event coverage.
+The confirmed race-seat substitutions above are a different status from the mandatory
+rookie-practice requirement, so they are not presented as an FP1 appearance.</p>
+<p class="src">Checked against the published Madrid lineup coverage and the event
+results; a missing separate FP1 entry is not treated as a driver absence.</p>
+""", "bi-hourglass-split")).replace(
         pending("Reserve or replacement driver changes", "as teams confirm them", "bi-people"), "")
     pages["teams"] = dict(
         kicker="Team watch · post-race",
@@ -461,7 +478,11 @@ Maximum heating is <strong>two hours</strong>: up to <strong>70&deg;C</strong> f
 slicks and intermediates, <strong>40&deg;C</strong> for wets. These are tyre-surface
 temperatures, not blanket-controller settings. FIA/Pirelli may revise the prescriptions
 during the weekend; the preview flags possible changes after FP2.</p>
-{pending("Measured long-run degradation and stint strategy", "pending a FastF1 analysis pass for this event", "bi-graph-down")}
+<div class="callout watch"><i class="bi bi-graph-down"></i>
+<strong>Measured long-run degradation and stint strategy: unavailable in this build.</strong>
+The optional FastF1 analysis did not produce a verified Madrid dataset, so no stint
+lengths, degradation rates or remaining set counts are inferred from the race result.
+</div>
 <h2 class="sec">Stint predictor and remaining tyre sets</h2>
 <p>The race is complete, but this build did not have the optional <code>fastf1</code>
 package available to derive lap-by-lap degradation, stint lengths or remaining

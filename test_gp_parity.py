@@ -98,7 +98,8 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("Past winners, polesitters and weekend-specific trivia: awaiting",
                          pages["facts"]["body"])
         self.assertIn("Antonelli won the Madring's inaugural Grand Prix", pages["moments"]["body"])
-        self.assertIn("pending a FastF1 analysis pass for this event", pages["tyres"]["body"])
+        self.assertIn("Measured long-run degradation and stint strategy: unavailable in this build",
+                      pages["tyres"]["body"])
         self.assertIn("no Madrid Heat Hazard", pages["schedule"]["body"])
         self.assertIn("Hadjar", pages["schedule"]["body"])
         self.assertIn("WEATHER_CARDS", pages["schedule"]["body"])
