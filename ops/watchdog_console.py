@@ -77,7 +77,9 @@ def run_status(path, latest, active):
     record = read_json(path / "status.json")
     if not record and latest.get("run_id") == path.name:
         record = latest
-    status = record.get("status", "unknown")
+    if not record:
+        record = read_json(path / "report.json")
+    status = record.get("status", "unfinished")
     if status == "running" and active not in ("active", "activating", "deactivating"):
         status = "interrupted"
     return status, record.get("mode", "?")
@@ -169,9 +171,9 @@ class Console:
             self.put(row, f"{path.name:21} {status:14} {mode}", attr)
         if not self.history:
             self.put(8, "No runs yet. Press s to start an audit.")
-        self.put(height - 5, "s Start  x Stop  p Pause schedule  r Resume schedule  m Mode")
-        self.put(height - 4, "Enter Report  l Live log  j Journal  g Guidance  i Take over")
-        self.put(height - 3, "Arrows Select  ? Help  q Quit (agent keeps running)")
+        self.put(height - 5, "s Start  x Stop  p Pause  r Resume  m Read-only/publish")
+        self.put(height - 4, "Enter Report  l Log  j Journal  g Guidance  i Takeover")
+        self.put(height - 3, "a GitHub  Up/Down Select  ? Help  q Quit (agent continues)")
         self.put(height - 1, self.message)
         self.screen.refresh()
 
@@ -315,6 +317,22 @@ class Console:
             self.viewer("SERVICE JOURNAL", journal, True)
         elif key == ord("g"):
             self.guidance()
+        elif key == ord("a"):
+            snapshots = []
+            for title, args in (
+                ("RECENT AUTOMATION", ["run", "list", "--limit", "10", "--json",
+                                      "databaseId,workflowName,status,conclusion,url"]),
+                ("OPEN PULL REQUESTS", ["pr", "list", "--state", "open", "--limit", "15",
+                                       "--json", "number,title,isDraft,url,headRefName"]),
+            ):
+                result = subprocess.run(
+                    ["gh", *args, "--repo", "martinkenk/f1-commentary"],
+                    capture_output=True, text=True, timeout=20)
+                if result.returncode:
+                    raise RuntimeError(result.stderr.strip() or "GitHub query failed")
+                snapshots.append(title + "\n" + json.dumps(json.loads(result.stdout), indent=2))
+            text = "\n\n".join(snapshots)
+            self.viewer("GITHUB SNAPSHOT - reopen with a to refresh", lambda: text)
         elif key == ord("i"):
             self.takeover()
         elif key == ord("?"):
@@ -356,6 +374,8 @@ Select a historical run with Up/Down. Enter opens its report; l follows its log.
 Use Page Up/Down and Home/End to scroll. f toggles following. q returns.
 j shows recent systemd journal entries. Service state is authoritative if a
 terminated run left a 'running' status record behind.
+a fetches recent GitHub automation runs and open PRs (read-only snapshot).
+Reopen it to refresh; it does not poll the GitHub API continuously.
 
 g edits persistent guidance for FUTURE runs. Ctrl-G saves; Esc cancels.
 This does not inject text into an active noninteractive agent. Clearing the

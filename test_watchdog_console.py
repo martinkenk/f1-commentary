@@ -63,12 +63,28 @@ class ConsoleTests(unittest.TestCase):
                              ("interrupted", "PUBLISH"))
             self.assertEqual(console.run_status(path, latest, "activating"),
                              ("running", "PUBLISH"))
+            self.assertEqual(console.run_status(path, {}, "inactive"), ("unfinished", "?"))
+            (path / "report.json").write_text('{"status": "read_only"}')
+            self.assertEqual(console.run_status(path, {}, "inactive"), ("read_only", "?"))
 
     def test_systemctl_failure_is_not_reported_as_success(self):
         result = subprocess.CompletedProcess([], 1, "", "permission denied")
         with patch.object(console.subprocess, "run", return_value=result):
             with self.assertRaisesRegex(RuntimeError, "permission denied"):
                 console.systemctl("start", console.SERVICE)
+
+    def test_github_view_fetches_once_without_mutating_remote_state(self):
+        ui = object.__new__(console.Console)
+        ui.viewer = Mock()
+        result = subprocess.CompletedProcess([], 0, "[]", "")
+        with patch.object(console.subprocess, "run", return_value=result) as run:
+            ui.action(ord("a"))
+        self.assertEqual(run.call_count, 2)
+        self.assertEqual(run.call_args_list[0].args[0][:3], ["gh", "run", "list"])
+        self.assertEqual(run.call_args_list[1].args[0][:3], ["gh", "pr", "list"])
+        text = ui.viewer.call_args.args[1]()
+        self.assertIn("RECENT AUTOMATION", text)
+        self.assertIn("OPEN PULL REQUESTS", text)
 
     def test_takeover_stops_writer_then_holds_lock_and_does_not_resume_timer(self):
         with tempfile.TemporaryDirectory() as directory:

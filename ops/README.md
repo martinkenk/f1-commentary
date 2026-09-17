@@ -60,6 +60,7 @@ The console refreshes service/timer status and run history automatically.
 |---|---|
 | Up / Down | Select a run |
 | Enter / `l` / `j` | Read report / follow agent log / view service journal |
+| `a` | Fetch a read-only snapshot of GitHub automation and open PRs |
 | `s` / `x` | Start now / confirm stop of current audit |
 | `p` / `r` | Pause / resume future scheduling (persists across reboot) |
 | `m` | Switch next-run read-only/publish preference |
@@ -76,8 +77,9 @@ then `r` when ready to restart scheduling. Older runs without recorded session
 IDs open the CLI resume picker. New runs record their session IDs automatically.
 
 The console runs as the human operator, outside the restricted agent service.
-Its installed copy is `~/.local/share/f1-watchdog/watchdog_console.py` with launcher
-`~/.local/bin/f1-watchdog`; updating these files does not restart the watchdog.
+Its installed copy is `~/.local/share/f1-watchdog/watchdog_console.py` with launchers
+`/usr/local/bin/f1-watchdog` and `~/.local/bin/f1-watchdog`; updating these files
+does not restart the watchdog.
 The `f1-watchdog` tmux terminal is a convenience entry in the existing browser menu;
 after closing that terminal or a reboot, the launcher remains available from any
 shell. No extra network listener or browser credential is added.
