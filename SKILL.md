@@ -333,6 +333,12 @@ constructor records, and recent winners/grid context. Overview links to this
 record book. Head-to-Head separates historical teammate duels at the venue from
 the existing current-season and current-event comparisons. Preserve useful
 curated stories but remove contradictory "history awaiting research" notices.
+Display historical teammate pairings only when at least one driver is on the
+current-season roster (`season_driver`, derived from official standings).
+Apply the same filter to scorelines and per-edition evidence, using driver IDs
+instead of names or current team. Keep retired former teammates when paired with
+an eligible driver. Retain the full historical dataset so roster refreshes can
+change the visible selection automatically; an empty selection is not a debut.
 
 Keep these statistical definitions visible:
 - Driver starts, best **classified** result, wins, podiums and official poles

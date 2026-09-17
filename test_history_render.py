@@ -39,11 +39,12 @@ PROFILE = {
     }],
     "teammates": {
         "limit": 10, "races": 9, "pairs": [{
-            "team": "Red Bull", "drivers": [{"name": "Sergio Perez"}, {"name": "Max Verstappen"}],
+            "team": "Red Bull", "drivers": [{"id": "per", "name": "Sergio Perez"},
+                                          {"id": "ver", "name": "Max Verstappen"}],
             "Qualifying": {"wins": [1, 2], "excluded": 1},
             "Race": {"wins": [2, 1], "excluded": 1},
             "events": [{
-                "year": 2025, "name": "Azerbaijan Grand Prix",
+                "race_id": 1142, "year": 2025, "name": "Azerbaijan Grand Prix",
                 "url": "https://github.com/f1db/f1db/tree/main/src/data/seasons/2025/races/17-azerbaijan",
                 "Qualifying": {"positions": [3, None], "statuses": ["classified", "no-time"],
                                "winner": None, "reason": "No qualifying time"},
@@ -101,6 +102,42 @@ class HistoryRenderTests(unittest.TestCase):
         for value in ("3 / 9", "known official polesitter", "Recent winners",
                       "Starting grid is race", "Car starts"):
             self.assertIn(value, body)
+
+    def test_historical_pairs_require_at_least_one_current_season_driver(self):
+        original = copy.deepcopy(self.record["profile"])
+        for active in ({"per", "ver"}, {"per"}, {"ver"}, set()):
+            with self.subTest(active=active):
+                self.record["profile"] = copy.deepcopy(original)
+                for row in self.record["profile"]["drivers"]:
+                    row["season_driver"] = row["id"] in active
+                body = history_render.render(self.ctx, "h2h")
+                for name in ("Sergio Perez", "Max Verstappen"):
+                    if active:
+                        self.assertIn(name, body)
+                    else:
+                        self.assertNotIn(name, body)
+                self.assertEqual('id="history-teammates"' in body, bool(active))
+                self.assertEqual("Per-edition results" in body, bool(active))
+                if not active:
+                    self.assertIn("No comparable previous teammate pairings involving", body)
+                    self.assertNotIn("A new circuit", body)
+
+    def test_retired_only_pairs_and_their_evidence_are_hidden_without_mutating_source(self):
+        retired = copy.deepcopy(self.record["profile"]["teammates"]["pairs"][0])
+        retired["team"] = "Former Team"
+        retired["drivers"] = [{"id": "old-a", "name": "Former A"},
+                              {"id": "old-b", "name": "Former B"}]
+        retired["events"][0].update(race_id=900, year=2015, name="Old GP")
+        self.record["profile"]["teammates"]["pairs"].append(retired)
+        self.record["profile"]["teammates"]["excluded_events"] = [
+            {"team": "Former Team", "race_id": 900, "year": 2015, "reason": "Shared drive"},
+        ]
+        before = copy.deepcopy(self.record)
+        body = history_render.render(self.ctx, "h2h")
+        for text in ("Former Team", "Former A", "Former B", "Old GP"):
+            self.assertNotIn(text, body)
+        self.assertIn("Max Verstappen", body)
+        self.assertEqual(self.record, before)
 
     def test_retained_snapshot_keeps_records_but_shows_refresh_failure(self):
         self.record["error"] = "F1DB unavailable; retained last-good snapshot"

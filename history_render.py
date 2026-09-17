@@ -219,19 +219,24 @@ def _methodology(record):
 
 def _teammates(profile):
     history = profile["teammates"]
+    current_drivers = {driver["id"] for driver in profile["drivers"] if driver["season_driver"]}
+    pairs = [pair for pair in history["pairs"]
+             if any(driver["id"] in current_drivers for driver in pair["drivers"])]
     out = ['<h2 class="sec">Previous teammate battles at this circuit</h2>']
     out.append(
         f'<p>Up to the last {_e(history["limit"])} completed venue Grands Prix before this weekend; '
         f'{_e(history["races"])} editions in scope. Actual teammates for each edition, '
-        'not today&rsquo;s line-up projected into the past. Qualifying uses its own '
+        'not today&rsquo;s line-up projected into the past. Only pairings with at least one '
+        'driver on the current-season roster are shown; former teammates can still appear. '
+        'Qualifying uses its own '
         'classification, not the race grid. Scorelines show who placed ahead, not pure pace.</p>'
     )
-    if not history["pairs"]:
-        out.append('<div class="callout watch">No comparable previous teammate pairings in this '
-                   'scope. A new circuit has no historical duel to manufacture.</div>')
+    if not pairs:
+        out.append('<div class="callout watch">No comparable previous teammate pairings involving '
+                   'a current-season driver in this scope.</div>')
     else:
         rows = []
-        for pair in history["pairs"]:
+        for pair in pairs:
             a, b = pair["drivers"]
             cells = [_e(pair["team"]), f'{_e(a["name"])} / {_e(b["name"])}']
             for session in ("Qualifying", "Race"):
@@ -242,7 +247,7 @@ def _teammates(profile):
         out.append(_table(["Constructor", "Driver A / Driver B", "Qualifying A-B", "Race A-B"],
                           rows, filterable=True, table_id="history-teammates"))
         out.append('<details><summary>Per-edition results and exclusions</summary>')
-        for pair in history["pairs"]:
+        for pair in pairs:
             a, b = pair["drivers"]
             out.append(f'<h3>{_e(pair["team"])}: {_e(a["name"])} / {_e(b["name"])}</h3>')
             evidence = []
@@ -262,7 +267,9 @@ def _teammates(profile):
                 evidence.append(cells)
             out.append(_table(["Edition", "Qualifying A / B", "Race A / B"], evidence))
         out.append("</details>")
-    excluded = history.get("excluded_events", [])
+    visible_events = {(pair["team"], event["race_id"]) for pair in pairs for event in pair["events"]}
+    excluded = [event for event in history.get("excluded_events", [])
+                if (event["team"], event["race_id"]) in visible_events]
     if excluded:
         out.append('<details><summary>Unpaired / shared-drive / multi-entry exclusions</summary><ul>')
         for event in excluded:
