@@ -1,5 +1,25 @@
 ---
 name: Critical race coverage
+timeout-minutes: 45
+runtimes:
+  python:
+    version: "3.12"
+  uv:
+    version: "0.8.22"
+steps:
+  - name: Prepare portable coverage Python
+    timeout-minutes: 10
+    env:
+      UV_PYTHON_INSTALL_DIR: /tmp/gh-aw/python/uv-python
+    run: |
+      set -euo pipefail
+      uv venv --python 3.12 --python-preference only-managed \
+        --seed /tmp/gh-aw/python/venv
+      /tmp/gh-aw/python/venv/bin/python3 -m pip install \
+        --disable-pip-version-check pypdf pymupdf
+      /tmp/gh-aw/python/venv/bin/python3 -c \
+        'import sys, platform, pypdf, pymupdf; assert platform.python_implementation() == "CPython"; assert sys.version_info[:2] == (3, 12); print(sys.executable, sys.version)'
+      echo "COVERAGE_PYTHON=/tmp/gh-aw/python/venv/bin/python3" >> "$GITHUB_ENV"
 on:
   workflow_dispatch:
   schedule:
@@ -39,8 +59,11 @@ safe-outputs:
     allowed-files:
       - "content_*.py"
       - "circuits.py"
+      - "f1lib.py"
+      - "standings.py"
       - "build.py"
       - "test_*.py"
+      - "data/*.json"
       - "data/**/*.json"
       - "assets_src/**"
     protected-files: blocked
@@ -57,9 +80,11 @@ safe-outputs:
     allowed-files:
       - "content_*.py"
       - "circuits.py"
+      - "f1lib.py"
       - "standings.py"
       - "build.py"
       - "test_*.py"
+      - "data/*.json"
       - "data/**/*.json"
       - "assets_src/**"
     protected-files: request_review
@@ -76,6 +101,39 @@ including the 17-page subfeature matrix, source schemas, failure semantics,
 historical parity and dated Italy/Spain regression examples. This workflow uses
 its REVIEW policy: deterministic data/screenshots auto-publish separately;
 editorial PR changes still require review/merge. Do not claim otherwise.
+
+## Execution budget and safe submission
+
+The agent has a 45-minute execution budget. Spend at most 25 minutes on research
+and edits, reserve the remainder for validation and safe-output submission, and
+aim to submit by minute 35. Audit every surface, but implement the highest-impact
+coherent subset first. Record remaining gaps in the PR rather than expanding
+scope indefinitely and losing all work to the timeout. Do not start a second
+round of discretionary edits after final validation.
+
+Use `/tmp/gh-aw/python/venv/bin/python3` for **every** Python command below and
+in `SKILL.md`; bare `python3` can resolve to an older PyPy in the sandbox.
+The workflow prepares this managed CPython 3.12 environment and PDF dependencies
+before execution. Run one sandbox smoke check importing `pypdf` and `pymupdf`
+and checking `sys.version_info[:2] == (3, 12)`. If that fails, report the exact
+environment blocker; do not try alternate runtimes, sudo, chmod or syntax rewrites.
+
+Respect sandbox denials: do not retry a denied operation via a different tool,
+interpreter or host, or probe unrelated domains. Record the specific blocked
+source and continue with accessible evidence. A denied browser/local-server
+operation is not a reason to abandon offline generated-page/image validation.
+Do not change the firewall, tool permissions or protected-file policy.
+
+Before submitting, inspect the entire patch against its actual base: `origin/main`
+for a new PR or `origin/<PR-head>` for an update. Run
+`/tmp/gh-aw/python/venv/bin/python3 coverage_preflight.py --base <base-ref>`
+to inspect all changes. Commit the intended edits, then run the same command with
+`--committed` immediately before calling the safe-output tool. The final check
+uses the serialized format-patch size, including every commit and mail headers,
+not just the smaller net diff. Keep refreshed root-level standings
+and season-H2H JSON in scope. Shared rendering corrections in `f1lib.py` are
+allowed when directly required by the coverage fix; workflow/security settings
+remain outside the editorial scope. Do not submit a known rejected patch.
 
 ## Avoid duplicate work
 

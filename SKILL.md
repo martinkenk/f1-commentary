@@ -79,6 +79,51 @@ that limit, commit verified discovery URLs but not an oversized media manifest/
 image set; deployment renders the discovered public PDFs. Never commit a media
 manifest pointing at uncommitted images, and report any remaining source block.
 
+### Scheduled-editor execution and patch preflight
+
+The scheduled editor has a 45-minute execution budget: research/edit for at most
+25 minutes, aim to submit by minute 35, and reserve the remaining time for
+validation and safe outputs. Audit all surfaces, but deliver a coherent bounded
+set of high-impact fixes and list remaining gaps rather than lose the entire
+audit to a timeout. Stop discretionary edits once final validation begins.
+Use configured CPython 3.12 and the prepared PDF dependencies. In gh-aw the
+explicit interpreter is `/tmp/gh-aw/python/venv/bin/python3`; substitute it for
+every `python3` command in this runbook. Setup uses managed CPython so native
+wheels work inside the sandbox, and the path avoids PyPy taking PATH precedence.
+Verify the
+interpreter once; never "fix" valid 3.12 source just because `python3` resolved
+to an older PyPy. Respect sandbox denials without probing alternative tools or
+hosts; record inaccessible evidence and use offline validation if a browser
+or local server cannot run.
+
+Before either creating or updating an editorial PR, run:
+
+```bash
+python3 coverage_preflight.py --base origin/main
+# For an existing PR, use origin/<PR-head> instead.
+# After committing intended edits, perform the authoritative size check:
+python3 coverage_preflight.py --base origin/main --committed
+```
+
+The preflight reads both policies from the compiled workflow (one source of
+truth). The preliminary check includes committed, working-tree and untracked
+changes without altering the real index. The final `--committed` check requires
+a clean tree and measures `git format-patch` plus the framework's base header,
+including repeated changes across commits; net binary-diff size alone can
+underestimate the actual enforced transport size. Safe outputs remain the
+authority for protected files and repository policy. Keep changes outside the
+editorial allowlist out of the submitted patch and report their need separately.
+Do not bypass a rejection by broadening permissions from an editorial run.
+
+The September 11-16 failures exposed that gh-aw's `data/**/*.json` glob requires
+an intervening directory: it excludes `data/standings_2026.json` and
+`data/season_h2h_2026.json`. Both PR policies now explicitly include `data/*.json`
+as well as nested JSON, and allow directly related `f1lib.py` rendering repairs.
+Keep create/update scopes aligned. Recompile `.lock.yml` after workflow changes;
+`test_coverage_preflight.py` guards these paths and the 10 MiB / 100-file limits.
+FIA 403/504/timeouts remain explicit upstream failures, with last-good data
+retained; a green deployment must not be described as a complete source refresh.
+
 ## 2. Architecture and inventory
 
 `build.py` reads `data/calendar_2026.json`, uses chronological rounds from
