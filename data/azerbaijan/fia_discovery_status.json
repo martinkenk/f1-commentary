@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-09-17T13:48:21.700861+00:00",
+  "checked_at": "2026-09-17T16:00:29.956950+00:00",
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Azerbaijan%20Grand%20Prix",
   "ok": false,
-  "error": "FIA documents page unavailable: HTTP Error 500: Internal Server Error; season fallback failed: Azerbaijan Grand Prix is not listed in the FIA season index"
+  "error": "FIA documents page unavailable: HTTP Error 403: Forbidden; season fallback failed: HTTP Error 403: Forbidden"
 }
