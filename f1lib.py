@@ -382,7 +382,8 @@ def fetch_weather(ctx):
 def schedule_rows(ctx):
     off = ctx.get("tz_offset", 1)
     rows = []
-    for name, wd, date, local in ctx["sessions"]:
+    for session in ctx["sessions"]:
+        name, wd, date, local = _normalise_session(session)
         rows.append(
             f"<tr><td>{name}</td><td>{wd}</td>"
             f"<td>{local}</td><td>{_east_cell(date, local, off)}</td></tr>"
@@ -400,7 +401,8 @@ def weather_cards(ctx):
             "the per-session forecast/actuals.</div>"
         )
     cards = []
-    for name, wd, date, local in ctx["sessions"]:
+    for session in ctx["sessions"]:
+        name, wd, date, local = _normalise_session(session)
         w = weather.get(name)
         if not w:
             continue
@@ -2220,6 +2222,24 @@ CSS += r"""
 # --------------------------------------------------------------------------
 # Build driver
 # --------------------------------------------------------------------------
+def _normalise_session(session):
+    """Return (label, weekday, date, local_time) for either dict or tuple inputs."""
+    if isinstance(session, dict):
+        name = session.get("label") or session.get("name") or ""
+        date = session.get("date") or session.get("day") or ""
+        local = session.get("time") or session.get("local_time") or session.get("local") or ""
+        wd = session.get("weekday") or session.get("wd") or ""
+        if not wd and date:
+            try:
+                wd = datetime.date.fromisoformat(date).strftime("%a")
+            except (TypeError, ValueError):
+                wd = ""
+        return name, wd, date, local
+    if isinstance(session, (list, tuple)) and len(session) >= 4:
+        return session[0], session[1], session[2], session[3]
+    return "", "", "", ""
+
+
 def event_status(ctx, today=None):
     """Classify a GP as 'past', 'live' or 'future' from its session dates.
 
@@ -2229,7 +2249,8 @@ def event_status(ctx, today=None):
     """
     today = today or datetime.date.today()
     dates = []
-    for _n, _wd, date, _t in ctx.get("sessions", []):
+    for session in ctx.get("sessions", []):
+        _name, _wd, date, _local = _normalise_session(session)
         try:
             dates.append(datetime.date.fromisoformat(date))
         except (ValueError, TypeError):
@@ -2247,7 +2268,8 @@ def days_to_start(ctx, today=None):
     """Days until the first session, negative once the weekend has started."""
     today = today or datetime.date.today()
     dates = []
-    for _n, _wd, date, _t in ctx.get("sessions", []):
+    for session in ctx.get("sessions", []):
+        _name, _wd, date, _local = _normalise_session(session)
         try:
             dates.append(datetime.date.fromisoformat(date))
         except (ValueError, TypeError):

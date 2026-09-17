@@ -6,6 +6,23 @@ from unittest.mock import patch
 
 import calendar
 
+import f1lib
+
+
+class SessionCompatibilityTests(unittest.TestCase):
+    def test_session_dicts_are_normalized_for_status_and_rendering(self):
+        ctx = {"sessions": [
+            {"label": "Practice 1", "date": "2026-09-11", "time": "11:30"},
+            {"label": "Race", "date": "2026-09-13", "time": "15:00"},
+        ]}
+        self.assertEqual(f1lib.event_status(ctx, datetime.date(2026, 9, 12)), "live")
+        self.assertEqual(f1lib.days_to_start(ctx, datetime.date(2026, 9, 10)), 1)
+        rows = f1lib.schedule_rows({"sessions": ctx["sessions"], "tz_offset": 1})
+        self.assertIn("Practice 1", rows)
+        self.assertIn("Race", rows)
+        self.assertIn("11:30", rows)
+        self.assertIn("Fri", rows)
+
 
 class TrackMapRefreshTests(unittest.TestCase):
     def event(self, days=0):
