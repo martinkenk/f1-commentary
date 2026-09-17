@@ -123,6 +123,13 @@ Keep create/update scopes aligned. Recompile `.lock.yml` after workflow changes;
 `test_coverage_preflight.py` guards these paths and the 10 MiB / 100-file limits.
 FIA 403/504/timeouts remain explicit upstream failures, with last-good data
 retained; a green deployment must not be described as a complete source refresh.
+The editor and deployment share the `pages` workflow concurrency group, with no
+in-progress cancellation. This serializes automatic data writers across the
+whole audit/submission cycle. Editor setup fast-forwards main after waiting for
+that lock. Do not dispatch a deployment from inside the locked editorial run.
+The publication guard fails the run if safe outputs report a code-push error:
+the pinned framework can otherwise finish green after a rebase conflict without
+creating a PR. Always confirm the actual PR/link, not only the run conclusion.
 
 ## 2. Architecture and inventory
 

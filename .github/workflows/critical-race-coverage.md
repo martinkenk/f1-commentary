@@ -1,6 +1,9 @@
 ---
 name: Critical race coverage
 timeout-minutes: 45
+concurrency:
+  group: pages
+  cancel-in-progress: false
 runtimes:
   python:
     version: "3.12"
@@ -13,6 +16,8 @@ steps:
       UV_PYTHON_INSTALL_DIR: /tmp/gh-aw/python/uv-python
     run: |
       set -euo pipefail
+      git fetch origin main
+      git merge --ff-only origin/main
       uv venv --python 3.12 --python-preference only-managed \
         --seed /tmp/gh-aw/python/venv
       /tmp/gh-aw/python/venv/bin/python3 -m pip install \
@@ -20,6 +25,22 @@ steps:
       /tmp/gh-aw/python/venv/bin/python3 -c \
         'import sys, platform, pypdf, pymupdf; assert platform.python_implementation() == "CPython"; assert sys.version_info[:2] == (3, 12); print(sys.executable, sys.version)'
       echo "COVERAGE_PYTHON=/tmp/gh-aw/python/venv/bin/python3" >> "$GITHUB_ENV"
+jobs:
+  verify-publication:
+    needs: [agent, safe_outputs]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Fail on deferred code-push errors
+        env:
+          CODE_PUSH_FAILURE_COUNT: ${{ needs.safe_outputs.outputs.code_push_failure_count }}
+        run: |
+          if [ "${CODE_PUSH_FAILURE_COUNT:-0}" != "0" ]; then
+            echo "::error::The editorial patch could not be pushed. Inspect the safe-output conflict details; no successful publication is claimed."
+            exit 1
+          fi
 on:
   workflow_dispatch:
   schedule:
@@ -110,6 +131,9 @@ aim to submit by minute 35. Audit every surface, but implement the highest-impac
 coherent subset first. Record remaining gaps in the PR rather than expanding
 scope indefinitely and losing all work to the timeout. Do not start a second
 round of discretionary edits after final validation.
+The entire workflow shares the `pages` concurrency group with deployment so
+automatic data commits cannot race the editorial PR submission. Setup fast-forwards
+the checkout after acquiring that lock; do not launch a deployment from this run.
 
 Use `/tmp/gh-aw/python/venv/bin/python3` for **every** Python command below and
 in `SKILL.md`; bare `python3` can resolve to an older PyPy in the sandbox.

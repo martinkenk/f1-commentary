@@ -3,11 +3,35 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
+import re
 
 import coverage_preflight as preflight
 
 
 class CoveragePreflightTests(unittest.TestCase):
+    def test_editor_serializes_data_writers_and_reports_failed_pushes(self):
+        lock = preflight.LOCK.read_text()
+        concurrency = re.search(r"^concurrency:\n((?:  .*\n)+)", lock, re.M)[1]
+        self.assertIn("group: pages", concurrency)
+        self.assertIn("cancel-in-progress: false", concurrency)
+        deploy = (preflight.ROOT / ".github/workflows/deploy.yml").read_text()
+        self.assertIn("group: pages", deploy)
+        guard = lock.split("  verify-publication:\n", 1)[1]
+        self.assertIn("- agent\n      - safe_outputs", guard)
+        self.assertIn("needs.safe_outputs.outputs.code_push_failure_count", guard)
+        script = re.search(
+            r"name: Fail on deferred code-push errors\n        run: \|\n"
+            r"((?:          .*\n)+)", guard)[1]
+        script = "\n".join(line[10:] for line in script.splitlines())
+        for count, expected in [("", 0), ("0", 0), ("1", 1), ("3", 1)]:
+            result = subprocess.run(["bash", "-c", script],
+                                    env=dict(os.environ, CODE_PUSH_FAILURE_COUNT=count),
+                                    capture_output=True)
+            self.assertEqual(result.returncode, expected)
+        self.assertIn("git merge --ff-only origin/main", lock)
+        self.assertIn("/tmp/gh-aw/python/venv/bin/python3", lock)
+        self.assertIn("--python-preference only-managed", lock)
+
     def test_actual_policies_allow_collector_outputs_and_shared_rendering(self):
         paths = ["data/standings_2026.json", "data/season_h2h_2026.json",
                  "data/spain/news_highlights.json", "data/spain/nested/source.json",
