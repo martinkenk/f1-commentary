@@ -1351,15 +1351,24 @@ def auto_penalties(ctx):
 # Page shell (sidebar + hero + body). GP context drives all labels/nav.
 # --------------------------------------------------------------------------
 def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_html, depth=1):
+    import history_render
     import news_briefing
 
     GP = ctx
+    history = history_render.render(ctx, active_slug)
+    if active_slug == "h2h" and history:
+        body_html = ('<p class="history-links"><a href="#circuit-history">'
+                     'Previous teammate battles at this circuit</a></p>' + body_html + history)
+    elif active_slug == "overview":
+        body_html = history + body_html
     if active_slug == "news":
         body_html = '<div id="full-news"></div>' + body_html
     if active_slug in ("overview", "news"):
         body_html = news_briefing.render(ctx, os.path.join(DATA_DIR, ctx["dir"])) + body_html
     body_html = (render_fia_documents(ctx, active_slug) + body_html
                  + render_fia_media(ctx, active_slug, body_html))
+    if active_slug in ("circuit", "facts"):
+        body_html = history + body_html
     base = "../" * depth
     items = []
     for slug, fname, icon, short, _long in ctx["nav"]:
@@ -1677,6 +1686,17 @@ a:hover{color:#ffb3b0}
 .stat-val{font-weight:900;font-size:26px;color:#fff;line-height:1.1}
 .stat-lbl{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
 .stat-sub{display:block;color:#6d6d82;font-size:12px;margin-top:2px}
+
+/* Sourced pre-weekend circuit record book */
+.circuit-history{min-width:0;margin-bottom:24px;scroll-margin-top:20px}
+.circuit-history details{margin:12px 0}
+.circuit-history summary{cursor:pointer;font-weight:700;padding:8px 0}
+.circuit-history summary:focus-visible{outline:2px solid var(--f1-red);outline-offset:4px}
+.circuit-history .history-records{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
+.circuit-history .history-records .info-card{margin-bottom:0}
+.circuit-history .history-note{color:var(--muted);font-size:13px;margin-top:4px}
+.circuit-history .history-years{display:block;color:var(--muted);font-size:12px}
+.history-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0}
 
 /* Tables */
 .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-bottom:18px;background:var(--panel)}

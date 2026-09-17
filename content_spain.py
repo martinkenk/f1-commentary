@@ -162,7 +162,7 @@ it does not rule out setup changes or previously introduced parts.</p>
 def build_pages(ctx, env):
     pages = build_generic(ctx, env)
     debut = card("A new venue, not Barcelona or Jarama", """
-<p><strong>No previous Formula 1 Grand Prix has been held at the Madring.</strong>
+<p><strong>Before its 13 September 2026 debut, no Formula 1 Grand Prix had been held at the Madring.</strong>
 Past winners, polesitters, race lap records and current-grid starts or best finishes
 at this circuit are therefore <strong>not applicable before its debut</strong>,
 not missing historical research. Simulator laps and Formula 3 testing are not F1 race records.</p>

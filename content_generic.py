@@ -16,6 +16,7 @@ come from ``data/calendar_2026.json`` via ``calendar.py``.
 """
 from f1lib import card, stat, ul
 import datetime
+import circuit_history
 
 
 def pending(what, when="", icon="bi-hourglass-split"):
@@ -70,6 +71,7 @@ def build_pages(ctx, env):
     length = cal.get("circuit_length") or ""
     distance = cal.get("race_distance") or ""
     first_gp = cal.get("first_gp") or ""
+    history_ready = bool(circuit_history.context(ctx).get("profile"))
     fia_url = ctx.get("fia_url", "")
     P = {}
 
@@ -359,7 +361,7 @@ def build_pages(ctx, env):
   {card("Circuit notes", ul_or(ref.get("notes")), "bi-journal-text")}
 </div>
 
-{pending("Past winners, polesitters and weekend-specific trivia",
+{"" if history_ready else pending("Past winners, polesitters and weekend-specific trivia",
          "in the official preview material for the round", "bi-bar-chart")}
 """)
 

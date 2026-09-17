@@ -30,8 +30,20 @@ class Images(HTMLParser):
 def inventory(gps, root=None):
     root = Path(root or build.ROOT)
     today = datetime.datetime.now(datetime.timezone.utc).date()
-    events = []
+    events, histories = [], {}
     for ctx in gps:
+        year = int(ctx.get("year", build.SEASON))
+        if year not in histories:
+            history = {}
+            for suffix in ("", "_status"):
+                path = root / "data" / f"circuit_history_{year}{suffix}.json"
+                value = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+                if not isinstance(value, dict):
+                    raise ValueError(f"Expected a circuit-history JSON object: {path}")
+                history[suffix] = value
+            histories[year] = history
+        history = histories[year]
+        profile = history[""].get("profiles", {}).get(ctx["dir"], {})
         directory = root / "data" / ctx["dir"]
         stored, records = {}, {}
         for path in sorted(directory.glob("*.json")):
@@ -78,6 +90,15 @@ def inventory(gps, root=None):
             "fia_discovery": records.get("fia_discovery_status.json", {}),
             "fia_media_errors": media.get("errors", []),
             "fia_documents_without_automatic_screenshots": uncached,
+            "circuit_history": {
+                "available": bool(profile),
+                "source": history[""].get("source", {}),
+                "refresh": history["_status"],
+                "completed_venue_races": profile.get("completed_races"),
+                "named_gp": profile.get("grand_prix"),
+                "driver_records": len(profile.get("drivers", [])),
+                "historical_teammate_pairs": len(profile.get("teammates", {}).get("pairs", [])),
+            },
             "editorial_review_required": True,
         })
     return {

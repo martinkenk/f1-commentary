@@ -86,6 +86,17 @@ jobs:
           echo "::warning::Season head-to-head refresh incomplete; last-good classifications are retained."
           echo "## Season head-to-head refresh incomplete — inspect official results logs" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Refresh historical circuit records
+        id: circuit_history
+        continue-on-error: true
+        run: python3 circuit_history.py
+
+      - name: Report incomplete circuit history
+        if: steps.circuit_history.outcome == 'failure'
+        run: |
+          echo "::warning::F1DB circuit-history refresh failed or is incomplete. Retaining the last sourced snapshot."
+          echo "## Circuit history refresh incomplete — inspect F1DB source status" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Auto-enrich (article cards + FIA decision structuring)
         id: enrichment
         # Extracts new F1.com / The Race articles into news cards and structures

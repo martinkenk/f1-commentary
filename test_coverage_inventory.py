@@ -21,6 +21,8 @@ class InventoryTests(unittest.TestCase):
             self.assertEqual(len(event["broken_local_images"]), 1)
             self.assertEqual(event["fia_documents_without_automatic_screenshots"], [])
             self.assertTrue(event["editorial_review_required"])
+            self.assertFalse(event["circuit_history"]["available"])
+            self.assertIsNone(event["circuit_history"]["completed_venue_races"])
 
     def test_reports_uncached_sources_and_actual_discovery_failure(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -37,6 +39,26 @@ class InventoryTests(unittest.TestCase):
             self.assertEqual(event["fia_discovery"]["error"], "HTTP 403")
             self.assertEqual(event["fia_documents_without_automatic_screenshots"],
                              ["power_unit_information.pdf"])
+
+    def test_history_debut_and_failed_refresh_are_distinct_from_missing(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "data").mkdir()
+            (root / "data/circuit_history_2026.json").write_text(json.dumps({
+                "source": {"release": "v2026.14.0"},
+                "profiles": {"spain": {"completed_races": 0, "drivers": [],
+                                      "grand_prix": {"completed_races": 55},
+                                      "teammates": {"pairs": []}}},
+            }))
+            (root / "data/circuit_history_2026_status.json").write_text(json.dumps({
+                "ok": False, "error": "Checksum mismatch",
+            }))
+            ctx = {"dir": "spain", "race_date": "2026-09-13", "sessions": [],
+                   "nav": [], "pages": coverage_inventory.inventory}
+            history = coverage_inventory.inventory([ctx], root)["events"][0]["circuit_history"]
+            self.assertTrue(history["available"])
+            self.assertEqual(history["completed_venue_races"], 0)
+            self.assertEqual(history["refresh"]["error"], "Checksum mismatch")
 
 
 if __name__ == "__main__":

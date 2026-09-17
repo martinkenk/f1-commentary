@@ -875,8 +875,8 @@ The PDFs and their tables were visually checked on 10 September 2026.</p>
 <p>The recent results above identify Monza wins for Verstappen (2022, 2023, 2025) and
 Leclerc (2024); the historical moments below add Leclerc's 2019 and Gasly's 2020 victories.
 Hamilton shares the five-win venue record. Antonelli joins the winners in 2026.
-This is a selected winners reference, not a complete current-grid table of starts,
-poles or best finishes; those totals require a separate historical-results audit.</p>
+This is a selected winners reference. The sourced record book above provides
+starts, poles and best classified finishes with an explicit pre-weekend cutoff.</p>
 <p class="src"><a href="moments.html">Sourced Monza moments</a> /
 <a href="{RACE_REPORT_URL}" target="_blank" rel="noopener">2026 Formula1.com race report</a>.
 Driver records must be kept distinct from the team for which each historic win was achieved.</p>

@@ -152,6 +152,7 @@ generic content. `circuits.py` supplies venue coordinates, character and history
 | `calendar.py` | F1 calendar, local session times, race/result IDs, statistics, official maps |
 | `standings.py` | Atomic official driver **and** constructor snapshot; derived gaps and freshness |
 | `season_h2h.py` | Official season qualifying/race ledger, replacement-aware scorelines and per-round evidence |
+| `circuit_history.py`, `history_render.py` | F1DB-backed pre-weekend venue/GP editions, driver/constructor records, recent winners and historical teammate comparisons |
 | `enrich.py`, `backfill_meta.py` | Complete FIA discovery, decision/article extraction, retries and news metadata |
 | `news_briefing.py` | Top-of-page collated news; expiry, session/feed-change detection and automatic priority fallback |
 | `fia_media.py` | Source-faithful PDF screenshot download/render/cache; no invented interpretation |
@@ -209,6 +210,8 @@ they contain clean-lap counts, compound, tyre-life bounds, mean time and consist
 | `calendar_<year>.json` | Object with `events`; each has slug, chronological round, dates/sessions, sprint, race_id/results_slug, circuit stats/map |
 | `standings_<year>.json` | Official timestamped driver/constructor snapshot and source URLs; use `standings.context(SEASON)` rather than duplicate point constants |
 | `season_h2h_<year>.json` | `year`, `checked_at`, expected session keys, per-source errors, cached qualifying/race sessions with actual drivers/teams/positions/status and source URLs |
+| `circuit_history_<year>.json` | Derived F1DB circuit profiles with release/checksum/license provenance, explicit event cutoffs, driver/constructor records and bounded historical teammate evidence |
+| `circuit_history_<year>_status.json` | Latest refresh `ok`, `checked_at`, `release`, cache/error/last-good state; failure must not replace the historical snapshot with empty records |
 | `<gp>/news_auto.json` | Array: title, summary, source URL, source kind, session label, display `when`, sortable ISO `date` |
 | `<gp>/news_highlights.json` | Reviewed `items` with topic/title/date/summary/why_it_matters/sources, `reviewed_at`, `expires_at`, `through_session`, `feed_fingerprint` |
 | `<gp>/penalties_auto.json` | Array of document/no/driver/team/session/fact/outcome/kind and source URL |
@@ -235,6 +238,7 @@ Do not add these as mandatory imports to the standard-library build.
 python3 standings.py
 python3 season_h2h.py
 python3 calendar.py --maps-only
+python3 circuit_history.py
 LLM_FAKE=1 python3 enrich.py --max 25
 python3 fia_media.py
 python3 fastf1_analysis.py --active
@@ -267,7 +271,7 @@ points. Tables and all current headline/gap prose use the same context `summary`
 `as_of`, `notice`, driver and constructor rows. More than 24h old warns visibly.
 Current season totals are not historical "entering this GP" standings.
 
-## 4. Sources, FIA PDFs and images
+## 4. Sources, historical records, FIA PDFs and images
 
 Primary sources first: FIA decisions/technical papers, Formula1.com official
 results/calendar and reports, Pirelli, official team/driver announcements. The Race
@@ -277,6 +281,78 @@ Article bodies/JSON-LD often carry headline/datePublished not present in listing
 Access varies per article: do not assume everything past the lede is gated, and
 do not bypass access controls. Summarize facts and short necessary attributed
 quotations; do not copy whole articles.
+
+### Historical circuit record book
+
+Use [F1DB](https://github.com/f1db/f1db), licensed
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), as the deterministic
+historical-results source. `python3 circuit_history.py` discovers the latest
+release, verifies its archive against the published SHA-256 checksum, and
+derives the committed snapshot. Preserve the displayed attribution, license,
+release link and explicit statement that the statistics are derived. The
+release-based historical feed does not replace live Formula1.com standings or
+session results, or FIA regulatory/technical documents. The
+collector is standard-library-only; builds read local JSON and never download
+F1DB. Deployment runs the refresh automatically and reports failures separately.
+Do not relabel a failed refresh as a successful new snapshot.
+The unchanged-release cache also considers the relevant calendar, roster and
+elapsed race dates. Use `python3 circuit_history.py --force` for a deliberate
+rebuild, or `--cache-dir <path>` for a persistent source archive cache; never
+commit archives. The snapshot includes all 23 calendar profiles even though the
+site currently renders 14 GPs; the inventory reports each rendered GP's history
+availability, source status, driver and historical-pair counts.
+
+[StatsF1](https://www.statsf1.com/en/default.aspx) is an additional editorial
+reference suggested by the owner, not the bulk data feed. Its requested homepage
+and suggested Baku reference URLs returned HTTP 404 from this environment on
+17 September 2026. Do not claim a StatsF1 cross-check happened when it could not
+be opened, copy its prose/database, invent working deep links, or assume that
+F1DB's license applies to StatsF1.
+
+The record book is **before the selected weekend**, including when the page is
+viewed after that race. The current event's result belongs in Results and season
+H2H, not silently added to a pre-weekend historical tally. State the cutoff and
+release coverage prominently. Scheduled races without a published classification,
+cancelled editions, sprints and non-championship races are not completed Grands
+Prix. An old release may miss prior races; a successful HTTP request alone does
+not establish completeness.
+
+**Venue and event name are separate identities.** Count all World Championship
+Grands Prix at the F1DB circuit (all its layouts), then break them down by Grand
+Prix name. Separately count that named Grand Prix across all venues; do not count
+by country or assume one event per country per year. Before Baku 2026 there were
+nine venue races: European 2016 and eight Azerbaijan editions, with no race in
+2020. Thus 2026 is scheduled as the **10th Baku race / 9th Azerbaijan GP**.
+Spain 2026 is Madring, not Barcelona or Jarama; Bahrain 2026 in this calendar is
+Sepang, not Sakhir. Validate the calendar/source circuit mapping and any source
+disagreement before rendering edition claims.
+
+Circuit Guide carries the edition/name breakdown and headline records; Facts
+contains current-season driver best classified finishes, all-time driver and
+constructor records, and recent winners/grid context. Overview links to this
+record book. Head-to-Head separates historical teammate duels at the venue from
+the existing current-season and current-event comparisons. Preserve useful
+curated stories but remove contradictory "history awaiting research" notices.
+
+Keep these statistical definitions visible:
+- Driver starts, best **classified** result, wins, podiums and official poles
+  are distinct; pole flags are not qualifying rank or starting grid in every era.
+- No previous start is not P0, last place, or a missing-data failure. A driver
+  with starts but no classified finish is different again. The current-season
+  roster is not a prediction of the selected event's future confirmed line-up.
+- Retain ties and shared-win credits. Constructor identities do not automatically
+  merge Lotus/Team Lotus, Renault/Alpine, Sauber/Audi or other changing names.
+- Historical H2H uses the actual constructor and drivers in each edition,
+  qualifying separately from race, with the displayed edition limit and explicit
+  DNS/DSQ/no-time/missing/shared-drive/multi-entry exclusions. Never substitute
+  starting grid for missing qualifying or label finishing ahead as pure pace.
+- "Wins from pole" requires a known denominator; give counts and scope, not a
+  safety-car/strategy probability inferred from a small historical sample.
+
+Regression examples include the Baku name change, debut venues, same-name GPs
+at different circuits, strict date cutoffs, driver/constructor identity,
+classification exclusions and retention of last-good data. Check all covered
+GPs through `coverage_inventory.py`, not only the next event.
 
 ### Complete FIA discovery
 

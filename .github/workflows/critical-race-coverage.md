@@ -62,6 +62,9 @@ network:
     - defaults
     - github
     - python
+    - api.github.com
+    - www.statsf1.com
+    - statsf1.com
     - www.formula1.com
     - media.formula1.com
     - www.the-race.com
@@ -82,6 +85,8 @@ safe-outputs:
       - "circuits.py"
       - "f1lib.py"
       - "standings.py"
+      - "circuit_history.py"
+      - "history_render.py"
       - "build.py"
       - "test_*.py"
       - "data/*.json"
@@ -103,6 +108,8 @@ safe-outputs:
       - "circuits.py"
       - "f1lib.py"
       - "standings.py"
+      - "circuit_history.py"
+      - "history_render.py"
       - "build.py"
       - "test_*.py"
       - "data/*.json"
@@ -191,6 +198,7 @@ state separately what is still awaiting review and therefore not deployed.
 3. Also check the most recently completed GP within seven days for stale
    pre-race claims, final classifications and later FIA decisions.
 4. Run `python3 standings.py`, `python3 calendar.py --maps-only`, `python3 season_h2h.py`,
+   `python3 circuit_history.py`,
    `LLM_FAKE=1 python3 enrich.py --max 25`, `python3 fia_media.py`, and
    `python3 backfill_meta.py`. Install `pypdf`/`pymupdf` only if absent. Inspect
    each outcome: a failed listing must not prevent rendering saved public PDF
@@ -210,6 +218,11 @@ state separately what is still awaiting review and therefore not deployed.
 
 Search current material from Formula1.com, the FIA event documents, Pirelli,
 The Race, and official team or driver announcements. Prefer primary sources.
+For historical results use the checksum-verified F1DB release and the circuit-history
+contract in SKILL.md; StatsF1 is an additional editorial reference, not a bulk scrape.
+Count venues independently of Grand Prix names, preserve the pre-weekend cutoff,
+and distinguish missing data from a genuine debut. Inspect history freshness and
+the driver/constructor identity and teammate-exclusion rules before quoting records.
 Every factual addition must be traceable to a URL you actually opened.
 
 ### Required collated top-news briefing

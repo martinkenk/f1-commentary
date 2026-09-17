@@ -34,6 +34,7 @@ class CoveragePreflightTests(unittest.TestCase):
 
     def test_actual_policies_allow_collector_outputs_and_shared_rendering(self):
         paths = ["data/standings_2026.json", "data/season_h2h_2026.json",
+                 "data/circuit_history_2026.json", "circuit_history.py", "history_render.py",
                  "data/spain/news_highlights.json", "data/spain/nested/source.json",
                  "f1lib.py", "standings.py", "content_spain.py", "test_spain_content.py",
                  "assets_src/fia-spain-example-p2.png"]
