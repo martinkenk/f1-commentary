@@ -483,13 +483,13 @@ during the weekend; the preview flags possible changes after FP2.</p>
 The optional FastF1 analysis did not produce a verified Madrid dataset, so no stint
 lengths, degradation rates or remaining set counts are inferred from the race result.
 </div>
-<h2 class="sec">Stint predictor and remaining tyre sets</h2>
-<p>The race is complete, but this build did not have the optional <code>fastf1</code>
-package available to derive lap-by-lap degradation, stint lengths or remaining
-new/used tyre-set counts from the session. The confirmed compound nomination and
-pressure prescription alone do not establish those numbers; a full stint/tyre-set
-breakdown should be added once a <code>fastf1_analysis.py</code> run against this
-event succeeds. Italy's counts and stint lengths are not transferred here.
+<h2 class="sec">Stint predictor</h2>
+<p>No verified Madrid lap-by-lap degradation dataset is loaded here. Stint lengths
+and degradation analysis require a successful timing-data refresh.
+<strong>Race tyre availability is a separate source:</strong> use the official
+pre-race new/used set breakdown, not an estimate from FastF1's fresh-tyre flags.
+The compound nomination and pressure prescription do not establish remaining
+sets, and Italy's counts and stint lengths are not transferred here.
 The <a href="https://www.formula1.com/en/latest/article/antonelli-clinches-victory-over-verstappen-and-norris-in-spanish-gp.644ZZfPzRPEaUh2JBHcB9"
 target="_blank" rel="noopener">race report</a> confirms the VSC produced a round of
 cheap pit stops for the leaders, but does not give exact stint lengths.</p>

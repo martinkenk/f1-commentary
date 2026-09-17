@@ -15,6 +15,7 @@ import urllib.parse
 import build
 import enrich
 import f1lib
+import race_tyres
 
 
 class Images(HTMLParser):
@@ -81,6 +82,8 @@ def inventory(gps, root=None):
                                                  for p in doc["pages"])}
         uncached = [doc["filename"] for doc in documents.get("documents", [])
                     if f1lib.fia_document_categories(doc["filename"]) and doc["url"] not in media_urls]
+        tyres = race_tyres.context(ctx, root=root)
+        reviewed = f1lib.reviewed_race_tyres(ctx, tyres["snapshot"], data_dir=root / "data")
         events.append({
             "gp": ctx["dir"], "race_date": ctx["race_date"],
             "status": f1lib.event_status(ctx, today), "content_module": ctx["pages"].__module__,
@@ -90,6 +93,14 @@ def inventory(gps, root=None):
             "fia_discovery": records.get("fia_discovery_status.json", {}),
             "fia_media_errors": media.get("errors", []),
             "fia_documents_without_automatic_screenshots": uncached,
+            "race_tyres": {
+                "chart_available": bool(tyres["snapshot"]),
+                "source": tyres["snapshot"].get("source", {}),
+                "refresh": tyres["status"],
+                "numeric_inventory": reviewed["state"],
+                "verified_driver_rows": len(reviewed.get("drivers", {})),
+                "review_notice": reviewed["message"],
+            },
             "circuit_history": {
                 "available": bool(profile),
                 "source": history[""].get("source", {}),

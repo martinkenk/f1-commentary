@@ -42,7 +42,9 @@ jobs:
           python-version: "3.12"
 
       - name: Data refresh regression tests
-        run: python3 -m unittest discover -p 'test_*.py'
+        run: |
+          python3 -m pip install --quiet Pillow
+          python3 -m unittest discover -p 'test_*.py'
 
       - name: Refresh official championship standings
         id: standings
@@ -137,6 +139,17 @@ jobs:
         run: |
           echo "::warning::Some FIA screenshots could not be refreshed; previous verified downloads are retained."
           echo "## FIA screenshot refresh incomplete — inspect download/render logs" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Refresh published race tyre inventories
+        id: race_tyres
+        continue-on-error: true
+        run: python3 race_tyres.py
+
+      - name: Report incomplete race tyre inventory refresh
+        if: steps.race_tyres.outcome == 'failure'
+        run: |
+          echo "::warning::Race-tyre inventory collection was incomplete. Retaining last-good charts; inspect source access/discovery status."
+          echo "## Race tyre inventory refresh incomplete — inspect published-chart discovery" >> "$GITHUB_STEP_SUMMARY"
 
       - name: FastF1 pace analysis (fastest laps, long runs, speed/delta charts)
         id: pace

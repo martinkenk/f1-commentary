@@ -203,7 +203,7 @@ def build_pages(ctx, env):
         "bi-diagram-3")}
 </div>
 
-{pending("Pirelli's compound allocation and tyre-set breakdown", "about two weeks before the race")}
+{pending("Pirelli's compound allocation", "about two weeks before the race")}
 {pending("Long-run degradation data", "after Friday practice", "bi-graph-down")}
 """
     P["tyres"] = dict(

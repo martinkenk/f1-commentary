@@ -98,6 +98,16 @@ Read SKILL.md for the full source schemas, dated FIA values and lessons:
 - `fia_media.py` saves all substantive PDF pages using content-hashed revisions.
   Diagrams with no text are not blank. Never replace a full Pirelli infographic
   with a cropped FIA pressure table or omit a team's nil-return page.
+- Race tyre inventory stopped after Monza because only Italy had a hard-coded
+  table. `race_tyres.py` now discovers public race-set charts and the shared
+  shell renders them on all Tyres pages, independently of FastF1. Refresh it
+  and inspect the inventory's chart/source/review status after qualifying.
+  Preview allocations, FIA prescriptions and Saturday reports are not remaining
+  new/used sets. Italy/Spain's Pirelli charts were publicly reproduced by Coffee
+  Corner Motorsport; retain explicit secondary provenance and full graphics.
+  Respect Formula1.com strategy-guide freewalls. Visually review all entrants
+  before writing `race_tyres_verified.json`, bind it to the actual image SHA,
+  and never carry an old transcription across a changed image. See SKILL.md.
 - Spain means the **new Madrid/Madring venue**, not Barcelona. Historical venue
   records are inapplicable before its debut. The source length discrepancy and
   TBC absolute Overtake points must retain their source/version context.

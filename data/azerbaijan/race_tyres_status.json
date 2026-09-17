@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-09-17T11:12:05+00:00",
+  "state": "not_found",
+  "error": "",
+  "attempts": [
+    {
+      "url": "https://www.formula1.com/en/latest/all.html",
+      "state": "not_found",
+      "message": "Public discovery parsed; 0 candidate article(s)"
+    },
+    {
+      "url": "https://coffeecornermotorsport.com/feed/",
+      "state": "not_found",
+      "message": "Public discovery parsed; 0 candidate article(s)"
+    }
+  ]
+}

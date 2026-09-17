@@ -64,6 +64,7 @@ def agent_arguments(prompt, report_dir, session_id=None):
         "--allow-url", "release-assets.githubusercontent.com",
         "--allow-url", "raw.githubusercontent.com", "--allow-url", "objects.githubusercontent.com",
         "--allow-url", "www.statsf1.com", "--allow-url", "statsf1.com",
+        "--allow-url", "coffeecornermotorsport.com", "--allow-url", "content.presspage.com",
         "--allow-url", "martinkenk.github.io", "--allow-url", "www.formula1.com",
         "--allow-url", "media.formula1.com", "--allow-url", "www.fia.com",
         "--allow-url", "www.the-race.com", "--allow-url", "www.pirelli.com",

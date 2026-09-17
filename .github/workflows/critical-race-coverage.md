@@ -21,9 +21,9 @@ steps:
       uv venv --python 3.12 --python-preference only-managed \
         --seed /tmp/gh-aw/python/venv
       /tmp/gh-aw/python/venv/bin/python3 -m pip install \
-        --disable-pip-version-check pypdf pymupdf
+        --disable-pip-version-check pypdf pymupdf Pillow
       /tmp/gh-aw/python/venv/bin/python3 -c \
-        'import sys, platform, pypdf, pymupdf; assert platform.python_implementation() == "CPython"; assert sys.version_info[:2] == (3, 12); print(sys.executable, sys.version)'
+        'import sys, platform, pypdf, pymupdf, PIL; assert platform.python_implementation() == "CPython"; assert sys.version_info[:2] == (3, 12); print(sys.executable, sys.version)'
       echo "COVERAGE_PYTHON=/tmp/gh-aw/python/venv/bin/python3" >> "$GITHUB_ENV"
 jobs:
   verify-publication:
@@ -65,6 +65,8 @@ network:
     - api.github.com
     - www.statsf1.com
     - statsf1.com
+    - coffeecornermotorsport.com
+    - content.presspage.com
     - www.formula1.com
     - media.formula1.com
     - www.the-race.com
@@ -87,6 +89,7 @@ safe-outputs:
       - "standings.py"
       - "circuit_history.py"
       - "history_render.py"
+      - "race_tyres.py"
       - "build.py"
       - "test_*.py"
       - "data/*.json"
@@ -110,6 +113,7 @@ safe-outputs:
       - "standings.py"
       - "circuit_history.py"
       - "history_render.py"
+      - "race_tyres.py"
       - "build.py"
       - "test_*.py"
       - "data/*.json"
@@ -199,8 +203,9 @@ state separately what is still awaiting review and therefore not deployed.
    pre-race claims, final classifications and later FIA decisions.
 4. Run `python3 standings.py`, `python3 calendar.py --maps-only`, `python3 season_h2h.py`,
    `python3 circuit_history.py`,
-   `LLM_FAKE=1 python3 enrich.py --max 25`, `python3 fia_media.py`, and
-   `python3 backfill_meta.py`. Install `pypdf`/`pymupdf` only if absent. Inspect
+   `LLM_FAKE=1 python3 enrich.py --max 25`, `python3 fia_media.py`,
+   `python3 race_tyres.py`, and
+   `python3 backfill_meta.py`. Install `pypdf`/`pymupdf`/`Pillow` only if absent. Inspect
    each outcome: a failed listing must not prevent rendering saved public PDF
    URLs. Keep last-good records and report source errors; do not hide them.
 5. Run `python3 build.py`, then `python3 coverage_inventory.py --all --check`.
@@ -281,6 +286,16 @@ material missing-but-published fields that can be handled in one coherent PR.
 Correct stale facts tightly coupled to those additions.
 
 ### Required Pirelli tyre artwork (every GP, every audit)
+
+Also run `race_tyres.py` and inspect its source status for the separate
+**pre-race RACE SETS** product after qualifying. This is not the preview below,
+an FIA prescription or a Saturday/post-race report. The shared tyre page
+automatically displays collected full charts; visually review every new/used
+cell before adding a hash-bound `race_tyres_verified.json` table as specified
+in SKILL.md. A changed image invalidates old numeric rows. Check the inventory's
+chart and transcription states separately. Keep secondary reproduction credit
+explicit (including Coffee Corner Motorsport), respect protected strategy guides,
+and never blame missing FastF1 for missing published inventories.
 
 **Every** round's Tyres & Strategy page needs Pirelli's official event-preview
 infographic, not just the round currently being audited in depth. Each time

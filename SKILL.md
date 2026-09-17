@@ -9,7 +9,8 @@ This is the portable operating runbook for this repository. Read it on every
 scheduled run, then **do the work**, not merely summarize what ought to change.
 Use the current UTC date and the checked-out calendar, never a date remembered
 from an earlier conversation. Last comprehensive Italy/Spain audit: **10 September
-2026**. The examples in section 10 are dated evidence, not defaults for other GPs.
+2026**; race-inventory automation and Monza/Madrid numeric backfill audited
+**17 September 2026**. The examples in section 10 are dated evidence, not defaults for other GPs.
 
 The output is a useful, sourced on-air briefing, not just 17 nonempty HTML files.
 A linked document does not mean its contents have been covered. An automatic
@@ -156,6 +157,7 @@ generic content. `circuits.py` supplies venue coordinates, character and history
 | `enrich.py`, `backfill_meta.py` | Complete FIA discovery, decision/article extraction, retries and news metadata |
 | `news_briefing.py` | Top-of-page collated news; expiry, session/feed-change detection and automatic priority fallback |
 | `fia_media.py` | Source-faithful PDF screenshot download/render/cache; no invented interpretation |
+| `race_tyres.py` | Discovers published pre-race set charts, preserves full source graphics and source-access status; independent of FastF1 |
 | `fastf1_analysis.py`, `assets_src/pace-chart.js` | Optional lap/long-run/telemetry analysis and interactive charts |
 | `f1lib.py` | Shared HTML/CSS, source galleries, results, weather, news/H2H/reliability/penalties |
 | `content_<gp>.py` | Reviewed event-specific stories, tables, decisions, strategy and context |
@@ -231,7 +233,10 @@ First run existing commands with the available interpreter. Install dependencies
 only if missing or intentionally setting up a new worker. Use a virtualenv
 outside tracked source, or the CI environment; no machine-specific Python 3.11
 assumption. Collection needs `pypdf`, screenshot rendering needs `pymupdf`,
-FastF1 needs `fastf1 pandas numpy`. Pillow is optional for manual image conversion.
+FastF1 needs `fastf1 pandas numpy`. Race-chart collection and its tests need
+`Pillow` (PyMuPDF cannot decode the published WebP files). Cached page rendering
+remains standard-library-only. Deployment installs Pillow before regression
+tests; the scheduled editor prepares it alongside the PDF dependencies.
 Do not add these as mandatory imports to the standard-library build.
 
 ```bash
@@ -241,6 +246,7 @@ python3 calendar.py --maps-only
 python3 circuit_history.py
 LLM_FAKE=1 python3 enrich.py --max 25
 python3 fia_media.py
+python3 race_tyres.py
 python3 fastf1_analysis.py --active
 python3 backfill_meta.py
 python3 build.py
@@ -637,6 +643,7 @@ otherwise new data can silently stop appearing on an apparently richer page.
 | `render_reliability(ctx, intro_html="")` | Race retirement/finisher data and `ctx["extra"]` pitstops/fastestlaps; no pre-race invented results |
 | `render_penalties(ctx, decisions, intro_html, fia_url)` | Curated rows win by document number; keep real auto source URLs and late decisions |
 | `render_tyre_availability(ctx, ..., official=None, compounds=None, source_url="")` | Official inventory renders even without FastF1; compounds are `(hard, medium, soft)` labels, not initial set counts |
+| `render_race_tyres(ctx)`, `reviewed_race_tyres(ctx, snapshot)` | Shared shell adds one race inventory to every Tyres page; numeric rows require matching event metadata and source-image SHA-256 |
 | `render_fia_documents`, `render_fia_media` | Shared source panels/galleries, not a replacement for verified event prose |
 
 Official tyre inventory shape is `{code: (soft_new, soft_used, medium_new,
@@ -646,13 +653,80 @@ Supply event compounds and a source URL. Do not hard-code Italy attribution or
 C3/C4/C5 for future venues. Event results/timing supply driver identities; no
 invented team assignments from an unrelated/current roster.
 
-FastF1's `FreshTyre` can double-count sets reused across sessions. Its estimate
-is never an official remaining inventory. Prefer FIA/Pirelli/team published
-race-set graphics, map FP1 substitutes to the race driver's allocation, and do
-not say an official report is unpublished merely because it is not loaded.
+FastF1's `FreshTyre` can double-count sets reused across sessions and does not
+model all mandatory hand-backs. Its estimate is never an exact remaining
+inventory. Prefer FIA/Pirelli/team published race-set graphics; FP1 substitute
+mapping applies only to timing-derived analysis, not the already entrant-specific
+published chart. Do not say an official report is unpublished merely because it is not loaded.
 FastF1 analysis is optional and must not hide independently available FIA data.
 Preserve the `calendar.py` stdlib-shadowing workaround in `fastf1_analysis.py`.
 Do not imply absent timing means a completed session did not happen.
+
+### Published race-set inventories: collection and review
+
+The September 17 investigation found that Monza's table was a bespoke Python
+constant: no collector or shared rendering existed for later weekends. Spain's
+placeholder wrongly attributed missing exact counts to FastF1. Installing timing
+dependencies could not solve that missing publication pipeline. The shared shell
+now renders the inventory independently on **every** Tyres & Strategy page.
+
+Run `python3 race_tyres.py` for the active window or
+`python3 race_tyres.py --gp italy` / `--gp spain` for a backfill. The scheduled
+deployment runs this after article discovery. It preserves full images in
+`assets_src/race-tyres-*`, a source snapshot in `data/<gp>/race_tyres.json`,
+and attempts/errors in `race_tyres_status.json`. Missing charts, restricted
+articles and request failures are distinct from a successful inventory. A failed
+refresh retains last-good evidence, with a visible notice. Check the explicit
+`race_tyres` section of `coverage_inventory.py`, not merely JSON file presence.
+
+Discover sources through actual publication feeds/listings/sitemaps and saved
+article URLs, not manufactured GP/article/image URLs. Validate event, year,
+date and venue. Spain 2026 is Madrid, not Barcelona. A nomination/preview,
+Saturday lap summary, predicted strategy-window graphic or post-race stint chart
+is **not** a pre-race new/used inventory. The correct product says **RACE SETS**
+and lists entrants with new and used quantities. These are usually published
+after qualifying: do not populate future races with zeros or an earlier GP's
+values. Race-set snapshots remain explicitly pre-race when viewed after Sunday.
+
+Prefer public first-party Pirelli/F1 sources. Respect login/freewall gates:
+Italy/Spain's Formula1.com strategy guides exposed only introductions and no
+public inventory assets during this investigation. Pirelli's Madrid qualifying
+report was missing the general `news`/`Formula 1` feed tags; event-tagged listings
+can find reports missed by the general feed. Its Saturday-report picture still
+was not a race-set chart. Do not bypass a protected press area.
+
+Public Pirelli graphics were found on Coffee Corner Motorsport's actual
+published strategy articles:
+- `https://coffeecornermotorsport.com/italian-grand-prix-2026-tyre-strategy/`
+  (Monza, September 5; C3/C4/C5).
+- `https://coffeecornermotorsport.com/spanish-grand-prix-2026-tyre-strategy/`
+  (Madrid, September 12; C2/C3/C4).
+
+Label these **Pirelli Motorsport graphics reproduced by Coffee Corner
+Motorsport**, not downloads from Pirelli's own host. Keep the full uncropped
+chart, title, compound key and copyright/media-use footer. Both original files
+are 1080x608 WebP despite `1920_` in their filenames; never claim resolution
+from a filename. Future source support needs both gh-aw network permissions and
+the watchdog URL allowlist updated, without weakening source validation.
+
+The graphic can publish automatically before a reliable numeric transcription
+exists. To add the searchable table, visually inspect **every row and all six
+cells** and persist `data/<gp>/race_tyres_verified.json`:
+`year`, `gp`, `race_date`, exact image `source_sha256`, timezone-aware
+`reviewed_at`, `review_method`, `entrants`, `compounds` in hard/medium/soft order,
+and `drivers` in soft-new/used, medium-new/used, hard-new/used order. Confirm the
+full chart entrant count and codes, including replacement drivers. Dashes mean
+zero only after inspecting the legend. Do not treat unchecked OCR or article
+prose as a full transcription. Madrid's HUL row, for example, has **one new
+and four used Softs**, although the accompanying prose highlighted only the
+four used sets.
+
+Reviewed Monza/Madrid tables contain all 22 entrants. A new image SHA or changed
+event metadata **disables the old numeric table** until renewed review, while
+the new full chart stays visible. Never simply update `source_sha256` to suppress
+that warning. Audit mismatches and missing transcriptions after qualifying;
+the unattended editor/watchdog can complete this evidence review on its next
+authorized run. Preserve the original chart/source even when the table exists.
 
 HTML uses `<div class="table-wrap"><table class="data">`; `tbl` / `tablewrap`
 do not exist. Available modifiers: `compact`, `ranked`, `h2h`, `pen`, `cal-tbl`.

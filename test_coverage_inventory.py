@@ -23,6 +23,9 @@ class InventoryTests(unittest.TestCase):
             self.assertTrue(event["editorial_review_required"])
             self.assertFalse(event["circuit_history"]["available"])
             self.assertIsNone(event["circuit_history"]["completed_venue_races"])
+            self.assertFalse(event["race_tyres"]["chart_available"])
+            self.assertEqual(event["race_tyres"]["numeric_inventory"], "no_chart")
+            self.assertEqual(event["race_tyres"]["verified_driver_rows"], 0)
 
     def test_reports_uncached_sources_and_actual_discovery_failure(self):
         with tempfile.TemporaryDirectory() as temporary:

@@ -58,7 +58,8 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("every driver must use both compounds", body)
         self.assertNotIn("top-10 runners who start on their Q2 time", body)
         self.assertIn("no requirement for top-ten qualifiers", body)
-        self.assertIn("Tyres Available for Race", body)
+        self.assertNotIn("Tyre sets available for the race (official)", body)
+        self.assertFalse(hasattr(content_italy, "TYRES_AVAILABLE_FOR_RACE"))
 
     def test_italian_home_win_history_is_not_frozen_before_race(self):
         pages = self.italy()

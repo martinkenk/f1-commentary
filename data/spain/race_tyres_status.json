@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-09-17T11:12:08+00:00",
+  "state": "available",
+  "error": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-spanish-gp.2BDFZFEsdYeeyJNgdk5R0R: Published article is access-restricted; no login or protected API attempted",
+  "attempts": [
+    {
+      "url": "https://www.formula1.com/en/latest/all.html",
+      "state": "not_found",
+      "message": "Public discovery parsed; 0 candidate article(s)"
+    },
+    {
+      "url": "https://coffeecornermotorsport.com/feed/",
+      "state": "available",
+      "message": "Public discovery parsed; 1 candidate article(s)"
+    },
+    {
+      "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/09/1920_14-es26-racesets.webp",
+      "state": "available",
+      "message": "Full 1080×608 WEBP decoded and hashed; secondary-reproduction; numeric counts not verified"
+    },
+    {
+      "url": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-spanish-gp.2BDFZFEsdYeeyJNgdk5R0R",
+      "state": "access_restricted",
+      "message": "Published article is access-restricted; no login or protected API attempted"
+    }
+  ]
+}

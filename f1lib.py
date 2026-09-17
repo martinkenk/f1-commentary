@@ -645,12 +645,105 @@ def _parse_laptime(s):
         return None
 
 
+def reviewed_race_tyres(ctx, snapshot, data_dir=None):
+    """Only expose reviewed numeric rows for this exact event and chart revision."""
+    if not snapshot:
+        return {"state": "no_chart", "message": "No validated source chart is available."}
+    path = os.path.join(data_dir or DATA_DIR, ctx["dir"], "race_tyres_verified.json")
+    if not os.path.exists(path):
+        return {"state": "missing", "message": "A numeric transcription has not yet been visually verified."}
+    with open(path, encoding="utf-8") as stream:
+        verified = json.load(stream)
+    if not isinstance(verified, dict):
+        raise ValueError(f"Invalid reviewed race-tyre inventory: {path}")
+    if (verified.get("source_sha256") != snapshot["chart"]["sha256"]
+            or any(verified.get(key) != snapshot[key] for key in ("year", "gp", "race_date"))):
+        return {"state": "needs_review",
+                "message": "The saved numeric transcription does not match this chart revision/weekend. "
+                           "Use the published graphic above; the numeric table awaits renewed visual review."}
+    drivers, compounds = verified.get("drivers"), verified.get("compounds")
+    if (not isinstance(drivers, dict) or not drivers
+            or type(verified.get("entrants")) is not int or verified["entrants"] != len(drivers)
+            or any(not re.fullmatch(r"[A-Z]{3}", code) for code in drivers)
+            or any(not isinstance(values, list) or len(values) != 6
+                   or any(type(value) is not int or value < 0 for value in values)
+                   for values in drivers.values())
+            or not isinstance(compounds, list) or len(compounds) != 3
+            or any(not isinstance(label, str) or not re.fullmatch(r"C[0-6]", label) for label in compounds)
+            or compounds != sorted(set(compounds))
+            or not isinstance(verified.get("reviewed_at"), str)
+            or not verified.get("review_method")):
+        raise ValueError(f"Incomplete reviewed race-tyre inventory: {path}")
+    if datetime.datetime.fromisoformat(verified["reviewed_at"]).tzinfo is None:
+        raise ValueError(f"Reviewed race-tyre inventory needs a timezone: {path}")
+    return {**verified, "state": "verified", "message": ""}
+
+
+def render_race_tyres(ctx):
+    """A published pre-race chart, optionally with a revision-bound reviewed table."""
+    import race_tyres
+
+    context = race_tyres.context(ctx)
+    snapshot, status = context["snapshot"], context["status"]
+    race_name = html.escape(ctx.get("name", ctx["dir"]))
+    out = ['<section id="race-tyre-availability"><h2 class="sec">Race tyre availability</h2>']
+    if status.get("error"):
+        message = html.escape(status["error"])
+        if snapshot:
+            out.append('<details class="callout watch" style="overflow-wrap:anywhere">'
+                       '<summary>Source discovery notices &mdash; published chart available below</summary>'
+                       f'<p>{message}</p></details>')
+        else:
+            out.append('<div class="callout watch" style="overflow-wrap:anywhere">'
+                       f'<strong>Race-tyre source notice.</strong> {message}</div>')
+    if not snapshot:
+        out.append('<p>No verified pre-race set inventory has been collected for this weekend. '
+                   'These charts normally appear after qualifying, not with the earlier compound '
+                   'nomination. A missing chart is not proof of non-publication, and no zero '
+                   'counts or FastF1-derived inventory are substituted.</p>')
+    else:
+        chart, source = snapshot["chart"], snapshot["source"]
+        asset = html.escape(chart["asset"], quote=True)
+        publisher = html.escape(source["publisher"])
+        provenance = ("reproduced by" if chart["provenance"] == "secondary-reproduction"
+                      else "published by")
+        if status.get("state") != "available":
+            out.append('<p class="callout watch">Showing the last successfully collected chart; '
+                       'the latest source refresh is incomplete.</p>')
+        out.append(
+            f'<p>Pre-race new/used sets for {race_name} on '
+            f'{html.escape(snapshot["race_date"])} &mdash; not tyres remaining after the finish. '
+            'This published inventory is independent of optional FastF1 analysis.</p>'
+            f'<figure class="circuit-fig"><img class="circuit-img" src="../assets/{asset}" '
+            f'alt="Complete {html.escape(chart["credit"], quote=True)} race-set chart for '
+            f'{html.escape(ctx.get("name", ctx["dir"]), quote=True)}: new and used tyres for every driver" '
+            'loading="lazy" role="button" tabindex="0" onclick="zoomImg(this)" '
+            'onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();zoomImg(this)}">'
+            f'<figcaption>{html.escape(chart["credit"])} race-set graphic, {provenance} '
+            f'<a href="{html.escape(source["url"], quote=True)}" target="_blank" rel="noopener">{publisher}</a>. '
+            f'<a href="../assets/{asset}" target="_blank" rel="noopener">Full-resolution chart</a>. '
+            'The complete original, including its compound key and credit, is retained.</figcaption></figure>')
+        verified = reviewed_race_tyres(ctx, snapshot)
+        if verified["state"] == "verified":
+            out.append(render_tyre_availability(
+                ctx, official=verified["drivers"], compounds=verified["compounds"], source_url=source["url"]))
+            out.append('<p class="src">Table visually transcribed from the displayed chart; '
+                       f'reviewed {html.escape(verified["reviewed_at"])}. '
+                       'A changed source image disables this transcription until reviewed again.</p>')
+        else:
+            out.append(f'<p class="callout watch">{html.escape(verified["message"])}</p>')
+    if status.get("checked_at"):
+        out.append(f'<p class="src">Source discovery checked {html.escape(status["checked_at"])}.</p>')
+    out.append("</section>")
+    return "".join(out)
+
+
 def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None,
                              official=None, compounds=None, source_url=""):
     """Per-driver dry-tyre-set availability table.
 
     official: optional {code: (soft_new, soft_used, medium_new, medium_used,
-    hard_new, hard_used)} sourced from the FIA/team-published "Tyres
+    hard_new, hard_used)} sourced from the Pirelli/FIA/team-published "Tyres
     Available for Race" breakdown. When given, this authoritative data is
     rendered directly instead of being estimated. (Verified against a real
     published graphic: the FastF1-derived estimate below systematically
@@ -668,7 +761,7 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
     stints are folded into the race driver's tally (it's the same car's
     tyre allocation) and they're dropped from the table (they aren't racing
     this weekend, so a standalone row for them is just noise)."""
-    sessions = _load_pace(ctx)
+    sessions = [] if official else _load_pace(ctx)
     if not sessions and not official:
         return ""
     if compounds is not None and len(compounds) != 3:
@@ -710,7 +803,8 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
     if official:
         rows = []
         for code, vals in official.items():
-            if len(vals) != 6 or any(type(value) is not int or value < 0 for value in vals):
+            if (not isinstance(vals, (list, tuple)) or len(vals) != 6
+                    or any(type(value) is not int or value < 0 for value in vals)):
                 raise ValueError(f"Invalid official tyre-set counts for {code}")
             name, team = driver_info.get(code, (code, ""))
             rows.append((name, team, code, vals))
@@ -727,7 +821,7 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
             '"Tyres Available for Race" allocation data.')
         if source_url:
             source += (f' <a href="{html.escape(source_url, quote=True)}" target="_blank" '
-                       'rel="noopener">Original source</a>.')
+                       'rel="noopener">Source publication</a>.')
         return f"""
 <h2 class="sec">Tyre sets available for the race (official)</h2>
 <div class="callout"><strong>Official per-driver tyre-set availability</strong> for the race, as
@@ -1369,6 +1463,8 @@ def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_
                  + render_fia_media(ctx, active_slug, body_html))
     if active_slug in ("circuit", "facts"):
         body_html = history + body_html
+    if active_slug == "tyres":
+        body_html = render_race_tyres(ctx) + body_html
     base = "../" * depth
     items = []
     for slug, fname, icon, short, _long in ctx["nav"]:
