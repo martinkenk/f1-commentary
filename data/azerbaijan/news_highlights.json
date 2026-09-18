@@ -1,0 +1,81 @@
+{
+  "reviewed_at": "2026-09-18T15:05:00Z",
+  "expires_at": "2026-09-19T15:05:00Z",
+  "through_session": null,
+  "feed_fingerprint": "4baa1f51d1c5c26239ed47bccd0dbbd3f33821ce1ab3e16ebb6ac4cd943761ac",
+  "items": [
+    {
+      "topic": "Safety and line-up",
+      "title": "Hadjar still sidelined for Baku; Mekies says his recovery is on track",
+      "date": "2026-09-17",
+      "summary": "Isack Hadjar has missed the three races since the summer break (Zandvoort, Monza, Madrid) recovering from a training wrist injury. Liam Lawson remains in the Red Bull seat with Yuki Tsunoda covering Lawson's Racing Bulls cockpit. Red Bull's Laurent Mekies says there is nothing wrong with Hadjar's recovery, without yet confirming a return race.",
+      "why_it_matters": "The current Red Bull/Racing Bulls line-up (Lawson at Red Bull, Tsunoda at Racing Bulls) is still not Hadjar's regular pairing going into Baku. Commentary on either seat must reflect this replacement chain, not the pre-injury roster.",
+      "sources": [
+        {
+          "label": "Formula1.com: Mekies on Hadjar's recovery",
+          "url": "https://www.formula1.com/en/latest/article/nothing-wrong-with-isacks-recovery-mekies-on-when-hadjar-will-return.5VYeVNlvMTpwjhT0zPCwX8"
+        },
+        {
+          "label": "Formula1.com: Lawson assesses his Red Bull outings",
+          "url": "https://www.formula1.com/en/latest/article/overall-its-been-a-strong-three-weekends-lawson-assesses-his-red-bull-outings.5te41V9tCdZlfI06L8yi1s"
+        }
+      ]
+    },
+    {
+      "topic": "Team relations",
+      "title": "McLaren steps up push to land Red Bull's Lambiase as chief racing officer",
+      "date": "2026-09-13",
+      "summary": "McLaren is accelerating its move for Red Bull race engineer Gianpiero Lambiase, who has agreed to join as chief racing officer once his Red Bull contract, which runs to the end of next season, allows. A visible paddock meeting between the parties in Madrid drew attention to the approach.",
+      "why_it_matters": "Lambiase remains Verstappen's race engineer for now, but the confirmed future move to a rival team is a live paddock storyline through the remaining 2026 races, distinct from any on-track result.",
+      "sources": [
+        {
+          "label": "The Race: McLaren's meeting with Lambiase",
+          "url": "https://www.the-race.com/formula-1/mclaren-ramps-up-effort-to-get-lambiase-early-f1/"
+        }
+      ]
+    },
+    {
+      "topic": "Technical and circuit",
+      "title": "Tech Weekly: Red Bull still chasing a fix for a persistent RB22 issue",
+      "date": "2026-09-17",
+      "summary": "Mark Hughes and Giorgio Piola report Red Bull continues to work on an unresolved car issue on the RB22 despite recent strong results, per Formula1.com's technical analysis published this week.",
+      "why_it_matters": "A known unresolved technical issue on the constructor currently second in the standings is relevant context heading into Baku's high-speed street layout, ahead of any confirmed upgrade package for the round.",
+      "sources": [
+        {
+          "label": "Formula1.com: Tech Weekly on the RB22",
+          "url": "https://www.formula1.com/en/latest/article/the-issue-red-bull-are-still-trying-to-correct-on-the-rb22.55y0Ac2ZKjt0JGJ9tg5YlZ"
+        }
+      ]
+    },
+    {
+      "topic": "Upgrades",
+      "title": "Williams brings its long-awaited FW48 upgrade package to Baku",
+      "date": "2026-09-18",
+      "summary": "Williams will introduce a major, long-delayed upgrade package for the FW48 at the Azerbaijan Grand Prix after failing to score a point since Monaco. Drivers Alex Albon and Carlos Sainz say the package should bring a genuine step but caution it is unlikely to be the full gain calculated when it was signed off months ago, since rival midfield teams have kept developing in the meantime; team principal James Vowles calls the round a proof point for the team's processes ahead of the 2027 car (FW50).",
+      "why_it_matters": "This is a concrete, sourced upgrade claim tied specifically to this round, not a season-long generality \u2014 note it is expected to close the gap rather than move Williams into Q3 contention, and that both drivers have already tempered expectations publicly before the sessions.",
+      "sources": [
+        {
+          "label": "Formula1.com: Why the FW48 upgrade package in Baku is so crucial for Williams",
+          "url": "https://www.formula1.com/en/latest/article/why-the-fw48-upgrade-package-in-baku-is-so-crucial-for-williams.2vxRlXS2yDBqT7O5VMCn3s"
+        }
+      ]
+    },
+    {
+      "topic": "Championship",
+      "title": "Russell and Hamilton both concede the 2026 title fight after Madrid",
+      "date": "2026-09-13",
+      "summary": "After Antonelli's Madrid win stretched his lead, both George Russell (Antonelli's own team-mate) and Lewis Hamilton said in separate post-race comments that they no longer see themselves in contention for the 2026 Drivers' Championship.",
+      "why_it_matters": "Two of Antonelli's closest championship rivals publicly conceding narrows the on-air title framing heading into Baku to Antonelli versus a shrinking field; use the current standings table for the exact live gap rather than the 13 September figure.",
+      "sources": [
+        {
+          "label": "Formula1.com: Russell concedes title doubts",
+          "url": "https://www.formula1.com/en/latest/article/im-not-in-the-fight-for-the-drivers-russell-concedes-doubts-over-title-challenge-after-antonellis-madrid-win.7KEnyGkZGdpac7a5RD8sx9"
+        },
+        {
+          "label": "The Race: Hamilton concedes the title",
+          "url": "https://www.the-race.com/formula-1/hamilton-effectively-concedes-2026-f1-title-after-latest-blow/"
+        }
+      ]
+    }
+  ]
+}
