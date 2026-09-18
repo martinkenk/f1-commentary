@@ -66,6 +66,7 @@ network:
     - www.statsf1.com
     - statsf1.com
     - coffeecornermotorsport.com
+    - racingpass.net
     - content.presspage.com
     - www.formula1.com
     - media.formula1.com
@@ -89,6 +90,7 @@ safe-outputs:
       - "standings.py"
       - "circuit_history.py"
       - "history_render.py"
+      - "passing_history.py"
       - "race_tyres.py"
       - "build.py"
       - "test_*.py"
@@ -113,6 +115,7 @@ safe-outputs:
       - "standings.py"
       - "circuit_history.py"
       - "history_render.py"
+      - "passing_history.py"
       - "race_tyres.py"
       - "build.py"
       - "test_*.py"
@@ -202,7 +205,7 @@ state separately what is still awaiting review and therefore not deployed.
 3. Also check the most recently completed GP within seven days for stale
    pre-race claims, final classifications and later FIA decisions.
 4. Run `python3 standings.py`, `python3 calendar.py --maps-only`, `python3 season_h2h.py`,
-   `python3 circuit_history.py`,
+   `python3 circuit_history.py`, `python3 passing_history.py`,
    `LLM_FAKE=1 python3 enrich.py --max 25`, `python3 fia_media.py`,
    `python3 race_tyres.py`, and
    `python3 backfill_meta.py`. Install `pypdf`/`pymupdf`/`Pillow` only if absent. Inspect

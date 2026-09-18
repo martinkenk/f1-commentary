@@ -99,6 +99,17 @@ jobs:
           echo "::warning::F1DB circuit-history refresh failed or is incomplete. Retaining the last sourced snapshot."
           echo "## Circuit history refresh incomplete — inspect F1DB source status" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Refresh historical overtaking counts
+        id: passing_history
+        continue-on-error: true
+        run: python3 passing_history.py
+
+      - name: Report incomplete overtaking history
+        if: steps.passing_history.outcome == 'failure'
+        run: |
+          echo "::warning::Historical overtaking refresh incomplete. Retaining sourced counts; missing coverage is not zero passes."
+          echo "## Overtaking history refresh incomplete — inspect source status" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Auto-enrich (article cards + FIA decision structuring)
         id: enrichment
         # Extracts new F1.com / The Race articles into news cards and structures

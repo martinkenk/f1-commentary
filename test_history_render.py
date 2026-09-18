@@ -68,6 +68,11 @@ class HistoryRenderTests(unittest.TestCase):
         self.mock = patch.object(history_render.circuit_history, "context", return_value=self.record)
         self.mock.start()
         self.addCleanup(self.mock.stop)
+        self.passing_record = {"series": [], "error": "", "checked_at": ""}
+        passing = patch.object(history_render.passing_history, "context",
+                               return_value=self.passing_record)
+        passing.start()
+        self.addCleanup(passing.stop)
 
     def test_venue_and_named_gp_editions_are_separate_and_future_labelled(self):
         body = history_render.render(self.ctx, "circuit")
@@ -102,6 +107,49 @@ class HistoryRenderTests(unittest.TestCase):
         for value in ("3 / 9", "known official polesitter", "Recent winners",
                       "Starting grid is race", "Car starts"):
             self.assertIn(value, body)
+
+    def test_passing_history_keeps_missing_counts_out_of_average_and_links_evidence(self):
+        self.passing_record["series"] = [{
+            "id": "example", "name": "Independent race counts",
+            "methodology": "Excludes pit-lane changes and the opening lap.",
+            "attribution": "Community-counted, not FIA official statistics.",
+            "url": "https://example.org/counting-rules",
+            "races": [
+                {"year": year, "name": "Azerbaijan Grand Prix", "overtakes": total,
+                 "race_url": f"https://example.org/races/{year}",
+                 "source_url": f"https://example.org/counts/{year}"}
+                for year, total in ((2025, None), (2024, 20), (2023, 0))
+            ],
+        }]
+        for page in ("circuit", "facts"):
+            with self.subTest(page=page):
+                body = history_render.render(self.ctx, page)
+                self.assertEqual(body.count('id="circuit-passing"'), 1)
+                self.assertIn("10.0", body)
+                self.assertIn("2 of 3 previous editions", body)
+                self.assertIn("Not covered", body)
+                self.assertIn('data-sort="0">0', body)
+                self.assertIn('data-sort="">Not covered', body)
+                self.assertIn("https://example.org/counts/2024", body)
+                self.assertIn("not FIA official", body)
+                self.assertIn("not places gained", body)
+                self.assertIn("different definitions are not combined", body)
+        self.assertNotIn('id="circuit-passing"', history_render.render(self.ctx, "h2h"))
+
+    def test_passing_debut_and_missing_coverage_are_distinct(self):
+        body = history_render.render(self.ctx, "circuit")
+        self.assertIn("Missing coverage is not zero overtakes", body)
+        self.record["profile"].update(completed_races=0, venue_edition=1, names_at_venue=[])
+        body = history_render.render(self.ctx, "circuit")
+        self.assertIn("Passing figures from another track", body)
+        self.assertNotIn("Missing coverage is not zero overtakes", body)
+        self.assertNotIn("Passes per covered race", body)
+
+    def test_passing_refresh_error_remains_visible_and_escaped(self):
+        self.passing_record["error"] = "Retained counts: <upstream unavailable>"
+        body = history_render.render(self.ctx, "facts")
+        self.assertIn("Overtaking source notice", body)
+        self.assertIn("&lt;upstream unavailable&gt;", body)
 
     def test_historical_pairs_require_at_least_one_current_season_driver(self):
         original = copy.deepcopy(self.record["profile"])

@@ -127,6 +127,12 @@ Read SKILL.md for the full source schemas, dated FIA values and lessons:
   exclusions must follow the detailed SKILL contract. Preserve credit/license.
 - Spain's upgrade table has an inline FIA screenshot reader with exact team/page
   targets, diagrams, zoom, and original PDF links. Preserve this usability.
+- Circuit Guide and Facts have a separate historical overtaking section. Refresh
+  `passing_history.py` and inspect its covered/unknown editions in the inventory.
+  These must be sourced on-track counts matched by F1DB race ID, date and venue,
+  not grid-to-finish gains or raw lap-position changes. Preserve each source's
+  counting rules and attribution, keep different methods separate, and never
+  replace a missing count with zero. The selected weekend and sprints are excluded.
 - September 11-16 editorial failures came from `data/**/*.json` excluding root
   JSON, the unlisted `f1lib.py`, PyPy taking precedence over CPython, 20-minute
   timeouts, and concurrent deployment data commits. Repairs are in `83cf5d310`

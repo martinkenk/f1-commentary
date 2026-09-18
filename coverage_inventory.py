@@ -16,6 +16,7 @@ import build
 import enrich
 import f1lib
 import race_tyres
+import passing_history
 
 
 class Images(HTMLParser):
@@ -84,6 +85,7 @@ def inventory(gps, root=None):
                     if f1lib.fia_document_categories(doc["filename"]) and doc["url"] not in media_urls]
         tyres = race_tyres.context(ctx, root=root)
         reviewed = f1lib.reviewed_race_tyres(ctx, tyres["snapshot"], data_dir=root / "data")
+        passing = passing_history.context(ctx, profile, root=root)
         events.append({
             "gp": ctx["dir"], "race_date": ctx["race_date"],
             "status": f1lib.event_status(ctx, today), "content_module": ctx["pages"].__module__,
@@ -109,6 +111,15 @@ def inventory(gps, root=None):
                 "named_gp": profile.get("grand_prix"),
                 "driver_records": len(profile.get("drivers", [])),
                 "historical_teammate_pairs": len(profile.get("teammates", {}).get("pairs", [])),
+                "passing": {
+                    "error": passing.get("error", ""),
+                    "checked_at": passing.get("checked_at", ""),
+                    "series": [
+                        {"name": series["name"], "editions_in_scope": len(series["races"]),
+                         "covered_editions": sum(row["overtakes"] is not None for row in series["races"])}
+                        for series in passing.get("series", [])
+                    ],
+                },
             },
             "editorial_review_required": True,
         })

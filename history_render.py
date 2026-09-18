@@ -3,6 +3,7 @@ import html
 import urllib.parse
 
 import circuit_history
+import passing_history
 from f1lib import card, stat
 
 
@@ -49,7 +50,7 @@ def _credit(record, ctx):
     source = record.get("source", {})
     release = source.get("release", "release")
     return (
-        '<p class="src">Derived from '
+        '<p class="src">Race results and venue identities derived from '
         + _link(source.get("release_url", "https://github.com/f1db/f1db/releases"), f"F1DB {release}")
         + " &middot; "
         + _link("https://creativecommons.org/licenses/by/4.0/", "CC BY 4.0")
@@ -201,6 +202,62 @@ def _recent_winners(profile):
     )
 
 
+def _passing(profile, ctx):
+    record = passing_history.context(ctx, profile)
+    out = ['<section id="circuit-passing"><h2 class="sec">Overtaking at this circuit</h2>']
+    out.append('<p>Up to the ten most recent completed Grands Prix at this venue, before '
+               f'{_e(ctx["race_date"])}. These are recorded on-track passes, '
+               'not places gained between the grid and the finish.</p>')
+    if record.get("error"):
+        out.append('<div class="callout watch"><strong>Overtaking source notice.</strong> '
+                   + _e(record["error"]) + '</div>')
+    if not profile["completed_races"]:
+        out.append('<p>No previous World Championship Grand Prix at this venue before '
+                   'this weekend. Passing figures from another track hosting the same '
+                   'named Grand Prix do not apply.</p>')
+    elif not record.get("series"):
+        out.append('<p>No sourced overtaking counts are available in this snapshot for the '
+                   'previous editions in scope. Missing coverage is not zero overtakes; '
+                   'grid changes and pit-stop position swaps are not substituted.</p>')
+    for series in record.get("series", []):
+        rows = series["races"]
+        totals = [row["overtakes"] for row in rows if row["overtakes"] is not None]
+        out.append(f'<h3>{_e(series["name"])}</h3><p>{_e(series["methodology"])}</p>')
+        if len(totals) > 1:
+            out.append('<div class="stat-row">'
+                       + stat(f"{sum(totals) / len(totals):.1f}", "Passes per covered race",
+                              f"{len(totals)} of {len(rows)} previous editions in scope")
+                       + stat(str(max(totals)), "Most in this sample", "covered editions only")
+                       + stat(str(min(totals)), "Fewest in this sample", "missing values excluded")
+                       + '</div>')
+        elif totals:
+            out.append('<div class="stat-row">'
+                       + stat(str(totals[0]), "Passes in the covered race",
+                              f"1 of {len(rows)} previous editions in scope; not enough for a trend")
+                       + '</div>')
+        out.append(_table(["Previous edition", "On-track overtakes", "Coverage / source"], [
+            [
+                _link(row["race_url"], f'{row["year"]} {row["name"]}'),
+                (_e(row["overtakes"]) if row["overtakes"] is not None else "Not covered",
+                 row["overtakes"] if row["overtakes"] is not None else ""),
+                _link(row["source_url"], series["name"]) if row["overtakes"] is not None
+                else "No count in this source",
+            ]
+            for row in rows
+        ], table_id="history-passing-" + series["id"]))
+        out.append('<p class="src">' + _e(series["attribution"]) + ' '
+                   + _link(series["url"], "Source and counting rules") + '.</p>')
+    if record.get("series"):
+        out.append('<p class="history-note">Each source uses its own stated counting rules; '
+                   'different definitions are not combined into one average. Circuit layouts, '
+                   'regulations, DRS, weather and shortened races can change passing totals. '
+                   'This sample is context, not a forecast of overtaking or a rating of race quality. '
+                   'Sprints and this weekend&rsquo;s race are excluded.</p>')
+    if record.get("checked_at"):
+        out.append(f'<p class="src">Overtaking sources last checked {_e(record["checked_at"])}.</p>')
+    return "".join(out) + "</section>"
+
+
 def _methodology(record):
     source = record.get("source", {})
     return (
@@ -303,6 +360,7 @@ def render(ctx, page):
         body = _teammates(profile)
     else:
         body = _summary(profile, ctx)
+        body += _passing(profile, ctx)
         if page == "facts":
             body += _records(profile, ctx) + _recent_winners(profile) + _methodology(record)
         body += ('<nav class="history-links" aria-label="Circuit record book">'

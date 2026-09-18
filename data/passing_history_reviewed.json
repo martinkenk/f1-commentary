@@ -1,0 +1,60 @@
+{
+  "reviewed_at": "2026-09-18",
+  "note": "Factual race totals read from primary RacingPass articles. No individual pass logs or article prose are reproduced. Historical comparisons were resolved against the article's explicit 2024 season, not today's year.",
+  "articles": [
+    {
+      "url": "https://racingpass.net/azerbaijan-gp-had-47-overtakes-most-at-baku-since-2019/",
+      "facts": [
+        {"year": 2024, "gp": "Bahrain", "overtakes": 36},
+        {"year": 2024, "gp": "Saudi Arabia", "overtakes": 25},
+        {"year": 2024, "gp": "Australia", "overtakes": 24},
+        {"year": 2024, "gp": "Japan", "overtakes": 48},
+        {"year": 2024, "gp": "China", "overtakes": 53},
+        {"year": 2024, "gp": "Miami", "overtakes": 41},
+        {"year": 2024, "gp": "Emilia-Romagna", "overtakes": 30},
+        {"year": 2024, "gp": "Monaco", "overtakes": 4},
+        {"year": 2024, "gp": "Canada", "overtakes": 48},
+        {"year": 2024, "gp": "Spain", "overtakes": 55},
+        {"year": 2024, "gp": "Austria", "overtakes": 46},
+        {"year": 2024, "gp": "Great Britain", "overtakes": 26},
+        {"year": 2024, "gp": "Hungary", "overtakes": 33},
+        {"year": 2024, "gp": "Belgium", "overtakes": 33},
+        {"year": 2024, "gp": "Netherlands", "overtakes": 43},
+        {"year": 2024, "gp": "Italy", "overtakes": 39},
+        {"year": 2024, "gp": "Azerbaijan", "overtakes": 47},
+        {"year": 2023, "gp": "Azerbaijan", "overtakes": 23},
+        {"year": 2022, "gp": "Azerbaijan", "overtakes": 23},
+        {"year": 2021, "gp": "Azerbaijan", "overtakes": 27},
+        {"year": 2019, "gp": "Azerbaijan", "overtakes": 62},
+        {"year": 2016, "circuit_id": "baku", "overtakes": 80}
+      ]
+    },
+    {
+      "url": "https://racingpass.net/hungarian-gp-had-33-overtakes-full-info-in-post/",
+      "facts": [
+        {"year": 2024, "gp": "Hungary", "overtakes": 33},
+        {"year": 2023, "gp": "Hungary", "overtakes": 16},
+        {"year": 2022, "gp": "Hungary", "overtakes": 61},
+        {"year": 2021, "gp": "Hungary", "overtakes": 17}
+      ]
+    },
+    {
+      "url": "https://racingpass.net/singapore-gp-had-30-overtakes-gasly-overtaken-9-times/",
+      "facts": [
+        {"year": 2024, "gp": "Singapore", "overtakes": 30},
+        {"year": 2023, "gp": "Singapore", "overtakes": 42},
+        {"year": 2022, "gp": "Singapore", "overtakes": 16}
+      ]
+    },
+    {
+      "url": "https://racingpass.net/las-vegas-gp-had-77-overtakes-the-highest-total-this-season-full-data-in-post/",
+      "facts": [
+        {"year": 2024, "gp": "USA", "overtakes": 33},
+        {"year": 2024, "gp": "Mexico", "overtakes": 44},
+        {"year": 2024, "gp": "Brazil", "overtakes": 43},
+        {"year": 2024, "gp": "Las Vegas", "overtakes": 77},
+        {"year": 2023, "gp": "Las Vegas", "overtakes": 99}
+      ]
+    }
+  ]
+}

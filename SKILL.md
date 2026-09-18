@@ -154,6 +154,7 @@ generic content. `circuits.py` supplies venue coordinates, character and history
 | `standings.py` | Atomic official driver **and** constructor snapshot; derived gaps and freshness |
 | `season_h2h.py` | Official season qualifying/race ledger, replacement-aware scorelines and per-round evidence |
 | `circuit_history.py`, `history_render.py` | F1DB-backed pre-weekend venue/GP editions, driver/constructor records, recent winners and historical teammate comparisons |
+| `passing_history.py` | Separately sourced on-track overtaking counts matched to F1DB race/venue identities; never inferred from grid-to-finish changes |
 | `enrich.py`, `backfill_meta.py` | Complete FIA discovery, decision/article extraction, retries and news metadata |
 | `news_briefing.py` | Top-of-page collated news; expiry, session/feed-change detection and automatic priority fallback |
 | `fia_media.py` | Source-faithful PDF screenshot download/render/cache; no invented interpretation |
@@ -244,6 +245,7 @@ python3 standings.py
 python3 season_h2h.py
 python3 calendar.py --maps-only
 python3 circuit_history.py
+python3 passing_history.py
 LLM_FAKE=1 python3 enrich.py --max 25
 python3 fia_media.py
 python3 race_tyres.py
@@ -370,6 +372,65 @@ table was removed: it incorrectly credited Alonso with a 2005 win and could
 contradict the sourced best-finish records. Keep the useful historical storylines,
 but do not restore a second manually maintained statistical table below the
 automatic one.
+
+### Historical overtaking counts
+
+Circuit Guide and Facts also carry `#circuit-passing`, covering up to the ten
+most recent completed Grands Prix **at the same F1DB venue before the selected
+weekend**. F1DB supplies race identity and date, not the passing statistic.
+Refresh with `python3 passing_history.py`; rendering only reads the saved
+`data/passing_history.json` and `data/passing_history_status.json`.
+Deployment refreshes this after the circuit record book. The inventory reports
+covered editions and refresh notices separately from ordinary historical results.
+
+Count actual on-track overtakes using each publication's stated rules. A grid
+place minus a finishing place, or an unfiltered lap-position change, is not an
+overtake count. Pit stops, retirements, penalties, lapping, the first lap and
+DRS can be included/excluded differently by different sources. Keep distinct
+counting methods in separate series and never combine them into one average.
+Do not call independent/community counts official FIA statistics.
+
+Match counts to a specific race ID, calendar date and circuit, not merely a
+country or GP title. Include Baku's European GP when covered, but do not borrow
+Barcelona statistics for Madrid or Sakhir statistics for Sepang. Shared winners
+do not create multiple copies of a race. Sprints and the selected weekend's own
+race are excluded. Preserve the source URL and attribution for every count.
+
+Show covered/total editions and unknown rows explicitly. Unknown is `null` at
+render time, not zero. A genuine sourced zero remains zero and participates in
+the average; unavailable counts do not. High/low and average refer only to the
+displayed covered sample, not all-time records. Layout/rule changes, DRS, weather
+and shortened races make these context, not a forecast or a race-quality score.
+Keep the last-good snapshot with a visible source notice on refresh failure.
+
+The initial September 18 backfill uses **primary RacingPass publications**:
+the 2024 Azerbaijan, Hungary, Singapore and Las Vegas reports, with their
+explicit prior-year comparisons and season-total lists. Only factual GP totals
+are retained, not article prose or individual pass logs. This is a partial
+dataset: no compatible 2025/2026 totals were verified in the initial research.
+Do not interpret a recent source-check timestamp as a recent race observation.
+The source's actual edition/year remains visible in every table.
+
+`data/passing_history_reviewed.json` contains the reviewed factual seeds and
+their source URLs. Add independently read prior-year comparisons here; relative
+phrases such as "last year" refer to the **article's season**, not today's year.
+`python3 passing_history.py --reviewed-only` builds a deliberate reviewed
+backfill. Normal collection discovers actual URLs from RacingPass's advertised
+RSS feed, rechecks known articles, and parses unambiguous main-race/season
+totals only while the published counting rules still match. Sprint figures in
+parentheses are excluded. A six-hour cache bounds requests; `--force` is for
+a deliberate retry. HTTP 403 or format changes remain explicit in the status
+and deployment warning; do not bypass gates or silently call old data fresh.
+
+Join using F1DB's own year, GP/venue identity and completed race classification.
+**Ergast IDs are not F1DB IDs**: Baku 2024 is Ergast 1137 but F1DB 1118.
+Do not directly join a third-party `raceId` column to these record books.
+The research found unlicensed GitHub mirrors, including a 1984-2023 table
+without established original counting provenance; they were not bulk imported.
+OpenF1's current `overtakes` endpoint explicitly includes pit-stop/penalty
+position changes, so it is not a drop-in source for this on-track series.
+F1DB's CC BY attribution applies to results/venue identities, not the separate
+RacingPass source. Extend coverage only with clear provenance and counting rules.
 
 ### Complete FIA discovery
 
