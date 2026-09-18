@@ -2,11 +2,36 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import coverage_inventory
 
 
 class InventoryTests(unittest.TestCase):
+    def test_passing_inventory_distinguishes_recent_check_from_recent_race_data(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            ctx = {"dir": "azerbaijan", "race_date": "2026-09-26", "sessions": [],
+                   "nav": [], "pages": coverage_inventory.inventory}
+            passing = {
+                "checked_at": "2026-09-18T08:00:00Z", "error": "",
+                "series": [{"name": "Example source", "races": [
+                    {"year": 2025, "overtakes": None}, {"year": 2024, "overtakes": 47},
+                ]}],
+            }
+            with patch.object(coverage_inventory.passing_history, "context", return_value=passing):
+                report = coverage_inventory.inventory([ctx], Path(temporary))["events"][0]
+            series = report["circuit_history"]["passing"]["series"][0]
+            self.assertEqual(series["covered_editions"], 1)
+            self.assertFalse(series["latest_edition_covered"])
+            self.assertEqual(series["latest_covered_year"], 2024)
+            self.assertFalse(report["circuit_history"]["passing"]["latest_edition_covered_by_any_series"])
+            passing["series"].append({"name": "Reviewed 2025 source", "races": [
+                {"year": 2025, "overtakes": 25}, {"year": 2024, "overtakes": None},
+            ]})
+            with patch.object(coverage_inventory.passing_history, "context", return_value=passing):
+                report = coverage_inventory.inventory([ctx], Path(temporary))["events"][0]
+            self.assertTrue(report["circuit_history"]["passing"]["latest_edition_covered_by_any_series"])
+
     def test_distinguishes_missing_pages_images_and_optional_sources(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

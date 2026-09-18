@@ -99,9 +99,12 @@ jobs:
           echo "::warning::F1DB circuit-history refresh failed or is incomplete. Retaining the last sourced snapshot."
           echo "## Circuit history refresh incomplete — inspect F1DB source status" >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Refresh historical overtaking counts
+      - name: Refresh current and historical overtaking counts
         id: passing_history
         continue-on-error: true
+        # Refresh the current-season Fantasy feed; keep reviewed 2025 counts and
+        # RacingPass history in separate series. Source-specific failures retain
+        # last-good counts and remain visible in passing_history_status.json.
         run: python3 passing_history.py
 
       - name: Report incomplete overtaking history

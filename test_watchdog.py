@@ -25,7 +25,8 @@ class WatchdogTests(unittest.TestCase):
         self.assertNotIn("--allow-all-urls", args)
         self.assertIn("shell(sudo)", args)
         self.assertIn("--no-ask-user", args)
-        for domain in ("api.github.com", "release-assets.githubusercontent.com", "www.statsf1.com"):
+        for domain in ("api.github.com", "release-assets.githubusercontent.com", "www.statsf1.com",
+                       "fantasy.formula1.com", "pbs.twimg.com", "x.com", "www.threads.com"):
             self.assertIn(domain, args)
         self.assertEqual(args[-1], "PROMPT")
 

@@ -1,6 +1,42 @@
 {
   "reviewed_at": "2026-09-18",
-  "note": "Factual race totals read from primary RacingPass articles. No individual pass logs or article prose are reproduced. Historical comparisons were resolved against the article's explicit 2024 season, not today's year.",
+  "note": "Separate source-specific factual race totals only. No individual pass logs, artwork or article prose are reproduced. RacingPass historical comparisons use the article's season. The 2025 chart was visually read cell by cell and cross-checked against the author's published total; the exact public og:image WebP is pinned below.",
+  "chart_2025": {
+    "url": "https://x.com/f1statsguru/status/2003752630233784358",
+    "crosspost_url": "https://www.threads.com/@f1statsguru/post/DSpAiR8iNok/overtakes-per-race-in-average-overtakes-dropped-to-per-race-down-from-in-and-in",
+    "published_at": "2025-12-24T09:00:29Z",
+    "reviewed_at": "2026-09-18",
+    "image_url": "https://pbs.twimg.com/media/G87CAi-XgAAaTTX?format=webp&name=large",
+    "image_sha256": "ab81b3eed231e2e860e2d98851e6b1e599f09bea56f282be68738718a7468e03",
+    "year": 2025,
+    "season_total": 742,
+    "facts": [
+      {"year": 2025, "circuit_id": "melbourne", "overtakes": 17},
+      {"year": 2025, "circuit_id": "shanghai", "overtakes": 31},
+      {"year": 2025, "circuit_id": "suzuka", "overtakes": 15},
+      {"year": 2025, "circuit_id": "bahrain", "overtakes": 59},
+      {"year": 2025, "circuit_id": "jeddah", "overtakes": 29},
+      {"year": 2025, "circuit_id": "miami", "overtakes": 21},
+      {"year": 2025, "circuit_id": "imola", "overtakes": 44},
+      {"year": 2025, "circuit_id": "monaco", "overtakes": 4},
+      {"year": 2025, "circuit_id": "catalunya", "overtakes": 38},
+      {"year": 2025, "circuit_id": "montreal", "overtakes": 43},
+      {"year": 2025, "circuit_id": "spielberg", "overtakes": 31},
+      {"year": 2025, "circuit_id": "silverstone", "overtakes": 26},
+      {"year": 2025, "circuit_id": "spa-francorchamps", "overtakes": 25},
+      {"year": 2025, "circuit_id": "hungaroring", "overtakes": 36},
+      {"year": 2025, "circuit_id": "zandvoort", "overtakes": 33},
+      {"year": 2025, "circuit_id": "monza", "overtakes": 20},
+      {"year": 2025, "circuit_id": "baku", "overtakes": 25},
+      {"year": 2025, "circuit_id": "marina-bay", "overtakes": 26},
+      {"year": 2025, "circuit_id": "austin", "overtakes": 29},
+      {"year": 2025, "circuit_id": "mexico-city", "overtakes": 49},
+      {"year": 2025, "circuit_id": "interlagos", "overtakes": 57},
+      {"year": 2025, "circuit_id": "las-vegas", "overtakes": 17},
+      {"year": 2025, "circuit_id": "lusail", "overtakes": 7},
+      {"year": 2025, "circuit_id": "yas-marina", "overtakes": 60}
+    ]
+  },
   "articles": [
     {
       "url": "https://racingpass.net/azerbaijan-gp-had-47-overtakes-most-at-baku-since-2019/",

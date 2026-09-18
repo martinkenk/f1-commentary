@@ -67,6 +67,10 @@ network:
     - statsf1.com
     - coffeecornermotorsport.com
     - racingpass.net
+    - fantasy.formula1.com
+    - x.com
+    - pbs.twimg.com
+    - www.threads.com
     - content.presspage.com
     - www.formula1.com
     - media.formula1.com
@@ -91,6 +95,7 @@ safe-outputs:
       - "circuit_history.py"
       - "history_render.py"
       - "passing_history.py"
+      - "passing_fantasy.py"
       - "race_tyres.py"
       - "build.py"
       - "test_*.py"
@@ -116,6 +121,7 @@ safe-outputs:
       - "circuit_history.py"
       - "history_render.py"
       - "passing_history.py"
+      - "passing_fantasy.py"
       - "race_tyres.py"
       - "build.py"
       - "test_*.py"

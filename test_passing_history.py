@@ -1,4 +1,5 @@
 import copy
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -162,6 +163,9 @@ class PassingCollectionTests(unittest.TestCase):
             patcher = patch.object(ph.circuit_history, name, return_value=result)
             patcher.start()
             self.addCleanup(patcher.stop)
+        collector = patch.object(ph.passing_fantasy, "collect", return_value=([], {}))
+        self.fantasy = collector.start()
+        self.addCleanup(collector.stop)
 
     def test_parser_extracts_totals_not_pass_log_or_sprint_counts(self):
         rows = ph.parse_article(ARTICLE)
@@ -205,7 +209,7 @@ class PassingCollectionTests(unittest.TestCase):
         new_url = "https://racingpass.net/a-real-new-published-url/"
         feed = f"<rss><channel><item><title>Overtakes</title><link>{new_url}</link></item></channel></rss>"
         with patch.object(ph, "_fetch", side_effect=lambda url: feed if url == ph.FEED else ARTICLE):
-            snapshot, status = ph.refresh(root=self.root, now=self.now)
+            snapshot, status = ph.refresh(root=self.root, now=self.now, refresh_archive=True)
         self.assertTrue(status["ok"])
         self.assertIn(new_url, snapshot["article_urls"])
         self.assertEqual(len(snapshot["races"]), 2)
@@ -216,7 +220,7 @@ class PassingCollectionTests(unittest.TestCase):
 
     def test_source_block_does_not_clear_reviewed_counts_or_claim_success(self):
         with patch.object(ph, "_fetch", side_effect=OSError("HTTP 403")):
-            snapshot, status = ph.refresh(root=self.root, now=self.now)
+            snapshot, status = ph.refresh(root=self.root, now=self.now, refresh_archive=True)
         self.assertFalse(status["ok"])
         self.assertEqual(snapshot["races"][0]["overtakes"], 47)
         self.assertIn("blocked or changed", status["error"])
@@ -227,10 +231,104 @@ class PassingCollectionTests(unittest.TestCase):
         previous = (self.root / "data/passing_history.json").read_bytes()
         bad = ARTICLE.replace("47", "48")
         with patch.object(ph, "_fetch", side_effect=lambda url: "<rss><channel/></rss>"
-                          if url == ph.FEED else bad), self.assertRaisesRegex(ValueError, "Conflicting"):
-            ph.refresh(root=self.root, now=self.now, force=True)
+                          if url == ph.FEED else bad):
+            _, status = ph.refresh(root=self.root, now=self.now, force=True, refresh_archive=True)
+        self.assertIn("Conflicting", status["error"])
         self.assertEqual((self.root / "data/passing_history.json").read_bytes(), previous)
         self.assertFalse(json.loads((self.root / "data/passing_history_status.json").read_text())["ok"])
+
+    def test_routine_collection_does_not_poll_archive(self):
+        with patch.object(ph, "_fetch", side_effect=AssertionError("No RacingPass polling")):
+            snapshot, status = ph.refresh(root=self.root, now=self.now)
+        self.assertTrue(status["ok"])
+        self.assertEqual(snapshot["races"][0]["overtakes"], 47)
+        self.assertEqual(status["sources"]["racingpass"]["kind"], "archive")
+
+    def test_fantasy_failure_retains_last_good_and_does_not_overwrite_other_series(self):
+        row = {
+            "series_id": "f1-fantasy", "race_id": 1118, "date": "2024-09-15",
+            "circuit_id": "baku", "overtakes": 99,
+            "source_url": ph.passing_fantasy.SOURCE["url"],
+        }
+        self.fantasy.return_value = ([row], {"season": 2024})
+        snapshot, _ = ph.refresh(root=self.root, now=self.now)
+        self.assertEqual(len(snapshot["races"]), 2)
+        self.fantasy.side_effect = ValueError("Incomplete Fantasy entrants")
+        retained, status = ph.refresh(root=self.root, now=self.now, force=True)
+        self.assertEqual(retained["races"], snapshot["races"])
+        self.assertFalse(status["ok"])
+        self.assertIn("Incomplete Fantasy entrants", status["error"])
+
+    def test_lost_current_season_fantasy_race_is_not_success(self):
+        self.fantasy.return_value = ([{
+            "series_id": "f1-fantasy", "race_id": 1163, "date": "2026-09-13",
+            "circuit_id": "madring", "overtakes": 33,
+            "source_url": ph.passing_fantasy.SOURCE["url"],
+        }], {})
+        initial, _ = ph.refresh(root=self.root, now=self.now)
+        self.fantasy.return_value = ([], {})
+        retained, status = ph.refresh(root=self.root, now=self.now, force=True)
+        self.assertFalse(status["ok"])
+        self.assertIn("lost previously recorded", status["error"])
+        self.assertEqual(initial["races"], retained["races"])
+
+    def chart_fixture(self):
+        chart = copy.deepcopy(ph._read(ph.ROOT / "data/passing_history_reviewed.json")["chart_2025"])
+        chart["image_sha256"] = hashlib.sha256(b"reviewed image").hexdigest()
+        self.reviewed["chart_2025"] = chart
+        (self.root / "data/passing_history_reviewed.json").write_text(json.dumps(self.reviewed))
+        for index, fact in enumerate(chart["facts"], start=1):
+            self.data["races"].append({
+                "id": 2000 + index, "year": 2025, "date": f"2025-06-{index:02}",
+                "circuitId": fact["circuit_id"],
+            })
+            self.data["races-race-results"].append({"raceId": 2000 + index})
+        return chart
+
+    def test_chart_is_reviewed_complete_and_separate(self):
+        self.chart_fixture()
+        with patch.object(ph, "_fetch_bytes", return_value=b"reviewed image"):
+            snapshot, status = ph.refresh(root=self.root, now=self.now)
+        self.assertTrue(status["ok"])
+        chart_rows = [r for r in snapshot["races"] if r["series_id"] == "f1statsguru-2025"]
+        self.assertEqual(len(chart_rows), 24)
+        self.assertEqual(sum(r["overtakes"] for r in chart_rows), 742)
+        self.assertEqual(len(snapshot["races"]), 25)
+        with patch.object(ph, "_fetch_bytes", side_effect=AssertionError("Weekly static cache")):
+            _, status = ph.refresh(root=self.root, now=self.now + dt.timedelta(hours=7))
+        self.assertTrue(status["ok"])
+
+    def test_changed_chart_retains_previous_review_and_reports_failure(self):
+        self.chart_fixture()
+        with patch.object(ph, "_fetch_bytes", return_value=b"reviewed image"):
+            initial, _ = ph.refresh(root=self.root, now=self.now)
+        with patch.object(ph, "_fetch_bytes", return_value=b"revised image"):
+            retained, status = ph.refresh(root=self.root, now=self.now, force=True)
+        self.assertEqual(initial["races"], retained["races"])
+        self.assertFalse(status["ok"])
+        self.assertIn("visual review required", status["error"])
+
+    def test_duplicate_or_incomplete_chart_is_not_imported(self):
+        chart = self.chart_fixture()
+        for edit in ("count", "duplicate", "missing"):
+            broken = copy.deepcopy(chart)
+            if edit == "count":
+                broken["facts"][0]["overtakes"] += 1
+            elif edit == "duplicate":
+                broken["facts"][0]["circuit_id"] = broken["facts"][1]["circuit_id"]
+            else:
+                broken["facts"].pop()
+            with self.subTest(edit=edit), self.assertRaises(ValueError):
+                ph.reviewed_chart(broken, self.data, self.now.date())
+
+    def test_failed_source_retries_instead_of_using_success_cache(self):
+        self.fantasy.side_effect = ValueError("Unavailable")
+        _, status = ph.refresh(root=self.root, now=self.now)
+        self.assertFalse(status["ok"])
+        self.fantasy.side_effect = None
+        _, status = ph.refresh(root=self.root, now=self.now + dt.timedelta(minutes=1))
+        self.assertTrue(status["ok"])
+        self.assertEqual(self.fantasy.call_count, 2)
 
     def test_other_hosts_and_redirects_are_rejected(self):
         for url in ("http://racingpass.net/a", "https://racingpass.net.evil.test/a",
@@ -242,6 +340,30 @@ class PassingCollectionTests(unittest.TestCase):
 
 
 class PublishedPassingTests(unittest.TestCase):
+    def test_reviewed_2025_backfill_is_complete_and_not_racingpass(self):
+        snapshot = ph._validate(ph._read(ph.ROOT / "data/passing_history.json"))
+        chart = ph._read(ph.ROOT / "data/passing_history_reviewed.json")["chart_2025"]
+        rows = [row for row in snapshot["races"] if row["series_id"] == "f1statsguru-2025"]
+        self.assertEqual(len(rows), 24)
+        self.assertEqual(sum(row["overtakes"] for row in rows), 742)
+        self.assertTrue(all(row["date"].startswith("2025-") for row in rows))
+        self.assertTrue(all(row["image_sha256"] == chart["image_sha256"] for row in rows))
+        counts = {row["circuit_id"]: row["overtakes"] for row in rows}
+        self.assertEqual(counts["baku"], 25)
+        self.assertEqual(counts["monza"], 20)
+        self.assertNotIn("madring", counts)
+        self.assertNotIn("sepang", counts)
+
+    def test_deployment_collects_and_persists_before_building(self):
+        workflow = (ph.ROOT / ".github/workflows/deploy.yml").read_text()
+        collect = workflow.index("run: python3 passing_history.py")
+        persist = workflow.index("git add data assets_src")
+        build = workflow.index("run: python3 build.py")
+        self.assertLess(collect, persist)
+        self.assertLess(persist, build)
+        self.assertNotIn("--reviewed-only", workflow)
+        self.assertNotIn("--refresh-archive", workflow)
+
     def test_primary_backfill_uses_real_venue_and_f1db_identities(self):
         history = json.loads((ph.ROOT / "data/circuit_history_2026.json").read_text())
         for gp, expected in {

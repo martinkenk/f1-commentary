@@ -66,6 +66,8 @@ def agent_arguments(prompt, report_dir, session_id=None):
         "--allow-url", "www.statsf1.com", "--allow-url", "statsf1.com",
         "--allow-url", "coffeecornermotorsport.com", "--allow-url", "content.presspage.com",
         "--allow-url", "racingpass.net",
+        "--allow-url", "fantasy.formula1.com", "--allow-url", "x.com",
+        "--allow-url", "pbs.twimg.com", "--allow-url", "www.threads.com",
         "--allow-url", "martinkenk.github.io", "--allow-url", "www.formula1.com",
         "--allow-url", "media.formula1.com", "--allow-url", "www.fia.com",
         "--allow-url", "www.the-race.com", "--allow-url", "www.pirelli.com",

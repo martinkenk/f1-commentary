@@ -403,24 +403,77 @@ displayed covered sample, not all-time records. Layout/rule changes, DRS, weathe
 and shortened races make these context, not a forecast or a race-quality score.
 Keep the last-good snapshot with a visible source notice on refresh failure.
 
-The initial September 18 backfill uses **primary RacingPass publications**:
-the 2024 Azerbaijan, Hungary, Singapore and Las Vegas reports, with their
-explicit prior-year comparisons and season-total lists. Only factual GP totals
-are retained, not article prose or individual pass logs. This is a partial
-dataset: no compatible 2025/2026 totals were verified in the initial research.
+Three distinct series are supported; never splice them into one trend:
+
+- **RacingPass archive:** the 2024 Azerbaijan, Hungary, Singapore and Las Vegas
+  reports and their explicit prior-year comparisons. The archive is stale and
+  has returned HTTP 403; normal collection does not repeatedly poll it.
+- **Sundaram R / @f1statsguru, 2025:** a static original 24-race chart published
+  24 December 2025. Reviewed totals sum to 742. The author excludes opening-lap
+  gains, crashes, mechanical failures and pit stops; treatment of lapping/team
+  orders and the underlying pass ledger are not established. It is independent,
+  not official FIA data, and not a verified rolling feed.
+- **Official F1 Fantasy scoring overtakes:** `passing_fantasy.py` discovers the
+  current tour and season from the official public application feeds. Its legal
+  on-track passing definition excludes pit-lane/car-failure/abnormally slow
+  passed cars, but does **not** promise to exclude lap one. These scoring events
+  are not RacingPass-equivalent counts. Scores remain subject to revision.
+
+Only factual race totals are retained, not source artwork, prose or pass logs.
+No open redistribution license was established for the two new sources; credit
+the original publisher and link its evidence, without applying F1DB's license.
 Do not interpret a recent source-check timestamp as a recent race observation.
 The source's actual edition/year remains visible in every table.
+The inventory's `latest_edition_covered` and `latest_covered_year` distinguish
+a successful request from current coverage. Inspect those fields on every audit;
+an old publisher archive is not an ongoing current-season feed. The page calls
+out a missing most-recent edition rather than letting old sample averages imply
+that the latest race is represented. `latest_edition_covered_by_any_series`
+distinguishes an archive-only gap from a separate source covering the latest
+edition. The `sources` inventory also reports collection kind, last race date,
+race count and per-source refresh state, including the current Fantasy feed
+even when its collected races are outside this page's pre-weekend cutoff.
 
 `data/passing_history_reviewed.json` contains the reviewed factual seeds and
 their source URLs. Add independently read prior-year comparisons here; relative
 phrases such as "last year" refer to the **article's season**, not today's year.
-`python3 passing_history.py --reviewed-only` builds a deliberate reviewed
-backfill. Normal collection discovers actual URLs from RacingPass's advertised
-RSS feed, rechecks known articles, and parses unambiguous main-race/season
-totals only while the published counting rules still match. Sprint figures in
-parentheses are excluded. A six-hour cache bounds requests; `--force` is for
-a deliberate retry. HTTP 403 or format changes remain explicit in the status
-and deployment warning; do not bypass gates or silently call old data fresh.
+The `chart_2025` entry binds all 24 visually read counts and the season-total
+cross-check to the exact original post's public WebP SHA-256. The handoff's JPG
+URL returned 403 here; the post's explicitly linked WebP was accessible and
+independently inspected. The static image is checked weekly (or with `--force`);
+a different digest requires visual review, never automatic OCR/import.
+Future charts require new source/definition/provenance review.
+
+`python3 passing_history.py --reviewed-only` builds an explicitly offline reviewed
+backfill; it does not claim a live feed refresh. Normal collection refreshes
+Fantasy; `--refresh-archive` explicitly opts into RacingPass RSS/article rechecks.
+The latter still requires matching counting rules and excludes Sprint totals.
+A six-hour successful-collection cache bounds requests; failed refreshes retry.
+`--force` deliberately bypasses caches. Source-specific failures retain last-good
+counts without preventing another valid series from refreshing. HTTP 403,
+schema/definition changes and incomplete coverage remain explicit; never bypass
+gates or silently call old data fresh.
+
+Fantasy uses `feeds/apps/web_config.json`, `feeds/schedule/raceday_en.json`,
+`feeds/statistics/drivers_<tourId>.json`, the discovered
+`feeds/popup/playerstats_<playerid>.json` records and official translation rules.
+Require matching tour/season, completed **Race** sessions, `IsPlayed == 1`, and
+sum `race overtake bonus` **Frequency**, not positions gained or the combined
+season leaderboard. A missing bonus is zero only within a complete reconciled
+race scoring breakdown with a result event; an absent driver/feed is unknown.
+The public feed omits `Total` when the score is exactly zero, including when
+overtake points cancel position-loss points. Accept that omission only when
+the full breakdown reconciles to zero; do not require a nonzero total or
+discard those genuine overtakes.
+Require the exact F1DB race entrant set, including replacements, not a hardcoded
+22 or just currently active players. Lawson has two different Fantasy IDs across
+the 2026 team change; they must never both count for one race. Session IDs are
+Fantasy IDs, not F1DB race IDs. Join by verified venue and UTC session date
+(Las Vegas crosses midnight UTC), then verify every player session against the
+schedule. A missing completed race/entrant, duplicate, unknown venue, changed
+definition, malformed score or incomplete fetch rejects that source refresh.
+Record feed URLs/digests and per-race session/participant coverage; undocumented
+endpoints can change. Older seasons survive a current-season rollover.
 
 Join using F1DB's own year, GP/venue identity and completed race classification.
 **Ergast IDs are not F1DB IDs**: Baku 2024 is Ergast 1137 but F1DB 1118.

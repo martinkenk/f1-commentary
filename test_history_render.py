@@ -128,6 +128,7 @@ class HistoryRenderTests(unittest.TestCase):
                 self.assertIn("10.0", body)
                 self.assertIn("2 of 3 previous editions", body)
                 self.assertIn("Not covered", body)
+                self.assertIn("the 2025 edition is not covered", body)
                 self.assertIn('data-sort="0">0', body)
                 self.assertIn('data-sort="">Not covered', body)
                 self.assertIn("https://example.org/counts/2024", body)
@@ -144,6 +145,39 @@ class HistoryRenderTests(unittest.TestCase):
         self.assertIn("Passing figures from another track", body)
         self.assertNotIn("Missing coverage is not zero overtakes", body)
         self.assertNotIn("Passes per covered race", body)
+
+    def test_passing_methods_and_current_collection_remain_separate(self):
+        def series(identity, kind, year, count):
+            return {
+                "id": identity, "kind": kind, "name": identity,
+                "methodology": "Distinct method", "attribution": "Source credit",
+                "url": "https://example.org/" + identity,
+                "races": [
+                    {"year": y, "name": "Azerbaijan Grand Prix",
+                     "overtakes": count if y == year else None,
+                     "race_url": "https://example.org/race",
+                     "source_url": "https://example.org/count"} for y in (2025, 2024)
+                ],
+            }
+        self.passing_record["series"] = [
+            series("archive", "archive", 2024, 47),
+            series("chart", "reviewed-static", 2025, 25),
+        ]
+        self.passing_record["sources"] = [{
+            "name": "Official F1 Fantasy", "url": "https://fantasy.formula1.com",
+            "kind": "automatic", "methodology": "Not comparable with community counts.",
+            "race_count": 14, "latest_data_date": "2026-09-13", "refresh": {},
+        }]
+        body = history_render.render(self.ctx, "facts")
+        self.assertIn("Archive coverage:", body)
+        self.assertIn("Other counting methods", body)
+        self.assertIn("14 sourced races, latest race 2026-09-13", body)
+        self.assertIn("selected weekend stay excluded", body)
+        self.assertIn('id="history-passing-chart"', body)
+        self.assertLess(body.index('id="history-passing-chart"'),
+                        body.index('id="history-passing-archive"'))
+        self.assertNotIn("Passes per covered race", body)
+        self.assertNotIn("36.0", body)
 
     def test_passing_refresh_error_remains_visible_and_escaped(self):
         self.passing_record["error"] = "Retained counts: <upstream unavailable>"

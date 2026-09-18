@@ -114,9 +114,18 @@ def inventory(gps, root=None):
                 "passing": {
                     "error": passing.get("error", ""),
                     "checked_at": passing.get("checked_at", ""),
+                    "sources": passing.get("sources", []),
+                    "latest_edition_covered_by_any_series": any(
+                        series["races"] and series["races"][0]["overtakes"] is not None
+                        for series in passing.get("series", [])),
                     "series": [
                         {"name": series["name"], "editions_in_scope": len(series["races"]),
-                         "covered_editions": sum(row["overtakes"] is not None for row in series["races"])}
+                         "kind": series.get("kind", "reviewed"),
+                         "covered_editions": sum(row["overtakes"] is not None for row in series["races"]),
+                         "latest_edition_covered": bool(series["races"] and
+                                                       series["races"][0]["overtakes"] is not None),
+                         "latest_covered_year": max((row["year"] for row in series["races"]
+                                                    if row["overtakes"] is not None), default=None)}
                         for series in passing.get("series", [])
                     ],
                 },

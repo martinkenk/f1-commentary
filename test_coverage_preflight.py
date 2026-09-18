@@ -36,6 +36,7 @@ class CoveragePreflightTests(unittest.TestCase):
         paths = ["data/standings_2026.json", "data/season_h2h_2026.json",
                  "data/circuit_history_2026.json", "circuit_history.py", "history_render.py",
                  "race_tyres.py", "data/spain/race_tyres_verified.json", "passing_history.py",
+                 "passing_fantasy.py",
                  "data/spain/news_highlights.json", "data/spain/nested/source.json",
                  "f1lib.py", "standings.py", "content_spain.py", "test_spain_content.py",
                  "assets_src/fia-spain-example-p2.png"]

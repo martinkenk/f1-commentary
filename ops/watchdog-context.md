@@ -133,6 +133,21 @@ Read SKILL.md for the full source schemas, dated FIA values and lessons:
   not grid-to-finish gains or raw lap-position changes. Preserve each source's
   counting rules and attribution, keep different methods separate, and never
   replace a missing count with zero. The selected weekend and sprints are excluded.
+  Inspect `latest_edition_covered` and `latest_covered_year`: a recent HTTP/source
+  check of an old archive does not mean the last race is covered. Seek the
+  original statistician's current publications rather than repeatedly treating
+  a stale website as the sole current-season source.
+  The current-source pipeline keeps RacingPass archival, the reviewed
+  Sundaram R / @f1statsguru 24-race 2025 chart (742 total), and official F1 Fantasy
+  scoring overtakes as three separate methods. Fantasy is not lap-one-excluded
+  community data. Its automatic collector requires completed Race records and
+  the exact F1DB entrant set, with replacements and per-session identities checked.
+  Missing feeds/records are not zero; complete scored records without a bonus are.
+  The static chart is hash-bound and needs visual review if changed; no blind OCR.
+  Check per-source latest race dates and `latest_edition_covered_by_any_series`,
+  not just the latest request. Current Fantasy counts stay out of their own
+  pre-weekend record books. Use `--refresh-archive` only for an intentional
+  RacingPass retry; routine refresh follows the active feed instead.
 - September 11-16 editorial failures came from `data/**/*.json` excluding root
   JSON, the unlisted `f1lib.py`, PyPy taking precedence over CPython, 20-minute
   timeouts, and concurrent deployment data commits. Repairs are in `83cf5d310`
