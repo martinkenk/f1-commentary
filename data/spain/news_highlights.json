@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-17T05:58:16Z",
-  "expires_at": "2026-09-17T23:58:16Z",
+  "reviewed_at": "2026-09-18T09:59:55Z",
+  "expires_at": "2026-09-19T05:59:55Z",
   "through_session": "Race",
   "feed_fingerprint": "08fabcd5a974555a22c5212304735cd488b4e474d9e449aeb86791dee3978d26",
   "items": [
@@ -52,19 +52,15 @@
       ]
     },
     {
-      "topic": "Circuit assessment",
-      "title": "Madring organisers plan 2027 changes after a near-processional debut",
-      "date": "2026-09-14",
-      "summary": "The Race reports the Spanish Grand Prix's promoters are already planning changes in three areas of the Madring layout for 2027, after Sunday's race produced very few on-track overtakes outside the first-lap shuffle — reportedly fewer passes than even Monaco.",
-      "why_it_matters": "This is reported forward planning, not a confirmed FIA-approved 2027 layout change. Treat named changes as provisional until an official circuit-map revision is published.",
+      "topic": "Team relations",
+      "title": "Hamilton denies asking for Ferrari staff changes after a difficult post-Spain patch",
+      "date": "2026-09-17",
+      "summary": "Following an Italian media report (Corriere della Sera) that Hamilton had asked Ferrari to replace trackside personnel and that his relationship with team principal Fred Vasseur had weakened, Hamilton publicly denied the claim on Instagram, saying he has “never asked for anyone on my team to be replaced.” The denial follows Ferrari's podium-less run since Spa in July, an exasperated Hamilton pleading for the team to fix operational errors at Monza, and his retirement from the Madrid race with a brake issue after contact with Verstappen.",
+      "why_it_matters": "This is Hamilton's own on-the-record rebuttal of a specific personnel-change claim, not a confirmed team decision — keep the denial and the underlying rumour clearly separated on air, and do not present the Corriere della Sera report as settled fact.",
       "sources": [
         {
-          "label": "The Race: 2027 circuit changes",
-          "url": "https://www.the-race.com/formula-1/madring-f1-spanish-gp-circuit-three-changes-planned-2027/"
-        },
-        {
-          "label": "Formula1.com: what we learned",
-          "url": "https://www.formula1.com/en/latest/article/what-we-learned-from-f1s-first-visit-to-the-madring.7gkOP8vYszgWmb9e2SyfgD"
+          "label": "The Race: Hamilton denies Ferrari staff-change claim",
+          "url": "https://www.the-race.com/formula-1/hamilton-firmly-denies-asking-for-ferrari-staff-to-be-replaced/"
         }
       ]
     },
