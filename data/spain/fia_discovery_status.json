@@ -1,5 +1,6 @@
 {
-  "checked_at": "2026-09-19T15:41:30.711717+00:00",
+  "checked_at": "2026-09-19T17:41:40.717680+00:00",
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Spanish%20Grand%20Prix",
-  "ok": true
+  "ok": false,
+  "error": "FIA documents page unavailable: HTTP Error 403: Forbidden; season fallback failed: HTTP Error 403: Forbidden"
 }
