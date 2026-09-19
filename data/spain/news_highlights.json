@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-18T09:59:55Z",
-  "expires_at": "2026-09-19T05:59:55Z",
+  "reviewed_at": "2026-09-19T23:23:00Z",
+  "expires_at": "2026-09-20T23:23:00Z",
   "through_session": "Race",
   "feed_fingerprint": "08fabcd5a974555a22c5212304735cd488b4e474d9e449aeb86791dee3978d26",
   "items": [
@@ -23,10 +23,10 @@
     },
     {
       "topic": "VSC controversy",
-      "title": "Norris's lost win reopens F1's Virtual Safety Car timing debate",
-      "date": "2026-09-16",
-      "summary": "The VSC that cost Norris the lead was triggered five seconds after he passed the pit entry and ended just before he could complete his own stop, forcing him to pay the full pit-lane time loss. Sources say the Sporting Advisory Committee will discuss the VSC rules at its next meeting because of this incident.",
-      "why_it_matters": "This is a live rules-review story, not a settled outcome. Do not present the race classification as evidence the VSC rule will change before any committee decision is confirmed.",
+      "title": "Norris's lost win reopens F1's Virtual Safety Car timing debate — with a concrete fix now proposed",
+      "date": "2026-09-19",
+      "summary": "The VSC that cost Norris the lead was triggered five seconds after he passed the pit entry and ended just before he could complete his own stop, forcing him to pay the full pit-lane time loss. Sources say the Sporting Advisory Committee will discuss the VSC rules at its next meeting because of this incident. Writing on 19 September, The Race's Gary Anderson proposed a specific fix: require every driver to cross the start-finish line at least once during a VSC period (mirroring how full safety-car restarts already work), so no driver's pit-stop cost is left to the luck of where the VSC falls relative to their pit window.",
+      "why_it_matters": "This is a live rules-review story, not a settled outcome. Anderson's proposal is one commentator's opinion, not a confirmed rule change — do not present the race classification, or this specific fix, as evidence the VSC rule will change before any committee decision is confirmed.",
       "sources": [
         {
           "label": "The Race: VSC rule debate",
@@ -35,6 +35,10 @@
         {
           "label": "Formula1.com: Norris reaction",
           "url": "https://www.formula1.com/en/latest/article/believe-i-deserved-it-today-norris-reflects-on-losing-spanish-gp-victory-after-ill-timed-vsc.3xLTCM9C1ADjwOFOZi1ccq"
+        },
+        {
+          "label": "The Race: Gary Anderson's proposed rule fix (19 Sep)",
+          "url": "https://www.the-race.com/formula-1/four-incident-rule-changes-f1-should-make/"
         }
       ]
     },
