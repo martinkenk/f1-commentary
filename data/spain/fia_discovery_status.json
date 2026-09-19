@@ -1,6 +1,5 @@
 {
-  "checked_at": "2026-09-19T18:19:56.670637+00:00",
+  "checked_at": "2026-09-19T21:58:40.768434+00:00",
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Spanish%20Grand%20Prix",
-  "ok": false,
-  "error": "FIA documents page unavailable: The read operation timed out; season fallback failed: The read operation timed out"
+  "ok": true
 }
