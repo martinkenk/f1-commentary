@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-19T10:01:42+00:00",
+  "checked_at": "2026-09-19T15:07:29+00:00",
   "discovery_retrieved_at": "2026-09-19T10:01:38.739828+00:00",
   "documents": [
     {
@@ -81,7 +81,7 @@
         "circuit"
       ],
       "sha256": "7aec5a0edf101a6583c4b99a9efe24470846abf68f3baa7fa29d8ce8e4edada3",
-      "fetched_at": "2026-09-19T10:01:42+00:00",
+      "fetched_at": "2026-09-19T15:07:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -149,7 +149,7 @@
         "circuit"
       ],
       "sha256": "f9081086a40e7603e8804052a9b752d82a79899bc9667f80d759a4b3e0fff8df",
-      "fetched_at": "2026-09-19T10:01:42+00:00",
+      "fetched_at": "2026-09-19T15:07:29+00:00",
       "pages": [
         {
           "page": 1,
@@ -165,7 +165,7 @@
         "upgrades"
       ],
       "sha256": "c92e9191ede7c2bbb5aeabb8b2026f599d3f71fe432bc55311d63cfa1cb6f6a7",
-      "fetched_at": "2026-09-19T10:01:42+00:00",
+      "fetched_at": "2026-09-19T15:07:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -245,7 +245,7 @@
         "powerunit"
       ],
       "sha256": "93f9ced8f349fe8d3a6f62890ed32eeb9b9ef9002583d08315403a0c8c12d969",
-      "fetched_at": "2026-09-19T10:01:42+00:00",
+      "fetched_at": "2026-09-19T15:07:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -261,7 +261,7 @@
         "circuit"
       ],
       "sha256": "85336f07aa823a1935f28367608057e1129c317fe059eef4d367cc41db66246a",
-      "fetched_at": "2026-09-19T10:01:42+00:00",
+      "fetched_at": "2026-09-19T15:07:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -285,7 +285,7 @@
         "circuit"
       ],
       "sha256": "0d8f31d66990bf25991ecba2fe1b840ca9497453441364b67db5ca0e05da1ed6",
-      "fetched_at": "2026-09-19T10:01:42+00:00",
+      "fetched_at": "2026-09-19T15:07:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -375,5 +375,30 @@
       "revision": 0
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_race_directors_competition_notes_v3.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_power_unit_information_v2.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_car_display_procedure.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_power_unit_information.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    }
+  ]
 }

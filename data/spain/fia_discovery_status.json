@@ -1,5 +1,6 @@
 {
-  "checked_at": "2026-09-19T10:01:38.739828+00:00",
+  "checked_at": "2026-09-19T15:06:45.275099+00:00",
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Spanish%20Grand%20Prix",
-  "ok": true
+  "ok": false,
+  "error": "FIA documents page unavailable: HTTP Error 504: Gateway Time-out; season fallback failed: HTTP Error 504: Gateway Time-out"
 }
