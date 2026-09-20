@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-20T04:45:00Z",
-  "expires_at": "2026-09-21T04:45:00Z",
+  "reviewed_at": "2026-09-20T09:59:00Z",
+  "expires_at": "2026-09-21T09:59:00Z",
   "through_session": "Race",
   "feed_fingerprint": "08fabcd5a974555a22c5212304735cd488b4e474d9e449aeb86791dee3978d26",
   "items": [
@@ -52,12 +52,16 @@
       ]
     },
     {
-      "topic": "Team relations",
-      "title": "Hamilton denies asking for Ferrari staff changes after a difficult post-Spain patch",
-      "date": "2026-09-17",
-      "summary": "Following an Italian media report (Corriere della Sera) that Hamilton had asked Ferrari to replace trackside personnel and that his relationship with team principal Fred Vasseur had weakened, Hamilton publicly denied the claim on Instagram, saying he has “never asked for anyone on my team to be replaced.” The denial follows Ferrari's podium-less run since Spa in July, an exasperated Hamilton pleading for the team to fix operational errors at Monza, and his retirement from the Madrid race with a brake issue after contact with Verstappen.",
-      "why_it_matters": "This is Hamilton's own on-the-record rebuttal of a specific personnel-change claim, not a confirmed team decision — keep the denial and the underlying rumour clearly separated on air, and do not present the Corriere della Sera report as settled fact.",
+      "topic": "Ferrari technical and team fallout",
+      "title": "Why Ferrari's development has stalled since its Barcelona win — and Hamilton denies staff-change reports",
+      "date": "2026-09-20",
+      "summary": "The Race reports Ferrari has not been on the podium since Spa (before Madrid) as McLaren's aerodynamic and tyre-window development outpaced it; the Zandvoort floor update was only around three-quarters of Ferrari's originally planned package, with the rest now targeted for Austin. Separately, after extensive checks on Leclerc's power unit following his Monza accident, Ferrari raced Madrid on his older ADUO 1 unit; both Hamilton and Leclerc are certain to take a new power unit before the season ends, and Ferrari is weighing whether to take that penalty for Leclerc as early as this coming Baku weekend. Amid this run, Hamilton publicly denied an Italian media report (Corriere della Sera) that he had asked Ferrari to replace trackside personnel, saying on Instagram he has \"never asked for anyone on my team to be replaced.\"",
+      "why_it_matters": "This gives the technical/strategic backdrop to Ferrari's underwhelming Madrid result (Hamilton's early retirement, Leclerc's cautious strategy) beyond the on-track incidents already covered, and separates Hamilton's on-the-record denial from the underlying, unconfirmed personnel-change rumour — keep the two distinct, and note a Baku power-unit penalty for Leclerc is now a live possibility.",
       "sources": [
+        {
+          "label": "The Race: Why Ferrari's F1 progress stalled - and what it plans to do",
+          "url": "https://www.the-race.com/formula-1/ferrari-f1-2026-development-latest-stalled-whats-going-on/"
+        },
         {
           "label": "The Race: Hamilton denies Ferrari staff-change claim",
           "url": "https://www.the-race.com/formula-1/hamilton-firmly-denies-asking-for-ferrari-staff-to-be-replaced/"

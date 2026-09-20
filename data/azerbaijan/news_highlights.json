@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-19T17:40:00Z",
-  "expires_at": "2026-09-20T17:40:00Z",
+  "reviewed_at": "2026-09-20T09:59:00Z",
+  "expires_at": "2026-09-21T09:59:00Z",
   "through_session": null,
   "feed_fingerprint": "4baa1f51d1c5c26239ed47bccd0dbbd3f33821ce1ab3e16ebb6ac4cd943761ac",
   "items": [
@@ -35,15 +35,15 @@
       ]
     },
     {
-      "topic": "Technical and circuit",
-      "title": "Tech Weekly: Red Bull still chasing a fix for a persistent RB22 issue",
-      "date": "2026-09-17",
-      "summary": "Mark Hughes and Giorgio Piola report Red Bull continues to work on an unresolved car issue on the RB22 despite recent strong results, per Formula1.com's technical analysis published this week.",
-      "why_it_matters": "A known unresolved technical issue on the constructor currently second in the standings is relevant context heading into Baku's high-speed street layout, ahead of any confirmed upgrade package for the round.",
+      "topic": "Power unit penalty",
+      "title": "Ferrari weighing a Baku grid penalty for Leclerc as fifth power unit looms",
+      "date": "2026-09-20",
+      "summary": "The Race reports Ferrari's development has stalled since its Barcelona win, with the SF-26's Zandvoort floor update only around three-quarters of the package originally planned; the rest is now targeted for Austin. Separately, following extensive checks after Leclerc's Monza accident, Ferrari raced Madrid on his older ADUO 1 power unit, and both Hamilton and Leclerc are certain to take a new unit before the season ends. The Race reports Ferrari is considering unlocking Leclerc's fifth unit (in ADUO 2 specification) as early as this Baku weekend, which would trigger a grid penalty at a circuit where overtaking is considered achievable; the team says the final call will be made during the weekend after running the Monza-spec unit in practice.",
+      "why_it_matters": "This is a specific, dated (20 September) technical/penalty story tied directly to this round, not a season generality: a grid-penalty decision for Leclerc could be confirmed during the Baku weekend itself. Keep it framed as reported rumour/likely scenario pending Ferrari's actual declaration, and distinguish it from Hamilton's separate, later-race unit decision.",
       "sources": [
         {
-          "label": "Formula1.com: Tech Weekly on the RB22",
-          "url": "https://www.formula1.com/en/latest/article/the-issue-red-bull-are-still-trying-to-correct-on-the-rb22.55y0Ac2ZKjt0JGJ9tg5YlZ"
+          "label": "The Race: Why Ferrari's F1 progress stalled - and what it plans to do",
+          "url": "https://www.the-race.com/formula-1/ferrari-f1-2026-development-latest-stalled-whats-going-on/"
         }
       ]
     },
@@ -52,7 +52,7 @@
       "title": "Williams brings its long-awaited FW48 upgrade package to Baku",
       "date": "2026-09-18",
       "summary": "Williams will introduce a major, long-delayed upgrade package for the FW48 at the Azerbaijan Grand Prix after failing to score a point since Monaco. Drivers Alex Albon and Carlos Sainz say the package should bring a genuine step but caution it is unlikely to be the full gain calculated when it was signed off months ago, since rival midfield teams have kept developing in the meantime; team principal James Vowles calls the round a proof point for the team's processes ahead of the 2027 car (FW50).",
-      "why_it_matters": "This is a concrete, sourced upgrade claim tied specifically to this round, not a season-long generality \u2014 note it is expected to close the gap rather than move Williams into Q3 contention, and that both drivers have already tempered expectations publicly before the sessions.",
+      "why_it_matters": "This is a concrete, sourced upgrade claim tied specifically to this round, not a season-long generality — note it is expected to close the gap rather than move Williams into Q3 contention, and that both drivers have already tempered expectations publicly before the sessions.",
       "sources": [
         {
           "label": "Formula1.com: Why the FW48 upgrade package in Baku is so crucial for Williams",
