@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-20T15:10:26+00:00",
+  "checked_at": "2026-09-20T18:24:50+00:00",
   "state": "error",
   "error": "https://coffeecornermotorsport.com/feed/: Unsupported publisher feed format: invalid XML; https://coffeecornermotorsport.com/spanish-grand-prix-2026-tyre-strategy/: Missing or unsupported article publication date; https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-spanish-gp.2BDFZFEsdYeeyJNgdk5R0R: Published article is access-restricted; no login or protected API attempted",
   "attempts": [
