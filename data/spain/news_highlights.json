@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-19T17:40:00Z",
-  "expires_at": "2026-09-20T17:40:00Z",
+  "reviewed_at": "2026-09-20T04:45:00Z",
+  "expires_at": "2026-09-21T04:45:00Z",
   "through_session": "Race",
   "feed_fingerprint": "08fabcd5a974555a22c5212304735cd488b4e474d9e449aeb86791dee3978d26",
   "items": [
@@ -24,13 +24,13 @@
     {
       "topic": "VSC controversy",
       "title": "Norris's lost win reopens F1's Virtual Safety Car timing debate",
-      "date": "2026-09-16",
-      "summary": "The VSC that cost Norris the lead was triggered five seconds after he passed the pit entry and ended just before he could complete his own stop, forcing him to pay the full pit-lane time loss. Sources say the Sporting Advisory Committee will discuss the VSC rules at its next meeting because of this incident.",
-      "why_it_matters": "This is a live rules-review story, not a settled outcome. Do not present the race classification as evidence the VSC rule will change before any committee decision is confirmed.",
+      "date": "2026-09-19",
+      "summary": "Gary Anderson's post-Madrid analysis proposes that every driver should cross the start-finish line at least once during a VSC, so each car gets a chance to complete a reduced-loss pit stop. He argues this would remove the luck of a VSC falling just after a driver's pit entry, as happened to Norris.",
+      "why_it_matters": "This is one commentator's proposed operational change, not an announced FIA or F1 rule. Keep it separate from the Sporting Advisory Committee discussion and do not present it as a confirmed fix.",
       "sources": [
         {
-          "label": "The Race: VSC rule debate",
-          "url": "https://www.the-race.com/formula-1/f1-virtual-safety-car-rule-lando-norris-no-easy-fix/"
+          "label": "The Race: Gary Anderson's incident-rule proposals",
+          "url": "https://www.the-race.com/formula-1/four-incident-rule-changes-f1-should-make/"
         },
         {
           "label": "Formula1.com: Norris reaction",
