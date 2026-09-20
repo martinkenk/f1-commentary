@@ -31,6 +31,10 @@ RACE_REPORT_URL = ("https://www.formula1.com/en/latest/article/"
                    "15WtFEBT5JEe4drdeO88t2")
 FIA_SC_TIME_URL = ("https://www.fia.com/system/files/decision-document/"
                    "2026_italian_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf")
+FIA_TSUNODA_DECISION_URL = ("https://www.fia.com/system/files/decision-document/"
+                            "2026_italian_grand_prix_-_decision_-_car_22_-_alleged_start_procedure_infringement.pdf")
+FIA_TSUNODA_SUMMONS_URL = ("https://www.fia.com/system/files/decision-document/"
+                           "2026_italian_grand_prix_-_summons_-_car_22_-_alleged_start_procedure_infringement.pdf")
 
 
 def _race_review():
@@ -400,6 +404,19 @@ Source: <a href="https://www.fia.com/system/files/decision-document/2026_italian
                      fact="Car 18 impeded Car 1 (Norris) prior to Turn 1.",
                      outcome="Competitor and driver: Warning.",
                      kind="warning"),
+                dict(doc="Doc 69", no="22", driver="Yuki Tsunoda", team="Visa Cash App Racing Bulls F1 Team",
+                     session="Race",
+                     fact="After Leclerc's second-lap red flag, an extra formation lap was ordered by "
+                          "Race Control based on the Race Director's assessment of car 22's approach to "
+                          "and position on the restart grid.",
+                     outcome="No further action — the Stewards found the car was positioned correctly "
+                             "within its grid box (verified on multi-angle video) and that neither the "
+                             "team nor driver had been told they were considered the cause of the extra "
+                             "lap, so the mandatory pit-lane-start rule for a driver who causes an extra "
+                             "formation lap could not be applied. The Stewards separately suggested the "
+                             "FIA consider a process to notify a team in real time when it is deemed the "
+                             "cause of an extra formation lap.",
+                     kind="noaction"),
             ],
             intro_html=f"""
 <div class="callout alert">
@@ -423,6 +440,20 @@ Selected decisions, not an exhaustive post-race stewards log.</p>
   failed cell in a third-party battery &mdash; the Stewards noted this is the season's third CDS
   failure and warned future incidents may draw sporting penalties too.
 </div>
+<div class="callout watch">
+  <i class="bi bi-flag"></i> <strong>Audi appeals the Tsunoda restart no-further-action ruling (post-race).</strong>
+  After Race Control ordered an extra formation lap for the second (post-red-flag) standing restart
+  based on car 22's approach to the grid, the Stewards' Document 69 found Tsunoda's car had in fact
+  been correctly positioned within its grid box and cleared him with no further action. Audi has since
+  lodged a formal &ldquo;intention to appeal&rdquo; against that decision. This is a post-event
+  regulatory dispute, not a live penalty against Tsunoda or Racing Bulls; any FIA International Court
+  of Appeal ruling would arrive after this event and is tracked here as a pending follow-up, not yet
+  decided.
+</div>
+<p class="src">Sources: <a href="{FIA_TSUNODA_DECISION_URL}" target="_blank" rel="noopener">FIA Document 69, Decision &mdash; Car 22, Alleged Start Procedure Infringement</a> and
+<a href="{FIA_TSUNODA_SUMMONS_URL}" target="_blank" rel="noopener">Document 62, Summons</a> (6 Sep 2026);
+<a href="https://www.formula1.com/en/latest/article/audi-lodge-intention-to-appeal-over-tsunoda-decision-in-italian-gp.70YzooUbxrwZnGgt98pqRk" target="_blank" rel="noopener">Formula1.com: Audi lodge &lsquo;intention to appeal&rsquo;</a> and
+<a href="https://www.the-race.com/formula-1/audi-appeals-stewards-decision-yuki-tsunoda-aborted-start-monza/" target="_blank" rel="noopener">The Race: Audi appeals stewards' decision</a>.</p>
 <div class="grid cols-2">
   {card("Zandvoort compliance check cleared (Document 2)", ul([
      "Car number 10 (Gasly, Alpine) was randomly selected from the top ten after the Dutch GP for extensive physical inspection of its re-programmable electronic devices and SECU.",
