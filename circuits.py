@@ -2,7 +2,7 @@
 Per-venue reference data — the *known-now* editorial layer.
 
 Formula1.com gives us the calendar, the session times and the hard circuit
-numbers (see ``calendar.py``). What it doesn't give us is the commentary
+numbers (see ``calendar_scraper.py``). What it doesn't give us is the commentary
 material: what the place actually demands of a car, where the passes happen,
 which corners to name-check, and the trivia that fills a quiet lap. That lives
 here, keyed by the Formula1.com racing slug.

@@ -59,7 +59,7 @@ python3 build.py
 ```
 
 ## Architecture
-- `calendar.py` – season scraper: session times, circuit stats and official track maps
+- `calendar_scraper.py` – season scraper: session times, circuit stats and official track maps
   → `data/calendar_2026.json` + `assets_src/track-<slug>.png`. Re-run when F1 confirms
   more detail; CI refreshes the calendar weekly and active-event maps every run.
 - `standings.py` – fetches both official championship tables into

@@ -66,9 +66,9 @@ jobs:
         continue-on-error: true
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%u)" = "1" ]; then
-            python3 calendar.py
+            python3 calendar_scraper.py
           else
-            python3 calendar.py --maps-only
+            python3 calendar_scraper.py --maps-only
           fi
 
       - name: Report incomplete calendar refresh

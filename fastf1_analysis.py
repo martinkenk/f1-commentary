@@ -54,25 +54,21 @@ Needs `pip install fastf1 pandas numpy` (not part of build.py's stdlib
 runtime — this script is run separately, like enrich.py, and commits its
 JSON output for the stdlib-only build to pick up and render).
 
-IMPORTANT: this repo has a top-level ``calendar.py`` which shadows the
-stdlib ``calendar`` module that FastF1's dependencies need. We drop the
-script's own directory from ``sys.path`` before importing fastf1 so the
-real stdlib module resolves, then restore it to import repo-local modules.
+The scraper is kept in a distinct ``calendar_scraper.py`` module so the
+stdlib ``calendar`` package remains importable while FastF1 and its
+transitive dependencies are loaded.
 """
 import sys, os, json, argparse, datetime, statistics
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-if _HERE in sys.path:
-    sys.path.remove(_HERE)
-if "" in sys.path:
-    sys.path.remove("")
+if _HERE not in sys.path:
+    sys.path.insert(0, _HERE)
 
 import fastf1  # noqa: E402
 import fastf1.plotting  # noqa: E402
 import pandas as pd  # noqa: E402
 import numpy as np  # noqa: E402
 
-sys.path.insert(0, _HERE)
 import standings  # noqa: E402
 
 ROOT = _HERE
@@ -80,7 +76,7 @@ CACHE_DIR = os.path.join(ROOT, ".fastf1_cache")
 os.makedirs(CACHE_DIR, exist_ok=True)
 fastf1.Cache.enable_cache(CACHE_DIR)
 
-# FastF1 session identifier -> (display label, matches calendar.py session label)
+# FastF1 session identifier -> (display label, matches calendar_scraper.py session label)
 SESSION_MAP = [
     ("FP1", "Practice 1"),
     ("FP2", "Practice 2"),

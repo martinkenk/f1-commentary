@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import calendar
+import calendar_scraper as calendar
 import json
 
 import enrich

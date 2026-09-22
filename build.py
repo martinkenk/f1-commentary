@@ -3,9 +3,10 @@ F1 Commentary Hub — build driver.
 
 Builds a weekend hub for every Grand Prix from ``FIRST_ROUND`` to the end of the
 season. Rather than hand-writing a content module per race, the calendar scraped
-by ``calendar.py`` (session times, circuit numbers, sprint format, track maps)
-is combined with the reference material in ``circuits.py`` and rendered through
-``content_generic``. Races that deserve bespoke treatment get it via ``BESPOKE``.
+by ``calendar_scraper.py`` (session times, circuit numbers, sprint format,
+track maps) is combined with the reference material in ``circuits.py`` and
+rendered through ``content_generic``. Races that deserve bespoke treatment get
+it via ``BESPOKE``.
 
 Re-run at any point across a weekend — weather, session results, news and
 stewards' decisions all refresh, and pages that were waiting on a source fill
@@ -16,7 +17,7 @@ themselves in once it publishes.
 Engine:   f1lib.py            (shell, CSS, weather, results, index, build)
 Content:  content_<gp>.py     (bespoke per-GP prose)
           content_generic.py  (everything else, progressive disclosure)
-Data:     data/calendar_2026.json  (refresh with: python3 calendar.py)
+Data:     data/calendar_2026.json  (refresh with: python3 calendar_scraper.py)
 """
 import datetime
 import json

@@ -12,7 +12,7 @@ awaiting verification, not as proof that the source is unpublished. Automated
 FIA source links can appear before the detailed transcription is reviewed.
 
 Reference material comes from ``circuits.py``; hard numbers and session times
-come from ``data/calendar_2026.json`` via ``calendar.py``.
+come from ``data/calendar_2026.json`` via ``calendar_scraper.py``.
 """
 from f1lib import card, stat, ul
 import datetime

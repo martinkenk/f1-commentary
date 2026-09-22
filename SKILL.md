@@ -150,7 +150,7 @@ generic content. `circuits.py` supplies venue coordinates, character and history
 
 | File/surface | Responsibility |
 |---|---|
-| `calendar.py` | F1 calendar, local session times, race/result IDs, statistics, official maps |
+| `calendar_scraper.py` | F1 calendar, local session times, race/result IDs, statistics, official maps |
 | `standings.py` | Atomic official driver **and** constructor snapshot; derived gaps and freshness |
 | `season_h2h.py` | Official season qualifying/race ledger, replacement-aware scorelines and per-round evidence |
 | `circuit_history.py`, `history_render.py` | F1DB-backed pre-weekend venue/GP editions, driver/constructor records, recent winners and historical teammate comparisons |
@@ -243,7 +243,7 @@ Do not add these as mandatory imports to the standard-library build.
 ```bash
 python3 standings.py
 python3 season_h2h.py
-python3 calendar.py --maps-only
+python3 calendar_scraper.py --maps-only
 python3 circuit_history.py
 python3 passing_history.py
 LLM_FAKE=1 python3 enrich.py --max 25
@@ -255,7 +255,7 @@ python3 build.py
 python3 coverage_inventory.py --all --check
 ```
 
-Run full `python3 calendar.py` on Mondays, manual deployment dispatches or known
+Run full `python3 calendar_scraper.py` on Mondays, manual deployment dispatches or known
 schedule/statistic changes. Existing maps refresh within 10 days before / 7 days
 after the race, rather than being cached forever. An explicit media backfill is
 `python3 fia_media.py --gp italy`; article/decision collection also supports
@@ -773,7 +773,7 @@ inventory. Prefer FIA/Pirelli/team published race-set graphics; FP1 substitute
 mapping applies only to timing-derived analysis, not the already entrant-specific
 published chart. Do not say an official report is unpublished merely because it is not loaded.
 FastF1 analysis is optional and must not hide independently available FIA data.
-Preserve the `calendar.py` stdlib-shadowing workaround in `fastf1_analysis.py`.
+Keep the calendar scraper in its own module so the stdlib `calendar` package remains available.
 Do not imply absent timing means a completed session did not happen.
 
 ### Published race-set inventories: collection and review

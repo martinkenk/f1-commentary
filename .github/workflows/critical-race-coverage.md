@@ -210,7 +210,7 @@ state separately what is still awaiting review and therefore not deployed.
    - the most recently completed race for post-event corrections.
 3. Also check the most recently completed GP within seven days for stale
    pre-race claims, final classifications and later FIA decisions.
-4. Run `python3 standings.py`, `python3 calendar.py --maps-only`, `python3 season_h2h.py`,
+4. Run `python3 standings.py`, `python3 calendar_scraper.py --maps-only`, `python3 season_h2h.py`,
    `python3 circuit_history.py`, `python3 passing_history.py`,
    `LLM_FAKE=1 python3 enrich.py --max 25`, `python3 fia_media.py`,
    `python3 race_tyres.py`, and
