@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-09-22T13:40:00Z",
-  "expires_at": "2026-09-23T13:40:00Z",
+  "reviewed_at": "2026-09-22T20:26:04Z",
+  "expires_at": "2026-09-23T20:26:04Z",
   "through_session": null,
-  "feed_fingerprint": "5801bd2a5d686e8fd4e2f193138c8c8bebbb022858e6a6c3c384d939ac71c1b6",
+  "feed_fingerprint": "2c840cf7dd5509d8cfbc3109ec68da85701ef71387a9187ab3e6a19ef86e042b",
   "items": [
     {
       "topic": "Line-up confirmed",
@@ -48,19 +48,15 @@
       ]
     },
     {
-      "topic": "Championship",
-      "title": "Russell and Hamilton both concede the 2026 title fight after Madrid",
-      "date": "2026-09-13",
-      "summary": "After Antonelli's Madrid win stretched his lead, both George Russell (Antonelli's own team-mate) and Lewis Hamilton said in separate post-race comments that they no longer see themselves in contention for the 2026 Drivers' Championship.",
-      "why_it_matters": "Two of Antonelli's closest championship rivals publicly conceding narrows the on-air title framing heading into Baku to Antonelli versus a shrinking field; use the current standings table for the exact live gap rather than the 13 September figure.",
+      "topic": "Championship permutations",
+      "title": "F1's data team maps the earliest Antonelli could clinch the 2026 title",
+      "date": "2026-09-22",
+      "summary": "Formula1.com's data team calculated the title-clinch scenarios after Antonelli's Spanish GP win: he leads Russell by 81 points and Hamilton by 101 with nine rounds (233 points maximum, including the Singapore Sprint) remaining. If Antonelli fails to score again, Russell could clinch as early as São Paulo, Hamilton/Norris/Leclerc at Las Vegas, Verstappen/Piastri not before Qatar. If Antonelli wins Azerbaijan, Bahrain and both Singapore sessions while Russell scores nothing, he could clinch at Singapore (Round 17). Using each driver's actual season median finish instead, the earliest projected clinch is Round 19 in Mexico.",
+      "why_it_matters": "This supersedes the earlier Russell/Hamilton 'concede the title' framing with the publication's own concrete point gaps and clinch-date scenarios, tied to the current standings after Spain rather than a general concession quote.",
       "sources": [
         {
-          "label": "Formula1.com: Russell concedes title doubts",
-          "url": "https://www.formula1.com/en/latest/article/im-not-in-the-fight-for-the-drivers-russell-concedes-doubts-over-title-challenge-after-antonellis-madrid-win.7KEnyGkZGdpac7a5RD8sx9"
-        },
-        {
-          "label": "The Race: Hamilton concedes the title",
-          "url": "https://www.the-race.com/formula-1/hamilton-effectively-concedes-2026-f1-title-after-latest-blow/"
+          "label": "Formula1.com: POINTS PERMUTATIONS — When is the earliest Antonelli could win the World Championship?",
+          "url": "https://www.formula1.com/en/latest/article/points-permutations-when-is-the-earliest-antonelli-could-win-the-world-championship.24UKT2fsQl4GmC5DMrmYUy"
         }
       ]
     },

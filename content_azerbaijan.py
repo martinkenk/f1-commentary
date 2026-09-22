@@ -20,9 +20,51 @@ FIA_TYRES_URL = (
 )
 FIA_TYRES_ASSET = "fia-azerbaijan-4ba2e0fed786-be2a9031410066a5-p2.png"
 
+PERMUTATIONS_URL = (
+    "https://www.formula1.com/en/latest/article/points-permutations-when-is-"
+    "the-earliest-antonelli-could-win-the-world-championship.24UKT2fsQl4GmC5DMrmYUy"
+)
+
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
+    pages["standings"]["body"] += f"""
+<h2 class="sec">Championship permutations</h2>
+<p class="lead-note">Formula1.com's data team calculated the title-clinch scenarios after the
+Spanish Grand Prix, the round before this one. Nine rounds remain, including the Singapore
+Sprint, so the maximum points still on the table is 233 (every Grand Prix win plus the Sprint).</p>
+<div class="grid cols-2">
+  {content_generic.card(
+      "Who is mathematically still in it",
+      content_generic.ul([
+          "<strong>Antonelli leads by 81 points</strong> over Russell and 101 over Hamilton "
+          "after Spain &mdash; eight other drivers (Russell, Hamilton, Norris, Leclerc, "
+          "Verstappen, Piastri, Hadjar and Lawson) remain mathematically alive.",
+          "Realistic title chances for the lower end of that list depend on Antonelli failing "
+          "to score again while nobody else out-scores his current total &mdash; not a genuine "
+          "on-form prediction.",
+      ]),
+      "bi-trophy", "accent",
+  )}
+  {content_generic.card(
+      "Earliest possible clinch dates",
+      content_generic.ul([
+          "If Antonelli fails to score again: Russell could clinch as early as S&atilde;o Paulo; "
+          "Hamilton, Norris and Leclerc as early as Las Vegas; Verstappen and Piastri not before Qatar.",
+          "If Antonelli wins Azerbaijan, Bahrain and both the Singapore Sprint and Grand Prix while "
+          "Russell scores nothing across those rounds, Antonelli could clinch at Singapore (Round 17) "
+          "with an unreachable 375-point total.",
+          "Using each driver's actual 2026 median finish (Antonelli P1, Russell P3.5) instead, the "
+          "data team's projected earliest clinch is Round 19 in Mexico.",
+      ]),
+      "bi-calendar-check",
+  )}
+</div>
+<p class="src">Source: <a href="{PERMUTATIONS_URL}" target="_blank" rel="noopener">Formula1.com &mdash;
+"POINTS PERMUTATIONS: When is the earliest Antonelli could win the World Championship?"</a>,
+published 22 September 2026, using standings after the Spanish Grand Prix. These are the
+publication's own scenarios, not this site's projection.</p>
+"""
     pages["rookies"]["body"] = f"""
 {content_generic.card(
     "The rookie rule",
@@ -76,8 +118,7 @@ def build_pages(ctx, env):
 
 <figure class="circuit-fig">
   <img src="../assets/{PREVIEW_IMAGE}"
-       alt="Pirelli 2026 Azerbaijan Grand Prix Baku preview infographic showing circuit information, "
-            "tyre stress ratings and the C3/C4/C5 compound selection"
+       alt="Pirelli 2026 Azerbaijan Grand Prix Baku preview infographic showing circuit information, tyre stress ratings and the C3/C4/C5 compound selection"
        class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen" loading="lazy">
   <figcaption><strong>Official Pirelli event preview</strong> &mdash; circuit information, tyre demands
   and the C3/C4/C5 compound selection. Source: <a href="{PREVIEW_URL}" target="_blank" rel="noopener">
@@ -88,8 +129,7 @@ def build_pages(ctx, env):
 <h2 class="sec">FIA tyre prescriptions (Document 1, Issue A)</h2>
 <figure class="circuit-fig">
   <img src="../assets/{FIA_TYRES_ASSET}"
-       alt="FIA Azerbaijan Competition Notes Pirelli Preview page with slick, intermediate and wet "
-            "pressures, camber limits and heating times"
+       alt="FIA Azerbaijan Competition Notes Pirelli Preview page with slick, intermediate and wet pressures, camber limits and heating times"
        class="circuit-img" onclick="zoomImg(this)" title="Click to zoom / full screen" loading="lazy">
   <figcaption><a href="{FIA_TYRES_URL}#page=2" target="_blank" rel="noopener">FIA Document 1, page 2</a>,
   issued 22 September 2026 at 11:40; prescription document version 5, Issue A.
