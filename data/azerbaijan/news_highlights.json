@@ -1,23 +1,23 @@
 {
-  "reviewed_at": "2026-09-21T09:41:04Z",
-  "expires_at": "2026-09-22T09:41:04Z",
+  "reviewed_at": "2026-09-22T21:40:33Z",
+  "expires_at": "2026-09-23T09:40:33Z",
   "through_session": null,
-  "feed_fingerprint": "4baa1f51d1c5c26239ed47bccd0dbbd3f33821ce1ab3e16ebb6ac4cd943761ac",
+  "feed_fingerprint": "2c840cf7dd5509d8cfbc3109ec68da85701ef71387a9187ab3e6a19ef86e042b",
   "items": [
     {
       "topic": "Safety and line-up",
-      "title": "Hadjar still sidelined for Baku; Mekies says his recovery is on track",
-      "date": "2026-09-17",
-      "summary": "Isack Hadjar has missed the three races since the summer break (Zandvoort, Monza, Madrid) recovering from a training wrist injury. Liam Lawson remains in the Red Bull seat with Yuki Tsunoda covering Lawson's Racing Bulls cockpit. Red Bull's Laurent Mekies says there is nothing wrong with Hadjar's recovery, without yet confirming a return race.",
-      "why_it_matters": "The current Red Bull/Racing Bulls line-up (Lawson at Red Bull, Tsunoda at Racing Bulls) is still not Hadjar's regular pairing going into Baku. Commentary on either seat must reflect this replacement chain, not the pre-injury roster.",
+      "title": "Hadjar returns to Red Bull for Baku; Lawson moves back to Racing Bulls",
+      "date": "2026-09-22",
+      "summary": "Formula1.com reports that Isack Hadjar has been declared fit to return to Red Bull Racing at the Azerbaijan Grand Prix after missing Zandvoort, Monza and Madrid with a wrist injury. Liam Lawson therefore moves back to Racing Bulls after his three-race Red Bull stint, with Yuki Tsunoda returning to his reserve-driver role.",
+      "why_it_matters": "Baku's confirmed Red Bull/Racing Bulls line-up is the regular Verstappen-Hadjar pairing plus Lawson at Racing Bulls; do not carry the previous replacement chain into session results or teammate comparisons.",
       "sources": [
         {
-          "label": "Formula1.com: Mekies on Hadjar's recovery",
-          "url": "https://www.formula1.com/en/latest/article/nothing-wrong-with-isacks-recovery-mekies-on-when-hadjar-will-return.5VYeVNlvMTpwjhT0zPCwX8"
+          "label": "Formula1.com: Hadjar returns for Azerbaijan",
+          "url": "https://www.formula1.com/en/latest/article/hadjar-to-make-racing-return-with-red-bull-at-azerbaijan-gp.1ddPnUSDEze0V9MCiQ9d2U"
         },
         {
-          "label": "Formula1.com: Lawson assesses his Red Bull outings",
-          "url": "https://www.formula1.com/en/latest/article/overall-its-been-a-strong-three-weekends-lawson-assesses-his-red-bull-outings.5te41V9tCdZlfI06L8yi1s"
+          "label": "The Race: Red Bull driver line-up after Hadjar returns",
+          "url": "https://www.the-race.com/formula-1/isack-hadjar-injury-return-where-every-red-bull-f1-driver-stands/"
         }
       ]
     },
