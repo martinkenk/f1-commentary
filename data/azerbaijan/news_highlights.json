@@ -1,36 +1,23 @@
 {
-  "reviewed_at": "2026-09-20T09:59:00Z",
-  "expires_at": "2026-09-21T09:59:00Z",
+  "reviewed_at": "2026-09-22T13:40:00Z",
+  "expires_at": "2026-09-23T13:40:00Z",
   "through_session": null,
-  "feed_fingerprint": "4baa1f51d1c5c26239ed47bccd0dbbd3f33821ce1ab3e16ebb6ac4cd943761ac",
+  "feed_fingerprint": "5801bd2a5d686e8fd4e2f193138c8c8bebbb022858e6a6c3c384d939ac71c1b6",
   "items": [
     {
-      "topic": "Safety and line-up",
-      "title": "Hadjar still sidelined for Baku; Mekies says his recovery is on track",
-      "date": "2026-09-17",
-      "summary": "Isack Hadjar has missed the three races since the summer break (Zandvoort, Monza, Madrid) recovering from a training wrist injury. Liam Lawson remains in the Red Bull seat with Yuki Tsunoda covering Lawson's Racing Bulls cockpit. Red Bull's Laurent Mekies says there is nothing wrong with Hadjar's recovery, without yet confirming a return race.",
-      "why_it_matters": "The current Red Bull/Racing Bulls line-up (Lawson at Red Bull, Tsunoda at Racing Bulls) is still not Hadjar's regular pairing going into Baku. Commentary on either seat must reflect this replacement chain, not the pre-injury roster.",
+      "topic": "Line-up confirmed",
+      "title": "Hadjar cleared to return for Red Bull at the Azerbaijan GP; Lawson back to Racing Bulls",
+      "date": "2026-09-22",
+      "summary": "Isack Hadjar has been declared fit to return to the Red Bull cockpit at Baku after recovering from the fractured wrist he suffered training over the summer break, which had kept him out of Zandvoort, Monza and Madrid. Liam Lawson, who deputised at Red Bull for those three races, returns to Racing Bulls, and Yuki Tsunoda reverts to his reserve-driver role after covering Lawson's seat.",
+      "why_it_matters": "This replaces the prior 'Hadjar still sidelined' storyline outright: Red Bull's regular line-up (Verstappen/Hadjar) and Racing Bulls' regular line-up are both back for this round, not the replacement chain used across the last three races.",
       "sources": [
         {
-          "label": "Formula1.com: Mekies on Hadjar's recovery",
-          "url": "https://www.formula1.com/en/latest/article/nothing-wrong-with-isacks-recovery-mekies-on-when-hadjar-will-return.5VYeVNlvMTpwjhT0zPCwX8"
+          "label": "Formula1.com: Hadjar to make racing return with Red Bull at Azerbaijan GP",
+          "url": "https://www.formula1.com/en/latest/article/hadjar-to-make-racing-return-with-red-bull-at-azerbaijan-gp.1ddPnUSDEze0V9MCiQ9d2U"
         },
         {
-          "label": "Formula1.com: Lawson assesses his Red Bull outings",
-          "url": "https://www.formula1.com/en/latest/article/overall-its-been-a-strong-three-weekends-lawson-assesses-his-red-bull-outings.5te41V9tCdZlfI06L8yi1s"
-        }
-      ]
-    },
-    {
-      "topic": "Team relations",
-      "title": "McLaren steps up push to land Red Bull's Lambiase as chief racing officer",
-      "date": "2026-09-13",
-      "summary": "McLaren is accelerating its move for Red Bull race engineer Gianpiero Lambiase, who has agreed to join as chief racing officer once his Red Bull contract, which runs to the end of next season, allows. A visible paddock meeting between the parties in Madrid drew attention to the approach.",
-      "why_it_matters": "Lambiase remains Verstappen's race engineer for now, but the confirmed future move to a rival team is a live paddock storyline through the remaining 2026 races, distinct from any on-track result.",
-      "sources": [
-        {
-          "label": "The Race: McLaren's meeting with Lambiase",
-          "url": "https://www.the-race.com/formula-1/mclaren-ramps-up-effort-to-get-lambiase-early-f1/"
+          "label": "The Race: Where every Red Bull driver stands as Hadjar returns",
+          "url": "https://www.the-race.com/formula-1/isack-hadjar-injury-return-where-every-red-bull-f1-driver-stands/"
         }
       ]
     },
@@ -74,6 +61,19 @@
         {
           "label": "The Race: Hamilton concedes the title",
           "url": "https://www.the-race.com/formula-1/hamilton-effectively-concedes-2026-f1-title-after-latest-blow/"
+        }
+      ]
+    },
+    {
+      "topic": "McLaren recovery",
+      "title": "Piastri looks to bounce back from an 'anonymous' Madrid weekend",
+      "date": "2026-09-22",
+      "summary": "Oscar Piastri says he needs to 'figure out how to close that gap' after what he described as an anonymous weekend in Madrid, as team-mate Lando Norris and championship leader Kimi Antonelli have pulled further ahead in recent rounds.",
+      "why_it_matters": "A direct, dated driver quote framing Piastri's own title outlook heading into Baku, distinct from the separate Russell/Hamilton concession story above and from McLaren's constructors' position.",
+      "sources": [
+        {
+          "label": "Formula1.com: How can Piastri recover from an 'anonymous' Madrid weekend?",
+          "url": "https://www.formula1.com/en/latest/article/figure-out-how-to-close-that-gap-how-can-piastri-recover-from-anonymous-madrid-weekend.5CXECzYozjdoDvA2UC5HU1"
         }
       ]
     }
