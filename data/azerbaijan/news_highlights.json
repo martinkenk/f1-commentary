@@ -1,79 +1,78 @@
 {
-  "reviewed_at": "2026-09-23T12:48:00Z",
-  "expires_at": "2026-09-24T12:48:00Z",
+  "reviewed_at": "2026-09-23T17:39:30Z",
+  "expires_at": "2026-09-24T17:39:30Z",
   "through_session": null,
-  "feed_fingerprint": "2c840cf7dd5509d8cfbc3109ec68da85701ef71387a9187ab3e6a19ef86e042b",
+  "feed_fingerprint": "01556a493c7797ed799c9a3d520343ffc0f6e0448b4db0bd7a503bd11e98304f",
   "items": [
     {
       "topic": "Safety and line-up",
-      "title": "Hadjar returns to Red Bull for Baku; Lawson moves back to Racing Bulls",
-      "date": "2026-09-22",
-      "summary": "Formula1.com reports that Isack Hadjar has been declared fit to return to Red Bull Racing at the Azerbaijan Grand Prix after missing Zandvoort, Monza and Madrid with a wrist injury. Liam Lawson therefore moves back to Racing Bulls after his three-race Red Bull stint, with Yuki Tsunoda returning to his reserve-driver role.",
+      "title": "Hadjar returns to Red Bull for Baku after signing a 2027 extension",
+      "date": "2026-09-23",
+      "summary": "Formula1.com reports that Isack Hadjar is returning to Red Bull for Azerbaijan after missing Zandvoort, Monza and Madrid with a wrist injury, and has signed a new 2027 contract. Liam Lawson therefore returns to Racing Bulls after his three-race Red Bull stint.",
       "why_it_matters": "Baku's confirmed Red Bull/Racing Bulls line-up is the regular Verstappen-Hadjar pairing plus Lawson at Racing Bulls; do not carry the previous replacement chain into session results or teammate comparisons.",
       "sources": [
         {
-          "label": "Formula1.com: Hadjar returns for Azerbaijan",
-          "url": "https://www.formula1.com/en/latest/article/hadjar-to-make-racing-return-with-red-bull-at-azerbaijan-gp.1ddPnUSDEze0V9MCiQ9d2U"
+          "label": "Formula1.com: Hadjar opens up on his return and new contract",
+          "url": "https://www.formula1.com/en/latest/article/its-good-to-come-back-to-the-fight-hadjar-opens-up-on-new-contract-and-return-to-racing.6NzCNMkA6szXJuzSDLcx4g"
         },
         {
-          "label": "The Race: Red Bull driver line-up after Hadjar returns",
-          "url": "https://www.the-race.com/formula-1/isack-hadjar-injury-return-where-every-red-bull-f1-driver-stands/"
-        }
-      ]
-    },
-    {
-      "topic": "Team relations",
-      "title": "McLaren steps up push to land Red Bull's Lambiase as chief racing officer",
-      "date": "2026-09-13",
-      "summary": "McLaren is accelerating its move for Red Bull race engineer Gianpiero Lambiase, who has agreed to join as chief racing officer once his Red Bull contract, which runs to the end of next season, allows. A visible paddock meeting between the parties in Madrid drew attention to the approach.",
-      "why_it_matters": "Lambiase remains Verstappen's race engineer for now, but the confirmed future move to a rival team is a live paddock storyline through the remaining 2026 races, distinct from any on-track result.",
-      "sources": [
-        {
-          "label": "The Race: McLaren's meeting with Lambiase",
-          "url": "https://www.the-race.com/formula-1/mclaren-ramps-up-effort-to-get-lambiase-early-f1/"
-        }
-      ]
-    },
-    {
-      "topic": "Power unit penalty",
-      "title": "Ferrari weighing a Baku grid penalty for Leclerc as fifth power unit looms",
-      "date": "2026-09-20",
-      "summary": "The Race reports Ferrari's development has stalled since its Barcelona win, with the SF-26's Zandvoort floor update only around three-quarters of the package originally planned; the rest is now targeted for Austin. Separately, following extensive checks after Leclerc's Monza accident, Ferrari raced Madrid on his older ADUO 1 power unit, and both Hamilton and Leclerc are certain to take a new unit before the season ends. The Race reports Ferrari is considering unlocking Leclerc's fifth unit (in ADUO 2 specification) as early as this Baku weekend, which would trigger a grid penalty at a circuit where overtaking is considered achievable; the team says the final call will be made during the weekend after running the Monza-spec unit in practice.",
-      "why_it_matters": "This is a specific, dated (20 September) technical/penalty story tied directly to this round, not a season generality: a grid-penalty decision for Leclerc could be confirmed during the Baku weekend itself. Keep it framed as reported rumour/likely scenario pending Ferrari's actual declaration, and distinguish it from Hamilton's separate, later-race unit decision.",
-      "sources": [
-        {
-          "label": "The Race: Why Ferrari's F1 progress stalled - and what it plans to do",
-          "url": "https://www.the-race.com/formula-1/ferrari-f1-2026-development-latest-stalled-whats-going-on/"
-        }
-      ]
-    },
-    {
-      "topic": "Upgrades",
-      "title": "Williams brings its long-awaited FW48 upgrade package to Baku",
-      "date": "2026-09-18",
-      "summary": "Williams will introduce a major, long-delayed upgrade package for the FW48 at the Azerbaijan Grand Prix after failing to score a point since Monaco. Drivers Alex Albon and Carlos Sainz say the package should bring a genuine step but caution it is unlikely to be the full gain calculated when it was signed off months ago, since rival midfield teams have kept developing in the meantime; team principal James Vowles calls the round a proof point for the team's processes ahead of the 2027 car (FW50).",
-      "why_it_matters": "This is a concrete, sourced upgrade claim tied specifically to this round, not a season-long generality — note it is expected to close the gap rather than move Williams into Q3 contention, and that both drivers have already tempered expectations publicly before the sessions.",
-      "sources": [
-        {
-          "label": "Formula1.com: Why the FW48 upgrade package in Baku is so crucial for Williams",
-          "url": "https://www.formula1.com/en/latest/article/why-the-fw48-upgrade-package-in-baku-is-so-crucial-for-williams.2vxRlXS2yDBqT7O5VMCn3s"
+          "label": "Formula1.com: Red Bull announce Hadjar's 2027 deal",
+          "url": "https://www.formula1.com/en/latest/article/red-bull-announce-new-deal-with-hadjar-for-2027-ahead-of-his-return-in-azerbaijan.3QcucG3BkfbWJNk4M5dWme"
         }
       ]
     },
     {
       "topic": "Championship",
-      "title": "Russell and Hamilton both concede the 2026 title fight after Madrid",
-      "date": "2026-09-13",
-      "summary": "After Antonelli's Madrid win stretched his lead, both George Russell (Antonelli's own team-mate) and Lewis Hamilton said in separate post-race comments that they no longer see themselves in contention for the 2026 Drivers' Championship.",
-      "why_it_matters": "Two of Antonelli's closest championship rivals publicly conceding narrows the on-air title framing heading into Baku to Antonelli versus a shrinking field; use the current standings table for the exact live gap rather than the 13 September figure.",
+      "title": "Antonelli's title lead remains the central Baku storyline",
+      "date": "2026-09-23",
+      "summary": "Formula1.com's latest driver comments have Kimi Antonelli, George Russell and Lewis Hamilton discussing the title fight after Madrid. Antonelli leads Russell by 81 points, with nine Grand Prix weekends remaining; all three describe the contest as ongoing rather than settled.",
+      "why_it_matters": "Use the refreshed official standings for the exact gap and keep the title narrative live: Russell and Hamilton have not mathematically been removed from the season, despite Antonelli's substantial lead.",
       "sources": [
         {
-          "label": "Formula1.com: Russell concedes title doubts",
-          "url": "https://www.formula1.com/en/latest/article/im-not-in-the-fight-for-the-drivers-russell-concedes-doubts-over-title-challenge-after-antonellis-madrid-win.7KEnyGkZGdpac7a5RD8sx9"
+          "label": "Formula1.com: Hamilton reveals his focus in the title fight",
+          "url": "https://www.formula1.com/en/latest/article/theres-still-a-long-way-to-go-hamilton-reveals-his-focus-in-the-title-fight.634P3Tv4c7ZuAttBnAMMxb"
         },
         {
-          "label": "The Race: Hamilton concedes the title",
-          "url": "https://www.the-race.com/formula-1/hamilton-effectively-concedes-2026-f1-title-after-latest-blow/"
+          "label": "Formula1.com: Antonelli and Russell on the title battle",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-admits-its-not-over-until-its-over-in-intense-title-battle.4S42uYGHGfvLgwnFP53RzK"
+        },
+        {
+          "label": "Formula1.com: Russell will fight until it is mathematically impossible",
+          "url": "https://www.formula1.com/en/latest/article/russell-insists-he-will-keep-fighting-until-its-mathematically-impossible-in-title-battle-with-antonelli.4fLmDDTQ3ELd1klvcVUh6u"
+        }
+      ]
+    },
+    {
+      "topic": "Technical and circuit",
+      "title": "Williams brings its long-awaited FW48 upgrade package to Baku",
+      "date": "2026-09-23",
+      "summary": "Formula1.com and The Race report that Williams is bringing its delayed FW48 package to Azerbaijan. Alex Albon and Carlos Sainz expect a step but caution that it may not deliver the full gain calculated months ago while the midfield continued to develop.",
+      "why_it_matters": "This is a round-specific upgrade to watch in practice and qualifying, not proof of a guaranteed leap into Q3; compare the team's actual Baku pace with its own expectations.",
+      "sources": [
+        {
+          "label": "Formula1.com: Sainz and Albon remain cautious on the Williams upgrade",
+          "url": "https://www.formula1.com/en/latest/article/why-sainz-and-albon-remain-cautious-on-long-awaited-williams-upgrade-package.4dgoSwY5UbscNhWXSeMvnI"
+        },
+        {
+          "label": "The Race: What is resting on Williams's Baku upgrade",
+          "url": "https://www.the-race.com/formula-1/too-little-too-late-whats-resting-on-williamss-baku-upgrade/"
+        }
+      ]
+    },
+    {
+      "topic": "Session outcome",
+      "title": "Norris arrives in Baku after a strong run and a painful Madrid loss",
+      "date": "2026-09-23",
+      "summary": "Formula1.com reports that Lando Norris has won two of the last four Grands Prix and believes he is doing some things better than last year. He says Azerbaijan is the circuit he has least looked forward to, after an ill-timed Madrid VSC cost him a likely victory.",
+      "why_it_matters": "Treat the recent form as context, not a forecast: Baku's long flat-out section and energy-management demands create a different test, and no Azerbaijan session result exists yet.",
+      "sources": [
+        {
+          "label": "Formula1.com: Norris reflects on his upturn in form ahead of Azerbaijan",
+          "url": "https://www.formula1.com/en/latest/article/doing-some-things-better-norris-reflects-on-upturn-in-form-ahead-of-azerbaijan-grand-prix.53aUpsWUVI6VjezxOi0zW2"
+        },
+        {
+          "label": "The Race: Drivers brace for Baku's unnatural challenge",
+          "url": "https://www.the-race.com/formula-1/f1-drivers-braced-for-super-unnatural-challenge-in-baku/"
         }
       ]
     }
