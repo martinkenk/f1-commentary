@@ -6,6 +6,7 @@ separate on the Tyres page.
 """
 
 import content_generic
+from f1lib import card, render_reliability, ul
 
 
 PREVIEW_URL = (
@@ -155,4 +156,24 @@ settings. FIA/Pirelli may revise the prescriptions during the weekend.</p>
 {content_generic.pending("Long-run degradation data", "after Friday practice",
                          "bi-graph-down")}
 """
+    pages["reliability"] = dict(
+        kicker="Reliability · pre-event watch",
+        title="Reliability & Pit Stops",
+        sub="Sourced technical follow-ups plus the automatic classification and pit-stop analysis.",
+        body=render_reliability(ctx, intro_html=card(
+            "Madrid post-race compliance check cleared (Document 2)",
+            ul([
+                "Car number 63 (Russell, Mercedes) was randomly selected from the top ten after the "
+                "Spanish GP for extensive physical inspection of its front suspension assembly "
+                "(dampers, fairings, geometry, uprights/wheel hubs, sensor identification and data "
+                "logging).",
+                "The FIA Technical Delegate found all inspected items compliant with the 2026 "
+                "Technical Regulations.",
+                "No further action; carried over from the previous round as a routine post-race "
+                "technical report, not evidence of any Baku-specific reliability concern.",
+            ]) + '<p class="src">Source: <a href="https://www.fia.com/system/files/'
+                 'decision-document/2026_azerbaijan_grand_prix_-_post-race_checks_on_car_number_63_'
+                 '2026_spanish_gp.pdf" target="_blank" rel="noopener">FIA Document 2, Technical '
+                 "Delegate's Report</a>, 22 September 2026.</p>",
+            "bi-clipboard-check")))
     return pages
