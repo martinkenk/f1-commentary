@@ -1,7 +1,21 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Azerbaijan%20Grand%20Prix",
-  "retrieved_at": "2026-09-23T13:27:09.993496+00:00",
+  "retrieved_at": "2026-09-23T14:42:38.756609+00:00",
   "documents": [
+    {
+      "filename": "2026_azerbaijan_grand_prix_-_power_unit_information.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_power_unit_information.pdf",
+      "categories": [
+        "powerunit"
+      ]
+    },
+    {
+      "filename": "2026_azerbaijan_grand_prix_-_car_display_procedure.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_car_display_procedure.pdf",
+      "categories": [
+        "upgrades"
+      ]
+    },
     {
       "filename": "2026_azerbaijan_grand_prix_-_competition_visa.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_competition_visa.pdf",
