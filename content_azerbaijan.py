@@ -19,6 +19,10 @@ FIA_COMPLIANCE_URL = (
     "2026_azerbaijan_grand_prix_-_post-race_checks_on_car_number_63_"
     "2026_spanish_gp.pdf"
 )
+FIA_POWER_UNIT_URL = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_azerbaijan_grand_prix_-_power_unit_information.pdf"
+)
 
 
 def build_pages(ctx, env):
@@ -49,6 +53,37 @@ def build_pages(ctx, env):
         sub="Retirements, finisher counts and pit-stop rankings — filled in from the official results.",
         body=compliance_card + f1lib.auto_reliability(ctx),
     )
+    powerunit = pages.get("powerunit")
+    if powerunit:
+        powerunit_pending = content_generic.pending(
+            "The FIA power-unit and energy-map document for this event",
+            "with the event documents in the race week",
+        )
+        powerunit_card = content_generic.card(
+            "Azerbaijan energy map (FIA Document)",
+            content_generic.ul([
+                "Race recharge is <strong>8.5 MJ</strong> with Overtake inactive and "
+                "<strong>9.0 MJ</strong> with Overtake active; qualifying and free "
+                "practice are 8.5 MJ and 9.0 MJ respectively.",
+                "The power-limited distance is <strong>3,796 m</strong> and the "
+                "rate limit is <strong>50 kW/s</strong>.",
+                "The Overtake detection line is at <strong>4,177 m</strong> "
+                "(L20); the activation line is <strong>4,270 m</strong> "
+                "(L21, TBC).",
+            ])
+            + (
+                f'<p class="src">Source: <a href="{FIA_POWER_UNIT_URL}" '
+                'target="_blank" rel="noopener">FIA power-unit information '
+                "for the 2026 Azerbaijan Grand Prix</a>, page 2. "
+                "The activation distance remains labelled TBC in the source.</p>"
+            ),
+            "bi-lightning-charge",
+            "accent",
+        )
+        powerunit["body"] = powerunit["body"].replace(
+            powerunit_pending,
+            powerunit_card,
+        )
     standings = pages.get("standings")
     if standings:
         standings["body"] += f"""
