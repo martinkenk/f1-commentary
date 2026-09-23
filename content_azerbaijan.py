@@ -17,6 +17,36 @@ PREVIEW_IMAGE = (
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
+    standings = pages.get("standings")
+    if standings:
+        standings["body"] += f"""
+<h2 class="sec">Championship permutations</h2>
+<p class="lead-note">Formula1.com's 22 September data-team analysis puts the
+mathematics in context after Madrid; these are sourced scenarios, not a race
+prediction.</p>
+<div class="grid cols-2">
+  {content_generic.card(
+      "Who is still mathematically alive",
+      "<p><strong>Antonelli leads Russell by 81 points and Hamilton by 101.</strong> "
+      "Eight other drivers remain mathematically in contention: Russell, Hamilton, "
+      "Lando Norris, Charles Leclerc, Max Verstappen, Oscar Piastri, Isack Hadjar "
+      "and Liam Lawson.</p>"
+      "<p>If Antonelli scores no more points and no rival exceeds his current 292, "
+      "the earliest possible rival titles are São Paulo for Russell, Las Vegas for "
+      "Hamilton, Norris and Leclerc, and Qatar for Verstappen and Piastri.</p>",
+      "bi-trophy", "accent")}
+  {content_generic.card(
+      "Earliest Antonelli clinch scenarios",
+      "<p>In the most aggressive scenario, Antonelli wins Azerbaijan, Bahrain and "
+      "both Singapore Sprint and Grand Prix while Russell scores zero; that would "
+      "clinch the title at Singapore (Round 17).</p>"
+      "<p>Using each driver's season median finish instead, F1's data team puts "
+      "the earliest projected clinch at Mexico (Round 19). These scenarios use "
+      "the official scoring structure and are not guaranteed outcomes.</p>",
+      "bi-calendar-check", "accent")}
+</div>
+<p class="src">Source: <a href="https://www.formula1.com/en/latest/article/points-permutations-when-is-the-earliest-antonelli-could-win-the-world-championship.24UKT2fsQl4GmC5DMrmYUy" target="_blank" rel="noopener">Formula1.com — POINTS PERMUTATIONS</a>, published 22 September 2026.</p>
+"""
     pages["tyres"]["body"] = f"""
 <div class="grid cols-2">
   {content_generic.card(
