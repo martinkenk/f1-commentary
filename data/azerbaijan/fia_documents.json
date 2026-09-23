@@ -1,7 +1,26 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Azerbaijan%20Grand%20Prix",
-  "retrieved_at": "2026-09-23T14:42:38.756609+00:00",
+  "retrieved_at": "2026-09-23T15:44:56.747253+00:00",
   "documents": [
+    {
+      "filename": "2026_azerbaijan_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
+      "categories": [
+        "circuit"
+      ]
+    },
+    {
+      "filename": "2026_azerbaijan_grand_prix_-_competition_visa_v2.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_competition_visa_v2.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_azerbaijan_grand_prix_-_race_directors_competition_notes.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_race_directors_competition_notes.pdf",
+      "categories": [
+        "circuit"
+      ]
+    },
     {
       "filename": "2026_azerbaijan_grand_prix_-_power_unit_information.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_power_unit_information.pdf",
@@ -15,11 +34,6 @@
       "categories": [
         "upgrades"
       ]
-    },
-    {
-      "filename": "2026_azerbaijan_grand_prix_-_competition_visa.pdf",
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_competition_visa.pdf",
-      "categories": []
     },
     {
       "filename": "2026_azerbaijan_grand_prix_-_post-race_checks_on_car_number_63_2026_spanish_gp.pdf",
