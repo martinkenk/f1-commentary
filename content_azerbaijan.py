@@ -6,6 +6,7 @@ separate on the Tyres page.
 """
 
 import content_generic
+import f1lib
 
 
 PREVIEW_URL = "https://coffeecornermotorsport.com/azerbaijan-grand-prix-2026-tyre-preview/"
@@ -13,10 +14,41 @@ PREVIEW_IMAGE = (
     "https://coffeecornermotorsport.com/wp-content/uploads/2026/09/"
     "1920_15-az26-preview-en-1.webp"
 )
+FIA_COMPLIANCE_URL = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_azerbaijan_grand_prix_-_post-race_checks_on_car_number_63_"
+    "2026_spanish_gp.pdf"
+)
 
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
+    compliance_card = content_generic.card(
+        "Madrid post-race compliance check cleared (FIA Document 2)",
+        content_generic.ul([
+            "Car 63 (George Russell, Mercedes) was randomly selected from "
+            "the top ten after the Spanish Grand Prix for extended physical "
+            "inspection of the front suspension assembly.",
+            "The FIA checked the dampers, suspension fairings and geometry, "
+            "uprights and wheel hubs, sensor identification and connections, "
+            "data logging, sensor homologation and FIA-F1-DOC-001 submissions.",
+            "All inspected items complied with the 2026 Formula One Technical "
+            "Regulations. This is a routine report carried over from Madrid, "
+            "not evidence of a Baku-specific reliability concern.",
+        ]) + (
+            f'<p class="src">Source: <a href="{FIA_COMPLIANCE_URL}" '
+            'target="_blank" rel="noopener">FIA Document 2, Technical '
+            "Delegate's Report</a>, issued 22 September 2026.</p>"
+        ),
+        "bi-clipboard-check",
+        "accent",
+    )
+    pages["reliability"] = dict(
+        kicker="Reliability & Pits",
+        title="Reliability & Pit Stops",
+        sub="Retirements, finisher counts and pit-stop rankings — filled in from the official results.",
+        body=compliance_card + f1lib.auto_reliability(ctx),
+    )
     standings = pages.get("standings")
     if standings:
         standings["body"] += f"""
