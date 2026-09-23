@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-21T09:41:04Z",
-  "expires_at": "2026-09-22T09:41:04Z",
+  "reviewed_at": "2026-09-23T04:39:57Z",
+  "expires_at": "2026-09-24T04:39:57Z",
   "through_session": "Race",
   "feed_fingerprint": "08fabcd5a974555a22c5212304735cd488b4e474d9e449aeb86791dee3978d26",
   "items": [
@@ -52,19 +52,15 @@
       ]
     },
     {
-      "topic": "Ferrari technical and team fallout",
-      "title": "Why Ferrari's development has stalled since its Barcelona win — and Hamilton denies staff-change reports",
-      "date": "2026-09-20",
-      "summary": "The Race reports Ferrari has not been on the podium since Spa (before Madrid) as McLaren's aerodynamic and tyre-window development outpaced it; the Zandvoort floor update was only around three-quarters of Ferrari's originally planned package, with the rest now targeted for Austin. Separately, after extensive checks on Leclerc's power unit following his Monza accident, Ferrari raced Madrid on his older ADUO 1 unit; both Hamilton and Leclerc are certain to take a new power unit before the season ends, and Ferrari is weighing whether to take that penalty for Leclerc as early as this coming Baku weekend. Amid this run, Hamilton publicly denied an Italian media report (Corriere della Sera) that he had asked Ferrari to replace trackside personnel, saying on Instagram he has \"never asked for anyone on my team to be replaced.\"",
-      "why_it_matters": "This gives the technical/strategic backdrop to Ferrari's underwhelming Madrid result (Hamilton's early retirement, Leclerc's cautious strategy) beyond the on-track incidents already covered, and separates Hamilton's on-the-record denial from the underlying, unconfirmed personnel-change rumour — keep the two distinct, and note a Baku power-unit penalty for Leclerc is now a live possibility.",
+      "topic": "Madrid technical development",
+      "title": "Ferrari's Madrid exhaust innovation was briefly copied by Mercedes",
+      "date": "2026-09-22",
+      "summary": "Formula1.com's technical review says Ferrari's flick tail mode exhaust, fitted since pre-season testing, partially blocks and redirects exhaust flow to improve diffuser and rear-wing airflow. Mercedes briefly ran a new interpretation of the arrangement at Madrid, then removed it for the rest of the weekend and returned to its Monza configuration.",
+      "why_it_matters": "This is a current, source-backed technical explanation of the Madrid weekend rather than a general form narrative. Keep the Ferrari innovation, Mercedes trial and the decision to withdraw it as separate facts; the report does not establish a lasting Mercedes upgrade or a causal race-performance claim.",
       "sources": [
         {
-          "label": "The Race: Why Ferrari's F1 progress stalled - and what it plans to do",
-          "url": "https://www.the-race.com/formula-1/ferrari-f1-2026-development-latest-stalled-whats-going-on/"
-        },
-        {
-          "label": "The Race: Hamilton denies Ferrari staff-change claim",
-          "url": "https://www.the-race.com/formula-1/hamilton-firmly-denies-asking-for-ferrari-staff-to-be-replaced/"
+          "label": "Formula1.com: Ferrari's aerodynamic advantage in Madrid",
+          "url": "https://www.formula1.com/en/latest/article/ferraris-aerodynamic-advantage-that-mercedes-tried-to-emulate-in-madrid.1XU3fx0wRfhZq0MB7oSr8v"
         }
       ]
     },
