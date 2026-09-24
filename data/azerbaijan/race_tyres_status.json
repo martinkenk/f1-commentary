@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-09-24T16:22:55+00:00",
+  "checked_at": "2026-09-24T16:43:21+00:00",
   "state": "error",
-  "error": "https://coffeecornermotorsport.com/feed/: Unsupported publisher feed format: invalid XML",
+  "error": "https://coffeecornermotorsport.com/feed/: Source fetch failed: <urlopen error timed out>",
   "attempts": [
     {
       "url": "https://www.formula1.com/en/latest/all.html",
@@ -11,7 +11,7 @@
     {
       "url": "https://coffeecornermotorsport.com/feed/",
       "state": "error",
-      "message": "Unsupported publisher feed format: invalid XML"
+      "message": "Source fetch failed: <urlopen error timed out>"
     }
   ]
 }
