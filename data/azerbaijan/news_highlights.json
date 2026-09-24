@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-09-24T16:08:55Z",
-  "expires_at": "2026-09-25T12:08:55Z",
+  "reviewed_at": "2026-09-24T20:42:47Z",
+  "expires_at": "2026-09-25T20:42:47Z",
   "through_session": "Practice 2",
-  "feed_fingerprint": "6263e614a6ee5038d6c4ba0671a9877356e00af46be940a72bf30a8b7b20264d",
+  "feed_fingerprint": "9fb3cbf44bb96fd5ef070bc78bc4edff797ea3d1515a34e0103fc81465bb4f41",
   "items": [
     {
       "topic": "Penalties",
-      "title": "Alonso and Stroll's grid penalties confirmed; Bottas cleared; Hamilton/Lawson now summoned",
+      "title": "Alonso and Stroll's grid penalties confirmed; Bottas cleared; Hamilton reprimanded for Turn 19 impeding",
       "date": "2026-09-24",
-      "summary": "The Stewards issued Documents 20 and 21 confirming Aston Martin's Fernando Alonso will drop 25 grid places and Lance Stroll 20, both for exceeding their season power-unit element allocation in Free Practice 1. Alonso's penalty covers three exceeded elements (engine, turbocharger, PU ancillary component); Stroll's covers four (turbocharger, energy store, control electronics, PU ancillary component). Both penalties apply at the next race the driver takes part in. Separately, the Stewards ruled (Document 19) that Valtteri Bottas's FP1 overtake of Albon under a yellow flag warranted no penalty, finding he could not reasonably have avoided completing the move given the short time between the flag and the pass. Separately, new summonses (Documents 22–23) call Lewis Hamilton and Liam Lawson to a hearing over an alleged Turn 19 impeding incident in FP2 at 16:33 — a breach of Article B4.1.1 and/or Article 27 of the Race Director's Competition Notes.",
-      "why_it_matters": "This confirms, with the Stewards' own rulings, the grid-penalty arithmetic Formula1.com had reported pre-emptively from the Technical Delegate's filings — both drivers are now certain to start from near the back of the grid regardless of qualifying pace, reshaping the midfield/points picture for both Aston Martin cars. The Bottas ruling sets a practical precedent for how tightly-timed yellow-flag overtakes are judged this weekend; the new Hamilton/Lawson hearing is a live, unresolved investigation to watch — keep it clearly separate from the already-decided Bottas and Alonso/Stroll matters.",
+      "summary": "The Stewards issued Documents 20 and 21 confirming Aston Martin's Fernando Alonso will drop 25 grid places and Lance Stroll 20, both for exceeding their season power-unit element allocation in Free Practice 1. Alonso's penalty covers three exceeded elements (engine, turbocharger, PU ancillary component); Stroll's covers four (turbocharger, energy store, control electronics, PU ancillary component). Both penalties apply at the next race the driver takes part in. Separately, the Stewards ruled (Document 19) that Valtteri Bottas's FP1 overtake of Albon under a yellow flag warranted no penalty, finding he could not reasonably have avoided completing the move given the short time between the flag and the pass. The Turn 19 FP2 impeding investigation (Documents 22–23, summonses for Hamilton and Lawson) is now resolved: Document 29 gives Lewis Hamilton (Car 44) a driving reprimand for impeding Liam Lawson's Car 30. No separate ruling document has been published against Lawson's own summons.",
+      "why_it_matters": "This confirms, with the Stewards' own rulings, the grid-penalty arithmetic Formula1.com had reported pre-emptively from the Technical Delegate's filings — both drivers are now certain to start from near the back of the grid regardless of qualifying pace, reshaping the midfield/points picture for both Aston Martin cars. The Bottas ruling sets a practical precedent for how tightly-timed yellow-flag overtakes are judged this weekend, and the Hamilton reprimand closes out the weekend's third stewards' matter — a driving sanction with no grid or points effect, but still worth tracking against any future repeat-offence pattern for Hamilton this season.",
       "sources": [
         {
           "label": "FIA Document 20 — Infringement, Car 14, PU Elements",
@@ -34,6 +34,10 @@
         {
           "label": "FIA Document 23 — Summons, Car 30, Alleged Impeding by Car 44",
           "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_summons_-_car_30_-_alleged_impeding_by_car_44.pdf"
+        },
+        {
+          "label": "FIA Document 29 — Infringement, Car 44, Impeding Car 30",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_44_-_impeding_car_30.pdf"
         }
       ]
     },

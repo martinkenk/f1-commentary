@@ -45,6 +45,7 @@ FIA_STROLL_PENALTY_URL = FIA_ROOT + "infringement_-_car_18_-_pu_elements.pdf"
 FIA_SC_NOTE_URL = FIA_ROOT + "race_director_notes_-_sc2_-_sc1_times.pdf"
 FIA_LAWSON_SUMMONS_URL = FIA_ROOT + "summons_-_car_30_-_alleged_impeding_by_car_44.pdf"
 FIA_HAMILTON_SUMMONS_URL = FIA_ROOT + "summons_-_car_44_-_alleged_impeding_of_car_30.pdf"
+FIA_HAMILTON_IMPEDING_RULING_URL = FIA_ROOT + "infringement_-_car_44_-_impeding_car_30.pdf"
 F1_ROOT = "https://www.formula1.com/en/latest/article/"
 LINEUP_URL = F1_ROOT + "its-good-to-come-back-to-the-fight-hadjar-opens-up-on-new-contract-and-return-to-racing.6NzCNMkA6szXJuzSDLcx4g"
 WILLIAMS_URL = F1_ROOT + "why-sainz-and-albon-remain-cautious-on-long-awaited-williams-upgrade-package.4dgoSwY5UbscNhWXSeMvnI"
@@ -528,7 +529,7 @@ Thursday–Saturday weekend, not a Sprint. FP1 and FP2 completed (Russell fastes
 in both); FP3/qualifying Friday; race Saturday 26 September at
 <strong>15:00 Baku / 14:00 Tallinn</strong>. See <a href="results.html">Results</a>
 for both classifications and <a href="penalties.html">Penalties</a> for the
-confirmed Alonso/Stroll grid penalties and the new Hamilton/Lawson summons.</div>
+confirmed Alonso/Stroll grid penalties and Hamilton's Turn 19 reprimand (Doc 29).</div>
 {content_generic.card("The verified essentials",
     content_generic.ul([
         "Hadjar returns to Red Bull; Lawson returns to Racing Bulls; Tsunoda reverts to reserve. Hadjar expects some wrist pain and has renewed for 2027.",
@@ -538,6 +539,7 @@ confirmed Alonso/Stroll grid penalties and the new Hamilton/Lawson summons.</div
         "FP1: Russell fastest (1:45.387) from Verstappen and Leclerc; FP2: Russell again fastest (1:43.347) from Antonelli and Verstappen. The Stewards have now confirmed Alonso's 25-place and Stroll's 20-place grid-penalty rulings (Docs 20/21) for exceeding their season PU-element allocation.",
         "Six of eleven teams (McLaren, Red Bull, Williams, Racing Bulls, Audi, Cadillac) filed FIA car-presentation updates \u2014 Williams' package confirms the reported FW48 floor work. Car display was Thursday 11:00–12:00 Baku.",
         "SC2–SC1 maximum time confirmed post-FP2 (Doc 27): 2:08.0 between the Safety Car lines.",
+        "The Turn 19 FP2 impeding incident is resolved: Document 29 gives Hamilton (Car 44) a driving reprimand for impeding Lawson's Car 30; no separate ruling was published against Lawson's own summons.",
     ]) + '<p><a href="rookies.html">Line-up sources</a> · <a href="tyres.html">Pirelli/FIA prescriptions</a> · '
     '<a href="circuit.html">Map and race-control interpretation</a> · <a href="powerunit.html">PU sheet</a> · '
     '<a href="upgrades.html">Development sources</a></p>', "bi-mic", "accent")}
@@ -566,7 +568,7 @@ that the race runs for two hours.</p>
 """
     pages["penalties"] = dict(
         kicker="Stewards & race control", title="Penalties & Decisions",
-        sub="Alonso (25-place) and Stroll (20-place) grid penalties confirmed; Bottas cleared over a yellow-flag pass; Lawson/Hamilton summoned over an alleged FP2 impeding incident.",
+        sub="Alonso (25-place) and Stroll (20-place) grid penalties confirmed; Bottas cleared over a yellow-flag pass; Hamilton reprimanded, Lawson's counterpart summons unresolved by any published document.",
         body=f1lib.render_penalties(
             ctx,
             decisions=[
@@ -575,16 +577,18 @@ that the race runs for two hours.</p>
                      fact="Summoned to appear before the Stewards at 17:30 over an alleged breach of "
                           "Article B4.1.1 of the FIA F1 Regulations — Car 44 allegedly impeding Car 30 "
                           "at Turn 19, 16:33.",
-                     outcome="Hearing pending at time of writing — this is a summons, not yet a ruling. "
-                             "Check the automatic tracker above for the Stewards' subsequent decision.",
+                     outcome="Superseded by Document 29 below — the Stewards found Hamilton at fault "
+                             "and issued a driving reprimand.",
                      kind="note", source_url=FIA_HAMILTON_SUMMONS_URL),
                 dict(doc="Doc 23", no="30", driver="Liam Lawson", team="Visa Cash App Racing Bulls F1 Team",
                      session="Free Practice 2",
                      fact="Summoned to appear before the Stewards at 17:30 over an alleged breach of "
                           "Article 27 of the Race Director's Competition Notes (V2) and/or Article "
                           "B4.1.1 — the counterpart summons to Car 44's, same Turn 19 incident.",
-                     outcome="Hearing pending at time of writing — this is a summons, not yet a ruling. "
-                             "Check the automatic tracker above for the Stewards' subsequent decision.",
+                     outcome="No separate ruling document for Car 30 has appeared in the FIA listing — "
+                             "only Document 29 (Car 44) was published. Treat Lawson's own summons as "
+                             "resolved without a further sanction pending a document that says otherwise, "
+                             "not confirmed dismissed by name.",
                      kind="note", source_url=FIA_LAWSON_SUMMONS_URL),
             ],
             intro_html=f"""
@@ -596,8 +600,11 @@ rulings — see <a href="powerunit.html">Power Unit &amp; Overtake</a> for the
 component-by-component breakdown. Separately, <strong>Bottas's yellow-flag summons
 (Document 15) has been resolved with no penalty</strong> (Document 19): the
 Stewards found the overtake could not reasonably have been avoided once the flag
-was shown. A new incident — <strong>Hamilton and Lawson summoned over an alleged
-Turn 19 impeding moment in FP2</strong> — remains an open hearing, shown below.</div>
+was shown. <strong>The Turn 19 impeding incident is now also resolved: Document 29
+gives Hamilton (Car 44) a driving reprimand</strong> for impeding Lawson's Car 30 —
+his counterpart summons (Document 23) has no separate published ruling, so treat
+Lawson's own case as closed without further sanction rather than confirmed
+dismissed by name.</div>
 """))
     pages["penalties"]["body"] += f"""
 <h2 class="sec">Officials and document status</h2>
@@ -607,14 +614,16 @@ Danil Solomin. Race Director and Safety Delegate Rui Marques; Technical Delegate
 Jo Bauer; Sporting Delegate Tim Malyon; Deputy Race Director Paul Burns.
 The visa names the officials; it is not an infringement decision.</p>
 {source(FIA_VISA_URL + "#page=4", "FIA Competition Visa V2, Appendix B3, PDF pages 4–5")}
-<p>The FIA documents hub has grown to 27 decision documents after FP2 on 24
-September, adding the FP2 classification and its two lap-time-deletion notes,
-the SC2/SC1 maximum-time note, the confirmed Alonso/Stroll grid-penalty rulings,
-the Bottas no-penalty ruling, the FP1/FP2 scrutineering report and the new
-Hamilton/Lawson impeding summonses above, alongside the 18 documents known after
-FP1. The automatic decision tracker above logs each numbered ruling as it is
-issued; revised notes and later decisions continue to supersede this snapshot
-as the weekend progresses.</p>
+<p>The FIA documents hub has grown to 28 decision documents, adding the FP2
+classification and its two lap-time-deletion notes, the SC2/SC1 maximum-time
+note, the confirmed Alonso/Stroll grid-penalty rulings, the Bottas no-penalty
+ruling, the FP1/FP2 scrutineering report, the Hamilton/Lawson impeding summonses
+and, most recently, <strong>Document 29</strong> — the Stewards' own ruling on
+the Turn 19 incident, a driving reprimand for Hamilton (Car 44) — alongside the
+18 documents known after FP1. The automatic decision tracker above logs each
+numbered ruling as it is issued; revised notes and later decisions continue to
+supersede this snapshot as the weekend progresses.</p>
+{source(FIA_HAMILTON_IMPEDING_RULING_URL, "FIA Document 29, Infringement — Car 44 — Impeding Car 30, 24 September 2026")}
 <p>Document 2 clears the inspected front-suspension items on Russell's Madrid
 car; it is a compliance report, not a Baku sanction.
 See <a href="reliability.html">Reliability</a> for its scope and
