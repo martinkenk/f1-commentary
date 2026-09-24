@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-23T17:39:30Z",
-  "expires_at": "2026-09-24T17:39:30Z",
+  "reviewed_at": "2026-09-24T04:53:00Z",
+  "expires_at": "2026-09-24T08:30:00Z",
   "through_session": null,
   "feed_fingerprint": "01556a493c7797ed799c9a3d520343ffc0f6e0448b4db0bd7a503bd11e98304f",
   "items": [
@@ -8,7 +8,7 @@
       "topic": "Safety and line-up",
       "title": "Hadjar returns to Red Bull for Baku after signing a 2027 extension",
       "date": "2026-09-23",
-      "summary": "Formula1.com reports that Isack Hadjar is returning to Red Bull for Azerbaijan after missing Zandvoort, Monza and Madrid with a wrist injury, and has signed a new 2027 contract. Liam Lawson therefore returns to Racing Bulls after his three-race Red Bull stint.",
+      "summary": "Hadjar returns after missing Zandvoort, Monza and Madrid with a wrist fracture and has renewed with Red Bull for 2027. He says the simulator test went well but expects some continuing pain. Lawson returns to Racing Bulls and Tsunoda reverts to reserve.",
       "why_it_matters": "Baku's confirmed Red Bull/Racing Bulls line-up is the regular Verstappen-Hadjar pairing plus Lawson at Racing Bulls; do not carry the previous replacement chain into session results or teammate comparisons.",
       "sources": [
         {
@@ -25,20 +25,16 @@
       "topic": "Championship",
       "title": "Antonelli's title lead remains the central Baku storyline",
       "date": "2026-09-23",
-      "summary": "Formula1.com's latest driver comments have Kimi Antonelli, George Russell and Lewis Hamilton discussing the title fight after Madrid. Antonelli leads Russell by 81 points, with nine Grand Prix weekends remaining; all three describe the contest as ongoing rather than settled.",
+      "summary": "Formula1.com's 23 September preview records Antonelli's consecutive Monza and Madrid wins and an 81-point lead over Russell after Madrid. Nine Grands Prix and the Singapore Sprint remained, offering 233 points. An earliest Singapore title requires every rival to be out of reach, not merely Russell scoring zero.",
       "why_it_matters": "Use the refreshed official standings for the exact gap and keep the title narrative live: Russell and Hamilton have not mathematically been removed from the season, despite Antonelli's substantial lead.",
       "sources": [
         {
-          "label": "Formula1.com: Hamilton reveals his focus in the title fight",
-          "url": "https://www.formula1.com/en/latest/article/theres-still-a-long-way-to-go-hamilton-reveals-his-focus-in-the-title-fight.634P3Tv4c7ZuAttBnAMMxb"
+          "label": "Formula1.com: Baku form and preview",
+          "url": "https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-azerbaijan-grand-prix.3PkKCxoeboOkSc18pCB2z"
         },
         {
-          "label": "Formula1.com: Antonelli and Russell on the title battle",
-          "url": "https://www.formula1.com/en/latest/article/antonelli-admits-its-not-over-until-its-over-in-intense-title-battle.4S42uYGHGfvLgwnFP53RzK"
-        },
-        {
-          "label": "Formula1.com: Russell will fight until it is mathematically impossible",
-          "url": "https://www.formula1.com/en/latest/article/russell-insists-he-will-keep-fighting-until-its-mathematically-impossible-in-title-battle-with-antonelli.4fLmDDTQ3ELd1klvcVUh6u"
+          "label": "Formula1.com: dated title permutations",
+          "url": "https://www.formula1.com/en/latest/article/points-permutations-when-is-the-earliest-antonelli-could-win-the-world-championship.24UKT2fsQl4GmC5DMrmYUy"
         }
       ]
     },
@@ -54,25 +50,42 @@
           "url": "https://www.formula1.com/en/latest/article/why-sainz-and-albon-remain-cautious-on-long-awaited-williams-upgrade-package.4dgoSwY5UbscNhWXSeMvnI"
         },
         {
-          "label": "The Race: What is resting on Williams's Baku upgrade",
-          "url": "https://www.the-race.com/formula-1/too-little-too-late-whats-resting-on-williamss-baku-upgrade/"
+          "label": "The Race: six Baku technical talking points",
+          "url": "https://www.the-race.com/formula-1/six-f1-tech-talking-points-at-the-azerbaijan-gp/"
         }
       ]
     },
     {
-      "topic": "Session outcome",
-      "title": "Norris arrives in Baku after a strong run and a painful Madrid loss",
+      "topic": "Driver market",
+      "title": "Ocon says he is a 2027 free agent; Haas discussions continue",
       "date": "2026-09-23",
-      "summary": "Formula1.com reports that Lando Norris has won two of the last four Grands Prix and believes he is doing some things better than last year. He says Azerbaijan is the circuit he has least looked forward to, after an ill-timed Madrid VSC cost him a likely victory.",
-      "why_it_matters": "Treat the recent form as context, not a forecast: Baku's long flat-out section and energy-management demands create a different test, and no Azerbaijan session result exists yet.",
+      "summary": "Ocon told Wednesday's Baku media session he is a free agent for next season while discussions continue. Bearman expects to stay at Haas but says the final decision is not his. Neither statement announces a signed 2027 Haas line-up.",
+      "why_it_matters": "This affects the driver-market story, not the confirmed current race pairing. Keep reported exit expectations separate from a team contract announcement.",
       "sources": [
         {
-          "label": "Formula1.com: Norris reflects on his upturn in form ahead of Azerbaijan",
-          "url": "https://www.formula1.com/en/latest/article/doing-some-things-better-norris-reflects-on-upturn-in-form-ahead-of-azerbaijan-grand-prix.53aUpsWUVI6VjezxOi0zW2"
+          "label": "Formula1.com: Ocon and Bearman on their Haas futures",
+          "url": "https://www.formula1.com/en/latest/article/definitely-a-free-agent-for-next-year-ocon-gives-update-on-haas-future-as-discussions-ongoing.5puGpQ2dMNroVXzQiV0Tgd"
+        }
+      ]
+    },
+    {
+      "topic": "Technical rules",
+      "title": "Baku's aero zones, energy exceptions and tyre warm-up set the practice agenda",
+      "date": "2026-09-23",
+      "summary": "The FIA map distinguishes two Straight Mode zones from the separate Overtake aid, with later low-grip activation. The energy sheet includes qualifying-only exceptions and a provisional absolute activation distance. Pirelli expects low wear but warns of front-tyre cooling before T1.",
+      "why_it_matters": "The Circuit, Power Unit and Tyres pages now interpret the source tables. Do not describe recharge as deployment, treat the TBC as final, or assume a cold-front lock-up is a brake failure.",
+      "sources": [
+        {
+          "label": "FIA: Baku power-unit information",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_power_unit_information.pdf"
         },
         {
-          "label": "The Race: Drivers brace for Baku's unnatural challenge",
-          "url": "https://www.the-race.com/formula-1/f1-drivers-braced-for-super-unnatural-challenge-in-baku/"
+          "label": "FIA: circuit and pitlane maps",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf"
+        },
+        {
+          "label": "Formula1.com / Pirelli: tyre preview",
+          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-azerbaijan-grand-prix.1UFiasleBnLs9s0hyRCpS0"
         }
       ]
     }

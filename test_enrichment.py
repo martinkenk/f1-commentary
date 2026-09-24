@@ -148,6 +148,9 @@ class EnrichmentTests(unittest.TestCase):
                 rendered = f1lib.shell(CTX, category, "Title", "Kicker", "Title",
                                        "Subtitle", '<p id="curated">Reviewed data: 42.</p>')
                 self.assertIn(doc["url"], rendered)
+                self.assertIn('<ul class="fia-documents">', rendered)
+                self.assertIn(".fia-documents a{overflow-wrap:anywhere}", f1lib.CSS)
+                self.assertIn(".fia-documents summary{overflow-wrap:anywhere}", f1lib.CSS)
                 self.assertIn("Official source; curated transcription may await review.", rendered)
                 self.assertIn('<p id="curated">Reviewed data: 42.</p>', rendered)
                 self.assertIn("retrieval time, not issue time", rendered)

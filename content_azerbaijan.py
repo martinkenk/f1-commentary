@@ -7,6 +7,7 @@ separate on the Tyres page.
 
 import content_generic
 import f1lib
+from html import escape
 
 
 PREVIEW_URL = (
@@ -28,6 +29,161 @@ FIA_POWER_UNIT_URL = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_azerbaijan_grand_prix_-_power_unit_information.pdf"
 )
+FIA_ROOT = "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_"
+FIA_MAP_URL = FIA_ROOT + "competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf"
+FIA_NOTES_URL = FIA_ROOT + "race_directors_competition_notes.pdf"
+FIA_DISPLAY_URL = FIA_ROOT + "car_display_procedure.pdf"
+FIA_VISA_URL = FIA_ROOT + "competition_visa_v2.pdf"
+F1_ROOT = "https://www.formula1.com/en/latest/article/"
+LINEUP_URL = F1_ROOT + "its-good-to-come-back-to-the-fight-hadjar-opens-up-on-new-contract-and-return-to-racing.6NzCNMkA6szXJuzSDLcx4g"
+WILLIAMS_URL = F1_ROOT + "why-sainz-and-albon-remain-cautious-on-long-awaited-williams-upgrade-package.4dgoSwY5UbscNhWXSeMvnI"
+OCON_URL = F1_ROOT + "definitely-a-free-agent-for-next-year-ocon-gives-update-on-haas-future-as-discussions-ongoing.5puGpQ2dMNroVXzQiV0Tgd"
+FORM_URL = F1_ROOT + "need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-azerbaijan-grand-prix.3PkKCxoeboOkSc18pCB2z"
+MOMENTS_URL = F1_ROOT + "f1s-wildest-azerbaijan-moments-from-10-years-of-racing-in-baku.4hKjzE3m20ov49AE4kSf0F"
+TECH_URL = "https://www.the-race.com/formula-1/six-f1-tech-talking-points-at-the-azerbaijan-gp/"
+
+
+def source(url, label):
+    return f'<p class="src">Source: <a href="{escape(url, quote=True)}" target="_blank" rel="noopener">{escape(label)}</a>.</p>'
+
+
+def table(headers, rows):
+    return ('<div class="table-wrap"><table class="data"><thead><tr>'
+            + "".join(f"<th>{h}</th>" for h in headers)
+            + "</tr></thead><tbody>"
+            + "".join("<tr>" + "".join(f"<td>{v}</td>" for v in row) + "</tr>" for row in rows)
+            + "</tbody></table></div>")
+
+
+def circuit_briefing():
+    return f"""
+<h2 class="sec">2026 Straight Mode and Overtake — different systems</h2>
+<p>The FIA circuit map is <strong>version 2, issued 15 September</strong>, in the
+23 September competition filing. Two active-aero Straight Mode zones do not mean
+two Overtake detection points. Straight Mode reduces drag; Overtake is the
+separate electrical-power aid with a <strong>1.0-second detection gap</strong>.</p>
+{table(["Location", "Normal grip", "Low grip"], [
+    ("Straight Mode A1", "45 m after T19", "45 m after T20"),
+    ("Straight Mode A2", "110 m after T2", "160 m after T2"),
+])}
+<p><strong>Overtake detection:</strong> 90 m after T16.
+<strong>Activation:</strong> 20 m before T17. The PU sheet identifies L20 at
+4,177 m and L21 at <strong>4,270 m (TBC)</strong>; these are timing-loop identifiers,
+not corner numbers. The map's relative locations do not remove the PU sheet's TBC.</p>
+{table(["Timing point", "Published location / length"], [
+    ("Intermediate 1 (S1)", "45 m before T5"),
+    ("Intermediate 2 (S2)", "55 m before T16"),
+    ("Speed trap (T)", "210 m after T20"),
+    ("Sectors 1 / 2 / 3", "2.033 / 2.025 / 1.945 km"),
+    ("Circuit centreline", "6.003 km"),
+])}
+{source(FIA_MAP_URL + "#page=2", "FIA circuit map, PDF page 2")}
+
+<h2 class="sec">Race Director's notes — what changes the call</h2>
+<p>Rui Marques's <strong>23 September</strong> notes cover the following points.
+These are instructions, not stewards' penalties. All seven substantive pages
+and their diagrams remain available in the source gallery below.</p>
+{content_generic.ul([
+    "<strong>SC2–SC1 maximum time:</strong> to be announced after FP2; no numerical maximum in this filing. It applies on any lap <strong>during and after qualifying</strong>, including in/outlaps, and race reconnaissance with pit exit open (PDF p2, §1).",
+    "<strong>Blue flags:</strong> pre-warning at 3.0 seconds; blue panels at 1.2 seconds. Safety Car restart pacing must not involve dangerous acceleration, braking or manoeuvres once its orange lights go out (p2, §§2–3).",
+    "<strong>Lap deletion:</strong> a double-yellow sector in free practice deletes that lap time. Only on-track laps count for classifications. Do not invent a Baku-specific next-lap track-limit deletion rule (p3, §§6,9).",
+    "<strong>Practice starts:</strong> marked left-hand pit-exit boxes in practice/reconnaissance; two additional grid-start laps after FP2. None during qualifying or with another car stationary ahead. Race reconnaissance has a specific exception for cars not practising starts: cross onto the normal racing line at the earliest opportunity and do not cross back (pp4–5, §13).",
+    "<strong>Pit-entry commitment:</strong> passing right of the dashed/continuous-line intersection counts as entering. At exit no part of a tyre may cross the separating line, subject to the specific reconnaissance procedure (p6, §15).",
+    "<strong>Queueing:</strong> a whole tyre must cross beyond the far side of the fast-lane line to establish a place; blend safely at the earliest opportunity, not by driving alongside the queue in the inner lane (pp5–6, §14).",
+    "<strong>Qualifying red flag:</strong> a period interrupted with less than 100 seconds remaining is not resumed (p6, §16).",
+    "<strong>Race resumption:</strong> cars normally stop in the pit fast lane near the last team garage. The Safety Car leaves one minute before resumption and waits <strong>before T16</strong> (p7, §22).",
+    "<strong>2026 changes:</strong> resurfaced sections at T2/T3/T4 and patches before T7 and at T19; painted kerbs removed; right-side pit-entry and T1-exit lines realigned, T15 apex line widened, blue line added on the right at T16 exit (p8, §26).",
+    "<strong>Double-yellow mirroring:</strong> panel 8 onto 7 and panel 11 onto 10 (p8, §25).",
+])}
+{source(FIA_NOTES_URL, "FIA Race Director's Competition Notes, PDF pages 2–8")}
+<h2 class="sec">Pitlane, emergency exits and red zone</h2>
+<p>The emergency map uses <strong>red for exits on the left and green for exits
+on the right</strong>, distinguishing drive-in refuges from push-in refuges
+(PDF p3). The pitlane drawing shows the <strong>80 km/h</strong> limit, Safety
+Car lines, the high-voltage personnel collection point and team boxes (p4).
+The separate red-zone drawing is a media/access plan, not an aero-zone map (p5).</p>
+<p>Pit boxes run McLaren, Mercedes, Red Bull, Ferrari, Williams, Racing Bulls,
+Aston Martin, Haas, Audi, Alpine and Cadillac in the marked fast-lane direction.
+Race-note diagrams additionally define where pit-entry/exit marshalling sectors
+change; their blue lines are not Overtake lines.</p>
+{source(FIA_MAP_URL, "FIA maps, PDF pages 3–5; notes §11 for marshalling boundaries")}
+"""
+
+
+def powerunit_briefing():
+    return f"""
+<div class="callout"><strong>Baku energy briefing — visually checked against the
+FIA's event sheet, PDF page 2.</strong> Recharge is energy recovered per lap (MJ),
+not deployed power (kW). Straight Mode is active aerodynamics; Overtake changes
+the allowed electrical-power curve. Neither should be called a DRS zone.</div>
+<h2 class="sec">Recharge and power-reduction limits</h2>
+{table(["Session / condition", "Maximum recharge per lap (C5.2.10)"], [
+    ("Race — Overtake inactive", "8.5 MJ"),
+    ("Race — Overtake active", "9.0 MJ"),
+    ("Qualifying", "8.5 MJ"),
+    ("Free practice", "9.0 MJ"),
+    ("Outlaps other than in the race", "9.0 MJ"),
+])}
+<p>Article C5.12.8: <strong>3,796 m power-limited distance</strong>;
+<strong>50 kW/s rate limit</strong>. This rate is not an energy allowance.</p>
+<h2 class="sec">Which power curve applies?</h2>
+<p>In the race's main overtaking zones, the sheet assigns <strong>Base–Standard</strong>
+with Overtake off and <strong>Base–Overtake</strong> with it on. The alternative
+<strong>Alt 1</strong> curve applies in the identified other sectors below.
+All practice sessions <strong>including qualifying use Base–Overtake</strong>.</p>
+<p>The plotted Base–Standard ceiling is 350 kW to 290 km/h, then tapers to
+100 kW at 340 km/h and zero at 345 km/h. Base–Overtake holds 350 kW to
+340 km/h before falling to zero at 355 km/h. Alt 1 has a 250 kW plateau
+and joins the standard taper at 310 km/h. These are regulatory ceilings
+read from the plot, not measured Baku deployment or guarantees of battery availability.</p>
+{table(["Rule", "Sector", "Lap distance", "Limit / meaning"], [
+    ("C5.2.8iii — Alt 1", "T1–T2", "300–600 m", "Alternative race power curve"),
+    ("C5.2.8iii — Alt 1", "T3–T12", "1,500–2,870 m", "Alternative race power curve"),
+    ("C5.2.8iii — Alt 1", "T15–T16", "3,700–4,050 m", "Alternative race power curve"),
+    ("C5.12.4 — reduction at start of power-limited pending period", "T1–T2 / T3–T12 / T15–T16", "300–600 / 1,500–2,870 / 3,700–4,050 m", "350 kW maximum in each"),
+    ("C5.12.4 — qualifying only", "[Exit T16]", "[4,050–5,300 m]", "[350 kW]"),
+    ("C5.12.5 — permitted reset", "Exit T19", "4,650–5,600 m", "MGUK power reduction reset"),
+    ("C5.12.5 — qualifying only", "[Exit T20]", "[5,600–6,000 m]", "MGUK power reduction reset"),
+    ("C5.12.7 — higher speed threshold", "—", "—", "No event-specific sector listed"),
+])}
+<p><strong>Square brackets mean SQ/Q-only</strong> in the source; Baku has no
+Sprint Qualifying. Preserve those restrictions rather than applying the long
+T16-exit exception to the race.</p>
+<p><strong>Overtake:</strong> detection gap 1.0 s; detection 4,177 m / L20;
+activation 4,270 m <strong>(TBC)</strong> / L21. The circuit map places them
+90 m after T16 and 20 m before T17 respectively.</p>
+{source(FIA_POWER_UNIT_URL + "#page=2", "FIA Power Unit Information, Articles C5.2.8/C5.2.10/C5.12 and B7.2")}
+<h2 class="sec">Parts usage and penalties: evidence still required</h2>
+<p>The complete seven-PDF listing checked on <strong>24 September before FP1</strong>
+contains no PU-elements-used/new-elements report. That is a discovery state,
+not proof that no part has changed. No driver-by-driver before/new/allowed count
+or Baku grid sanction is inferred from technical reporting.</p>
+<p><strong>Reported watch:</strong> The Race says Perez is due Ferrari's ADUO 2
+engine at Cadillac in Baku, with Bottas waiting; Leclerc's Monza engine may be
+evaluated or a fresh unit considered. These are attributed plans, not an FIA
+parts declaration or a confirmed penalty.</p>
+{source(TECH_URL, "The Race, technical preview, 23 September")}
+"""
+
+
+def team_briefing():
+    rows = [
+        ("Mercedes", "Kimi Antonelli / George Russell", "Antonelli won Monza and Madrid; Russell is pursuing his teammate. Baku tests whether that recent form survives the long deployment-limited straight.", FORM_URL),
+        ("Ferrari", "Charles Leclerc / Lewis Hamilton", "Hamilton's Madrid brake issue is the reliability follow-up; Leclerc's engine evaluation remains a reported plan, not a confirmed Baku grid drop.", TECH_URL),
+        ("McLaren", "Lando Norris / Oscar Piastri", "Norris won Hungary and Zandvoort; Piastri needs a response after Madrid. The Race reports the low-drag H-wing's return and another package for evaluation; watch cold fronts/brakes into T1.", TECH_URL),
+        ("Red Bull", "Max Verstappen / Isack Hadjar", "Hadjar returns after three missed rounds and has renewed for 2027. He says the wrist will still be painful; do not describe his return as pain-free.", LINEUP_URL),
+        ("Racing Bulls", "Liam Lawson / Arvid Lindblad", "Lawson returns from his Red Bull stand-in spell; Tsunoda goes back to reserve. Keep Lawson–Lindblad comparisons separate from the replacement pairings.", F1_ROOT + "hadjar-to-make-racing-return-with-red-bull-at-azerbaijan-gp.1ddPnUSDEze0V9MCiQ9d2U"),
+        ("Alpine", "Pierre Gasly / Franco Colapinto", "Madrid narrowed the fight with Racing Bulls for fifth. Follow whether that midfield momentum transfers to Baku rather than extrapolating from the different Madrid layout.", FORM_URL),
+        ("Haas", "Esteban Ocon / Oliver Bearman", "Ocon says he is a free agent for 2027 with discussions continuing. Bearman expects to stay, but neither statement is a completed contract announcement; the team seeks an end to its points drought.", OCON_URL),
+        ("Audi", "Nico Hulkenberg / Gabriel Bortoleto", "Hulkenberg's Madrid point kept the chase of Haas alive. Practice should show whether Baku's braking/traction mix helps; there is no verified event upgrade declaration yet.", FORM_URL),
+        ("Williams", "Carlos Sainz / Alex Albon", "A lighter chassis and delayed FW48 package arrive. Weight reduction is the main target, with smaller balance changes; both drivers caution against treating simulated gains as delivered lap time.", WILLIAMS_URL),
+        ("Aston Martin", "Fernando Alonso / Lance Stroll", "The Race reports lighter components rather than another Budapest-scale overhaul. Parts unchanged in appearance may not appear in the aerodynamic submission list.", TECH_URL),
+        ("Cadillac", "Valtteri Bottas / Sergio Perez", "Perez is reported to receive the newer Ferrari engine first, alongside small aerodynamic changes. Establish installation and reliability in practice; do not assign Bottas the same specification without evidence.", TECH_URL),
+    ]
+    return ('<p class="lead-note">Pre-FP1 watch, reviewed 24 September. Announced race pairings are not an FIA entry-list transcription or a confirmed FP1 substitute list.</p>'
+            + "".join(content_generic.card(team + " — " + drivers,
+                                           f"<p>{text}</p>" + source(url, "23 September preview / driver reporting"),
+                                           "bi-people") for team, drivers, text, url in rows))
 
 
 def build_pages(ctx, env):
@@ -58,44 +214,15 @@ def build_pages(ctx, env):
         sub="Retirements, finisher counts and pit-stop rankings — filled in from the official results.",
         body=compliance_card + f1lib.auto_reliability(ctx),
     )
-    powerunit = pages.get("powerunit")
-    if powerunit:
-        powerunit_pending = content_generic.pending(
-            "The FIA power-unit and energy-map document for this event",
-            "with the event documents in the race week",
-        )
-        powerunit_card = content_generic.card(
-            "Azerbaijan energy map (FIA Document)",
-            content_generic.ul([
-                "Race recharge is <strong>8.5 MJ</strong> with Overtake inactive and "
-                "<strong>9.0 MJ</strong> with Overtake active; qualifying and free "
-                "practice are 8.5 MJ and 9.0 MJ respectively.",
-                "The power-limited distance is <strong>3,796 m</strong> and the "
-                "rate limit is <strong>50 kW/s</strong>.",
-                "The Overtake detection line is at <strong>4,177 m</strong> "
-                "(L20); the activation line is <strong>4,270 m</strong> "
-                "(L21, TBC).",
-            ])
-            + (
-                f'<p class="src">Source: <a href="{FIA_POWER_UNIT_URL}" '
-                'target="_blank" rel="noopener">FIA power-unit information '
-                "for the 2026 Azerbaijan Grand Prix</a>, page 2. "
-                "The activation distance remains labelled TBC in the source.</p>"
-            ),
-            "bi-lightning-charge",
-            "accent",
-        )
-        powerunit["body"] = powerunit["body"].replace(
-            powerunit_pending,
-            powerunit_card,
-        )
     standings = pages.get("standings")
     if standings:
         standings["body"] += f"""
 <h2 class="sec">Championship permutations</h2>
-<p class="lead-note">Formula1.com's 22 September data-team analysis puts the
-mathematics in context after Madrid; these are sourced scenarios, not a race
-prediction.</p>
+<p class="lead-note">Dated <strong>post-Madrid, 22 September</strong> scenarios
+from Formula1.com's data team, not live championship totals or a race prediction.
+The current official tables above take precedence after further racing.
+Nine Grands Prix and the Singapore Sprint offered 233 points:
+9 × 25 + 8, with <strong>no fastest-lap bonus</strong>.</p>
 <div class="grid cols-2">
   {content_generic.card(
       "Who is still mathematically alive",
@@ -110,8 +237,11 @@ prediction.</p>
   {content_generic.card(
       "Earliest Antonelli clinch scenarios",
       "<p>In the most aggressive scenario, Antonelli wins Azerbaijan, Bahrain and "
-      "both Singapore Sprint and Grand Prix while Russell scores zero; that would "
-      "clinch the title at Singapore (Round 17).</p>"
+      "both Singapore Sprint and Grand Prix while Russell scores zero. His 375 "
+      "would then be 164 clear of Russell, with 150 available after Singapore. "
+      "To clinch the title there, <strong>every other rival must also finish "
+      "Singapore more than 150 points behind</strong>; Russell scoring zero alone "
+      "does not exclude a Hamilton or Norris challenge.</p>"
       "<p>Using each driver's season median finish instead, F1's data team puts "
       "the earliest projected clinch at Mexico (Round 19). These scenarios use "
       "the official scoring structure and are not guaranteed outcomes.</p>",
@@ -139,8 +269,11 @@ prediction.</p>
   {content_generic.card(
       "2026 nominated compounds",
       "<p><strong>C3 Hard · C4 Medium · C5 Soft</strong> are the compounds "
-      "nominated for this Azerbaijan Grand Prix weekend &mdash; C3/C4/C5 are "
-      "the mandatory race tyres, with C5 also the Q3-only tyre.</p>"
+      "nominated for this Azerbaijan Grand Prix weekend. <strong>C3 and C4 "
+      "are the mandatory race tyres; C5 is the Q3 tyre.</strong></p>"
+      "<p>For a dry race, the two-compound requirement includes at least one "
+      "mandatory race specification: it does not mean every driver must use "
+      "both C3 and C4. A C4/C5 strategy is therefore not ruled out.</p>"
       "<p>This is the published weekend nomination, not a count of each "
       "driver's remaining new or used sets.</p>",
       "bi-record-circle",
@@ -148,9 +281,9 @@ prediction.</p>
   )}
   {content_generic.card(
       "Race-set inventory",
-      "<p>No verified post-qualifying race-set chart has been published or "
-      "collected yet. The new/used set counts will be added only after a "
-      "full event-matched chart is visually reviewed.</p>",
+      "<p>No verified post-qualifying race-set chart was found in the "
+      "24 September pre-FP1 source check. The new/used set counts require a "
+      "full, visually reviewed event-matched chart.</p>",
       "bi-hourglass-split",
   )}
 </div>
@@ -185,11 +318,182 @@ prediction.</p>
     <tr><td>Wet</td><td>Rear</td><td class="num">26.0 psi</td><td class="num">&ge;29.0 psi</td><td class="num">-2.25&deg;</td></tr>
   </tbody>
 </table></div>
-<p>C3 and C4 are mandatory race tyres alongside C5; maximum heating is <strong>two hours</strong>,
-up to <strong>70&deg;C</strong> for slicks and <strong>40&deg;C</strong> for intermediates/wets.
+<p><strong>C3 and C4</strong> are the mandatory race tyres, <strong>not C5</strong>.
+Maximum heating is <strong>two hours</strong>, up to <strong>70&deg;C for slicks
+and intermediates</strong> and <strong>40&deg;C for wets</strong>.
+These are actual tyre tread/sidewall temperatures, not blanket-controller settings.
 FIA/Pirelli may revise the prescriptions during the weekend.</p>
 
-{content_generic.pending("Long-run degradation data", "after Friday practice",
+{content_generic.pending("Long-run degradation data", "after Thursday practice",
                          "bi-graph-down")}
 """
+    pages["tyres"]["body"] += f"""
+<h2 class="sec">What Pirelli's complete preview means</h2>
+<p>The graphic's <strong>19.5-second average pit-stop loss is a preview estimate</strong>,
+not a measured stationary stop or pitlane elapsed time. Its five-point ratings are
+traction 5, braking 4, tyre stress 3, asphalt grip 2, abrasion 1, lateral demand 1
+and track evolution 5. Low abrasion does not remove the challenge of keeping
+front tyres and brakes warm on the long run to T1.</p>
+<p>Pirelli expects low degradation and a likely one-stop race, with C5 potentially
+capable of long stints and C3 possibly less attractive. Early graining and low grip
+can improve as rubber goes down; the resurfaced T2/T3/T4 sections are not expected
+by Pirelli to dominate tyre behaviour. These are preview expectations, not practice measurements.</p>
+{source(PREVIEW_URL, "Pirelli preview reproduced by Formula1.com, 22 September; full graphic above")}
+<h2 class="sec">Illustrative 51-lap stint planner — not a fitted prediction</h2>
+{table(["Scenario", "Illustrative stop window", "Assumptions and trade-off"], [
+    ("C4 → C5, one stop", "Laps 24–31", "Run medium first, then 20–27 laps on soft; only if Thursday long runs validate C5 life."),
+    ("C5 → C4, one stop", "Laps 17–24", "Early soft pace, then 27–34 laps on medium; exposes the car to traffic after the stop."),
+    ("C4 → C3, conservative one stop", "Laps 18–26", "Long hard finish if softer-compound life disappoints; warm-up can cost track position."),
+    ("C5 → C4 → C5, two stops", "Laps 14–20 and 34–40", "Needs enough fresh-tyre pace or a cheap neutralised stop to offset another pit loss."),
+])}
+<p>These editorial windows are working commentary scenarios, <strong>not Pirelli
+strategy recommendations or measured tyre-life forecasts</strong>. They assume
+dry running, legal compound use and sufficient sets; wet weather, Safety Cars,
+red flags, traffic and the actual post-qualifying inventory can invalidate them.
+No Safety Car probability is inferred from Baku's dramatic highlights.</p>
+"""
+    pages["powerunit"]["title"] = "Power Unit & Overtake"
+    pages["powerunit"]["sub"] = "Baku recharge limits, power curves, sector exceptions and the separate Overtake aid."
+    pages["powerunit"]["body"] = powerunit_briefing()
+    # The generic DRS-era stat/callout must not contradict the reviewed 2026 map.
+    pages["circuit"]["body"] = pages["circuit"]["body"].replace("Overtaking zones", "Straight Mode zones")
+    pages["circuit"]["body"] = pages["circuit"]["body"].replace("DRS / straight mode", "Active aero · not Overtake")
+    pages["circuit"]["body"] = pages["circuit"]["body"].replace(
+        "Race-control specifics — track limits, pit-entry definitions and the marked overtaking\n"
+        "  zones — are confirmed in the FIA event documents published on the Thursday of the\n"
+        "  race week; see Commentary Notes for the link.",
+        "The 23 September FIA notes and maps are interpreted below; do not confuse\n"
+        "  Straight Mode activation with the separate Overtake detection/activation.")
+    pages["circuit"]["body"] += circuit_briefing()
+    pages["teams"]["body"] = team_briefing()
+    pages["rookies"]["body"] += f"""
+{content_generic.card("Hadjar's return is not a pain-free recovery",
+    "<p>The Frenchman says the small wrist fracture did not need surgery and his simulator test went well, "
+    "but expects discomfort to continue. His Red Bull contract now runs through 2027. "
+    "Watch confidence under Baku braking loads, not an invented medical diagnosis.</p>"
+    + source(LINEUP_URL, "Formula1.com, Hadjar's own account, 23 September"), "bi-person-badge")}
+{content_generic.card("Arvid Lindblad — the 2026 debutant",
+    "<p>Racing Bulls' British rookie progressed through Red Bull's junior programme and became "
+    "the youngest race winner in both F3 and F2. He had two Red Bull FP1 outings in 2025. "
+    "This season's rookie status is not the same as eligibility for a mandatory rookie FP1 slot "
+    "after more than two Grand Prix starts.</p>"
+    + source("https://www.formula1.com/en/drivers/arvid-lindblad", "Formula1.com driver biography"), "bi-person-badge")}
+<p>The refreshed FIA listing has no event entry list or FP1 substitution notice.
+The race pairings on <a href="teams.html">Team Watch</a> follow announced line-ups;
+the 23-driver season standings include reserve/replacement appearances and must
+not be used as a 23-car Baku entry list.</p>
+"""
+    pages["upgrades"]["body"] = f"""
+<h2 class="sec">Published development plans, not yet filed component counts</h2>
+{content_generic.card("Williams: lighter FW48 chassis and balance work",
+    "<p>The delayed Baku package centres on weight reduction with smaller changes intended to help balance. "
+    "Albon and Sainz both caution that a paper or simulator gain is not automatically delivered on track. "
+    "The Race reports a new manufacturing approach, but its detailed method has not been disclosed.</p>"
+    + source(WILLIAMS_URL, "Formula1.com, 23 September")
+    + source(TECH_URL, "The Race technical preview, 23 September"), "bi-tools", "accent")}
+<p>The same technical preview reports McLaren's low-drag H-wing return plus further
+evaluation parts, lighter Aston Martin components, and small Cadillac aero changes.
+These are attributed development reports, <strong>not FIA-declared component counts</strong>.
+An unchanged-looking lighter part may not appear on an aerodynamic submission.</p>
+{source(TECH_URL, "The Race, six Baku technical talking points")}
+<h2 class="sec">Car display is Thursday, not the usual Friday</h2>
+<p>The FIA procedure schedules <strong>Thursday 24 September, 11:00–12:00 Baku /
+10:00–11:00 Tallinn</strong>. One car per team is displayed at its pit-stop position,
+the other available in the garage. If only one carries the new major aero/bodywork
+components, that is the car to display. Adverse-weather arrangements may move the
+display into the garage. Still photographers stay in the fast lane; TV crews may
+film in the working lane.</p>
+{source(FIA_DISPLAY_URL + "#page=2", "FIA car display procedure, 23 September, PDF page 2")}
+<div class="callout watch"><strong>Team submissions pending discovery.</strong>
+The seven-PDF listing checked before FP1 on 24 September contains the display procedure,
+not the car-presentation submissions. Component totals, reasons and nil returns
+remain unverified for all eleven teams: McLaren, Mercedes, Red Bull, Ferrari,
+Williams, Racing Bulls, Aston Martin, Haas, Audi, Alpine and Cadillac.
+No absent declaration is counted as a nil return. All team pages/diagrams will
+need review when that filing is discovered.</div>
+"""
+    pages["moments"]["body"] = f"""
+<p class="lead-note">Ten years since the 2016 debut, not ten completed races:
+before this weekend Baku hosted nine Grands Prix, including the 2016 European GP;
+there was no 2020 edition. 2026 is scheduled as the tenth Baku race and ninth
+Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Facts</a>.</p>
+<div class="grid cols-2">
+{content_generic.card("2017 — Ricciardo wins the chaos", "<p>A three-car braking move into T1 helped Ricciardo recover from an early stop. Vettel's penalty after contact with Hamilton and Hamilton's loose headrest transformed the lead battle.</p>", "bi-stars")}
+{content_generic.card("2018 — teammates collide, Bottas loses out", "<p>Ricciardo and Verstappen eliminated each other at T1. Later, Bottas's puncture while leading left Hamilton to win. Neither incident establishes a probability for this year's strategy.</p>", "bi-stars")}
+{content_generic.card("2019 — the castle catches Leclerc", "<p>Leclerc crashed at T8 in Q2. He later took four consecutive Baku poles in 2021–2024, but qualifying success and a race win remain different records.</p>", "bi-stars")}
+{content_generic.card("2021 — a two-lap restart changes everything", "<p>Verstappen's tyre failure brought a red flag; Hamilton then ran wide at the restart with the wrong brake setting. Perez took the victory. These are historical events, not diagnoses of the 2026 tyres.</p>", "bi-stars")}
+{content_generic.card("2024 — a late podium fight ends in the wall", "<p>Perez and Sainz collided after T2 on the penultimate lap while fighting around Leclerc. Piastri won the Grand Prix.</p>", "bi-stars")}
+{content_generic.card("2025 — six qualifying red flags", "<p>Albon, Hulkenberg and Colapinto triggered stoppages in Q1, Bearman in Q2, then Leclerc and Piastri in Q3. Piastri's difficult weekend continued with an opening-lap race exit.</p>", "bi-stars")}
+</div>
+{source(MOMENTS_URL, "Formula1.com historical retrospective, 21 September 2026")}
+"""
+    pages["reliability"]["body"] = content_generic.card(
+        "Carry-over watch, not a Baku outcome",
+        "<p>Hamilton retired in Madrid with a reported brake issue. The Race also highlights "
+        "front tyre/brake cooling into Baku T1 and Cadillac's reported Perez engine installation. "
+        "No Baku failure, finisher count, fastest lap or stop time exists before running; "
+        "the automatic results and pit tables below remain authoritative as sessions complete.</p>"
+        + source(FORM_URL, "Formula1.com pre-weekend form")
+        + source(TECH_URL, "The Race technical preview"), "bi-tools"
+    ) + pages["reliability"]["body"]
+    brief = f"""
+<div class="callout"><strong>24 September pre-FP1 briefing:</strong> standard
+Thursday–Saturday weekend, not a Sprint. FP1/FP2 Thursday; FP3/qualifying Friday;
+race Saturday 26 September at <strong>15:00 Baku / 14:00 Tallinn</strong>.
+Use the schedule/results for later session updates.</div>
+{content_generic.card("The verified essentials",
+    content_generic.ul([
+        "Hadjar returns to Red Bull; Lawson returns to Racing Bulls; Tsunoda reverts to reserve. Hadjar expects some wrist pain and has renewed for 2027.",
+        "C3 Hard / C4 Medium / C5 Soft; mandatory race tyres are C3/C4. Slick/intermediate maximum heating 70°C; wet 40°C, all for no more than two hours.",
+        "Two Straight Mode zones, but one Overtake detection/activation pair. Low-grip A1 starts after T20, later than normal A1 after T19.",
+        "Recharge: race 8.5/9.0 MJ with Overtake off/on; qualifying 8.5 MJ, FP/outlaps 9.0 MJ. L21 activation remains 4,270 m (TBC).",
+        "Williams' lighter chassis is a reported package, not yet an FIA component list. Car display Thursday 11:00–12:00 Baku.",
+        "SC2–SC1 maximum time awaits the post-FP2 note; do not borrow Monza's value. No Baku sanction is inferred from an engine plan.",
+    ]) + '<p><a href="rookies.html">Line-up sources</a> · <a href="tyres.html">Pirelli/FIA prescriptions</a> · '
+    '<a href="circuit.html">Map and race-control interpretation</a> · <a href="powerunit.html">PU sheet</a> · '
+    '<a href="upgrades.html">Development sources</a></p>', "bi-mic", "accent")}
+"""
+    st = ctx.get("standings") or {}
+    live_standings = (
+        f'<div class="callout"><strong>Current championship:</strong> {st.get("summary", "Official update pending")} '
+        f'<a href="standings.html">Both tables and source freshness</a> ({st.get("as_of", "unavailable")}).</div>'
+    )
+    pages["overview"]["body"] = brief + live_standings + pages["overview"]["body"]
+    pages["notes"]["body"] = brief + live_standings + pages["notes"]["body"]
+    pages["schedule"]["body"] += f"""
+<p><strong>Calendar check:</strong> the Saturday race moves practice to Thursday
+and qualifying to Friday. Baku is UTC+4 and Tallinn is EEST (UTC+3), so Tallinn
+is one hour earlier throughout this weekend. The session table is calendar-driven.</p>
+<p><strong>Heat Hazard:</strong> no declaration appears in the seven-PDF FIA
+listing reviewed before FP1 on 24 September. A weather forecast alone is not
+a declaration; do not infer mandatory cooling measures from temperature.</p>
+{source(FORM_URL, "Formula1.com weekend schedule; FIA listing for declarations")}
+<p>The FIA's <strong>Competition Visa V2 (Document 7, 23 September, 19:08)</strong>
+contains Appendix B3 version 3 and timetable version 3. These independently
+confirm all five F1 session starts in the table. Saturday's listed 15:00 start
+is the formation-lap start; its 17:00 finish is approximate, not a promise
+that the race runs for two hours.</p>
+{source(FIA_VISA_URL + "#page=7", "FIA visa timetable, PDF pages 7–9")}
+"""
+    pages["penalties"] = dict(
+        kicker="Stewards & race control", title="Penalties & Decisions",
+        sub="Official rulings, their consequences and the Baku officials.",
+        body=f1lib.auto_penalties(ctx) + f"""
+<h2 class="sec">Officials and document status</h2>
+<p><strong>Competition Visa V2, Document 7:</strong> FIA stewards Gerd Ennser,
+Loïc Bacquelaine, Khatuna Julakidze and Derek Warwick; ASN-appointed steward
+Danil Solomin. Race Director and Safety Delegate Rui Marques; Technical Delegate
+Jo Bauer; Sporting Delegate Tim Malyon; Deputy Race Director Paul Burns.
+The visa names the officials; it is not an infringement decision.</p>
+{source(FIA_VISA_URL + "#page=4", "FIA Competition Visa V2, Appendix B3, PDF pages 4–5")}
+<p>The seven-document listing reviewed before FP1 on 24 September contains
+no Baku summons, infringement, grid penalty or Heat Hazard declaration.
+Keep that dated discovery status distinct from a claim that no later ruling exists.
+The automatic decision tracker above remains active; revised notes and later
+decisions supersede this pre-running snapshot.</p>
+<p>Document 2 clears the inspected front-suspension items on Russell's Madrid
+car; it is a compliance report, not a Baku sanction.
+See <a href="reliability.html">Reliability</a> for its scope and
+<a href="circuit.html">Circuit</a> for the race-control instructions.</p>
+""")
     return pages

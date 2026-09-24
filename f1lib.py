@@ -131,7 +131,7 @@ def render_fia_documents(ctx, category):
                  if isinstance(d, dict) and _official_fia_url(d.get("url"))
                  and category in fia_document_categories(d.get("filename", ""))]
     if documents:
-        out.append("<ul>")
+        out.append('<ul class="fia-documents">')
         for doc in documents:
             out.append(f'<li><a href="{html.escape(doc["url"], quote=True)}" '
                        f'target="_blank" rel="noopener">'
@@ -212,7 +212,7 @@ def render_fia_media(ctx, category, curated_html=""):
                 warning + '<p>Automatically rendered from the official PDFs. These figures '
                 'do not update or verify the curated numeric transcriptions above. '
                 'Unchanged pages already illustrated above are not repeated here.</p>'
-                + "".join(sections), "bi-images")
+                + "".join(sections), "bi-images", "fia-documents")
 
 
 def _norm_title(t):
@@ -1963,6 +1963,8 @@ td.nowrap{white-space:nowrap}
 .callout.accent{border-left-color:var(--hun-green);background:linear-gradient(90deg,rgba(0,166,80,.1),transparent)}
 .callout.alert{border-left-color:var(--f1-red)}
 .src{color:#6d6d82;font-size:13px;font-style:italic}
+.fia-documents a{overflow-wrap:anywhere}
+.fia-documents summary{overflow-wrap:anywhere}
 
 /* Index landing */
 .gp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:10px}

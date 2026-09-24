@@ -168,9 +168,10 @@ CIRCUITS = {
             ("Turn 16 into the main straight", "Exit here defines the whole 2.2 km run to the line; the single most important corner of the lap."),
         ],
         "overtaking": (
-            "Excellent. The enormous DRS-assisted straight into a tight Turn 1 braking zone "
-            "creates late lunges and slipstream chess. Low-drag cars can pass; high-downforce "
-            "cars have to defend."
+            "The long run into Turn 1 creates slipstream and braking opportunities. "
+            "For 2026, distinguish the two active-aero Straight Mode zones from the "
+            "separate Overtake electrical-power aid; battery state and cold front tyres "
+            "can change how a move develops."
         ),
         "tyre_notes": (
             "Low abrasion but severe warm-up difficulty — getting the fronts switched on for "
@@ -179,12 +180,12 @@ CIRCUITS = {
         "drs": 2,
         "lap_record": "1:43.009 — Charles Leclerc, 2019",
         "notes": [
-            "Baku has produced some of the most chaotic races of the modern era; safety cars are close to a statistical certainty.",
+            "Baku has produced dramatic neutralisations, but historic incidents are not a guaranteed Safety Car or a probability forecast.",
             "First Grand Prix: 2016 (as the European Grand Prix), 2017 onwards as the Azerbaijan Grand Prix.",
             "Wind off the Caspian regularly swings the balance between sectors.",
         ],
         "storylines": [
-            "Safety-car probability is high enough to be a genuine strategy input, not just a talking point.",
+            "Prepare separate green-flag and neutralised-stop scenarios rather than treating a Safety Car as inevitable.",
             "The straight rewards efficient 2026 deployment — a good yardstick for power-unit form.",
         ],
     },

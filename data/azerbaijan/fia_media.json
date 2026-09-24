@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-09-23T22:40:58+00:00",
-  "discovery_retrieved_at": "2026-09-23T22:40:49.005513+00:00",
+  "checked_at": "2026-09-24T04:46:27+00:00",
+  "discovery_retrieved_at": "2026-09-24T04:46:10.801569+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
@@ -9,7 +9,7 @@
         "circuit"
       ],
       "sha256": "34506576427627d59c2d09612fe4d83bf8b05ae18eeb9705053d39c4a7bb2e33",
-      "fetched_at": "2026-09-23T22:40:58+00:00",
+      "fetched_at": "2026-09-24T04:46:27+00:00",
       "pages": [
         {
           "page": 2,
@@ -37,7 +37,7 @@
         "circuit"
       ],
       "sha256": "a2c3873f4f26055531df40f5406953d36001ab539443d0cd14abc21c365ae703",
-      "fetched_at": "2026-09-23T22:40:58+00:00",
+      "fetched_at": "2026-09-24T04:46:27+00:00",
       "pages": [
         {
           "page": 2,
@@ -77,7 +77,7 @@
         "powerunit"
       ],
       "sha256": "90023e0575a7e570a554f49baf31a95b0dca01e63da65c212afafb5bf5399836",
-      "fetched_at": "2026-09-23T22:40:58+00:00",
+      "fetched_at": "2026-09-24T04:46:27+00:00",
       "pages": [
         {
           "page": 2,
@@ -93,7 +93,7 @@
         "upgrades"
       ],
       "sha256": "748dc31c5a759bf8f39409d5d7aa508c2969926576f22ca9b08d094afcb546e7",
-      "fetched_at": "2026-09-23T22:40:58+00:00",
+      "fetched_at": "2026-09-24T04:46:27+00:00",
       "pages": [
         {
           "page": 2,
@@ -109,7 +109,7 @@
         "tyres"
       ],
       "sha256": "be2a9031410066a58874574a31dec945293754a5863820d1770c2de54d859549",
-      "fetched_at": "2026-09-23T22:40:58+00:00",
+      "fetched_at": "2026-09-24T04:46:27+00:00",
       "pages": [
         {
           "page": 2,

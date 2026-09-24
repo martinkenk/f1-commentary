@@ -3,6 +3,7 @@ import unittest
 from unittest.mock import patch
 
 import build
+import content_azerbaijan
 import content_italy
 import content_spain
 
@@ -129,6 +130,78 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("L25 at 5230 m", spain["powerunit"]["body"])
         self.assertIn("Document 25", spain["powerunit"]["body"])
         self.assertIn("Team-by-team car presentation submissions", spain["upgrades"]["body"])
+
+
+class AzerbaijanParityTests(unittest.TestCase):
+    def setUp(self):
+        self.ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "azerbaijan")
+        self.ctx.update(status="live", results=[], extra={}, weather={}, weather_ok=False)
+        self.env = {"schedule_rows": lambda: "SCHEDULE_ROWS",
+                    "weather_cards": lambda: "WEATHER_CARDS", "weather_ok": False}
+        self.pages = content_azerbaijan.build_pages(self.ctx, self.env)
+
+    def test_seventeen_surfaces_preserve_automatic_feeds(self):
+        automatic = {"results", "news", "h2h"}
+        self.assertEqual({n[0] for n in self.ctx["nav"]}, set(self.pages) | automatic)
+        with patch.object(content_azerbaijan.f1lib, "auto_reliability",
+                          return_value="LIVE_PIT_TABLE"):
+            pages = content_azerbaijan.build_pages(self.ctx, self.env)
+        self.assertIn("LIVE_PIT_TABLE", pages["reliability"]["body"])
+
+    def test_visually_reviewed_prescriptions_correct_old_errors(self):
+        body = self.pages["tyres"]["body"]
+        self.assertIn("C3 and C4", body)
+        self.assertIn("not C5", body)
+        self.assertIn("70&deg;C for slicks\nand intermediates", body)
+        self.assertIn("40&deg;C for wets", body)
+        self.assertIn("19.5-second", body)
+        self.assertIn("not Pirelli", body)
+        self.assertNotIn("after Friday practice", body)
+        self.assertNotIn("mandatory race tyres alongside C5", body)
+        self.assertIn(content_azerbaijan.PREVIEW_IMAGE, body)
+        self.assertIn(content_azerbaijan.FIA_TYRES_ASSET, body)
+
+    def test_complete_energy_sheet_and_qualifying_only_exceptions(self):
+        body = self.pages["powerunit"]["body"]
+        for value in ("3,796 m", "50 kW/s", "4,177 m", "4,270 m", "(TBC)",
+                      "Outlaps other than in the race", "Base–Overtake",
+                      "1,500–2,870 m", "[4,050–5,300 m]", "[5,600–6,000 m]",
+                      "qualifying only", "1.0 s", "parts declaration or a confirmed penalty"):
+            self.assertIn(value, body)
+        self.assertNotIn("Sunday", body)
+        self.assertNotIn("Manual Override", body)
+
+    def test_circuit_map_notes_are_interpreted_not_just_linked(self):
+        body = self.pages["circuit"]["body"]
+        for value in ("45 m after T19", "45 m after T20", "110 m after T2",
+                      "160 m after T2", "90 m after T16", "20 m before T17",
+                      "2.033 / 2.025 / 1.945", "less than 100 seconds",
+                      "during and after qualifying", "before T16", "80 km/h"):
+            self.assertIn(value, body)
+        self.assertNotIn("DRS-assisted", body)
+        self.assertNotIn("statistical certainty", body)
+
+    def test_all_teams_upgrades_and_rookie_context(self):
+        body = self.pages["teams"]["body"]
+        for team in ("Mercedes", "Ferrari", "McLaren", "Red Bull", "Racing Bulls",
+                     "Alpine", "Haas", "Audi", "Williams", "Aston Martin", "Cadillac"):
+            self.assertIn(team, body)
+        self.assertNotIn("Team-by-team weekend storylines: awaiting", body)
+        self.assertIn("10:00–11:00 Tallinn", self.pages["upgrades"]["body"])
+        self.assertIn("No absent declaration is counted as a nil return",
+                      self.pages["upgrades"]["body"])
+        self.assertIn("Arvid Lindblad", self.pages["rookies"]["body"])
+        self.assertIn("painful", body)
+
+    def test_schedule_and_notes_follow_saturday_race(self):
+        self.assertIn("SCHEDULE_ROWS", self.pages["schedule"]["body"])
+        self.assertIn("WEATHER_CARDS", self.pages["schedule"]["body"])
+        for slug in ("overview", "notes"):
+            self.assertIn("15:00 Baku / 14:00 Tallinn", self.pages[slug]["body"])
+            self.assertIn(self.ctx["standings"]["summary"], self.pages[slug]["body"])
+        self.assertIn("every other rival", self.pages["standings"]["body"])
+        self.assertIn("no fastest-lap bonus", self.pages["standings"]["body"])
+        self.assertNotIn("A curated moments list", self.pages["moments"]["body"])
 
 
 if __name__ == "__main__":
