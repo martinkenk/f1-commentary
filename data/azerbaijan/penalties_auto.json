@@ -34,5 +34,65 @@
     "kind": "penalty",
     "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_car_77_-_overtaking_under_yellow_flags.pdf",
     "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_77_-_overtaking_under_yellow_flags.pdf"
+  },
+  {
+    "doc": "Doc 20",
+    "no": "14",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Drop of 25 grid positions for the next Race in which the driver participates",
+    "kind": "penalty",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_elements.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 21",
+    "no": "18",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Drop of 20 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_car_18_-_pu_elements.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_18_-_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 25",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars below did not use the track at turns 1, 2, 3, and 15.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 26",
+    "no": "",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "The F1 cars passed through a double waved yellow flag marshalling sector.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times_-_double_yellow_flags.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times_-_double_yellow_flags.pdf"
+  },
+  {
+    "doc": "Doc 29",
+    "no": "44",
+    "driver": "",
+    "team": "",
+    "session": "",
+    "fact": "Impeding of car 30",
+    "outcome": "Driver: Reprimand (Driving).",
+    "kind": "reprimand",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_car_44_-_impeding_car_30.pdf",
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_44_-_impeding_car_30.pdf"
   }
 ]
