@@ -1,9 +1,63 @@
 {
-  "reviewed_at": "2026-09-24T04:53:00Z",
-  "expires_at": "2026-09-24T08:30:00Z",
-  "through_session": null,
-  "feed_fingerprint": "01556a493c7797ed799c9a3d520343ffc0f6e0448b4db0bd7a503bd11e98304f",
+  "reviewed_at": "2026-09-24T16:08:55Z",
+  "expires_at": "2026-09-25T12:08:55Z",
+  "through_session": "Practice 2",
+  "feed_fingerprint": "6263e614a6ee5038d6c4ba0671a9877356e00af46be940a72bf30a8b7b20264d",
   "items": [
+    {
+      "topic": "Penalties",
+      "title": "Alonso and Stroll's grid penalties confirmed; Bottas cleared; Hamilton/Lawson now summoned",
+      "date": "2026-09-24",
+      "summary": "The Stewards issued Documents 20 and 21 confirming Aston Martin's Fernando Alonso will drop 25 grid places and Lance Stroll 20, both for exceeding their season power-unit element allocation in Free Practice 1. Alonso's penalty covers three exceeded elements (engine, turbocharger, PU ancillary component); Stroll's covers four (turbocharger, energy store, control electronics, PU ancillary component). Both penalties apply at the next race the driver takes part in. Separately, the Stewards ruled (Document 19) that Valtteri Bottas's FP1 overtake of Albon under a yellow flag warranted no penalty, finding he could not reasonably have avoided completing the move given the short time between the flag and the pass. Separately, new summonses (Documents 22–23) call Lewis Hamilton and Liam Lawson to a hearing over an alleged Turn 19 impeding incident in FP2 at 16:33 — a breach of Article B4.1.1 and/or Article 27 of the Race Director's Competition Notes.",
+      "why_it_matters": "This confirms, with the Stewards' own rulings, the grid-penalty arithmetic Formula1.com had reported pre-emptively from the Technical Delegate's filings — both drivers are now certain to start from near the back of the grid regardless of qualifying pace, reshaping the midfield/points picture for both Aston Martin cars. The Bottas ruling sets a practical precedent for how tightly-timed yellow-flag overtakes are judged this weekend; the new Hamilton/Lawson hearing is a live, unresolved investigation to watch — keep it clearly separate from the already-decided Bottas and Alonso/Stroll matters.",
+      "sources": [
+        {
+          "label": "FIA Document 20 — Infringement, Car 14, PU Elements",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_elements.pdf"
+        },
+        {
+          "label": "FIA Document 21 — Infringement, Car 18, PU Elements",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_18_-_pu_elements.pdf"
+        },
+        {
+          "label": "Formula1.com: Alonso and Stroll set for grid penalties at Azerbaijan GP",
+          "url": "https://www.formula1.com/en/latest/article/alonso-and-stroll-set-for-grid-penalties-at-azerbaijan-gp-after-taking-new-engine-components.2uOl7HZHamxmaUqjOxejAF"
+        },
+        {
+          "label": "FIA Document 19 — Infringement, Car 77, Overtaking Under Yellow Flags",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_77_-_overtaking_under_yellow_flags.pdf"
+        },
+        {
+          "label": "FIA Document 22 — Summons, Car 44, Alleged Impeding of Car 30",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_summons_-_car_44_-_alleged_impeding_of_car_30.pdf"
+        },
+        {
+          "label": "FIA Document 23 — Summons, Car 30, Alleged Impeding by Car 44",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_summons_-_car_30_-_alleged_impeding_by_car_44.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Session outcome",
+      "title": "Russell fastest in both Friday practice sessions",
+      "date": "2026-09-24",
+      "summary": "George Russell topped FP1 (1:45.387) ahead of Verstappen and Leclerc, then went fastest again in FP2 (1:43.347) ahead of teammate Antonelli and Verstappen. Antonelli suffered a hydraulic issue in FP1. Norris described McLaren's low-key start as leaving him with a 'knife in the heart' feeling.",
+      "why_it_matters": "Mercedes leads both practice sessions into a weekend where Antonelli holds a large championship lead — an early form indicator, not a qualifying or race prediction, especially with McLaren reporting a difficult start.",
+      "sources": [
+        {
+          "label": "Formula1.com: FP1 report — Russell leads from Verstappen",
+          "url": "https://www.formula1.com/en/latest/article/fp1-russell-leads-opening-azerbaijan-gp-practice-from-verstappen-as-antonelli-suffers-hydraulic-issue.1vpwyIqrue0aq0qtifIKCC"
+        },
+        {
+          "label": "Formula1.com: FP2 report — Russell leads Antonelli and Verstappen",
+          "url": "https://www.formula1.com/en/latest/article/fp2-russell-leads-antonelli-and-verstappen-in-second-azerbaijan-gp-practice.37CqNf2uaAyxvDPmvbt3Iw"
+        },
+        {
+          "label": "Formula1.com: Norris on McLaren's low-key start",
+          "url": "https://www.formula1.com/en/latest/article/were-miles-off-norris-left-with-knife-in-the-heart-feeling-after-mclarens-low-key-start-in-azerbaijan.1KBbZUzdb2ZOT3rrKzMESc"
+        }
+      ]
+    },
     {
       "topic": "Safety and line-up",
       "title": "Hadjar returns to Red Bull for Baku after signing a 2027 extension",
@@ -22,70 +76,19 @@
       ]
     },
     {
-      "topic": "Championship",
-      "title": "Antonelli's title lead remains the central Baku storyline",
-      "date": "2026-09-23",
-      "summary": "Formula1.com's 23 September preview records Antonelli's consecutive Monza and Madrid wins and an 81-point lead over Russell after Madrid. Nine Grands Prix and the Singapore Sprint remained, offering 233 points. An earliest Singapore title requires every rival to be out of reach, not merely Russell scoring zero.",
-      "why_it_matters": "Use the refreshed official standings for the exact gap and keep the title narrative live: Russell and Hamilton have not mathematically been removed from the season, despite Antonelli's substantial lead.",
-      "sources": [
-        {
-          "label": "Formula1.com: Baku form and preview",
-          "url": "https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-azerbaijan-grand-prix.3PkKCxoeboOkSc18pCB2z"
-        },
-        {
-          "label": "Formula1.com: dated title permutations",
-          "url": "https://www.formula1.com/en/latest/article/points-permutations-when-is-the-earliest-antonelli-could-win-the-world-championship.24UKT2fsQl4GmC5DMrmYUy"
-        }
-      ]
-    },
-    {
       "topic": "Technical and circuit",
       "title": "Williams brings its long-awaited FW48 upgrade package to Baku",
       "date": "2026-09-23",
-      "summary": "Formula1.com and The Race report that Williams is bringing its delayed FW48 package to Azerbaijan. Alex Albon and Carlos Sainz expect a step but caution that it may not deliver the full gain calculated months ago while the midfield continued to develop.",
-      "why_it_matters": "This is a round-specific upgrade to watch in practice and qualifying, not proof of a guaranteed leap into Q3; compare the team's actual Baku pace with its own expectations.",
+      "summary": "Formula1.com and The Race report that Williams is bringing its delayed FW48 package to Azerbaijan. Vowles told Formula1.com after Friday practice that it is 'a step in the right direction but not enough'; Albon and Sainz had earlier cautioned it may not deliver the full gain calculated months ago while the midfield continued to develop.",
+      "why_it_matters": "This is a round-specific upgrade now tested in real practice conditions, not just a pre-weekend expectation — the team's own post-FP2 verdict tempers the pre-race optimism.",
       "sources": [
+        {
+          "label": "Formula1.com: Vowles assesses impact of Williams' Baku upgrade",
+          "url": "https://www.formula1.com/en/latest/article/a-step-in-the-right-direction-but-not-enough-vowles-assesses-impact-of-williams-baku-upgrade.75ILsDtRS1tMzAtC0ZWhSS"
+        },
         {
           "label": "Formula1.com: Sainz and Albon remain cautious on the Williams upgrade",
           "url": "https://www.formula1.com/en/latest/article/why-sainz-and-albon-remain-cautious-on-long-awaited-williams-upgrade-package.4dgoSwY5UbscNhWXSeMvnI"
-        },
-        {
-          "label": "The Race: six Baku technical talking points",
-          "url": "https://www.the-race.com/formula-1/six-f1-tech-talking-points-at-the-azerbaijan-gp/"
-        }
-      ]
-    },
-    {
-      "topic": "Driver market",
-      "title": "Ocon says he is a 2027 free agent; Haas discussions continue",
-      "date": "2026-09-23",
-      "summary": "Ocon told Wednesday's Baku media session he is a free agent for next season while discussions continue. Bearman expects to stay at Haas but says the final decision is not his. Neither statement announces a signed 2027 Haas line-up.",
-      "why_it_matters": "This affects the driver-market story, not the confirmed current race pairing. Keep reported exit expectations separate from a team contract announcement.",
-      "sources": [
-        {
-          "label": "Formula1.com: Ocon and Bearman on their Haas futures",
-          "url": "https://www.formula1.com/en/latest/article/definitely-a-free-agent-for-next-year-ocon-gives-update-on-haas-future-as-discussions-ongoing.5puGpQ2dMNroVXzQiV0Tgd"
-        }
-      ]
-    },
-    {
-      "topic": "Technical rules",
-      "title": "Baku's aero zones, energy exceptions and tyre warm-up set the practice agenda",
-      "date": "2026-09-23",
-      "summary": "The FIA map distinguishes two Straight Mode zones from the separate Overtake aid, with later low-grip activation. The energy sheet includes qualifying-only exceptions and a provisional absolute activation distance. Pirelli expects low wear but warns of front-tyre cooling before T1.",
-      "why_it_matters": "The Circuit, Power Unit and Tyres pages now interpret the source tables. Do not describe recharge as deployment, treat the TBC as final, or assume a cold-front lock-up is a brake failure.",
-      "sources": [
-        {
-          "label": "FIA: Baku power-unit information",
-          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_power_unit_information.pdf"
-        },
-        {
-          "label": "FIA: circuit and pitlane maps",
-          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf"
-        },
-        {
-          "label": "Formula1.com / Pirelli: tyre preview",
-          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-azerbaijan-grand-prix.1UFiasleBnLs9s0hyRCpS0"
         }
       ]
     }
