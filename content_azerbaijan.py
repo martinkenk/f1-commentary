@@ -34,6 +34,12 @@ FIA_MAP_URL = FIA_ROOT + "competition_notes_-_circuit_map_pit_lane_drawing_emerg
 FIA_NOTES_URL = FIA_ROOT + "race_directors_competition_notes.pdf"
 FIA_DISPLAY_URL = FIA_ROOT + "car_display_procedure.pdf"
 FIA_VISA_URL = FIA_ROOT + "competition_visa_v2.pdf"
+FIA_CAR_PRESENTATION_URL = FIA_ROOT + "car_presentation_submissions.pdf"
+FIA_PU_NEW_URL = FIA_ROOT + "new_pu_elements_for_this_competition.pdf"
+FIA_PU_USED_URL = FIA_ROOT + "pu_elements_used_per_driver_up_to_now.pdf"
+FIA_FP1_DELETED_URL = FIA_ROOT + "infringement_-_free_practice_1_deleted_lap_times.pdf"
+FIA_FP1_YELLOW_URL = FIA_ROOT + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow_flags.pdf"
+FIA_BOTTAS_SUMMONS_URL = FIA_ROOT + "summons_-_car_77_-_alleged_yellow_flag_infringement.pdf"
 F1_ROOT = "https://www.formula1.com/en/latest/article/"
 LINEUP_URL = F1_ROOT + "its-good-to-come-back-to-the-fight-hadjar-opens-up-on-new-contract-and-return-to-racing.6NzCNMkA6szXJuzSDLcx4g"
 WILLIAMS_URL = F1_ROOT + "why-sainz-and-albon-remain-cautious-on-long-awaited-williams-upgrade-package.4dgoSwY5UbscNhWXSeMvnI"
@@ -41,6 +47,10 @@ OCON_URL = F1_ROOT + "definitely-a-free-agent-for-next-year-ocon-gives-update-on
 FORM_URL = F1_ROOT + "need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-azerbaijan-grand-prix.3PkKCxoeboOkSc18pCB2z"
 MOMENTS_URL = F1_ROOT + "f1s-wildest-azerbaijan-moments-from-10-years-of-racing-in-baku.4hKjzE3m20ov49AE4kSf0F"
 TECH_URL = "https://www.the-race.com/formula-1/six-f1-tech-talking-points-at-the-azerbaijan-gp/"
+PENALTY_ARTICLE_URL = F1_ROOT + (
+    "alonso-and-stroll-set-for-grid-penalties-at-azerbaijan-gp-after-taking-new-"
+    "engine-components.2uOl7HZHamxmaUqjOxejAF"
+)
 
 
 def source(url, label):
@@ -153,16 +163,41 @@ T16-exit exception to the race.</p>
 activation 4,270 m <strong>(TBC)</strong> / L21. The circuit map places them
 90 m after T16 and 20 m before T17 respectively.</p>
 {source(FIA_POWER_UNIT_URL + "#page=2", "FIA Power Unit Information, Articles C5.2.8/C5.2.10/C5.12 and B7.2")}
-<h2 class="sec">Parts usage and penalties: evidence still required</h2>
-<p>The complete seven-PDF listing checked on <strong>24 September before FP1</strong>
-contains no PU-elements-used/new-elements report. That is a discovery state,
-not proof that no part has changed. No driver-by-driver before/new/allowed count
-or Baku grid sanction is inferred from technical reporting.</p>
-<p><strong>Reported watch:</strong> The Race says Perez is due Ferrari's ADUO 2
-engine at Cadillac in Baku, with Bottas waiting; Leclerc's Monza engine may be
-evaluated or a fresh unit considered. These are attributed plans, not an FIA
-parts declaration or a confirmed penalty.</p>
-{source(TECH_URL, "The Race, technical preview, 23 September")}
+<h2 class="sec">Parts usage confirmed: Alonso and Stroll exceed their season allocation</h2>
+<p>The Technical Delegate's <strong>PU-elements-used report (Document 9, 24 September, 08:30)</strong>
+and the follow-up <strong>new-elements report (Document 14, 24 September, 12:34)</strong> confirm
+what The Race's watch anticipated, but with different cars than reported: it is
+<strong>Aston Martin's Alonso and Stroll</strong>, not Cadillac, who exceed their allocation
+for this event.</p>
+{content_generic.card("Alonso (car 14) — three elements over allocation",
+    content_generic.ul([
+        "New internal combustion engine: his <strong>5th</strong> of the 4 allowed for the season.",
+        "New turbocharger: his <strong>5th</strong> of the 4 allowed.",
+        "New power unit ancillary component: his <strong>9th</strong> of the 6 allowed.",
+        "His new exhaust set (2nd of 4) remains within allocation.",
+    ]), "bi-exclamation-triangle", "accent")}
+{content_generic.card("Stroll (car 18) — four elements over allocation",
+    content_generic.ul([
+        "New turbocharger: his <strong>6th</strong> of the 4 allowed for the season.",
+        "New energy store unit: his <strong>7th</strong> of the 3 allowed.",
+        "New control electronics unit: his <strong>6th</strong> of the 3 allowed.",
+        "New power unit ancillary component: his <strong>8th</strong> of the 6 allowed.",
+    ]), "bi-exclamation-triangle", "accent")}
+<p>Lindblad, Ocon and Perez also took new elements this event but each stays
+within their season allocation (compliant per Document 14). Formula1.com's own
+grid-penalty report explains the regulation: <strong>the first element exceeded at
+an event carries a 10-place grid penalty, the second (and each further one) a
+further 5 places, cumulative at the same event; a total penalty over 15 places
+means starting from the back of the field regardless.</strong> By that arithmetic,
+Alonso's three exceeded elements sum to 10+5+5 = 20 places and Stroll's four to
+10+5+5+5 = 25 places &mdash; both already over the 15-place threshold, so
+<strong>both are expected to start from the back of the grid</strong> pending the
+Stewards' formal grid-penalty document. This is the regulation's mechanism, not
+yet the Stewards' own confirmed ruling — see the automatic tracker below for
+the formal decision once issued.</p>
+{source(FIA_PU_NEW_URL + "#page=2", "FIA Document 14, New PU Elements for this Competition, PDF pages 2–4")}
+{source(FIA_PU_USED_URL + "#page=2", "FIA Document 9, PU Elements Used per Driver up to now")}
+{source(PENALTY_ARTICLE_URL, "Formula1.com — Alonso and Stroll set for grid penalties, 24 September 2026")}
 """
 
 
@@ -378,23 +413,71 @@ No Safety Car probability is inferred from Baku's dramatic highlights.</p>
     "This season's rookie status is not the same as eligibility for a mandatory rookie FP1 slot "
     "after more than two Grand Prix starts.</p>"
     + source("https://www.formula1.com/en/drivers/arvid-lindblad", "Formula1.com driver biography"), "bi-person-badge")}
-<p>The refreshed FIA listing has no event entry list or FP1 substitution notice.
-The race pairings on <a href="teams.html">Team Watch</a> follow announced line-ups;
-the 23-driver season standings include reserve/replacement appearances and must
-not be used as a 23-car Baku entry list.</p>
+<p>The FIA's published <strong>entry list (Document 12, 24 September, 10:15)</strong>
+confirms all 22 cars with Hadjar back at Red Bull (car 6) and Lawson at Racing
+Bulls (car 30); there is still no separate FP1 rookie-substitution notice in the
+listing. The race pairings on <a href="teams.html">Team Watch</a> follow this
+confirmed entry list; the 23-driver season standings include reserve/replacement
+appearances and must not be used as a 23-car Baku entry list.</p>
+{source(FIA_ROOT + "entry_list.pdf", "FIA Document 12, Entry List, 24 September 2026")}
 """
     pages["upgrades"]["body"] = f"""
-<h2 class="sec">Published development plans, not yet filed component counts</h2>
+<h2 class="sec">FIA car-presentation submissions (Document 11) — six of eleven teams filed updates</h2>
+<p>The FIA Media Delegate's <strong>24 September, 09:50</strong> filing collates each team's own
+declared bodywork/aerodynamic component changes for this event. <strong>Mercedes, Ferrari,
+Aston Martin, Haas and Alpine submitted no updates</strong> for Baku; the following six did.</p>
+<div class="grid cols-2">
+{content_generic.card("McLaren — new bodywork package (8 components)",
+    content_generic.ul([
+        "Revised sidepod inlet shape, engine cover/coke line and an alternative sidepod shape, all for improved flow conditioning.",
+        "New cooling-louvre layout to suit the bodywork; revised floor edge and diffuser for more local load.",
+        "Revised rear-suspension fairings and an alternative straight-line-mode rear-wing flap position for a larger drag reduction.",
+    ]), "bi-tools", "accent")}
+{content_generic.card("Red Bull — floor, sidepod and cooling revisions (5 components)",
+    content_generic.ul([
+        "Revised floor and diffuser geometry for more local load while maintaining flow stability.",
+        "New floor/sidepod split line and revised cooling louvres and mirror geometry.",
+        "Revised halo-fairing turning vane for downstream flow conditioning.",
+    ]), "bi-tools")}
+{content_generic.card("Williams — the reported FW48 floor package, now filed (5 components)",
+    content_generic.ul([
+        "Updated floor bodywork assembly: new leading-edge devices, floor body and floor-corner geometry for more local and underfloor load.",
+        "Revised tail geometry to suit the new floor; reprofiled front brake-duct flow conditioning.",
+        "Revised rear-suspension cladding orientation and modified rear brake-duct furniture.",
+        "This confirms the delayed package Albon and Sainz previewed as a floor/balance update, now with FIA-declared geometry.",
+    ]), "bi-tools", "accent")}
+{content_generic.card("Racing Bulls — new front wing and corner package (3 components)",
+    content_generic.ul([
+        "New front-wing assembly for a cleaner flow field feeding the rest of the car.",
+        "New brake duct and front lip, plus profile changes to the front-suspension legs.",
+    ]), "bi-tools")}
+{content_generic.card("Audi — full new front wing, floor and rear-wing package (7+ components)",
+    content_generic.ul([
+        "Full new front wing and nose fairing, with revised front-suspension covers to match.",
+        "New floor body, leading-edge devices and diffuser \u2014 all new surfaces for a consistent load increase.",
+        "New bodywork/halo fairing, rear-suspension covers/brake-duct furniture and a new rear-wing/beam-wing assembly.",
+    ]), "bi-tools")}
+{content_generic.card("Cadillac — front-corner and diffuser refinements (3 components)",
+    content_generic.ul([
+        "Updated brake-cooling inlet/exit duct profiles and matching front-suspension fairing surfaces.",
+        "Revised diffuser winglet lower-edge geometry for more local load.",
+    ]), "bi-tools")}
+</div>
+{source(FIA_CAR_PRESENTATION_URL, "FIA Document 11, Car Presentation Submissions, 24 September 2026")}
+<h2 class="sec">Published development reporting, cross-checked against the filing</h2>
 {content_generic.card("Williams: lighter FW48 chassis and balance work",
     "<p>The delayed Baku package centres on weight reduction with smaller changes intended to help balance. "
     "Albon and Sainz both caution that a paper or simulator gain is not automatically delivered on track. "
-    "The Race reports a new manufacturing approach, but its detailed method has not been disclosed.</p>"
+    "The Race reports a new manufacturing approach, but its detailed method has not been disclosed. "
+    "Document 11 above now confirms this is a floor/tail/corner package, not merely a chassis change.</p>"
     + source(WILLIAMS_URL, "Formula1.com, 23 September")
     + source(TECH_URL, "The Race technical preview, 23 September"), "bi-tools", "accent")}
 <p>The same technical preview reports McLaren's low-drag H-wing return plus further
-evaluation parts, lighter Aston Martin components, and small Cadillac aero changes.
-These are attributed development reports, <strong>not FIA-declared component counts</strong>.
-An unchanged-looking lighter part may not appear on an aerodynamic submission.</p>
+evaluation parts (matching Document 11's rear-wing/bodywork entries above), lighter
+Aston Martin components (Aston Martin filed no Document 11 update this event), and
+small Cadillac aero changes (matching the front-corner/diffuser entries above).
+Where the attributed press report and the FIA filing disagree in scope, the FIA
+document is the declared component list; the press report is context on intent.</p>
 {source(TECH_URL, "The Race, six Baku technical talking points")}
 <h2 class="sec">Car display is Thursday, not the usual Friday</h2>
 <p>The FIA procedure schedules <strong>Thursday 24 September, 11:00–12:00 Baku /
@@ -404,13 +487,6 @@ components, that is the car to display. Adverse-weather arrangements may move th
 display into the garage. Still photographers stay in the fast lane; TV crews may
 film in the working lane.</p>
 {source(FIA_DISPLAY_URL + "#page=2", "FIA car display procedure, 23 September, PDF page 2")}
-<div class="callout watch"><strong>Team submissions pending discovery.</strong>
-The seven-PDF listing checked before FP1 on 24 September contains the display procedure,
-not the car-presentation submissions. Component totals, reasons and nil returns
-remain unverified for all eleven teams: McLaren, Mercedes, Red Bull, Ferrari,
-Williams, Racing Bulls, Aston Martin, Haas, Audi, Alpine and Cadillac.
-No absent declaration is counted as a nil return. All team pages/diagrams will
-need review when that filing is discovered.</div>
 """
     pages["moments"]["body"] = f"""
 <p class="lead-note">Ten years since the 2016 debut, not ten completed races:
@@ -437,18 +513,21 @@ Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Fac
         + source(TECH_URL, "The Race technical preview"), "bi-tools"
     ) + pages["reliability"]["body"]
     brief = f"""
-<div class="callout"><strong>24 September pre-FP1 briefing:</strong> standard
-Thursday–Saturday weekend, not a Sprint. FP1/FP2 Thursday; FP3/qualifying Friday;
-race Saturday 26 September at <strong>15:00 Baku / 14:00 Tallinn</strong>.
-Use the schedule/results for later session updates.</div>
+<div class="callout"><strong>24 September post-FP1 update:</strong> standard
+Thursday–Saturday weekend, not a Sprint. FP1 completed (Russell fastest); FP2
+follows Thursday; FP3/qualifying Friday; race Saturday 26 September at
+<strong>15:00 Baku / 14:00 Tallinn</strong>. See <a href="results.html">Results</a>
+for the FP1 classification and <a href="penalties.html">Penalties</a> for the
+confirmed Alonso/Stroll grid-penalty arithmetic.</div>
 {content_generic.card("The verified essentials",
     content_generic.ul([
         "Hadjar returns to Red Bull; Lawson returns to Racing Bulls; Tsunoda reverts to reserve. Hadjar expects some wrist pain and has renewed for 2027.",
         "C3 Hard / C4 Medium / C5 Soft; mandatory race tyres are C3/C4. Slick/intermediate maximum heating 70°C; wet 40°C, all for no more than two hours.",
         "Two Straight Mode zones, but one Overtake detection/activation pair. Low-grip A1 starts after T20, later than normal A1 after T19.",
         "Recharge: race 8.5/9.0 MJ with Overtake off/on; qualifying 8.5 MJ, FP/outlaps 9.0 MJ. L21 activation remains 4,270 m (TBC).",
-        "Williams' lighter chassis is a reported package, not yet an FIA component list. Car display Thursday 11:00–12:00 Baku.",
-        "SC2–SC1 maximum time awaits the post-FP2 note; do not borrow Monza's value. No Baku sanction is inferred from an engine plan.",
+        "FP1: Russell fastest (1:45.387) from Verstappen and Leclerc. Alonso and Stroll are expected to start from the back of the grid after taking PU elements beyond their season allocation.",
+        "Six of eleven teams (McLaren, Red Bull, Williams, Racing Bulls, Audi, Cadillac) filed FIA car-presentation updates \u2014 Williams' package confirms the reported FW48 floor work. Car display was Thursday 11:00–12:00 Baku.",
+        "SC2–SC1 maximum time awaits the post-FP2 note; do not borrow Monza's value.",
     ]) + '<p><a href="rookies.html">Line-up sources</a> · <a href="tyres.html">Pirelli/FIA prescriptions</a> · '
     '<a href="circuit.html">Map and race-control interpretation</a> · <a href="powerunit.html">PU sheet</a> · '
     '<a href="upgrades.html">Development sources</a></p>', "bi-mic", "accent")}
@@ -464,8 +543,8 @@ Use the schedule/results for later session updates.</div>
 <p><strong>Calendar check:</strong> the Saturday race moves practice to Thursday
 and qualifying to Friday. Baku is UTC+4 and Tallinn is EEST (UTC+3), so Tallinn
 is one hour earlier throughout this weekend. The session table is calendar-driven.</p>
-<p><strong>Heat Hazard:</strong> no declaration appears in the seven-PDF FIA
-listing reviewed before FP1 on 24 September. A weather forecast alone is not
+<p><strong>Heat Hazard:</strong> no declaration appears in the 17-document FIA
+listing refreshed after FP1 on 24 September. A weather forecast alone is not
 a declaration; do not infer mandatory cooling measures from temperature.</p>
 {source(FORM_URL, "Formula1.com weekend schedule; FIA listing for declarations")}
 <p>The FIA's <strong>Competition Visa V2 (Document 7, 23 September, 19:08)</strong>
@@ -477,8 +556,29 @@ that the race runs for two hours.</p>
 """
     pages["penalties"] = dict(
         kicker="Stewards & race control", title="Penalties & Decisions",
-        sub="Official rulings, their consequences and the Baku officials.",
-        body=f1lib.auto_penalties(ctx) + f"""
+        sub="FP1 lap deletions logged; Bottas summoned over a yellow-flag pass; Alonso/Stroll grid penalties pending formal confirmation.",
+        body=f1lib.render_penalties(
+            ctx,
+            decisions=[
+                dict(doc="Doc 15", no="77", driver="Valtteri Bottas", team="Cadillac Formula 1 Team",
+                     session="Free Practice 1",
+                     fact="Summoned to appear before the Stewards at 13:50 over an alleged breach of "
+                          "Article 2.5.5.b of Appendix H of the FIA International Sporting Code — "
+                          "overtaking under a yellow flag.",
+                     outcome="Hearing pending at time of writing — this is a summons, not yet a ruling. "
+                             "Check the automatic tracker above for the Stewards' subsequent decision.",
+                     kind="note"),
+            ],
+            intro_html=f"""
+<div class="callout accent"><strong>Grid penalties expected for Alonso and Stroll (not yet a formal Stewards document).</strong>
+The Technical Delegate's reports (Documents 9 and 14) show both drivers exceeded
+their season power-unit element allocation by three and four components
+respectively — see <a href="powerunit.html">Power Unit &amp; Overtake</a> for the
+full breakdown and the regulation's cumulative grid-penalty arithmetic. Both are
+expected to start from the back of the grid; this page will show the Stewards'
+own grid-penalty document once it is issued.</div>
+"""))
+    pages["penalties"]["body"] += f"""
 <h2 class="sec">Officials and document status</h2>
 <p><strong>Competition Visa V2, Document 7:</strong> FIA stewards Gerd Ennser,
 Loïc Bacquelaine, Khatuna Julakidze and Derek Warwick; ASN-appointed steward
@@ -486,14 +586,16 @@ Danil Solomin. Race Director and Safety Delegate Rui Marques; Technical Delegate
 Jo Bauer; Sporting Delegate Tim Malyon; Deputy Race Director Paul Burns.
 The visa names the officials; it is not an infringement decision.</p>
 {source(FIA_VISA_URL + "#page=4", "FIA Competition Visa V2, Appendix B3, PDF pages 4–5")}
-<p>The seven-document listing reviewed before FP1 on 24 September contains
-no Baku summons, infringement, grid penalty or Heat Hazard declaration.
-Keep that dated discovery status distinct from a claim that no later ruling exists.
-The automatic decision tracker above remains active; revised notes and later
-decisions supersede this pre-running snapshot.</p>
+<p>The 17-document listing refreshed after FP1 on 24 September adds the entry
+list, car-presentation submissions, self-scrutineering notice, both PU-elements
+reports, the FP1 classification and its two lap-time-deletion notes, the Race
+Director's Competition Notes v2 and the Bottas summons above, alongside the
+seven documents known before FP1. The automatic decision tracker above logs the
+FP1 lap deletions (Documents 17–18); revised notes and later decisions continue
+to supersede this snapshot as the weekend progresses.</p>
 <p>Document 2 clears the inspected front-suspension items on Russell's Madrid
 car; it is a compliance report, not a Baku sanction.
 See <a href="reliability.html">Reliability</a> for its scope and
 <a href="circuit.html">Circuit</a> for the race-control instructions.</p>
-""")
+"""
     return pages
