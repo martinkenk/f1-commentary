@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-09-24T05:24:54+00:00",
+  "checked_at": "2026-09-24T10:49:58+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -5077,7 +5077,7 @@
       "label": "Race",
       "date": "2026-09-13",
       "url": "https://www.formula1.com/en/results/2026/races/1294/spain/race-result",
-      "fetched_at": "2026-09-24T05:24:54+00:00",
+      "fetched_at": "2026-09-24T10:49:58+00:00",
       "drivers": [
         {
           "code": "ANT",
