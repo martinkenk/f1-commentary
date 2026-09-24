@@ -1,6 +1,6 @@
 """Offline content parity checks: verified event evidence, not borrowed GP facts."""
 import unittest
-from unittest.mock import patch
+from unittest.mock import mock_open, patch
 
 import build
 import content_azerbaijan
@@ -139,6 +139,23 @@ class AzerbaijanParityTests(unittest.TestCase):
         self.env = {"schedule_rows": lambda: "SCHEDULE_ROWS",
                     "weather_cards": lambda: "WEATHER_CARDS", "weather_ok": False}
         self.pages = content_azerbaijan.build_pages(self.ctx, self.env)
+
+    def test_directory_url_has_an_overview_redirect(self):
+        ctx = dict(self.ctx)
+        ctx["nav"] = [row for row in ctx["nav"] if row[0] == "overview"]
+        ctx["pages"] = lambda *_: {"overview": self.pages["overview"]}
+        files = mock_open()
+        lib = content_azerbaijan.f1lib
+        with patch.object(lib, "prepare"), patch.object(lib.os.path, "exists", return_value=False), \
+             patch.object(lib.os.path, "isdir", return_value=False), \
+             patch.object(lib.os, "makedirs"), patch.object(lib, "shell", return_value="OVERVIEW"), \
+             patch.object(lib, "render_index", return_value="SEASON_INDEX"), \
+             patch("builtins.open", files):
+            lib.build_all([ctx])
+        files.assert_any_call(lib.os.path.join(lib.OUT, "azerbaijan", "index.html"), "w")
+        writes = "".join(call.args[0] for call in files().write.call_args_list)
+        self.assertIn('content="0; url=overview.html"', writes)
+        self.assertIn('rel="canonical" href="overview.html"', writes)
 
     def test_seventeen_surfaces_preserve_automatic_feeds(self):
         automatic = {"results", "news", "h2h"}

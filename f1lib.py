@@ -2376,6 +2376,18 @@ def build_all(gps):
             htmlpage = shell(ctx, slug, p["title"], p["kicker"], p["title"], p["sub"], p["body"], depth=1)
             with open(os.path.join(OUT, ctx["dir"], fname), "w") as f:
                 f.write(htmlpage)
+            if slug == "overview":
+                with open(os.path.join(OUT, ctx["dir"], "index.html"), "w") as f:
+                    target = html.escape(fname, quote=True)
+                    f.write(
+                        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+                        '<meta name="viewport" content="width=device-width, initial-scale=1">'
+                        f'<meta http-equiv="refresh" content="0; url={target}">'
+                        f'<link rel="canonical" href="{target}">'
+                        '<title>Grand Prix overview</title></head><body>'
+                        f'<p><a href="{target}">Continue to the Grand Prix overview</a></p>'
+                        '</body></html>'
+                    )
             total += 1
         print(f"  {ctx['flag']} {ctx['name']}: {len(ctx['nav'])} pages "
               f"({ctx['weather_ok'] and 'weather OK' or 'no weather'}, "
