@@ -40,6 +40,11 @@ FIA_PU_USED_URL = FIA_ROOT + "pu_elements_used_per_driver_up_to_now.pdf"
 FIA_FP1_DELETED_URL = FIA_ROOT + "infringement_-_free_practice_1_deleted_lap_times.pdf"
 FIA_FP1_YELLOW_URL = FIA_ROOT + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow_flags.pdf"
 FIA_BOTTAS_SUMMONS_URL = FIA_ROOT + "summons_-_car_77_-_alleged_yellow_flag_infringement.pdf"
+FIA_ALONSO_PENALTY_URL = FIA_ROOT + "infringement_-_car_14_-_pu_elements.pdf"
+FIA_STROLL_PENALTY_URL = FIA_ROOT + "infringement_-_car_18_-_pu_elements.pdf"
+FIA_SC_NOTE_URL = FIA_ROOT + "race_director_notes_-_sc2_-_sc1_times.pdf"
+FIA_LAWSON_SUMMONS_URL = FIA_ROOT + "summons_-_car_30_-_alleged_impeding_by_car_44.pdf"
+FIA_HAMILTON_SUMMONS_URL = FIA_ROOT + "summons_-_car_44_-_alleged_impeding_of_car_30.pdf"
 F1_ROOT = "https://www.formula1.com/en/latest/article/"
 LINEUP_URL = F1_ROOT + "its-good-to-come-back-to-the-fight-hadjar-opens-up-on-new-contract-and-return-to-racing.6NzCNMkA6szXJuzSDLcx4g"
 WILLIAMS_URL = F1_ROOT + "why-sainz-and-albon-remain-cautious-on-long-awaited-williams-upgrade-package.4dgoSwY5UbscNhWXSeMvnI"
@@ -94,7 +99,7 @@ not corner numbers. The map's relative locations do not remove the PU sheet's TB
 These are instructions, not stewards' penalties. All seven substantive pages
 and their diagrams remain available in the source gallery below.</p>
 {content_generic.ul([
-    "<strong>SC2–SC1 maximum time:</strong> to be announced after FP2; no numerical maximum in this filing. It applies on any lap <strong>during and after qualifying</strong>, including in/outlaps, and race reconnaissance with pit exit open (PDF p2, §1).",
+    "<strong>SC2–SC1 maximum time:</strong> published after FP2 (Document 27) as <strong>2:08.0</strong>. It applies on any lap <strong>during and after qualifying</strong>, including in/outlaps, and race reconnaissance with pit exit open, to avoid cars being driven unnecessarily slowly (PDF p2, §1; Doc 27).",
     "<strong>Blue flags:</strong> pre-warning at 3.0 seconds; blue panels at 1.2 seconds. Safety Car restart pacing must not involve dangerous acceleration, braking or manoeuvres once its orange lights go out (p2, §§2–3).",
     "<strong>Lap deletion:</strong> a double-yellow sector in free practice deletes that lap time. Only on-track laps count for classifications. Do not invent a Baku-specific next-lap track-limit deletion rule (p3, §§6,9).",
     "<strong>Practice starts:</strong> marked left-hand pit-exit boxes in practice/reconnaissance; two additional grid-start laps after FP2. None during qualifying or with another car stationary ahead. Race reconnaissance has a specific exception for cars not practising starts: cross onto the normal racing line at the earliest opportunity and do not cross back (pp4–5, §13).",
@@ -106,6 +111,7 @@ and their diagrams remain available in the source gallery below.</p>
     "<strong>Double-yellow mirroring:</strong> panel 8 onto 7 and panel 11 onto 10 (p8, §25).",
 ])}
 {source(FIA_NOTES_URL, "FIA Race Director's Competition Notes, PDF pages 2–8")}
+{source(FIA_SC_NOTE_URL, "FIA Document 27, Race Director's Note to Teams — SC2/SC1 Times, 24 September 2026")}
 <h2 class="sec">Pitlane, emergency exits and red zone</h2>
 <p>The emergency map uses <strong>red for exits on the left and green for exits
 on the right</strong>, distinguishing drive-in refuges from push-in refuges
@@ -185,18 +191,22 @@ for this event.</p>
     ]), "bi-exclamation-triangle", "accent")}
 <p>Lindblad, Ocon and Perez also took new elements this event but each stays
 within their season allocation (compliant per Document 14). Formula1.com's own
-grid-penalty report explains the regulation: <strong>the first element exceeded at
+grid-penalty report explained the regulation: <strong>the first element exceeded at
 an event carries a 10-place grid penalty, the second (and each further one) a
-further 5 places, cumulative at the same event; a total penalty over 15 places
-means starting from the back of the field regardless.</strong> By that arithmetic,
-Alonso's three exceeded elements sum to 10+5+5 = 20 places and Stroll's four to
-10+5+5+5 = 25 places &mdash; both already over the 15-place threshold, so
-<strong>both are expected to start from the back of the grid</strong> pending the
-Stewards' formal grid-penalty document. This is the regulation's mechanism, not
-yet the Stewards' own confirmed ruling — see the automatic tracker below for
-the formal decision once issued.</p>
+further 5 places, cumulative at the same event.</strong> The Stewards have now
+issued their own rulings confirming that arithmetic exactly: <strong>Document 20
+drops Alonso 25 grid positions</strong> (10 for the first exceeded element, plus
+5 each for the second and third — the Stewards' own reasoning credits three
+exceeded elements, one more than Formula1.com's article implied) and
+<strong>Document 21 drops Stroll 20 places</strong> (5 for each of his four
+exceeded elements). Both penalties apply "for the next Race in which the driver
+participates" and are subject to Article B2.5.4b.iv grid allocation if the car
+is classified in Qualifying — see the automatic tracker below for the Stewards'
+own documents.</p>
 {source(FIA_PU_NEW_URL + "#page=2", "FIA Document 14, New PU Elements for this Competition, PDF pages 2–4")}
 {source(FIA_PU_USED_URL + "#page=2", "FIA Document 9, PU Elements Used per Driver up to now")}
+{source(FIA_ALONSO_PENALTY_URL, "FIA Document 20, Infringement — Car 14 — PU Elements, 24 September 2026")}
+{source(FIA_STROLL_PENALTY_URL, "FIA Document 21, Infringement — Car 18 — PU Elements, 24 September 2026")}
 {source(PENALTY_ARTICLE_URL, "Formula1.com — Alonso and Stroll set for grid penalties, 24 September 2026")}
 """
 
@@ -513,21 +523,21 @@ Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Fac
         + source(TECH_URL, "The Race technical preview"), "bi-tools"
     ) + pages["reliability"]["body"]
     brief = f"""
-<div class="callout"><strong>24 September post-FP1 update:</strong> standard
-Thursday–Saturday weekend, not a Sprint. FP1 completed (Russell fastest); FP2
-follows Thursday; FP3/qualifying Friday; race Saturday 26 September at
+<div class="callout"><strong>24 September post-FP2 update:</strong> standard
+Thursday–Saturday weekend, not a Sprint. FP1 and FP2 completed (Russell fastest
+in both); FP3/qualifying Friday; race Saturday 26 September at
 <strong>15:00 Baku / 14:00 Tallinn</strong>. See <a href="results.html">Results</a>
-for the FP1 classification and <a href="penalties.html">Penalties</a> for the
-confirmed Alonso/Stroll grid-penalty arithmetic.</div>
+for both classifications and <a href="penalties.html">Penalties</a> for the
+confirmed Alonso/Stroll grid penalties and the new Hamilton/Lawson summons.</div>
 {content_generic.card("The verified essentials",
     content_generic.ul([
         "Hadjar returns to Red Bull; Lawson returns to Racing Bulls; Tsunoda reverts to reserve. Hadjar expects some wrist pain and has renewed for 2027.",
         "C3 Hard / C4 Medium / C5 Soft; mandatory race tyres are C3/C4. Slick/intermediate maximum heating 70°C; wet 40°C, all for no more than two hours.",
         "Two Straight Mode zones, but one Overtake detection/activation pair. Low-grip A1 starts after T20, later than normal A1 after T19.",
         "Recharge: race 8.5/9.0 MJ with Overtake off/on; qualifying 8.5 MJ, FP/outlaps 9.0 MJ. L21 activation remains 4,270 m (TBC).",
-        "FP1: Russell fastest (1:45.387) from Verstappen and Leclerc. Alonso and Stroll are expected to start from the back of the grid after taking PU elements beyond their season allocation.",
+        "FP1: Russell fastest (1:45.387) from Verstappen and Leclerc; FP2: Russell again fastest (1:43.347) from Antonelli and Verstappen. The Stewards have now confirmed Alonso's 25-place and Stroll's 20-place grid-penalty rulings (Docs 20/21) for exceeding their season PU-element allocation.",
         "Six of eleven teams (McLaren, Red Bull, Williams, Racing Bulls, Audi, Cadillac) filed FIA car-presentation updates \u2014 Williams' package confirms the reported FW48 floor work. Car display was Thursday 11:00–12:00 Baku.",
-        "SC2–SC1 maximum time awaits the post-FP2 note; do not borrow Monza's value.",
+        "SC2–SC1 maximum time confirmed post-FP2 (Doc 27): 2:08.0 between the Safety Car lines.",
     ]) + '<p><a href="rookies.html">Line-up sources</a> · <a href="tyres.html">Pirelli/FIA prescriptions</a> · '
     '<a href="circuit.html">Map and race-control interpretation</a> · <a href="powerunit.html">PU sheet</a> · '
     '<a href="upgrades.html">Development sources</a></p>', "bi-mic", "accent")}
@@ -543,8 +553,8 @@ confirmed Alonso/Stroll grid-penalty arithmetic.</div>
 <p><strong>Calendar check:</strong> the Saturday race moves practice to Thursday
 and qualifying to Friday. Baku is UTC+4 and Tallinn is EEST (UTC+3), so Tallinn
 is one hour earlier throughout this weekend. The session table is calendar-driven.</p>
-<p><strong>Heat Hazard:</strong> no declaration appears in the 17-document FIA
-listing refreshed after FP1 on 24 September. A weather forecast alone is not
+<p><strong>Heat Hazard:</strong> no declaration appears in the 27-document FIA
+listing refreshed after FP2 on 24 September. A weather forecast alone is not
 a declaration; do not infer mandatory cooling measures from temperature.</p>
 {source(FORM_URL, "Formula1.com weekend schedule; FIA listing for declarations")}
 <p>The FIA's <strong>Competition Visa V2 (Document 7, 23 September, 19:08)</strong>
@@ -556,27 +566,38 @@ that the race runs for two hours.</p>
 """
     pages["penalties"] = dict(
         kicker="Stewards & race control", title="Penalties & Decisions",
-        sub="FP1 lap deletions logged; Bottas summoned over a yellow-flag pass; Alonso/Stroll grid penalties pending formal confirmation.",
+        sub="Alonso (25-place) and Stroll (20-place) grid penalties confirmed; Bottas cleared over a yellow-flag pass; Lawson/Hamilton summoned over an alleged FP2 impeding incident.",
         body=f1lib.render_penalties(
             ctx,
             decisions=[
-                dict(doc="Doc 15", no="77", driver="Valtteri Bottas", team="Cadillac Formula 1 Team",
-                     session="Free Practice 1",
-                     fact="Summoned to appear before the Stewards at 13:50 over an alleged breach of "
-                          "Article 2.5.5.b of Appendix H of the FIA International Sporting Code — "
-                          "overtaking under a yellow flag.",
+                dict(doc="Doc 22", no="44", driver="Lewis Hamilton", team="Scuderia Ferrari HP",
+                     session="Free Practice 2",
+                     fact="Summoned to appear before the Stewards at 17:30 over an alleged breach of "
+                          "Article B4.1.1 of the FIA F1 Regulations — Car 44 allegedly impeding Car 30 "
+                          "at Turn 19, 16:33.",
                      outcome="Hearing pending at time of writing — this is a summons, not yet a ruling. "
                              "Check the automatic tracker above for the Stewards' subsequent decision.",
-                     kind="note"),
+                     kind="note", source_url=FIA_HAMILTON_SUMMONS_URL),
+                dict(doc="Doc 23", no="30", driver="Liam Lawson", team="Visa Cash App Racing Bulls F1 Team",
+                     session="Free Practice 2",
+                     fact="Summoned to appear before the Stewards at 17:30 over an alleged breach of "
+                          "Article 27 of the Race Director's Competition Notes (V2) and/or Article "
+                          "B4.1.1 — the counterpart summons to Car 44's, same Turn 19 incident.",
+                     outcome="Hearing pending at time of writing — this is a summons, not yet a ruling. "
+                             "Check the automatic tracker above for the Stewards' subsequent decision.",
+                     kind="note", source_url=FIA_LAWSON_SUMMONS_URL),
             ],
             intro_html=f"""
-<div class="callout accent"><strong>Grid penalties expected for Alonso and Stroll (not yet a formal Stewards document).</strong>
-The Technical Delegate's reports (Documents 9 and 14) show both drivers exceeded
-their season power-unit element allocation by three and four components
-respectively — see <a href="powerunit.html">Power Unit &amp; Overtake</a> for the
-full breakdown and the regulation's cumulative grid-penalty arithmetic. Both are
-expected to start from the back of the grid; this page will show the Stewards'
-own grid-penalty document once it is issued.</div>
+<div class="callout accent"><strong>Alonso and Stroll's grid penalties are now confirmed by the Stewards themselves.</strong>
+Document 20 drops <strong>Alonso 25 grid places</strong> and Document 21 drops
+<strong>Stroll 20 grid places</strong>, both "for the next Race in which the driver
+participates" and both matching the cumulative arithmetic reported before the
+rulings — see <a href="powerunit.html">Power Unit &amp; Overtake</a> for the
+component-by-component breakdown. Separately, <strong>Bottas's yellow-flag summons
+(Document 15) has been resolved with no penalty</strong> (Document 19): the
+Stewards found the overtake could not reasonably have been avoided once the flag
+was shown. A new incident — <strong>Hamilton and Lawson summoned over an alleged
+Turn 19 impeding moment in FP2</strong> — remains an open hearing, shown below.</div>
 """))
     pages["penalties"]["body"] += f"""
 <h2 class="sec">Officials and document status</h2>
@@ -586,13 +607,14 @@ Danil Solomin. Race Director and Safety Delegate Rui Marques; Technical Delegate
 Jo Bauer; Sporting Delegate Tim Malyon; Deputy Race Director Paul Burns.
 The visa names the officials; it is not an infringement decision.</p>
 {source(FIA_VISA_URL + "#page=4", "FIA Competition Visa V2, Appendix B3, PDF pages 4–5")}
-<p>The 17-document listing refreshed after FP1 on 24 September adds the entry
-list, car-presentation submissions, self-scrutineering notice, both PU-elements
-reports, the FP1 classification and its two lap-time-deletion notes, the Race
-Director's Competition Notes v2 and the Bottas summons above, alongside the
-seven documents known before FP1. The automatic decision tracker above logs the
-FP1 lap deletions (Documents 17–18); revised notes and later decisions continue
-to supersede this snapshot as the weekend progresses.</p>
+<p>The FIA documents hub has grown to 27 decision documents after FP2 on 24
+September, adding the FP2 classification and its two lap-time-deletion notes,
+the SC2/SC1 maximum-time note, the confirmed Alonso/Stroll grid-penalty rulings,
+the Bottas no-penalty ruling, the FP1/FP2 scrutineering report and the new
+Hamilton/Lawson impeding summonses above, alongside the 18 documents known after
+FP1. The automatic decision tracker above logs each numbered ruling as it is
+issued; revised notes and later decisions continue to supersede this snapshot
+as the weekend progresses.</p>
 <p>Document 2 clears the inspected front-suspension items on Russell's Madrid
 car; it is a compliance report, not a Baku sanction.
 See <a href="reliability.html">Reliability</a> for its scope and
