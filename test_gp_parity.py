@@ -183,7 +183,7 @@ class AzerbaijanParityTests(unittest.TestCase):
         for value in ("3,796 m", "50 kW/s", "4,177 m", "4,270 m", "(TBC)",
                       "Outlaps other than in the race", "Base–Overtake",
                       "1,500–2,870 m", "[4,050–5,300 m]", "[5,600–6,000 m]",
-                      "qualifying only", "1.0 s", "parts declaration or a confirmed penalty"):
+                      "qualifying only", "1.0 s", "exceed their season allocation"):
             self.assertIn(value, body)
         self.assertNotIn("Sunday", body)
         self.assertNotIn("Manual Override", body)
@@ -205,7 +205,8 @@ class AzerbaijanParityTests(unittest.TestCase):
             self.assertIn(team, body)
         self.assertNotIn("Team-by-team weekend storylines: awaiting", body)
         self.assertIn("10:00–11:00 Tallinn", self.pages["upgrades"]["body"])
-        self.assertIn("No absent declaration is counted as a nil return",
+        self.assertIn("Car Presentation Submissions", self.pages["upgrades"]["body"])
+        self.assertIn("Mercedes, Ferrari,\nAston Martin, Haas and Alpine submitted no updates",
                       self.pages["upgrades"]["body"])
         self.assertIn("Arvid Lindblad", self.pages["rookies"]["body"])
         self.assertIn("painful", body)
