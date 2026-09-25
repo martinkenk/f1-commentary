@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-09-25T02:44:57+00:00",
-  "state": "error",
-  "error": "https://coffeecornermotorsport.com/feed/: Unsupported publisher feed format: invalid XML",
+  "checked_at": "2026-09-25T02:49:10+00:00",
+  "state": "not_found",
+  "error": "",
   "attempts": [
     {
       "url": "https://www.formula1.com/en/latest/all.html",
@@ -10,8 +10,8 @@
     },
     {
       "url": "https://coffeecornermotorsport.com/feed/",
-      "state": "error",
-      "message": "Unsupported publisher feed format: invalid XML"
+      "state": "not_found",
+      "message": "Public discovery parsed; 0 candidate article(s)"
     }
   ]
 }
