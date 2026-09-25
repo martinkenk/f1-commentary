@@ -204,15 +204,19 @@ CIRCUITS = {
             ("Turn 15 — final hairpin", "Slow, heavy braking at the end of the back straight; the primary overtaking spot."),
         ],
         "overtaking": (
-            "Very good. Two long straights, each ending in a slow corner, with DRS. Sepang "
-            "historically produces genuine multi-lap battles rather than single-move passes."
+            "Sepang's long straights into heavy braking zones have historically supported "
+            "multi-lap passing. For 2026, active-aero Straight Mode and electrical Overtake "
+            "are separate systems; consult this event's FIA map for their exact locations."
         ),
         "tyre_notes": (
             "Historically one of the toughest tyre circuits on the calendar: high track "
             "temperatures, abrasive surface and long-duration corners drive thermal "
             "degradation. Expect conservative compound choices and multi-stop racing."
         ),
-        "drs": 2,
+        "straight_mode_zones": None,
+        "overtake_zones": None,
+        "tyre_compounds": ("C2 Hard", "C3 Medium", "C4 Soft"),
+        "tyre_compounds_source": "https://press.pirelli.com/tyre-compound-selections-for-baku-sepang-and-singapore/",
         "lap_record": "1:34.080 — Juan Pablo Montoya, 2004 (Malaysian GP)",
         "notes": [
             "The event is officially the 'Formula 1 Gulf Air Bahrain Grand Prix in Malaysia' — the Bahrain race relocated for 2026.",

@@ -13,7 +13,7 @@ class GPParityTests(unittest.TestCase):
     def setUp(self):
         self.contexts = {
             ctx["dir"]: ctx for ctx in build.season_gps()
-            if ctx["dir"] in ("italy", "spain")
+            if ctx["dir"] in ("italy", "spain", "bahrain")
         }
         for slug, ctx in self.contexts.items():
             ctx.update(status="past", results=[], extra={}, weather={}, weather_ok=False)
@@ -114,6 +114,28 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Russell concedes the title fight", body)
         self.assertNotIn("10 September snapshot", body)
         self.assertIn(self.contexts["spain"]["standings"]["drivers"], body)
+
+    def test_sepang_compounds_and_2026_overtaking_modes_are_current(self):
+        pages = content_generic.build_pages(self.contexts["bahrain"], self.env)
+        tyres = pages["tyres"]["body"]
+        circuit = pages["circuit"]["body"]
+        powerunit = pages["powerunit"]["body"]
+
+        self.assertIn("C2 Hard / C3 Medium / C4 Soft", tyres)
+        self.assertIn(
+            "https://press.pirelli.com/tyre-compound-selections-for-baku-sepang-and-singapore/",
+            tyres,
+        )
+        self.assertIn("not a driver-by-driver remaining-set inventory", tyres)
+        self.assertNotIn("Pirelli's compound allocation: awaiting", tyres)
+        self.assertIn("Straight Mode zones", circuit)
+        self.assertIn("Overtake activation zones", circuit)
+        self.assertIn("Not confirmed", circuit)
+        self.assertNotIn("DRS", circuit)
+        self.assertNotIn("with DRS", pages["overview"]["body"])
+        self.assertIn("Straight Mode", powerunit)
+        self.assertIn("<strong>Overtake</strong>", powerunit)
+        self.assertNotIn("Manual Override", powerunit)
 
     def test_event_specific_fia_cautions_and_values_survive(self):
         italy, spain = self.italy(), self.spain()

@@ -153,8 +153,18 @@ def build_pages(ctx, env):
     else:
         fig = pending("Official 2026 track map", "with the circuit guide", "bi-image")
 
-    drs = ref.get("drs")
-    drs_txt = f"{drs} zone{'s' if drs != 1 else ''}" if drs else "TBC"
+    if "straight_mode_zones" in ref or "overtake_zones" in ref:
+        zone_stats = (
+            stat(_fmt(ref.get("straight_mode_zones"), "Not confirmed"),
+                 "Straight Mode zones", "Active-aero low-drag mode")
+            + stat(_fmt(ref.get("overtake_zones"), "Not confirmed"),
+                   "Overtake activation zones", "Separate electrical-power aid")
+        )
+    else:
+        drs = ref.get("drs")
+        drs_txt = f"{drs} zone{'s' if drs != 1 else ''}" if drs else "TBC"
+        zone_stats = stat(drs_txt, "Legacy DRS zones",
+                          "Historical reference; not 2026 activation zones")
 
     P["circuit"] = dict(
         kicker=f"{_fmt(length, 'Length TBC')} · {_fmt(laps + ' laps' if laps else '', 'laps TBC')}",
@@ -168,7 +178,7 @@ def build_pages(ctx, env):
   {stat(_fmt(length, "TBC"), "Circuit length")}
   {stat(_fmt(laps, "TBC"), "Race laps")}
   {stat(_fmt(distance, "TBC"), "Race distance")}
-  {stat(drs_txt, "Overtaking zones", "DRS / straight mode")}
+  {zone_stats}
 </div>
 
 <h2 class="sec">Corners that matter</h2>
@@ -193,6 +203,18 @@ def build_pages(ctx, env):
 """)
 
     # ---- TYRES -------------------------------------------------------------
+    tyre_compounds = ref.get("tyre_compounds")
+    tyre_compounds_source = ref.get("tyre_compounds_source")
+    if tyre_compounds and tyre_compounds_source:
+        compound_status = (
+            '<div class="callout"><strong>2026 nominated compounds:</strong> '
+            f'{" / ".join(tyre_compounds)}. This is the compound selection, not a '
+            'driver-by-driver remaining-set inventory or an FIA-mandated set. '
+            f'<a href="{tyre_compounds_source}">Official Pirelli compound selection</a>.</div>'
+        )
+    else:
+        compound_status = pending("Pirelli's compound allocation", "about two weeks before the race")
+
     tyre_body = f"""
 <div class="grid cols-2">
   {card("What this circuit does to a tyre", f"<p>{ref.get('tyre_notes', 'To be confirmed.')}</p>",
@@ -203,7 +225,7 @@ def build_pages(ctx, env):
         "bi-diagram-3")}
 </div>
 
-{pending("Pirelli's compound allocation", "about two weeks before the race")}
+{compound_status}
 {pending("Long-run degradation data", "after Friday practice", "bi-graph-down")}
 """
     P["tyres"] = dict(
@@ -306,11 +328,11 @@ def build_pages(ctx, env):
     P["powerunit"] = dict(
         kicker="2026 Rules",
         title="Power Unit & Override",
-        sub="The 2026 power unit and the per-event energy map that replaces DRS.",
+        sub="The 2026 power unit, active aero and the per-event energy map.",
         body=f"""
 <div class="callout">
-  In 2026 the electrical side of the power unit is far larger and DRS is replaced by a
-  battery-boost <strong>Manual Override</strong>. The FIA publishes a power and energy map
+  In 2026, active-aero <strong>Straight Mode</strong> and electrical-power
+  <strong>Overtake</strong> are separate systems. The FIA publishes a power and energy map
   for every individual event — that is where the numbers below come from once it is issued.
 </div>
 
@@ -319,8 +341,8 @@ def build_pages(ctx, env):
      "Roughly a <strong>50/50 split</strong> between internal combustion and electrical power.",
      "The <strong>MGU-H is gone</strong>; the MGU-K is substantially more powerful.",
      "<strong>100% sustainable fuel</strong>.",
-     "<strong>Manual Override</strong> replaces DRS as the overtaking aid — a defined extra "
-     "energy allocation the chasing driver can deploy.",
+     "<strong>Overtake</strong> is a separate electrical-power aid with an event-specific "
+     "energy allowance defined by the FIA map.",
      "<strong>Active aerodynamics</strong> let the cars switch between a high-downforce and a "
      "low-drag straight-line mode.",
   ]), "bi-lightning-charge", "accent")}
