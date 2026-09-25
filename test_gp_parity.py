@@ -5,6 +5,7 @@ from unittest.mock import mock_open, patch
 
 import build
 import content_azerbaijan
+import content_generic
 import content_italy
 import content_spain
 
