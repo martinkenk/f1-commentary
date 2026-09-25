@@ -521,6 +521,13 @@ def relevant(article, ctx):
     )
     if target and not any(k in headline for k in target) and other_in_headline:
         return False
+    other_in_body = any(
+        other != ctx.get("dir")
+        and any(k in article.get("body", "").lower() for k in markers)
+        for other, markers in _EVENT_MARKERS.items()
+    )
+    if target and not any(k in headline for k in target) and other_in_body:
+        return False
     if target and not any(k in hay for k in target):
         if any(
             other != ctx.get("dir") and any(k in hay for k in markers)
