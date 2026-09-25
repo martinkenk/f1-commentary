@@ -1,14 +1,28 @@
 {
-  "reviewed_at": "2026-09-25T10:29:00Z",
-  "expires_at": "2026-09-26T10:29:00Z",
-  "through_session": "Practice 3",
-  "feed_fingerprint": "a78d11723c7c9a877673ef83f5ce18ec41b686d8f8350afbef4ef72f9e20fc03",
+  "reviewed_at": "2026-09-25T16:15:00Z",
+  "expires_at": "2026-09-26T14:00:00Z",
+  "through_session": "Qualifying",
+  "feed_fingerprint": "8216c91ac7e4b897f9b351156598ac030b089673d885ff362148c34821aa29fa",
   "items": [
+    {
+      "topic": "Session outcome",
+      "title": "Russell takes crushing pole as Antonelli crashes out in Q1; Sainz and Perez both hit with grid penalties",
+      "date": "2026-09-25",
+      "summary": "George Russell claimed his fifth pole of 2026 by 0.837s over Charles Leclerc and Oscar Piastri, describing it as \"the perfect lap\". His Mercedes team-mate and championship leader Kimi Antonelli struck the Turn 1 wall early in Q1, breaking his suspension and ending his session; he will start 16th. Max Verstappen, fastest in FP3, could only manage eighth after a session he called \"not good enough\". Two grid penalties followed: Carlos Sainz drops from P9 to P14 (five places) for failing to slow for yellow flags across two marshalling sectors in Q3, plus two penalty points; Sergio Perez drops three places for impeding Piastri in Q1, but keeps P20 because Alonso and Stroll's larger engine-component penalties fall behind him.",
+      "why_it_matters": "Antonelli's crash removes the championship leader from a realistic points-scoring grid slot in a season he already trails Russell in the standings fight, while Sainz's penalty costs Williams what would have been its best grid position of the year on a heavily-upgraded car. Combined with Alonso's now-30-place and Stroll's 20-place penalties, the grid order will differ substantially from the raw qualifying classification.",
+      "sources": [
+        {"label": "Formula1.com: Qualifying report \u2014 Russell charges to pole as Antonelli suffers shock exit", "url": "https://www.formula1.com/en/latest/article/russell-charges-to-pole-position-as-antonelli-suffers-shock-exit-in-qualifying-for-azerbaijan-gp.6vFe7216mR8JZuWE4QIB4w"},
+        {"label": "The Race: Antonelli crashes in Baku qualifying as Russell takes crushing pole", "url": "https://www.the-race.com/formula-1/f1-azerbaijan-gp-qualifying-antonelli-crash-russell-crushing-pole/"},
+        {"label": "Formula1.com: Sainz hit with five-place grid penalty after yellow-flag breach in Qualifying", "url": "https://www.formula1.com/en/latest/article/sainz-hit-with-five-place-grid-penalty-for-azerbaijan-gp-after-yellow-flag-breach-in-qualifying.1gS7cC7mRmvBvIrJGRH6Bb"},
+        {"label": "The Race: Sainz loses Williams's best grid slot of 2026", "url": "https://www.the-race.com/formula-1/sainz-loses-williams-best-f1-2026-grid-slot-azerbaijan-gp-qualifying-penalty/"},
+        {"label": "Formula1.com: Perez handed penalty after Qualifying infringement", "url": "https://www.formula1.com/en/latest/article/perez-handed-penalty-for-azerbaijan-grand-prix-after-qualifying-infringement.zuQBKGcAcuTO1vc7esCSP"}
+      ]
+    },
     {
       "topic": "Penalties",
       "title": "Alonso's grid penalty grows to 30 places after a fourth exceeded PU element in FP3",
       "date": "2026-09-25",
-      "summary": "The Technical Delegate's Document 33 (25 September, 12:43) reports Aston Martin fitted Fernando Alonso's car with a new energy store unit during FP3 \u2014 his 7th of the 3 allowed for the season, a fourth element over his allocation for this event. The Stewards' Document 34 imposes a further 5-place grid penalty on top of the already-confirmed 25-place Document 20 ruling, taking Alonso's cumulative grid penalty for the Azerbaijan Grand Prix to 30 places. Lance Stroll's separately confirmed 20-place penalty (Document 21) for exceeding his own allocation is unchanged. Both remain subject to Article B2.5.4b.iv grid allocation if the car is classified in Qualifying. Elsewhere, the Stewards ruled (Document 19) that Valtteri Bottas's FP1 overtake of Albon under a yellow flag warranted no penalty, and the Turn 19 FP2 impeding investigation (Documents 22\u201323, summonses for Hamilton and Lawson) is resolved: Document 29 gives Lewis Hamilton (Car 44) a driving reprimand for impeding Liam Lawson's Car 30, with no separate ruling published against Lawson's own summons.",
+      "summary": "The Technical Delegate's Document 33 (25 September, 12:43) reports Aston Martin fitted Fernando Alonso's car with a new energy store unit during FP3 \u2014 his 7th of the 3 allowed for the season, a fourth element over his allocation for this event. The Stewards' Document 34 imposes a further 5-place grid penalty on top of the already-confirmed 25-place Document 20 ruling, taking Alonso's cumulative grid penalty for the Azerbaijan Grand Prix to 30 places. Lance Stroll's separately confirmed 20-place penalty (Document 21) for exceeding his own allocation is unchanged. Elsewhere, the Stewards ruled (Document 19) that Valtteri Bottas's FP1 overtake of Albon under a yellow flag warranted no penalty, and the Turn 19 FP2 impeding investigation (Documents 22\u201323, summonses for Hamilton and Lawson) is resolved: Document 29 gives Lewis Hamilton (Car 44) a driving reprimand for impeding Liam Lawson's Car 30, with no separate ruling published against Lawson's own summons.",
       "why_it_matters": "A 30-place penalty exceeds the entire field, so Alonso will start last regardless of his qualifying position \u2014 removing any incentive to push for grid position in Qualifying and reshaping how Aston Martin approaches the session and the race strategy that follows. The Bottas ruling also sets a practical precedent for how tightly-timed yellow-flag overtakes are judged this weekend.",
       "sources": [
         {"label": "FIA Document 33 \u2014 Technical Delegate's Report, New PU Elements", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_new_pu_elements_for_this_competition_0.pdf"},
@@ -16,17 +30,6 @@
         {"label": "FIA Document 20 \u2014 Infringement, Car 14, PU Elements", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_elements.pdf"},
         {"label": "FIA Document 21 \u2014 Infringement, Car 18, PU Elements", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_18_-_pu_elements.pdf"},
         {"label": "FIA Document 29 \u2014 Infringement, Car 44, Impeding Car 30", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_44_-_impeding_car_30.pdf"}
-      ]
-    },
-    {
-      "topic": "Session outcome",
-      "title": "Verstappen tops FP3, denying Russell a clean sweep of Friday practice",
-      "date": "2026-09-25",
-      "summary": "Max Verstappen set a 1:43.922 in the closing minutes of FP3 to finish one-tenth clear of George Russell and Lewis Hamilton, after brushing the walls several times on his fastest lap. Russell had led for most of the session; Kimi Antonelli was fourth. Charles Leclerc was best of the rest in fifth. Lance Stroll's session ended early after clipping the Turn 1 wall and damaging a wheel.",
-      "why_it_matters": "Verstappen's late improvement breaks Russell's run of topping both Friday sessions and gives Red Bull a form marker heading into qualifying, on a track where practice pace has not always translated directly into grid position.",
-      "sources": [
-        {"label": "Formula1.com: FP3 report \u2014 Verstappen beats Russell and Hamilton", "url": "https://www.formula1.com/en/latest/article/fp3-verstappen-beats-russell-and-hamilton-in-final-practice-for-azerbaijan-gp.4BuODmX7lLpgRKnIK4oMXg"},
-        {"label": "The Race: What happened in F1 2026 Azerbaijan GP final practice", "url": "https://www.the-race.com/formula-1/what-happened-in-f1-2026-azerbaijan-gp-final-practice/"}
       ]
     },
     {
