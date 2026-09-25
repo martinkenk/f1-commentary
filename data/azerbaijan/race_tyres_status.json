@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-25T20:56:24+00:00",
+  "checked_at": "2026-09-25T21:40:04+00:00",
   "state": "access_restricted",
   "error": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-azerbaijan-gp.5iDS0mk2NragziXUR0jLlP: Published article is access-restricted; no login or protected API attempted",
   "attempts": [
@@ -10,13 +10,18 @@
     },
     {
       "url": "https://coffeecornermotorsport.com/feed/",
-      "state": "not_found",
-      "message": "Public discovery parsed; 0 candidate article(s)"
+      "state": "available",
+      "message": "Public discovery parsed; 1 candidate article(s)"
     },
     {
       "url": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-azerbaijan-gp.5iDS0mk2NragziXUR0jLlP",
       "state": "access_restricted",
       "message": "Published article is access-restricted; no login or protected API attempted"
+    },
+    {
+      "url": "https://coffeecornermotorsport.com/azerbaijan-grand-prix-2026-tyre-strategy/",
+      "state": "not_found",
+      "message": "Public article exposes no supported race-sets graphic; not proof of non-publication"
     }
   ]
 }
