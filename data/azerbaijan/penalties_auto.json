@@ -110,5 +110,19 @@
     "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_44_-_impeding_car_30.pdf",
     "identity_status": "named",
     "identity_version": 1
+  },
+  {
+    "doc": "Doc 34",
+    "no": "14",
+    "driver": "Fernando Alonso",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Free Practice 3",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Drop of 5 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_element.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_element.pdf"
   }
 ]
