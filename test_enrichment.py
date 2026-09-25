@@ -61,6 +61,30 @@ class EnrichmentTests(unittest.TestCase):
     def save(self, name, data):
         enrich.save_json(str(self.directory / "italy" / (name + ".json")), data)
 
+    def test_relevant_rejects_explicit_other_event_in_headline(self):
+        spain = {
+            "dir": "spain",
+            "keywords": {"spain", "spanish", "madrid", "madring"},
+        }
+        article = {
+            "title": "2026 Azerbaijan Grand Prix FP2 report",
+            "url": "https://www.formula1.com/en/latest/article/fp2-baku",
+            "body": "The championship leader discussed Madrid after practice.",
+        }
+        self.assertFalse(enrich.relevant(article, spain))
+
+    def test_relevant_keeps_cross_event_context_without_other_event_headline(self):
+        spain = {
+            "dir": "spain",
+            "keywords": {"spain", "spanish", "madrid", "madring"},
+        }
+        article = {
+            "title": "Championship fight remains open",
+            "url": "https://www.the-race.com/formula-1/title-fight/",
+            "body": "After Madrid, the title battle remains mathematically open.",
+        }
+        self.assertTrue(enrich.relevant(article, spain))
+
     def test_discovery_retains_all_documents_but_penalties_are_filtered(self):
         docs = [PU, MAP, DECISION,
                 document("2026_car_presentation_submissions.pdf"),

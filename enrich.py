@@ -155,6 +155,32 @@ _GENERIC = {
     "racing", "track", "park", "arena",
 }
 
+_EVENT_MARKERS = {
+    "australia": {"australia", "australian", "melbourne"},
+    "china": {"china", "chinese", "shanghai"},
+    "japan": {"japan", "japanese", "suzuka"},
+    "bahrain": {"bahrain", "sepang", "malaysia", "malaysian"},
+    "saudi-arabia": {"saudi", "jeddah"},
+    "miami": {"miami"},
+    "canada": {"canada", "canadian", "montreal"},
+    "monaco": {"monaco", "monte carlo"},
+    "spain": {"spain", "spanish", "madrid", "madring"},
+    "austria": {"austria", "austrian", "spielberg"},
+    "great-britain": {"britain", "british", "silverstone"},
+    "belgium": {"belgium", "belgian", "spa", "spa-francorchamps"},
+    "hungary": {"hungary", "hungarian", "hungaroring", "budapest"},
+    "netherlands": {"dutch", "zandvoort", "netherlands"},
+    "italy": {"italian", "monza", "italy", "tifosi"},
+    "azerbaijan": {"azerbaijan", "baku"},
+    "singapore": {"singapore", "marina bay"},
+    "united-states": {"austin", "cota", "americas"},
+    "mexico": {"mexico", "mexican", "rodriguez"},
+    "brazil": {"brazil", "brazilian", "interlagos", "paulo"},
+    "las-vegas": {"vegas"},
+    "qatar": {"qatar", "lusail"},
+    "united-arab-emirates": {"abu dhabi", "yas marina", "emirates"},
+}
+
 
 def _keywords_for(ctx):
     """Lower-case tokens that mark an article as belonging to this GP."""
@@ -166,23 +192,7 @@ def _keywords_for(ctx):
         for tok in re.split(r"[,\s]+", source.lower()):
             if len(tok) > 4 and tok not in _GENERIC:
                 kws.add(tok)
-    extra = {
-        "hungary": {"hungary", "hungarian", "hungaroring", "budapest"},
-        "belgium": {"belgium", "belgian", "spa", "spa-francorchamps"},
-        "netherlands": {"dutch", "zandvoort", "netherlands"},
-        "italy": {"italian", "monza", "italy", "tifosi"},
-        "spain": {"madrid", "madring", "spanish"},
-        "azerbaijan": {"azerbaijan", "baku"},
-        "bahrain": {"sepang", "malaysia", "malaysian", "bahrain"},
-        "singapore": {"singapore", "marina bay"},
-        "united-states": {"austin", "cota", "americas"},
-        "mexico": {"mexico", "mexican", "rodriguez"},
-        "brazil": {"brazil", "brazilian", "interlagos", "paulo"},
-        "las-vegas": {"vegas"},
-        "qatar": {"qatar", "lusail"},
-        "united-arab-emirates": {"abu dhabi", "yas marina", "emirates"},
-    }
-    kws |= extra.get(ctx.get("dir", ""), set())
+    kws |= _EVENT_MARKERS.get(ctx.get("dir", ""), set())
     return {k for k in kws if k and k not in _GENERIC}
 
 
@@ -498,6 +508,14 @@ def relevant(article, ctx):
     # or the body check silently never applies to them. Season-preview and
     # team-review pieces routinely bury the GP reference in the text, and those
     # are exactly the ones a commentator wants.
+    headline = " ".join((article.get("title", ""), article.get("url", ""))).lower()
+    target = _EVENT_MARKERS.get(ctx.get("dir", ""), set())
+    if target and not any(k in headline for k in target):
+        if any(
+            other != ctx.get("dir") and any(k in headline for k in markers)
+            for other, markers in _EVENT_MARKERS.items()
+        ):
+            return False
     hay = " ".join((
         article.get("title", ""),
         article.get("url", ""),
