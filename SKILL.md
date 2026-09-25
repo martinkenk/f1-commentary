@@ -889,6 +889,26 @@ but an inaccurate curated row must itself be corrected.
 
 ## 8. Validation and evidence
 
+### Penalty decision readers and identities
+
+Each penalty keeps its source-faithful FIA pages in a **closed** native details
+section inside that ruling's table cell. Document links open the shared accessible
+reader (pages, zoom, original PDF); do not add a second expanded gallery or sibling
+rows that table sorting can separate. Preserve every substantive PDF page, including
+reasons/signatures, and retain last-good images with explicit refresh-error status.
+Missing images/citations must show a clear fallback, never a broken image.
+
+`fia_media.py` now collects actual decisions as well as technical documents, and
+repairs stored decision identities from the same downloaded PDF. For a historical
+backfill use `python3 fia_media.py --gp <slug> --decisions-only`; discover exact
+URLs with `enrich.discover_fia` first if no saved manifest/citation exists. Never
+construct a likely FIA URL. Same-URL revisions retain content hashes and old assets.
+Driver fields come from the decision's No/Driver field or affected-driver table
+(including substitutes), not today's roster. Preserve PDF column boundaries and
+normalize nonbreaking spaces. General/team rulings and genuinely unavailable
+identities are explicit; car numbers alone are not names. Curated ruling HTML wins
+over automatic prose; matching saved citations/identities fill only its gaps.
+
 Run the smallest existing targeted regression tests while editing; before
 publishing an integrated multi-surface change:
 

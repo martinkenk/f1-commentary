@@ -1,0 +1,431 @@
+{
+  "checked_at": "2026-09-25T06:13:38+00:00",
+  "discovery_retrieved_at": "2026-09-25T06:13:37.472799+00:00",
+  "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_5_-_red_light_at_pit_exit.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_5_-_red_light_at_pit_exit.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "0dbf1d01dda2ff5223854c467ddb33e958adefa663083552c9c93ca6a8bc0bcc",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-735b69bcbbd0-0dbf1d01dda2ff52-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-netherlands-735b69bcbbd0-0dbf1d01dda2ff52-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_87_-_red_light_at_pit_exit.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_87_-_red_light_at_pit_exit.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "6146313f4cffd916cb3760ff8c9d6085d7a53f40e8cffe470892e990b9b7d3be",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-e122deae7b32-6146313f4cffd916-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-netherlands-e122deae7b32-6146313f4cffd916-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_55_-_collision_with_car_23.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_55_-_collision_with_car_23.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "355844664d731c0fcf7ff1f7c35cb292775745343e28828b549e8a14df00c9a6",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-bb69c29771c9-355844664d731c0f-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "d209d821ef7b277d1fa0b2439d0ce7415edfc06d156b50940f6b12663993c03e",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-netherlands-951095e18897-d209d821ef7b277d-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-netherlands-951095e18897-d209d821ef7b277d-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_30_-_failure_to_follow_for_yellow_flags.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_30_-_failure_to_follow_for_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "010fef7e27f9f242ae49db40e7befb238d5216c68de7822f70d92ead47d3cfd5",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-dcc0240a1370-010fef7e27f9f242-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_43_-_failure_to_slow_for_yellow_flags.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_43_-_failure_to_slow_for_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1012d92a02b723704b405b02ff86a8a803b423375b263b825fdeca850e5b8de9",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-f47dff4b9e1b-1012d92a02b72370-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_43_-_overtaking_under_yellow_flags.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_43_-_overtaking_under_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1603694192eacdc95e787f0625204587b676134683ed6906d9aa70a645601da8",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-a9d167da7027-1603694192eacdc9-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_41_-_overtaking_under_yellow_flags.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_41_-_overtaking_under_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "ebccf31e39205ca405d856095ac6f8ed196c91c4d7c7e0db2ff5c881e59d37d1",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-0a53b035f1ed-ebccf31e39205ca4-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_11_-_changes_made_in_parc_ferme.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_11_-_changes_made_in_parc_ferme.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "6d98bbc8a35f50638f58b2437e172bdd7a7df40d679e05b670e3cc8fe63d859a",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-5392c37db58e-6d98bbc8a35f5063-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_decision_-_car_10_-_alleged_unsafe_release.pdf",
+      "filename": "2026_dutch_grand_prix_-_decision_-_car_10_-_alleged_unsafe_release.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "8a12f21fbfb3cce714aa87b7f139aaeefa3563b1624c7184a01720285804615a",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-4cf2ea3135cc-8a12f21fbfb3cce7-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-netherlands-4cf2ea3135cc-8a12f21fbfb3cce7-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_5_-_unsafe_release.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_5_-_unsafe_release.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "dfb6b5cb489f4cc62f0d1fd6d1cf1ea5a2131cf1b3d1e973e31cbcc291b74049",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-6063c2cb4e84-dfb6b5cb489f4cc6-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "110f794c68266c2b453742de8457318cd951498be35885fe3e4de2708be24899",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-390d0d037767-110f794c68266c2b-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_22_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_22_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "ce36cec039df209e3afe101f1eb902fd5df01fdc48270b66ada499216bed8466",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-8fc09c9682ea-ce36cec039df209e-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_3_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_3_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "033c31eeab908611b69dc0bd392225947e97575eb7e01368993bd0b495d0203e",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-eedb17fc8965-033c31eeab908611-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_44_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_44_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "2ae0350a8f6838af9b760128ea658f0ef0c467c1b3727737bdb08ad7f36d881a",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-e4e2bc5809fe-2ae0350a8f6838af-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_77_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_77_-_failure_to_follow_race_directors_instructions_reaching_the_grid.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "9577fce5e3b529ef4352f7becec486e94890d35333aec995aaf7aa09cabcccaf",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-1cba6b3b5b88-9577fce5e3b529ef-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_sprint_deleted_lap_times.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_sprint_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "74dbf0b665eb43d41b4b0f17d1d4886f68153af0bd34bd740d606cc561305f9a",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-netherlands-acfc8a076881-74dbf0b665eb43d4-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_55_-_starting_procedure_infringement.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_55_-_starting_procedure_infringement.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "b911b498bb68e09347f35c7de2b494891aa406db02c80734ccd556aefd0432bc",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-53f710c11cac-b911b498bb68e093-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_14_-_changes_made_during_parc_ferme.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_14_-_changes_made_during_parc_ferme.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "c952f7c0f48877d7ba26d297bdbc5158a3e69b78f32907e41c502a92688115d0",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-0af310cc71a0-c952f7c0f48877d7-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_car_55_-_changes_made_during_parc_ferme.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_car_55_-_changes_made_during_parc_ferme.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "f5eb4912762e5423e06bc0b00e37945382c8e26cebaeced06912b55319df2c6b",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-4dc5d5d140f3-f5eb4912762e5423-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement-_car_55_-_driving_unnecessarily_slowly_during_sprint_qualifying.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement-_car_55_-_driving_unnecessarily_slowly_during_sprint_qualifying.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "a4fadaafa4fb7ca3dc2b23337b6184759007003911f672e051b2104343c284a4",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-netherlands-b7d1a75f8270-a4fadaafa4fb7ca3-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-netherlands-b7d1a75f8270-a4fadaafa4fb7ca3-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_decision_-_sprint_qualifying_sc2-sc1_times.pdf",
+      "filename": "2026_dutch_grand_prix_-_decision_-_sprint_qualifying_sc2-sc1_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "80a7623ed44c75e67a5ef864bd0b2f8da209f74c775963297df537f0b6cab364",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-netherlands-fd3e0d579765-80a7623ed44c75e6-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-netherlands-fd3e0d579765-80a7623ed44c75e6-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_decision_-_sprint_qualifying_deleted_lap_times.pdf",
+      "filename": "2026_dutch_grand_prix_-_decision_-_sprint_qualifying_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "10eb86064a2d20ac7f53e275fe1ce5404a48de97d134ea4d6e704c6fcd3356ad",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-netherlands-56a0c3361430-10eb86064a2d20ac-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "faf3369a6baf0a5ad122175c6f0ee0dcea1e25d4d7af18233b03ab8d6de83bfe",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-netherlands-6389d6cb61a9-faf3369a6baf0a5a-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_dutch_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_double_yellow.pdf",
+      "filename": "2026_dutch_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_double_yellow.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "59ffd1edb526bdf271b67a895fa05226e7d5f6d06ebe92b50e5a34e4598fe5e6",
+      "fetched_at": "2026-09-25T06:13:38+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-netherlands-573af3b77381-59ffd1edb526bdf2-p2.png"
+        }
+      ],
+      "revision": 0
+    }
+  ],
+  "errors": []
+}

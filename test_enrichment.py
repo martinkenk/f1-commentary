@@ -149,7 +149,9 @@ class EnrichmentTests(unittest.TestCase):
             "available_tyres": ["tyres"],
             "car_presentation_submissions": ["upgrades"],
             "car_display_procedure": ["upgrades"],
-            "infringement_-_car_30_-_change_to_pu_elements": [],
+            "infringement_-_car_30_-_change_to_pu_elements": ["penalties"],
+            "summons_-_car_30_-_alleged_infringement": [],
+            "decision_-_permission_to_start": ["penalties"],
             "race_scrutineering": [],
         }
         for subject, expected in subjects.items():

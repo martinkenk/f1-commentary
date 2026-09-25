@@ -1,0 +1,418 @@
+{
+  "checked_at": "2026-09-25T06:12:13+00:00",
+  "discovery_retrieved_at": "2026-09-25T06:12:12.855584+00:00",
+  "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_car_23_-_car_safety_lights_.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_car_23_-_car_safety_lights_.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "666b969828bef4c37bc4960ad3929538c9a48c1268084f47b75c237eef28a2fe",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-ef91f0ec135a-666b969828bef4c3-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-belgium-ef91f0ec135a-666b969828bef4c3-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_ferrari_-_unsafe_release_of_car_44.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_ferrari_-_unsafe_release_of_car_44.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "c19e92574554db5b8504cafb2d43a83393d4067e18a56a8fedc1566e3790e6df",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-26f043f43b6f-c19e92574554db5b-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-belgium-26f043f43b6f-c19e92574554db5b-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "bf44a1809b7d196716a123c6c0132b84398135887fef4e0e639d2694cfcaa7e6",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-belgium-e6a760521f77-bf44a1809b7d1967-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-belgium-e6a760521f77-bf44a1809b7d1967-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_decision_-_car_16_-_collision_with_car_81_in_turn_5.pdf",
+      "filename": "2026_belgian_grand_prix_-_decision_-_car_16_-_collision_with_car_81_in_turn_5.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1b086153147d1a58004480dc2152031f2bb8af566379e1ff981f8c25e4d43173",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-cb50a7de75dd-1b086153147d1a58-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-belgium-cb50a7de75dd-1b086153147d1a58-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_car_44_-_causing_a_collision_with_car_63_in_turn_5.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_car_44_-_causing_a_collision_with_car_63_in_turn_5.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1e5a36e359219fa4735b79e2c628d4e52178b5e1d7eb7e2874c667204a776bc3",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-b34506786e97-1e5a36e359219fa4-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-belgium-b34506786e97-1e5a36e359219fa4-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_car_55_-_change_to_pu_elements.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_car_55_-_change_to_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "36736cb81cd273d66c3f6e7b708616d066493ddc843d8f1d4a22c8946a345cbe",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-176ccac511ae-36736cb81cd273d6-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_corrected_infringement_-_car_14_-_change_to_pu_elements.pdf",
+      "filename": "2026_belgian_grand_prix_-_corrected_infringement_-_car_14_-_change_to_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "0b119875c85f8df6d92ed1ddc2d8e60b5960c942449bd041260ccf2088396006",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-5a4567617eab-0b119875c85f8df6-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-belgium-5a4567617eab-0b119875c85f8df6-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_corrected_infringement_-_car_6_-_changes_to_pu_elements.pdf",
+      "filename": "2026_belgian_grand_prix_-_corrected_infringement_-_car_6_-_changes_to_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "51896046c5515dff83242435eef66f30e718dbf63f77baa8e85cf73bed8c5959",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-4510c3e1d395-51896046c5515dff-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_decision_-_car_55_-_alleged_failure_to_slow_for_double_yellow_flags_.pdf",
+      "filename": "2026_belgian_grand_prix_-_decision_-_car_55_-_alleged_failure_to_slow_for_double_yellow_flags_.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "24d95a682250053912755230e435a7fe8003080fcdd029efc98c95b95fb5c3eb",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-5534d7b704bc-24d95a6822500539-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-belgium-5534d7b704bc-24d95a6822500539-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_free_practice_3_double_yellow_flags_deleted_lap_times.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_free_practice_3_double_yellow_flags_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "c11332362ba885e55c9a16d08c9037db21aefad99a55b3d1aff1cdbb473e2c85",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-belgium-0cfd5bcae01f-c11332362ba885e5-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-belgium-0cfd5bcae01f-c11332362ba885e5-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "3170e769e2f8a0ce0500eb98bf1ed437d4e960affa023f77f66d7848a2eaaf5a",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-belgium-16067c8a4e6a-3170e769e2f8a0ce-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-belgium-16067c8a4e6a-3170e769e2f8a0ce-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_ferrari_-_car_44_return_of_tyres.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_ferrari_-_car_44_return_of_tyres.pdf",
+      "categories": [
+        "penalties",
+        "tyres"
+      ],
+      "sha256": "a9b97137b96ee4ec4d7de8fe9b2e6d2c84b7a4520d5ee624cceace1fece34bc6",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-3a348a4e8434-a9b97137b96ee4ec-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_ferrari_-_car_16_return_of_tyres.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_ferrari_-_car_16_return_of_tyres.pdf",
+      "categories": [
+        "penalties",
+        "tyres"
+      ],
+      "sha256": "71060a85e57acdb2b915001f8d3bf8df5a61764321d0286d96b0453c2cc92029",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-8ffa6d8620d9-71060a85e57acdb2-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_car_27_-_failure_to_slow_under_double_yellow_flags.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_car_27_-_failure_to_slow_under_double_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "2955e9acf2570545c84f10854867859a57b424792b4cc0f3737c9249f4f7cb97",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-aaa412793a3d-2955e9acf2570545-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-belgium-aaa412793a3d-2955e9acf2570545-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "20715f773d5bc67909e30f51bb352ec0a8554d4fc3b02b1e04e0091a7d57b1ad",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-belgium-d8fabb4018df-20715f773d5bc679-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-belgium-d8fabb4018df-20715f773d5bc679-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_tyre_return_infringement.pdf",
+      "filename": "2026_belgian_grand_prix_-_tyre_return_infringement.pdf",
+      "categories": [
+        "penalties",
+        "tyres"
+      ],
+      "sha256": "b8cc9472d623aa82badf60f72483e3cb4f500991b96121f6f81fcb4827658703",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-9fdd2d0c6d06-b8cc9472d623aa82-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_car_1_-_change_to_pu_element.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_car_1_-_change_to_pu_element.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "6df71c965e58a7c4f4ba82624c5b8dea58492f8221c563be49fd22450df59b2f",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-15d344b852ca-6df71c965e58a7c4-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_car_18_-_change_to_pu_element.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_car_18_-_change_to_pu_element.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1b535c5f0968451cbbf0e23847e9b24b96633b150167d912308029da11fe5a3a",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-ffd63fc7382a-1b535c5f0968451c-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "8c7f0a98ebb0c619601b544e863cb752547de03877e79609dcd98485646a7654",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-belgium-7244ce51a3e7-8c7f0a98ebb0c619-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-belgium-7244ce51a3e7-8c7f0a98ebb0c619-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_car_55_-_crossing_the_white_line_at_pit_entry.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_car_55_-_crossing_the_white_line_at_pit_entry.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "f52a5fa78fc3a32c4f8d7938bee81f2c4ab8dd4a8858220f0879c376bbbe4888",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-c8db223f790f-f52a5fa78fc3a32c-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-belgium-c8db223f790f-f52a5fa78fc3a32c-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_car_34_-_pit_lane_speeding.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_car_34_-_pit_lane_speeding.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "f9a8aa0ce1459e0cc98ba040bd95de60cb39b6d97840925d2b51c8729705e3d0",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-f590232ea435-f9a8aa0ce1459e0c-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_belgian_grand_prix_-_infringement_-_car_31_-_media_commitment.pdf",
+      "filename": "2026_belgian_grand_prix_-_infringement_-_car_31_-_media_commitment.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "30021dc989e5190a3457acfc4bcdf2ebb32d9b73bb3002b68ad3750204eb5658",
+      "fetched_at": "2026-09-25T06:12:13+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-belgium-83962a2f7f5b-30021dc989e5190a-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-belgium-83962a2f7f5b-30021dc989e5190a-p2.png"
+        }
+      ],
+      "revision": 0
+    }
+  ],
+  "errors": []
+}

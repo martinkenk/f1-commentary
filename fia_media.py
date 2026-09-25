@@ -68,8 +68,11 @@ def _render(raw, prefix):
         for index, page in enumerate(document):
             text = page.get_text().lower()
             # FIA's publication wrapper is not the attached technical report.
-            if index == 0 and len(document) > 1 and all(
-                    word in text for word in ("document", "title", "enclosed")):
+            if (index == 0 and len(document) > 1
+                    and all(word in text for word in ("document", "title", "enclosed"))
+                    and not any(word in text for word in
+                                ("decision\n", "decision ", "fact\n", "fact ",
+                                 "the stewards determine", "the stewards decide"))):
                 continue
             if page.rect.width * page.rect.height * 4 > MAX_PAGE_PIXELS:
                 raise ValueError(f"FIA PDF page {index + 1} exceeds the render-size limit")
@@ -86,18 +89,33 @@ def _render(raw, prefix):
     return pages
 
 
-def refresh_gp(ctx):
+def refresh_gp(ctx, decisions_only=False):
     directory = DATA_DIR / ctx["dir"]
     discovered = _read(directory / "fia_documents.json")
     previous = _read(directory / "fia_media.json")
     records = {item["url"]: item for item in previous.get("documents", [])}
-    errors = []
+    penalties_path = directory / "penalties_auto.json"
+    penalties = enrich.load_list(str(penalties_path))
+    sources = {item["url"]: item for item in discovered.get("documents", [])}
+    for document in previous.get("documents", []):
+        if "penalties" in f1lib.fia_document_categories(document["filename"]):
+            sources.setdefault(document["url"], document)
+    # Older successful extraction citations can survive a blocked/later listing.
+    for penalty in penalties:
+        url, filename = penalty.get("source_url"), penalty.get("source_pdf")
+        if f1lib._official_fia_url(url) and filename:
+            sources.setdefault(url, {"url": url, "filename": filename})
+    attempted = {url for url, source in sources.items()
+                 if (not decisions_only
+                     or "penalties" in f1lib.fia_document_categories(source["filename"]))}
+    errors = [error for error in previous.get("errors", [])
+              if decisions_only and error.get("url") not in attempted]
     checked_at = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     if not discovered:
         errors.append({"url": ctx.get("fia_url", ""), "error": "No saved FIA discovery manifest"})
-    for source in discovered.get("documents", []):
+    for source in sources.values():
         categories = f1lib.fia_document_categories(source["filename"])
-        if not categories:
+        if not categories or (decisions_only and "penalties" not in categories):
             continue
         url = source["url"]
         try:
@@ -117,8 +135,16 @@ def refresh_gp(ctx):
                 "revision": old.get("revision", 0) + int(bool(old.get("sha256"))
                                                        and old["sha256"] != digest),
             }
+            if "penalties" in categories:
+                text = enrich.pdf_text(raw)
+                for penalty in penalties:
+                    if (penalty.get("source_url") == url
+                            or (not penalty.get("source_url")
+                                and penalty.get("source_pdf") == source["filename"])):
+                        enrich.repair_decision(penalty, text, source["filename"])
+                        penalty["source_url"] = url
             print(f"  {ctx['dir']}: {source['filename']} ({len(pages)} pages)")
-        except (OSError, ValueError, RuntimeError) as error:
+        except Exception as error:
             errors.append({"url": url, "error": str(error)})
             print(f"  ! {ctx['dir']} FIA screenshots: {url}: {error}")
     # Keep the published listing order, retaining older successful documents last.
@@ -129,12 +155,16 @@ def refresh_gp(ctx):
         "documents": sorted(records.values(), key=lambda d: order.get(d["url"], len(order))),
         "errors": errors,
     })
+    if penalties:
+        _write(penalties_path, penalties)
     return not errors
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gp", help="one registered GP slug; otherwise use the active window")
+    parser.add_argument("--decisions-only", action="store_true",
+                        help="backfill decision screenshots and source identities only")
     args = parser.parse_args()
     gps = enrich.load_gps()
     if args.gp:
@@ -145,10 +175,11 @@ def main():
         gps = enrich.active_gps(gps)
     # Fail clearly before touching manifests if the optional render dependency is absent.
     import pymupdf  # noqa: F401
+    import pypdf  # noqa: F401
 
     failed = False
     for gp in gps:
-        if not refresh_gp(gp):
+        if not refresh_gp(gp, decisions_only=args.decisions_only):
             failed = True
     return int(failed)
 

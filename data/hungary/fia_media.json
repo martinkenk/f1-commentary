@@ -1,0 +1,383 @@
+{
+  "checked_at": "2026-09-25T06:12:47+00:00",
+  "discovery_retrieved_at": "2026-09-25T06:12:47.790439+00:00",
+  "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_11_-_starting_procedure_infringement.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_11_-_starting_procedure_infringement.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "cb293b706e9457e146ce2b65e0f64b53e6b190f7f25b5b6900b81e87f73c9756",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-15a8629ee36b-cb293b706e9457e1-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-15a8629ee36b-cb293b706e9457e1-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_87_-_ignoring_blue_flags.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_87_-_ignoring_blue_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "e1e5033d9a5a3e4b7a139f25b1ae23a71d1d223836b2c2cc4d1a3c768112b300",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-f9ea2028cd16-e1e5033d9a5a3e4b-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-f9ea2028cd16-e1e5033d9a5a3e4b-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "8f0ef57b8f3c0731db3ce46b5a3ae604d4bca6a5d528c300f6bc9b1548778c93",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-hungary-f954007828e4-8f0ef57b8f3c0731-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-hungary-f954007828e4-8f0ef57b8f3c0731-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_44_-_pit_lane_speeding.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_44_-_pit_lane_speeding.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "db95f2021ccee77e6c679ec22ae54344dcdfde052822bc58ea26245dc6f55e19",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-d17a3b292cb8-db95f2021ccee77e-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_decision_-_car_16_-_alleged_failure_to_slow_for_yellow_flags.pdf",
+      "filename": "2026_hungarian_grand_prix_-_decision_-_car_16_-_alleged_failure_to_slow_for_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "05ff1697fa02ba3229bf85ca057b03f8b0b5b6d6b75044cb588730daa99b1884",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-46aba62f3863-05ff1697fa02ba32-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-46aba62f3863-05ff1697fa02ba32-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_55_-_collision_with_car_81.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_55_-_collision_with_car_81.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "e503e7bb909058c9ae9a0d9d0405eb11e14dd1d483481f654d89a733fc248c23",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-5d33ca3ccb4b-e503e7bb909058c9-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-5d33ca3ccb4b-e503e7bb909058c9-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_11_-_changes_made_under_parc_ferme.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_11_-_changes_made_under_parc_ferme.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "6ace50ecbe13e0c5b186bfbcfcf08d8fdb07b18fb35d6d79ebac6f71a52e613e",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-2f86d8421287-6ace50ecbe13e0c5-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf",
+      "filename": "2026_hungarian_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "70740fb797834a63e38eba4b60eddc5af67c6854d0a23c2f2485eff6e3f7a587",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-hungary-9d1571afcac9-70740fb797834a63-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_12_-_alleged_failure_to_follow_race_directors_instructions_sc2-sc1_time.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_12_-_alleged_failure_to_follow_race_directors_instructions_sc2-sc1_time.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "4989a292e2453f944b3fb427b292b736db608790565ad15a4b190e9e9aa07f5e",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-95992fb5a869-4989a292e2453f94-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-95992fb5a869-4989a292e2453f94-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_12_-_yellow_flag_infringement.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_12_-_yellow_flag_infringement.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "3c422de7a0525e1e122761b25d99b4b3d0364cf9bef228cdd71220b6a9342bbb",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-8bcba6f53375-3c422de7a0525e1e-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-8bcba6f53375-3c422de7a0525e1e-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_yellow_flags.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "a388f9663140fdda0250c5bdfc009ab7307dd98e772a8422da29ad817ba98603",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-hungary-d24bdbb075b8-a388f9663140fdda-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "45d417f65952d7cce651f223596eb0f85446125b8f8bd7e56a069205a2375883",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-hungary-db7ce05652d5-45d417f65952d7cc-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_44_-_unnecessarily_impeding_of_car_81.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_44_-_unnecessarily_impeding_of_car_81.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "3f59f18f5a604c9d5474b97766a4323eb1752ee9474189b4e0d5ed6e605cca7f",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-a84c2beffd04-3f59f18f5a604c9d-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-a84c2beffd04-3f59f18f5a604c9d-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "20f90d315378326285fc23f097d693f62ca98dcae36cee7fbe646f9ec6621ac7",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-hungary-948b2673cf22-20f90d3153783262-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-hungary-948b2673cf22-20f90d3153783262-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "d0e95ea3d1e2f600af4d5319d6b759a04b5a10b40af6518245dd52ef4831f912",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-hungary-92ff5eff11f4-d0e95ea3d1e2f600-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-hungary-92ff5eff11f4-d0e95ea3d1e2f600-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_decision_-_car_55_-_alleged_erratic_driving_in_turn_9.pdf",
+      "filename": "2026_hungarian_grand_prix_-_decision_-_car_55_-_alleged_erratic_driving_in_turn_9.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "6d49795b76b584433f92bb40754372da198d51967551b79881faf67ffc09c6f5",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-cd895eac44e8-6d49795b76b58443-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-cd895eac44e8-6d49795b76b58443-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_decision_-_car_3_-_alleged_erratic_driving_in_turn_12.pdf",
+      "filename": "2026_hungarian_grand_prix_-_decision_-_car_3_-_alleged_erratic_driving_in_turn_12.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1000758daf01f73e303f384289f4dc34eb69037e81088dca8b6811699baf6def",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-2e6d8a879fbb-1000758daf01f73e-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-2e6d8a879fbb-1000758daf01f73e-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_55_-_erratic_driving_in_turn_12_0.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_55_-_erratic_driving_in_turn_12_0.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "e560279f47097687d4b5dac74c08f0194c2e327928cff3dcc6f0768ecf6ddca5",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-21bf05a6a378-e560279f47097687-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-hungary-21bf05a6a378-e560279f47097687-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "3f04ce91c15b6cdca4beb495c2bc0b4b182dc06b7cd93388f0821c6a493a2acf",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-hungary-563237fd4520-3f04ce91c15b6cdc-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-hungary-563237fd4520-3f04ce91c15b6cdc-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_hungarian_grand_prix_-_infringement_-_car_6_-_pit_lane_speeding_.pdf",
+      "filename": "2026_hungarian_grand_prix_-_infringement_-_car_6_-_pit_lane_speeding_.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "2f6331658f39057c1350a5a65a8f8e0c885e03a6a97402a06d33edc58f0ce29f",
+      "fetched_at": "2026-09-25T06:12:47+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-hungary-5a36959708bd-2f6331658f39057c-p1.png"
+        }
+      ],
+      "revision": 0
+    }
+  ],
+  "errors": []
+}

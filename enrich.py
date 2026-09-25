@@ -68,13 +68,6 @@ DEFAULT_MODEL = ""
 THE_RACE_RSS = "https://www.the-race.com/category/formula-1/rss/"
 F1_LATEST = "https://www.formula1.com/en/latest/all.html"
 
-# FIA filename keywords that mark an actual *decision/infringement* document
-# worth structuring (skips classifications, entry lists, scrutineering, etc.).
-FIA_DECISION_KEYS = ("infringement", "decision", "penalty", "reprimand",
-                     "fine", "disqualif", "protest")
-FIA_SKIP_KEYS = ("summons", "classification", "scrutineering", "entry_list",
-                 "provisional_starting_grid", "car_presentation", "self_scrut")
-
 SESSION_LABELS = ["Practice 1", "Practice 2", "Practice 3",
                   "Qualifying", "Sprint Qualifying", "Sprint", "Race"]
 
@@ -463,9 +456,7 @@ def fia_documents(ctx):
 
 def is_fia_decision(pdf):
     """Keep broad discovery separate from stewards' extraction."""
-    fn = re.sub(r"[\s-]+", "_", pdf["filename"].lower())
-    return (not any(s in fn for s in FIA_SKIP_KEYS)
-            and any(re.search(r"(?:^|_)" + k, fn) for k in FIA_DECISION_KEYS))
+    return "penalties" in f1lib.fia_document_categories(pdf["filename"])
 
 
 def fia_decision_pdfs(ctx):
@@ -698,6 +689,7 @@ def summarise_article(a, ctx):
 
 def structure_decision(text, filename):
     """Return a stewards' decision dict (LLM, or heuristic fallback)."""
+    text = _normalise_pdf_text(text)
     js = llm_json(PEN_SYS, "FIA stewards' document:\n\n" + text[:6000])
     if not js:
         js = _fake_decision(text)
@@ -709,13 +701,94 @@ def structure_decision(text, filename):
     if not js.get("doc"):
         m = re.search(r"document\s+(\d+)", text, re.I)
         js["doc"] = f"Doc {m.group(1)}" if m else ""
-    return {
+    record = {
         "doc": js.get("doc", ""), "no": str(js.get("no", "") or ""),
         "driver": js.get("driver", ""), "team": js.get("team", ""),
         "session": js.get("session", ""), "fact": js.get("fact", ""),
         "outcome": js.get("outcome", ""), "kind": kind,
         "source_pdf": filename,
     }
+    repair_decision(record, text, filename)
+    return record
+
+
+def _normalise_pdf_text(text):
+    # Keep line/column boundaries: flattening them confuses drivers and teams.
+    return text.replace("\u00a0", " ").replace("\u202f", " ")
+
+
+def decision_identity(text, filename=""):
+    """Read subjects from this decision, never from a current-season roster."""
+    text = _normalise_pdf_text(text)
+    people = []
+    for match in re.finditer(
+            r"(?im)^\s*(?:No\.?\s*/\s*Driver|Car\s*/\s*Driver)\s+"
+            r"(\d+)\s*[-–]\s*([^\n]+)", text):
+        people.append((match[1], re.sub(r"\s+", " ", match[2]).strip()))
+    if not people:
+        people = re.findall(r"(?m)^Affected driver (\d+) - ([^\n]+)", text)
+    if not people and re.search(r"Car\s+Driver\s+Competitor", text):
+        # Layout extraction preserves the Driver/Competitor column boundary.
+        prefix = r"\d+\s+" if re.search(r"Turn\s+Car\s+Driver", text) else ""
+        for line in text.splitlines():
+            line = re.sub(r"[ \t]{2,}", "\t", line)
+            match = re.match(r"^\s*\d+\s+" + prefix + r"(\d+)\s+(.+?)\t", line)
+            if match and len(line.split("\t")) >= 5 and not re.search(r"\d", match[2]):
+                people.append((match[1], match[2].strip()))
+    if not people and "eligible to start" in text.lower():
+        people = re.findall(r"(?m)^\s*\d+\.\s*(\d+)\s*[-–]\s*(.+?)\s*[-–]\s*", text)
+    subject = re.search(r"(?:^|[_ -])car[_ -]+(\d+)(?:[_ .-]|$)", filename, re.I)
+    if not people and subject:
+        number = subject[1]
+        match = re.search(r"\bCar\s+" + number + r"\s*\(([^)]+)\)", text, re.I)
+        # Three-letter timing abbreviations are not driver names.
+        if match and " " in match[1].strip():
+            people = [(number, match[1].strip())]
+    people = list(dict.fromkeys(people))
+    competitor = re.search(r"(?im)^\s*Competitor[ \t]+([^\n]+)", text)
+    result = {"driver": "; ".join(name for _, name in people),
+              "no": people[0][0] if len(people) == 1 else "",
+              "team": competitor[1].strip() if competitor else ""}
+    if people:
+        result["identity_status"] = "named"
+    elif subject or re.search(r"deleted lap times|Car\s+Driver", text, re.I):
+        result.update(no=subject[1] if subject else "", identity_status="unavailable")
+    elif competitor:
+        result["identity_status"] = "team"
+    elif re.search(r"\btemporar(?:y|ily)\s+stop|\bsession\b[^\n]*\b(?:stop|cancel|suspend)",
+                   text, re.I):
+        result["identity_status"] = "general"
+    else:
+        result["identity_status"] = "unavailable"
+    return result
+
+
+def repair_decision(record, text, filename):
+    """Backfill source identities without rewriting existing editorial summaries."""
+    text = _normalise_pdf_text(text)
+    identity = decision_identity(text, filename)
+    if identity["driver"] or not record.get("driver"):
+        record.update(identity)
+    session = re.search(r"(?im)^\s*Session[ \t]+([^\n]+)", text)
+    if session and not record.get("session"):
+        record["session"] = session[1].strip()
+    outcome = _normalise_pdf_text(record.get("outcome", ""))
+    source_outcome = re.search(r"(?im)^\s*Decision[ \t]+([^\n]+)", text)
+    if source_outcome and outcome.startswith("-"):
+        # Old unanchored extraction mistook a wrapper's Title for the ruling.
+        record["outcome"] = source_outcome[1].strip()
+        outcome = record["outcome"]
+    if _no_action(outcome) or (source_outcome and _no_action(source_outcome[1])):
+        record["kind"] = "noaction"
+    record["identity_version"] = 1
+    return record
+
+
+def _no_action(text):
+    return bool(re.search(
+        r"\bno (?:further action|action)\b|\btake no action\b|"
+        r"\bno penalty(?: is| will be)? (?:applied|imposed|warranted)\b",
+        text, re.I))
 
 
 # --------------------------------------------------------------------------
@@ -733,14 +806,14 @@ def _fake_news(a, body):
 
 
 def _fake_decision(text):
+    text = _normalise_pdf_text(text)
     def after(label):
-        m = re.search(label + r"\s+(.+)", text)
+        m = re.search(r"(?m)^\s*" + label + r"[ \t]+(.+)", text)
         return m.group(1).strip()[:200] if m else ""
     doc = re.search(r"document\s+(\d+)", text, re.I)
-    car = re.search(r"\bCar\s+(\d+)", text)
     fact = after("Fact")
     dec = after("Decision") or after("Infringement")
-    session = ""
+    session = after("Session")
     if not dec:
         # Some administrative rulings are prose, without a Decision/Fact table.
         flat = re.sub(r"\s+", " ", text).strip()
@@ -762,12 +835,12 @@ def _fake_decision(text):
                    if completion else stop.group(0))
     low = (fact + " " + dec).lower()
     kind = ("fine" if "fine" in low else
-            "noaction" if "no further action" in low or "take no action" in low else
+            "noaction" if _no_action(dec) else
             "penalty" if "grid" in low or "penalt" in low or "time penalty" in low else
             "warning" if "warning" in low else
             "reprimand" if "reprimand" in low else "note")
-    return {"doc": f"Doc {doc.group(1)}" if doc else "", "no": car.group(1) if car else "",
-            "driver": "", "team": "", "session": session, "fact": fact,
+    return {"doc": f"Doc {doc.group(1)}" if doc else "",
+            **decision_identity(text), "session": session, "fact": fact,
             "outcome": dec, "kind": kind}
 
 
@@ -856,13 +929,67 @@ def _pdf_text(url):
               "(pip install pypdf)")
         return ""
     try:
-        import io
         raw = _get(url, binary=True, timeout=40)
-        reader = pypdf.PdfReader(io.BytesIO(raw))
-        return "\n".join((p.extract_text() or "") for p in reader.pages)
+        return pdf_text(raw)
     except Exception as e:
         print(f"  ! PDF extract failed ({url.rsplit('/', 1)[-1]}): {e}")
         return ""
+
+
+def pdf_text(raw):
+    """Preserve table columns only where they are needed for named subjects."""
+    import io
+    import pypdf
+    reader = pypdf.PdfReader(io.BytesIO(raw))
+    pages = []
+    for page in reader.pages:
+        text = _normalise_pdf_text(page.extract_text() or "")
+        if re.search(r"Car\s+Driver\s+Competitor", text):
+            layout = page.extract_text(extraction_mode="layout")
+            if layout.strip():
+                text = re.sub(r"[^\S\n]{2,}", "\t", _normalise_pdf_text(layout))
+        pages.append(text)
+    text = "\n".join(pages)
+    for number, name in _pdf_table_drivers(raw):
+        text += f"\nAffected driver {number} - {name}"
+    return text
+
+
+def _pdf_table_drivers(raw):
+    """Use the PDF's own column coordinates when text extraction merges cells."""
+    try:
+        import pymupdf
+    except ImportError:
+        return []
+    people, columns = [], None
+    with pymupdf.open(stream=raw, filetype="pdf") as document:
+        for page in document:
+            words = page.get_text("words")
+            top = 0
+            for driver in (word for word in words if word[4] == "Driver"):
+                header = {word[4]: word for word in words if abs(word[1] - driver[1]) < 2}
+                if "Car" in header and "Competitor" in header:
+                    columns = (header["Car"][0], driver[0], header["Competitor"][0])
+                    top = driver[3]
+                    break
+            if not columns:
+                continue
+            car_x, driver_x, team_x = columns
+            ends = [word[1] for word in words
+                    if word[1] > top and word[0] < driver_x
+                    and word[4] in ("Infringement", "Decision", "Note", "Reasons")]
+            bottom = min(ends) if ends else page.rect.height
+            for car in words:
+                if (top < car[1] < bottom and car_x - 2 <= car[0] < driver_x - 2
+                        and car[4].isdigit()):
+                    name = " ".join(word[4] for word in sorted(words, key=lambda word: word[0])
+                                    if abs(word[1] - car[1]) < 3
+                                    and driver_x - 2 <= word[0] < team_x - 2)
+                    if " " in name and not re.search(r"\d", name):
+                        people.append((car[4], name))
+            if ends:
+                columns = None
+    return list(dict.fromkeys(people))
 
 
 # --------------------------------------------------------------------------

@@ -98,6 +98,12 @@ Read SKILL.md for the full source schemas, dated FIA values and lessons:
 - `fia_media.py` saves all substantive PDF pages using content-hashed revisions.
   Diagrams with no text are not blank. Never replace a full Pirelli infographic
   with a cropped FIA pressure table or omit a team's nil-return page.
+  This includes stewards' decisions: keep their per-ruling screenshot readers
+  collapsed, inside the same sortable row. `--decisions-only` supports backfills.
+  It repairs stored driver identities from the actual PDF (NBSP fields and
+  multi-driver tables), never a generic roster; explicit team/general/unknown
+  labels replace number-only identities. Original-PDF links and last-good/error
+  status must remain available when a screenshot refresh fails.
 - Race tyre inventory stopped after Monza because only Italy had a hard-coded
   table. `race_tyres.py` now discovers public race-set charts and the shared
   shell renders them on all Tyres pages, independently of FastF1. Refresh it

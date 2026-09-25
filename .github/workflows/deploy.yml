@@ -132,7 +132,7 @@ jobs:
         env:
           LLM_FAKE: "1"
         run: |
-          python3 -m pip install --quiet pypdf
+          python3 -m pip install --quiet pypdf pymupdf
           python3 enrich.py --max 25
 
       - name: Report incomplete enrichment

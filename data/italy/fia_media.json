@@ -1,7 +1,175 @@
 {
-  "checked_at": "2026-09-13T21:58:40+00:00",
+  "checked_at": "2026-09-25T06:10:17+00:00",
   "discovery_retrieved_at": "2026-09-13T21:58:30.366548+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_decision_-_car_22_-_alleged_start_procedure_infringement.pdf",
+      "filename": "2026_italian_grand_prix_-_decision_-_car_22_-_alleged_start_procedure_infringement.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "10de2189f1931e4b4928ea625bfcad3f03e224bf44625c724459d3c5a3b7e9a7",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-e9a3ed19bfb9-10de2189f1931e4b-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-italy-e9a3ed19bfb9-10de2189f1931e4b-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "777d2071357a749ae9335c0a393712e6467b7166326d39a448f73fbb77e597ee",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-511a14fe1163-777d2071357a749a-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-511a14fe1163-777d2071357a749a-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_decision_-_car_63_-_alleged_failure_to_slow_for_yellow_flags.pdf",
+      "filename": "2026_italian_grand_prix_-_decision_-_car_63_-_alleged_failure_to_slow_for_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1d4ad0f3e9790dfc9053a9a14a0a788ec3c24165bfd0556e21df9c7ab0aebd90",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-f6e55c66ec4d-1d4ad0f3e9790dfc-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_11_-_failure_to_follow_race_directors_instruction_-_turns_1_and_2.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_11_-_failure_to_follow_race_directors_instruction_-_turns_1_and_2.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "7b6b97acc5697e0c2344c9478539905f43154a197a8e52c30c8a5b732b2c59f6",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-aaf0f59e0bff-7b6b97acc5697e0c-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_decision_-_car_30_-_turn_4_incident_with_car_27.pdf",
+      "filename": "2026_italian_grand_prix_-_decision_-_car_30_-_turn_4_incident_with_car_27.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "a69cdaeba3a29001004af08630b362af7d245c24648a0e80916f8579373445f9",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-b93d391a8aa8-a69cdaeba3a29001-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_43_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_43_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "acadea9e0dfadfb6ff9f2f537854d3e342878218245a216878d9027edb23bcdc",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-b21901813a4a-acadea9e0dfadfb6-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_11_-_failure_to_follow_race_directors_instruction_-_pit_exit.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_11_-_failure_to_follow_race_directors_instruction_-_pit_exit.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "efbe839804c07284429db8904c3dbe89a2e7a5a2b23719bcd8c84f4891e58fe1",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-81cdc8f439f3-efbe839804c07284-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_30_-_changes_made_under_parc_ferme.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_30_-_changes_made_under_parc_ferme.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "546a9449d405a1ae64880accc2ed9219fb8233d7f7ed31b688796aac013e3286",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-80aa69c2ccb1-546a9449d405a1ae-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_14_-_pu_elements_changed_during_parc_ferme.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_14_-_pu_elements_changed_during_parc_ferme.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "dbdf3ce35345d7a556d65d5bab1452f20bad916feca4e49a488df9a92435bfaf",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-99db1e5ec29e-dbdf3ce35345d7a5-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_23_-_failure_to_follow_race_directors_instructions_.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_23_-_failure_to_follow_race_directors_instructions_.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "2346608d3c31046a62d6155cafc383bb29d7dff168c8cfeb9999ab28c7505b9a",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-7a3e78d75470-2346608d3c31046a-p1.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_race_directors_competition_notes_v2.pdf",
       "filename": "2026_italian_grand_prix_-_race_directors_competition_notes_v2.pdf",
@@ -43,6 +211,122 @@
       "revision": 0
     },
     {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_81_-_impeding_of_car_30.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_81_-_impeding_of_car_30.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "0e44ca22f7b4659e7b801c1274017c9d4f8cce19cc8ddd2e95f4a5b371e175aa",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-f5bf6b074f56-0e44ca22f7b4659e-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-italy-f5bf6b074f56-0e44ca22f7b4659e-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_30_-_change_to_pu_elements.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_30_-_change_to_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "62fa4cc7f646cb438aab5e103487976f7b660adf078ec68f0abcaed3a9670f22",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-11460ee66e5c-62fa4cc7f646cb43-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-italy-11460ee66e5c-62fa4cc7f646cb43-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_double_yellow_flags.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_double_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "8917ff1dc186972354e731bd887445f3b7212e495339bfdbc7c0b8563c638380",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-bc343d4b9c8d-8917ff1dc1869723-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-italy-bc343d4b9c8d-8917ff1dc1869723-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_23_-_failure_to_slow_for_double_yellow_flags.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_23_-_failure_to_slow_for_double_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "4dad47a852bf5f5a306fa2f3008e36cb16aaa49e3fd0e64312c214458e3e0821",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-fd664e708d79-4dad47a852bf5f5a-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-italy-fd664e708d79-4dad47a852bf5f5a-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_yellow_flags.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "eb90d2c3db6e9ce75fe359ceb8dff2facfc3c19a274abf553d86c77457fa8b07",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-c2efdb19a196-eb90d2c3db6e9ce7-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "f5b40e660b115cfc5518c460f154a4f1d6f773454ff04eb465d9cf1bf8e1ef3f",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-2c5886f0bee2-f5b40e660b115cfc-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-2c5886f0bee2-f5b40e660b115cfc-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
       "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition_1.pdf",
       "filename": "2026_italian_grand_prix_-_new_pu_elements_for_this_competition_1.pdf",
       "categories": [
@@ -58,6 +342,58 @@
         {
           "page": 3,
           "asset": "fia-italy-c030696e488d-716959e94aab722e-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_25_-_technical_non-conformity_cds.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_25_-_technical_non-conformity_cds.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "bee481e67297b7864d5ea2207c65b9f1c5307511e1ac096c2cca8348642a06e4",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-547644659b6c-bee481e67297b786-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-italy-547644659b6c-bee481e67297b786-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_18_-_impeding_of_car_1.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_18_-_impeding_of_car_1.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "e08624f7e526ef937186bac92e479d71e782274a63185492a16923e9fb9d733d",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-3a49279b978c-e08624f7e526ef93-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_12_-_pit_lane_speeding.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_12_-_pit_lane_speeding.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "cdf1bf7e6fd8dded71aedd9c65086e6a0a5ba7a252d1caffcec11a5f3a81375a",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-724872781431-cdf1bf7e6fd8dded-p1.png"
         }
       ],
       "revision": 0
@@ -79,6 +415,78 @@
       "revision": 0
     },
     {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_corrected.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_corrected.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "a44ce23707c85da20d84b530761eeed41b70f7d13ce57e8a07496077ec3741b1",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-cc95e763cc52-a44ce23707c85da2-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-cc95e763cc52-a44ce23707c85da2-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "b11ddc87db53655bc2c1cfc17ab1b54404d451ff4d4b702abf7295c5b83921ae",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-caaba26557ec-b11ddc87db53655b-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-italy-caaba26557ec-b11ddc87db53655b-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_23_-_changes_to_pu_elements.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_23_-_changes_to_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "03abdea2ca99780e066e56580d0ae618007ad6d9c0efe8b7b360d8bd2f838ae7",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-0cc981b2a962-03abdea2ca99780e-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_car_12_-_changes_to_pu_elements.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_car_12_-_changes_to_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "38ac9b1570eb5144e89db76fe01456dd0522bb944d868bacf87fe4179ff6bd29",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-italy-5b6641d13fd0-38ac9b1570eb5144-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
       "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_new_pu_elements_for_this_competition_0.pdf",
       "filename": "2026_italian_grand_prix_-_new_pu_elements_for_this_competition_0.pdf",
       "categories": [
@@ -90,6 +498,22 @@
         {
           "page": 2,
           "asset": "fia-italy-d53fcc6fa312-54304a55100a2501-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow_flags.pdf",
+      "filename": "2026_italian_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "838bcd1ea47bcb2ff5b57f8baf2a2d1cfb62154e58718b3ece01ad6b243c0546",
+      "fetched_at": "2026-09-25T06:10:17+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-italy-73eed835c794-838bcd1ea47bcb2f-p2.png"
         }
       ],
       "revision": 0

@@ -71,6 +71,10 @@ def fia_document_categories(filename):
     """Route explicit filename subjects, not inferred PDF contents or numbers."""
     name = re.sub(r"[^a-z0-9]+", " ", filename.lower()).strip()
     categories = []
+    if (not re.search(r"\b(summons|classification|scrutineering|entry list|"
+                      r"provisional starting grid|car presentation|self scrut)\b", name)
+            and re.search(r"\b(infringement|decision|penalty|reprimand|fine|disqualif\w*|protest)\b", name)):
+        categories.append("penalties")
     if re.search(r"\b(power unit information|pu elements used|new pu elements)\b", name):
         categories.append("powerunit")
     if re.search(r"\b(circuit map|track map|race director(?:s| s)? "
@@ -1380,16 +1384,74 @@ _PEN_KIND = {
 }
 
 
+def _penalty_reader(decision, media, index):
+    """Bind pages by exact source URL, never a document number from another PDF."""
+    label = html.escape(decision.get("doc", ""))
+    url = decision.get("source_url", "")
+    if not _official_fia_url(url):
+        return label, ('<p class="src">Decision screenshots unavailable: no verified '
+                       'original PDF citation is saved for this ruling.</p>')
+    source = html.escape(url, quote=True)
+    original = f'<a href="{source}" target="_blank" rel="noopener">Original FIA PDF</a>'
+    document = next((d for d in media.get("documents", []) if d.get("url") == url), {})
+    figures = []
+    missing = False
+    for page in document.get("pages", []):
+        name = page.get("asset", "")
+        if (not re.fullmatch(r"fia-[a-z0-9-]+-p\d+\.png", name)
+                or not os.path.isfile(os.path.join(ROOT, "assets_src", name))):
+            missing = True
+            continue
+        number = int(page["page"])
+        title = html.escape(f'{decision.get("doc", "Decision")}, official FIA PDF page {number}')
+        figures.append(
+            f'<figure class="circuit-fig"><img src="../assets/{name}" alt="{title}" '
+            'class="circuit-img" loading="lazy" onclick="zoomImg(this)">'
+            f'<figcaption><a href="{source}#page={number}" target="_blank" rel="noopener">'
+            f'Original FIA PDF, page {number}</a></figcaption></figure>')
+    if not figures:
+        return (f'<a href="{source}" target="_blank" rel="noopener">{label}</a>',
+                f'<p class="src">Decision screenshots unavailable. {original}.</p>')
+    target = f"penalty-document-{index}"
+    reader = (f'<a href="#{target}" data-document-reader '
+              f'data-reader-title="{label} — FIA decision">{label}</a>')
+    status = ""
+    if any(error.get("url") == url for error in media.get("errors", [])):
+        status += (" Latest screenshot refresh failed; these are the last successful "
+                   "images. Check the original PDF for later revisions.")
+    if missing:
+        status += " Some page images are unavailable; use the original PDF for all pages."
+    if document.get("revision"):
+        status += " Revised PDF at the same source URL."
+    fetched = html.escape(document.get("fetched_at", ""))
+    return reader, (
+        f'<details class="penalty-document" id="{target}">'
+        f'<summary>View FIA decision — {len(figures)} '
+        f'{"page" if len(figures) == 1 else "pages"}</summary>'
+        f'<p class="src">{original}. Retrieved {fetched} (not the issue date).{status}</p>'
+        f'<p>{reader.replace(label + "</a>", "Open document reader</a>")}</p>'
+        + "".join(figures) + "</details>")
+
+
 def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
     """decisions: list of dicts {doc, session, driver, team, no, fact, outcome, kind, when}.
     Auto-extracted FIA decisions from data/<gp>/penalties_auto.json are merged in
     (deduped by document number); curated entries take precedence."""
     out = [intro_html] if intro_html else []
-    decisions = list(decisions or [])
+    decisions = [dict(d) for d in (decisions or [])]
+    automatic = _load_auto(ctx, "penalties_auto")
+    by_doc = {_doc_num(d.get("doc", "")): d for d in automatic}
+    for decision in decisions:
+        evidence = by_doc.get(_doc_num(decision.get("doc", "")), {})
+        if decision.get("source_url") and decision["source_url"] != evidence.get("source_url"):
+            continue
+        for field in ("source_url", "source_pdf", "driver", "no", "team", "session", "identity_status"):
+            if not decision.get(field) and evidence.get(field):
+                decision[field] = evidence[field]
     seen = {_doc_num(d.get("doc", "")) for d in decisions}
-    for a in _load_auto(ctx, "penalties_auto"):
+    for a in automatic:
         if _doc_num(a.get("doc", "")) not in seen:
-            decisions.append(a)
+            decisions.append(dict(a, _automatic=True))
             seen.add(_doc_num(a.get("doc", "")))
     decisions.sort(key=lambda d: _doc_num(d.get("doc", "")))
     if not decisions:
@@ -1413,23 +1475,30 @@ def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
                + stat(str(nno), "No further action") + '</div>')
 
     rws = []
-    for d in decisions:
+    media = _load_fia_record(ctx, "fia_media")
+    for index, d in enumerate(decisions):
         cls, badge = _PEN_KIND.get(d.get("kind", "note"), _PEN_KIND["note"])
-        doc_label = html.escape(d.get("doc", ""))
-        if _official_fia_url(d.get("source_url")):
-            doc_label = (f'<a href="{html.escape(d["source_url"], quote=True)}" '
-                         f'target="_blank" rel="noopener">{doc_label}</a>')
-        who = d.get("driver", "")
+        doc_label, reader = _penalty_reader(d, media, index)
+        name = d.get("driver", "").strip()
+        if not name or re.fullmatch(r"#?\d+", name):
+            status = d.get("identity_status")
+            name = ("Team ruling" if status == "team" else
+                    "General ruling" if status == "general" else
+                    "Driver identity unavailable")
+        who = html.escape(name)
         if d.get("no"):
-            who = f"<strong>#{d['no']}</strong> {who}"
+            who += f" <span class='drv-code'>#{html.escape(str(d['no']))}</span>"
         if d.get("team"):
-            who += f"<br><span class='muted'>{d['team']}</span>"
+            who += f"<br><span class='muted'>{html.escape(d['team'])}</span>"
+        text = lambda field: (html.escape(d.get(field, "")) if d.get("_automatic")
+                              else d.get(field, ""))
         rws.append(
             f"<tr><td class='doc'>{doc_label}</td>"
             f"<td>{who}</td>"
-            f"<td>{d.get('session','')}</td>"
-            f"<td>{d.get('fact','')}</td>"
-            f"<td><span class='pen-badge {cls}'>{badge}</span> {d.get('outcome','')}</td></tr>")
+            f"<td>{text('session')}</td>"
+            f"<td>{text('fact')}</td>"
+            f'<td data-sort="{html.escape(_clean(d.get("outcome", "")), quote=True)}">'
+            f"<span class='pen-badge {cls}'>{badge}</span> {text('outcome')}{reader}</td></tr>")
     out.append('<div class="table-wrap"><table class="data pen"><thead><tr>'
                '<th>Doc</th><th>Driver</th><th>Session</th><th>Matter</th><th>Ruling</th>'
                '</tr></thead><tbody>' + "".join(rws) + '</tbody></table></div>')
@@ -2202,6 +2271,9 @@ CSS += r"""
 /* Penalties & Stewards */
 .data.pen td{vertical-align:top;font-size:13.5px}
 .data.pen td.doc{font-weight:800;color:var(--muted);white-space:nowrap;width:56px}
+.penalty-document{margin-top:12px;max-width:640px}
+.penalty-document summary{cursor:pointer;font-weight:700}
+.penalty-document .circuit-fig{margin:12px 0}
 .pen-badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.03em;
   text-transform:uppercase;border-radius:5px;padding:2px 7px;margin-right:4px;color:#fff}
 .pen-badge.pen-bad{background:var(--f1-red)}
