@@ -327,7 +327,7 @@ def build_pages(ctx, env):
     # ---- POWER UNIT --------------------------------------------------------
     P["powerunit"] = dict(
         kicker="2026 Rules",
-        title="Power Unit & Override",
+        title="Power Unit & Overtake",
         sub="The 2026 power unit, active aero and the per-event energy map.",
         body=f"""
 <div class="callout">
@@ -351,9 +351,9 @@ def build_pages(ctx, env):
      "Deployment matters most where the full-throttle run is longest — "
      + ("a long lap like this one puts a premium on efficient energy management."
         if _km(length) >= 5.4 else
-        "watch the longest straight for where the override is worth the most."),
+        "watch the longest straight for where Overtake deployment is most valuable."),
      "Energy-rich layouts let drivers deploy more freely; energy-limited ones force lifting and coasting.",
-     "The override detection and activation points are defined per circuit in the FIA document.",
+     "Overtake detection and activation points are defined per circuit in the FIA document.",
      "Practice and qualifying generally run a more permissive power curve than the race — "
      "expect Sunday straight-line speed to look weaker than Saturday's.",
   ]), "bi-battery-charging")}

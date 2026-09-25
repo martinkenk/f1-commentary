@@ -136,7 +136,8 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("with DRS", pages["overview"]["body"])
         self.assertIn("Straight Mode", powerunit)
         self.assertIn("<strong>Overtake</strong>", powerunit)
-        self.assertNotIn("Manual Override", powerunit)
+        self.assertEqual(pages["powerunit"]["title"], "Power Unit & Overtake")
+        self.assertNotIn("override", powerunit.casefold())
 
     def test_event_specific_fia_cautions_and_values_survive(self):
         italy, spain = self.italy(), self.spain()
