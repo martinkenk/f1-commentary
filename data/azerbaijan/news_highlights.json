@@ -1,54 +1,62 @@
 {
-  "reviewed_at": "2026-09-25T10:29:00Z",
-  "expires_at": "2026-09-26T10:29:00Z",
-  "through_session": "Practice 3",
-  "feed_fingerprint": "a78d11723c7c9a877673ef83f5ce18ec41b686d8f8350afbef4ef72f9e20fc03",
+  "reviewed_at": "2026-09-25T17:43:00Z",
+  "expires_at": "2026-09-26T05:00:00Z",
+  "through_session": "Qualifying",
+  "feed_fingerprint": "ca0d0c75930d2552f957dca76dc7feeee0f92ff536e96e49b092377ea0b64533",
   "items": [
     {
-      "topic": "Penalties",
-      "title": "Alonso's grid penalty grows to 30 places after a fourth exceeded PU element in FP3",
+      "topic": "Qualifying",
+      "title": "Russell takes Baku pole as Antonelli crashes out in Q1",
       "date": "2026-09-25",
-      "summary": "The Technical Delegate's Document 33 (25 September, 12:43) reports Aston Martin fitted Fernando Alonso's car with a new energy store unit during FP3 \u2014 his 7th of the 3 allowed for the season, a fourth element over his allocation for this event. The Stewards' Document 34 imposes a further 5-place grid penalty on top of the already-confirmed 25-place Document 20 ruling, taking Alonso's cumulative grid penalty for the Azerbaijan Grand Prix to 30 places. Lance Stroll's separately confirmed 20-place penalty (Document 21) for exceeding his own allocation is unchanged. Both remain subject to Article B2.5.4b.iv grid allocation if the car is classified in Qualifying. Elsewhere, the Stewards ruled (Document 19) that Valtteri Bottas's FP1 overtake of Albon under a yellow flag warranted no penalty, and the Turn 19 FP2 impeding investigation (Documents 22\u201323, summonses for Hamilton and Lawson) is resolved: Document 29 gives Lewis Hamilton (Car 44) a driving reprimand for impeding Liam Lawson's Car 30, with no separate ruling published against Lawson's own summons.",
-      "why_it_matters": "A 30-place penalty exceeds the entire field, so Alonso will start last regardless of his qualifying position \u2014 removing any incentive to push for grid position in Qualifying and reshaping how Aston Martin approaches the session and the race strategy that follows. The Bottas ruling also sets a practical precedent for how tightly-timed yellow-flag overtakes are judged this weekend.",
+      "summary": "George Russell set a 1:42.526 for pole, 0.837s ahead of Charles Leclerc; Oscar Piastri was third, just 0.001s behind Leclerc. Championship leader Kimi Antonelli hit the Turn 1 wall in Q1 and was classified 16th. The official starting grid is now published separately from the qualifying classification.",
+      "why_it_matters": "Mercedes has one car on pole and its other driver starting 16th after a major qualifying incident. Antonelli arrived 81 points ahead of Russell; qualifying itself does not award those championship points.",
       "sources": [
-        {"label": "FIA Document 33 \u2014 Technical Delegate's Report, New PU Elements", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_new_pu_elements_for_this_competition_0.pdf"},
-        {"label": "FIA Document 34 \u2014 Infringement, Car 14, PU Element", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_element.pdf"},
-        {"label": "FIA Document 20 \u2014 Infringement, Car 14, PU Elements", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_elements.pdf"},
-        {"label": "FIA Document 21 \u2014 Infringement, Car 18, PU Elements", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_18_-_pu_elements.pdf"},
-        {"label": "FIA Document 29 \u2014 Infringement, Car 44, Impeding Car 30", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_44_-_impeding_car_30.pdf"}
+        {
+          "label": "Formula1.com: Azerbaijan qualifying report",
+          "url": "https://www.formula1.com/en/latest/article/russell-charges-to-pole-position-as-antonelli-suffers-shock-exit-in-qualifying-for-azerbaijan-gp.6vFe7216mR8JZuWE4QIB4w"
+        },
+        {
+          "label": "Formula1.com: official qualifying classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/qualifying"
+        }
       ]
     },
     {
-      "topic": "Session outcome",
-      "title": "Verstappen tops FP3, denying Russell a clean sweep of Friday practice",
+      "topic": "Grid penalties",
+      "title": "FIA confirms five-place Sainz drop and three-place Perez penalty",
       "date": "2026-09-25",
-      "summary": "Max Verstappen set a 1:43.922 in the closing minutes of FP3 to finish one-tenth clear of George Russell and Lewis Hamilton, after brushing the walls several times on his fastest lap. Russell had led for most of the session; Kimi Antonelli was fourth. Charles Leclerc was best of the rest in fifth. Lance Stroll's session ended early after clipping the Turn 1 wall and damaging a wheel.",
-      "why_it_matters": "Verstappen's late improvement breaks Russell's run of topping both Friday sessions and gives Red Bull a form marker heading into qualifying, on a track where practice pace has not always translated directly into grid position.",
+      "summary": "Document 49 gives Carlos Sainz a five-place grid penalty and two penalty points after finding that he failed to slow sufficiently under the single yellow in Marshalling Sector 4; this is separate from his FP3 reprimand. Document 48 gives Sergio Perez a three-place penalty for impeding Oscar Piastri. Formula1.com's published starting grid lists Sainz 14th and Perez 20th, with Alonso 21st and Stroll 22nd after their separate power-unit penalties.",
+      "why_it_matters": "The penalties change the order for Saturday and distinguish two different Sainz yellow-flag incidents. The official starting-grid table, rather than a hand-calculated permutation, is the published reference.",
       "sources": [
-        {"label": "Formula1.com: FP3 report \u2014 Verstappen beats Russell and Hamilton", "url": "https://www.formula1.com/en/latest/article/fp3-verstappen-beats-russell-and-hamilton-in-final-practice-for-azerbaijan-gp.4BuODmX7lLpgRKnIK4oMXg"},
-        {"label": "The Race: What happened in F1 2026 Azerbaijan GP final practice", "url": "https://www.the-race.com/formula-1/what-happened-in-f1-2026-azerbaijan-gp-final-practice/"}
+        {
+          "label": "FIA Document 49: Sainz yellow-flag ruling",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf"
+        },
+        {
+          "label": "FIA Document 48: Perez impeding ruling",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_11_-_impeding_car_81.pdf"
+        },
+        {
+          "label": "Formula1.com: official starting grid",
+          "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/starting-grid"
+        }
       ]
     },
     {
-      "topic": "Safety and line-up",
-      "title": "Hadjar returns to Red Bull for Baku after signing a 2027 extension",
-      "date": "2026-09-23",
-      "summary": "Hadjar returns after missing Zandvoort, Monza and Madrid with a wrist fracture and has renewed with Red Bull for 2027. He says the simulator test went well but expects some continuing pain. Lawson returns to Racing Bulls and Tsunoda reverts to reserve.",
-      "why_it_matters": "Baku's confirmed Red Bull/Racing Bulls line-up is the regular Verstappen-Hadjar pairing plus Lawson at Racing Bulls; do not carry the previous replacement chain into session results or teammate comparisons.",
+      "topic": "Alpine qualifying",
+      "title": "Gasly leads Alpine's double Q3 appearance in Baku",
+      "date": "2026-09-25",
+      "summary": "Pierre Gasly qualified seventh and Franco Colapinto tenth, putting both Alpines into Q3. Gasly said interruptions from incidents ahead compromised his final two runs and that he believed more pace was available; Colapinto locked up at Turn 15 on his final-segment lap.",
+      "why_it_matters": "Both cars start inside the top ten on the published grid, giving Alpine a concrete points opportunity; Gasly's comments describe lost qualifying chances, not a guaranteed race result.",
       "sources": [
-        {"label": "Formula1.com: Hadjar opens up on his return and new contract", "url": "https://www.formula1.com/en/latest/article/its-good-to-come-back-to-the-fight-hadjar-opens-up-on-new-contract-and-return-to-racing.6NzCNMkA6szXJuzSDLcx4g"},
-        {"label": "Formula1.com: Red Bull announce Hadjar's 2027 deal", "url": "https://www.formula1.com/en/latest/article/red-bull-announce-new-deal-with-hadjar-for-2027-ahead-of-his-return-in-azerbaijan.3QcucG3BkfbWJNk4M5dWme"}
-      ]
-    },
-    {
-      "topic": "Technical and circuit",
-      "title": "Williams brings its long-awaited FW48 upgrade package to Baku",
-      "date": "2026-09-23",
-      "summary": "Formula1.com and The Race report that Williams is bringing its delayed FW48 package to Azerbaijan. Vowles told Formula1.com after Friday practice that it is 'a step in the right direction but not enough'; Albon and Sainz had earlier cautioned it may not deliver the full gain calculated months ago while the midfield continued to develop.",
-      "why_it_matters": "This is a round-specific upgrade now tested in real practice conditions, not just a pre-weekend expectation \u2014 the team's own post-FP2 verdict tempers the pre-race optimism.",
-      "sources": [
-        {"label": "Formula1.com: Vowles assesses impact of Williams' Baku upgrade", "url": "https://www.formula1.com/en/latest/article/a-step-in-the-right-direction-but-not-enough-vowles-assesses-impact-of-williams-baku-upgrade.75ILsDtRS1tMzAtC0ZWhSS"},
-        {"label": "Formula1.com: Sainz and Albon remain cautious on the Williams upgrade", "url": "https://www.formula1.com/en/latest/article/why-sainz-and-albon-remain-cautious-on-long-awaited-williams-upgrade-package.4dgoSwY5UbscNhWXSeMvnI"}
+        {
+          "label": "Formula1.com: Gasly on Alpine's double Q3 result",
+          "url": "https://www.formula1.com/en/latest/article/there-was-even-more-in-it-gasly-buoyed-by-alpine-gains-after-double-q3-appearance-in-baku.5IOcdTAyFuaje0xXt6U3QV"
+        },
+        {
+          "label": "Formula1.com: official starting grid",
+          "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/starting-grid"
+        }
       ]
     }
   ]

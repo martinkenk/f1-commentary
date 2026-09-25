@@ -567,8 +567,12 @@ def render_results(ctx):
              "Official Formula1.com snapshots are refreshed before publication. "
              "Pick a session below; source links and retrieval times accompany each table.</div>")
 
-    # Default to the most recent completed session (last in chronological order).
-    active_idx = len(results) - 1
+    # A published starting grid is not a completed session.
+    active_idx = next(
+        (i for i in range(len(results) - 1, -1, -1)
+         if "starting grid" not in results[i]["label"].casefold()),
+        len(results) - 1,
+    )
     tabs, panes = [], []
     for i, b in enumerate(results):
         sid = f"res-{_slugify(b['label'])}"

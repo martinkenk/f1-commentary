@@ -1,4 +1,5 @@
 """Offline content parity checks: verified event evidence, not borrowed GP facts."""
+import re
 import unittest
 from unittest.mock import mock_open, patch
 
@@ -217,9 +218,48 @@ class AzerbaijanParityTests(unittest.TestCase):
         for slug in ("overview", "notes"):
             self.assertIn("15:00 Baku / 14:00 Tallinn", self.pages[slug]["body"])
             self.assertIn(self.ctx["standings"]["summary"], self.pages[slug]["body"])
+            self.assertIn("post-qualifying update", self.pages[slug]["body"])
+            self.assertNotIn("qualifying follows later Friday", self.pages[slug]["body"])
+        self.assertIn("Russell took pole in 1:42.526", self.pages["notes"]["body"])
+        self.assertIn("official starting grid is now available", self.pages["overview"]["body"])
+        self.assertNotIn("Session-by-session commentary notes: awaiting",
+                         self.pages["notes"]["body"])
         self.assertIn("every other rival", self.pages["standings"]["body"])
         self.assertIn("no fastest-lap bonus", self.pages["standings"]["body"])
         self.assertNotIn("A curated moments list", self.pages["moments"]["body"])
+
+    def test_post_qualifying_updates_replace_expired_weekend_placeholders(self):
+        self.assertNotIn("Pre-FP1 watch", self.pages["teams"]["body"])
+        self.assertIn("Post-qualifying team context", self.pages["teams"]["body"])
+        self.assertIn("Sainz 14th", self.pages["teams"]["body"])
+        self.assertIn("FP1 line-up checked", self.pages["rookies"]["body"])
+        self.assertNotIn("Rookie FP1 line-ups for this round: awaiting",
+                         self.pages["rookies"]["body"])
+        self.assertNotIn("24 September pre-FP1 source check",
+                         self.pages["tyres"]["body"])
+        self.assertNotIn("after Thursday practice",
+                         self.pages["tyres"]["body"])
+        self.assertIn("checked after\nqualifying", self.pages["tyres"]["body"])
+        self.assertIn("Document 48", self.pages["penalties"]["body"])
+        self.assertIn("Document 49", self.pages["penalties"]["body"])
+        penalty_body = " ".join(self.pages["penalties"]["body"].split())
+        self.assertIn("Sainz 14th, Perez 20th, Alonso 21st and Stroll 22nd",
+                      penalty_body)
+        for doc, url in (
+            ("Doc 48", content_azerbaijan.FIA_ROOT
+             + "infringement_-_car_11_-_impeding_car_81.pdf"),
+            ("Doc 49", content_azerbaijan.FIA_ROOT
+             + "infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf"),
+        ):
+            row = next(
+                match.group(1)
+                for match in re.finditer(r"<tr>(.*?)</tr>",
+                                         self.pages["penalties"]["body"], re.S)
+                if f">{doc}</a>" in match.group(1)
+            )
+            self.assertIn('<details class="penalty-document"', row)
+            self.assertIn(url, row)
+            self.assertIn("data-document-reader", row)
 
 
 if __name__ == "__main__":

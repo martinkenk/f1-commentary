@@ -247,7 +247,24 @@ def team_briefing():
         ("Aston Martin", "Fernando Alonso / Lance Stroll", "The Race reports lighter components rather than another Budapest-scale overhaul. Parts unchanged in appearance may not appear in the aerodynamic submission list.", TECH_URL),
         ("Cadillac", "Valtteri Bottas / Sergio Perez", "Perez is reported to receive the newer Ferrari engine first, alongside small aerodynamic changes. Establish installation and reliability in practice; do not assign Bottas the same specification without evidence.", TECH_URL),
     ]
-    return ('<p class="lead-note">Pre-FP1 watch, reviewed 24 September. Announced race pairings are not an FIA entry-list transcription or a confirmed FP1 substitute list.</p>'
+    qualifying = content_generic.card(
+        "Qualifying snapshot — Russell on pole, Antonelli out in Q1",
+        "<p>George Russell took pole in 1:42.526, 0.837s ahead of Charles Leclerc, "
+        "with Oscar Piastri third. Isack Hadjar qualified fourth, while Kimi "
+        "Antonelli was classified 16th after his Turn 1 crash in Q1. The official "
+        "Formula1.com starting grid now places Carlos Sainz 14th after his "
+        "five-place penalty and Sergio Perez 20th after his three-place penalty.</p>"
+        + source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/qualifying",
+                 "Formula1.com official qualifying classification")
+        + source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/starting-grid",
+                 "Formula1.com official starting grid"),
+        "bi-flag",
+        "accent",
+    )
+    return ('<p class="lead-note">Post-qualifying team context, 25 September. '
+            'The preview notes below are retained as background; completed-session '
+            'results and penalties take precedence.</p>'
+            + qualifying
             + "".join(content_generic.card(team + " — " + drivers,
                                            f"<p>{text}</p>" + source(url, "23 September preview / driver reporting"),
                                            "bi-people") for team, drivers, text, url in rows))
@@ -326,7 +343,12 @@ Nine Grands Prix and the Singapore Sprint offered 233 points:
     "accent",
 )}
 
-{content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event")}
+<p><strong>FP1 line-up checked:</strong> all 22 drivers in the official Practice 1
+classification match the event's race-entry line-up; no rookie substitute was
+listed for the session. This does not turn reserve-driver appearances earlier
+in the season into Baku entries.</p>
+{source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/1",
+        "Formula1.com Practice 1 classification, 25 September 2026")}
 
 <p class="src">Sources: <a href="https://www.formula1.com/en/latest/article/hadjar-to-make-racing-return-with-red-bull-at-azerbaijan-gp.1ddPnUSDEze0V9MCiQ9d2U" target="_blank" rel="noopener">Formula1.com — Hadjar to make racing return with Red Bull at Azerbaijan GP</a> and
 <a href="https://www.the-race.com/formula-1/isack-hadjar-injury-return-where-every-red-bull-f1-driver-stands/" target="_blank" rel="noopener">The Race — Where every Red Bull driver stands as Hadjar returns</a>, both 22 September 2026.</p>
@@ -349,8 +371,9 @@ Nine Grands Prix and the Singapore Sprint offered 233 points:
   {content_generic.card(
       "Race-set inventory",
       "<p>No verified post-qualifying race-set chart was found in the "
-      "24 September pre-FP1 source check. The new/used set counts require a "
-      "full, visually reviewed event-matched chart.</p>",
+      "25 September source review. Formula1.com's strategy guide is access-restricted, "
+      "and the public publisher feeds exposed no chart candidate. The new/used set "
+      "counts require a full, visually reviewed event-matched chart; no zeros are inferred.</p>",
       "bi-hourglass-split",
   )}
 </div>
@@ -391,8 +414,10 @@ and intermediates</strong> and <strong>40&deg;C for wets</strong>.
 These are actual tyre tread/sidewall temperatures, not blanket-controller settings.
 FIA/Pirelli may revise the prescriptions during the weekend.</p>
 
-{content_generic.pending("Long-run degradation data", "after Thursday practice",
-                         "bi-graph-down")}
+<div class="callout"><strong>Long-run degradation:</strong> no public, verified
+event-specific dataset was identified in the accessible sources checked after
+qualifying. Practice classification times are not long-run degradation data;
+Formula1.com's strategy guide is access-restricted.</div>
 """
     pages["tyres"]["body"] += f"""
 <h2 class="sec">What Pirelli's complete preview means</h2>
@@ -539,25 +564,27 @@ Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Fac
         "Carry-over watch, not a Baku outcome",
         "<p>Hamilton retired in Madrid with a reported brake issue. The Race also highlights "
         "front tyre/brake cooling into Baku T1 and Cadillac's reported Perez engine installation. "
-        "No Baku failure, finisher count, fastest lap or stop time exists before running; "
-        "the automatic results and pit tables below remain authoritative as sessions complete.</p>"
+        "The Grand Prix has not run yet, so race retirements, race fastest lap and pit-stop "
+        "outcomes remain pending; the automatic tables below are authoritative as results publish.</p>"
         + source(FORM_URL, "Formula1.com pre-weekend form")
         + source(TECH_URL, "The Race technical preview"), "bi-tools"
     ) + pages["reliability"]["body"]
     brief = f"""
-<div class="callout"><strong>25 September post-FP3 update:</strong> standard
-Thursday–Saturday weekend, not a Sprint. FP1, FP2 and FP3 completed; qualifying
-follows later Friday; race Saturday 26 September at
+<div class="callout"><strong>25 September post-qualifying update:</strong> standard
+Thursday–Saturday weekend, not a Sprint. FP1–FP3 and Qualifying are complete;
+the race is Saturday 26 September at
 <strong>15:00 Baku / 14:00 Tallinn</strong>. See <a href="results.html">Results</a>
-for all three classifications and <a href="penalties.html">Penalties</a> for
-Alonso's now-30-place cumulative grid penalty and Hamilton's Turn 19 reprimand (Doc 29).</div>
+for the session classifications and published starting grid, and
+<a href="penalties.html">Penalties</a> for the confirmed qualifying rulings.
+The official starting grid is now available from Formula1.com.</div>
 {content_generic.card("The verified essentials",
     content_generic.ul([
         "Hadjar returns to Red Bull; Lawson returns to Racing Bulls; Tsunoda reverts to reserve. Hadjar expects some wrist pain and has renewed for 2027.",
         "C3 Hard / C4 Medium / C5 Soft; mandatory race tyres are C3/C4. Slick/intermediate maximum heating 70°C; wet 40°C, all for no more than two hours.",
         "Two Straight Mode zones, but one Overtake detection/activation pair. Low-grip A1 starts after T20, later than normal A1 after T19.",
         "Recharge: race 8.5/9.0 MJ with Overtake off/on; qualifying 8.5 MJ, FP/outlaps 9.0 MJ. L21 activation remains 4,270 m (TBC).",
-        "FP1: Russell fastest (1:45.387) from Verstappen and Leclerc; FP2: Russell again fastest (1:43.347) from Antonelli and Verstappen; FP3: Verstappen fastest (1:43.922) from Russell and Hamilton, one tenth clear.",
+        "Russell took pole in 1:42.526, 0.837s clear of Leclerc; Piastri was third. Antonelli was classified 16th after his Q1 Turn 1 crash. See the official qualifying classification for all 22.",
+        "The official starting grid lists Sainz 14th after a five-place drop and Perez 20th after a three-place drop; the separate sanctions are confirmed in FIA Documents 49 and 48.",
         "Alonso's cumulative grid penalty for this event is now <strong>30 places</strong>: the confirmed 25-place Document 20 ruling plus a further 5 places (Document 34) for a fourth exceeded PU element found during FP3. Stroll's 20-place Document 21 penalty is unchanged.",
         "Six of eleven teams (McLaren, Red Bull, Williams, Racing Bulls, Audi, Cadillac) filed FIA car-presentation updates \u2014 Williams' package confirms the reported FW48 floor work. Car display was Thursday 11:00–12:00 Baku.",
         "SC2–SC1 maximum time confirmed post-FP2 (Doc 27): 2:08.0 between the Safety Car lines.",
@@ -572,14 +599,24 @@ Alonso's now-30-place cumulative grid penalty and Hamilton's Turn 19 reprimand (
         f'<a href="standings.html">Both tables and source freshness</a> ({st.get("as_of", "unavailable")}).</div>'
     )
     pages["overview"]["body"] = brief + live_standings + pages["overview"]["body"]
-    pages["notes"]["body"] = brief + live_standings + pages["notes"]["body"]
+    notes_body = pages["notes"]["body"].replace(
+        content_generic.pending(
+            "Session-by-session commentary notes", "as the weekend runs", "bi-mic"
+        ),
+        "<p><strong>Session-by-session status:</strong> official Practice 1, Practice 2, "
+        "Practice 3 and Qualifying classifications are published. The race classification "
+        "and race-day commentary remain pending until Saturday. See <a href=\"results.html\">"
+        "Results</a> for source-linked tables and <a href=\"news.html\">Weekend News</a> "
+        "for the latest reports.</p>",
+    )
+    pages["notes"]["body"] = brief + live_standings + notes_body
     pages["schedule"]["body"] += f"""
 <p><strong>Calendar check:</strong> the Saturday race moves practice to Thursday
 and qualifying to Friday. Baku is UTC+4 and Tallinn is EEST (UTC+3), so Tallinn
 is one hour earlier throughout this weekend. The session table is calendar-driven.</p>
-<p><strong>Heat Hazard:</strong> no declaration appears in the 27-document FIA
-listing refreshed after FP2 on 24 September. A weather forecast alone is not
-a declaration; do not infer mandatory cooling measures from temperature.</p>
+<p><strong>Heat Hazard:</strong> no declaration was identified in the 50-PDF FIA
+event listing checked after Qualifying on 25 September. A weather forecast
+alone is not a declaration; do not infer mandatory cooling measures from temperature.</p>
 {source(FORM_URL, "Formula1.com weekend schedule; FIA listing for declarations")}
 <p>The FIA's <strong>Competition Visa V2 (Document 7, 23 September, 19:08)</strong>
 contains Appendix B3 version 3 and timetable version 3. These independently
@@ -590,7 +627,7 @@ that the race runs for two hours.</p>
 """
     pages["penalties"] = dict(
         kicker="Stewards & race control", title="Penalties & Decisions",
-        sub="Alonso's cumulative grid penalty is now 30 places (Docs 20+34) and Stroll's remains 20 (Doc 21); Bottas cleared over a yellow-flag pass; Hamilton reprimanded, Lawson's counterpart summons unresolved by any published document.",
+        sub="Alonso's cumulative grid penalty is 30 places (Docs 20+34), Stroll's is 20 (Doc 21), Sainz drops five places (Doc 49) and Perez three (Doc 48); the official starting grid is published.",
         body=f1lib.render_penalties(
             ctx,
             decisions=[
@@ -612,9 +649,26 @@ that the race runs for two hours.</p>
                              "resolved without a further sanction pending a document that says otherwise, "
                              "not confirmed dismissed by name.",
                      kind="note", source_url=FIA_LAWSON_SUMMONS_URL),
+                dict(doc="Doc 48", no="11", driver="Sergio Perez", team="Cadillac Formula 1 Team",
+                     session="Qualifying",
+                     fact="Car 11 drove at reduced speed on the racing line through Turns 18, 19 and 20, "
+                          "forcing Oscar Piastri to lift on a flying lap after two radio warnings.",
+                     outcome="Three-place grid penalty for the next Sprint/Race. Formula1.com's "
+                             "published starting grid lists Perez 20th after the separate Aston Martin "
+                             "engine penalties.",
+                     kind="penalty",
+                     source_url=FIA_ROOT + "infringement_-_car_11_-_impeding_car_81.pdf"),
+                dict(doc="Doc 49", no="55", driver="Carlos Sainz", team="Atlassian Williams F1 Team",
+                     session="Qualifying",
+                     fact="The Stewards found Sainz failed to reduce speed under the single yellow in "
+                          "Marshalling Sector 4 despite the visible signal and a team warning.",
+                     outcome="Five-place grid penalty and two penalty points (four in the preceding "
+                             "12 months). Formula1.com's published starting grid lists Sainz 14th.",
+                     kind="penalty",
+                     source_url=FIA_ROOT + "infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf"),
             ],
             intro_html=f"""
-<div class="callout accent"><strong>Alonso and Stroll's grid penalties are confirmed by the Stewards themselves, and Alonso's has grown.</strong>
+<div class="callout accent"><strong>Four driver-specific grid sanctions now shape the published starting order.</strong>
 Document 20 dropped <strong>Alonso 25 grid places</strong> and Document 21 drops
 <strong>Stroll 20 grid places</strong>, both "for the next Race in which the driver
 participates" and both matching the cumulative arithmetic reported before the
@@ -629,7 +683,12 @@ was shown. <strong>The Turn 19 impeding incident is now also resolved: Document 
 gives Hamilton (Car 44) a driving reprimand</strong> for impeding Lawson's Car 30 —
 his counterpart summons (Document 23) has no separate published ruling, so treat
 Lawson's own case as closed without further sanction rather than confirmed
-dismissed by name.</div>
+dismissed by name. After Qualifying, <strong>Document 48 gives Perez a
+three-place penalty</strong> for impeding Piastri, and <strong>Document 49 drops
+Sainz five places and adds two penalty points</strong> for failing to slow under
+a yellow flag. The official Formula1.com starting grid lists Sainz 14th, Perez
+20th, Alonso 21st and Stroll 22nd; these are source-published grid positions,
+not a hand-calculated order.</div>
 """))
     pages["penalties"]["body"] += f"""
 <h2 class="sec">Officials and document status</h2>
@@ -639,18 +698,18 @@ Danil Solomin. Race Director and Safety Delegate Rui Marques; Technical Delegate
 Jo Bauer; Sporting Delegate Tim Malyon; Deputy Race Director Paul Burns.
 The visa names the officials; it is not an infringement decision.</p>
 {source(FIA_VISA_URL + "#page=4", "FIA Competition Visa V2, Appendix B3, PDF pages 4–5")}
-<p>The FIA documents hub has grown to 34 decision documents after FP3, adding
-the FP3 classification, Alonso's fourth exceeded-element report (Document 33)
-and its follow-up 5-place grid-penalty ruling (Document 34), on top of the FP2
-classification and its two lap-time-deletion notes, the SC2/SC1 maximum-time
-note, the confirmed Alonso/Stroll grid-penalty rulings, the Bottas no-penalty
-ruling, the FP1/FP2 scrutineering report, the Hamilton/Lawson impeding summonses
-and <strong>Document 29</strong> — the Stewards' own ruling on the Turn 19
-incident, a driving reprimand for Hamilton (Car 44). The automatic decision
-tracker above logs each numbered ruling as it is issued; revised notes and
-later decisions continue to supersede this snapshot as the weekend progresses.</p>
+<p>The FIA event listing contained <strong>50 PDFs after Qualifying</strong>,
+including the provisional starting grid, final qualifying classification,
+post-qualifying procedure, scrutineering, lap-time deletions and the new
+Qualifying decisions. <strong>Document 48</strong> penalises Perez for impeding
+Piastri; <strong>Document 49</strong> penalises Sainz for failing to slow under
+a yellow flag. Their complete FIA pages and original-PDF links are attached to
+the same sortable decision rows above. Formula1.com's starting-grid table is
+available; no separate final-grid PDF was present in this FIA listing at refresh.</p>
 {source(FIA_HAMILTON_IMPEDING_RULING_URL, "FIA Document 29, Infringement — Car 44 — Impeding Car 30, 24 September 2026")}
 {source(FIA_ALONSO_FP3_PENALTY_URL, "FIA Document 34, Infringement — Car 14 — PU Element, 25 September 2026")}
+{source(FIA_ROOT + "infringement_-_car_11_-_impeding_car_81.pdf", "FIA Document 48, Infringement — Car 11 — Impeding Car 81, 25 September 2026")}
+{source(FIA_ROOT + "infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf", "FIA Document 49, Infringement — Car 55 — Failure to Slow for Yellow Flags, 25 September 2026")}
 <p>Document 2 clears the inspected front-suspension items on Russell's Madrid
 car; it is a compliance report, not a Baku sanction.
 See <a href="reliability.html">Reliability</a> for its scope and

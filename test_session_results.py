@@ -153,6 +153,16 @@ class ResultsTests(unittest.TestCase):
         with patch.object(results, "load", return_value=record):
             self.assertEqual(results.results(ctx, now=NOW.replace(hour=7)), [])
 
+    def test_starting_grid_does_not_displace_latest_completed_session(self):
+        headers, rows = table()
+        rendered = f1lib.render_results({"results": [
+            {"label": "Qualifying", "headers": headers, "rows": rows},
+            {"label": "Starting Grid", "headers": headers, "rows": rows},
+        ]})
+        self.assertIn('nav-link active" id="res-qualifying-tab"', rendered)
+        self.assertIn('id="res-starting-grid-tab"', rendered)
+        self.assertNotIn('nav-link active" id="res-starting-grid-tab"', rendered)
+
     def test_collector_precedes_persistence_and_build_in_deployment(self):
         workflow = Path(__file__).with_name(".github").joinpath("workflows/deploy.yml").read_text()
         self.assertLess(workflow.index("run: python3 session_results.py"),
