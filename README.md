@@ -49,14 +49,20 @@ python3 -m http.server 8000
 ## Re-run any time during the weekend
 The build is **safe to run repeatedly**. Each run wipes and regenerates `site/`, and:
 - refreshes **weather** (forecast for upcoming sessions, ERA5 **actuals** for past ones),
-- pulls whatever **session results** Formula1.com has published so far,
+- loads source-linked **session results** from the latest official refresh,
 - refreshes the **Weekend News** session reports (live podiums for every completed session),
 - rebuilds **Head-to-Head** and **Reliability & Pit Stops** from the live timing,
 - regenerates every page from the current content + any new FIA material you've scraped.
 
 ```bash
+python3 session_results.py
 python3 build.py
 ```
+
+Use `python3 session_results.py --gp azerbaijan` for a focused refresh.
+Deployment collects and persists these snapshots before building. Source outages
+retain last-good tables and show explicit status; missing tables do not imply
+that a session has not run. Uncached local builds still try the official source.
 
 ## Architecture
 - `calendar_scraper.py` – season scraper: session times, circuit stats and official track maps
@@ -69,6 +75,9 @@ python3 build.py
   `data/season_h2h_2026.json`, including rounds before the site's first GP.
   It refreshes automatically, preserves replacement pairings and last-good data,
   and provides season qualifying/race comparisons on every H2H page.
+- `session_results.py` – refreshes official session tables into
+  `data/<gp>/session_results.json`, preserving all entrants, source URLs,
+  retrieval/session timestamps, last-good classifications and refresh status.
 - `fia_media.py` – refreshes all categorized FIA PDF pages into content-hashed,
   zoomable screenshots; same-URL revisions get new images without overwriting
   historical versions. Last-good images survive source failures.
@@ -163,5 +172,6 @@ it is not a substitute for the skill's factual/editorial audit.
 
 ## Sources
 Editorial content collated & summarised from **Formula1.com**, **The Race**, and the
-**official FIA event documents**. Live results and weather are fetched at build time.
+**official FIA event documents**. Official results are refreshed and persisted
+before publication; weather is fetched at build time.
 Attributions are shown on each page.

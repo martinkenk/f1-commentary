@@ -8,7 +8,7 @@ track maps) is combined with the reference material in ``circuits.py`` and
 rendered through ``content_generic``. Races that deserve bespoke treatment get
 it via ``BESPOKE``.
 
-Re-run at any point across a weekend — weather, session results, news and
+Refresh session_results.py then rebuild across a weekend — weather, results, news and
 stewards' decisions all refresh, and pages that were waiting on a source fill
 themselves in once it publishes.
 

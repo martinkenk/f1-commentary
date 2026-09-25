@@ -861,6 +861,15 @@ calendar slugs (Abu Dhabi is an example). Future events skip results requests;
 an absent table alone is not an authoritative cancellation or no-running claim.
 Tabs default to the latest completed session. Driver strings such as
 `Kimi AntonelliANT` are split into name/code. Preserve all published entrants.
+Run `python3 session_results.py` (or `--gp <slug>`) before building to refresh
+`data/<gp>/session_results.json`. Deployment does this **before** persisting data:
+the build consumes that exact source-linked, timestamped snapshot. Calendar
+session starts gate requests and cached rendering; no future results are borrowed.
+Missing, malformed or failed sources retain last-good full tables and record
+explicit source status, not “session has not run”. Inspect refresh warnings;
+classification absence is not proof of cancellation. Corrected official tables
+replace the prior snapshot; lost entrants are rejected pending source review.
+An uncached local build still attempts the official source without writing data.
 The pit-stop summary contains both **Time of Day** and **Time**. Select the exact
 `Time` column, not the first `time` prefix match; otherwise clock times get ranked
 and displayed as seconds. These are pit-lane elapsed durations, not stationary

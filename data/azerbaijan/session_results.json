@@ -1,0 +1,607 @@
+{
+  "event": {
+    "year": "2026",
+    "race_id": "1295",
+    "results_slug": "azerbaijan",
+    "gp": "azerbaijan"
+  },
+  "checked_at": "2026-09-25T11:53:11+00:00",
+  "sessions": [
+    {
+      "label": "Practice 1",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:45.387",
+          "24"
+        ],
+        [
+          "2",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "+0.400s",
+          "22"
+        ],
+        [
+          "3",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "+0.404s",
+          "25"
+        ],
+        [
+          "4",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+0.437s",
+          "25"
+        ],
+        [
+          "5",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "+0.878s",
+          "9"
+        ],
+        [
+          "6",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+1.011s",
+          "17"
+        ],
+        [
+          "7",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "+1.053s",
+          "26"
+        ],
+        [
+          "8",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+1.214s",
+          "23"
+        ],
+        [
+          "9",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "+1.237s",
+          "19"
+        ],
+        [
+          "10",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+1.301s",
+          "21"
+        ],
+        [
+          "11",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+1.484s",
+          "22"
+        ],
+        [
+          "12",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+1.506s",
+          "22"
+        ],
+        [
+          "13",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+1.552s",
+          "29"
+        ],
+        [
+          "14",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "+1.594s",
+          "14"
+        ],
+        [
+          "15",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+1.607s",
+          "22"
+        ],
+        [
+          "16",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+1.656s",
+          "22"
+        ],
+        [
+          "17",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "+1.866s",
+          "24"
+        ],
+        [
+          "18",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+2.136s",
+          "23"
+        ],
+        [
+          "19",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+2.448s",
+          "24"
+        ],
+        [
+          "20",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+2.486s",
+          "8"
+        ],
+        [
+          "21",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+3.160s",
+          "22"
+        ],
+        [
+          "22",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+3.928s",
+          "22"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/1",
+      "fetched_at": "2026-09-25T11:53:11+00:00",
+      "session_start": "2026-09-24T12:30:00+04:00",
+      "retained": false
+    },
+    {
+      "label": "Practice 2",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:43.347",
+          "24"
+        ],
+        [
+          "2",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "+0.552s",
+          "16"
+        ],
+        [
+          "3",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "+0.827s",
+          "23"
+        ],
+        [
+          "4",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "+1.126s",
+          "24"
+        ],
+        [
+          "5",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+1.318s",
+          "23"
+        ],
+        [
+          "6",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "+1.484s",
+          "22"
+        ],
+        [
+          "7",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+1.496s",
+          "23"
+        ],
+        [
+          "8",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+1.510s",
+          "22"
+        ],
+        [
+          "9",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+1.521s",
+          "21"
+        ],
+        [
+          "10",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "+1.943s",
+          "25"
+        ],
+        [
+          "11",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+2.132s",
+          "23"
+        ],
+        [
+          "12",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "+2.334s",
+          "25"
+        ],
+        [
+          "13",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "+2.413s",
+          "23"
+        ],
+        [
+          "14",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+2.447s",
+          "24"
+        ],
+        [
+          "15",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+2.507s",
+          "20"
+        ],
+        [
+          "16",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+2.776s",
+          "24"
+        ],
+        [
+          "17",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+2.874s",
+          "22"
+        ],
+        [
+          "18",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+3.044s",
+          "4"
+        ],
+        [
+          "19",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+3.390s",
+          "26"
+        ],
+        [
+          "20",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+3.454s",
+          "10"
+        ],
+        [
+          "21",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+4.056s",
+          "24"
+        ],
+        [
+          "22",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+4.542s",
+          "9"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/2",
+      "fetched_at": "2026-09-25T11:53:11+00:00",
+      "session_start": "2026-09-24T16:00:00+04:00",
+      "retained": false
+    },
+    {
+      "label": "Practice 3",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "1:43.922",
+          "21"
+        ],
+        [
+          "2",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "+0.099s",
+          "21"
+        ],
+        [
+          "3",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+0.111s",
+          "18"
+        ],
+        [
+          "4",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "+0.351s",
+          "21"
+        ],
+        [
+          "5",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "+0.622s",
+          "22"
+        ],
+        [
+          "6",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+0.715s",
+          "20"
+        ],
+        [
+          "7",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+0.824s",
+          "20"
+        ],
+        [
+          "8",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "+0.977s",
+          "20"
+        ],
+        [
+          "9",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+1.254s",
+          "22"
+        ],
+        [
+          "10",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+1.670s",
+          "20"
+        ],
+        [
+          "11",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+1.683s",
+          "24"
+        ],
+        [
+          "12",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+1.770s",
+          "25"
+        ],
+        [
+          "13",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+1.932s",
+          "18"
+        ],
+        [
+          "14",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "+1.996s",
+          "21"
+        ],
+        [
+          "15",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+2.076s",
+          "18"
+        ],
+        [
+          "16",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "+2.082s",
+          "19"
+        ],
+        [
+          "17",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+2.154s",
+          "24"
+        ],
+        [
+          "18",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "+2.300s",
+          "23"
+        ],
+        [
+          "19",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+2.349s",
+          "22"
+        ],
+        [
+          "20",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+2.590s",
+          "19"
+        ],
+        [
+          "21",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+4.665s",
+          "19"
+        ],
+        [
+          "22",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+5.357s",
+          "9"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/3",
+      "fetched_at": "2026-09-25T11:53:11+00:00",
+      "session_start": "2026-09-25T12:30:00+04:00",
+      "retained": false
+    }
+  ],
+  "statuses": [
+    {
+      "label": "Practice 1",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/1"
+    },
+    {
+      "label": "Practice 2",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/2"
+    },
+    {
+      "label": "Practice 3",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/3"
+    }
+  ]
+}

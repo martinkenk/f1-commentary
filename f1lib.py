@@ -426,8 +426,7 @@ def weather_cards(ctx):
 
 
 # --------------------------------------------------------------------------
-# Live session results (Formula1.com). Only sessions that have actually run
-# return a table, so this naturally fills in as the weekend progresses.
+# Official session results (Formula1.com), persisted before deployment.
 # --------------------------------------------------------------------------
 # (label, url-endpoint)
 RESULT_SESSIONS = [
@@ -472,29 +471,11 @@ def _parse_result_table(t):
 
 
 def fetch_results(ctx):
-    """Return ordered list of {label, headers, rows} for sessions that have run."""
+    """Load sourced classifications; legacy uncached builds fetch without writing."""
     if not ctx.get("race_id") or not ctx.get("results_slug"):
         return []
-    out = []
-    for label, ep in RESULT_SESSIONS:
-        url = (f"https://www.formula1.com/en/results/{ctx['year']}/races/"
-               f"{ctx['race_id']}/{ctx['results_slug']}/{ep}")
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=15) as r:
-                if r.status != 200:
-                    continue
-                t = r.read().decode("utf-8", "ignore")
-        except Exception:
-            continue
-        if "No results available" in t:
-            continue
-        parsed = _parse_result_table(t)
-        if not parsed:
-            continue
-        headers, rows = parsed
-        out.append({"label": label, "headers": headers, "rows": rows})
-    return out
+    import session_results
+    return session_results.results(ctx)
 
 
 def _fetch_one_table(ctx, endpoint):
@@ -566,16 +547,25 @@ def _slugify(label):
 
 def render_results(ctx):
     results = ctx.get("results") or []
+    issues = [status for status in ctx.get("results_status", [])
+              if status["state"] != "available"]
+    warning = ""
+    if issues:
+        details = "; ".join(
+            f'{html.escape(status["label"])}: '
+            f'{"last-good classification retained" if status.get("retained") else "official table pending or unavailable"}'
+            for status in issues)
+        warning = (f'<div class="callout watch"><strong>Results source status:</strong> {details}. '
+                   'A missing table does not mean the session has not run.</div>')
     if not results:
         return (
-            '<div class="callout watch"><strong>No sessions have been completed yet.</strong> '
-            "This page fills in automatically — rerun the build after each practice, qualifying "
-            "or the race and the official Formula1.com results will appear here.</div>"
+            warning + '<div class="callout watch"><strong>No official classifications available here yet.</strong> '
+            "Tables appear after the official source publishes and the next results refresh completes.</div>"
         )
     done = ", ".join(b["label"] for b in results)
-    intro = (f'<div class="callout"><strong>Completed so far:</strong> {done}. '
-             "Results are pulled live from Formula1.com at build time — rerun during the "
-             "weekend to refresh as more sessions finish. Pick a session below.</div>")
+    intro = (warning + f'<div class="callout"><strong>Classifications available:</strong> {done}. '
+             "Official Formula1.com snapshots are refreshed before publication. "
+             "Pick a session below; source links and retrieval times accompany each table.</div>")
 
     # Default to the most recent completed session (last in chronological order).
     active_idx = len(results) - 1
@@ -590,10 +580,16 @@ def render_results(ctx):
             f'aria-controls="{sid}" aria-selected="{"true" if is_active else "false"}">'
             f'{b["label"]}</button></li>'
         )
+        provenance = ""
+        if b.get("source_url"):
+            provenance = (f'<p class="src"><a href="{html.escape(b["source_url"], quote=True)}">'
+                          f'Official Formula1.com classification</a> · retrieved '
+                          f'{html.escape(b["fetched_at"])}'
+                          f'{" · last-good snapshot retained after source failure" if b.get("retained") else ""}</p>')
         panes.append(
             f'<div class="tab-pane fade{" show active" if is_active else ""}" id="{sid}" '
             f'role="tabpanel" aria-labelledby="{sid}-tab" tabindex="0">'
-            f'<h2 class="sec">{b["label"]}</h2>{_result_table(b)}</div>'
+            f'<h2 class="sec">{b["label"]}</h2>{provenance}{_result_table(b)}</div>'
         )
 
     return (
@@ -2352,7 +2348,7 @@ def days_to_start(ctx, today=None):
 
 
 def prepare(ctx):
-    """Fetch live weather + results for a GP and attach to its context.
+    """Fetch weather and load official results snapshots into a GP context.
 
     With a full season registered this runs for 20-plus events, so the network
     work is gated on how close the race actually is: there are no results to
@@ -2408,8 +2404,8 @@ def build_all(gps):
             pages["results"] = dict(
                 kicker="Live timing",
                 title="Session Results",
-                sub=("Official Formula1.com results for every completed session — "
-                     f"{done} session(s) in so far."),
+                sub=("Official Formula1.com classifications — "
+                     f"{done} session(s) available."),
                 body=render_results(ctx),
             )
         # auto-inject a Weekend News page if the nav asks and content omits one

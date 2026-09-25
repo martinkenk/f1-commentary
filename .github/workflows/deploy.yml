@@ -1,6 +1,6 @@
 name: Build & deploy to GitHub Pages
 
-# Rebuilds the site (fetching live weather + Formula1.com results at build time),
+# Refreshes official results snapshots, rebuilds the site with live weather,
 # maintains a rollback-able version history, and publishes to GitHub Pages.
 on:
   push:
@@ -197,6 +197,17 @@ jobs:
         continue-on-error: true
         run: python3 backfill_meta.py
 
+      - name: Refresh official session classifications
+        id: session_results
+        continue-on-error: true
+        run: python3 session_results.py
+
+      - name: Report incomplete session classifications
+        if: steps.session_results.outcome == 'failure'
+        run: |
+          echo "::warning::Official session results refresh incomplete. Retaining sourced last-good classifications."
+          echo "## Session results incomplete — inspect session_results.json source statuses" >> "$GITHUB_STEP_SUMMARY"
+
       - name: Persist enrichment data
         # Commit data/ (calendar, news_auto.json, penalties_auto.json, _seen.json)
         # and any newly downloaded track maps back to main so the incremental cache
@@ -220,7 +231,7 @@ jobs:
             echo "No enrichment changes to persist."
           fi
 
-      - name: Build site (fetches live weather + results)
+      - name: Build site (live weather and persisted official results)
         run: python3 build.py
 
       - name: Inventory all GP pages and source assets
