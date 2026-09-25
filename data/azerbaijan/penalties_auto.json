@@ -140,6 +140,20 @@
     "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf"
   },
   {
+    "doc": "Doc 38",
+    "no": "",
+    "driver": "Arvid Lindblad; Sergio Perez; Esteban Ocon; Pierre Gasly; Lewis Hamilton",
+    "team": "",
+    "session": "Free Practice 3",
+    "fact": "The F1 cars passed through a double waved yellow flag marshalling sector.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_double_yellow_flags.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_double_yellow_flags.pdf"
+  },
+  {
     "doc": "Doc 39",
     "no": "55",
     "driver": "Carlos Sainz",
@@ -152,5 +166,75 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_yellow_flags.pdf"
+  },
+  {
+    "doc": "Doc 40",
+    "no": "41",
+    "driver": "Arvid Lindblad",
+    "team": "Visa Cash App Racing Bulls F1 Team",
+    "session": "Free Practice 3",
+    "fact": "Leaving the track without a justifiable reason at turn 15.",
+    "outcome": "Driver: Reprimand (Driving).",
+    "kind": "reprimand",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_car_41_-_leaving_the_track_in_turn_15.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_41_-_leaving_the_track_in_turn_15.pdf"
+  },
+  {
+    "doc": "Doc 46",
+    "no": "",
+    "driver": "Lance Stroll; Lando Norris; Alexander Albon; Sergio Perez; Franco Colapinto; Pierre Gasly; Isack Hadjar; Fernando Alonso; Arvid Lindblad; Esteban Ocon; Carlos Sainz",
+    "team": "",
+    "session": "Qualifying",
+    "fact": "The F1 cars below did not use the track at turns 1, 2, 3, 4, 7, 15 and 16.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 47",
+    "no": "",
+    "driver": "Liam Lawson; Arvid Lindblad; Charles Leclerc; Valtteri Bottas",
+    "team": "",
+    "session": "Qualifying",
+    "fact": "The F1 cars passed through a double waved yellow flag marshalling sector.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf"
+  },
+  {
+    "doc": "Doc 48",
+    "no": "11",
+    "driver": "Sergio Perez",
+    "team": "Cadillac Formula 1 Team",
+    "session": "Qualifying",
+    "fact": "Car 11 was driving at reduced speed on the racing line through Turns 18, 19 and 20",
+    "outcome": "Drop of 3 grid positions for the next Sprint/Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_car_11_-_impeding_car_81.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_11_-_impeding_car_81.pdf"
+  },
+  {
+    "doc": "Doc 49",
+    "no": "55",
+    "driver": "Carlos Sainz",
+    "team": "Atlassian Williams F1 Team",
+    "session": "Qualifying",
+    "fact": "Failure to slow for yellow flags",
+    "outcome": "Drop of 5 grid positions for the next Sprint/Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_azerbaijan_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf"
   }
 ]
