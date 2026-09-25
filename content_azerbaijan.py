@@ -46,6 +46,9 @@ FIA_SC_NOTE_URL = FIA_ROOT + "race_director_notes_-_sc2_-_sc1_times.pdf"
 FIA_LAWSON_SUMMONS_URL = FIA_ROOT + "summons_-_car_30_-_alleged_impeding_by_car_44.pdf"
 FIA_HAMILTON_SUMMONS_URL = FIA_ROOT + "summons_-_car_44_-_alleged_impeding_of_car_30.pdf"
 FIA_HAMILTON_IMPEDING_RULING_URL = FIA_ROOT + "infringement_-_car_44_-_impeding_car_30.pdf"
+FIA_ALONSO_FP3_PENALTY_URL = FIA_ROOT + "infringement_-_car_14_-_pu_element.pdf"
+FIA_ALONSO_FP3_TD_URL = FIA_ROOT + "new_pu_elements_for_this_competition_0.pdf"
+FIA_FP3_CLASSIFICATION_URL = FIA_ROOT + "free_practice_3_classification.pdf"
 F1_ROOT = "https://www.formula1.com/en/latest/article/"
 LINEUP_URL = F1_ROOT + "its-good-to-come-back-to-the-fight-hadjar-opens-up-on-new-contract-and-return-to-racing.6NzCNMkA6szXJuzSDLcx4g"
 WILLIAMS_URL = F1_ROOT + "why-sainz-and-albon-remain-cautious-on-long-awaited-williams-upgrade-package.4dgoSwY5UbscNhWXSeMvnI"
@@ -56,6 +59,10 @@ TECH_URL = "https://www.the-race.com/formula-1/six-f1-tech-talking-points-at-the
 PENALTY_ARTICLE_URL = F1_ROOT + (
     "alonso-and-stroll-set-for-grid-penalties-at-azerbaijan-gp-after-taking-new-"
     "engine-components.2uOl7HZHamxmaUqjOxejAF"
+)
+FP3_ARTICLE_URL = F1_ROOT + (
+    "fp3-verstappen-beats-russell-and-hamilton-in-final-practice-for-azerbaijan-gp"
+    ".4BuODmX7lLpgRKnIK4oMXg"
 )
 
 
@@ -209,6 +216,20 @@ own documents.</p>
 {source(FIA_ALONSO_PENALTY_URL, "FIA Document 20, Infringement — Car 14 — PU Elements, 24 September 2026")}
 {source(FIA_STROLL_PENALTY_URL, "FIA Document 21, Infringement — Car 18 — PU Elements, 24 September 2026")}
 {source(PENALTY_ARTICLE_URL, "Formula1.com — Alonso and Stroll set for grid penalties, 24 September 2026")}
+
+{content_generic.card("Update, FP3: Alonso takes a fourth exceeded element",
+    "<p>The Technical Delegate's <strong>Document 33 (25 September, 12:43)</strong> reports "
+    "Alonso's Aston Martin fitted a new energy store unit during FP3 — his <strong>7th of the "
+    "3 allowed</strong> for the season, one more element over allocation than Document 14 had "
+    "confirmed. The Stewards' <strong>Document 34</strong> imposes a further "
+    "<strong>5-place grid drop</strong> for this fourth exceeded element, on top of the "
+    "already-confirmed Document 20 penalty. <strong>Alonso's cumulative grid penalty for this "
+    "event is now 30 places</strong> (25 + 5), still subject to Article B2.5.4b.iv grid "
+    "allocation if the car is classified in Qualifying. Bottas's new exhaust set, also logged in "
+    "Document 33, remains within his season allocation.</p>",
+    "bi-exclamation-triangle", "accent")}
+{source(FIA_ALONSO_FP3_TD_URL + "#page=2", "FIA Document 33, Technical Delegate's Report, PDF page 2, 25 September 2026")}
+{source(FIA_ALONSO_FP3_PENALTY_URL, "FIA Document 34, Infringement — Car 14 — PU Element, 25 September 2026")}
 """
 
 
@@ -524,19 +545,20 @@ Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Fac
         + source(TECH_URL, "The Race technical preview"), "bi-tools"
     ) + pages["reliability"]["body"]
     brief = f"""
-<div class="callout"><strong>24 September post-FP2 update:</strong> standard
-Thursday–Saturday weekend, not a Sprint. FP1 and FP2 completed (Russell fastest
-in both); FP3/qualifying Friday; race Saturday 26 September at
+<div class="callout"><strong>25 September post-FP3 update:</strong> standard
+Thursday–Saturday weekend, not a Sprint. FP1, FP2 and FP3 completed; qualifying
+follows later Friday; race Saturday 26 September at
 <strong>15:00 Baku / 14:00 Tallinn</strong>. See <a href="results.html">Results</a>
-for both classifications and <a href="penalties.html">Penalties</a> for the
-confirmed Alonso/Stroll grid penalties and Hamilton's Turn 19 reprimand (Doc 29).</div>
+for all three classifications and <a href="penalties.html">Penalties</a> for
+Alonso's now-30-place cumulative grid penalty and Hamilton's Turn 19 reprimand (Doc 29).</div>
 {content_generic.card("The verified essentials",
     content_generic.ul([
         "Hadjar returns to Red Bull; Lawson returns to Racing Bulls; Tsunoda reverts to reserve. Hadjar expects some wrist pain and has renewed for 2027.",
         "C3 Hard / C4 Medium / C5 Soft; mandatory race tyres are C3/C4. Slick/intermediate maximum heating 70°C; wet 40°C, all for no more than two hours.",
         "Two Straight Mode zones, but one Overtake detection/activation pair. Low-grip A1 starts after T20, later than normal A1 after T19.",
         "Recharge: race 8.5/9.0 MJ with Overtake off/on; qualifying 8.5 MJ, FP/outlaps 9.0 MJ. L21 activation remains 4,270 m (TBC).",
-        "FP1: Russell fastest (1:45.387) from Verstappen and Leclerc; FP2: Russell again fastest (1:43.347) from Antonelli and Verstappen. The Stewards have now confirmed Alonso's 25-place and Stroll's 20-place grid-penalty rulings (Docs 20/21) for exceeding their season PU-element allocation.",
+        "FP1: Russell fastest (1:45.387) from Verstappen and Leclerc; FP2: Russell again fastest (1:43.347) from Antonelli and Verstappen; FP3: Verstappen fastest (1:43.922) from Russell and Hamilton, one tenth clear.",
+        "Alonso's cumulative grid penalty for this event is now <strong>30 places</strong>: the confirmed 25-place Document 20 ruling plus a further 5 places (Document 34) for a fourth exceeded PU element found during FP3. Stroll's 20-place Document 21 penalty is unchanged.",
         "Six of eleven teams (McLaren, Red Bull, Williams, Racing Bulls, Audi, Cadillac) filed FIA car-presentation updates \u2014 Williams' package confirms the reported FW48 floor work. Car display was Thursday 11:00–12:00 Baku.",
         "SC2–SC1 maximum time confirmed post-FP2 (Doc 27): 2:08.0 between the Safety Car lines.",
         "The Turn 19 FP2 impeding incident is resolved: Document 29 gives Hamilton (Car 44) a driving reprimand for impeding Lawson's Car 30; no separate ruling was published against Lawson's own summons.",
@@ -568,7 +590,7 @@ that the race runs for two hours.</p>
 """
     pages["penalties"] = dict(
         kicker="Stewards & race control", title="Penalties & Decisions",
-        sub="Alonso (25-place) and Stroll (20-place) grid penalties confirmed; Bottas cleared over a yellow-flag pass; Hamilton reprimanded, Lawson's counterpart summons unresolved by any published document.",
+        sub="Alonso's cumulative grid penalty is now 30 places (Docs 20+34) and Stroll's remains 20 (Doc 21); Bottas cleared over a yellow-flag pass; Hamilton reprimanded, Lawson's counterpart summons unresolved by any published document.",
         body=f1lib.render_penalties(
             ctx,
             decisions=[
@@ -592,12 +614,15 @@ that the race runs for two hours.</p>
                      kind="note", source_url=FIA_LAWSON_SUMMONS_URL),
             ],
             intro_html=f"""
-<div class="callout accent"><strong>Alonso and Stroll's grid penalties are now confirmed by the Stewards themselves.</strong>
-Document 20 drops <strong>Alonso 25 grid places</strong> and Document 21 drops
+<div class="callout accent"><strong>Alonso and Stroll's grid penalties are confirmed by the Stewards themselves, and Alonso's has grown.</strong>
+Document 20 dropped <strong>Alonso 25 grid places</strong> and Document 21 drops
 <strong>Stroll 20 grid places</strong>, both "for the next Race in which the driver
 participates" and both matching the cumulative arithmetic reported before the
 rulings — see <a href="powerunit.html">Power Unit &amp; Overtake</a> for the
-component-by-component breakdown. Separately, <strong>Bottas's yellow-flag summons
+component-by-component breakdown. A fourth exceeded PU element found during FP3
+(a new energy store unit) brought <strong>Document 34</strong>, a further
+<strong>5-place drop</strong>: <strong>Alonso's cumulative grid penalty for this
+event is now 30 places.</strong> Separately, <strong>Bottas's yellow-flag summons
 (Document 15) has been resolved with no penalty</strong> (Document 19): the
 Stewards found the overtake could not reasonably have been avoided once the flag
 was shown. <strong>The Turn 19 impeding incident is now also resolved: Document 29
@@ -614,16 +639,18 @@ Danil Solomin. Race Director and Safety Delegate Rui Marques; Technical Delegate
 Jo Bauer; Sporting Delegate Tim Malyon; Deputy Race Director Paul Burns.
 The visa names the officials; it is not an infringement decision.</p>
 {source(FIA_VISA_URL + "#page=4", "FIA Competition Visa V2, Appendix B3, PDF pages 4–5")}
-<p>The FIA documents hub has grown to 28 decision documents, adding the FP2
+<p>The FIA documents hub has grown to 34 decision documents after FP3, adding
+the FP3 classification, Alonso's fourth exceeded-element report (Document 33)
+and its follow-up 5-place grid-penalty ruling (Document 34), on top of the FP2
 classification and its two lap-time-deletion notes, the SC2/SC1 maximum-time
 note, the confirmed Alonso/Stroll grid-penalty rulings, the Bottas no-penalty
 ruling, the FP1/FP2 scrutineering report, the Hamilton/Lawson impeding summonses
-and, most recently, <strong>Document 29</strong> — the Stewards' own ruling on
-the Turn 19 incident, a driving reprimand for Hamilton (Car 44) — alongside the
-18 documents known after FP1. The automatic decision tracker above logs each
-numbered ruling as it is issued; revised notes and later decisions continue to
-supersede this snapshot as the weekend progresses.</p>
+and <strong>Document 29</strong> — the Stewards' own ruling on the Turn 19
+incident, a driving reprimand for Hamilton (Car 44). The automatic decision
+tracker above logs each numbered ruling as it is issued; revised notes and
+later decisions continue to supersede this snapshot as the weekend progresses.</p>
 {source(FIA_HAMILTON_IMPEDING_RULING_URL, "FIA Document 29, Infringement — Car 44 — Impeding Car 30, 24 September 2026")}
+{source(FIA_ALONSO_FP3_PENALTY_URL, "FIA Document 34, Infringement — Car 14 — PU Element, 25 September 2026")}
 <p>Document 2 clears the inspected front-suspension items on Russell's Madrid
 car; it is a compliance report, not a Baku sanction.
 See <a href="reliability.html">Reliability</a> for its scope and
