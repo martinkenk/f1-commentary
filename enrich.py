@@ -521,11 +521,7 @@ def relevant(article, ctx):
     )
     if target and not any(k in headline for k in target) and other_in_headline:
         return False
-    other_in_body = any(
-        other != ctx.get("dir")
-        and any(k in article.get("body", "").lower() for k in markers)
-        for other, markers in _EVENT_MARKERS.items()
-    )
+    other_in_body = _competing_event_in_body(ctx, article.get("body", ""))
     if target and not any(k in headline for k in target) and other_in_body:
         return False
     if target and not any(k in hay for k in target):
@@ -541,10 +537,21 @@ def relevant(article, ctx):
         body = _f1_body_cached(article["url"])
         if body:
             article["body"] = body          # reused by summarise_article
+            if target and not any(k in headline for k in target):
+                if _competing_event_in_body(ctx, body):
+                    return False
             if any(k in body.lower() for k in ctx["keywords"]):
                 _upgrade_f1_meta(article)
                 return True
     return False
+
+
+def _competing_event_in_body(ctx, body):
+    text = body.lower()
+    return any(
+        other != ctx.get("dir") and any(k in text for k in markers)
+        for other, markers in _EVENT_MARKERS.items()
+    )
 
 
 def _upgrade_f1_meta(article):
