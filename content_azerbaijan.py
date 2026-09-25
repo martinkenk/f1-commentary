@@ -56,6 +56,7 @@ OCON_URL = F1_ROOT + "definitely-a-free-agent-for-next-year-ocon-gives-update-on
 FORM_URL = F1_ROOT + "need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-azerbaijan-grand-prix.3PkKCxoeboOkSc18pCB2z"
 MOMENTS_URL = F1_ROOT + "f1s-wildest-azerbaijan-moments-from-10-years-of-racing-in-baku.4hKjzE3m20ov49AE4kSf0F"
 TECH_URL = "https://www.the-race.com/formula-1/six-f1-tech-talking-points-at-the-azerbaijan-gp/"
+AUDI_UPGRADE_URL = "https://www.the-race.com/formula-1/gary-anderson-audi-baku-f1-upgrade/"
 PENALTY_ARTICLE_URL = F1_ROOT + (
     "alonso-and-stroll-set-for-grid-penalties-at-azerbaijan-gp-after-taking-new-"
     "engine-components.2uOl7HZHamxmaUqjOxejAF"
@@ -242,7 +243,7 @@ def team_briefing():
         ("Racing Bulls", "Liam Lawson / Arvid Lindblad", "Lawson returns from his Red Bull stand-in spell; Tsunoda goes back to reserve. Keep Lawson–Lindblad comparisons separate from the replacement pairings.", F1_ROOT + "hadjar-to-make-racing-return-with-red-bull-at-azerbaijan-gp.1ddPnUSDEze0V9MCiQ9d2U"),
         ("Alpine", "Pierre Gasly / Franco Colapinto", "Madrid narrowed the fight with Racing Bulls for fifth. Follow whether that midfield momentum transfers to Baku rather than extrapolating from the different Madrid layout.", FORM_URL),
         ("Haas", "Esteban Ocon / Oliver Bearman", "Ocon says he is a free agent for 2027 with discussions continuing. Bearman expects to stay, but neither statement is a completed contract announcement; the team seeks an end to its points drought.", OCON_URL),
-        ("Audi", "Nico Hulkenberg / Gabriel Bortoleto", "Hulkenberg's Madrid point kept the chase of Haas alive. Practice should show whether Baku's braking/traction mix helps; there is no verified event upgrade declaration yet.", FORM_URL),
+        ("Audi", "Nico Hulkenberg / Gabriel Bortoleto", "Hulkenberg's Madrid point kept the chase of Haas alive. FIA Document 11 lists 14 Audi component entries for Baku, including a new front wing and nose, floor/diffuser and rear-wing package. Gary Anderson's airflow analysis is an interpretation, not a measured performance gain.", FORM_URL),
         ("Williams", "Carlos Sainz / Alex Albon", "A lighter chassis and delayed FW48 package arrive. Weight reduction is the main target, with smaller balance changes; both drivers caution against treating simulated gains as delivered lap time.", WILLIAMS_URL),
         ("Aston Martin", "Fernando Alonso / Lance Stroll", "The Race reports lighter components rather than another Budapest-scale overhaul. Parts unchanged in appearance may not appear in the aerodynamic submission list.", TECH_URL),
         ("Cadillac", "Valtteri Bottas / Sergio Perez", "Perez is reported to receive the newer Ferrari engine first, alongside small aerodynamic changes. Establish installation and reliability in practice; do not assign Bottas the same specification without evidence.", TECH_URL),
@@ -265,9 +266,20 @@ def team_briefing():
             'The preview notes below are retained as background; completed-session '
             'results and penalties take precedence.</p>'
             + qualifying
-            + "".join(content_generic.card(team + " — " + drivers,
-                                           f"<p>{text}</p>" + source(url, "23 September preview / driver reporting"),
-                                           "bi-people") for team, drivers, text, url in rows))
+            + "".join(
+                content_generic.card(
+                    team + " — " + drivers,
+                    f"<p>{text}</p>"
+                    + source(url, "23 September preview / driver reporting")
+                    + (source(FIA_CAR_PRESENTATION_URL,
+                              "FIA Document 11, 24 September 2026")
+                       + source(AUDI_UPGRADE_URL,
+                                "Gary Anderson, The Race, 25 September 2026")
+                       if team == "Audi" else ""),
+                    "bi-people",
+                )
+                for team, drivers, text, url in rows
+            ))
 
 
 def build_pages(ctx, env):
@@ -508,7 +520,7 @@ Aston Martin, Haas and Alpine submitted no updates</strong> for Baku; the follow
         "New front-wing assembly for a cleaner flow field feeding the rest of the car.",
         "New brake duct and front lip, plus profile changes to the front-suspension legs.",
     ]), "bi-tools")}
-{content_generic.card("Audi — full new front wing, floor and rear-wing package (7+ components)",
+{content_generic.card("Audi — full new front wing, floor and rear-wing package (14 listed components)",
     content_generic.ul([
         "Full new front wing and nose fairing, with revised front-suspension covers to match.",
         "New floor body, leading-edge devices and diffuser \u2014 all new surfaces for a consistent load increase.",
@@ -522,6 +534,13 @@ Aston Martin, Haas and Alpine submitted no updates</strong> for Baku; the follow
 </div>
 {source(FIA_CAR_PRESENTATION_URL, "FIA Document 11, Car Presentation Submissions, 24 September 2026")}
 <h2 class="sec">Published development reporting, cross-checked against the filing</h2>
+{content_generic.card("Audi's Baku package: Gary Anderson's technical analysis",
+    "<p>The Race's 25 September visual analysis describes changes across the front wing, "
+    "sidepods and cooling outlets, floor/diffuser, suspension and rear wing. Its expected "
+    "airflow effects are technical interpretation, not measured lap-time gains or an "
+    "official team performance claim.</p>"
+    + source(AUDI_UPGRADE_URL, "Gary Anderson, The Race, 25 September 2026"),
+    "bi-tools")}
 {content_generic.card("Williams: lighter FW48 chassis and balance work",
     "<p>The delayed Baku package centres on weight reduction with smaller changes intended to help balance. "
     "Albon and Sainz both caution that a paper or simulator gain is not automatically delivered on track. "

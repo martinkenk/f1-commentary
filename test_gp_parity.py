@@ -209,6 +209,11 @@ class AzerbaijanParityTests(unittest.TestCase):
         self.assertIn("Car Presentation Submissions", self.pages["upgrades"]["body"])
         self.assertIn("Mercedes, Ferrari,\nAston Martin, Haas and Alpine submitted no updates",
                       self.pages["upgrades"]["body"])
+        self.assertIn("FIA Document 11 lists 14 Audi component entries", body)
+        self.assertNotIn("no verified event upgrade declaration yet", body)
+        self.assertIn("(14 listed components)", self.pages["upgrades"]["body"])
+        self.assertIn(content_azerbaijan.AUDI_UPGRADE_URL,
+                      self.pages["upgrades"]["body"])
         self.assertIn("Arvid Lindblad", self.pages["rookies"]["body"])
         self.assertIn("painful", body)
 
