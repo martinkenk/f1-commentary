@@ -643,6 +643,18 @@ confirm all five F1 session starts in the table. Saturday's listed 15:00 start
 is the formation-lap start; its 17:00 finish is approximate, not a promise
 that the race runs for two hours.</p>
 {source(FIA_VISA_URL + "#page=7", "FIA visa timetable, PDF pages 7–9")}
+<p><strong>Parc fermé cover-on note (Document 44):</strong> the Race Director's
+25 September, 17:23 note reminds all teams that every qualifying car must be
+covered and ready for FIA seals by 19:04, under Article B3.4.3a. This is a
+routine procedural reminder, not a new sporting decision.</p>
+{source(FIA_ROOT + "covers-on_time.pdf", "FIA Document 44, Note to Teams, 25 September 2026")}
+<p><strong>Curfew exceptions (Document 32):</strong> the Technical Delegate's
+25 September report notes Ferrari used its second of four permitted curfew
+exceptions (overnight personnel in the paddock, 24–25 September) and Racing
+Bulls/Cadillac each used their third of four; no action was required in either
+case. This is a routine compliance record, not a Baku-specific reliability or
+sporting concern.</p>
+{source(FIA_ROOT + "curfew_amended.pdf", "FIA Document 32, Technical Delegate's Report, 25 September 2026")}
 """
     pages["penalties"] = dict(
         kicker="Stewards & race control", title="Penalties & Decisions",
