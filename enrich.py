@@ -509,18 +509,24 @@ def relevant(article, ctx):
     # team-review pieces routinely bury the GP reference in the text, and those
     # are exactly the ones a commentator wants.
     headline = " ".join((article.get("title", ""), article.get("url", ""))).lower()
-    target = _EVENT_MARKERS.get(ctx.get("dir", ""), set())
-    if target and not any(k in headline for k in target):
-        if any(
-            other != ctx.get("dir") and any(k in headline for k in markers)
-            for other, markers in _EVENT_MARKERS.items()
-        ):
-            return False
     hay = " ".join((
         article.get("title", ""),
         article.get("url", ""),
         article.get("body", ""),
     )).lower()
+    target = _EVENT_MARKERS.get(ctx.get("dir", ""), set())
+    other_in_headline = any(
+        other != ctx.get("dir") and any(k in headline for k in markers)
+        for other, markers in _EVENT_MARKERS.items()
+    )
+    if target and not any(k in headline for k in target) and other_in_headline:
+        return False
+    if target and not any(k in hay for k in target):
+        if any(
+            other != ctx.get("dir") and any(k in hay for k in markers)
+            for other, markers in _EVENT_MARKERS.items()
+        ):
+            return False
     if any(k in hay for k in ctx["keywords"]):
         _upgrade_f1_meta(article)
         return True

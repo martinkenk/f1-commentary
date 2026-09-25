@@ -85,6 +85,18 @@ class EnrichmentTests(unittest.TestCase):
         }
         self.assertTrue(enrich.relevant(article, spain))
 
+    def test_relevant_rejects_other_event_only_in_body(self):
+        spain = {
+            "dir": "spain",
+            "keywords": {"spain", "spanish", "madrid", "madring"},
+        }
+        article = {
+            "title": "Contrasting fortunes in practice",
+            "url": "https://www.formula1.com/en/latest/article/practice-report",
+            "body": "It was an eventful Thursday in Azerbaijan and Baku.",
+        }
+        self.assertFalse(enrich.relevant(article, spain))
+
     def test_discovery_retains_all_documents_but_penalties_are_filtered(self):
         docs = [PU, MAP, DECISION,
                 document("2026_car_presentation_submissions.pdf"),
