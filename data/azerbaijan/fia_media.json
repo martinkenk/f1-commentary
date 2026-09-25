@@ -1,7 +1,27 @@
 {
-  "checked_at": "2026-09-25T10:41:24+00:00",
-  "discovery_retrieved_at": "2026-09-25T10:21:57.285536+00:00",
+  "checked_at": "2026-09-25T10:53:59+00:00",
+  "discovery_retrieved_at": "2026-09-25T10:53:48.973284+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "filename": "2026_azerbaijan_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "c178c90333547c27c84e65a77440c9a8ca195896ed130e31a533fc3af7cf9f44",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-azerbaijan-8e39ac06ce31-c178c90333547c27-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-azerbaijan-8e39ac06ce31-c178c90333547c27-p3.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_element.pdf",
       "filename": "2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_element.pdf",
@@ -9,7 +29,7 @@
         "penalties"
       ],
       "sha256": "5165055da20d1cfa42c592b117709dd6a5e4cc5755a8be9c05a0811a50d9b6bd",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 1,
@@ -25,7 +45,7 @@
         "powerunit"
       ],
       "sha256": "bd92551b7a87360c4ba93361f952946ed9a5a475047023a18c60504416c5ebea",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -41,7 +61,7 @@
         "penalties"
       ],
       "sha256": "5ccb0132ba4b23647e0f86edfcf314db40d84f50fe060b7e07d22316b1b1b69d",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 1,
@@ -61,7 +81,7 @@
         "circuit"
       ],
       "sha256": "8186203a44e31f19d5524434fe5c2381fe7cfdc7ab679f9c8352f9089c8d558f",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 1,
@@ -77,7 +97,7 @@
         "penalties"
       ],
       "sha256": "cafa0e92e2413c5aa6624719a4a47850ce6af0ddf455866054d498955f0a2a9b",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -93,7 +113,7 @@
         "penalties"
       ],
       "sha256": "88a3f77b7a660914ac66e201ef72e55306024ec3d4d1d199daa66d832f4c04e0",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -113,7 +133,7 @@
         "penalties"
       ],
       "sha256": "021714006d318fcca569b0e265ef2934364df9511dc6f0da7bf0baf8aff6fd5a",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 1,
@@ -133,7 +153,7 @@
         "penalties"
       ],
       "sha256": "1f4028980c0289b5b605b1222b31e088607c37fbbdca255d3486f81306deaa23",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 1,
@@ -153,7 +173,7 @@
         "penalties"
       ],
       "sha256": "2bfa39f7c6d0f4e9d38f92f33911e024875668818622c398189ed0d8914aa00d",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 1,
@@ -173,7 +193,7 @@
         "penalties"
       ],
       "sha256": "eede71328526e4df46a12ee6226edf88559a6580a8af1932aa228d16a97fb82f",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -189,7 +209,7 @@
         "penalties"
       ],
       "sha256": "1aa08369e045ec0ca32bd5f5c3b11a28e4301719aca8455bfa0d156176e8237b",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -209,7 +229,7 @@
         "powerunit"
       ],
       "sha256": "d40730f12c24793a317621a261031bfc5c348c91269a797858e9ec1258dd6a6b",
-      "fetched_at": "2026-09-25T10:41:24+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -233,7 +253,7 @@
         "circuit"
       ],
       "sha256": "6f15a45a308ba9d1f0e9e5e6fc562bdf92b64c54a93b9055c94ab3cc0c791f19",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -273,7 +293,7 @@
         "upgrades"
       ],
       "sha256": "1616de8a9a2118873ff2146d08df6a98479e777d4012aa430a40766e563699b2",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -361,7 +381,7 @@
         "powerunit"
       ],
       "sha256": "8ffe04de639692e635f968a9ffa728c3107b0727af35c63fa05e9901c93d4fbd",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -377,7 +397,7 @@
         "circuit"
       ],
       "sha256": "34506576427627d59c2d09612fe4d83bf8b05ae18eeb9705053d39c4a7bb2e33",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -405,7 +425,7 @@
         "circuit"
       ],
       "sha256": "a2c3873f4f26055531df40f5406953d36001ab539443d0cd14abc21c365ae703",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -445,7 +465,7 @@
         "powerunit"
       ],
       "sha256": "90023e0575a7e570a554f49baf31a95b0dca01e63da65c212afafb5bf5399836",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -461,7 +481,7 @@
         "upgrades"
       ],
       "sha256": "748dc31c5a759bf8f39409d5d7aa508c2969926576f22ca9b08d094afcb546e7",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -477,7 +497,7 @@
         "tyres"
       ],
       "sha256": "be2a9031410066a58874574a31dec945293754a5863820d1770c2de54d859549",
-      "fetched_at": "2026-09-25T10:22:06+00:00",
+      "fetched_at": "2026-09-25T10:53:59+00:00",
       "pages": [
         {
           "page": 2,
@@ -489,80 +509,8 @@
   ],
   "errors": [
     {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_element.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_new_pu_elements_for_this_competition_0.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_44_-_impeding_car_30.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times_-_double_yellow_flags.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_18_-_pu_elements.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_elements.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_77_-_overtaking_under_yellow_flags.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow_flags.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_race_directors_competition_notes_v2.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_car_presentation_submissions.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_race_directors_competition_notes.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_power_unit_information.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_car_display_procedure.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
-      "error": "HTTP Error 403: Forbidden"
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_double_yellow_flags.pdf",
+      "error": "HTTP Error 502: Bad Gateway"
     }
   ]
 }
