@@ -1,0 +1,1316 @@
+{
+  "event": {
+    "year": "2026",
+    "race_id": "1292",
+    "results_slug": "netherlands",
+    "gp": "netherlands"
+  },
+  "checked_at": "2026-09-25T11:58:06+00:00",
+  "sessions": [
+    {
+      "label": "Practice 1",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "1:12.949",
+          "36"
+        ],
+        [
+          "2",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "+0.121s",
+          "30"
+        ],
+        [
+          "3",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "+0.125s",
+          "37"
+        ],
+        [
+          "4",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+0.190s",
+          "34"
+        ],
+        [
+          "5",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "+0.289s",
+          "39"
+        ],
+        [
+          "6",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+0.659s",
+          "35"
+        ],
+        [
+          "7",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+0.835s",
+          "34"
+        ],
+        [
+          "8",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+0.962s",
+          "28"
+        ],
+        [
+          "9",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+1.043s",
+          "29"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+1.336s",
+          "37"
+        ],
+        [
+          "11",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "+1.376s",
+          "25"
+        ],
+        [
+          "12",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+1.562s",
+          "25"
+        ],
+        [
+          "13",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+1.877s",
+          "31"
+        ],
+        [
+          "14",
+          "30",
+          "Liam Lawson LAW",
+          "Red Bull Racing",
+          "+1.912s",
+          "30"
+        ],
+        [
+          "15",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+1.925s",
+          "32"
+        ],
+        [
+          "16",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "+1.948s",
+          "31"
+        ],
+        [
+          "17",
+          "22",
+          "Yuki Tsunoda TSU",
+          "Racing Bulls",
+          "+2.161s",
+          "35"
+        ],
+        [
+          "18",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+2.250s",
+          "24"
+        ],
+        [
+          "19",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+2.408s",
+          "33"
+        ],
+        [
+          "20",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+2.631s",
+          "28"
+        ],
+        [
+          "21",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "+2.751s",
+          "28"
+        ],
+        [
+          "22",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+3.396s",
+          "32"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/practice/1",
+      "fetched_at": "2026-09-25T11:58:06+00:00",
+      "session_start": "2026-08-21T12:30:00+02:00",
+      "retained": false
+    },
+    {
+      "label": "Sprint Qualifying",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Q1",
+        "Q2",
+        "Q3",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:13.278",
+          "1:12.235",
+          "1:11.567",
+          "17"
+        ],
+        [
+          "2",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "1:13.071",
+          "1:12.189",
+          "1:11.608",
+          "15"
+        ],
+        [
+          "3",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "1:13.011",
+          "1:12.190",
+          "1:11.622",
+          "16"
+        ],
+        [
+          "4",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "1:13.126",
+          "1:12.026",
+          "1:11.666",
+          "15"
+        ],
+        [
+          "5",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "1:13.668",
+          "1:12.511",
+          "1:11.794",
+          "15"
+        ],
+        [
+          "6",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "1:13.585",
+          "1:12.771",
+          "1:12.094",
+          "15"
+        ],
+        [
+          "7",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "1:13.151",
+          "1:12.445",
+          "1:12.191",
+          "15"
+        ],
+        [
+          "8",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "1:13.977",
+          "1:12.720",
+          "1:12.578",
+          "12"
+        ],
+        [
+          "9",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "1:13.730",
+          "1:12.786",
+          "1:12.583",
+          "12"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "1:14.057",
+          "1:12.785",
+          "1:12.737",
+          "15"
+        ],
+        [
+          "11",
+          "30",
+          "Liam Lawson LAW",
+          "Red Bull Racing",
+          "1:13.420",
+          "1:13.136",
+          "",
+          "13"
+        ],
+        [
+          "12",
+          "22",
+          "Yuki Tsunoda TSU",
+          "Racing Bulls",
+          "1:14.490",
+          "1:13.145",
+          "",
+          "11"
+        ],
+        [
+          "13",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "1:14.618",
+          "1:13.439",
+          "",
+          "9"
+        ],
+        [
+          "14",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "1:14.284",
+          "1:13.616",
+          "",
+          "13"
+        ],
+        [
+          "15",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "1:14.503",
+          "1:13.893",
+          "",
+          "12"
+        ],
+        [
+          "16",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "1:14.596",
+          "1:14.294",
+          "",
+          "12"
+        ],
+        [
+          "17",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "1:14.728",
+          "",
+          "",
+          "6"
+        ],
+        [
+          "18",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "1:14.738",
+          "",
+          "",
+          "7"
+        ],
+        [
+          "19",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "1:15.391",
+          "",
+          "",
+          "5"
+        ],
+        [
+          "20",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "1:15.472",
+          "",
+          "",
+          "7"
+        ],
+        [
+          "21",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "1:15.545",
+          "",
+          "",
+          "7"
+        ],
+        [
+          "22",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "1:16.014",
+          "",
+          "",
+          "5"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/sprint-qualifying",
+      "fetched_at": "2026-09-25T11:58:06+00:00",
+      "session_start": "2026-08-21T16:30:00+02:00",
+      "retained": false
+    },
+    {
+      "label": "Sprint",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Laps",
+        "Time / Retired",
+        "Pts."
+      ],
+      "rows": [
+        [
+          "1",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "24",
+          "30:25.318",
+          "8"
+        ],
+        [
+          "2",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "24",
+          "+1.360s",
+          "7"
+        ],
+        [
+          "3",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "24",
+          "+5.196s",
+          "6"
+        ],
+        [
+          "4",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "24",
+          "+5.581s",
+          "5"
+        ],
+        [
+          "5",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "24",
+          "+10.185s",
+          "4"
+        ],
+        [
+          "6",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "24",
+          "+10.529s",
+          "3"
+        ],
+        [
+          "7",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "24",
+          "+12.188s",
+          "2"
+        ],
+        [
+          "8",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "24",
+          "+42.510s",
+          "1"
+        ],
+        [
+          "9",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "24",
+          "+44.437s",
+          "0"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "24",
+          "+44.971s",
+          "0"
+        ],
+        [
+          "11",
+          "30",
+          "Liam Lawson LAW",
+          "Red Bull Racing",
+          "24",
+          "+47.471s",
+          "0"
+        ],
+        [
+          "12",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "24",
+          "+54.466s",
+          "0"
+        ],
+        [
+          "13",
+          "22",
+          "Yuki Tsunoda TSU",
+          "Racing Bulls",
+          "24",
+          "+56.483s",
+          "0"
+        ],
+        [
+          "14",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "24",
+          "+66.098s",
+          "0"
+        ],
+        [
+          "15",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "24",
+          "+66.588s",
+          "0"
+        ],
+        [
+          "16",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "24",
+          "+74.632s",
+          "0"
+        ],
+        [
+          "17",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "24",
+          "+74.650s",
+          "0"
+        ],
+        [
+          "18",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "24",
+          "+75.284s",
+          "0"
+        ],
+        [
+          "19",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "23",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "20",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "23",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "21",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "21",
+          "+3 laps",
+          "0"
+        ],
+        [
+          "NC",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "7",
+          "+17 laps",
+          "0"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/sprint-results",
+      "fetched_at": "2026-09-25T11:58:06+00:00",
+      "session_start": "2026-08-22T12:00:00+02:00",
+      "retained": false
+    },
+    {
+      "label": "Qualifying",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Q1",
+        "Q2",
+        "Q3",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "1:12.695",
+          "1:11.628",
+          "1:11.163",
+          "21"
+        ],
+        [
+          "2",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:12.924",
+          "1:11.959",
+          "1:11.265",
+          "20"
+        ],
+        [
+          "3",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "1:13.022",
+          "1:11.915",
+          "1:11.296",
+          "21"
+        ],
+        [
+          "4",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "1:12.610",
+          "1:11.641",
+          "1:11.305",
+          "21"
+        ],
+        [
+          "5",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "1:12.673",
+          "1:11.970",
+          "1:11.494",
+          "25"
+        ],
+        [
+          "6",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "1:13.064",
+          "1:11.910",
+          "1:11.558",
+          "23"
+        ],
+        [
+          "7",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "1:13.290",
+          "1:11.874",
+          "1:11.618",
+          "22"
+        ],
+        [
+          "8",
+          "30",
+          "Liam Lawson LAW",
+          "Red Bull Racing",
+          "1:13.392",
+          "1:12.301",
+          "1:11.733",
+          "25"
+        ],
+        [
+          "9",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "1:13.142",
+          "1:12.433",
+          "1:12.079",
+          "22"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "1:13.074",
+          "1:12.525",
+          "1:12.185",
+          "22"
+        ],
+        [
+          "11",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "1:13.115",
+          "1:12.616",
+          "",
+          "14"
+        ],
+        [
+          "12",
+          "22",
+          "Yuki Tsunoda TSU",
+          "Racing Bulls",
+          "1:13.085",
+          "1:12.627",
+          "",
+          "15"
+        ],
+        [
+          "13",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "1:13.188",
+          "1:12.797",
+          "",
+          "19"
+        ],
+        [
+          "14",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "1:13.322",
+          "1:12.800",
+          "",
+          "13"
+        ],
+        [
+          "15",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "1:13.544",
+          "1:13.137",
+          "",
+          "17"
+        ],
+        [
+          "16",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "1:13.552",
+          "1:13.182",
+          "",
+          "16"
+        ],
+        [
+          "17",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "1:13.574",
+          "",
+          "",
+          "10"
+        ],
+        [
+          "18",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "1:13.650",
+          "",
+          "",
+          "10"
+        ],
+        [
+          "19",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "1:13.818",
+          "",
+          "",
+          "10"
+        ],
+        [
+          "20",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "1:13.826",
+          "",
+          "",
+          "11"
+        ],
+        [
+          "21",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "1:14.371",
+          "",
+          "",
+          "10"
+        ],
+        [
+          "22",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "1:14.600",
+          "",
+          "",
+          "10"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/qualifying",
+      "fetched_at": "2026-09-25T11:58:06+00:00",
+      "session_start": "2026-08-22T16:00:00+02:00",
+      "retained": false
+    },
+    {
+      "label": "Starting Grid",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "1:11.163"
+        ],
+        [
+          "2",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:11.265"
+        ],
+        [
+          "3",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "1:11.296"
+        ],
+        [
+          "4",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "1:11.305"
+        ],
+        [
+          "5",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "1:11.494"
+        ],
+        [
+          "6",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "1:11.558"
+        ],
+        [
+          "7",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "1:11.618"
+        ],
+        [
+          "8",
+          "30",
+          "Liam Lawson LAW",
+          "Red Bull Racing",
+          "1:11.733"
+        ],
+        [
+          "9",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "1:12.079"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "1:12.185"
+        ],
+        [
+          "11",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "1:12.616"
+        ],
+        [
+          "12",
+          "22",
+          "Yuki Tsunoda TSU",
+          "Racing Bulls",
+          "1:12.627"
+        ],
+        [
+          "13",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "1:12.797"
+        ],
+        [
+          "14",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "1:12.800"
+        ],
+        [
+          "15",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "1:13.137"
+        ],
+        [
+          "16",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "1:13.182"
+        ],
+        [
+          "17",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "1:13.574"
+        ],
+        [
+          "18",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "1:13.650"
+        ],
+        [
+          "19",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "1:13.818"
+        ],
+        [
+          "20",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "1:13.826"
+        ],
+        [
+          "21",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "1:14.371"
+        ],
+        [
+          "22",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "1:14.600"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/starting-grid",
+      "fetched_at": "2026-09-25T11:58:06+00:00",
+      "session_start": "2026-08-22T17:00:00+02:00",
+      "retained": false
+    },
+    {
+      "label": "Race",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Laps",
+        "Time / Retired",
+        "Pts."
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "72",
+          "2:04:44.859",
+          "25"
+        ],
+        [
+          "2",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "72",
+          "+11.536s",
+          "18"
+        ],
+        [
+          "3",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "72",
+          "+15.906s",
+          "15"
+        ],
+        [
+          "4",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "72",
+          "+16.755s",
+          "12"
+        ],
+        [
+          "5",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "72",
+          "+17.258s",
+          "10"
+        ],
+        [
+          "6",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "72",
+          "+32.332s",
+          "8"
+        ],
+        [
+          "7",
+          "30",
+          "Liam Lawson LAW",
+          "Red Bull Racing",
+          "72",
+          "+79.915s",
+          "6"
+        ],
+        [
+          "8",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "71",
+          "+1 lap",
+          "4"
+        ],
+        [
+          "9",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "71",
+          "+1 lap",
+          "2"
+        ],
+        [
+          "10",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "71",
+          "+1 lap",
+          "1"
+        ],
+        [
+          "11",
+          "22",
+          "Yuki Tsunoda TSU",
+          "Racing Bulls",
+          "71",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "12",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "71",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "13",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "71",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "14",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "70",
+          "+2 laps",
+          "0"
+        ],
+        [
+          "15",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "70",
+          "+2 laps",
+          "0"
+        ],
+        [
+          "16",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "70",
+          "+2 laps",
+          "0"
+        ],
+        [
+          "17",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "66",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "61",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "52",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "45",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "2",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "0",
+          "DNF",
+          "0"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/race-result",
+      "fetched_at": "2026-09-25T11:58:06+00:00",
+      "session_start": "2026-08-23T15:00:00+02:00",
+      "retained": false
+    }
+  ],
+  "statuses": [
+    {
+      "label": "Practice 1",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/practice/1"
+    },
+    {
+      "label": "Sprint Qualifying",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/sprint-qualifying"
+    },
+    {
+      "label": "Sprint",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/sprint-results"
+    },
+    {
+      "label": "Qualifying",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/qualifying"
+    },
+    {
+      "label": "Starting Grid",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/starting-grid"
+    },
+    {
+      "label": "Race",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/race-result"
+    }
+  ]
+}
