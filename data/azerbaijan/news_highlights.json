@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-09-26T15:44:00Z",
-  "expires_at": "2026-09-26T17:15:00Z",
+  "reviewed_at": "2026-09-26T19:43:43Z",
+  "expires_at": "2026-09-26T21:00:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "14ef77b63591012fdbdc3cd267d6e67a56505c29850dcf1c3f3424484eb93c46",
+  "feed_fingerprint": "663f30b725aa547296ec4bb52cad6f8d483a7068882560bcb082b6b9177dddc0",
   "items": [
     {
       "topic": "Race result",
       "title": "Russell holds off Verstappen by 0.196s to win in Baku",
       "date": "2026-09-26",
       "summary": "George Russell converted pole into victory in the 51-lap Azerbaijan Grand Prix, with Max Verstappen second and Isack Hadjar third. Kimi Antonelli recovered from 16th on the grid to finish fifth. The official standings now list Antonelli on 302 points and Russell on 236.",
-      "why_it_matters": "Russell's win narrows the championship gap, while Hadjar took a podium on his return to racing. The standings figures are current post-race totals, not a pre-weekend snapshot.",
+      "why_it_matters": "Russell's win cuts Antonelli's championship lead from 81 points to 66, while Hadjar took a podium on his return to racing. These are current post-race totals, not pre-weekend snapshots.",
       "sources": [
         {
           "label": "Formula1.com: official Race classification",
@@ -26,23 +26,44 @@
       ]
     },
     {
-      "topic": "Race incident",
-      "title": "Colapinto apologises after collision with Alpine team-mate Gasly",
+      "topic": "Next-race sanction",
+      "title": "Colapinto carries a five-place grid drop into the Bahrain GP at Sepang",
       "date": "2026-09-26",
-      "summary": "Franco Colapinto apologised after his Turn 1 collision with Pierre Gasly during the race restart. FIA Document 66 later imposed a 10-second time penalty, converted to five grid places at the next race in which he participates.",
-      "why_it_matters": "The penalty affects Colapinto's next eligible race, not Azerbaijan's classification. Keep his apology distinct from the stewards' decision.",
+      "summary": "FIA Document 66 converted Franco Colapinto's 10-second Azerbaijan Race penalty for the Turn 1 collision into five grid places at the next race in which he participates. Formula1.com identifies the next event as the Bahrain Grand Prix in Malaysia, which this calendar places at Sepang on 4 October.",
+      "why_it_matters": "The sanction is for the next race, not a change to Azerbaijan's classification. Wait for qualifying and the official Sepang starting grid before stating his grid position.",
       "sources": [
         {
-          "label": "Formula1.com: Colapinto apologises after the incident",
-          "url": "https://www.formula1.com/en/latest/article/sorry-to-all-of-them-colapinto-apologises-for-azerbaijan-gp-crash-with-alpine-team-mate-gasly.3fcbjHOa8zF2lQacETFaw8"
-        },
-        {
-          "label": "Formula1.com: official Race classification",
-          "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result"
+          "label": "Formula1.com: Colapinto's Bahrain grid penalty",
+          "url": "https://www.formula1.com/en/latest/article/colapinto-hit-with-five-place-grid-penalty-for-bahrain-gp-in-malaysia-after-baku-collision.3gWVfzDMMr5hReiwTt1fPD"
         },
         {
           "label": "FIA Document 66: Colapinto infringement decision",
           "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf"
+        },
+        {
+          "label": "Formula1.com: official Race classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result"
+        }
+      ]
+    },
+    {
+      "topic": "Race decision",
+      "title": "Bortoleto receives 10-second penalty after yellow-flag pass",
+      "date": "2026-09-26",
+      "summary": "FIA Document 68 penalised Gabriel Bortoleto for overtaking Sergio Perez under waved yellow flags during the Race. The Stewards acknowledged confusing Safety Car boards but found the yellow-flag obligation remained in force; the current official classification lists Bortoleto 15th.",
+      "why_it_matters": "It is a significant sporting sanction, distinct from the warnings issued to Hadjar and Sainz over reconnaissance-lap procedure. The decision explains why confusing Safety Car signals did not cancel a waved yellow flag.",
+      "sources": [
+        {
+          "label": "FIA Document 68: Bortoleto yellow-flag decision",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_5_-_overtaking_under_yellow_flags.pdf"
+        },
+        {
+          "label": "Formula1.com: Bortoleto penalty report",
+          "url": "https://www.formula1.com/en/latest/article/bortoleto-handed-penalty-after-yellow-flag-infringement-in-azerbaijan-gp.4IRPm8CEnPZMAjmjCeBgGI"
+        },
+        {
+          "label": "Formula1.com: official Race classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result"
         }
       ]
     }

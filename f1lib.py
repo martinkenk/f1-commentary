@@ -1403,6 +1403,18 @@ def _penalty_reader(decision, media, index):
     source = html.escape(url, quote=True)
     original = f'<a href="{source}" target="_blank" rel="noopener">Original FIA PDF</a>'
     document = next((d for d in media.get("documents", []) if d.get("url") == url), {})
+    if not document.get("pages"):
+        candidates = []
+        data_root = os.path.join(ROOT, "data")
+        for event in sorted(os.listdir(data_root)):
+            if not os.path.isdir(os.path.join(data_root, event)):
+                continue
+            record = _load_fia_record({"dir": event}, "fia_media")
+            for candidate in record.get("documents", []):
+                if candidate.get("url") == url and candidate.get("pages"):
+                    candidates.append((candidate.get("fetched_at", ""), record, candidate))
+        if candidates:
+            _, media, document = max(candidates, key=lambda item: item[0])
     figures = []
     missing = False
     for page in document.get("pages", []):
@@ -1445,24 +1457,27 @@ def _penalty_reader(decision, media, index):
 def render_penalties(ctx, decisions=None, intro_html="", fia_url=""):
     """decisions: list of dicts {doc, session, driver, team, no, fact, outcome, kind, when}.
     Auto-extracted FIA decisions from data/<gp>/penalties_auto.json are merged in
-    (deduped by document number); curated entries take precedence."""
+    (deduped by event and document number); curated entries take precedence."""
     out = [intro_html] if intro_html else []
     decisions = [dict(d) for d in (decisions or [])]
     automatic = _load_auto(ctx, "penalties_auto")
-    by_doc = {_doc_num(d.get("doc", "")): d for d in automatic}
+    current_event = ctx.get("dir", "")
+    doc_key = lambda decision: (
+        decision.get("source_event", current_event), _doc_num(decision.get("doc", "")))
+    by_doc = {doc_key(d): d for d in automatic}
     for decision in decisions:
-        evidence = by_doc.get(_doc_num(decision.get("doc", "")), {})
+        evidence = by_doc.get(doc_key(decision), {})
         if decision.get("source_url") and decision["source_url"] != evidence.get("source_url"):
             continue
         for field in ("source_url", "source_pdf", "driver", "no", "team", "session", "identity_status"):
             if not decision.get(field) and evidence.get(field):
                 decision[field] = evidence[field]
-    seen = {_doc_num(d.get("doc", "")) for d in decisions}
+    seen = {doc_key(d) for d in decisions}
     for a in automatic:
-        if _doc_num(a.get("doc", "")) not in seen:
+        if doc_key(a) not in seen:
             decisions.append(dict(a, _automatic=True))
-            seen.add(_doc_num(a.get("doc", "")))
-    decisions.sort(key=lambda d: _doc_num(d.get("doc", "")))
+            seen.add(doc_key(a))
+    decisions.sort(key=lambda d: (_doc_num(d.get("doc", "")), doc_key(d)[0]))
     if not decisions:
         out.append('<div class="callout watch"><strong>No stewards\' decisions logged yet.</strong> '
                    "This tracker is populated from the FIA event decision documents on each rebuild — "

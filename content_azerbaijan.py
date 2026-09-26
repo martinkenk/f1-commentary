@@ -856,27 +856,25 @@ sporting concern.</p>
                      team="Audi Revolut F1 Team", session="Race",
                      fact="Summoned over an alleged breach relating to overtaking under yellow flags "
                           "and/or safety-car procedure at 16:12.",
-                     outcome="The summons required the driver and team representative to report at "
-                             "17:30. A summons is not a finding or sanction; check the FIA listing for "
-                             "any later ruling.",
+                     outcome="Resolved by Document 68: the Stewards imposed a 10-second time penalty "
+                             "for overtaking under yellow flags. The final Race classification lists "
+                             "Bortoleto 15th.",
                      kind="note",
                      source_url=FIA_ROOT + "summons_-_car_5_-_overtaking_under_yellow_flags_.pdf"),
                 dict(doc="Doc 61", no="55", driver="Carlos Sainz",
                      team="Atlassian Williams F1 Team", session="Pre-race procedure",
                      fact="Summoned over an alleged breach of the International Sporting Code and "
                           "Race Director's Competition Note 13.6 concerning a practice start at 14:22.",
-                     outcome="The summons required the driver and team representative to report at "
-                             "18:00. A summons is not a finding or sanction; check the FIA listing for "
-                             "any later ruling.",
+                     outcome="Resolved by Document 70: the Stewards issued a warning after finding "
+                             "the team's incorrect instruction a significant mitigating factor.",
                      kind="note",
                      source_url=FIA_ROOT + "summons_-_car_55_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),
                 dict(doc="Doc 62", no="6", driver="Isack Hadjar",
                      team="Oracle Red Bull Racing", session="Pre-race procedure",
                      fact="Summoned over an alleged breach of the International Sporting Code and "
                           "Race Director's Competition Note 13.6 concerning a practice start at 14:20.",
-                     outcome="The summons required the driver and team representative to report at "
-                             "18:10. A summons is not a finding or sanction; check the FIA listing for "
-                             "any later ruling.",
+                     outcome="Resolved by Document 69: the Stewards issued a warning, taking "
+                             "mitigating circumstances into account.",
                      kind="note",
                      source_url=FIA_ROOT + "summons_-_car_6_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),
             ],
@@ -887,8 +885,11 @@ Turn 1 collision with Lawson and Bottas's Turn 15 wall contact. <strong>Document
 66</strong> gives Colapinto a <strong>10-second time penalty converted to five
 grid places at the next race in which he participates</strong> for the Turn 1
 collision with Gasly. This is a future grid sanction, not a change to the
-Azerbaijan classification. The earlier qualifying penalties below remain part
-of the published starting order.</div>
+Azerbaijan classification. <strong>Documents 68–70 also resolve the three
+race-day summonses:</strong> Bortoleto received a 10-second penalty for
+overtaking under yellow flags; Hadjar and Sainz received warnings over
+reconnaissance-lap procedure. The earlier qualifying penalties below remain
+part of the published starting order.</div>
 <div class="callout"><strong>Earlier driver-specific grid sanctions:</strong>
 Document 20 dropped <strong>Alonso 25 grid places</strong> and Document 21 drops
 <strong>Stroll 20 grid places</strong>, both "for the next Race in which the driver
@@ -921,9 +922,10 @@ The visa names the officials; it is not an infringement decision.</p>
 {source(FIA_VISA_URL + "#page=4", "FIA Competition Visa V2, Appendix B3, PDF pages 4–5")}
 <p>The FIA event listing contained <strong>65 PDFs at its successful 15:40 UTC
 discovery check</strong>. The late-race Documents 65–67 are listed above with
-their published decisions; they supersede earlier expectations that those
-incidents were still awaiting a ruling. This is a timestamped source snapshot,
-not a claim that no later filing can appear.</p>
+their published decisions. At the latest successful recheck, 18:53 UTC, the
+listing contained <strong>70 PDFs</strong>; Documents 68–70 resolve the
+Bortoleto, Sainz and Hadjar summonses above. These are timestamped source
+snapshots, not claims that no later filing can appear.</p>
 {source(FIA_HAMILTON_IMPEDING_RULING_URL, "FIA Document 29, Infringement — Car 44 — Impeding Car 30, 24 September 2026")}
 {source(FIA_ALONSO_FP3_PENALTY_URL, "FIA Document 34, Infringement — Car 14 — PU Element, 25 September 2026")}
 {source(FIA_ROOT + "infringement_-_car_11_-_impeding_car_81.pdf", "FIA Document 48, Infringement — Car 11 — Impeding Car 81, 25 September 2026")}

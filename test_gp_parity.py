@@ -8,9 +8,11 @@ from unittest.mock import mock_open, patch
 
 import build
 import content_azerbaijan
+import content_bahrain
 import content_generic
 import content_italy
 import content_spain
+import f1lib
 
 
 class GPParityTests(unittest.TestCase):
@@ -33,13 +35,62 @@ class GPParityTests(unittest.TestCase):
     def spain(self):
         return content_spain.build_pages(self.contexts["spain"], self.env)
 
+    def bahrain(self):
+        ctx = self.contexts["bahrain"].copy()
+        ctx["status"] = "future"
+        return content_bahrain.build_pages(ctx, self.env)
+
     def test_all_seventeen_surfaces_are_authored_or_engine_provided(self):
         engine_pages = {"results", "news", "h2h", "reliability", "penalties"}
-        for slug, pages in (("italy", self.italy()), ("spain", self.spain())):
+        for slug, pages in (("italy", self.italy()), ("spain", self.spain()),
+                            ("bahrain", self.bahrain())):
             nav = {row[0] for row in self.contexts[slug]["nav"]}
             self.assertEqual(len(nav), 17)
             self.assertFalse(nav - set(pages) - engine_pages)
             self.assertTrue(all(page["body"].strip() for page in pages.values()))
+
+    def test_sepang_carries_colapinto_sanction_with_original_fia_reader(self):
+        pages = self.bahrain()
+        article = content_bahrain.F1_PENALTY_ARTICLE
+        pdf = content_bahrain.FIA_DOC_66
+        for page in ("overview", "notes", "penalties"):
+            self.assertIn("five-place drop", pages[page]["body"])
+            self.assertIn(article, pages[page]["body"])
+            self.assertIn(pdf, pages[page]["body"])
+        penalty = pages["penalties"]["body"]
+        row = next(
+            match.group(1)
+            for match in re.finditer(r"<tr>(.*?)</tr>", penalty, re.S)
+            if ">Azerbaijan Doc 66</a>" in match.group(1)
+        )
+        self.assertIn("10-second time penalty converted to five grid places", row)
+        self.assertIn("Turn 1 collision with team-mate Pierre Gasly", row)
+        self.assertNotIn("Overtaking under yellow flags", row)
+        self.assertIn('<details class="penalty-document"', row)
+        self.assertIn("data-document-reader", row)
+        self.assertIn("fia-azerbaijan-b7d2f0775263-9d5a9ffc644dfc50-p1.png", row)
+        self.assertIn("fia-azerbaijan-b7d2f0775263-9d5a9ffc644dfc50-p2.png", row)
+        self.assertIn("Qualifying and the official Bahrain starting grid are still",
+                      pages["penalties"]["body"])
+
+    def test_cross_event_penalty_does_not_hide_same_number_local_document(self):
+        ctx = self.contexts["bahrain"]
+        local = dict(
+            doc="Doc 66", no="1", driver="Local driver", team="Local team",
+            session="Race", fact="Local matter", outcome="Local ruling",
+            kind="warning", source_url="https://www.fia.com/system/files/local.pdf",
+        )
+        carryover = dict(
+            doc="Azerbaijan Doc 66", source_event="azerbaijan", no="43",
+            driver="Franco Colapinto", session="Race", fact="Carry-over",
+            outcome="Five grid places", kind="penalty",
+            source_url=content_bahrain.FIA_DOC_66,
+        )
+        with patch.object(f1lib, "_load_auto", return_value=[local]):
+            body = f1lib.render_penalties(ctx, [carryover])
+        self.assertIn("Azerbaijan Doc 66", body)
+        self.assertIn("Local driver", body)
+        self.assertIn("Local ruling", body)
 
     def test_completed_italy_leads_with_sourced_race_chronology(self):
         pages = self.italy()
@@ -404,6 +455,9 @@ class AzerbaijanParityTests(unittest.TestCase):
         self.assertIn("five grid places at the next race in which he participates",
                       " ".join(penalties.split()))
         self.assertIn("late-race Documents 65–67 are listed above", penalties)
+        self.assertIn("latest successful recheck, 18:53 UTC", penalties)
+        self.assertIn("Documents 68–70 also resolve the three", penalties)
+        self.assertIn("Bortoleto received a 10-second penalty", penalties)
         self.assertNotIn("50 PDFs after Qualifying", penalties)
         for document, url, outcome in (
             ("Doc 65", "decision_-_car_41_-_collision_with_car_30_in_turn_1.pdf",
@@ -433,7 +487,24 @@ class AzerbaijanParityTests(unittest.TestCase):
                 if f">{document}</a>" in match.group(1)
             )
             self.assertIn(url, row)
-            self.assertIn("summons is not a finding or sanction", row)
+            self.assertIn("Resolved by Document", row)
+        for document, url, ruling in (
+            ("Doc 68", "car_5_-_overtaking_under_yellow_flags.pdf",
+             "10 second time penalty"),
+            ("Doc 69", "car_6_-_failing_to_follow_race_directors_instructions_-_practice_start.pdf",
+             "Driver: Warning"),
+            ("Doc 70", "car_55_-_failing_to_follow_race_directors_instructions_-_practice_start.pdf",
+             "Driver: Warning"),
+        ):
+            row = next(
+                match.group(1)
+                for match in re.finditer(r"<tr>(.*?)</tr>", penalties, re.S)
+                if f">{document}</a>" in match.group(1)
+            )
+            self.assertIn(url, row)
+            self.assertIn(ruling, row)
+            self.assertIn('<details class="penalty-document"', row)
+            self.assertIn("data-document-reader", row)
 
 
 if __name__ == "__main__":

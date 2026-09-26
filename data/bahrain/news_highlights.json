@@ -1,0 +1,29 @@
+{
+  "reviewed_at": "2026-09-26T19:43:43Z",
+  "expires_at": "2026-09-26T21:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "5007c9f6608e872dfef148ea2f7dd9c7c25a8fd07b8b950823c7bb8191000d98",
+  "items": [
+    {
+      "topic": "Carry-over grid penalty",
+      "title": "Colapinto carries a five-place grid penalty into the Bahrain GP at Sepang",
+      "date": "2026-09-26",
+      "summary": "FIA Document 66 converted Franco Colapinto's 10-second Azerbaijan Race penalty into a five-place drop at the next race in which he participates. Formula1.com identifies that as the Bahrain Grand Prix in Malaysia; the checked-out 2026 calendar places the event at Sepang on 4 October.",
+      "why_it_matters": "This is a confirmed carry-over sanction, not a Bahrain stewards' decision or a predicted grid position. Wait for qualifying and the official starting grid before stating where Colapinto will start.",
+      "sources": [
+        {
+          "label": "Formula1.com: Bahrain grid penalty report",
+          "url": "https://www.formula1.com/en/latest/article/colapinto-hit-with-five-place-grid-penalty-for-bahrain-gp-in-malaysia-after-baku-collision.3gWVfzDMMr5hReiwTt1fPD"
+        },
+        {
+          "label": "FIA Document 66: Azerbaijan Race decision",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf"
+        },
+        {
+          "label": "Formula1.com: 2026 Bahrain Grand Prix event guide",
+          "url": "https://www.formula1.com/en/racing/2026/bahrain"
+        }
+      ]
+    }
+  ]
+}

@@ -144,7 +144,8 @@ creating a PR. Always confirm the actual PR/link, not only the run conclusion.
 `build.py` reads `data/calendar_2026.json`, uses chronological rounds from
 `FIRST_ROUND`, creates contexts and calls `f1lib.build_all`. Currently there are
 **14 GPs / 238 subpages**, plus the season index. `BESPOKE` registers Belgium,
-Hungary, Netherlands, Italy and Spain; other rounds inherit `content_generic.py`.
+Hungary, Netherlands, Italy, Spain and Bahrain; other rounds inherit
+`content_generic.py`.
 New calendar rounds need no hand-written module unless their prose outgrows the
 generic content. `circuits.py` supplies venue coordinates, character and history.
 
@@ -755,7 +756,7 @@ otherwise new data can silently stop appearing on an apparently richer page.
 | `news_item(...)`, `news_sort_key(card)` | ISO `date` sorts, `when` displays; descending; undated last; curated titles dedupe normalized auto titles |
 | `render_h2h(ctx, intro_html="", tally_html="")` | Shared season scorelines/evidence first, then live event comparisons; optional extra context remains supported |
 | `render_reliability(ctx, intro_html="")` | Race retirement/finisher data and `ctx["extra"]` pitstops/fastestlaps; no pre-race invented results |
-| `render_penalties(ctx, decisions, intro_html, fia_url)` | Curated rows win by document number; keep real auto source URLs and late decisions |
+| `render_penalties(ctx, decisions, intro_html, fia_url)` | Curated rows win by event and document number; carry-over rulings retain their source event, real FIA URL and late decisions |
 | `render_tyre_availability(ctx, ..., official=None, compounds=None, source_url="")` | Official inventory renders even without FastF1; compounds are `(hard, medium, soft)` labels, not initial set counts |
 | `render_race_tyres(ctx)`, `reviewed_race_tyres(ctx, snapshot)` | Shared shell adds one race inventory to every Tyres page; numeric rows require matching event metadata and source-image SHA-256 |
 | `render_fia_documents`, `render_fia_media` | Shared source panels/galleries, not a replacement for verified event prose |

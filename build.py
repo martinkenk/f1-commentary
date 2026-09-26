@@ -33,6 +33,7 @@ import content_netherlands
 import content_italy
 import content_spain
 import content_azerbaijan
+import content_bahrain
 import standings
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -50,6 +51,7 @@ BESPOKE = {
     "italy": content_italy.build_pages,
     "spain": content_spain.build_pages,
     "azerbaijan": content_azerbaijan.build_pages,
+    "bahrain": content_bahrain.build_pages,
 }
 
 FLAGS = {
