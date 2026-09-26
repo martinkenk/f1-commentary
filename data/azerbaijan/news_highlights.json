@@ -1,49 +1,31 @@
 {
-  "reviewed_at": "2026-09-26T15:12:00Z",
-  "expires_at": "2026-09-27T10:00:00Z",
+  "reviewed_at": "2026-09-26T20:10:00Z",
+  "expires_at": "2026-09-27T14:00:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "14ef77b63591012fdbdc3cd267d6e67a56505c29850dcf1c3f3424484eb93c46",
+  "feed_fingerprint": "663f30b725aa547296ec4bb52cad6f8d483a7068882560bcb082b6b9177dddc0",
   "items": [
     {
       "topic": "Race result",
-      "title": "Russell holds off Verstappen by 0.196s to win a chaotic Baku race",
+      "title": "Russell holds off Verstappen by 0.196s to win in Baku",
       "date": "2026-09-26",
-      "summary": "George Russell converted pole into his third win of the season, resisting a late Max Verstappen charge after losing turbo power under a yellow flag near the end. Isack Hadjar completed a Red Bull double podium in third. Kimi Antonelli recovered from a Q1 crash and 16th on the grid to finish fifth, cutting his championship lead over Russell from 81 points to 66.",
-      "why_it_matters": "It is Russell's first win since Austria in June and directly narrows the title fight; Antonelli remains the points leader but the gap has closed meaningfully with several rounds still to run.",
+      "summary": "George Russell converted pole into victory in the 51-lap Azerbaijan Grand Prix, with Max Verstappen second and Isack Hadjar third on his return to Red Bull. Kimi Antonelli recovered from 16th on the grid (after a Q1 crash) to finish fifth. The official standings now list Antonelli on 302 points and Russell on 236, a 66-point gap, down from 81 before the race.",
+      "why_it_matters": "Russell's win narrows the championship gap and Hadjar's podium is his first since returning from the sidelines; the standings figures are current post-race totals, not a pre-weekend snapshot.",
       "sources": [
-        {
-          "label": "Formula1.com: official Race classification",
-          "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result"
-        },
-        {
-          "label": "Formula1.com: race report and highlights",
-          "url": "https://www.formula1.com/en/latest/article/russell-narrowly-holds-off-verstappen-to-take-victory-over-the-line-in-chaotic-azerbaijan-gp.5J4lgNh82JDL2GM302irF0"
-        },
-        {
-          "label": "Formula1.com: Russell post-race reaction",
-          "url": "https://www.formula1.com/en/latest/article/russell-feels-like-myself-again-after-incredible-pole-to-victory-drive-in-azerbaijan.67QSi4tYiFh9PYkG2KSgIY"
-        }
+        {"label": "Formula1.com: official Race classification", "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result"},
+        {"label": "Formula1.com: official driver standings", "url": "https://www.formula1.com/en/results/2026/drivers"},
+        {"label": "Formula1.com: Azerbaijan race report", "url": "https://www.formula1.com/en/latest/article/russell-narrowly-holds-off-verstappen-to-take-victory-over-the-line-in-chaotic-azerbaijan-gp.5J4lgNh82JDL2GM302irF0"}
       ]
     },
     {
       "topic": "Race incident",
       "title": "Norris wants a race ban for Colapinto after the Turn 1 pile-up that ended his race",
       "date": "2026-09-26",
-      "summary": "Franco Colapinto locked up entering Turn 1 on the second Safety Car restart, hit team-mate Pierre Gasly, and the chain reaction also collected Lando Norris's McLaren; all three retired. Colapinto apologised repeatedly and was assessed a 10-second time penalty, reported by The Race; no FIA decision document for the incident had appeared in the event's published listing as of this review. Norris said the FIA should hand out race bans for this kind of driving, though the current points-based ban threshold (12 points in 12 months) means no such sanction applies under today's rules.",
-      "why_it_matters": "It ended the race for a reigning champion and two Alpine cars, and Norris's public call for tougher sanctions is a live sporting-conduct storyline distinct from the (still unpublished) official ruling.",
+      "summary": "Franco Colapinto locked up entering Turn 1 on the second Safety Car restart, hit team-mate Pierre Gasly, and the chain reaction also collected Lando Norris's McLaren; all three retired. The FIA's Document 66 confirms a 10-second time penalty, converted to a five-place grid drop at Colapinto's next race (Bahrain). Norris said afterwards the FIA should hand out race bans for this kind of driving, though the current points-based ban threshold (12 points in 12 months) means no such sanction applies under today's rules.",
+      "why_it_matters": "It ended the race for a reigning champion and two Alpine cars, the ruling is now confirmed rather than press-reported, and Norris's public call for tougher sanctions is a live sporting-conduct storyline distinct from the published penalty.",
       "sources": [
-        {
-          "label": "The Race: 'Norris wants F1 race ban for Colapinto'",
-          "url": "https://www.the-race.com/formula-1/norris-wants-f1-race-ban-for-colapinto-azerbaijan-gp-clash/"
-        },
-        {
-          "label": "Formula1.com: Norris reflects on the Baku clash",
-          "url": "https://www.formula1.com/en/latest/article/some-drivers-shouldnt-be-in-f1-norris-reflects-on-baku-clash-that-led-to-dnf.76PWZBrhTQ5PMLrgvQFyPt"
-        },
-        {
-          "label": "Formula1.com: Colapinto apologises for the crash",
-          "url": "https://www.formula1.com/en/latest/article/sorry-to-all-of-them-colapinto-apologises-for-azerbaijan-gp-crash-with-alpine-team-mate-gasly.3fcbjHOa8zF2lQacETFaw8"
-        }
+        {"label": "The Race: 'Norris wants F1 race ban for Colapinto'", "url": "https://www.the-race.com/formula-1/norris-wants-f1-race-ban-for-colapinto-azerbaijan-gp-clash/"},
+        {"label": "Formula1.com: Norris reflects on the Baku clash", "url": "https://www.formula1.com/en/latest/article/some-drivers-shouldnt-be-in-f1-norris-reflects-on-baku-clash-that-led-to-dnf.76PWZBrhTQ5PMLrgvQFyPt"},
+        {"label": "FIA Document 66: Colapinto infringement decision", "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf"}
       ]
     },
     {
@@ -51,29 +33,20 @@
       "title": "Antonelli calls Baku his 'worst weekend of the season' as title lead shrinks",
       "date": "2026-09-26",
       "summary": "Kimi Antonelli crashed in Q1 and started 16th, then carried floor damage from Safety Car restart contact with Oliver Bearman before recovering to fifth. He said the weekend was damage limitation rather than a strong drive, as team-mate Russell's win cut his championship lead from 81 to 66 points with several rounds remaining.",
-      "why_it_matters": "It is the first time all season the young points leader has openly described a weekend as his worst, and the shrinking gap keeps Russell (and, on points, others) mathematically live in the title fight.",
+      "why_it_matters": "It is the first time all season the young points leader has openly described a weekend as his worst, and the shrinking gap keeps Russell mathematically live in the title fight.",
       "sources": [
-        {
-          "label": "Formula1.com: Antonelli's post-race reflection",
-          "url": "https://www.formula1.com/en/latest/article/antonelli-vows-to-take-lessons-from-worst-weekend-of-the-season-in-azerbaijan.2gFddBKt9w2Zp3y6deTe5r"
-        },
-        {
-          "label": "Formula1.com: official driver standings",
-          "url": "https://www.formula1.com/en/results/2026/drivers"
-        }
+        {"label": "Formula1.com: Antonelli's post-race reflection", "url": "https://www.formula1.com/en/latest/article/antonelli-vows-to-take-lessons-from-worst-weekend-of-the-season-in-azerbaijan.2gFddBKt9w2Zp3y6deTe5r"},
+        {"label": "Formula1.com: official driver standings", "url": "https://www.formula1.com/en/results/2026/drivers"}
       ]
     },
     {
       "topic": "Team storyline",
       "title": "Vasseur pushes back on Ferrari leadership speculation fuelled by Horner comments",
       "date": "2026-09-26",
-      "summary": "Ferrari team principal Fred Vasseur said the team is not working 'in perfect serenity' amid ongoing questions about his future, referencing former Red Bull boss Christian Horner's recent remark that Ferrari is the one team he would want to run. Vasseur reaffirmed his commitment to Ferrari, which finished P4 and P6 in Baku, while saying the constant speculation is a distraction for the garage.",
+      "summary": "Ferrari team principal Fred Vasseur said the team is not working 'in perfect serenity' amid ongoing questions about his future, referencing former Red Bull boss Christian Horner's recent remark that Ferrari is the one team he would want to run. Vasseur reaffirmed his commitment to Ferrari, which finished P4 (Leclerc) and P6 (Hamilton) in Baku, while saying the constant speculation is a distraction for the garage.",
       "why_it_matters": "It is an ongoing leadership-uncertainty storyline at one of the grid's top teams, running in parallel with Ferrari's on-track power-unit deficit this season.",
       "sources": [
-        {
-          "label": "The Race: 'Mr Horner looking for a job' - Vasseur laments Ferrari distractions",
-          "url": "https://www.the-race.com/formula-1/mr-horner-looking-for-a-job-vasseur-laments-ferrari-distractions/"
-        }
+        {"label": "The Race: 'Mr Horner looking for a job' - Vasseur laments Ferrari distractions", "url": "https://www.the-race.com/formula-1/mr-horner-looking-for-a-job-vasseur-laments-ferrari-distractions/"}
       ]
     }
   ]

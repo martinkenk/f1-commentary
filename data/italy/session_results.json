@@ -5,7 +5,7 @@
     "results_slug": "italy",
     "gp": "italy"
   },
-  "checked_at": "2026-09-26T15:07:14+00:00",
+  "checked_at": "2026-09-26T18:55:02+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1293/italy/practice/1",
-      "fetched_at": "2026-09-26T15:07:14+00:00",
+      "fetched_at": "2026-09-26T18:55:02+00:00",
       "session_start": "2026-09-04T12:30:00+02:00",
       "retained": false
     },
@@ -389,7 +389,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1293/italy/practice/2",
-      "fetched_at": "2026-09-26T15:07:14+00:00",
+      "fetched_at": "2026-09-26T18:55:02+00:00",
       "session_start": "2026-09-04T16:00:00+02:00",
       "retained": false
     },
@@ -582,7 +582,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1293/italy/practice/3",
-      "fetched_at": "2026-09-26T15:07:14+00:00",
+      "fetched_at": "2026-09-26T18:55:02+00:00",
       "session_start": "2026-09-05T12:30:00+02:00",
       "retained": false
     },
@@ -821,7 +821,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1293/italy/qualifying",
-      "fetched_at": "2026-09-26T15:07:14+00:00",
+      "fetched_at": "2026-09-26T18:55:02+00:00",
       "session_start": "2026-09-05T16:00:00+02:00",
       "retained": false
     },
@@ -991,7 +991,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1293/italy/starting-grid",
-      "fetched_at": "2026-09-26T15:07:14+00:00",
+      "fetched_at": "2026-09-26T18:55:02+00:00",
       "session_start": "2026-09-05T17:00:00+02:00",
       "retained": false
     },
@@ -1207,7 +1207,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1293/italy/race-result",
-      "fetched_at": "2026-09-26T15:07:14+00:00",
+      "fetched_at": "2026-09-26T18:55:02+00:00",
       "session_start": "2026-09-06T15:00:00+02:00",
       "retained": false
     }

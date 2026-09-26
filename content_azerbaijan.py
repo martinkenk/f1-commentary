@@ -246,8 +246,8 @@ own documents.</p>
 """
 
 
-def team_briefing():
-    rows = [
+def team_briefing(ctx):
+    team_rows = [
         ("Mercedes", "Kimi Antonelli / George Russell", "Antonelli won Monza and Madrid; Russell is pursuing his teammate. Baku tests whether that recent form survives the long deployment-limited straight.", FORM_URL),
         ("Ferrari", "Charles Leclerc / Lewis Hamilton", "Hamilton's Madrid brake issue is the reliability follow-up; Leclerc's engine evaluation remains a reported plan, not a confirmed Baku grid drop.", TECH_URL),
         ("McLaren", "Lando Norris / Oscar Piastri", "Norris won Hungary and Zandvoort; Piastri needs a response after Madrid. The Race reports the low-drag H-wing's return and another package for evaluation; watch cold fronts/brakes into T1.", TECH_URL),
@@ -261,7 +261,7 @@ def team_briefing():
         ("Cadillac", "Valtteri Bottas / Sergio Perez", "Perez is reported to receive the newer Ferrari engine first, alongside small aerodynamic changes. Establish installation and reliability in practice; do not assign Bottas the same specification without evidence.", TECH_URL),
     ]
     qualifying = content_generic.card(
-        "Qualifying snapshot — Russell on pole, Antonelli out in Q1",
+        "Qualifying snapshot — historical context",
         "<p>George Russell took pole in 1:42.526, 0.837s ahead of Charles Leclerc, "
         "with Oscar Piastri third. Isack Hadjar qualified fourth, while Kimi "
         "Antonelli was classified 16th after his Turn 1 crash in Q1. The official "
@@ -274,9 +274,38 @@ def team_briefing():
         "bi-flag",
         "accent",
     )
-    return ('<p class="lead-note">Post-qualifying team context, 25 September. '
-            'The preview notes below are retained as background; completed-session '
-            'results and penalties take precedence.</p>'
+    race = next((block for block in ctx.get("results", [])
+                 if block.get("label") == "Race"), None)
+    race_update = ""
+    if race and len(race.get("rows", [])) >= 3:
+        race_rows = race["rows"]
+        podium = " · ".join(
+            f"<strong>{escape(row[2])}</strong> ({escape(row[3])}), "
+            f"P{escape(row[0])}"
+            for row in race_rows[:3]
+        )
+        unclassified = sum(row[0] == "NC" for row in race_rows)
+        race_update = content_generic.card(
+            "Race-day team results — official classification",
+            f"<p>{podium}. Mercedes won with Russell and placed Antonelli fifth; "
+            "Red Bull Racing occupied second and third. The official classification "
+            f"records {unclassified} entrants as not classified. These race results "
+            "supersede the qualifying snapshot below.</p>"
+            + source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
+                     "Formula1.com official Azerbaijan Race classification"),
+            "bi-flag", "accent",
+        )
+    lead = (
+        '<p class="lead-note">Post-race team update, 26 September. '
+        'The qualifying result and preview notes below are retained as historical '
+        'context; the completed Race classification takes precedence.</p>'
+        if race else
+        '<p class="lead-note">Post-qualifying team context, 25 September. '
+        'The preview notes below are retained as background; completed-session '
+        'results and penalties take precedence.</p>'
+    )
+    return (lead
+            + race_update
             + qualifying
             + "".join(
                 content_generic.card(
@@ -290,7 +319,7 @@ def team_briefing():
                        if team == "Audi" else ""),
                     "bi-people",
                 )
-                for team, drivers, text, url in rows
+                for team, drivers, text, url in (team_rows if not race else [])
             ))
 
 
@@ -515,7 +544,7 @@ confirmed starting-tyre choices.</p>
         "The 23 September FIA notes and maps are interpreted below; do not confuse\n"
         "  Straight Mode activation with the separate Overtake detection/activation.")
     pages["circuit"]["body"] += circuit_briefing()
-    pages["teams"]["body"] = team_briefing()
+    pages["teams"]["body"] = team_briefing(ctx)
     pages["rookies"]["body"] += f"""
 {content_generic.card("Hadjar's return is not a pain-free recovery",
     "<p>The Frenchman says the small wrist fracture did not need surgery and his simulator test went well, "
@@ -586,10 +615,16 @@ Every listed replacement was approved after a written team request under
 Article B3.5.4. This compliance report is separate from the upgrade declarations
 above and is not, by itself, evidence of a defect or reliability failure.</p>
 {content_generic.ul([
-    "<strong>Mercedes, Car 12 (Antonelli):</strong> front suspension, brake caliper and friction material, steering column and rack, forward plank section, front brake duct, and front-wing/nosebox assembly.",
-    "<strong>Red Bull, Car 03 (Verstappen):</strong> left- and right-hand fuel lift-pump assemblies plus new ICE, turbocharger, exhaust and PU ancillary components; the separate Document 55 report records those PU elements as compliant.",
-    "<strong>Racing Bulls, Car 41 (Lindblad):</strong> previously used ICE, turbocharger and exhaust reinstalled with associated parameter changes, plus a new right-hand cooling radiator.",
-    "<strong>Audi, Car 27 (Hulkenberg):</strong> gearbox assembly and control hydraulics, BBW and rear-brake friction material, with associated parameter changes and gearbox-oil heat-exchanger fittings and hoses.",
+    "<strong>McLaren, Car 81 (Piastri):</strong> steering wheel.",
+    "<strong>Mercedes, Cars 63 and 12 (Russell and Antonelli):</strong> Car 63, left- and right-hand front inner brake-drum ducts; Car 12, left-hand front suspension assembly, brake caliper and front-brake friction material (axle set), steering-column and steering-rack assemblies, forward plank section, left-hand front-brake duct assembly, and front-wing/nosebox assembly.",
+    "<strong>Red Bull Racing, Cars 03 and 06 (Verstappen and Hadjar):</strong> Car 03, left- and right-hand fuel lift-pump assemblies and new ICE, turbocharger, exhaust and ancillary PU components, with associated parameter changes; Car 06, clutch-shaft torque sensor and associated SCM. Document 55 separately records the new PU elements as compliant.",
+    "<strong>Ferrari, Car 16 (Leclerc):</strong> left-hand floor-board brace.",
+    "<strong>Atlassian Williams, Car 23 (Sainz):</strong> gearbox-control hydraulics and rotac actuator set, associated parameter changes, and a TPMS ECU.",
+    "<strong>Racing Bulls, Cars 41 and 30 (Lindblad and Lawson):</strong> Car 41, previously used ICE, turbocharger and exhaust with associated parameter changes, plus a right-hand cooling radiator; Car 30, header.",
+    "<strong>Aston Martin Aramco Honda, Car 18 (Stroll):</strong> ICE water-system radiator and right-hand front pushrod.",
+    "<strong>Audi, Car 27 (Hulkenberg):</strong> gearbox assembly and control hydraulics, BBW, rear-brake friction material and associated parameter changes, plus gearbox-oil heat-exchanger QD fittings and associated hoses.",
+    "<strong>Alpine, Car 43 (Colapinto):</strong> ICE sump bumper protection plate.",
+    "<strong>Cadillac, Cars 11 and 77 (Perez and Bottas):</strong> Car 11, left-hand roll-laser lens; Car 77, front ride-height laser lens and left-hand front drum seal.",
 ])}
 {source(FIA_ROOT + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
         "FIA Document 57, Technical Delegate's Report, 26 September 2026, PDF pages 1–3")}
@@ -649,22 +684,23 @@ Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Fac
             "<strong>Franco Colapinto</strong> locked up entering the Turn 1 braking zone at "
             "the following restart, hit his Alpine team-mate <strong>Pierre Gasly</strong>, "
             "and the chain reaction also collected <strong>Lando Norris</strong>'s McLaren "
-            "(lap 35) — all three retired on the spot. Colapinto was assessed a 10-second "
-            "time penalty for the collision; no FIA decision document for it had been "
-            "published in this event's listing as of this audit, so treat that outcome as "
-            "reported by the driver/team, not yet a confirmed published ruling. Norris said "
-            "afterwards he wants a race ban for this kind of incident; the FIA's actual "
-            "points-based ban threshold and Colapinto's current tally are separate facts, "
-            "not F1's decision. <strong>Fernando Alonso</strong> retired (lap 20) with a "
-            "reported water-pressure issue and <strong>Lance Stroll</strong> stopped early "
-            "(lap 7) with a separate mechanical issue. <strong>Valtteri Bottas</strong> hit "
-            "the wall late (lap 49) in the closing stages, the final retirement of the race.</p>"
+            "(lap 35) — all three retired on the spot. FIA Document 66 confirms Colapinto's "
+            "10-second time penalty for the collision, converted to a five-place grid drop "
+            "at his next race (Bahrain); see <a href=\"penalties.html\">Penalties</a> for the "
+            "full ruling. Norris said afterwards he wants a race ban for this kind of incident; "
+            "the FIA's actual points-based ban threshold and Colapinto's current tally are "
+            "separate facts, not F1's decision. <strong>Fernando Alonso</strong> retired "
+            "(lap 20) with a reported water-pressure issue and <strong>Lance Stroll</strong> "
+            "stopped early (lap 7) with a separate mechanical issue. <strong>Valtteri Bottas</strong> "
+            "hit the wall late (lap 49) in the closing stages, the final retirement of the race.</p>"
             + source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
                      "Formula1.com official Race classification")
             + source("https://www.formula1.com/en/latest/article/russell-narrowly-holds-off-verstappen-to-take-victory-over-the-line-in-chaotic-azerbaijan-gp.5J4lgNh82JDL2GM302irF0",
                      "Formula1.com race report and highlights, 26 September 2026")
             + source("https://www.the-race.com/formula-1/norris-wants-f1-race-ban-for-colapinto-azerbaijan-gp-clash/",
-                     "The Race: \u2018Norris wants F1 race ban for Colapinto\u2019, 26 September 2026"),
+                     "The Race: \u2018Norris wants F1 race ban for Colapinto\u2019, 26 September 2026")
+            + source(FIA_ROOT + "infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf",
+                     "FIA Document 66: Colapinto infringement decision"),
             "bi-flag", "accent")
     else:
         reliability_intro = content_generic.card(
@@ -693,13 +729,15 @@ Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Fac
     "Turn 1 chain-reaction ends three races; Norris wants tougher sanctions",
     "<p>Franco Colapinto locked up at the second Safety Car restart and collided with "
     "team-mate Pierre Gasly, also collecting Lando Norris's McLaren; all three retired. "
-    "Colapinto was assessed a 10-second time penalty (press-reported; no FIA decision "
-    "document had appeared in the event's listing as of this review). Norris said the FIA "
-    "should hand out race bans for this kind of incident. See "
+    "FIA Document 66 confirms Colapinto's 10-second time penalty, converted to a five-place "
+    "grid drop at his next race. Norris said the FIA should hand out race bans for this kind "
+    "of incident. See "
     "<a href=\"penalties.html\">Penalties</a> and <a href=\"reliability.html\">Reliability</a> "
     "for the full sourced account.</p>"
     + source("https://www.the-race.com/formula-1/norris-wants-f1-race-ban-for-colapinto-azerbaijan-gp-clash/",
-             "The Race: 'Norris wants F1 race ban for Colapinto', 26 September 2026"),
+             "The Race: 'Norris wants F1 race ban for Colapinto', 26 September 2026")
+    + source(FIA_ROOT + "infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf",
+             "FIA Document 66: Colapinto infringement decision"),
     "bi-exclamation-triangle", "accent")}
 """
     weekend_update = race_update if race_available else f"""
@@ -791,10 +829,28 @@ sporting concern.</p>
 """
     pages["penalties"] = dict(
         kicker="Stewards & race control", title="Penalties & Decisions",
-        sub="Alonso's cumulative grid penalty is 30 places (Docs 20+34), Stroll's is 20 (Doc 21), Sainz drops five places (Doc 49) and Perez three (Doc 48); the official starting grid is published.",
+        sub="Race decisions are published: Colapinto's 10-second penalty was converted to five grid places at his next race (Doc 66); Docs 65 and 67 record no further action; Bortoleto (Doc 68) took a 10-second penalty and Hadjar/Sainz (Docs 69/70) were warned.",
         body=f1lib.render_penalties(
             ctx,
             decisions=[
+                dict(doc="Doc 65", no="41", driver="Arvid Lindblad",
+                     team="Visa Cash App Racing Bulls F1 Team", session="Race",
+                     fact="Collision between Cars 41 and 30 at Turn 1.",
+                     outcome="No further action.",
+                     kind="noaction",
+                     source_url=FIA_ROOT + "decision_-_car_41_-_collision_with_car_30_in_turn_1.pdf"),
+                dict(doc="Doc 66", no="43", driver="Franco Colapinto",
+                     team="BWT Alpine F1 Team", session="Race",
+                     fact="Collision with Car 10 at Turn 1.",
+                     outcome="A 10-second time penalty, converted to a drop of five grid positions at the next race in which the driver participates.",
+                     kind="penalty",
+                     source_url=FIA_ROOT + "infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf"),
+                dict(doc="Doc 67", no="77", driver="Valtteri Bottas",
+                     team="Cadillac Formula 1 Team", session="Race",
+                     fact="Car 77 left the track at Turn 15 and made contact with the wall.",
+                     outcome="No further action.",
+                     kind="noaction",
+                     source_url=FIA_ROOT + "decision_-_car_77_-_turn_15_incident.pdf"),
                 dict(doc="Doc 22", no="44", driver="Lewis Hamilton", team="Scuderia Ferrari HP",
                      session="Free Practice 2",
                      fact="Summoned to appear before the Stewards at 17:30 over an alleged breach of "
@@ -813,6 +869,18 @@ sporting concern.</p>
                              "resolved without a further sanction pending a document that says otherwise, "
                              "not confirmed dismissed by name.",
                      kind="note", source_url=FIA_LAWSON_SUMMONS_URL),
+                dict(doc="Doc 39", no="55", driver="Carlos Sainz",
+                     team="Atlassian Williams F1 Team", session="Free Practice 3",
+                     fact="Failure to slow for yellow flags.",
+                     outcome="Driver reprimand (driving).",
+                     kind="reprimand",
+                     source_url=FIA_ROOT + "infringement_-_car_55_-_failure_to_slow_for_yellow_flags.pdf"),
+                dict(doc="Doc 40", no="41", driver="Arvid Lindblad",
+                     team="Visa Cash App Racing Bulls F1 Team", session="Free Practice 3",
+                     fact="Leaving the track without a justifiable reason at Turn 15.",
+                     outcome="Driver reprimand (driving).",
+                     kind="reprimand",
+                     source_url=FIA_ROOT + "infringement_-_car_41_-_leaving_the_track_in_turn_15.pdf"),
                 dict(doc="Doc 48", no="11", driver="Sergio Perez", team="Cadillac Formula 1 Team",
                      session="Qualifying",
                      fact="Car 11 drove at reduced speed on the racing line through Turns 18, 19 and 20, "
@@ -830,48 +898,44 @@ sporting concern.</p>
                              "12 months). Formula1.com's published starting grid lists Sainz 14th.",
                      kind="penalty",
                      source_url=FIA_ROOT + "infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf"),
-                dict(doc="Doc 60", no="5", driver="Gabriel Bortoleto",
+                dict(doc="Doc 68", no="5", driver="Gabriel Bortoleto",
                      team="Audi Revolut F1 Team", session="Race",
-                     fact="Summoned over an alleged breach relating to overtaking under yellow flags "
-                          "and/or safety-car procedure at 16:12.",
-                     outcome="The summons required the driver and team representative to report at "
-                             "17:30. A summons is not a finding or sanction; check the FIA listing for "
-                             "any later ruling.",
-                     kind="note",
-                     source_url=FIA_ROOT + "summons_-_car_5_-_overtaking_under_yellow_flags_.pdf"),
-                dict(doc="Doc 61", no="55", driver="Carlos Sainz",
-                     team="Atlassian Williams F1 Team", session="Pre-race procedure",
-                     fact="Summoned over an alleged breach of the International Sporting Code and "
-                          "Race Director's Competition Note 13.6 concerning a practice start at 14:22.",
-                     outcome="The summons required the driver and team representative to report at "
-                             "18:00. A summons is not a finding or sanction; check the FIA listing for "
-                             "any later ruling.",
-                     kind="note",
-                     source_url=FIA_ROOT + "summons_-_car_55_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),
-                dict(doc="Doc 62", no="6", driver="Isack Hadjar",
-                     team="Oracle Red Bull Racing", session="Pre-race procedure",
-                     fact="Summoned over an alleged breach of the International Sporting Code and "
-                          "Race Director's Competition Note 13.6 concerning a practice start at 14:20.",
-                     outcome="The summons required the driver and team representative to report at "
-                             "18:10. A summons is not a finding or sanction; check the FIA listing for "
-                             "any later ruling.",
-                     kind="note",
-                     source_url=FIA_ROOT + "summons_-_car_6_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),
-                dict(doc="Pending FIA doc", no="43", driver="Franco Colapinto",
-                     team="BWT Alpine F1 Team", session="Race",
-                     fact="Locked up entering the Turn 1 braking zone on the second Safety Car "
-                          "restart (lap 35) and collided with team-mate Pierre Gasly; the impact "
-                          "also collected Lando Norris's McLaren. All three retired.",
-                     outcome="The Race reports a 10-second time penalty was assessed against "
-                             "Colapinto as the race finished. No FIA decision document for this "
-                             "incident had appeared in the event's published listing as of this "
-                             "audit \u2014 treat the penalty as press-reported pending the official "
-                             "PDF, not yet a confirmed FIA ruling with a document number.",
-                     kind="note",
-                     source_url="https://www.the-race.com/formula-1/norris-wants-f1-race-ban-for-colapinto-azerbaijan-gp-clash/"),
+                     fact="Overtaking under yellow flags.",
+                     outcome="A 10-second time penalty. Supersedes the earlier Document 60 summons.",
+                     kind="penalty",
+                     source_url=FIA_ROOT + "infringement_-_car_5_-_overtaking_under_yellow_flags.pdf"),
+                dict(doc="Doc 69", no="6", driver="Isack Hadjar",
+                     team="Oracle Red Bull Racing", session="Reconnaissance Laps",
+                     fact="Failure to follow the Race Director's instruction.",
+                     outcome="Driver warning. Supersedes the earlier Document 62 summons.",
+                     kind="warning",
+                     source_url=FIA_ROOT + "infringement_-_car_6_-_failing_to_follow_race_directors_instructions_-_practice_start.pdf"),
+                dict(doc="Doc 70", no="55", driver="Carlos Sainz",
+                     team="Atlassian Williams F1 Team", session="Reconnaissance Laps",
+                     fact="Failure to follow the Race Director's instruction.",
+                     outcome="Driver warning. Supersedes the earlier Document 61 summons.",
+                     kind="warning",
+                     source_url=FIA_ROOT + "infringement_-_car_55_-_failing_to_follow_race_directors_instructions_-_practice_start.pdf"),
             ],
             intro_html=f"""
-<div class="callout accent"><strong>Four driver-specific grid sanctions now shape the published starting order.</strong>
+<div class="callout accent"><strong>The Race decisions are now published.</strong>
+Documents 65 and 67 record <strong>no further action</strong> for Lindblad's
+Turn 1 collision with Lawson and Bottas's Turn 15 wall contact. <strong>Document
+66</strong> gives Colapinto a <strong>10-second time penalty converted to five
+grid places at the next race in which he participates</strong> for the Turn 1
+collision with Gasly. This is a future grid sanction, not a change to the
+Azerbaijan classification. <strong>Document 68 gives Bortoleto a 10-second time
+penalty</strong> for overtaking under yellow flags, superseding his earlier
+summons. <strong>Documents 69 and 70 close the practice-start summonses against
+Hadjar and Sainz with driver warnings</strong>, not the further sanction their
+summonses had left open. The earlier qualifying penalties below remain part
+of the published starting order.</div>
+<div class="callout"><strong>Free Practice 3 reprimands:</strong> <strong>Document
+39 gives Sainz a driving reprimand</strong> for failing to slow for yellow flags
+and <strong>Document 40 gives Lindblad a driving reprimand</strong> for leaving
+the track without justifiable reason at Turn 15 — both procedural sanctions from
+practice, distinct from their separate race-weekend penalties below.</div>
+<div class="callout"><strong>Earlier driver-specific grid sanctions:</strong>
 Document 20 dropped <strong>Alonso 25 grid places</strong> and Document 21 drops
 <strong>Stroll 20 grid places</strong>, both "for the next Race in which the driver
 participates" and both matching the cumulative arithmetic reported before the
@@ -901,16 +965,15 @@ Danil Solomin. Race Director and Safety Delegate Rui Marques; Technical Delegate
 Jo Bauer; Sporting Delegate Tim Malyon; Deputy Race Director Paul Burns.
 The visa names the officials; it is not an infringement decision.</p>
 {source(FIA_VISA_URL + "#page=4", "FIA Competition Visa V2, Appendix B3, PDF pages 4–5")}
-<p>The FIA event listing contained <strong>50 PDFs after Qualifying</strong>,
-including the provisional starting grid, final qualifying classification,
-post-qualifying procedure, scrutineering, lap-time deletions and the new
-Qualifying decisions. <strong>Document 48</strong> penalises Perez for impeding
-Piastri; <strong>Document 49</strong> penalises Sainz for failing to slow under
-a yellow flag. Their complete FIA pages and original-PDF links are attached to
-the same sortable decision rows above. Formula1.com's starting-grid table is
-available; no separate final-grid PDF was present in this FIA listing at refresh.</p>
+<p>The FIA event listing contained <strong>71 PDFs at its successful 18:53 UTC
+discovery check</strong> (26 September). The late-race Documents 65–70 are listed above with
+their published decisions; they supersede earlier expectations that those
+incidents were still awaiting a ruling. This is a timestamped source snapshot,
+not a claim that no later filing can appear.</p>
 {source(FIA_HAMILTON_IMPEDING_RULING_URL, "FIA Document 29, Infringement — Car 44 — Impeding Car 30, 24 September 2026")}
 {source(FIA_ALONSO_FP3_PENALTY_URL, "FIA Document 34, Infringement — Car 14 — PU Element, 25 September 2026")}
+{source(FIA_ROOT + "infringement_-_car_55_-_failure_to_slow_for_yellow_flags.pdf", "FIA Document 39, Infringement — Car 55 — Failure to Slow for Yellow Flags, Free Practice 3, 25 September 2026")}
+{source(FIA_ROOT + "infringement_-_car_41_-_leaving_the_track_in_turn_15.pdf", "FIA Document 40, Infringement — Car 41 — Leaving the Track at Turn 15, Free Practice 3, 25 September 2026")}
 {source(FIA_ROOT + "infringement_-_car_11_-_impeding_car_81.pdf", "FIA Document 48, Infringement — Car 11 — Impeding Car 81, 25 September 2026")}
 {source(FIA_ROOT + "infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf", "FIA Document 49, Infringement — Car 55 — Failure to Slow for Yellow Flags, 25 September 2026")}
 <p>Document 2 clears the inspected front-suspension items on Russell's Madrid
