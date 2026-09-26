@@ -306,7 +306,11 @@ class AzerbaijanParityTests(unittest.TestCase):
         )
         self.assertNotIn("pending until Saturday", self.pages["notes"]["body"])
         post_race_ctx = dict(self.ctx)
-        post_race_ctx["results"] = [{"label": "Race", "rows": []}]
+        post_race_ctx["results"] = [{
+            "label": "Race",
+            "headers": [],
+            "rows": [],
+        }]
         post_race_notes = content_azerbaijan.build_pages(
             post_race_ctx, self.env
         )["notes"]["body"]
