@@ -5,7 +5,7 @@
     "results_slug": "netherlands",
     "gp": "netherlands"
   },
-  "checked_at": "2026-09-26T21:07:14+00:00",
+  "checked_at": "2026-09-26T22:18:22+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/practice/1",
-      "fetched_at": "2026-09-26T21:07:14+00:00",
+      "fetched_at": "2026-09-26T22:18:22+00:00",
       "session_start": "2026-08-21T12:30:00+02:00",
       "retained": false
     },
@@ -435,7 +435,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/sprint-qualifying",
-      "fetched_at": "2026-09-26T21:07:14+00:00",
+      "fetched_at": "2026-09-26T22:18:22+00:00",
       "session_start": "2026-08-21T16:30:00+02:00",
       "retained": false
     },
@@ -651,7 +651,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/sprint-results",
-      "fetched_at": "2026-09-26T21:07:14+00:00",
+      "fetched_at": "2026-09-26T22:18:22+00:00",
       "session_start": "2026-08-22T12:00:00+02:00",
       "retained": false
     },
@@ -890,7 +890,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/qualifying",
-      "fetched_at": "2026-09-26T21:07:14+00:00",
+      "fetched_at": "2026-09-26T22:18:22+00:00",
       "session_start": "2026-08-22T16:00:00+02:00",
       "retained": false
     },
@@ -1060,7 +1060,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/starting-grid",
-      "fetched_at": "2026-09-26T21:07:14+00:00",
+      "fetched_at": "2026-09-26T22:18:22+00:00",
       "session_start": "2026-08-22T17:00:00+02:00",
       "retained": false
     },
@@ -1276,7 +1276,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1292/netherlands/race-result",
-      "fetched_at": "2026-09-26T21:07:14+00:00",
+      "fetched_at": "2026-09-26T22:18:22+00:00",
       "session_start": "2026-08-23T15:00:00+02:00",
       "retained": false
     }
