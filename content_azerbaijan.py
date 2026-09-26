@@ -232,6 +232,38 @@ own documents.</p>
     "bi-exclamation-triangle", "accent")}
 {source(FIA_ALONSO_FP3_TD_URL + "#page=2", "FIA Document 33, Technical Delegate's Report, PDF page 2, 25 September 2026")}
 {source(FIA_ALONSO_FP3_PENALTY_URL, "FIA Document 34, Infringement — Car 14 — PU Element, 25 September 2026")}
+
+{content_generic.card("Race-morning update: Verstappen takes a new ICE, within allocation",
+    "<p>The Technical Delegate's <strong>Document 55 (26 September, 11:56)</strong> — issued "
+    "the same race morning — confirms Max Verstappen's Red Bull fitted a new internal "
+    "combustion engine, turbocharger and power unit ancillary component for the remainder "
+    "of the event. Each is his <strong>1st of the season's allowed new elements</strong> "
+    "(4 ICE/TC, 6 PU-ANC), so all three are explicitly recorded as <strong>compliant</strong> "
+    "with Article B8.2.2 — no grid penalty follows. Document 33 (25 September) had separately "
+    "logged a compliant new exhaust set for Bottas and Alonso's non-compliant 7th energy "
+    "store unit (Document 34 penalty, folded into his 30-place total above).</p>",
+    "bi-info-circle", "accent")}
+{source(FIA_ROOT + "new_pu_elements_for_this_competition_1.pdf" + "#page=1",
+        "FIA Document 55, Technical Delegate's Report, 26 September 2026")}
+
+<h2 class="sec">Parc Fermé component replacements, race morning</h2>
+<p>The Technical Delegate's <strong>parts-and-parameters report (Document 57,
+26 September, published 12:00 CET)</strong> lists every component replaced under
+FIA-approved Parc Fermé exceptions (Article B3.5.4) since qualifying. Most entries
+are routine (brake ducts, floor braces, laser-height sensors); two are worth
+flagging for reliability watching:</p>
+{content_generic.ul([
+    "<strong>Red Bull (Car 03, Verstappen):</strong> LHS/RHS fuel lift pump assemblies plus a new ICE, TC, exhaust and PU ancillary component — matches Document 55 above and is separately confirmed compliant.",
+    "<strong>Mercedes (Car 12, Antonelli):</strong> the most extensive rebuild in the list — LHS front suspension assembly, brake caliper and friction material, steering column and rack assemblies, forward plank section and front wing/nosebox, consistent with repairing his Q1 crash.",
+    "<strong>Racing Bulls (Car 41, Lindblad):</strong> previously-used ICE/TC/exhaust reinstalled with associated parameter changes, plus a new cooling radiator.",
+    "<strong>Audi (Car 27, Hulkenberg):</strong> gearbox assembly and control hydraulics, BBW and rear brake friction material replaced.",
+])}
+<p>All replacements were approved in writing by the FIA Technical Delegate; none
+is reported as a parc-fermé breach or grid-penalty trigger. This is a compliance
+record, not evidence of a specific reliability failure beyond Antonelli's
+already-reported crash repair.</p>
+{source(FIA_ROOT + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
+        "FIA Document 57, Technical Delegate's Report — Parts and Parameters Replaced During Parc Fermé, 26 September 2026")}
 """
 
 
