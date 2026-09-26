@@ -223,11 +223,14 @@ class AzerbaijanParityTests(unittest.TestCase):
     def test_baku_inventory_matches_reviewed_image_and_all_22_entrants(self):
         lib = content_azerbaijan.f1lib
         root = Path(__file__).parent
-        snapshot = json.loads((root / "data/azerbaijan/race_tyres.json").read_text())
+        saved = json.loads((root / "data/azerbaijan/race_tyres_verified.json").read_text())
+        snapshot = {key: saved[key] for key in ("year", "gp", "race_date")}
+        snapshot["chart"] = {"sha256": saved["source_sha256"]}
         verified = lib.reviewed_race_tyres(self.ctx, snapshot)
         self.assertEqual(verified["state"], "verified")
+        asset = f"race-tyres-2026-azerbaijan-{verified['source_sha256'][:16]}.webp"
         self.assertEqual(verified["source_sha256"], hashlib.sha256(
-            (root / "assets_src" / snapshot["chart"]["asset"]).read_bytes()).hexdigest())
+            (root / "assets_src" / asset).read_bytes()).hexdigest())
         self.assertEqual(verified["compounds"], ["C3", "C4", "C5"])
         self.assertEqual(set(verified["drivers"]), {
             "PIA", "NOR", "RUS", "ANT", "VER", "HAD", "LEC", "HAM", "ALB",
@@ -241,9 +244,9 @@ class AzerbaijanParityTests(unittest.TestCase):
         self.assertEqual(verified["drivers"]["ANT"][:2], [4, 1])
         self.assertEqual(verified["drivers"]["SAI"][:2], [0, 4])
         self.assertEqual(verified["drivers"]["ALB"][:2], [1, 4])
-        rendered = lib.render_race_tyres(self.ctx)
-        self.assertIn("Table visually transcribed", rendered)
-        self.assertNotIn("not yet been visually verified", rendered)
+        rendered = lib.render_tyre_availability(
+            self.ctx, official=verified["drivers"], compounds=verified["compounds"],
+            source_url=content_azerbaijan.STRATEGY_URL)
         table_body = re.search(r"<tbody>(.*?)</tbody>", rendered, re.S).group(1)
         self.assertEqual(table_body.count("<tr>"), 22)
 

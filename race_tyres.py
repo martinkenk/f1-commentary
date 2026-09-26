@@ -337,6 +337,7 @@ def chart_links(ctx, page_url, text, previous=None):
             # Reuse validated image evidence only for the identical source and bytes.
             cached = previous["chart"] if previous and previous["source"]["url"] == page_url else None
             if (not cached or cached["url"] != urls[0]
+                    or not isinstance(cached.get("evidence"), str)
                     or not any(_has(cached.get("evidence", ""), venue) for venue in _venues(ctx))):
                 raise SourceError("Race chart has no matching calendar venue evidence")
             evidence = cached["evidence"]
