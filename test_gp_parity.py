@@ -1,4 +1,7 @@
 """Offline content parity checks: verified event evidence, not borrowed GP facts."""
+import hashlib
+import json
+from pathlib import Path
 import re
 import unittest
 from unittest.mock import mock_open, patch
@@ -197,11 +200,52 @@ class AzerbaijanParityTests(unittest.TestCase):
         self.assertIn("70&deg;C for slicks\nand intermediates", body)
         self.assertIn("40&deg;C for wets", body)
         self.assertIn("19.5-second", body)
-        self.assertIn("not Pirelli", body)
+        self.assertIn("not on Pirelli's", body)
         self.assertNotIn("after Friday practice", body)
         self.assertNotIn("mandatory race tyres alongside C5", body)
         self.assertIn(content_azerbaijan.PREVIEW_IMAGE, body)
         self.assertIn(content_azerbaijan.FIA_TYRES_ASSET, body)
+
+    def test_race_day_tyres_replace_stale_inventory_and_illustrative_windows(self):
+        body = self.pages["tyres"]["body"]
+        for text in ("Laps 26–32", "Laps 16–22", "Laps 21–27",
+                     content_azerbaijan.STRATEGY_URL, content_azerbaijan.STRATEGY_IMAGE,
+                     "not on Pirelli's", "not a per-driver fitted",
+                     "only drivers without a new Medium", "Sainz has no new Soft"):
+            self.assertIn(text, body)
+        for text in ("No verified post-qualifying race-set chart", "Laps 24–31",
+                     "Laps 17–24", "Laps 18–26", "only if Thursday long runs"):
+            self.assertNotIn(text, body)
+        for slug in ("overview", "notes"):
+            self.assertIn("26 September race-day tyre update", self.pages[slug]["body"])
+            self.assertIn("Medium–Soft laps 26–32", self.pages[slug]["body"])
+
+    def test_baku_inventory_matches_reviewed_image_and_all_22_entrants(self):
+        lib = content_azerbaijan.f1lib
+        root = Path(__file__).parent
+        snapshot = json.loads((root / "data/azerbaijan/race_tyres.json").read_text())
+        verified = lib.reviewed_race_tyres(self.ctx, snapshot)
+        self.assertEqual(verified["state"], "verified")
+        self.assertEqual(verified["source_sha256"], hashlib.sha256(
+            (root / "assets_src" / snapshot["chart"]["asset"]).read_bytes()).hexdigest())
+        self.assertEqual(verified["compounds"], ["C3", "C4", "C5"])
+        self.assertEqual(set(verified["drivers"]), {
+            "PIA", "NOR", "RUS", "ANT", "VER", "HAD", "LEC", "HAM", "ALB",
+            "SAI", "LIN", "LAW", "STR", "ALO", "OCO", "BEA", "HUL", "BOR",
+            "GAS", "COL", "PER", "BOT",
+        })
+        for code, counts in verified["drivers"].items():
+            with self.subTest(driver=code):
+                self.assertEqual(counts[4:], [1, 0])
+                self.assertEqual(counts[2:4], [0, 1] if code in ("RUS", "ANT") else [1, 0])
+        self.assertEqual(verified["drivers"]["ANT"][:2], [4, 1])
+        self.assertEqual(verified["drivers"]["SAI"][:2], [0, 4])
+        self.assertEqual(verified["drivers"]["ALB"][:2], [1, 4])
+        rendered = lib.render_race_tyres(self.ctx)
+        self.assertIn("Table visually transcribed", rendered)
+        self.assertNotIn("not yet been visually verified", rendered)
+        table_body = re.search(r"<tbody>(.*?)</tbody>", rendered, re.S).group(1)
+        self.assertEqual(table_body.count("<tr>"), 22)
 
     def test_complete_energy_sheet_and_qualifying_only_exceptions(self):
         body = self.pages["powerunit"]["body"]
@@ -268,7 +312,7 @@ class AzerbaijanParityTests(unittest.TestCase):
                          self.pages["tyres"]["body"])
         self.assertNotIn("after Thursday practice",
                          self.pages["tyres"]["body"])
-        self.assertIn("checked after\nqualifying", self.pages["tyres"]["body"])
+        self.assertIn("Post-qualifying tyre evidence", self.pages["tyres"]["body"])
         self.assertIn("Document 48", self.pages["penalties"]["body"])
         self.assertIn("Document 49", self.pages["penalties"]["body"])
         penalty_body = " ".join(self.pages["penalties"]["body"].split())

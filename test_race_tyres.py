@@ -227,6 +227,47 @@ class RaceTyresTests(unittest.TestCase):
         self.assertEqual(self.requests.count((IMAGE, True)), 2)
         self.assertTrue((self.assets / first["chart"]["asset"]).exists())
 
+    def test_missing_caption_venue_can_reuse_identical_verified_image(self):
+        first = self.collect()["snapshot"]
+        self.responses[PAGE] = article(venue="").encode()
+        result = self.collect()
+        self.assertEqual(result["status"]["state"], "available")
+        self.assertEqual(result["snapshot"]["chart"], first["chart"])
+        self.assertEqual(self.requests.count((IMAGE, True)), 2)
+        self.assertEqual(self.collect()["snapshot"]["chart"], first["chart"])
+
+    def test_missing_caption_venue_cannot_reuse_evidence_for_changed_bytes(self):
+        first = self.collect()["snapshot"]
+        self.responses[PAGE] = article(venue="").encode()
+        self.responses[IMAGE] = png(100)
+        result = self.collect()
+        self.assertEqual(result["status"]["state"], "error")
+        self.assertIn("previous visual venue evidence", result["status"]["error"])
+        self.assertEqual(result["snapshot"], first)
+
+    def test_missing_caption_venue_cannot_borrow_another_source_or_image(self):
+        first = self.collect()["snapshot"]
+        other = "https://coffeecornermotorsport.com/other-racesets.webp"
+        self.responses[PAGE] = article(venue="", image=other).encode()
+        self.responses[other] = png()
+        result = self.collect()
+        self.assertEqual(result["status"]["state"], "error")
+        self.assertEqual(result["snapshot"], first)
+        self.assertNotIn((other, True), self.requests)
+        with self.assertRaisesRegex(rt.SourceError, "venue"):
+            rt.chart_links(SPAIN, "https://coffeecornermotorsport.com/another-article/",
+                           article(venue=""), previous=first)
+
+    def test_cached_venue_evidence_does_not_override_event_or_access_checks(self):
+        first = self.collect()["snapshot"]
+        for body in (article(name="Italian", venue="").encode(), GATED):
+            with self.subTest(body=body):
+                self.responses[PAGE] = body
+                result = self.collect()
+                self.assertNotEqual(result["status"]["state"], "available")
+                self.assertEqual(result["snapshot"], first)
+        self.assertEqual(self.requests.count((IMAGE, True)), 1)
+
     def test_missing_asset_is_repaired_from_saved_source_without_seeds(self):
         first = self.collect()["snapshot"]
         asset = self.assets / first["chart"]["asset"]

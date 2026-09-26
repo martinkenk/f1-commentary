@@ -815,6 +815,9 @@ published strategy articles:
   (Monza, September 5; C3/C4/C5).
 - `https://coffeecornermotorsport.com/spanish-grand-prix-2026-tyre-strategy/`
   (Madrid, September 12; C2/C3/C4).
+- `https://coffeecornermotorsport.com/azerbaijan-grand-prix-2026-tyre-strategy/`
+  (Baku, September 25; C3/C4/C5). The race-set image was visually checked:
+  Mercedes have used Mediums only; Antonelli has four new Softs, Sainz none.
 
 Label these **Pirelli Motorsport graphics reproduced by Coffee Corner
 Motorsport**, not downloads from Pirelli's own host. Keep the full uncropped
@@ -841,6 +844,20 @@ the new full chart stays visible. Never simply update `source_sha256` to suppres
 that warning. Audit mismatches and missing transcriptions after qualifying;
 the unattended editor/watchdog can complete this evidence review on its next
 authorized run. Preserve the original chart/source even when the table exists.
+If a publisher omits the venue from its HTML caption (as Baku's article does),
+the collector may reuse a validated snapshot's image evidence only for the same
+article URL, chart URL and freshly downloaded SHA-256. A changed image without
+new venue evidence is rejected and the previous chart retained for review.
+Event/year/date and access restrictions still apply before this fallback.
+
+When the post-qualifying strategy graphic appears, replace illustrative stop
+windows with its actual compound routes and lap windows, retaining the complete
+credited graphic. Distinguish accompanying article suggestions from routes
+printed on the graphic; do not attribute every article window to Pirelli.
+Update the overview/notes too. Bespoke inventory cards must point to the shared
+source-status section rather than keep hard-coded "no chart found" claims after
+the collector publishes one. Baku's 2026 graphic gives Medium-Soft 26-32,
+Soft-Hard 16-22 and Medium-Hard 21-27; its article's Soft-Medium 18-24 is separate.
 
 HTML uses `<div class="table-wrap"><table class="data">`; `tbl` / `tablewrap`
 do not exist. Available modifiers: `compact`, `ranked`, `h2h`, `pen`, `cal-tbl`.

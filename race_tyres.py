@@ -296,7 +296,7 @@ def _restricted(text):
         text.replace('\\"', '"'), re.I))
 
 
-def chart_links(ctx, page_url, text):
+def chart_links(ctx, page_url, text, previous=None):
     if _restricted(text):
         raise AccessRestricted("Published article is access-restricted; no login or protected API attempted")
     article = Article(text)
@@ -330,13 +330,23 @@ def chart_links(ctx, page_url, text):
             raise SourceError("Race chart refers to another season")
         if not _event_name(ctx, evidence):
             raise SourceError("Race chart has no matching calendar event evidence")
-        if not any(_has(evidence, venue) for venue in _venues(ctx)):
-            raise SourceError("Race chart has no matching calendar venue evidence")
         if not _has(evidence, "pirelli"):
             raise SourceError("Race chart lacks exposed Pirelli creator attribution")
+        expected_sha = None
+        if not any(_has(evidence, venue) for venue in _venues(ctx)):
+            # Reuse validated image evidence only for the identical source and bytes.
+            cached = previous["chart"] if previous and previous["source"]["url"] == page_url else None
+            if (not cached or cached["url"] != urls[0]
+                    or not any(_has(cached.get("evidence", ""), venue) for venue in _venues(ctx))):
+                raise SourceError("Race chart has no matching calendar venue evidence")
+            evidence = cached["evidence"]
+            expected_sha = cached["sha256"]
         url = safe_url(urls[0], image=True)
         if not any(chart["url"] == url for chart in charts):
-            charts.append({"url": url, "evidence": evidence.strip()})
+            chart = {"url": url, "evidence": evidence.strip()}
+            if expected_sha:
+                chart["expected_sha256"] = expected_sha
+            charts.append(chart)
     if not charts and any(CHART_PATTERN.search(link["url"] + " " + link["text"])
                           for link in article.links):
         raise SourceError("Unsupported linked/embedded race inventory format; no public raster chart exposed")
@@ -616,11 +626,12 @@ def collect(ctx):
     checked = now()
     attempts = []
     urls = discover(ctx, attempts)
+    previous = context(ctx)["snapshot"]
     snapshots = []
     for url in urls:
         try:
             safe_url(url)
-            article, charts = chart_links(ctx, url, _text(fetch(url)))
+            article, charts = chart_links(ctx, url, _text(fetch(url)), previous=previous)
             if not charts:
                 attempts.append({"url": url, "state": "not_found",
                                  "message": "Public article exposes no supported race-sets graphic; "
@@ -631,6 +642,9 @@ def collect(ctx):
                     data = fetch(chart["url"], image=True)
                     ext, width, height = raster_info(data)
                     sha = hashlib.sha256(data).hexdigest()
+                    if chart.get("expected_sha256") and sha != chart["expected_sha256"]:
+                        raise SourceError("Race chart changed; previous visual venue evidence "
+                                          "cannot verify this revision")
                     asset = f"race-tyres-{year}-{slug}-{sha[:16]}.{ext}"
                     _atomic(Path(ASSET_DIR) / asset, data)
                     publisher, provenance = _attribution(url)

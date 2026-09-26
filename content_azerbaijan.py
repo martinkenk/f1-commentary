@@ -1,8 +1,7 @@
-"""Reviewed Azerbaijan-specific preview coverage.
+"""Reviewed Azerbaijan-specific weekend coverage.
 
-The public preview names the weekend's nominated compounds, but it does not
-provide the post-qualifying new/used race-set inventory. Keep those two facts
-separate on the Tyres page.
+Keep compound nominations separate from the post-qualifying set inventory
+and distinguish published strategy windows from editorial interpretation.
 """
 
 import content_generic
@@ -15,6 +14,8 @@ PREVIEW_URL = (
     "drivers-have-for-the-2026-azerbaijan-grand-prix.1UFiasleBnLs9s0hyRCpS0"
 )
 PREVIEW_IMAGE = "azerbaijan_pirelli_tyres_2026.webp"
+STRATEGY_URL = "https://coffeecornermotorsport.com/azerbaijan-grand-prix-2026-tyre-strategy/"
+STRATEGY_IMAGE = "azerbaijan-pirelli-strategies-2026.webp"
 FIA_TYRES_URL = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_azerbaijan_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
@@ -382,11 +383,11 @@ in the season into Baku entries.</p>
   )}
   {content_generic.card(
       "Race-set inventory",
-      "<p>No verified post-qualifying race-set chart was found in the "
-      "25 September source review. Formula1.com's strategy guide is access-restricted, "
-      "and the public publisher feeds exposed no chart candidate. The new/used set "
-      "counts require a full, visually reviewed event-matched chart; no zeros are inferred.</p>",
-      "bi-hourglass-split",
+      "<p>The <a href='#race-tyre-availability'>shared inventory above</a> carries "
+      "the complete Pirelli race-set chart, its source status and a visually reviewed "
+      "new/used table when the transcription matches the current image revision. "
+      "These are pre-race sets, not sets remaining after the finish.</p>",
+      "bi-table",
   )}
 </div>
 
@@ -426,10 +427,14 @@ and intermediates</strong> and <strong>40&deg;C for wets</strong>.
 These are actual tyre tread/sidewall temperatures, not blanket-controller settings.
 FIA/Pirelli may revise the prescriptions during the weekend.</p>
 
-<div class="callout"><strong>Long-run degradation:</strong> no public, verified
-event-specific dataset was identified in the accessible sources checked after
-qualifying. Practice classification times are not long-run degradation data;
-Formula1.com's strategy guide is access-restricted.</div>
+<div class="callout"><strong>Post-qualifying tyre evidence:</strong> Pirelli's
+comments reproduced by Coffee Corner Motorsport report very low degradation,
+no graining on Thursday and strong track evolution. Warm-up, particularly at
+the front axle, remains important. Its Friday assessment favours a one-stop
+using Medium and Soft, with Hard an alternative after an early neutralisation.
+These are attributed engineering observations, <strong>not a per-driver fitted
+degradation dataset</strong>; practice classification times cannot supply one.</div>
+{source(STRATEGY_URL, "Coffee Corner Motorsport, 25 September: Pirelli Thursday/Friday comments and complete race graphics; reviewed 26 September")}
 """
     pages["tyres"]["body"] += f"""
 <h2 class="sec">What Pirelli's complete preview means</h2>
@@ -443,18 +448,45 @@ capable of long stints and C3 possibly less attractive. Early graining and low g
 can improve as rubber goes down; the resurfaced T2/T3/T4 sections are not expected
 by Pirelli to dominate tyre behaviour. These are preview expectations, not practice measurements.</p>
 {source(PREVIEW_URL, "Pirelli preview reproduced by Formula1.com, 22 September; full graphic above")}
-<h2 class="sec">Illustrative 51-lap stint planner — not a fitted prediction</h2>
-{table(["Scenario", "Illustrative stop window", "Assumptions and trade-off"], [
-    ("C4 → C5, one stop", "Laps 24–31", "Run medium first, then 20–27 laps on soft; only if Thursday long runs validate C5 life."),
-    ("C5 → C4, one stop", "Laps 17–24", "Early soft pace, then 27–34 laps on medium; exposes the car to traffic after the stop."),
-    ("C4 → C3, conservative one stop", "Laps 18–26", "Long hard finish if softer-compound life disappoints; warm-up can cost track position."),
-    ("C5 → C4 → C5, two stops", "Laps 14–20 and 34–40", "Needs enough fresh-tyre pace or a cheap neutralised stop to offset another pit loss."),
+<h2 class="sec">Published Pirelli strategy windows — 51 laps</h2>
+<figure class="circuit-fig">
+  <img src="../assets/{STRATEGY_IMAGE}" class="circuit-img"
+       alt="Complete Pirelli Baku 2026 possible race strategies: Medium to Soft laps 26 to 32, Soft to Hard laps 16 to 22, Medium to Hard laps 21 to 27; pit-stop loss 19.5 seconds"
+       loading="lazy" role="button" tabindex="0" onclick="zoomImg(this)"
+       onkeydown="if(event.key==='Enter'||event.key===' '){{event.preventDefault();zoomImg(this)}}">
+  <figcaption><strong>Pirelli Motorsport — possible race strategies</strong>,
+  reproduced by <a href="{STRATEGY_URL}" target="_blank" rel="noopener">Coffee Corner Motorsport,
+  25 September 2026</a>. Complete original with compound key and credit.
+  <a href="../assets/{STRATEGY_IMAGE}" target="_blank" rel="noopener">Full-resolution graphic</a>;
+  click or press Enter to zoom.</figcaption>
+</figure>
+{table(["Published one-stop route", "Pirelli stop window", "Commentary interpretation"], [
+    ("C4 Medium → C5 Soft", "Laps 26–32", "The softer-compound route favoured in Pirelli's post-qualifying assessment; 19–25 laps remain after the stop."),
+    ("C5 Soft → C3 Hard", "Laps 16–22", "Earlier switch to a long Hard stint; warm-up and traffic still matter."),
+    ("C4 Medium → C3 Hard", "Laps 21–27", "Hard-compound alternative, rather than assuming every car must finish on Soft."),
 ])}
-<p>These editorial windows are working commentary scenarios, <strong>not Pirelli
-strategy recommendations or measured tyre-life forecasts</strong>. They assume
-dry running, legal compound use and sufficient sets; wet weather, Safety Cars,
-red flags, traffic and the actual post-qualifying inventory can invalidate them.
-No Safety Car probability is inferred from Baku's dramatic highlights.</p>
+<p>The windows above are transcribed from the published graphic, replacing the
+earlier illustrative planner. The <strong>19.5-second average pit-stop loss</strong>
+is Pirelli's estimate, not a measured stationary stop. The graphic shows possible
+dry-race strategies, not guarantees of tyre life or instructions for every car.
+Weather, neutralisations, traffic and each driver's inventory can change the choice.</p>
+<p><strong>Other options:</strong> the accompanying article discusses Soft to Medium
+with a laps 18–24 window, but that route/window is <strong>not on Pirelli's
+three-route graphic</strong>. Treat it as separately attributed article guidance,
+not another line from the chart. An early neutralisation may make Hard attractive;
+no fixed stop lap or Safety Car probability is asserted.</p>
+{source(STRATEGY_URL, "Coffee Corner Motorsport, 25 September 2026; Pirelli strategy and race-set graphics visually reviewed 26 September")}
+<h2 class="sec">What the published set inventory changes</h2>
+<p>In the reviewed 25 September race-set chart, <strong>Russell and Antonelli are
+the only drivers without a new Medium</strong>: each has one used C4. Russell
+has two new Softs and Antonelli four. A Medium-first plan for either Mercedes
+therefore starts on a used set; the chart does not state how many laps it has done.</p>
+<p><strong>Sainz has no new Soft</strong> and four used C5 sets. Piastri, Norris,
+Gasly and Colapinto each have one new Soft; Leclerc, Hamilton, Verstappen and
+Hadjar each have two. Bearman has three new Softs. All 22 drivers have one new
+Hard, and everyone except the Mercedes pair has one new Medium. See the
+revision-checked table above for every new/used count; these are options, not
+confirmed starting-tyre choices.</p>
 """
     pages["powerunit"]["title"] = "Power Unit & Overtake"
     pages["powerunit"]["sub"] = "Baku recharge limits, power curves, sector exceptions and the separate Overtake aid."
@@ -596,6 +628,12 @@ the race is Saturday 26 September at
 for the session classifications and published starting grid, and
 <a href="penalties.html">Penalties</a> for the confirmed qualifying rulings.
 The official starting grid is now available from Formula1.com.</div>
+<div class="callout"><strong>26 September race-day tyre update:</strong> the
+Pirelli race-set chart and all 22 new/used rows are now reviewed. Its published
+one-stop windows are Medium–Soft laps 26–32, Soft–Hard 16–22 and Medium–Hard
+21–27. The Mercedes pair have no new Medium; Antonelli has four new Softs,
+Russell two, and Sainz none. <a href="tyres.html">Full charts, inventory and
+source-backed strategy guidance</a>; these are not confirmed starting tyres.</div>
 {content_generic.card("The verified essentials",
     content_generic.ul([
         "Hadjar returns to Red Bull; Lawson returns to Racing Bulls; Tsunoda reverts to reserve. Hadjar expects some wrist pain and has renewed for 2027.",
