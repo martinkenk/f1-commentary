@@ -836,9 +836,10 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
         if source_url:
             source += (f' <a href="{html.escape(source_url, quote=True)}" target="_blank" '
                        'rel="noopener">Source publication</a>.')
+        label_title = availability_label[:1].upper() + availability_label[1:]
         return f"""
 <h2 class="sec">Tyre sets available for the race ({html.escape(availability_label)})</h2>
-<div class="callout"><strong>{html.escape(availability_label.title())} per-driver tyre-set availability</strong> for the race, as
+<div class="callout"><strong>{html.escape(label_title)} per-driver tyre-set availability</strong> for the race, as
 published ahead of the race: how many sets of each compound each driver has left after the
 mandatory hand-backs following practice and qualifying, split into brand-new (unscrubbed)
 sets and used sets, including scrubbed tyres (a used set can still work for the race, it just

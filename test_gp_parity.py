@@ -403,7 +403,7 @@ class AzerbaijanParityTests(unittest.TestCase):
         self.assertIn("The Race decisions are now published", penalties)
         self.assertIn("five grid places at the next race in which he participates",
                       " ".join(penalties.split()))
-        self.assertIn("65 PDFs at its successful 15:40 UTC discovery check", penalties)
+        self.assertIn("late-race Documents 65–67 are listed above", penalties)
         self.assertNotIn("50 PDFs after Qualifying", penalties)
         for document, url, outcome in (
             ("Doc 65", "decision_-_car_41_-_collision_with_car_30_in_turn_1.pdf",
