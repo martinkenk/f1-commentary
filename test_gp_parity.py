@@ -353,6 +353,21 @@ class AzerbaijanParityTests(unittest.TestCase):
             self.assertIn(url, row)
             self.assertIn("data-document-reader", row)
 
+    def test_race_day_fia_updates_are_sourced_and_distinguished(self):
+        powerunit = self.pages["powerunit"]["body"]
+        upgrades = self.pages["upgrades"]["body"]
+        notes = self.pages["notes"]["body"]
+        self.assertIn("Document 55 (26 September)", powerunit)
+        self.assertIn("four of four permitted", powerunit)
+        self.assertIn("five of six", powerunit)
+        self.assertIn("new_pu_elements_for_this_competition_1.pdf#page=2", powerunit)
+        self.assertIn("Parc Fermé component replacements (Document 57)", upgrades)
+        self.assertIn("Every listed replacement was approved", upgrades)
+        self.assertIn("parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
+                      upgrades)
+        self.assertIn("not, by itself, evidence of a defect or reliability failure", upgrades)
+        self.assertIn("Documents 55 and 57", notes)
+
 
 if __name__ == "__main__":
     unittest.main()

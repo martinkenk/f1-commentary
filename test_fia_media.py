@@ -97,6 +97,30 @@ class FiaMediaTests(unittest.TestCase):
         self.assertIn("automatic screenshot", body)
         self.assertEqual(f1lib.render_fia_media(CTX, "circuit"), "")
 
+    def test_parc_ferme_parts_report_is_collected_with_upgrade_media(self):
+        report_url = (
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_azerbaijan_grand_prix_-_parts_and_parameters_been_replaced_"
+            "and_or_changed_during_parc_ferme.pdf"
+        )
+        filename = (
+            "2026_azerbaijan_grand_prix_-_parts_and_parameters_been_replaced_"
+            "and_or_changed_during_parc_ferme.pdf"
+        )
+        self.manifest.write_text(json.dumps({
+            "retrieved_at": "2026-09-26T10:00:00+00:00",
+            "documents": [{"url": report_url, "filename": filename}],
+        }), encoding="utf-8")
+        with patch.object(fia_media, "_download", return_value=b"%PDF-parc-ferme"), \
+                patch.object(fia_media, "_render", side_effect=self.render):
+            self.assertTrue(fia_media.refresh_gp(CTX))
+        record = self.record()["documents"][0]
+        self.assertEqual(record["categories"], ["upgrades"])
+        body = f1lib.render_fia_media(CTX, "upgrades")
+        self.assertIn("fia-spain-", body)
+        self.assertIn("-p2.png", body)
+        self.assertIn(report_url + "#page=2", body)
+
     def test_curated_page_figures_are_not_duplicated(self):
         with patch.object(fia_media, "_download", return_value=b"%PDF-first"), \
                 patch.object(fia_media, "_render", side_effect=self.render):

@@ -32,7 +32,7 @@ FIA_POWER_UNIT_URL = (
 )
 FIA_ROOT = "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_"
 FIA_MAP_URL = FIA_ROOT + "competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf"
-FIA_NOTES_URL = FIA_ROOT + "race_directors_competition_notes.pdf"
+FIA_NOTES_URL = FIA_ROOT + "race_directors_competition_notes_v3.pdf"
 FIA_DISPLAY_URL = FIA_ROOT + "car_display_procedure.pdf"
 FIA_VISA_URL = FIA_ROOT + "competition_visa_v2.pdf"
 FIA_CAR_PRESENTATION_URL = FIA_ROOT + "car_presentation_submissions.pdf"
@@ -105,9 +105,10 @@ not corner numbers. The map's relative locations do not remove the PU sheet's TB
 {source(FIA_MAP_URL + "#page=2", "FIA circuit map, PDF page 2")}
 
 <h2 class="sec">Race Director's notes — what changes the call</h2>
-<p>Rui Marques's <strong>23 September</strong> notes cover the following points.
-These are instructions, not stewards' penalties. All seven substantive pages
-and their diagrams remain available in the source gallery below.</p>
+<p>Rui Marques's 23 September notes were reissued as <strong>Version 3 on
+26 September</strong>. These are instructions, not stewards' penalties. All
+seven substantive pages and their diagrams remain available in the source
+gallery below.</p>
 {content_generic.ul([
     "<strong>SC2–SC1 maximum time:</strong> published after FP2 (Document 27) as <strong>2:08.0</strong>. It applies on any lap <strong>during and after qualifying</strong>, including in/outlaps, and race reconnaissance with pit exit open, to avoid cars being driven unnecessarily slowly (PDF p2, §1; Doc 27).",
     "<strong>Blue flags:</strong> pre-warning at 3.0 seconds; blue panels at 1.2 seconds. Safety Car restart pacing must not involve dangerous acceleration, braking or manoeuvres once its orange lights go out (p2, §§2–3).",
@@ -120,7 +121,7 @@ and their diagrams remain available in the source gallery below.</p>
     "<strong>2026 changes:</strong> resurfaced sections at T2/T3/T4 and patches before T7 and at T19; painted kerbs removed; right-side pit-entry and T1-exit lines realigned, T15 apex line widened, blue line added on the right at T16 exit (p8, §26).",
     "<strong>Double-yellow mirroring:</strong> panel 8 onto 7 and panel 11 onto 10 (p8, §25).",
 ])}
-{source(FIA_NOTES_URL, "FIA Race Director's Competition Notes, PDF pages 2–8")}
+{source(FIA_NOTES_URL, "FIA Race Director's Competition Notes V3, 26 September 2026, PDF pages 2–8")}
 {source(FIA_SC_NOTE_URL, "FIA Document 27, Race Director's Note to Teams — SC2/SC1 Times, 24 September 2026")}
 <h2 class="sec">Pitlane, emergency exits and red zone</h2>
 <p>The emergency map uses <strong>red for exits on the left and green for exits
@@ -232,6 +233,16 @@ own documents.</p>
     "bi-exclamation-triangle", "accent")}
 {source(FIA_ALONSO_FP3_TD_URL + "#page=2", "FIA Document 33, Technical Delegate's Report, PDF page 2, 25 September 2026")}
 {source(FIA_ALONSO_FP3_PENALTY_URL, "FIA Document 34, Infringement — Car 14 — PU Element, 25 September 2026")}
+
+{content_generic.card("Race-day update: Verstappen's new PU elements remain compliant",
+    "<p>The Technical Delegate's <strong>Document 55 (26 September)</strong> records "
+    "new ICE, turbocharger, exhaust and PU ancillary components for Max Verstappen. "
+    "They bring his ICE, turbocharger and exhaust use to four of four permitted "
+    "elements each, and his PU ancillary components to five of six. The report "
+    "marks all four compliant under Article B8.2.2; it does not add a grid penalty.</p>"
+    + source(FIA_ROOT + "new_pu_elements_for_this_competition_1.pdf#page=2",
+             "FIA Document 55, Technical Delegate's Report, PDF pages 2–3"),
+    "bi-info-circle", "accent")}
 """
 
 
@@ -565,6 +576,20 @@ Aston Martin, Haas and Alpine submitted no updates</strong> for Baku; the follow
     ]), "bi-tools")}
 </div>
 {source(FIA_CAR_PRESENTATION_URL, "FIA Document 11, Car Presentation Submissions, 24 September 2026")}
+<h2 class="sec">Parc Fermé component replacements (Document 57)</h2>
+<p>The Technical Delegate's <strong>26 September report</strong> lists parts
+replaced or changed during Parc Fermé on the previous day and race morning.
+Every listed replacement was approved after a written team request under
+Article B3.5.4. This compliance report is separate from the upgrade declarations
+above and is not, by itself, evidence of a defect or reliability failure.</p>
+{content_generic.ul([
+    "<strong>Mercedes, Car 12 (Antonelli):</strong> front suspension, brake caliper and friction material, steering column and rack, forward plank section, front brake duct, and front-wing/nosebox assembly.",
+    "<strong>Red Bull, Car 03 (Verstappen):</strong> left- and right-hand fuel lift-pump assemblies plus new ICE, turbocharger, exhaust and PU ancillary components; the separate Document 55 report records those PU elements as compliant.",
+    "<strong>Racing Bulls, Car 41 (Lindblad):</strong> previously used ICE, turbocharger and exhaust reinstalled with associated parameter changes, plus a new right-hand cooling radiator.",
+    "<strong>Audi, Car 27 (Hulkenberg):</strong> gearbox assembly and control hydraulics, BBW and rear-brake friction material, with associated parameter changes and gearbox-oil heat-exchanger fittings and hoses.",
+])}
+{source(FIA_ROOT + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
+        "FIA Document 57, Technical Delegate's Report, 26 September 2026, PDF pages 1–3")}
 <h2 class="sec">Published development reporting, cross-checked against the filing</h2>
 {content_generic.card("Audi's Baku package: Gary Anderson's technical analysis",
     "<p>The Race's 25 September visual analysis describes changes across the front wing, "
@@ -645,6 +670,7 @@ source-backed strategy guidance</a>; these are not confirmed starting tyres.</di
         "Alonso's cumulative grid penalty for this event is now <strong>30 places</strong>: the confirmed 25-place Document 20 ruling plus a further 5 places (Document 34) for a fourth exceeded PU element found during FP3. Stroll's 20-place Document 21 penalty is unchanged.",
         "Six of eleven teams (McLaren, Red Bull, Williams, Racing Bulls, Audi, Cadillac) filed FIA car-presentation updates \u2014 Williams' package confirms the reported FW48 floor work. Car display was Thursday 11:00–12:00 Baku.",
         "SC2–SC1 maximum time confirmed post-FP2 (Doc 27): 2:08.0 between the Safety Car lines.",
+        "Race-day Documents 55 and 57: Verstappen's new PU elements are within allocation; the Parc Fermé report lists the major approved component replacements, separately from declared upgrades.",
         "The Turn 19 FP2 impeding incident is resolved: Document 29 gives Hamilton (Car 44) a driving reprimand for impeding Lawson's Car 30; no separate ruling was published against Lawson's own summons.",
     ]) + '<p><a href="rookies.html">Line-up sources</a> · <a href="tyres.html">Pirelli/FIA prescriptions</a> · '
     '<a href="circuit.html">Map and race-control interpretation</a> · <a href="powerunit.html">PU sheet</a> · '

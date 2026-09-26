@@ -82,7 +82,7 @@ def fia_document_categories(filename):
         categories.append("circuit")
     if re.search(r"\b(tyres?|tires?|pirelli preview)\b", name):
         categories.append("tyres")
-    if re.search(r"\b(car presentation|car display procedure|car component|upgrade submissions)\b", name):
+    if re.search(r"\b(car presentation|car display procedure|car component|upgrade submissions|parts and parameters)\b", name):
         categories.append("upgrades")
     return categories
 
@@ -107,7 +107,8 @@ def _official_fia_url(url):
 def render_fia_documents(ctx, category):
     """Add source documents without replacing reviewed tables or circuit maps."""
     labels = {"powerunit": "power-unit documents", "circuit": "maps & race-director notes",
-              "tyres": "tyre documents", "upgrades": "car-presentation & upgrade documents"}
+              "tyres": "tyre documents",
+              "upgrades": "car-presentation, upgrade & parts-change documents"}
     if category not in labels:
         return ""
     manifest = _load_fia_record(ctx, "fia_documents")
