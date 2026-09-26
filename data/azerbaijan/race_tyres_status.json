@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-09-26T18:43:16+00:00",
-  "state": "available",
-  "error": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-azerbaijan-gp.5iDS0mk2NragziXUR0jLlP: Published article is access-restricted; no login or protected API attempted",
+  "checked_at": "2026-09-26T18:54:10+00:00",
+  "state": "error",
+  "error": "https://coffeecornermotorsport.com/feed/: Unsupported publisher feed format: invalid XML; https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-azerbaijan-gp.5iDS0mk2NragziXUR0jLlP: Published article is access-restricted; no login or protected API attempted; https://coffeecornermotorsport.com/azerbaijan-grand-prix-2026-tyre-strategy/: Missing or unsupported article publication date",
   "attempts": [
     {
       "url": "https://www.formula1.com/en/latest/all.html",
@@ -10,8 +10,8 @@
     },
     {
       "url": "https://coffeecornermotorsport.com/feed/",
-      "state": "available",
-      "message": "Public discovery parsed; 1 candidate article(s)"
+      "state": "error",
+      "message": "Unsupported publisher feed format: invalid XML"
     },
     {
       "url": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-azerbaijan-gp.5iDS0mk2NragziXUR0jLlP",
@@ -19,9 +19,9 @@
       "message": "Published article is access-restricted; no login or protected API attempted"
     },
     {
-      "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/09/1920_15-az26-racesets.webp",
-      "state": "available",
-      "message": "Full 1080×608 WEBP decoded and hashed; secondary-reproduction; numeric counts not verified"
+      "url": "https://coffeecornermotorsport.com/azerbaijan-grand-prix-2026-tyre-strategy/",
+      "state": "error",
+      "message": "Missing or unsupported article publication date"
     }
   ]
 }
