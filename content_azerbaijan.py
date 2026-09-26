@@ -322,8 +322,11 @@ def build_pages(ctx, env):
         sub="Retirements, finisher counts and pit-stop rankings — filled in from the official results.",
         body=compliance_card + f1lib.auto_reliability(ctx),
     )
+    race_available = any(
+        block.get("label") == "Race" for block in (ctx.get("results") or [])
+    )
     standings = pages.get("standings")
-    if standings:
+    if standings and not race_available:
         standings["body"] += f"""
 <h2 class="sec">Championship permutations</h2>
 <p class="lead-note">Dated <strong>post-Madrid, 22 September</strong> scenarios
@@ -636,16 +639,39 @@ Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Fac
 </div>
 {source(MOMENTS_URL, "Formula1.com historical retrospective, 21 September 2026")}
 """
-    pages["reliability"]["body"] = content_generic.card(
-        "Carry-over watch, not a Baku outcome",
-        "<p>Hamilton retired in Madrid with a reported brake issue. The Race also highlights "
-        "front tyre/brake cooling into Baku T1 and Cadillac's reported Perez engine installation. "
-        "The Grand Prix has not run yet, so race retirements, race fastest lap and pit-stop "
-        "outcomes remain pending; the automatic tables below are authoritative as results publish.</p>"
-        + source(FORM_URL, "Formula1.com pre-weekend form")
-        + source(TECH_URL, "The Race technical preview"), "bi-tools"
-    ) + pages["reliability"]["body"]
-    brief = f"""
+    if race_available:
+        reliability_intro = content_generic.card(
+            "Post-race result status",
+            "<p>The Azerbaijan Grand Prix is complete. The official Race classification "
+            "and sourced pit-stop data below replace the pre-weekend reliability watch; "
+            "unclassified cars are not assigned a cause here.</p>"
+            + source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
+                     "Formula1.com official Race classification"),
+            "bi-flag", "accent")
+    else:
+        reliability_intro = content_generic.card(
+            "Carry-over watch, not a Baku outcome",
+            "<p>Hamilton retired in Madrid with a reported brake issue. The Race also highlights "
+            "front tyre/brake cooling into Baku T1 and Cadillac's reported Perez engine installation. "
+            "The Grand Prix has not run yet, so race retirements, race fastest lap and pit-stop "
+            "outcomes remain pending; the automatic tables below are authoritative as results publish.</p>"
+            + source(FORM_URL, "Formula1.com pre-weekend form")
+            + source(TECH_URL, "The Race technical preview"), "bi-tools"
+        )
+    pages["reliability"]["body"] = reliability_intro + pages["reliability"]["body"]
+    race_update = f"""
+{content_generic.card(
+    "Race classification: Russell wins in Baku",
+    "<p>George Russell converted pole into victory in the 51-lap Azerbaijan Grand Prix, "
+    "finishing in 1:38:02.143. Max Verstappen was 0.196 seconds behind and Isack Hadjar "
+    "completed the podium. Charles Leclerc finished fourth and Kimi Antonelli fifth; the "
+    "classification records six cars as not classified. See the source-linked full result "
+    "for every entrant and the published points.</p>"
+    + source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
+             "Formula1.com official Azerbaijan Grand Prix Race classification"),
+    "bi-flag", "accent")}
+"""
+    weekend_update = race_update if race_available else f"""
 <div class="callout"><strong>25 September post-qualifying update:</strong> standard
 Thursday–Saturday weekend, not a Sprint. FP1–FP3 and Qualifying are complete;
 the race is Saturday 26 September at
@@ -676,15 +702,13 @@ source-backed strategy guidance</a>; these are not confirmed starting tyres.</di
     '<a href="circuit.html">Map and race-control interpretation</a> · <a href="powerunit.html">PU sheet</a> · '
     '<a href="upgrades.html">Development sources</a></p>', "bi-mic", "accent")}
 """
+    brief = weekend_update
     st = ctx.get("standings") or {}
     live_standings = (
         f'<div class="callout"><strong>Current championship:</strong> {st.get("summary", "Official update pending")} '
         f'<a href="standings.html">Both tables and source freshness</a> ({st.get("as_of", "unavailable")}).</div>'
     )
     pages["overview"]["body"] = brief + live_standings + pages["overview"]["body"]
-    race_available = any(
-        block.get("label") == "Race" for block in (ctx.get("results") or [])
-    )
     if race_available:
         session_status = (
             "<p><strong>Session-by-session status:</strong> the official Race "
@@ -775,6 +799,33 @@ sporting concern.</p>
                              "12 months). Formula1.com's published starting grid lists Sainz 14th.",
                      kind="penalty",
                      source_url=FIA_ROOT + "infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf"),
+                dict(doc="Doc 60", no="5", driver="Gabriel Bortoleto",
+                     team="Audi Revolut F1 Team", session="Race",
+                     fact="Summoned over an alleged breach relating to overtaking under yellow flags "
+                          "and/or safety-car procedure at 16:12.",
+                     outcome="The summons required the driver and team representative to report at "
+                             "17:30. A summons is not a finding or sanction; check the FIA listing for "
+                             "any later ruling.",
+                     kind="note",
+                     source_url=FIA_ROOT + "summons_-_car_5_-_overtaking_under_yellow_flags_.pdf"),
+                dict(doc="Doc 61", no="55", driver="Carlos Sainz",
+                     team="Atlassian Williams F1 Team", session="Pre-race procedure",
+                     fact="Summoned over an alleged breach of the International Sporting Code and "
+                          "Race Director's Competition Note 13.6 concerning a practice start at 14:22.",
+                     outcome="The summons required the driver and team representative to report at "
+                             "18:00. A summons is not a finding or sanction; check the FIA listing for "
+                             "any later ruling.",
+                     kind="note",
+                     source_url=FIA_ROOT + "summons_-_car_55_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),
+                dict(doc="Doc 62", no="6", driver="Isack Hadjar",
+                     team="Oracle Red Bull Racing", session="Pre-race procedure",
+                     fact="Summoned over an alleged breach of the International Sporting Code and "
+                          "Race Director's Competition Note 13.6 concerning a practice start at 14:20.",
+                     outcome="The summons required the driver and team representative to report at "
+                             "18:10. A summons is not a finding or sanction; check the FIA listing for "
+                             "any later ruling.",
+                     kind="note",
+                     source_url=FIA_ROOT + "summons_-_car_6_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),
             ],
             intro_html=f"""
 <div class="callout accent"><strong>Four driver-specific grid sanctions now shape the published starting order.</strong>

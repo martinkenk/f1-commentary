@@ -320,6 +320,23 @@ class AzerbaijanParityTests(unittest.TestCase):
         self.assertIn("no fastest-lap bonus", self.pages["standings"]["body"])
         self.assertNotIn("A curated moments list", self.pages["moments"]["body"])
 
+    def test_post_race_brief_replaces_pre_race_and_qualifying_material(self):
+        results_path = Path(__file__).parent / "data/azerbaijan/session_results.json"
+        result_record = json.loads(results_path.read_text(encoding="utf-8"))
+        race = next(block for block in result_record["sessions"] if block["label"] == "Race")
+        ctx = dict(self.ctx, results=[race])
+        pages = content_azerbaijan.build_pages(ctx, self.env)
+        for slug in ("overview", "notes"):
+            body = pages[slug]["body"]
+            self.assertIn("Race classification: Russell wins in Baku", body)
+            self.assertIn("1:38:02.143", body)
+            self.assertNotIn("25 September post-qualifying update", body)
+            self.assertNotIn("Russell took pole in 1:42.526", body)
+            self.assertNotIn("Championship permutations", body)
+        reliability = pages["reliability"]["body"]
+        self.assertIn("Post-race result status", reliability)
+        self.assertNotIn("The Grand Prix has not run yet", reliability)
+
     def test_post_qualifying_updates_replace_expired_weekend_placeholders(self):
         self.assertNotIn("Pre-FP1 watch", self.pages["teams"]["body"])
         self.assertIn("Post-qualifying team context", self.pages["teams"]["body"])
@@ -357,6 +374,7 @@ class AzerbaijanParityTests(unittest.TestCase):
         powerunit = self.pages["powerunit"]["body"]
         upgrades = self.pages["upgrades"]["body"]
         notes = self.pages["notes"]["body"]
+        penalties = self.pages["penalties"]["body"]
         self.assertIn("Document 55 (26 September)", powerunit)
         self.assertIn("four of four permitted", powerunit)
         self.assertIn("five of six", powerunit)
@@ -367,6 +385,18 @@ class AzerbaijanParityTests(unittest.TestCase):
                       upgrades)
         self.assertIn("not, by itself, evidence of a defect or reliability failure", upgrades)
         self.assertIn("Documents 55 and 57", notes)
+        for document, url in (
+            ("Doc 60", "summons_-_car_5_-_overtaking_under_yellow_flags_.pdf"),
+            ("Doc 61", "summons_-_car_55_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),
+            ("Doc 62", "summons_-_car_6_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),
+        ):
+            row = next(
+                match.group(1)
+                for match in re.finditer(r"<tr>(.*?)</tr>", penalties, re.S)
+                if f">{document}</a>" in match.group(1)
+            )
+            self.assertIn(url, row)
+            self.assertIn("summons is not a finding or sanction", row)
 
 
 if __name__ == "__main__":

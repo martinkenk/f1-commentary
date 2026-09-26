@@ -22,6 +22,19 @@ def table(kind, points=100):
     return "<table><thead><tr><th>Pos.</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table>"
 
 
+def source_table(rows, kind):
+    rendered = []
+    for row in rows:
+        if kind == "drivers":
+            pos, name, code, team, points = row
+            cells = [pos, f"{name} {code}", "GBR", team, points]
+        else:
+            pos, team, points = row
+            cells = [pos, team, points]
+        rendered.append("<tr>" + "".join(f"<td>{value}</td>" for value in cells) + "</tr>")
+    return "<table><tbody>" + "".join(rendered) + "</tbody></table>"
+
+
 class StandingsTests(unittest.TestCase):
     def test_official_order_and_half_points(self):
         rows = standings.parse_table(table("drivers", 12.5), "drivers")
@@ -88,6 +101,60 @@ class StandingsTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "Reserve Driver"):
                     standings.refresh()
             self.assertEqual(json.loads(path.read_text()), previous)
+
+    def test_refresh_keeps_coherent_snapshot_when_driver_standings_lag_race(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "standings.json"
+            drivers = [
+                [index, f"Driver {index}",
+                 f"{chr(65 + (index - 1) // 26)}{chr(65 + (index - 1) % 26)}X",
+                 f"Team {min((index + 1) // 2, 11)}", 101 - index]
+                for index in range(1, 24)
+            ]
+            constructors = [[index, f"Team {index}", 101 - index] for index in range(1, 12)]
+            previous = {
+                "year": 2026,
+                "fetched_at": "2026-09-26T13:11:49+00:00",
+                "drivers": drivers,
+                "constructors": constructors,
+                "sources": {
+                    "drivers": "https://www.formula1.com/en/results/2026/drivers",
+                    "constructors": "https://www.formula1.com/en/results/2026/team",
+                },
+            }
+            path.write_text(json.dumps(previous), encoding="utf-8")
+            updated_constructors = [[pos, team, points + (35 if team == "Team 1" else 0)]
+                                    for pos, team, points in constructors]
+            race = {
+                "round": 15,
+                "slug": "azerbaijan",
+                "name": "Azerbaijan Grand Prix",
+                "fetched_at": "2026-09-26T13:13:19+00:00",
+                "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
+                "driver_points": {"AAX": 25, "ABX": 10},
+                "team_points": {"Team 1": 35},
+                "driver_names": {"AAX": "Driver 1", "ABX": "Driver 2"},
+            }
+            with patch.object(standings, "snapshot_path", return_value=path), \
+                    patch.object(standings, "_new_race_results", return_value=[race]), \
+                    patch("urllib.request.urlopen",
+                          side_effect=[
+                              io.BytesIO(source_table(drivers, "drivers").encode()),
+                              io.BytesIO(source_table(updated_constructors, "team").encode()),
+                          ]):
+                saved = standings.refresh()
+                loaded = standings.load_snapshot()
+
+            self.assertEqual(saved["fetched_at"], previous["fetched_at"])
+            self.assertEqual(loaded["drivers"], previous["drivers"])
+            self.assertEqual(loaded["constructors"], previous["constructors"])
+            self.assertEqual(loaded["refresh_status"]["state"], "pending")
+            self.assertIn("Driver 1 (AAX)", " ".join(loaded["refresh_status"]["mismatches"]))
+            with patch.object(standings, "snapshot_path", return_value=path):
+                context = standings.context(
+                    now=datetime.datetime(2026, 9, 26, 14, tzinfo=datetime.timezone.utc))
+            self.assertIn("Official post-race standings update pending", context["notice"])
+            self.assertIn("not a post-race points table", context["notice"])
 
     def test_freshness_and_summary_follow_data(self):
         snapshot = {
