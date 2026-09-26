@@ -336,6 +336,12 @@ class AzerbaijanParityTests(unittest.TestCase):
         reliability = pages["reliability"]["body"]
         self.assertIn("Post-race result status", reliability)
         self.assertNotIn("The Grand Prix has not run yet", reliability)
+        teams = pages["teams"]["body"]
+        self.assertIn("Post-race team update", teams)
+        self.assertIn("Race-day team results — official classification", teams)
+        self.assertIn("George Russell", teams)
+        self.assertIn("records 6 entrants as not classified", teams)
+        self.assertNotIn("Baku tests whether", teams)
 
     def test_post_qualifying_updates_replace_expired_weekend_placeholders(self):
         self.assertNotIn("Pre-FP1 watch", self.pages["teams"]["body"])
@@ -385,6 +391,37 @@ class AzerbaijanParityTests(unittest.TestCase):
                       upgrades)
         self.assertIn("not, by itself, evidence of a defect or reliability failure", upgrades)
         self.assertIn("Documents 55 and 57", notes)
+        for entry in (
+            "McLaren, Car 81", "Mercedes, Cars 63 and 12", "Red Bull Racing, Cars 03 and 06",
+            "Ferrari, Car 16", "Atlassian Williams, Car 23", "Racing Bulls, Cars 41 and 30",
+            "Aston Martin Aramco Honda, Car 18", "Audi, Car 27", "Alpine, Car 43",
+            "Cadillac, Cars 11 and 77", "rotac actuator set", "clutch-shaft torque sensor",
+            "ICE sump bumper protection plate", "front ride-height laser lens",
+        ):
+            self.assertIn(entry, upgrades)
+        penalties = self.pages["penalties"]["body"]
+        self.assertIn("The Race decisions are now published", penalties)
+        self.assertIn("five grid places at the next race in which he participates",
+                      " ".join(penalties.split()))
+        self.assertIn("65 PDFs at its successful 15:40 UTC discovery check", penalties)
+        self.assertNotIn("50 PDFs after Qualifying", penalties)
+        for document, url, outcome in (
+            ("Doc 65", "decision_-_car_41_-_collision_with_car_30_in_turn_1.pdf",
+             "No further action"),
+            ("Doc 66", "infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf",
+             "next race in which the driver participates"),
+            ("Doc 67", "decision_-_car_77_-_turn_15_incident.pdf",
+             "No further action"),
+        ):
+            row = next(
+                match.group(1)
+                for match in re.finditer(r"<tr>(.*?)</tr>", penalties, re.S)
+                if f">{document}</a>" in match.group(1)
+            )
+            self.assertIn(url, row)
+            self.assertIn(outcome, row)
+            self.assertIn('<details class="penalty-document"', row)
+            self.assertIn("data-document-reader", row)
         for document, url in (
             ("Doc 60", "summons_-_car_5_-_overtaking_under_yellow_flags_.pdf"),
             ("Doc 61", "summons_-_car_55_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),

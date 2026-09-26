@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-09-26T13:49:54Z",
-  "expires_at": "2026-09-27T10:00:00Z",
+  "reviewed_at": "2026-09-26T15:44:00Z",
+  "expires_at": "2026-09-26T17:15:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "af5b81462804280166d836c97e7c51aafd7359b70c6097bfbe25c7ca2a1c8f22",
+  "feed_fingerprint": "14ef77b63591012fdbdc3cd267d6e67a56505c29850dcf1c3f3424484eb93c46",
   "items": [
     {
       "topic": "Race result",
@@ -29,8 +29,8 @@
       "topic": "Race incident",
       "title": "Colapinto apologises after collision with Alpine team-mate Gasly",
       "date": "2026-09-26",
-      "summary": "Franco Colapinto apologised after a Turn 1 collision with Pierre Gasly during the race restart. The official classification lists both Alpines as not classified; the FIA stewards' decision status remains separate from the drivers' post-race accounts.",
-      "why_it_matters": "The incident ended Alpine's chance of a double points finish. Keep Colapinto's explanation distinct from the stewards' finding rather than treating an apology as an adjudication.",
+      "summary": "Franco Colapinto apologised after his Turn 1 collision with Pierre Gasly during the race restart. FIA Document 66 later imposed a 10-second time penalty, converted to five grid places at the next race in which he participates.",
+      "why_it_matters": "The penalty affects Colapinto's next eligible race, not Azerbaijan's classification. Keep his apology distinct from the stewards' decision.",
       "sources": [
         {
           "label": "Formula1.com: Colapinto apologises after the incident",
@@ -39,6 +39,10 @@
         {
           "label": "Formula1.com: official Race classification",
           "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result"
+        },
+        {
+          "label": "FIA Document 66: Colapinto infringement decision",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf"
         }
       ]
     }

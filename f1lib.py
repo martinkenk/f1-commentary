@@ -732,8 +732,14 @@ def render_race_tyres(ctx):
             'The complete original, including its compound key and credit, is retained.</figcaption></figure>')
         verified = reviewed_race_tyres(ctx, snapshot)
         if verified["state"] == "verified":
+            availability_label = (
+                "reviewed transcription"
+                if chart["provenance"] == "secondary-reproduction"
+                else "official"
+            )
             out.append(render_tyre_availability(
-                ctx, official=verified["drivers"], compounds=verified["compounds"], source_url=source["url"]))
+                ctx, official=verified["drivers"], compounds=verified["compounds"],
+                source_url=source["url"], availability_label=availability_label))
             out.append('<p class="src">Table visually transcribed from the displayed chart; '
                        f'reviewed {html.escape(verified["reviewed_at"])}. '
                        'A changed source image disables this transcription until reviewed again.</p>')
@@ -746,7 +752,8 @@ def render_race_tyres(ctx):
 
 
 def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None,
-                             official=None, compounds=None, source_url=""):
+                             official=None, compounds=None, source_url="",
+                             availability_label="official"):
     """Per-driver dry-tyre-set availability table.
 
     official: optional {code: (soft_new, soft_used, medium_new, medium_used,
@@ -830,8 +837,8 @@ def render_tyre_availability(ctx, hard=2, medium=3, soft=8, fp1_substitutes=None
             source += (f' <a href="{html.escape(source_url, quote=True)}" target="_blank" '
                        'rel="noopener">Source publication</a>.')
         return f"""
-<h2 class="sec">Tyre sets available for the race (official)</h2>
-<div class="callout"><strong>Official per-driver tyre-set availability</strong> for the race, as
+<h2 class="sec">Tyre sets available for the race ({html.escape(availability_label)})</h2>
+<div class="callout"><strong>{html.escape(availability_label.title())} per-driver tyre-set availability</strong> for the race, as
 published ahead of the race: how many sets of each compound each driver has left after the
 mandatory hand-backs following practice and qualifying, split into brand-new (unscrubbed)
 sets and used sets, including scrubbed tyres (a used set can still work for the race, it just

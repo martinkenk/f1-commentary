@@ -79,6 +79,9 @@ class PublishedRaceTyreTests(unittest.TestCase):
     def test_verified_table_and_full_source_chart_without_timing(self):
         self.save()
         body = self.render()
+        self.assertIn("Tyre sets available for the race (reviewed transcription)", body)
+        self.assertIn("Reviewed transcription per-driver tyre-set availability", body)
+        self.assertNotIn("Tyre sets available for the race (official)", body)
         self.assertIn("Hard (C2)", body)
         self.assertIn("Medium (C3)", body)
         self.assertIn("Soft (C4)", body)
