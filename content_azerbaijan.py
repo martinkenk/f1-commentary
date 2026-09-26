@@ -641,12 +641,30 @@ Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Fac
 """
     if race_available:
         reliability_intro = content_generic.card(
-            "Post-race result status",
+            "Post-race result status: six retirements, causes below",
             "<p>The Azerbaijan Grand Prix is complete. The official Race classification "
-            "and sourced pit-stop data below replace the pre-weekend reliability watch; "
-            "unclassified cars are not assigned a cause here.</p>"
+            "and sourced pit-stop data below replace the pre-weekend reliability watch.</p>"
+            "<p><strong>Alexander Albon</strong> locked up under braking and drove into the "
+            "Turn 6 barrier (lap 29), bringing out the race's first Safety Car. "
+            "<strong>Franco Colapinto</strong> locked up entering the Turn 1 braking zone at "
+            "the following restart, hit his Alpine team-mate <strong>Pierre Gasly</strong>, "
+            "and the chain reaction also collected <strong>Lando Norris</strong>'s McLaren "
+            "(lap 35) — all three retired on the spot. Colapinto was assessed a 10-second "
+            "time penalty for the collision; no FIA decision document for it had been "
+            "published in this event's listing as of this audit, so treat that outcome as "
+            "reported by the driver/team, not yet a confirmed published ruling. Norris said "
+            "afterwards he wants a race ban for this kind of incident; the FIA's actual "
+            "points-based ban threshold and Colapinto's current tally are separate facts, "
+            "not F1's decision. <strong>Fernando Alonso</strong> retired (lap 20) with a "
+            "reported water-pressure issue and <strong>Lance Stroll</strong> stopped early "
+            "(lap 7) with a separate mechanical issue. <strong>Valtteri Bottas</strong> hit "
+            "the wall late (lap 49) in the closing stages, the final retirement of the race.</p>"
             + source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
-                     "Formula1.com official Race classification"),
+                     "Formula1.com official Race classification")
+            + source("https://www.formula1.com/en/latest/article/russell-narrowly-holds-off-verstappen-to-take-victory-over-the-line-in-chaotic-azerbaijan-gp.5J4lgNh82JDL2GM302irF0",
+                     "Formula1.com race report and highlights, 26 September 2026")
+            + source("https://www.the-race.com/formula-1/norris-wants-f1-race-ban-for-colapinto-azerbaijan-gp-clash/",
+                     "The Race: \u2018Norris wants F1 race ban for Colapinto\u2019, 26 September 2026"),
             "bi-flag", "accent")
     else:
         reliability_intro = content_generic.card(
@@ -664,12 +682,25 @@ Azerbaijan GP. The sourced historical record book is on <a href="facts.html">Fac
     "Race classification: Russell wins in Baku",
     "<p>George Russell converted pole into victory in the 51-lap Azerbaijan Grand Prix, "
     "finishing in 1:38:02.143. Max Verstappen was 0.196 seconds behind and Isack Hadjar "
-    "completed the podium. Charles Leclerc finished fourth and Kimi Antonelli fifth; the "
-    "classification records six cars as not classified. See the source-linked full result "
-    "for every entrant and the published points.</p>"
+    "completed the podium. Charles Leclerc finished fourth and Kimi Antonelli fifth after "
+    "recovering from a Q1 crash and P16 on the grid; the classification records six cars as "
+    "not classified. Antonelli's championship lead over Russell narrows from 81 to 66 points. "
+    "See the source-linked full result for every entrant and the published points.</p>"
     + source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
              "Formula1.com official Azerbaijan Grand Prix Race classification"),
     "bi-flag", "accent")}
+{content_generic.card(
+    "Turn 1 chain-reaction ends three races; Norris wants tougher sanctions",
+    "<p>Franco Colapinto locked up at the second Safety Car restart and collided with "
+    "team-mate Pierre Gasly, also collecting Lando Norris's McLaren; all three retired. "
+    "Colapinto was assessed a 10-second time penalty (press-reported; no FIA decision "
+    "document had appeared in the event's listing as of this review). Norris said the FIA "
+    "should hand out race bans for this kind of incident. See "
+    "<a href=\"penalties.html\">Penalties</a> and <a href=\"reliability.html\">Reliability</a> "
+    "for the full sourced account.</p>"
+    + source("https://www.the-race.com/formula-1/norris-wants-f1-race-ban-for-colapinto-azerbaijan-gp-clash/",
+             "The Race: 'Norris wants F1 race ban for Colapinto', 26 September 2026"),
+    "bi-exclamation-triangle", "accent")}
 """
     weekend_update = race_update if race_available else f"""
 <div class="callout"><strong>25 September post-qualifying update:</strong> standard
@@ -826,6 +857,18 @@ sporting concern.</p>
                              "any later ruling.",
                      kind="note",
                      source_url=FIA_ROOT + "summons_-_car_6_-_alleged_failure_to_follow_race_directors_instructions_-_practice_start.pdf"),
+                dict(doc="Pending FIA doc", no="43", driver="Franco Colapinto",
+                     team="BWT Alpine F1 Team", session="Race",
+                     fact="Locked up entering the Turn 1 braking zone on the second Safety Car "
+                          "restart (lap 35) and collided with team-mate Pierre Gasly; the impact "
+                          "also collected Lando Norris's McLaren. All three retired.",
+                     outcome="The Race reports a 10-second time penalty was assessed against "
+                             "Colapinto as the race finished. No FIA decision document for this "
+                             "incident had appeared in the event's published listing as of this "
+                             "audit \u2014 treat the penalty as press-reported pending the official "
+                             "PDF, not yet a confirmed FIA ruling with a document number.",
+                     kind="note",
+                     source_url="https://www.the-race.com/formula-1/norris-wants-f1-race-ban-for-colapinto-azerbaijan-gp-clash/"),
             ],
             intro_html=f"""
 <div class="callout accent"><strong>Four driver-specific grid sanctions now shape the published starting order.</strong>
