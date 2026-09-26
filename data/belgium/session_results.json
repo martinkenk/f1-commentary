@@ -5,7 +5,7 @@
     "results_slug": "belgium",
     "gp": "belgium"
   },
-  "checked_at": "2026-09-26T10:35:47+00:00",
+  "checked_at": "2026-09-26T10:42:44+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1290/belgium/practice/1",
-      "fetched_at": "2026-09-26T10:35:47+00:00",
+      "fetched_at": "2026-09-26T10:42:44+00:00",
       "session_start": "2026-07-17T13:30:00+02:00",
       "retained": false
     },
@@ -389,7 +389,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1290/belgium/practice/2",
-      "fetched_at": "2026-09-26T10:35:47+00:00",
+      "fetched_at": "2026-09-26T10:42:44+00:00",
       "session_start": "2026-07-17T17:00:00+02:00",
       "retained": false
     },
@@ -582,7 +582,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1290/belgium/practice/3",
-      "fetched_at": "2026-09-26T10:35:47+00:00",
+      "fetched_at": "2026-09-26T10:42:44+00:00",
       "session_start": "2026-07-18T12:30:00+02:00",
       "retained": false
     },
@@ -821,7 +821,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1290/belgium/qualifying",
-      "fetched_at": "2026-09-26T10:35:47+00:00",
+      "fetched_at": "2026-09-26T10:42:44+00:00",
       "session_start": "2026-07-18T16:00:00+02:00",
       "retained": false
     },
@@ -991,7 +991,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1290/belgium/starting-grid",
-      "fetched_at": "2026-09-26T10:35:47+00:00",
+      "fetched_at": "2026-09-26T10:42:44+00:00",
       "session_start": "2026-07-18T17:00:00+02:00",
       "retained": false
     },
@@ -1207,7 +1207,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1290/belgium/race-result",
-      "fetched_at": "2026-09-26T10:35:47+00:00",
+      "fetched_at": "2026-09-26T10:42:44+00:00",
       "session_start": "2026-07-19T15:00:00+02:00",
       "retained": false
     }

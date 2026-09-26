@@ -1,7 +1,31 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Azerbaijan%20Grand%20Prix",
-  "retrieved_at": "2026-09-26T06:50:47.709049+00:00",
+  "retrieved_at": "2026-09-26T10:41:19.827730+00:00",
   "documents": [
+    {
+      "filename": "2026_azerbaijan_grand_prix_-_final_starting_grid.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_final_starting_grid.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_azerbaijan_grand_prix_-_parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_azerbaijan_grand_prix_-_race_directors_competition_notes_v3.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_race_directors_competition_notes_v3.pdf",
+      "categories": [
+        "circuit"
+      ]
+    },
+    {
+      "filename": "2026_azerbaijan_grand_prix_-_new_pu_elements_for_this_competition_1.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_new_pu_elements_for_this_competition_1.pdf",
+      "categories": [
+        "powerunit"
+      ]
+    },
     {
       "filename": "2026_azerbaijan_grand_prix_-_post-race_procedure.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_post-race_procedure.pdf",
