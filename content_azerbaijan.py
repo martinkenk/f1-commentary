@@ -656,15 +656,29 @@ source-backed strategy guidance</a>; these are not confirmed starting tyres.</di
         f'<a href="standings.html">Both tables and source freshness</a> ({st.get("as_of", "unavailable")}).</div>'
     )
     pages["overview"]["body"] = brief + live_standings + pages["overview"]["body"]
+    race_available = any(
+        block.get("label") == "Race" for block in (ctx.get("results") or [])
+    )
+    if race_available:
+        session_status = (
+            "<p><strong>Session-by-session status:</strong> the official Race "
+            "classification is published. See <a href=\"results.html\">Results</a> "
+            "for the source-linked table and <a href=\"news.html\">Weekend News</a> "
+            "for post-race reports.</p>"
+        )
+    else:
+        session_status = (
+            "<p><strong>Session-by-session status:</strong> official Practice 1, "
+            "Practice 2, Practice 3 and Qualifying classifications are published. "
+            "The Race classification remains pending until the official result is "
+            "available. See <a href=\"results.html\">Results</a> for source-linked "
+            "tables and <a href=\"news.html\">Weekend News</a> for the latest reports.</p>"
+        )
     notes_body = pages["notes"]["body"].replace(
         content_generic.pending(
             "Session-by-session commentary notes", "as the weekend runs", "bi-mic"
         ),
-        "<p><strong>Session-by-session status:</strong> official Practice 1, Practice 2, "
-        "Practice 3 and Qualifying classifications are published. The race classification "
-        "and race-day commentary remain pending until Saturday. See <a href=\"results.html\">"
-        "Results</a> for source-linked tables and <a href=\"news.html\">Weekend News</a> "
-        "for the latest reports.</p>",
+        session_status,
     )
     pages["notes"]["body"] = brief + live_standings + notes_body
     pages["schedule"]["body"] += f"""

@@ -300,6 +300,18 @@ class AzerbaijanParityTests(unittest.TestCase):
         self.assertIn("official starting grid is now available", self.pages["overview"]["body"])
         self.assertNotIn("Session-by-session commentary notes: awaiting",
                          self.pages["notes"]["body"])
+        self.assertIn(
+            "The Race classification remains pending until the official result is available",
+            self.pages["notes"]["body"],
+        )
+        self.assertNotIn("pending until Saturday", self.pages["notes"]["body"])
+        post_race_ctx = dict(self.ctx)
+        post_race_ctx["results"] = [{"label": "Race", "rows": []}]
+        post_race_notes = content_azerbaijan.build_pages(
+            post_race_ctx, self.env
+        )["notes"]["body"]
+        self.assertIn("the official Race classification is published", post_race_notes)
+        self.assertNotIn("remains pending until the official result", post_race_notes)
         self.assertIn("every other rival", self.pages["standings"]["body"])
         self.assertIn("no fastest-lap bonus", self.pages["standings"]["body"])
         self.assertNotIn("A curated moments list", self.pages["moments"]["body"])
