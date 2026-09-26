@@ -5,7 +5,7 @@
     "results_slug": "azerbaijan",
     "gp": "azerbaijan"
   },
-  "checked_at": "2026-09-26T13:05:48+00:00",
+  "checked_at": "2026-09-26T13:09:56+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/1",
-      "fetched_at": "2026-09-26T13:05:48+00:00",
+      "fetched_at": "2026-09-26T13:09:56+00:00",
       "session_start": "2026-09-24T12:30:00+04:00",
       "retained": false
     },
@@ -389,7 +389,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/2",
-      "fetched_at": "2026-09-26T13:05:48+00:00",
+      "fetched_at": "2026-09-26T13:09:56+00:00",
       "session_start": "2026-09-24T16:00:00+04:00",
       "retained": false
     },
@@ -582,7 +582,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/practice/3",
-      "fetched_at": "2026-09-26T13:05:48+00:00",
+      "fetched_at": "2026-09-26T13:09:56+00:00",
       "session_start": "2026-09-25T12:30:00+04:00",
       "retained": false
     },
@@ -821,7 +821,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/qualifying",
-      "fetched_at": "2026-09-26T13:05:48+00:00",
+      "fetched_at": "2026-09-26T13:09:56+00:00",
       "session_start": "2026-09-25T16:00:00+04:00",
       "retained": false
     },
@@ -991,8 +991,224 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/starting-grid",
-      "fetched_at": "2026-09-26T13:05:48+00:00",
+      "fetched_at": "2026-09-26T13:09:56+00:00",
       "session_start": "2026-09-25T17:00:00+04:00",
+      "retained": false
+    },
+    {
+      "label": "Race",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Laps",
+        "Time / Retired",
+        "Pts."
+      ],
+      "rows": [
+        [
+          "1",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "51",
+          "1:38:02.143",
+          "25"
+        ],
+        [
+          "2",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "51",
+          "+0.196s",
+          "18"
+        ],
+        [
+          "3",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "51",
+          "+10.704s",
+          "15"
+        ],
+        [
+          "4",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "51",
+          "+14.136s",
+          "12"
+        ],
+        [
+          "5",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "51",
+          "+14.512s",
+          "10"
+        ],
+        [
+          "6",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "51",
+          "+22.382s",
+          "8"
+        ],
+        [
+          "7",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "51",
+          "+31.159s",
+          "6"
+        ],
+        [
+          "8",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "51",
+          "+31.189s",
+          "4"
+        ],
+        [
+          "9",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "51",
+          "+31.929s",
+          "2"
+        ],
+        [
+          "10",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "51",
+          "+32.416s",
+          "1"
+        ],
+        [
+          "11",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "51",
+          "+33.231s",
+          "0"
+        ],
+        [
+          "12",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "51",
+          "+34.013s",
+          "0"
+        ],
+        [
+          "13",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "51",
+          "+34.230s",
+          "0"
+        ],
+        [
+          "14",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "51",
+          "+36.401s",
+          "0"
+        ],
+        [
+          "15",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "51",
+          "+41.400s",
+          "0"
+        ],
+        [
+          "16",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "49",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "36",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "35",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "35",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "29",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "20",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "7",
+          "DNF",
+          "0"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
+      "fetched_at": "2026-09-26T13:09:56+00:00",
+      "session_start": "2026-09-26T15:00:00+04:00",
       "retained": false
     }
   ],
@@ -1024,10 +1240,8 @@
     },
     {
       "label": "Race",
-      "state": "unavailable",
-      "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
-      "error": "Incomplete classification: 1 entrants",
-      "retained": false
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result"
     }
   ]
 }
