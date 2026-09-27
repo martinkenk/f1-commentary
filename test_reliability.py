@@ -30,8 +30,8 @@ class ReliabilityTests(unittest.TestCase):
             "pitstops": {"headers": ["Driver", "Time of Day", "Time", "Lap"], "rows": [
                 ["Kimi AntonelliANT", "15:20:00", "24.600", "20"],
                 ["Lando NorrisNOR", "15:21:00", "22.100", "21"]]},
-            "fastestlaps": {"headers": ["Driver", "Time", "Lap", "Avg"], "rows": [
-                ["Kimi AntonelliANT", "1:22.000", "50", "250.100"]]},
+            "fastestlaps": {"headers": ["Driver", "Time of Day", "Time", "Lap", "Avg"], "rows": [
+                ["Kimi AntonelliANT", "15:22:00", "1:22.000", "50", "250.100"]]},
         }}
         body = f1lib.render_reliability(ctx)
         self.assertIn("Pit-lane time", body)
@@ -39,6 +39,8 @@ class ReliabilityTests(unittest.TestCase):
         self.assertNotIn("<th>Stationary</th>", body)
         self.assertLess(body.index("22.100s"), body.index("24.600s"))
         self.assertNotIn("15:20:00s", body)
+        self.assertIn("Kimi Antonelli — 1:22.000", body)
+        self.assertNotIn("Kimi Antonelli — 15:22:00", body)
         self.assertIn("no championship bonus point", body)
         self.assertNotIn("point goes to a top-10", body)
 

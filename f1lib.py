@@ -1367,7 +1367,8 @@ def render_reliability(ctx, intro_html=""):
     fl = extra.get("fastestlaps")
     if fl and fl["rows"]:
         h = fl["headers"]
-        di, ti, li, ai = _col(h, "driver"), _col(h, "time"), _col(h, "lap"), _col(h, "avg")
+        di, ti, li, ai = (_col(h, "driver"), _col(h, "time", exact=True),
+                          _col(h, "lap"), _col(h, "avg"))
         top = fl["rows"][0]
         nm, code = _split_driver(top[di]) if di is not None and di < len(top) else (top[-1], "")
         t = top[ti] if ti is not None and ti < len(top) else ""
