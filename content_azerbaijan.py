@@ -16,6 +16,9 @@ PREVIEW_URL = (
 PREVIEW_IMAGE = "azerbaijan_pirelli_tyres_2026.webp"
 STRATEGY_URL = "https://coffeecornermotorsport.com/azerbaijan-grand-prix-2026-tyre-strategy/"
 STRATEGY_IMAGE = "azerbaijan-pirelli-strategies-2026.webp"
+PIRELLI_RACE_URL = (
+    "https://press.pirelli.com/russell-keeps-the-red-bulls-at-bay-and-conquers-baku-on-softs/"
+)
 FIA_TYRES_URL = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_azerbaijan_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
@@ -530,6 +533,19 @@ Hadjar each have two. Bearman has three new Softs. All 22 drivers have one new
 Hard, and everyone except the Mercedes pair has one new Medium. See the
 revision-checked table above for every new/used count; these are options, not
 confirmed starting-tyre choices.</p>
+"""
+    if any(block.get("label") == "Race" for block in (ctx.get("results") or [])):
+        pages["tyres"]["body"] += f"""
+<h2 class="sec">Post-race tyre strategy — Pirelli's account</h2>
+<p>Pirelli reports that Russell and Verstappen started on C4 Medium and finished
+on C5 Soft; Hadjar started on C5 Soft and finished on C4 Medium. All three podium
+finishers made their stop during the first Safety Car period. Twelve drivers
+started on Medium and ten on Soft; across the race, 49% of laps were on C4 and
+51% on C5. This race summary does not provide a per-driver stint or pit-lap
+ledger, so do not infer exact stop laps from it.</p>
+{source(PIRELLI_RACE_URL, "Pirelli Motorsport post-race report, published 26 September 2026")}
+{source("https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
+        "Formula1.com official Azerbaijan Race classification")}
 """
     pages["powerunit"]["title"] = "Power Unit & Overtake"
     pages["powerunit"]["sub"] = "Baku recharge limits, power curves, sector exceptions and the separate Overtake aid."

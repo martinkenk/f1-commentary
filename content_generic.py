@@ -282,10 +282,21 @@ def build_pages(ctx, env):
 """
     else:
         standings_body = pending("Championship standings", "after the most recent race", "bi-trophy")
+    race_complete = any(
+        block.get("label") == "Race" for block in (ctx.get("results") or [])
+    )
+    if race_complete:
+        standings_sub = "Current-season standings and form after the completed Grand Prix."
+    elif ctx.get("status") == "past":
+        standings_sub = "Current-season standings and form through the latest published classification."
+    elif ctx.get("status") == "live":
+        standings_sub = "Current-season standings before this Grand Prix's Race classification."
+    else:
+        standings_sub = "Current-season standings ahead of this round."
     P["standings"] = dict(
         kicker="Championship",
         title="Championship & Form",
-        sub="Where the title fight stands going into this round.",
+        sub=standings_sub,
         body=standings_body)
 
     # ---- TEAMS -------------------------------------------------------------

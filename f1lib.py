@@ -1099,6 +1099,14 @@ def completed_labels(ctx):
     return [b["label"] for b in (ctx.get("results") or [])]
 
 
+def news_page_subtitle(ctx):
+    if "Race" in completed_labels(ctx):
+        return ("Session-by-session reports use official classifications; "
+                "the Race is complete and all published sessions appear below.")
+    return ("Session-by-session reports use official classifications and appear "
+            "here as each session is completed.")
+
+
 def render_news(ctx, general_items, session_notes):
     """Compose the Weekend News page.
     general_items : list of news_item() HTML strings (weekend-wide stories).
@@ -2451,8 +2459,7 @@ def build_all(gps):
             pages["news"] = dict(
                 kicker="Weekend News",
                 title="Weekend News & Session Reports",
-                sub=("Session-by-session reports built live from the official results — "
-                     "rerun during the weekend to refresh as more sessions finish."),
+                sub=news_page_subtitle(ctx),
                 body=auto_news(ctx),
             )
         # auto-inject data-driven pages when the nav asks and content omits them

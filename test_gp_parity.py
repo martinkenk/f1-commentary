@@ -49,6 +49,22 @@ class GPParityTests(unittest.TestCase):
             self.assertFalse(nav - set(pages) - engine_pages)
             self.assertTrue(all(page["body"].strip() for page in pages.values()))
 
+    def test_standings_subtitle_tracks_event_phase(self):
+        future_ctx = dict(self.contexts["bahrain"], status="future", results=[])
+        future = content_generic.build_pages(future_ctx, self.env)
+        completed_ctx = dict(
+            future_ctx, status="past", results=[{"label": "Race"}]
+        )
+        completed = content_generic.build_pages(completed_ctx, self.env)
+        live_ctx = dict(future_ctx, status="live")
+        live = content_generic.build_pages(live_ctx, self.env)
+        self.assertIn("ahead of this round", future["standings"]["sub"])
+        self.assertIn(
+            "before this Grand Prix's Race classification",
+            live["standings"]["sub"],
+        )
+        self.assertIn("after the completed Grand Prix", completed["standings"]["sub"])
+
     def test_sepang_carries_colapinto_sanction_with_original_fia_reader(self):
         pages = self.bahrain()
         article = content_bahrain.F1_PENALTY_ARTICLE
@@ -244,6 +260,15 @@ class AzerbaijanParityTests(unittest.TestCase):
             pages = content_azerbaijan.build_pages(self.ctx, self.env)
         self.assertIn("LIVE_PIT_TABLE", pages["reliability"]["body"])
 
+    def test_automatic_news_subtitle_stays_phase_accurate(self):
+        pending = f1lib.news_page_subtitle(self.ctx)
+        complete = f1lib.news_page_subtitle(
+            dict(self.ctx, results=[{"label": "Race"}])
+        )
+        self.assertIn("as each session is completed", pending)
+        self.assertIn("the Race is complete", complete)
+        self.assertNotIn("rerun during the weekend", complete)
+
     def test_visually_reviewed_prescriptions_correct_old_errors(self):
         body = self.pages["tyres"]["body"]
         self.assertIn("C3 and C4", body)
@@ -377,6 +402,7 @@ class AzerbaijanParityTests(unittest.TestCase):
         race = next(block for block in result_record["sessions"] if block["label"] == "Race")
         ctx = dict(self.ctx, results=[race])
         pages = content_azerbaijan.build_pages(ctx, self.env)
+        self.assertIn("after the completed Grand Prix", pages["standings"]["sub"])
         for slug in ("overview", "notes"):
             body = pages[slug]["body"]
             self.assertIn("Race classification: Russell wins in Baku", body)
@@ -393,6 +419,27 @@ class AzerbaijanParityTests(unittest.TestCase):
         self.assertIn("George Russell", teams)
         self.assertIn("records 6 entrants as not classified", teams)
         self.assertNotIn("Baku tests whether", teams)
+
+    def test_post_race_pirelli_strategy_is_added_only_after_classification(self):
+        self.assertNotIn("Pirelli's account", self.pages["tyres"]["body"])
+        record = json.loads(
+            (Path(__file__).parent / "data/azerbaijan/session_results.json")
+            .read_text(encoding="utf-8")
+        )
+        race = next(block for block in record["sessions"] if block["label"] == "Race")
+        pages = content_azerbaijan.build_pages(
+            dict(self.ctx, results=[race]), self.env
+        )
+        body = " ".join(pages["tyres"]["body"].split())
+        for fact in (
+            "Russell and Verstappen started on C4 Medium",
+            "Hadjar started on C5 Soft",
+            "49% of laps were on C4",
+            "51% on C5",
+            "does not provide a per-driver stint or pit-lap ledger",
+            content_azerbaijan.PIRELLI_RACE_URL,
+        ):
+            self.assertIn(fact, body)
 
     def test_post_qualifying_updates_replace_expired_weekend_placeholders(self):
         self.assertNotIn("Pre-FP1 watch", self.pages["teams"]["body"])
