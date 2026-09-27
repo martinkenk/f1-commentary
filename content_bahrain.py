@@ -33,11 +33,67 @@ state a resulting grid position.
 </div>"""
 
 
+def _tl(year, title, text):
+    return (
+        f'<div class="tl-item"><div class="tl-year">{year}</div>'
+        f'<div class="tl-title">{title}</div><p>{text}</p></div>'
+    )
+
+
+_MOMENTS = [
+    ("1999", "Sepang's debut — and an instant classic",
+     "The Sepang International Circuit — a purpose-built Hermann Tilke design "
+     "commissioned as part of Malaysia's 1990s industrialisation push — opened "
+     "with the very first Malaysian Grand Prix. Michael Schumacher, returning "
+     "from a broken leg suffered mid-season, drove a supporting role to help "
+     "Ferrari team-mate Eddie Irvine's title bid; Irvine won as Ferrari locked "
+     "out the front two places on his return."),
+    ("2009", "Button and Brawn's fairytale start",
+     "Brawn GP's first race as a constructor produced pole and victory for "
+     "Jenson Button, launching the underdog team (and Button) toward the 2009 "
+     "world titles — one of the sport's most improbable championship runs."),
+    ("2012", "Alonso's charge from P8",
+     "A wet-dry Malaysian GP saw Fernando Alonso climb from eighth on the grid "
+     "to win for Ferrari, benefiting from timing his intermediate and slick "
+     "stops around the changing conditions — a reminder of how quickly Sepang's "
+     "tropical weather can rewrite a race."),
+    ("2017", "Verstappen's low-key statement win",
+     "Starting third, Max Verstappen took his second Grand Prix victory at "
+     "what proved to be Sepang's last race on the calendar before Malaysia "
+     "dropped off the schedule — a result this circuit's return to F1 in 2026 "
+     "now follows almost a decade later."),
+]
+
+
+def _moments_section():
+    return f"""
+<div class="callout">
+  Sepang last hosted a round in 2017; the venue returns to the calendar for
+  2026 as the new home of the Bahrain Grand Prix. Four verified moments from
+  its original 1999&ndash;2017 run as the Malaysian Grand Prix, for use when
+  live action goes quiet.
+</div>
+<div class="timeline">
+  {''.join(_tl(y, t, x) for y, t, x in _MOMENTS)}
+</div>
+<p class="src">Sources:
+<a href="{F1_EVENT}" target="_blank" rel="noopener">Formula1.com event guide</a>
+(circuit history FAQ); race facts cross-checked against the checksum-verified
+F1DB circuit-history record on this site's Facts &amp; Records page.</p>
+"""
+
+
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
     notice = _carryover_notice()
     pages["overview"]["body"] = notice + pages["overview"]["body"]
     pages["notes"]["body"] = notice + pages["notes"]["body"]
+    pages["moments"] = dict(
+        kicker="History",
+        title="Sepang's Great Moments",
+        sub="The Malaysian Grand Prix years (1999-2017) at the venue now hosting the Bahrain GP.",
+        body=_moments_section(),
+    )
     pages["penalties"] = dict(
         kicker="Confirmed carry-over sanction",
         title="Penalties & Decisions",
