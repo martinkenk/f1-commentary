@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-09-26T20:10:00Z",
-  "expires_at": "2026-09-27T14:00:00Z",
+  "reviewed_at": "2026-09-27T15:50:00Z",
+  "expires_at": "2026-09-28T15:50:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "663f30b725aa547296ec4bb52cad6f8d483a7068882560bcb082b6b9177dddc0",
+  "feed_fingerprint": "dfe141490e025e9ae13f4571306a9e4e00db02e02786c418d693222dae8d0db6",
   "items": [
     {
       "topic": "Race result",
@@ -73,6 +73,23 @@
         {
           "label": "The Race: 'Mr Horner looking for a job' - Vasseur laments Ferrari distractions",
           "url": "https://www.the-race.com/formula-1/mr-horner-looking-for-a-job-vasseur-laments-ferrari-distractions/"
+        }
+      ]
+    },
+    {
+      "topic": "Driver conduct fallout",
+      "title": "Alpine release statement over online hate and abuse following Azerbaijan GP",
+      "date": "2026-09-27",
+      "summary": "Alpine issued a statement condemning \"hate and abuse\" directed at Franco Colapinto online after his Turn 1 restart collision took out team-mate Pierre Gasly and Lando Norris's McLaren. The team has not disclosed further internal action against Colapinto beyond the confirmed FIA sanction (Document 66: 10-second penalty converted to a five-place grid drop at Bahrain).",
+      "why_it_matters": "It is a separate team-level response to online abuse, distinct from the FIA's own ruling and from Norris's public call for tougher sporting sanctions; do not conflate the two or imply Alpine has announced any additional driver discipline.",
+      "sources": [
+        {
+          "label": "Formula1.com: Alpine statement on online abuse",
+          "url": "https://www.formula1.com/en/latest/article/alpine-release-statement-over-online-hate-and-abuse-following-azerbaijan-gp.MqW6k0nrD2GkoljzBaWno"
+        },
+        {
+          "label": "FIA Document 66: Colapinto infringement decision",
+          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf"
         }
       ]
     }
