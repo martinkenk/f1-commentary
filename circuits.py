@@ -209,9 +209,11 @@ CIRCUITS = {
             "are separate systems; consult this event's FIA map for their exact locations."
         ),
         "tyre_notes": (
-            "Historically one of the toughest tyre circuits on the calendar: high track "
-            "temperatures, abrasive surface and long-duration corners drive thermal "
-            "degradation. Expect conservative compound choices and multi-stop racing."
+            "Sepang's asphalt is particularly abrasive and has not been resurfaced since "
+            "Formula 1 last raced there in 2017, but Pirelli rates overall tyre stress as "
+            "medium relative to the calendar. The C2/C3/C4 selection avoids the hardest "
+            "compounds, aiming to reduce the lap-time differential between one- and "
+            "two-stop strategies; 2026 degradation remains unmeasured until the weekend."
         ),
         "straight_mode_zones": None,
         "overtake_zones": None,
