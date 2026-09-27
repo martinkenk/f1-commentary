@@ -579,6 +579,9 @@ class RefreshTests(unittest.TestCase):
         with patch.object(history, "_release", return_value=RELEASE), patch.object(
                 history, "_database", return_value=(self.data, SOURCE)):
             self.refresh()
+        snapshot = history._read(self.path)
+        snapshot["coverage"]["completed_calendar_events"].append("azerbaijan")
+        history._write(self.path, snapshot)
         before = self.path.stat().st_mtime_ns
         with patch.object(history, "ROOT", self.root), patch.object(history, "_fetch",
                                                                   side_effect=AssertionError("network")):

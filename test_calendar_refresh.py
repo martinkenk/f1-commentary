@@ -26,11 +26,13 @@ class SessionCompatibilityTests(unittest.TestCase):
         self.assertIn("Fri", rows)
 
     def test_active_gps_accepts_raw_calendar_events(self):
+        today = datetime.datetime.now(datetime.timezone.utc).date()
+        yesterday = today - datetime.timedelta(days=1)
         events = [
-            {"slug": "spain", "name": "Spanish Grand Prix", "race_date": "2026-09-13",
-             "sessions": [{"label": "Race", "date": "2026-09-13", "time": "15:00"}]},
-            {"slug": "azerbaijan", "name": "Azerbaijan Grand Prix", "race_date": "2026-09-26",
-             "sessions": [{"label": "Race", "date": "2026-09-26", "time": "14:00"}]},
+            {"slug": "spain", "name": "Spanish Grand Prix", "race_date": yesterday.isoformat(),
+             "sessions": [{"label": "Race", "date": yesterday.isoformat(), "time": "15:00"}]},
+            {"slug": "azerbaijan", "name": "Azerbaijan Grand Prix", "race_date": today.isoformat(),
+             "sessions": [{"label": "Race", "date": today.isoformat(), "time": "14:00"}]},
         ]
         picked = enrich.active_gps(events)
         self.assertEqual({c["slug"] for c in picked}, {"spain", "azerbaijan"})
