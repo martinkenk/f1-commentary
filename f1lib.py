@@ -1320,9 +1320,18 @@ def render_reliability(ctx, intro_html=""):
         else:
             out.append('<div class="callout watch">Every starter was classified — a clean, full-distance race.</div>')
     else:
-        out.append('<div class="callout watch"><strong>Race classification unavailable in this build.</strong> '
-                   "Retirements and finisher counts appear here automatically once the race "
-                   "classification is published.</div>")
+        status = ctx.get("status") or event_status(ctx)
+        if status == "future":
+            message = ("This weekend has not started yet. Retirement and finisher counts will appear "
+                       "after the official Race classification is published.")
+        elif status == "live":
+            message = ("No official Race classification has been published yet. Retirement and "
+                       "finisher counts will appear here once it is available.")
+        else:
+            message = ("No official Race classification is available in the saved results. Check "
+                       "the Results page for its source status; retirement and finisher counts "
+                       "require the classification.")
+        out.append(f'<div class="callout watch">{message}</div>')
 
     # Pit stops
     ps = extra.get("pitstops")

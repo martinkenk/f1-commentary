@@ -4,6 +4,27 @@ import f1lib
 
 
 class ReliabilityTests(unittest.TestCase):
+    def test_future_event_does_not_describe_unrun_race_as_build_failure(self):
+        ctx = {
+            "status": "future",
+            "sessions": [("Practice 1", "Fri", "2026-10-02", "12:30")],
+            "results": [],
+        }
+        body = f1lib.render_reliability(ctx)
+        self.assertIn("This weekend has not started yet", body)
+        self.assertIn("official Race classification", body)
+        self.assertNotIn("unavailable in this build", body)
+
+    def test_past_event_points_to_saved_results_source_status(self):
+        ctx = {
+            "status": "past",
+            "sessions": [("Race", "Sat", "2026-09-26", "15:00")],
+            "results": [],
+        }
+        body = f1lib.render_reliability(ctx)
+        self.assertIn("No official Race classification is available in the saved results", body)
+        self.assertIn("Results page for its source status", body)
+
     def test_pitlane_times_and_fastest_lap_do_not_make_obsolete_claims(self):
         ctx = {"results": [], "extra": {
             "pitstops": {"headers": ["Driver", "Time of Day", "Time", "Lap"], "rows": [
