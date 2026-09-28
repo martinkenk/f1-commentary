@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-27T16:45:00Z",
-  "expires_at": "2026-09-28T16:45:00Z",
+  "reviewed_at": "2026-09-28T13:39:00Z",
+  "expires_at": "2026-09-29T13:39:00Z",
   "through_session": "Race",
   "feed_fingerprint": "dfe141490e025e9ae13f4571306a9e4e00db02e02786c418d693222dae8d0db6",
   "items": [
@@ -27,10 +27,10 @@
     },
     {
       "topic": "Race incident",
-      "title": "Norris wants a race ban for Colapinto after the Turn 1 pile-up that ended his race",
-      "date": "2026-09-26",
-      "summary": "Franco Colapinto locked up entering Turn 1 on the second Safety Car restart, hit team-mate Pierre Gasly, and the chain reaction also collected Lando Norris's McLaren; all three retired. The FIA's Document 66 confirms a 10-second time penalty, converted to a five-place grid drop at Colapinto's next race (Bahrain). Norris said afterwards the FIA should hand out race bans for this kind of driving, though the current points-based ban threshold (12 points in 12 months) means no such sanction applies under today's rules.",
-      "why_it_matters": "It ended the race for a reigning champion and two Alpine cars, the ruling is now confirmed rather than press-reported, and Norris's public call for tougher sanctions is a live sporting-conduct storyline distinct from the published penalty.",
+      "title": "Norris apologises after calling for a race ban following the Baku crash",
+      "date": "2026-09-28",
+      "summary": "Franco Colapinto's Turn 1 collision with Pierre Gasly and Lando Norris during the Azerbaijan Grand Prix ended all three drivers' races. The FIA imposed a 10-second penalty, converted to a five-place drop at Colapinto's next race. Norris called for a race ban in the immediate aftermath, then apologised for those comments in a Formula1.com report published on 28 September, saying they were wrong.",
+      "why_it_matters": "Norris's apology updates his post-race response; his initial call was not an FIA sanction. Keep that retraction separate from Colapinto's confirmed carry-over grid penalty.",
       "sources": [
         {
           "label": "The Race: 'Norris wants F1 race ban for Colapinto'",
@@ -39,6 +39,14 @@
         {
           "label": "Formula1.com: Norris reflects on the Baku clash",
           "url": "https://www.formula1.com/en/latest/article/some-drivers-shouldnt-be-in-f1-norris-reflects-on-baku-clash-that-led-to-dnf.76PWZBrhTQ5PMLrgvQFyPt"
+        },
+        {
+          "label": "Formula1.com: Norris apologises to Colapinto",
+          "url": "https://www.formula1.com/en/latest/article/it-was-wrong-of-me-norris-apologises-to-colapinto-for-azerbaijan-post-race-comments.2Iy4VhKfVvs8YOejZh4Ofe"
+        },
+        {
+          "label": "The Race: Norris apologises to Colapinto",
+          "url": "https://www.the-race.com/formula-1/norris-apologises-colapinto-for-race-ban-demand-f1-baku-crash/"
         },
         {
           "label": "FIA Document 66: Colapinto infringement decision",
