@@ -65,6 +65,10 @@ PENALTY_ARTICLE_URL = F1_ROOT + (
     "alonso-and-stroll-set-for-grid-penalties-at-azerbaijan-gp-after-taking-new-"
     "engine-components.2uOl7HZHamxmaUqjOxejAF"
 )
+COLAPINTO_PENALTY_ARTICLE_URL = F1_ROOT + (
+    "colapinto-hit-with-five-place-grid-penalty-for-bahrain-gp-in-malaysia-"
+    "after-baku-collision.3gWVfzDMMr5hReiwTt1fPD"
+)
 FP3_ARTICLE_URL = F1_ROOT + (
     "fp3-verstappen-beats-russell-and-hamilton-in-final-practice-for-azerbaijan-gp"
     ".4BuODmX7lLpgRKnIK4oMXg"
@@ -357,6 +361,53 @@ def build_pages(ctx, env):
     race_available = any(
         block.get("label") == "Race" for block in (ctx.get("results") or [])
     )
+    if race_available:
+        ref = ctx.get("ref") or {}
+        current_storylines = content_generic.ul_or(ref.get("storylines"))
+        post_race_points = (
+            content_generic.ul([
+                "George Russell converted pole into a 0.196-second win over Max Verstappen; "
+                "Isack Hadjar completed the podium.",
+                "Kimi Antonelli recovered from 16th on the official starting grid to finish fifth.",
+                "FIA Document 66 converted Franco Colapinto's Azerbaijan time penalty into a "
+                "five-place drop at his next race, the Bahrain Grand Prix at Sepang.",
+            ])
+            + source(
+                "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
+                "Formula1.com official Azerbaijan Race classification",
+            )
+            + source(
+                "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/starting-grid",
+                "Formula1.com official Azerbaijan starting grid",
+            )
+            + source(FIA_ROOT + "infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf",
+                     "FIA Document 66, Colapinto infringement decision")
+            + source(COLAPINTO_PENALTY_ARTICLE_URL,
+                     "Formula1.com Bahrain penalty report")
+        )
+        old_overview = content_generic.card(
+            "Storylines to prepare",
+            content_generic.ul_or(
+                ref.get("storylines"),
+                "<p>Storylines will be added as the round approaches.</p>",
+            ),
+            "bi-broadcast",
+        )
+        old_notes = content_generic.card(
+            "Talking points", current_storylines, "bi-chat-quote"
+        )
+        if old_overview not in pages["overview"]["body"] or old_notes not in pages["notes"]["body"]:
+            raise ValueError("Could not locate Azerbaijan's pre-race storylines for post-race replacement")
+        pages["overview"]["body"] = pages["overview"]["body"].replace(
+            old_overview,
+            content_generic.card("Post-race takeaways", post_race_points, "bi-broadcast"),
+            1,
+        )
+        pages["notes"]["body"] = pages["notes"]["body"].replace(
+            old_notes,
+            content_generic.card("Post-race talking points", post_race_points, "bi-chat-quote"),
+            1,
+        )
     standings = pages.get("standings")
     if standings and not race_available:
         standings["body"] += f"""
