@@ -38,6 +38,22 @@ class SessionCompatibilityTests(unittest.TestCase):
         self.assertEqual({c["slug"] for c in picked}, {"spain", "azerbaijan"})
 
 
+class CalendarFieldTests(unittest.TestCase):
+    def test_skips_markup_contamination_before_well_formed_value(self):
+        page = (
+            '"meetingOfficialName":"])</script><script>self.__next_f.push([1,"'
+            '"meetingOfficialName":"FORMULA 1 QATAR AIRWAYS AZERBAIJAN GRAND PRIX 2026"'
+        )
+        self.assertEqual(
+            calendar._field(page, "meetingOfficialName"),
+            "FORMULA 1 QATAR AIRWAYS AZERBAIJAN GRAND PRIX 2026",
+        )
+
+    def test_returns_empty_when_only_malformed_value_exists(self):
+        page = '"meetingOfficialName":"</script><script>invalid"'
+        self.assertEqual(calendar._field(page, "meetingOfficialName"), "")
+
+
 class TrackMapRefreshTests(unittest.TestCase):
     def event(self, days=0):
         day = datetime.datetime.now(datetime.timezone.utc).date() + datetime.timedelta(days=days)

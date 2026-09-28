@@ -59,6 +59,16 @@ def _unescape(page):
     return page.replace('\\"', '"').replace("\\\\", "\\")
 
 
+def _field(page, key):
+    """Return the first well-formed string value for an embedded event field."""
+    pattern = re.escape(f'"{key}"') + r'\s*:\s*"([^"]{0,120})"'
+    for value in re.findall(pattern, page):
+        value = value.strip()
+        if value and "<" not in value and ">" not in value:
+            return value
+    return ""
+
+
 def _stat(text, label):
     """Pull a circuit stat that Formula1.com renders as '<label> <value>'.
 
@@ -110,10 +120,6 @@ def scrape_event(year, slug):
         print(f"  ! {slug}: {e}")
         return None
 
-    def field(key):
-        m = re.search(re.escape(f'"{key}"') + r'\s*:\s*"([^"]{0,120})"', page)
-        return m.group(1).strip() if m else ""
-
     block = re.search(r'"meetingSessions"\s*:\s*\[(.*?)\]', page, re.S)
     sessions = []
     if block:
@@ -138,15 +144,15 @@ def scrape_event(year, slug):
         return None
     sessions.sort(key=lambda s: (s["date"], s["time"]))
 
-    name = field("meetingName") or slug.replace("-", " ").title()
+    name = _field(page, "meetingName") or slug.replace("-", " ").title()
     text = re.sub(r"<[^>]+>", " ", page)
     return {
         "slug": slug,
         "results_slug": RESULTS_SLUG_FIX.get(slug, slug),
         "name": name,
-        "official_name": field("meetingOfficialName"),
-        "country": field("meetingCountryName"),
-        "location": field("meetingLocation"),
+        "official_name": _field(page, "meetingOfficialName"),
+        "country": _field(page, "meetingCountryName"),
+        "location": _field(page, "meetingLocation"),
         "circuit_length": _stat(text, "Circuit Length"),
         "laps": _stat(text, "Number of Laps"),
         "race_distance": _stat(text, "Race Distance"),
