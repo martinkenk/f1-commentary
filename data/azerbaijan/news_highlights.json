@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-27T15:50:00Z",
-  "expires_at": "2026-09-28T15:50:00Z",
+  "reviewed_at": "2026-09-28T11:58:00Z",
+  "expires_at": "2026-09-29T11:58:00Z",
   "through_session": "Race",
   "feed_fingerprint": "dfe141490e025e9ae13f4571306a9e4e00db02e02786c418d693222dae8d0db6",
   "items": [
@@ -27,10 +27,10 @@
     },
     {
       "topic": "Race incident",
-      "title": "Norris wants a race ban for Colapinto after the Turn 1 pile-up that ended his race",
+      "title": "Norris apologises to Colapinto after wanting a race ban for the Turn 1 pile-up",
       "date": "2026-09-26",
-      "summary": "Franco Colapinto locked up entering Turn 1 on the second Safety Car restart, hit team-mate Pierre Gasly, and the chain reaction also collected Lando Norris's McLaren; all three retired. The FIA's Document 66 confirms a 10-second time penalty, converted to a five-place grid drop at Colapinto's next race (Bahrain). Norris said afterwards the FIA should hand out race bans for this kind of driving, though the current points-based ban threshold (12 points in 12 months) means no such sanction applies under today's rules.",
-      "why_it_matters": "It ended the race for a reigning champion and two Alpine cars, the ruling is now confirmed rather than press-reported, and Norris's public call for tougher sanctions is a live sporting-conduct storyline distinct from the published penalty.",
+      "summary": "Franco Colapinto locked up entering Turn 1 on the second Safety Car restart, hit team-mate Pierre Gasly, and the chain reaction also collected Lando Norris's McLaren; all three retired. The FIA's Document 66 confirms a 10-second time penalty, converted to a five-place grid drop at Colapinto's next race (Bahrain). Norris said afterwards the FIA should hand out race bans for this kind of driving, though the current points-based ban threshold (12 points in 12 months) means no such sanction applies under today's rules. Norris posted an Instagram story on the Monday after the race saying he had messaged Colapinto to apologise for those comments, calling them wrong despite emotions running high, and said the pair remain friends.",
+      "why_it_matters": "It ended the race for a reigning champion and two Alpine cars, the ruling is now confirmed rather than press-reported, and Norris's public call for tougher sanctions is a live sporting-conduct storyline distinct from the published penalty. Norris's own walk-back is a distinct, dated follow-up to his race-ban comments and should not be conflated with a standing demand for tougher sanctions.",
       "sources": [
         {
           "label": "The Race: 'Norris wants F1 race ban for Colapinto'",
@@ -41,8 +41,16 @@
           "url": "https://www.formula1.com/en/latest/article/some-drivers-shouldnt-be-in-f1-norris-reflects-on-baku-clash-that-led-to-dnf.76PWZBrhTQ5PMLrgvQFyPt"
         },
         {
+          "label": "Formula1.com: 'It was wrong of me' - Norris apologises to Colapinto",
+          "url": "https://www.formula1.com/en/latest/article/it-was-wrong-of-me-norris-apologises-to-colapinto-for-azerbaijan-post-race-comments.2Iy4VhKfVvs8YOejZh4Ofe"
+        },
+        {
           "label": "FIA Document 66: Colapinto infringement decision",
           "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf"
+        },
+        {
+          "label": "The Race: Norris apologises to Colapinto for race ban demand",
+          "url": "https://www.the-race.com/formula-1/norris-apologises-colapinto-for-race-ban-demand-f1-baku-crash/"
         }
       ]
     },
