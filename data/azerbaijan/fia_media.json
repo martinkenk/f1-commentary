@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-09-28T06:41:25+00:00",
+  "checked_at": "2026-09-28T12:31:07+00:00",
   "discovery_retrieved_at": "2026-09-28T06:41:23.286827+00:00",
   "documents": [
     {
@@ -325,7 +325,7 @@
         "penalties"
       ],
       "sha256": "009d3cac1b4f76dc9b3fb5abd4a53586b583fca9c9d5f2bf23e5156489388665",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -505,7 +505,7 @@
         "penalties"
       ],
       "sha256": "2bfa39f7c6d0f4e9d38f92f33911e024875668818622c398189ed0d8914aa00d",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 1,
@@ -525,7 +525,7 @@
         "penalties"
       ],
       "sha256": "eede71328526e4df46a12ee6226edf88559a6580a8af1932aa228d16a97fb82f",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -541,7 +541,7 @@
         "penalties"
       ],
       "sha256": "1aa08369e045ec0ca32bd5f5c3b11a28e4301719aca8455bfa0d156176e8237b",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -561,7 +561,7 @@
         "powerunit"
       ],
       "sha256": "d40730f12c24793a317621a261031bfc5c348c91269a797858e9ec1258dd6a6b",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -585,7 +585,7 @@
         "circuit"
       ],
       "sha256": "6f15a45a308ba9d1f0e9e5e6fc562bdf92b64c54a93b9055c94ab3cc0c791f19",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -625,7 +625,7 @@
         "upgrades"
       ],
       "sha256": "1616de8a9a2118873ff2146d08df6a98479e777d4012aa430a40766e563699b2",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -729,7 +729,7 @@
         "circuit"
       ],
       "sha256": "34506576427627d59c2d09612fe4d83bf8b05ae18eeb9705053d39c4a7bb2e33",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -797,7 +797,7 @@
         "powerunit"
       ],
       "sha256": "90023e0575a7e570a554f49baf31a95b0dca01e63da65c212afafb5bf5399836",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -813,7 +813,7 @@
         "upgrades"
       ],
       "sha256": "748dc31c5a759bf8f39409d5d7aa508c2969926576f22ca9b08d094afcb546e7",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -829,7 +829,7 @@
         "tyres"
       ],
       "sha256": "be2a9031410066a58874574a31dec945293754a5863820d1770c2de54d859549",
-      "fetched_at": "2026-09-28T06:41:25+00:00",
+      "fetched_at": "2026-09-28T12:31:07+00:00",
       "pages": [
         {
           "page": 2,
@@ -839,5 +839,110 @@
       "revision": 0
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_55_-_failing_to_follow_race_directors_instructions_-_practice_start.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_6_-_failing_to_follow_race_directors_instructions_-_practice_start.pdf",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_5_-_overtaking_under_yellow_flags.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_decision_-_car_77_-_turn_15_incident.pdf",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_decision_-_car_41_-_collision_with_car_30_in_turn_1.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_race_directors_competition_notes_v3.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_new_pu_elements_for_this_competition_1.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_yellow_flags_0.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_11_-_impeding_car_81.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_41_-_leaving_the_track_in_turn_15.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_55_-_failure_to_slow_for_yellow_flags.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_element.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_new_pu_elements_for_this_competition_0.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_44_-_impeding_car_30.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times_-_double_yellow_flags.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_18_-_pu_elements.pdf",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_14_-_pu_elements.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_race_directors_competition_notes.pdf",
+      "error": "HTTP Error 504: Gateway Time-out"
+    }
+  ]
 }
