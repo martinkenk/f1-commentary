@@ -24,6 +24,8 @@ steps:
         --disable-pip-version-check pypdf pymupdf Pillow
       /tmp/gh-aw/python/venv/bin/python3 -c \
         'import sys, platform, pypdf, pymupdf, PIL; assert platform.python_implementation() == "CPython"; assert sys.version_info[:2] == (3, 12); print(sys.executable, sys.version)'
+      /tmp/gh-aw/python/venv/bin/python3 -c \
+        'import datetime, json, build, enrich; gps = enrich.active_gps(build.season_gps()); print("calendar-selected-active-gps:", json.dumps([(g["dir"], g.get("name"), g.get("race_date")) for g in gps])); assert gps and all(g["dir"] in {c["slug"] for c in json.load(open("data/calendar_2026.json"))["events"]} for g in gps)'
       echo "COVERAGE_PYTHON=/tmp/gh-aw/python/venv/bin/python3" >> "$GITHUB_ENV"
 jobs:
   verify-publication:
@@ -204,10 +206,17 @@ state separately what is still awaiting review and therefore not deployed.
 1. Read `data/calendar_2026.json`, `build.py`, `circuits.py`,
    `content_generic.py`, the relevant `content_<gp>.py` when present, and the
    active GP's `data/<gp>/*_auto.json`.
-2. Use the current UTC date and session dates to select:
+2. Run `enrich.active_gps(build.season_gps())` with the prepared CPython
+   interpreter and record its exact `dir`, event name and race date before
+   researching. Use that result and the current UTC date/session dates to select:
    - a live race weekend, otherwise
    - the next race when it is within 10 days, otherwise
    - the most recently completed race for post-event corrections.
+   The selected set must contain only slugs present in the checked-out
+   `data/calendar_2026.json`; never substitute a remembered or unrelated GP
+   (for example, Singapore) for the helper's next event. If the written scope
+   differs from the helper output, stop and report the mismatch instead of
+   emitting a no-op or editorial PR.
 3. Also check the most recently completed GP within seven days for stale
    pre-race claims, final classifications and later FIA decisions.
 4. Run `python3 standings.py`, `python3 calendar_scraper.py --maps-only`, `python3 season_h2h.py`,
