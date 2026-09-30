@@ -215,6 +215,23 @@ def build_pages(ctx, env):
     else:
         compound_status = pending("Pirelli's compound allocation", "about two weeks before the race")
 
+    preview = ""
+    preview_asset = ref.get("tyre_preview_asset")
+    preview_source = ref.get("tyre_preview_source")
+    if preview_asset and preview_source:
+        preview = f"""
+<h2 class="sec">Pirelli's event preview</h2>
+<figure class="tyre-fig">
+  <img src="../assets/{preview_asset}"
+       alt="Full Pirelli event preview infographic for the {gp}, including circuit information, tyre demands, pressure and camber limits, and compound selection"
+       class="tyre-preview-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
+  <figcaption><strong>Official Pirelli event-preview graphic</strong> — circuit data,
+  tyre demands, starting-pressure and camber limits, and the C2/C3/C4 selection.
+  <strong>Click the graphic to zoom / full screen.</strong>
+  <span class="src">Source: <a href="{preview_source}" target="_blank" rel="noopener">Formula1.com</a> / Pirelli.</span></figcaption>
+</figure>
+"""
+
     tyre_body = f"""
 <div class="grid cols-2">
   {card("What this circuit does to a tyre", f"<p>{ref.get('tyre_notes', 'To be confirmed.')}</p>",
@@ -226,6 +243,7 @@ def build_pages(ctx, env):
 </div>
 
 {compound_status}
+{preview}
 {pending("Long-run degradation data", "after Friday practice", "bi-graph-down")}
 """
     P["tyres"] = dict(

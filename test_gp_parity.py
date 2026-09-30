@@ -65,6 +65,15 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertIn("after the completed Grand Prix", completed["standings"]["sub"])
 
+    def test_sepang_pirelli_preview_is_full_and_source_linked(self):
+        body = self.bahrain()["tyres"]["body"]
+        self.assertIn("../assets/bahrain_pirelli_tyres_2026.webp", body)
+        self.assertIn("4vcrMxYY9DWg7PwyiNMrEV", body)
+        self.assertIn("Official Pirelli event-preview graphic", body)
+        self.assertTrue(
+            (Path(build.ROOT) / "assets_src" / "bahrain_pirelli_tyres_2026.webp").is_file()
+        )
+
     def test_sepang_carries_colapinto_sanction_with_original_fia_reader(self):
         pages = self.bahrain()
         article = content_bahrain.F1_PENALTY_ARTICLE

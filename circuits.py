@@ -219,7 +219,13 @@ CIRCUITS = {
         "overtake_zones": None,
         "tyre_compounds": ("C2 Hard", "C3 Medium", "C4 Soft"),
         "tyre_compounds_source": "https://press.pirelli.com/tyre-compound-selections-for-baku-sepang-and-singapore/",
-        "lap_record": "1:34.080 — Juan Pablo Montoya, 2004 (Malaysian GP)",
+        "tyre_preview_asset": "bahrain_pirelli_tyres_2026.webp",
+        "tyre_preview_source": (
+            "https://www.formula1.com/en/latest/article/"
+            "what-tyres-will-the-teams-and-drivers-have-for-the-2026-bahrain-grand-prix-in-malaysia."
+            "4vcrMxYY9DWg7PwyiNMrEV"
+        ),
+        "lap_record": "1:34.080 — Sebastian Vettel, 2017 (Malaysian GP)",
         "notes": [
             "The event is officially the 'Formula 1 Gulf Air Bahrain Grand Prix in Malaysia' — the Bahrain race relocated for 2026.",
             "Sepang last held a Formula 1 round in 2017; it was a calendar fixture from 1999.",
