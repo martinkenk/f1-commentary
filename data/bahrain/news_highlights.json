@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-09-27T21:42:00Z",
-  "expires_at": "2026-09-28T21:42:00Z",
+  "reviewed_at": "2026-09-30T14:38:41Z",
+  "expires_at": "2026-10-01T14:38:41Z",
   "through_session": null,
-  "feed_fingerprint": "5007c9f6608e872dfef148ea2f7dd9c7c25a8fd07b8b950823c7bb8191000d98",
+  "feed_fingerprint": "12aacd0b94d7daf28eaa04e47e5d845d1134ab84fb6cb45d6980bb94c13c87b6",
   "items": [
     {
       "topic": "Carry-over grid penalty",
@@ -22,6 +22,19 @@
         {
           "label": "Formula1.com: 2026 Bahrain Grand Prix event guide",
           "url": "https://www.formula1.com/en/racing/2026/bahrain"
+        }
+      ]
+    },
+    {
+      "topic": "Sepang return",
+      "title": "Formula 1 returns to Sepang for a different Bahrain Grand Prix",
+      "date": "2026-09-29",
+      "summary": "Formula1.com's race-week briefing places the relocated Bahrain Grand Prix at Sepang for 2–4 October, with George Russell arriving after his Azerbaijan victory and the venue presenting a new test for much of the current field.",
+      "why_it_matters": "Sepang's return changes the circuit context: compare current weekend evidence with the venue's historic Malaysian races, but do not carry over Bahrain-specific performance assumptions.",
+      "sources": [
+        {
+          "label": "Formula1.com: five storylines ahead of the Bahrain GP in Malaysia",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-bahrain-grand-prix-in-malaysia.5VJ800Id8hGFvoRpQQFc9u"
         }
       ]
     },
