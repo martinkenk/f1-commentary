@@ -89,6 +89,22 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Qualifying and the official Bahrain starting grid are still",
                       pages["penalties"]["body"])
 
+    def test_sepang_team_watch_replaces_placeholder_with_dated_official_form(self):
+        page = self.bahrain()["teams"]
+        body = page["body"]
+        self.assertIn("Baku to Sepang: team-by-team watch", body)
+        self.assertIn(content_bahrain.F1_AZERBAIJAN_RESULT, body)
+        self.assertIn("one-race form, not season totals", body)
+        self.assertNotIn("Team-by-team weekend storylines: awaiting", body)
+        for team in (
+            "Mercedes", "Red Bull Racing", "Ferrari", "McLaren", "Racing Bulls",
+            "Haas F1 Team", "Williams", "Audi", "BWT Alpine F1 Team", "Cadillac",
+            "Aston Martin Aramco F1 Team",
+        ):
+            self.assertIn(f"<th scope=\"row\">{team}</th>", body)
+        self.assertIn("Colapinto DNF; Gasly DNF", body)
+        self.assertIn("confirmed five-place grid drop", body)
+
     def test_cross_event_penalty_does_not_hide_same_number_local_document(self):
         ctx = self.contexts["bahrain"]
         local = dict(

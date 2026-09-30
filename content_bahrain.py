@@ -14,6 +14,34 @@ F1_PENALTY_ARTICLE = (
     "after-baku-collision.3gWVfzDMMr5hReiwTt1fPD"
 )
 F1_EVENT = "https://www.formula1.com/en/racing/2026/bahrain"
+F1_AZERBAIJAN_RESULT = (
+    "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result"
+)
+
+_TEAM_WATCH = [
+    ("Mercedes", "Russell P1; Antonelli P5.",
+     "Can both cars repeat their strong Baku points haul?"),
+    ("Red Bull Racing", "Verstappen P2; Hadjar P3.",
+     "Can the double-podium form put Red Bull in the win fight again?"),
+    ("Ferrari", "Leclerc P4; Hamilton P6.",
+     "Can Ferrari turn a pair of top-six finishes into a podium challenge?"),
+    ("McLaren", "Piastri P13; Norris DNF.",
+     "Can McLaren recover after leaving Baku without points?"),
+    ("Racing Bulls", "Lindblad P7; Lawson P12.",
+     "Can Lindblad build on seventh while Lawson moves into the points?"),
+    ("Haas F1 Team", "Ocon P8; Bearman P9.",
+     "Can Haas build on a two-car points finish?"),
+    ("Williams", "Sainz P10; Albon DNF.",
+     "Can Sainz add to his point and Albon get back to the finish?"),
+    ("Audi", "Hulkenberg P11; Bortoleto P15.",
+     "Can either driver turn the next finish into points?"),
+    ("BWT Alpine F1 Team", "Colapinto DNF; Gasly DNF.",
+     "Can Alpine complete the race after a double retirement? Colapinto also carries the confirmed five-place grid drop."),
+    ("Cadillac", "Perez P14; Bottas DNF.",
+     "Can both cars finish and move closer to the points?"),
+    ("Aston Martin Aramco F1 Team", "Alonso DNF; Stroll DNF.",
+     "Can Aston Martin avoid another double retirement?"),
+]
 
 
 def _carryover_notice():
@@ -31,6 +59,27 @@ state a resulting grid position.
 <a href="{F1_PENALTY_ARTICLE}" target="_blank" rel="noopener">Formula1.com penalty report</a>;
 <a href="{F1_EVENT}" target="_blank" rel="noopener">Formula1.com event guide</a>.</p>
 </div>"""
+
+
+def _team_watch_section():
+    rows = "".join(
+        f"<tr><th scope=\"row\">{team}</th><td>{baku}</td><td>{watch}</td></tr>"
+        for team, baku, watch in _TEAM_WATCH
+    )
+    return f"""
+<h2 class="sec">Baku to Sepang: team-by-team watch</h2>
+<p class="lead-note">Baku's 26 September classification is the latest completed-race
+reference before the Bahrain Grand Prix at Sepang on 4 October. Results below are
+one-race form, not season totals; the Sepang prompts are questions, not predictions.</p>
+<div class="table-wrap"><table class="data">
+  <thead><tr><th>Team</th><th>Baku Race</th><th>Sepang watch</th></tr></thead>
+  <tbody>{rows}</tbody>
+</table></div>
+<p class="src">Source: <a href="{F1_AZERBAIJAN_RESULT}" target="_blank" rel="noopener">
+Formula1.com official Azerbaijan Race classification</a>. Colapinto's separate
+carry-over sanction is detailed on this site's <a href="penalties.html">Penalties
+&amp; Decisions page</a>.</p>
+"""
 
 
 def _tl(year, title, text):
@@ -88,6 +137,18 @@ def build_pages(ctx, env):
     notice = _carryover_notice()
     pages["overview"]["body"] = notice + pages["overview"]["body"]
     pages["notes"]["body"] = notice + pages["notes"]["body"]
+    team_placeholder = content_generic.pending(
+        "Team-by-team weekend storylines", "in the week before the race"
+    )
+    if team_placeholder not in pages["teams"]["body"]:
+        raise ValueError("Could not locate Sepang's pre-race team-storyline placeholder")
+    pages["teams"]["body"] = pages["teams"]["body"].replace(
+        team_placeholder, _team_watch_section(), 1
+    )
+    pages["teams"]["sub"] = (
+        "Baku's latest results and evidence-led questions for the 4 October "
+        "Bahrain Grand Prix at Sepang."
+    )
     pages["moments"] = dict(
         kicker="History",
         title="Sepang's Great Moments",
