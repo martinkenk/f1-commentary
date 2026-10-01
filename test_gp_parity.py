@@ -216,6 +216,7 @@ class GPParityTests(unittest.TestCase):
         tyres = pages["tyres"]["body"]
         circuit = pages["circuit"]["body"]
         powerunit = pages["powerunit"]["body"]
+        notes = pages["notes"]["body"]
 
         self.assertIn("C2 Hard / C3 Medium / C4 Soft", tyres)
         self.assertIn(
@@ -224,11 +225,28 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertIn("not a driver-by-driver remaining-set inventory", tyres)
         self.assertNotIn("Pirelli's compound allocation: awaiting", tyres)
-        self.assertIn("Sepang's asphalt is particularly abrasive", tyres)
-        self.assertIn("Pirelli rates overall tyre stress as medium", tyres)
+        self.assertIn("Sepang's asphalt is abrasive", tyres)
+        self.assertIn("rates tyre stress as medium relative to the calendar", tyres)
+        self.assertIn("Turns 6–12 section was resurfaced in 2023", tyres)
+        self.assertIn("additional levelling and cleaning took place", tyres)
+        self.assertIn("overall surface characteristics remain similar to 2017", tyres)
+        self.assertNotIn("has not been resurfaced since", tyres)
         self.assertIn("lap-time differential between one- and two-stop strategies", tyres)
         self.assertNotIn("Historically one of the toughest tyre circuits", tyres)
         self.assertIn("Straight Mode zones", circuit)
+        self.assertIn("4", circuit)
+        self.assertIn("start/finish straight", circuit)
+        self.assertIn("Turns 3–4, 8–9 and 14–15", circuit)
+        self.assertIn(
+            "https://www.formula1.com/en/latest/article/"
+            "circuit-guide-everything-you-need-to-know-about-the-sepang-international-circuit."
+            "2KTLvyxBXmwVftSJxmYeZ2",
+            circuit,
+        )
+        self.assertIn("Straight Mode zones", notes)
+        self.assertIn("Overtake activation", notes)
+        self.assertIn("detection marker is at the exit of Turn 15", notes)
+        self.assertIn("activation line is at the start/finish straight", notes)
         self.assertIn("Overtake activation zones", circuit)
         self.assertIn("Not confirmed", circuit)
         self.assertNotIn("DRS", circuit)

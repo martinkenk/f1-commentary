@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-09-30T14:38:41Z",
-  "expires_at": "2026-10-01T14:38:41Z",
+  "reviewed_at": "2026-09-30T15:38:18Z",
+  "expires_at": "2026-09-30T17:00:00Z",
   "through_session": null,
   "feed_fingerprint": "12aacd0b94d7daf28eaa04e47e5d845d1134ab84fb6cb45d6980bb94c13c87b6",
   "items": [
@@ -40,11 +40,15 @@
     },
     {
       "topic": "Tyre nomination",
-      "title": "Pirelli nominates C2, C3 and C4 for Sepang's return",
-      "date": "2026-08-27",
-      "summary": "For the Bahrain Grand Prix at Sepang (2–4 October), Pirelli selected C2 Hard, C3 Medium and C4 Soft. It describes Kuala Lumpur's asphalt as particularly abrasive and not resurfaced since the last F1 race there in 2017, while rating its tyre stress as medium relative to the calendar.",
-      "why_it_matters": "This is the compound nomination and Pirelli's track-level tyre assessment, not a driver-by-driver race-set allocation; new and used sets remain unknown until post-qualifying evidence is published.",
+      "title": "Pirelli details Sepang surface work before its return",
+      "date": "2026-09-30",
+      "summary": "Pirelli reports that Sepang's Turns 6–12 section was resurfaced in 2023, with further work around Turn 9, and that additional levelling and cleaning took place from early September 2026. Engineers still assess the overall surface characteristics as similar to 2017. Pirelli rates tyre stress medium and nominated C2 Hard, C3 Medium and C4 Soft.",
+      "why_it_matters": "Do not describe the circuit as untouched since 2017: sections have been resurfaced and levelled. Keep that work distinct from Pirelli's current assessment of similar overall surface characteristics; tyre behaviour for this generation remains unknown until practice.",
       "sources": [
+        {
+          "label": "Formula1.com: Pirelli's latest Sepang tyre and surface assessment",
+          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-bahrain-grand-prix-in-malaysia.4vcrMxYY9DWg7PwyiNMrEV"
+        },
         {
           "label": "Pirelli: Tyre compound selections for Baku, Sepang and Singapore",
           "url": "https://press.pirelli.com/tyre-compound-selections-for-baku-sepang-and-singapore/"

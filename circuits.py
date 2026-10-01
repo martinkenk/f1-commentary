@@ -205,17 +205,26 @@ CIRCUITS = {
         ],
         "overtaking": (
             "Sepang's long straights into heavy braking zones have historically supported "
-            "multi-lap passing. For 2026, active-aero Straight Mode and electrical Overtake "
-            "are separate systems; consult this event's FIA map for their exact locations."
+            "multi-lap passing. The "
+            '<a href="https://www.formula1.com/en/latest/article/'
+            'circuit-guide-everything-you-need-to-know-about-the-sepang-international-circuit.'
+            '2KTLvyxBXmwVftSJxmYeZ2">Formula1.com circuit guide</a> identifies four 2026 '
+            "Straight Mode zones: the start/finish straight and between Turns 3–4, 8–9 "
+            "and 14–15. Straight Mode is separate from electrical Overtake: the same guide "
+            "places the Overtake detection marker at the exit of Turn 15 and its activation "
+            "line at the start/finish straight, while the FIA zone-count field remains "
+            "unavailable."
         ),
         "tyre_notes": (
-            "Sepang's asphalt is particularly abrasive and has not been resurfaced since "
-            "Formula 1 last raced there in 2017, but Pirelli rates overall tyre stress as "
-            "medium relative to the calendar. The C2/C3/C4 selection avoids the hardest "
-            "compounds, aiming to reduce the lap-time differential between one- and "
-            "two-stop strategies; 2026 degradation remains unmeasured until the weekend."
+            "Sepang's asphalt is abrasive. Pirelli reports that the Turns 6–12 section "
+            "was resurfaced in 2023, with further work around Turn 9, and that additional "
+            "levelling and cleaning took place from early September 2026. Despite that, "
+            "Pirelli says the overall surface characteristics remain similar to 2017 and "
+            "rates tyre stress as medium relative to the calendar. The C2/C3/C4 selection "
+            "aims to reduce the lap-time differential between one- and two-stop strategies; "
+            "2026 degradation remains unmeasured until the weekend."
         ),
-        "straight_mode_zones": None,
+        "straight_mode_zones": 4,
         "overtake_zones": None,
         "tyre_compounds": ("C2 Hard", "C3 Medium", "C4 Soft"),
         "tyre_compounds_source": "https://press.pirelli.com/tyre-compound-selections-for-baku-sepang-and-singapore/",
@@ -234,6 +243,13 @@ CIRCUITS = {
         "storylines": [
             "A returning circuit with no current-generation data — reference points and tyre behaviour are effectively new.",
             "Heat and humidity make driver cooling and hydration a legitimate story, as does brake and PU cooling.",
+            '<a href="https://www.formula1.com/en/latest/article/'
+            'circuit-guide-everything-you-need-to-know-about-the-sepang-international-circuit.'
+            '2KTLvyxBXmwVftSJxmYeZ2">Formula1.com confirms four Straight Mode zones</a>: '
+            "start/finish, between Turns 3–4, 8–9 and 14–15. Electrical Overtake is "
+            "separate: its detection marker is at the exit of Turn 15 and its activation "
+            "line is at the start/finish straight; the FIA zone-count field remains "
+            "unavailable.",
         ],
     },
     "singapore": {
