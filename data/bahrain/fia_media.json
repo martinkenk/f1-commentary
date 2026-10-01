@@ -1,7 +1,103 @@
 {
-  "checked_at": "2026-09-30T20:39:20+00:00",
-  "discovery_retrieved_at": "2026-09-30T20:39:13.160259+00:00",
+  "checked_at": "2026-10-01T12:09:31+00:00",
+  "discovery_retrieved_at": "2026-10-01T12:08:59.604847+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_race_directors_competition_notes.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_race_directors_competition_notes.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "0be2e3083166131c846638a287b4e037fc3648ca5c8a3aa9aa6f36f901b4811b",
+      "fetched_at": "2026-10-01T12:09:31+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-bahrain-97bb723dd954-0be2e3083166131c-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-bahrain-97bb723dd954-0be2e3083166131c-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-bahrain-97bb723dd954-0be2e3083166131c-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-bahrain-97bb723dd954-0be2e3083166131c-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-bahrain-97bb723dd954-0be2e3083166131c-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-bahrain-97bb723dd954-0be2e3083166131c-p7.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "0490017fd5eda55480198e7ebaaf85329a5e28b384e17c3386b42be7c4af05d4",
+      "fetched_at": "2026-10-01T12:09:31+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-bahrain-824d565e237a-0490017fd5eda554-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-bahrain-824d565e237a-0490017fd5eda554-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-bahrain-824d565e237a-0490017fd5eda554-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-bahrain-824d565e237a-0490017fd5eda554-p5.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_car_display_procedure.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_car_display_procedure.pdf",
+      "categories": [
+        "upgrades"
+      ],
+      "sha256": "1fa667a60c4b4ebd7a326713e368fe274bd374358bba2228e89faff8880bbd38",
+      "fetched_at": "2026-10-01T12:09:31+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-bahrain-bdcfaddb5824-1fa667a60c4b4ebd-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_power_unit_information.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_power_unit_information.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "50419bb38d97434c20e9835f01599ba0f6f4fd5b0c8076b35fbc98b892d8b010",
+      "fetched_at": "2026-10-01T12:09:31+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-bahrain-776bb5f3f154-50419bb38d97434c-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_competition_notes_-_pirelli_preview.pdf",
       "filename": "2026_bahrain_grand_prix_in_malaysia_-_competition_notes_-_pirelli_preview.pdf",
@@ -9,7 +105,7 @@
         "tyres"
       ],
       "sha256": "e4f79eb595c9a4c7a3785710ea232abe2320adf8e30dae7a2a5a417c4aad0428",
-      "fetched_at": "2026-09-30T20:39:20+00:00",
+      "fetched_at": "2026-10-01T12:09:31+00:00",
       "pages": [
         {
           "page": 2,
