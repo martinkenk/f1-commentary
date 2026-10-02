@@ -1,0 +1,19 @@
+{
+  "event": {
+    "year": "2026",
+    "race_id": "1308",
+    "results_slug": "bahrain",
+    "gp": "bahrain"
+  },
+  "checked_at": "2026-10-02T04:35:55+00:00",
+  "sessions": [],
+  "statuses": [
+    {
+      "label": "Practice 1",
+      "state": "pending",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1",
+      "error": "Incomplete classification: 1 entrants",
+      "retained": false
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-10-02T04:26:53+00:00",
-  "discovery_retrieved_at": "2026-10-02T04:26:50.526027+00:00",
+  "checked_at": "2026-10-02T04:34:58+00:00",
+  "discovery_retrieved_at": "2026-10-02T04:34:53.404884+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_competition_visa_v2.pdf",
@@ -9,7 +9,7 @@
         "schedule"
       ],
       "sha256": "8a20917ca751e4cc77902585586fa4a4ad326bdf2afd55e6627972c855f096cd",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -53,7 +53,7 @@
         "upgrades"
       ],
       "sha256": "be68005deb6890e760be6fc032dc7026c7a44f8761ad5894a617d855e9218e3c",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -137,7 +137,7 @@
         "powerunit"
       ],
       "sha256": "740e0a4fdeee01f9c102b9c732ebbb30272557e0a07f573a86cdfbeb7a7f8b43",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -153,7 +153,7 @@
         "circuit"
       ],
       "sha256": "0be2e3083166131c846638a287b4e037fc3648ca5c8a3aa9aa6f36f901b4811b",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -189,7 +189,7 @@
         "circuit"
       ],
       "sha256": "0490017fd5eda55480198e7ebaaf85329a5e28b384e17c3386b42be7c4af05d4",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -217,7 +217,7 @@
         "upgrades"
       ],
       "sha256": "1fa667a60c4b4ebd7a326713e368fe274bd374358bba2228e89faff8880bbd38",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -233,7 +233,7 @@
         "powerunit"
       ],
       "sha256": "50419bb38d97434c20e9835f01599ba0f6f4fd5b0c8076b35fbc98b892d8b010",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -249,7 +249,7 @@
         "schedule"
       ],
       "sha256": "d6ddf9b0fc39c035ea1adc0328095e82146347d9264a79300d0b05859665bd34",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 1,
@@ -265,7 +265,7 @@
         "powerunit"
       ],
       "sha256": "c780d5e2942b1fa33a72d179faa89a4b0c185b6d2a84d090e152d21bca893724",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 1,
@@ -281,7 +281,7 @@
         "tyres"
       ],
       "sha256": "e4f79eb595c9a4c7a3785710ea232abe2320adf8e30dae7a2a5a417c4aad0428",
-      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "fetched_at": "2026-10-02T04:34:58+00:00",
       "pages": [
         {
           "page": 2,
