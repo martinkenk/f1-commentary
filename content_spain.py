@@ -1,6 +1,7 @@
 """Madrid 2026: source-checked FIA material, including Friday's upgrade filings."""
 from content_generic import build_pages as build_generic, pending
 from f1lib import auto_h2h, auto_penalties, card, render_reliability, stat, ul
+from upgrade_render import render_submissions
 
 
 FIA_BASE = "https://www.fia.com/system/files/decision-document/2026_spanish_grand_prix_-_"
@@ -98,68 +99,15 @@ def _figure(asset, alt, caption):
 
 
 def _upgrade_filing():
-    rows, teams = [], []
-    for team, page, updates in UPGRADE_SUBMISSIONS:
-        areas = ", ".join(component for component, _, _ in updates) or "No updates submitted"
-        rows.append(
-            f'<tr><td>{team}</td><td class="num">{len(updates)}</td><td>{areas}</td>'
-            f'<td><a href="#upgrade-submission-{page}" data-document-reader '
-            f'data-reader-title="{team} - FIA Document 11" '
-            f'aria-label="Read {team} submission, FIA page {page}">'
-            f'Read page {page}</a></td></tr>')
-        evidence = []
-        for source_page in ([page, page + 1] if updates else [page]):
-            if source_page != page:
-                label = "component-location diagram"
-            else:
-                label = "component declaration" if updates else "nil-return declaration"
-            evidence.append(_figure(
-                f"{FIA_UPGRADES_ASSET}-p{source_page}.png",
-                f"{team} Spanish GP {label}, FIA Document 11 page {source_page}",
-                f'{team}: {label}. <a href="{FIA_UPGRADES_URL}#page={source_page}" '
-                f'target="_blank" rel="noopener">FIA Document 11, page {source_page}</a>, '
-                '11 September 2026.'))
-        description = ul([
-            f"<strong>{component}:</strong> {summary} "
-            f"<em>Filed reason: {reason}.</em>"
-            for component, reason, summary in updates
-        ]) if updates else "<p>No updates submitted for this event.</p>"
-        teams.append(card(
-            f'{team} &mdash; {len(updates)} declared item{"s" if len(updates) != 1 else ""}',
-            description + f'<details id="upgrade-submission-{page}"><summary>View official declaration'
-            + (" and diagram" if updates else "") + "</summary>"
-            + "".join(evidence) + "</details>", "bi-tools", "accent" if updates else ""))
-    total = sum(len(updates) for _, _, updates in UPGRADE_SUBMISSIONS)
-    updated = sum(bool(updates) for _, _, updates in UPGRADE_SUBMISSIONS)
-    return f"""
-<div class="stat-row">
-  {stat(str(total), "Declared items", "FIA Document 11")}
-  {stat(str(updated), "Teams with updates", "of eleven teams")}
-  {stat(str(len(UPGRADE_SUBMISSIONS) - updated), "Nil returns", "explicit no-update submissions")}
-</div>
+    return """
 <div class="callout">
   <strong>Friday's confirmed filing:</strong> Mercedes has the largest list with three items;
   Red Bull's two are both filed for reliability, not as pure performance upgrades.
   McLaren, Ferrari, Alpine and Cadillac account for the other five items.
 </div>
-<p class="src">Source: <a href="{FIA_UPGRADES_URL}" target="_blank" rel="noopener">
-FIA Document 11, Car Presentation Submissions</a>, issued 11 September 2026.
-All eleven teams are included. Counts refer to declared component rows, not a
-ranking of performance gains or confirmation that both cars raced every item.</p>
-<h2 class="sec">Team-by-team car presentation submissions</h2>
-<p>Choose <strong>Read page</strong> to view the team's official declaration here,
-with its diagram where supplied. The reader supports zoom and keeps the original
-PDF available as a separate source link.</p>
-<div class="table-wrap"><table class="data">
-  <thead><tr><th>Team</th><th class="num">Items</th><th>Declared areas</th><th>FIA source</th></tr></thead>
-  <tbody>{"".join(rows)}</tbody>
-</table></div>
-<h2 class="sec">What changed and why</h2>
-<p>The explanations below summarise each team's stated rationale, not independently
-measured lap-time gains. A nil return means no updates submitted for this event;
-it does not rule out setup changes or previously introduced parts.</p>
-<div class="grid cols-2">{"".join(teams)}</div>
-"""
+""" + render_submissions(
+        UPGRADE_SUBMISSIONS, source_url=FIA_UPGRADES_URL, asset_prefix=FIA_UPGRADES_ASSET,
+        document="FIA Document 11", event="Spanish GP", issued="11 September 2026")
 
 
 def build_pages(ctx, env):

@@ -860,6 +860,22 @@ source-status section rather than keep hard-coded "no chart found" claims after
 the collector publishes one. Baku's 2026 graphic gives Medium-Soft 26-32,
 Soft-Hard 16-22 and Medium-Hard 21-27; its article's Soft-Medium 18-24 is separate.
 
+For Bahrain/Sepang, the 2 October Document 12 filing is reviewed in
+`content_bahrain.UPGRADE_SUBMISSIONS`: 14 items, seven teams with updates,
+four explicit nil returns, all eleven teams and all 18 substantive PDF pages.
+`upgrade_render.render_submissions` shares Spain's inline team reader rather
+than making source links download a PDF. Keep the declaration/diagram page pair
+and the exact revision-hashed assets together; source-image collection alone
+does not populate component descriptions. Refresh overview, notes and reviewed
+news when a previously pending filing is transcribed.
+
+Use `.circuit-fig` / `.circuit-img` for full Pirelli artwork; the additional
+`.tyre-preview-img` constrains the in-page preview to its container and 70vh
+without changing or cropping the original. Preserve keyboard zoom and the
+full-resolution link. Do not create unstyled `tyre-fig` figures.
+FIA heat declarations and competition visas route to Schedule; post-race car
+checks route to Power Unit with their actual source-event scope retained.
+
 HTML uses `<div class="table-wrap"><table class="data">`; `tbl` / `tablewrap`
 do not exist. Available modifiers: `compact`, `ranked`, `h2h`, `pen`, `cal-tbl`.
 Use `pos`, `num`, `team`, `drv`, `nowrap` cells and `.standings-grid`.

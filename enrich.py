@@ -489,6 +489,10 @@ def discover_fia(ctx):
 
 
 def relevant(article, ctx):
+    # Use the briefing's existing editorial scope before fetching promotional pages.
+    from news_briefing import PROMOTIONS
+    if PROMOTIONS.search(article.get("title", "")):
+        return False
     # Match the GP keywords against the headline, the URL slug **and** the body.
     # Many weekend stories (driver/team angles) omit the GP name from the title
     # but reference "Hungaroring"/"Hungarian" in the text — the body check keeps

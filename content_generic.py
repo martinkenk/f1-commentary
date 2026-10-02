@@ -221,14 +221,17 @@ def build_pages(ctx, env):
     if preview_asset and preview_source:
         preview = f"""
 <h2 class="sec">Pirelli's event preview</h2>
-<figure class="tyre-fig">
+<figure class="circuit-fig">
   <img src="../assets/{preview_asset}"
        alt="Full Pirelli event preview infographic for the {gp}, including circuit information, tyre demands, pressure and camber limits, and compound selection"
-       class="tyre-preview-img" onclick="zoomImg(this)" title="Click to zoom / full screen">
+       class="circuit-img tyre-preview-img" loading="lazy" role="button" tabindex="0"
+       onclick="zoomImg(this)" title="Click to zoom / full screen"
+       onkeydown="if(event.key==='Enter'||event.key===' '){{event.preventDefault();zoomImg(this)}}">
   <figcaption><strong>Official Pirelli event-preview graphic</strong> — circuit data,
-  tyre demands, starting-pressure and camber limits, and the C2/C3/C4 selection.
+  tyre demands, starting-pressure and camber limits, and the nominated compound selection.
   <strong>Click the graphic to zoom / full screen.</strong>
-  <span class="src">Source: <a href="{preview_source}" target="_blank" rel="noopener">Formula1.com</a> / Pirelli.</span></figcaption>
+  <span class="src">Source: <a href="{preview_source}" target="_blank" rel="noopener">Formula1.com</a> / Pirelli.
+  <a href="../assets/{preview_asset}" target="_blank" rel="noopener">Full-resolution original</a>.</span></figcaption>
 </figure>
 """
 

@@ -42,6 +42,15 @@ Without `gh`, public metadata and page audits can run, but fixes/publication are
 blocked and the status explicitly records `READ_ONLY` and the authentication
 requirement. A successful read-only audit is not a successful repair.
 
+If the agent log says the required virtualenv interpreter needs approval, the
+run is blocked even when the timer and GitHub authentication work. Preserve the
+unpublished commit/diff and resolve the CLI permission request interactively on
+the host; do not use unrestricted paths or an alternate interpreter to bypass
+the denial. On 1 October, this left valid Sepang corrections in the checkout
+while GitHub's deterministic deploys continued. The subsequent audit integrated
+that work separately; a green deployment does not clear the agent's permission
+problem.
+
 ## Operations
 
 ### Curses console (recommended)

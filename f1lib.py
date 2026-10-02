@@ -84,6 +84,10 @@ def fia_document_categories(filename):
         categories.append("tyres")
     if re.search(r"\b(car presentation|car display procedure|car component|upgrade submissions|parts and parameters)\b", name):
         categories.append("upgrades")
+    if re.search(r"\b(heat hazard declaration|competition visa)\b", name):
+        categories.append("schedule")
+    if re.search(r"\bpost race checks on car\b", name):
+        categories.append("powerunit")
     return categories
 
 
@@ -108,7 +112,8 @@ def render_fia_documents(ctx, category):
     """Add source documents without replacing reviewed tables or circuit maps."""
     labels = {"powerunit": "power-unit documents", "circuit": "maps & race-director notes",
               "tyres": "tyre documents",
-              "upgrades": "car-presentation, upgrade & parts-change documents"}
+              "upgrades": "car-presentation, upgrade & parts-change documents",
+              "schedule": "heat declarations, competition visa & timetable"}
     if category not in labels:
         return ""
     manifest = _load_fia_record(ctx, "fia_documents")
@@ -153,7 +158,7 @@ def render_fia_documents(ctx, category):
 
 def render_fia_media(ctx, category, curated_html=""):
     """Show verified-download PDF pages, not invented technical summaries."""
-    if category not in ("powerunit", "circuit", "tyres", "upgrades"):
+    if category not in ("powerunit", "circuit", "tyres", "upgrades", "schedule"):
         return ""
     record = _load_fia_record(ctx, "fia_media")
     figures = re.findall(r"<figure\b.*?</figure>", curated_html, re.S | re.I)
@@ -2104,6 +2109,7 @@ h2.sec{font-weight:800;font-size:24px;margin:30px 0 14px;padding-bottom:6px;bord
 .circuit-img{max-width:100%;height:auto;border-radius:10px;background:#fff;cursor:zoom-in;
   transition:transform .15s,box-shadow .15s}
 .circuit-img:hover{transform:scale(1.01);box-shadow:0 0 0 3px rgba(225,6,0,.35)}
+.tyre-preview-img{display:block;width:auto;max-width:100%;max-height:70vh;object-fit:contain;margin:0 auto}
 .circuit-fig figcaption{color:var(--muted);font-size:14px;margin-top:12px;text-align:left}
 figure.chart{margin:0 0 18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
 figure.chart img{max-width:100%;height:auto;border-radius:8px;background:#fff}

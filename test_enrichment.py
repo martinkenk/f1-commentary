@@ -73,6 +73,26 @@ class EnrichmentTests(unittest.TestCase):
         }
         self.assertFalse(enrich.relevant(article, spain))
 
+    def test_promotions_do_not_trigger_failed_article_extraction(self):
+        ctx = {"dir": "bahrain", "keywords": {"bahrain", "sepang"}}
+        with patch.object(enrich, "f1_body", side_effect=AssertionError("Must not fetch")):
+            for title in ("Best value early bets to consider for the Bahrain Grand Prix",
+                          "Play Higher or Lower to win Bahrain tickets"):
+                self.assertFalse(enrich.relevant({
+                    "title": title, "url": "https://www.formula1.com/en/latest/article/sepang-promo"
+                }, ctx))
+        self.assertTrue(enrich.relevant({
+            "title": "Sepang tyre strategy and Mercedes upgrades",
+            "url": "https://www.the-race.com/formula-1/sepang-tyres/",
+            "body": "Bahrain Grand Prix preparation",
+        }, ctx))
+
+    def test_safety_and_compliance_filings_have_visible_destinations(self):
+        for filename in ("heat_hazard_declaration.pdf", "competition_visa.pdf"):
+            self.assertEqual(f1lib.fia_document_categories(filename), ["schedule"])
+        self.assertEqual(f1lib.fia_document_categories(
+            "post-race_checks_on_car_number_16_2026_azerbaijan_gp.pdf"), ["powerunit"])
+
     def test_relevant_keeps_cross_event_context_without_other_event_headline(self):
         spain = {
             "dir": "spain",

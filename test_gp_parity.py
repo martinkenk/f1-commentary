@@ -226,7 +226,7 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("not a driver-by-driver remaining-set inventory", tyres)
         self.assertNotIn("Pirelli's compound allocation: awaiting", tyres)
         self.assertIn("Sepang's asphalt is abrasive", tyres)
-        self.assertIn("rates tyre stress as medium relative to the calendar", tyres)
+        self.assertIn("rates tyre stress and abrasion 4/5", tyres)
         self.assertIn("Turns 6–12 section was resurfaced in 2023", tyres)
         self.assertIn("additional levelling and cleaning took place", tyres)
         self.assertIn("overall surface characteristics remain similar to 2017", tyres)
@@ -245,16 +245,124 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertIn("Straight Mode zones", notes)
         self.assertIn("Overtake activation", notes)
-        self.assertIn("detection marker is at the exit of Turn 15", notes)
-        self.assertIn("activation line is at the start/finish straight", notes)
+        self.assertIn("Circuit Map v4", circuit)
+        self.assertIn("absolute Overtake line distances TBC", circuit)
         self.assertIn("Overtake activation zones", circuit)
-        self.assertIn("Not confirmed", circuit)
+        self.assertNotIn("Not confirmed", circuit)
         self.assertNotIn("DRS", circuit)
         self.assertNotIn("with DRS", pages["overview"]["body"])
         self.assertIn("Straight Mode", powerunit)
         self.assertIn("<strong>Overtake</strong>", powerunit)
         self.assertEqual(pages["powerunit"]["title"], "Power Unit & Overtake")
         self.assertNotIn("override", powerunit.casefold())
+
+    def test_bahrain_published_fia_maps_are_transcribed(self):
+        pages = self.bahrain()
+        powerunit = pages["powerunit"]["body"]
+        circuit = pages["circuit"]["body"]
+        tyres = pages["tyres"]["body"]
+        notes = pages["notes"]["body"]
+
+        for value in (
+            "8.5 MJ", "9.0 MJ", "7.5 MJ", "3365 m", "100 kW/s",
+            "T4–T7 (1550–2500 m)", "T9–T14 (3100–4100 m)",
+            "5110 m (TBC)", "5160 m (TBC)", "loop L18", "loop L19",
+        ):
+            self.assertIn(value, powerunit)
+        self.assertIn(
+            "../assets/fia-bahrain-776bb5f3f154-50419bb38d97434c-p2.png",
+            powerunit,
+        )
+        self.assertIn(content_bahrain.FIA_PU_URL + "#page=2", powerunit)
+        self.assertNotIn(
+            "The FIA power-unit and energy-map document for this event: awaiting",
+            powerunit,
+        )
+
+        self.assertIn("FIA Circuit Map v4", circuit)
+        self.assertIn("65 m after T15", circuit)
+        self.assertIn("85 m after T15", circuit)
+        self.assertIn("45 m before the exit of T15", circuit)
+        self.assertIn("Overtake activation zones", circuit)
+        self.assertIn(content_bahrain.FIA_CIRCUIT_MAP_URL + "#page=2", circuit)
+
+        for value in (
+            "25.0 psi", "≥25.5 psi", "−3.25°", "0.124",
+            "0.122", "2 hours", "Mandatory race tyres:</strong> C2 and C3",
+        ):
+            self.assertIn(value, tyres)
+        self.assertIn(content_bahrain.FIA_TYRE_PREVIEW_URL + "#page=2", tyres)
+        self.assertIn("3365 m at 100 kW/s", notes)
+        self.assertIn("both TBC", notes)
+        self.assertIn("during and after qualifying", " ".join(notes.split()))
+        self.assertIn("invalidates that lap time", notes)
+        self.assertIn(
+            "may also invalidate the immediately following lap time",
+            notes,
+        )
+        self.assertIn("less than 90 seconds remaining", notes)
+        self.assertIn(content_bahrain.FIA_RD_NOTES_URL + "#page=7", notes)
+
+    def test_sepang_preview_is_responsive_and_preserves_original(self):
+        body = self.bahrain()["tyres"]["body"]
+        self.assertIn('class="circuit-img tyre-preview-img"', body)
+        self.assertIn('class="circuit-fig"', body)
+        self.assertIn('role="button" tabindex="0"', body)
+        self.assertIn("event.key==='Enter'", body)
+        self.assertIn("Full-resolution original", body)
+        self.assertNotIn('class="tyre-fig"', body)
+        self.assertIn("22.5 seconds pit-stop loss", body)
+
+    def test_sepang_heat_grid_reports_and_history_are_source_qualified(self):
+        pages = self.bahrain()
+        for slug in ("overview", "schedule", "notes"):
+            self.assertIn("Heat Hazard declared", pages[slug]["body"])
+            self.assertIn(content_bahrain.HEAT_URL, pages[slug]["body"])
+        for slug in ("overview", "penalties", "powerunit", "notes"):
+            self.assertIn("not yet event rulings", pages[slug]["body"])
+            self.assertIn("Isack Hadjar", pages[slug]["body"])
+        self.assertIn("06:00–07:00 Tallinn", pages["upgrades"]["body"])
+        self.assertIn("distinct from the Car Presentation Submissions", pages["upgrades"]["body"])
+        self.assertIn("second race and", pages["moments"]["body"])
+        self.assertNotIn("Brawn GP's first race", pages["moments"]["body"])
+        self.assertIn("complied", pages["powerunit"]["body"])
+
+    def test_sepang_all_upgrade_rows_and_inline_sources_are_populated(self):
+        submissions = content_bahrain.UPGRADE_SUBMISSIONS
+        self.assertEqual(len(submissions), 11)
+        self.assertEqual(sum(len(items) for _, _, items in submissions), 14)
+        self.assertEqual(sum(bool(items) for _, _, items in submissions), 7)
+        self.assertEqual([name for name, _, items in submissions if not items],
+                         ["Williams", "Aston Martin", "Audi", "Cadillac"])
+        self.assertEqual(len(next(items for team, _, items in submissions if team == "Mercedes")), 7)
+        pages = self.bahrain()
+        body = pages["upgrades"]["body"]
+        self.assertNotIn("FIA car presentation submissions for this round: awaiting", body)
+        self.assertNotIn("not yet a filed component", body)
+        for team, page, items in submissions:
+            self.assertIn(f'href="#upgrade-submission-{page}" data-document-reader', body)
+            self.assertIn(f'<details id="upgrade-submission-{page}">', body)
+            for number in ([page, page + 1] if items else [page]):
+                asset = f"{content_bahrain.UPGRADES_ASSET}-p{number}.png"
+                self.assertIn(asset, body)
+                self.assertTrue((Path(__file__).parent / "assets_src" / asset).is_file())
+                self.assertIn(content_bahrain.UPGRADES_URL + f"#page={number}", body)
+        self.assertEqual(body.count('<details id="upgrade-submission-'), 11)
+        for slug in ("overview", "teams", "notes"):
+            self.assertIn("FIA Document 12", pages[slug]["body"])
+        media = f1lib.render_fia_media(self.contexts["bahrain"], "upgrades", body)
+        self.assertNotIn(content_bahrain.UPGRADES_ASSET, media)
+
+    def test_sepang_pu_inventory_has_all_named_drivers_and_dated_scope(self):
+        body = self.bahrain()["powerunit"]["body"]
+        table = body.split('id="sepang-pu-inventory">', 1)[1].split("</table>", 1)[0]
+        rows = re.findall(r"<tr>(.*?)</tr>", table.split("<tbody>", 1)[1], re.S)
+        self.assertEqual(len(rows), 22)
+        self.assertTrue(all(len(re.findall(r"<td>", row)) == 9 for row in rows))
+        self.assertIn("<td>Fernando Alonso</td><td>5</td><td>5</td><td>3</td><td>5</td><td>7</td><td>6</td><td>9</td>", table)
+        self.assertIn("not remaining allocation or final post-Sepang totals", body)
+        self.assertIn("Friday 08:30 snapshot", body)
+        self.assertIn("pu_elements_used_per_driver_up_to_now.pdf#page=2", body)
 
     def test_event_specific_fia_cautions_and_values_survive(self):
         italy, spain = self.italy(), self.spain()

@@ -1,7 +1,151 @@
 {
-  "checked_at": "2026-10-01T19:11:15+00:00",
-  "discovery_retrieved_at": "2026-10-01T19:11:11.523309+00:00",
+  "checked_at": "2026-10-02T04:26:53+00:00",
+  "discovery_retrieved_at": "2026-10-02T04:26:50.526027+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_competition_visa_v2.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_competition_visa_v2.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "8a20917ca751e4cc77902585586fa4a4ad326bdf2afd55e6627972c855f096cd",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-bahrain-cc43164b9b7a-8a20917ca751e4cc-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-bahrain-cc43164b9b7a-8a20917ca751e4cc-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-bahrain-cc43164b9b7a-8a20917ca751e4cc-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-bahrain-cc43164b9b7a-8a20917ca751e4cc-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-bahrain-cc43164b9b7a-8a20917ca751e4cc-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-bahrain-cc43164b9b7a-8a20917ca751e4cc-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-bahrain-cc43164b9b7a-8a20917ca751e4cc-p8.png"
+        },
+        {
+          "page": 9,
+          "asset": "fia-bahrain-cc43164b9b7a-8a20917ca751e4cc-p9.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_car_presentation_submissions.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_car_presentation_submissions.pdf",
+      "categories": [
+        "upgrades"
+      ],
+      "sha256": "be68005deb6890e760be6fc032dc7026c7a44f8761ad5894a617d855e9218e3c",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p8.png"
+        },
+        {
+          "page": 9,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p9.png"
+        },
+        {
+          "page": 10,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p10.png"
+        },
+        {
+          "page": 11,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p11.png"
+        },
+        {
+          "page": 12,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p12.png"
+        },
+        {
+          "page": 13,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p13.png"
+        },
+        {
+          "page": 14,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p14.png"
+        },
+        {
+          "page": 15,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p15.png"
+        },
+        {
+          "page": 16,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p16.png"
+        },
+        {
+          "page": 17,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p17.png"
+        },
+        {
+          "page": 18,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p18.png"
+        },
+        {
+          "page": 19,
+          "asset": "fia-bahrain-48038b9202af-be68005deb6890e7-p19.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "740e0a4fdeee01f9c102b9c732ebbb30272557e0a07f573a86cdfbeb7a7f8b43",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-bahrain-b2ec47464eb1-740e0a4fdeee01f9-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_race_directors_competition_notes.pdf",
       "filename": "2026_bahrain_grand_prix_in_malaysia_-_race_directors_competition_notes.pdf",
@@ -9,7 +153,7 @@
         "circuit"
       ],
       "sha256": "0be2e3083166131c846638a287b4e037fc3648ca5c8a3aa9aa6f36f901b4811b",
-      "fetched_at": "2026-10-01T19:11:15+00:00",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -45,7 +189,7 @@
         "circuit"
       ],
       "sha256": "0490017fd5eda55480198e7ebaaf85329a5e28b384e17c3386b42be7c4af05d4",
-      "fetched_at": "2026-10-01T19:11:15+00:00",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -73,7 +217,7 @@
         "upgrades"
       ],
       "sha256": "1fa667a60c4b4ebd7a326713e368fe274bd374358bba2228e89faff8880bbd38",
-      "fetched_at": "2026-10-01T19:11:15+00:00",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -89,11 +233,43 @@
         "powerunit"
       ],
       "sha256": "50419bb38d97434c20e9835f01599ba0f6f4fd5b0c8076b35fbc98b892d8b010",
-      "fetched_at": "2026-10-01T19:11:15+00:00",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
       "pages": [
         {
           "page": 2,
           "asset": "fia-bahrain-776bb5f3f154-50419bb38d97434c-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_heat_hazard_declaration.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_heat_hazard_declaration.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "d6ddf9b0fc39c035ea1adc0328095e82146347d9264a79300d0b05859665bd34",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-bahrain-8e4db1875247-d6ddf9b0fc39c035-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_post-race_checks_on_car_number_16_2026_azerbaijan_gp.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_post-race_checks_on_car_number_16_2026_azerbaijan_gp.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "c780d5e2942b1fa33a72d179faa89a4b0c185b6d2a84d090e152d21bca893724",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-bahrain-41bf58d9a8fd-c780d5e2942b1fa3-p1.png"
         }
       ],
       "revision": 0
@@ -105,11 +281,55 @@
         "tyres"
       ],
       "sha256": "e4f79eb595c9a4c7a3785710ea232abe2320adf8e30dae7a2a5a417c4aad0428",
-      "fetched_at": "2026-10-01T19:11:15+00:00",
+      "fetched_at": "2026-10-02T04:26:53+00:00",
       "pages": [
         {
           "page": 2,
           "asset": "fia-bahrain-d8d466a384bc-e4f79eb595c9a4c7-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_competition_visa.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_competition_visa.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "497478f6e838a09516329b23d292afa1257ba800931ce18d2090f635f91c4a5a",
+      "fetched_at": "2026-10-01T20:23:00+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-bahrain-ebcb516e4995-497478f6e838a095-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-bahrain-ebcb516e4995-497478f6e838a095-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-bahrain-ebcb516e4995-497478f6e838a095-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-bahrain-ebcb516e4995-497478f6e838a095-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-bahrain-ebcb516e4995-497478f6e838a095-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-bahrain-ebcb516e4995-497478f6e838a095-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-bahrain-ebcb516e4995-497478f6e838a095-p8.png"
+        },
+        {
+          "page": 9,
+          "asset": "fia-bahrain-ebcb516e4995-497478f6e838a095-p9.png"
         }
       ],
       "revision": 0
