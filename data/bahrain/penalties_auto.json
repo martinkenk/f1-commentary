@@ -68,5 +68,19 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_free_practice_2_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 26",
+    "no": "44",
+    "driver": "Lewis Hamilton",
+    "team": "Scuderia Ferrari HP",
+    "session": "Free Practice 2",
+    "fact": "Car 44 unnecessarily impeded Car 5 on the entry to Turn 9.",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_44_-_impeding_of_car_5.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_44_-_impeding_of_car_5.pdf"
   }
 ]
