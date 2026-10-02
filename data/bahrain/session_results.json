@@ -5,7 +5,7 @@
     "results_slug": "bahrain",
     "gp": "bahrain"
   },
-  "checked_at": "2026-10-02T08:06:29+00:00",
+  "checked_at": "2026-10-02T08:12:29+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1",
-      "fetched_at": "2026-10-02T08:06:29+00:00",
+      "fetched_at": "2026-10-02T08:12:29+00:00",
       "session_start": "2026-10-02T12:30:00+08:00",
       "retained": false
     }
