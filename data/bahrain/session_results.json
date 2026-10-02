@@ -5,13 +5,212 @@
     "results_slug": "bahrain",
     "gp": "bahrain"
   },
-  "checked_at": "2026-10-02T04:35:55+00:00",
-  "sessions": [],
+  "checked_at": "2026-10-02T08:06:29+00:00",
+  "sessions": [
+    {
+      "label": "Practice 1",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "1:37.520",
+          "23"
+        ],
+        [
+          "2",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "+0.383s",
+          "25"
+        ],
+        [
+          "3",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+0.783s",
+          "23"
+        ],
+        [
+          "4",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "+0.847s",
+          "25"
+        ],
+        [
+          "5",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "+1.060s",
+          "23"
+        ],
+        [
+          "6",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+1.070s",
+          "21"
+        ],
+        [
+          "7",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+1.195s",
+          "22"
+        ],
+        [
+          "8",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "+1.586s",
+          "22"
+        ],
+        [
+          "9",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+1.677s",
+          "27"
+        ],
+        [
+          "10",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+1.691s",
+          "23"
+        ],
+        [
+          "11",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+1.756s",
+          "23"
+        ],
+        [
+          "12",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "+1.773s",
+          "21"
+        ],
+        [
+          "13",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+2.028s",
+          "25"
+        ],
+        [
+          "14",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+2.163s",
+          "22"
+        ],
+        [
+          "15",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "+2.638s",
+          "23"
+        ],
+        [
+          "16",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+2.791s",
+          "23"
+        ],
+        [
+          "17",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+2.801s",
+          "22"
+        ],
+        [
+          "18",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+2.893s",
+          "19"
+        ],
+        [
+          "19",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+3.011s",
+          "22"
+        ],
+        [
+          "20",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+3.085s",
+          "25"
+        ],
+        [
+          "21",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+3.280s",
+          "23"
+        ],
+        [
+          "22",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "+3.300s",
+          "24"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1",
+      "fetched_at": "2026-10-02T08:06:29+00:00",
+      "session_start": "2026-10-02T12:30:00+08:00",
+      "retained": false
+    }
+  ],
   "statuses": [
     {
       "label": "Practice 1",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1"
+    },
+    {
+      "label": "Practice 2",
       "state": "pending",
-      "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/2",
       "error": "Incomplete classification: 1 entrants",
       "retained": false
     }

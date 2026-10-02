@@ -8,10 +8,11 @@ a small JSON summary per session:
     own best sector times added together) and the gap between the two —
     this surfaces whether a driver's headline time actually reflected their
     true pace, or whether they left time on the table in one sector.
-  * Long-run ("race sim") pace: laps grouped by stint, restricted to
-    green-flag, non-in/out laps, with the single slowest lap of each stint
-    dropped as an outlier before averaging — a rough proxy for what teams
-    call "clean average pace" on a given tyre.
+  * Long-run ("race sim") pace: continuous sequences of at least five timed
+    laps, restricted to green-flag, accurate, non-in/out laps. Robust
+    median/MAD filtering removes traffic or mistakes; each row exposes retained
+    and excluded laps, clean average/median, consistency, tyre age, net pace
+    trend and confidence. Fuel loads and run plans remain unknown.
   * A speed-vs-distance and delta-vs-fastest-lap trace for the session's top
     drivers' fastest laps, downsampled onto a shared distance grid and
     shipped as plain JSON (not a static image) so the Results page can
@@ -37,9 +38,10 @@ Output, per event directory (e.g. data/italy/fastf1_pace.json):
                         gap_to_optimal, top_speed}, ... ]  # sorted by pace
           "qualifying_segments": {"Q1": [...], "Q2": [...], "Q3": [...]}
                                   # only present for Q/SQ sessions
-          "long_runs": [ {code, driver, team, stint, compound, laps,
-                           avg_time, std_dev, tyre_life_start,
-                           tyre_life_end}, ... ]
+          "long_runs": [ {code, driver, team, stint, run, compound,
+                           laps, raw_laps, excluded_laps, lap_start, lap_end,
+                           avg_time, median_time, std_dev, pace_trend,
+                           tyre_life_start, tyre_life_end, confidence}, ... ]
           "traces": {"distance": [...],
                      "speed": {"unit": "km/h", "series": [{code, driver,
                                team, color, dash, values}, ...]},
@@ -58,7 +60,7 @@ The scraper is kept in a distinct ``calendar_scraper.py`` module so the
 stdlib ``calendar`` package remains importable while FastF1 and its
 transitive dependencies are loaded.
 """
-import sys, os, json, argparse, datetime, statistics
+import sys, os, json, argparse, datetime
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 if _HERE not in sys.path:
@@ -70,6 +72,8 @@ import pandas as pd  # noqa: E402
 import numpy as np  # noqa: E402
 
 import standings  # noqa: E402
+from long_run_analysis import analyse_long_run_samples  # noqa: E402
+from pace_snapshot import merge_completed_sessions  # noqa: E402
 
 ROOT = _HERE
 CACHE_DIR = os.path.join(ROOT, ".fastf1_cache")
@@ -211,39 +215,38 @@ def analyse_session(year, round_no, code, label, event_name, slug):
             if not qualifying_segments:
                 qualifying_segments = None
 
-    # Long-run pace: green-flag laps, no in/out laps, grouped by stint.
+    # Long-run pace: green-flag, accurate, non-box laps grouped by stint.
+    # Within each stint the dependency-free helper requires at least five
+    # consecutive timed laps, which rejects qualifying-style push/cool patterns,
+    # then removes obvious traffic/mistake outliers robustly.
     long_runs = []
     try:
         clean = laps.pick_wo_box().pick_track_status("1")
     except Exception:
         clean = laps
+    if "IsAccurate" in clean:
+        clean = clean[clean["IsAccurate"] != False]  # noqa: E712
+    if "Deleted" in clean:
+        clean = clean[clean["Deleted"] != True]  # noqa: E712
     for (code_, stint), grp in clean.groupby(["Driver", "Stint"]):
-        times = grp["LapTime"].dropna()
-        if len(times) < 4:
-            continue
-        secs = sorted(t.total_seconds() for t in times)
-        if len(secs) < 4:
-            continue
-        # Drop laps well outside the stint's own pace (traffic/aborted laps
-        # that green-flag/pit filters don't catch) before trimming the
-        # single slowest remaining lap as the standard outlier.
-        threshold = secs[0] * 1.15
-        filtered = [s for s in secs if s <= threshold]
-        if len(filtered) < 4:
-            filtered = secs
-        trimmed = filtered[:-1] if len(filtered) > 4 else filtered
-        avg = statistics.mean(trimmed)
-        std = statistics.pstdev(trimmed) if len(trimmed) > 1 else 0.0
         compound = grp["Compound"].mode()
         compound = compound.iloc[0] if not compound.empty else "?"
         drv_name, team = _code_team(code_, drv_map)
-        long_runs.append(dict(
-            code=code_, driver=drv_name, team=team, stint=int(stint),
-            compound=compound, laps=len(secs),
-            tyre_life_start=int(grp["TyreLife"].min()) if pd.notna(grp["TyreLife"].min()) else None,
-            tyre_life_end=int(grp["TyreLife"].max()) if pd.notna(grp["TyreLife"].max()) else None,
-            avg_time=round(avg, 3), std_dev=round(std, 3),
-        ))
+        samples = []
+        for _, row in grp.sort_values("LapNumber").iterrows():
+            if pd.isna(row.get("LapTime")) or pd.isna(row.get("LapNumber")):
+                continue
+            samples.append({
+                "lap_number": int(row["LapNumber"]),
+                "lap_time": row["LapTime"].total_seconds(),
+                "tyre_life": (int(row["TyreLife"])
+                              if pd.notna(row.get("TyreLife")) else None),
+            })
+        for run_no, metrics in enumerate(analyse_long_run_samples(samples), 1):
+            long_runs.append(dict(
+                code=code_, driver=drv_name, team=team, stint=int(stint),
+                run=run_no, compound=compound, **metrics,
+            ))
     long_runs.sort(key=lambda r: r["avg_time"])
 
     # Tyre-set usage: every stint (not just the >=4-lap ones long_runs keeps)
@@ -425,12 +428,26 @@ def _narrative(fastest_rows, long_runs, event_name, label):
             notes.append(f"{fastest_speed['driver']} had the highest speed-trap reading, "
                          f"{fastest_speed['top_speed']:.1f} km/h.")
     if long_runs:
-        best_pace = long_runs[0]
+        credible = [row for row in long_runs if row["confidence"] != "low"]
+        comparison = credible or long_runs
+        compound_best = {}
+        for row in comparison:
+            compound_best.setdefault(row["compound"], row)
+        summaries = [
+            f"{row['driver']} {row['compound']} {row['avg_time']:.3f}s "
+            f"({row['laps']} laps, {row['confidence']} confidence)"
+            for row in compound_best.values()
+        ]
         notes.append(
-            f"On long runs, {best_pace['driver']}'s {best_pace['compound']}-tyre stint "
-            f"(stint {best_pace['stint']}, {best_pace['laps']} laps) had the best clean average "
-            f"pace at {best_pace['avg_time']:.3f}s/lap (slowest lap of the stint dropped as an "
-            "outlier).")
+            "Quickest credible clean average by compound: " + "; ".join(summaries)
+            + ". Fuel loads and run plans are unknown, so this is not a definitive "
+              "race-pace ranking.")
+        deepest = max(comparison, key=lambda row: (row["laps"], -row["std_dev"]))
+        notes.append(
+            f"The deepest credible sequence was {deepest['driver']}'s "
+            f"{deepest['compound']} run: {deepest['laps']} retained laps at "
+            f"{deepest['avg_time']:.3f}s average, with a net "
+            f"{deepest['pace_trend']:+.3f}s/lap trend.")
     return notes
 
 
@@ -468,8 +485,8 @@ def _news_context(fastest_rows, long_runs, slug):
             hit = next((h for h in haystacks
                         if surname.lower() in h.lower() and
                         (team or "").split()[0].lower() in h.lower()), None)
-            if not hit and any(surname.lower() in h.lower() for h in haystacks[:1]):
-                hit = haystacks[0]
+            if surname.lower() not in art.get("title", "").lower():
+                hit = None
             if hit:
                 snippet = hit.strip()
                 if len(snippet) > 220:
@@ -528,11 +545,19 @@ def main():
         round_no = event["round"]
         sessions_by_label = {s["label"]: s for s in event["sessions"]}
         print(f"→ {event['name']} (round {round_no})")
-        out_sessions = []
+        out_path = os.path.join(gp_dir, "fastf1_pace.json")
+        existing_sessions = []
+        try:
+            existing_sessions = json.load(open(out_path)).get("sessions", [])
+        except (FileNotFoundError, json.JSONDecodeError, AttributeError):
+            pass
+        refreshed_sessions = []
+        completed_codes = set()
         for code, label in SESSION_MAP:
             cal_session = sessions_by_label.get(label)
             if not cal_session or not _session_already_run(cal_session, now):
                 continue
+            completed_codes.add(code)
             print(f"  · analysing {label} ({code}) ...")
             try:
                 result = analyse_session(args.year, round_no, code, label, event["name"], slug)
@@ -545,11 +570,16 @@ def main():
                 print(f"    ! {label} failed, skipping: {e}")
                 continue
             if result:
-                out_sessions.append(result)
+                refreshed_sessions.append(result)
+        out_sessions = merge_completed_sessions(
+            existing_sessions,
+            refreshed_sessions,
+            completed_codes,
+            [code for code, _label in SESSION_MAP],
+        )
         if not out_sessions:
             print("  (no completed sessions with usable data yet)")
             continue
-        out_path = os.path.join(gp_dir, "fastf1_pace.json")
         json.dump(dict(generated_at=now.isoformat(), sessions=out_sessions),
                    open(out_path, "w"), indent=2)
         print(f"  ✓ wrote {out_path} ({len(out_sessions)} session(s))")

@@ -774,6 +774,13 @@ inventory. Prefer FIA/Pirelli/team published race-set graphics; FP1 substitute
 mapping applies only to timing-derived analysis, not the already entrant-specific
 published chart. Do not say an official report is unpublished merely because it is not loaded.
 FastF1 analysis is optional and must not hide independently available FIA data.
+Long-run analysis must preserve lap order and use continuous sequences of at
+least five timed green-flag laps; missing laps break a run. Apply robust
+median/MAD filtering, reject sequences with fewer than 70% retained or more than
+2.0 seconds standard deviation, and show retained/excluded laps, mean, median,
+standard deviation, tyre-life range, net trend and confidence. Net trend is not
+pure degradation because fuel burn, traffic, track evolution and driver
+variation remain mixed in.
 Keep the calendar scraper in its own module so the stdlib `calendar` package remains available.
 Do not imply absent timing means a completed session did not happen.
 

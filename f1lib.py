@@ -920,8 +920,10 @@ def render_pace_analysis(ctx):
            '<div class="callout"><strong>Built from real lap timing and car telemetry</strong> '
            "via <a href=\"https://docs.fastf1.dev/\" target=\"_blank\" rel=\"noopener\">FastF1</a>: "
            "each driver's fastest lap vs. the theoretical lap built from their own best sector "
-           "times, best clean long-run pace by tyre stint (slowest lap of each stint dropped as "
-           "an outlier), and speed/delta traces around the lap for the fastest runners. Click a "
+           "times, continuous long-run sequences with robust traffic/mistake filtering and net "
+           "pace trend, and speed/delta traces around the lap for the fastest runners. Fuel "
+           "loads and run plans are unknown, so clean averages are indicators rather than a "
+           "definitive race-pace ranking. Click a "
            "driver in a chart's legend to isolate or hide their trace, or use the fullscreen "
            "button for a bigger view.</div>"]
 
@@ -1035,15 +1037,27 @@ def render_pace_analysis(ctx):
         if charts_needed:
             pane.append('</div>')
         if s.get("long_runs"):
-            pane.append('<h3 class="sec">Long-run pace (clean laps, outlier dropped)</h3>')
+            pane.append('<h3 class="sec">Long-run pace (continuous clean-lap sequences)</h3>')
             pane.append(_pace_table(s["long_runs"], [
                 ("driver", "Driver", _driver_cell),
                 ("team", "Team", None),
                 ("compound", "Compound", None),
-                ("laps", "Laps", None),
+                ("laps", "Retained laps", None),
+                ("excluded_laps", "Excluded", None),
                 ("avg_time", "Avg. clean lap", _avg),
+                ("median_time", "Median lap", _avg),
                 ("std_dev", "Consistency (σ)", lambda v, _r: f"{v:.3f}s" if v is not None else None),
+                ("pace_trend", "Net trend / lap",
+                 lambda v, _r: f"{v:+.3f}s" if v is not None else None),
+                ("tyre_life_start", "Tyre life start", None),
+                ("tyre_life_end", "Tyre life end", None),
+                ("confidence", "Confidence", None),
             ]))
+            pane.append(
+                '<p class="src">A long run requires at least five consecutive timed laps. '
+                'Median/MAD filtering removes obvious traffic or mistake laps; “Excluded” shows '
+                'how many were removed. Net trend includes tyre degradation, fuel burn, traffic '
+                'and driver variation, so it is not a pure degradation coefficient.</p>')
         panes.append(
             f'<div class="tab-pane fade{" show active" if is_active else ""}" id="{sid}" '
             f'role="tabpanel" aria-labelledby="{sid}-tab" tabindex="0">{"".join(pane)}</div>')
