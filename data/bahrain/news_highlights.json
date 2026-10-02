@@ -1,27 +1,44 @@
 {
-  "reviewed_at": "2026-10-02T04:28:00Z",
-  "expires_at": "2026-10-02T06:00:00Z",
-  "through_session": null,
-  "feed_fingerprint": "67a041d31da605866be62fe779eaaddf5152fd4e573e43b59b7f5241d00c0be3",
+  "reviewed_at": "2026-10-02T21:40:00Z",
+  "expires_at": "2026-10-03T06:00:00Z",
+  "through_session": "Practice 2",
+  "feed_fingerprint": "caa2090dd077f59f128b68f28c8f54b0562ba684435ca215c82e7b324fba3b3d",
   "items": [
     {
       "topic": "Grid watch",
-      "title": "Colapinto has a confirmed carry-over drop; Lindblad and Hadjar report PU penalties",
-      "date": "2026-10-01",
-      "summary": "Colapinto's five-place carry-over sanction is established by FIA Azerbaijan Document 66. The Race reports Racing Bulls announcing a back-of-grid start for Lindblad and Hadjar expecting five places. No Sepang stewards' rulings for those planned PU changes were found in the twelve-document review before FP1.",
-      "why_it_matters": "Distinguish an issued decision from a team or driver announcement. Neither establishes a final starting position before qualifying and the official grid.",
+      "title": "Formula1.com: Hadjar, Lindblad and Colapinto take PU grid penalties",
+      "date": "2026-10-02",
+      "summary": "Formula1.com reports that Hadjar takes a seventh ICE and a five-place penalty, Lindblad takes a fifth ICE, turbocharger and exhaust set and will start at the back via a 30-place drop, and Colapinto takes a further 10 places on top of the five-place Baku carry-over (FIA Azerbaijan Document 66).",
+      "why_it_matters": "These are published penalty reports, not the official grid. Check the final starting grid after qualifying and any stewards' documents before quoting positions.",
       "sources": [
         {
-          "label": "Formula1.com: Bahrain grid penalty report",
-          "url": "https://www.formula1.com/en/latest/article/colapinto-hit-with-five-place-grid-penalty-for-bahrain-gp-in-malaysia-after-baku-collision.3gWVfzDMMr5hReiwTt1fPD"
+          "label": "Formula1.com: Hadjar, Lindblad and Colapinto grid penalties",
+          "url": "https://www.formula1.com/en/latest/article/hadjar-lindblad-and-colapinto-set-for-grid-penalties-at-bahrain-gp-in-malaysia.3eufcSTLQCJfXZ5kq3wYlt"
         },
         {
           "label": "FIA Document 66: Azerbaijan Race decision",
           "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Friday practice",
+      "title": "Verstappen tops FP1, Leclerc FP2, with the top teams close",
+      "date": "2026-10-02",
+      "summary": "Max Verstappen led FP1 (1:37.520) from Russell (+0.383s); Charles Leclerc led FP2 (1:37.528) from Hadjar (+0.099s), Norris (+0.137s) and Verstappen (+0.257s), per Formula1.com timing. Piastri said the top four teams look very close; McLaren's Randy Singh said the track had lower grip than expected but the car improved between sessions.",
+      "why_it_matters": "Practice order is not a qualifying forecast: compounds and fuel loads vary and forecast rain did not arrive, so the tyre choices differed from normal.",
+      "sources": [
+        {
+          "label": "Formula1.com FP1 results",
+          "url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1"
         },
         {
-          "label": "The Race: three drivers facing grid penalties, 1 October",
-          "url": "https://www.the-race.com/formula-1/three-drivers-facing-grid-penalties-for-f1-malaysia-return/"
+          "label": "Formula1.com: Practice debrief",
+          "url": "https://www.formula1.com/en/latest/article/who-has-the-edge-in-sepang-after-a-too-close-to-call-friday.25uYeZqNuLN0xsE1RTT6jl"
+        },
+        {
+          "label": "Formula1.com: McLaren on Malaysia",
+          "url": "https://www.formula1.com/en/latest/article/mclaren-explain-what-caught-us-by-surprise-in-malaysia-as-piastri-reflects-on-where-they-stack-up.sDpGuLb4lFAQWOfgApwQR"
         }
       ]
     },
