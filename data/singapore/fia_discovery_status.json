@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-10-03T18:55:05.763396+00:00",
+  "checked_at": "2026-10-03T22:34:16.077193+00:00",
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Singapore%20Grand%20Prix",
   "ok": false,
-  "error": "FIA documents page unavailable: HTTP Error 403: Forbidden; season fallback failed: HTTP Error 403: Forbidden"
+  "error": "FIA documents page unavailable: HTTP Error 500: Internal Server Error; season fallback failed: Singapore Grand Prix is not listed in the FIA season index"
 }
