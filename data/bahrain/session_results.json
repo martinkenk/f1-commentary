@@ -5,7 +5,7 @@
     "results_slug": "bahrain",
     "gp": "bahrain"
   },
-  "checked_at": "2026-10-02T21:40:01+00:00",
+  "checked_at": "2026-10-03T07:58:31+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/1",
-      "fetched_at": "2026-10-02T21:40:01+00:00",
+      "fetched_at": "2026-10-03T07:58:31+00:00",
       "session_start": "2026-10-02T12:30:00+08:00",
       "retained": false
     },
@@ -389,8 +389,201 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/2",
-      "fetched_at": "2026-10-02T21:40:01+00:00",
+      "fetched_at": "2026-10-03T07:58:31+00:00",
       "session_start": "2026-10-02T16:00:00+08:00",
+      "retained": false
+    },
+    {
+      "label": "Practice 3",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "1:36.302",
+          "12"
+        ],
+        [
+          "2",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "+0.278s",
+          "12"
+        ],
+        [
+          "3",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+0.558s",
+          "15"
+        ],
+        [
+          "4",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "+0.610s",
+          "11"
+        ],
+        [
+          "5",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "+0.714s",
+          "19"
+        ],
+        [
+          "6",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+0.739s",
+          "15"
+        ],
+        [
+          "7",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "+0.859s",
+          "15"
+        ],
+        [
+          "8",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+1.064s",
+          "16"
+        ],
+        [
+          "9",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+1.618s",
+          "20"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+1.782s",
+          "24"
+        ],
+        [
+          "11",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+1.902s",
+          "15"
+        ],
+        [
+          "12",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+1.921s",
+          "13"
+        ],
+        [
+          "13",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+1.939s",
+          "20"
+        ],
+        [
+          "14",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "+1.950s",
+          "12"
+        ],
+        [
+          "15",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "+1.964s",
+          "17"
+        ],
+        [
+          "16",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+2.054s",
+          "14"
+        ],
+        [
+          "17",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+2.390s",
+          "12"
+        ],
+        [
+          "18",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+2.414s",
+          "21"
+        ],
+        [
+          "19",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+2.509s",
+          "12"
+        ],
+        [
+          "20",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+2.747s",
+          "18"
+        ],
+        [
+          "21",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+3.629s",
+          "14"
+        ],
+        [
+          "22",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "+3.921s",
+          "20"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/3",
+      "fetched_at": "2026-10-03T07:58:31+00:00",
+      "session_start": "2026-10-03T12:30:00+08:00",
       "retained": false
     }
   ],
@@ -404,6 +597,11 @@
       "label": "Practice 2",
       "state": "available",
       "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/2"
+    },
+    {
+      "label": "Practice 3",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/practice/3"
     }
   ]
 }

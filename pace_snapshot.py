@@ -22,3 +22,31 @@ def merge_completed_sessions(existing, refreshed, completed_codes, session_order
         if session:
             merged.append(session)
     return merged
+
+
+def matching_session_articles(articles, driver_name, team, label):
+    """Return newest-first articles about this driver in this session."""
+    session_terms = {
+        "Practice 1": ("fp1", "practice 1", "opening practice", "first practice"),
+        "Practice 2": ("fp2", "practice 2", "second practice"),
+        "Practice 3": ("fp3", "practice 3", "third practice", "final practice"),
+        "Qualifying": ("qualifying",),
+        "Sprint Qualifying": ("sprint qualifying", "sq1", "sq2", "sq3"),
+        "Sprint": ("sprint",),
+        "Race": ("race report", "grand prix report"),
+    }.get(label, ())
+    surname = driver_name.split()[-1].lower() if driver_name else ""
+    team_word = (team or "").split()[0].lower()
+    if not surname:
+        return []
+
+    matches = []
+    for article in reversed(articles):
+        title = article.get("title", "")
+        title_lower = title.lower()
+        if session_terms and not any(term in title_lower for term in session_terms):
+            continue
+        combined = " ".join([title] + article.get("paragraphs", [])).lower()
+        if surname in title_lower and team_word in combined:
+            matches.append(article)
+    return matches

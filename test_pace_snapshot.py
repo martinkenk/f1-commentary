@@ -1,6 +1,6 @@
 import unittest
 
-from pace_snapshot import merge_completed_sessions
+from pace_snapshot import matching_session_articles, merge_completed_sessions
 
 
 class PaceSnapshotTests(unittest.TestCase):
@@ -31,6 +31,31 @@ class PaceSnapshotTests(unittest.TestCase):
         )
 
         self.assertEqual(merged, [])
+
+    def test_news_context_uses_current_session_not_older_report(self):
+        articles = [
+            {
+                "title": "Antonelli expects a tough Bahrain weekend",
+                "paragraphs": ["Mercedes prepared for practice."],
+            },
+            {
+                "title": "FP2 report: Leclerc leads second practice",
+                "paragraphs": ["Ferrari led Mercedes and the rest."],
+            },
+            {
+                "title": "FP3 report: Antonelli leads final practice",
+                "paragraphs": ["The Mercedes driver topped the session."],
+            },
+        ]
+
+        matches = matching_session_articles(
+            articles, "Kimi Antonelli", "Mercedes", "Practice 3"
+        )
+
+        self.assertEqual(
+            [article["title"] for article in matches],
+            ["FP3 report: Antonelli leads final practice"],
+        )
 
 
 if __name__ == "__main__":

@@ -73,7 +73,7 @@ import numpy as np  # noqa: E402
 
 import standings  # noqa: E402
 from long_run_analysis import analyse_long_run_samples  # noqa: E402
-from pace_snapshot import merge_completed_sessions  # noqa: E402
+from pace_snapshot import matching_session_articles, merge_completed_sessions  # noqa: E402
 
 ROOT = _HERE
 CACHE_DIR = os.path.join(ROOT, ".fastf1_cache")
@@ -268,7 +268,7 @@ def analyse_session(year, round_no, code, label, event_name, slug):
 
     traces = _make_trace_data(laps, fastest_rows, code)
     narrative = _narrative(fastest_rows, long_runs, event_name, label)
-    narrative += _news_context(fastest_rows, long_runs, slug)
+    narrative += _news_context(fastest_rows, long_runs, slug, label)
 
     result = dict(session=code, label=label, fastest=fastest_rows,
                   long_runs=long_runs, traces=traces, narrative=narrative)
@@ -451,7 +451,7 @@ def _narrative(fastest_rows, long_runs, event_name, label):
     return notes
 
 
-def _news_context(fastest_rows, long_runs, slug):
+def _news_context(fastest_rows, long_runs, slug, label):
     """Look for a news article that speaks to *why* the fastest/quickest-gaining
     driver or their team is on form this weekend, and surface it as a citation
     so the pace stats aren't just numbers in isolation."""
@@ -475,27 +475,18 @@ def _news_context(fastest_rows, long_runs, slug):
     notes = []
     seen_articles = set()
     for driver_name, team, angle in subjects:
-        surname = driver_name.split()[-1] if driver_name else ""
-        if not surname:
-            continue
-        for art in articles:
+        for art in matching_session_articles(articles, driver_name, team, label):
             if art.get("url") in seen_articles:
                 continue
-            haystacks = [art.get("title", "")] + art.get("paragraphs", [])
-            hit = next((h for h in haystacks
-                        if surname.lower() in h.lower() and
-                        (team or "").split()[0].lower() in h.lower()), None)
-            if surname.lower() not in art.get("title", "").lower():
-                hit = None
-            if hit:
-                snippet = hit.strip()
-                if len(snippet) > 220:
-                    snippet = snippet[:217].rsplit(" ", 1)[0] + "..."
-                notes.append(
-                    f"Context on {driver_name}'s {angle}: \u201c{snippet}\u201d "
-                    f"(\u2014 {art.get('title')}, {art.get('source', 'news')}).")
-                seen_articles.add(art.get("url"))
-                break
+            title = art.get("title", "")
+            snippet = (art.get("paragraphs") or [title])[0].strip()
+            if len(snippet) > 220:
+                snippet = snippet[:217].rsplit(" ", 1)[0] + "..."
+            notes.append(
+                f"Context on {driver_name}'s {angle}: \u201c{snippet}\u201d "
+                f"(\u2014 {art.get('title')}, {art.get('source', 'news')}).")
+            seen_articles.add(art.get("url"))
+            break
     return notes
 
 
