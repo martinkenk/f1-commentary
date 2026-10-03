@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-10-03T08:03:05+00:00",
+  "checked_at": "2026-10-03T10:52:47+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -31,7 +31,8 @@
     "spain/qualifying",
     "spain/race-result",
     "azerbaijan/qualifying",
-    "azerbaijan/race-result"
+    "azerbaijan/race-result",
+    "bahrain/qualifying"
   ],
   "errors": [],
   "sessions": [
@@ -5267,7 +5268,7 @@
       "label": "Qualifying",
       "date": "2026-09-25",
       "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/qualifying",
-      "fetched_at": "2026-10-03T08:03:05+00:00",
+      "fetched_at": "2026-10-03T10:52:47+00:00",
       "drivers": [
         {
           "code": "RUS",
@@ -5455,7 +5456,7 @@
       "label": "Race",
       "date": "2026-09-26",
       "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
-      "fetched_at": "2026-10-03T08:03:05+00:00",
+      "fetched_at": "2026-10-03T10:52:47+00:00",
       "drivers": [
         {
           "code": "RUS",
@@ -5632,6 +5633,194 @@
           "position": null,
           "status": "unclassified",
           "raw_position": "NC"
+        }
+      ]
+    },
+    {
+      "key": "bahrain/qualifying",
+      "round": 16,
+      "gp": "bahrain",
+      "name": "Bahrain Grand Prix",
+      "label": "Qualifying",
+      "date": "2026-10-03",
+      "url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/qualifying",
+      "fetched_at": "2026-10-03T10:52:47+00:00",
+      "drivers": [
+        {
+          "code": "VER",
+          "name": "Max Verstappen",
+          "team": "Red Bull Racing",
+          "position": 1,
+          "status": "classified",
+          "raw_position": "1"
+        },
+        {
+          "code": "HAM",
+          "name": "Lewis Hamilton",
+          "team": "Ferrari",
+          "position": 2,
+          "status": "classified",
+          "raw_position": "2"
+        },
+        {
+          "code": "HAD",
+          "name": "Isack Hadjar",
+          "team": "Red Bull Racing",
+          "position": 3,
+          "status": "classified",
+          "raw_position": "3"
+        },
+        {
+          "code": "ANT",
+          "name": "Kimi Antonelli",
+          "team": "Mercedes",
+          "position": 4,
+          "status": "classified",
+          "raw_position": "4"
+        },
+        {
+          "code": "LEC",
+          "name": "Charles Leclerc",
+          "team": "Ferrari",
+          "position": 5,
+          "status": "classified",
+          "raw_position": "5"
+        },
+        {
+          "code": "NOR",
+          "name": "Lando Norris",
+          "team": "McLaren",
+          "position": 6,
+          "status": "classified",
+          "raw_position": "6"
+        },
+        {
+          "code": "PIA",
+          "name": "Oscar Piastri",
+          "team": "McLaren",
+          "position": 7,
+          "status": "classified",
+          "raw_position": "7"
+        },
+        {
+          "code": "RUS",
+          "name": "George Russell",
+          "team": "Mercedes",
+          "position": 8,
+          "status": "classified",
+          "raw_position": "8"
+        },
+        {
+          "code": "GAS",
+          "name": "Pierre Gasly",
+          "team": "Alpine",
+          "position": 9,
+          "status": "classified",
+          "raw_position": "9"
+        },
+        {
+          "code": "BOR",
+          "name": "Gabriel Bortoleto",
+          "team": "Audi",
+          "position": 10,
+          "status": "classified",
+          "raw_position": "10"
+        },
+        {
+          "code": "LAW",
+          "name": "Liam Lawson",
+          "team": "Racing Bulls",
+          "position": 11,
+          "status": "classified",
+          "raw_position": "11"
+        },
+        {
+          "code": "ALO",
+          "name": "Fernando Alonso",
+          "team": "Aston Martin",
+          "position": 12,
+          "status": "classified",
+          "raw_position": "12"
+        },
+        {
+          "code": "SAI",
+          "name": "Carlos Sainz",
+          "team": "Williams",
+          "position": 13,
+          "status": "classified",
+          "raw_position": "13"
+        },
+        {
+          "code": "STR",
+          "name": "Lance Stroll",
+          "team": "Aston Martin",
+          "position": 14,
+          "status": "classified",
+          "raw_position": "14"
+        },
+        {
+          "code": "COL",
+          "name": "Franco Colapinto",
+          "team": "Alpine",
+          "position": 15,
+          "status": "classified",
+          "raw_position": "15"
+        },
+        {
+          "code": "LIN",
+          "name": "Arvid Lindblad",
+          "team": "Racing Bulls",
+          "position": 16,
+          "status": "classified",
+          "raw_position": "16"
+        },
+        {
+          "code": "HUL",
+          "name": "Nico Hulkenberg",
+          "team": "Audi",
+          "position": 17,
+          "status": "classified",
+          "raw_position": "17"
+        },
+        {
+          "code": "BEA",
+          "name": "Oliver Bearman",
+          "team": "Haas F1 Team",
+          "position": 18,
+          "status": "classified",
+          "raw_position": "18"
+        },
+        {
+          "code": "OCO",
+          "name": "Esteban Ocon",
+          "team": "Haas F1 Team",
+          "position": 19,
+          "status": "classified",
+          "raw_position": "19"
+        },
+        {
+          "code": "ALB",
+          "name": "Alexander Albon",
+          "team": "Williams",
+          "position": 20,
+          "status": "classified",
+          "raw_position": "20"
+        },
+        {
+          "code": "BOT",
+          "name": "Valtteri Bottas",
+          "team": "Cadillac",
+          "position": 21,
+          "status": "classified",
+          "raw_position": "21"
+        },
+        {
+          "code": "PER",
+          "name": "Sergio Perez",
+          "team": "Cadillac",
+          "position": 22,
+          "status": "classified",
+          "raw_position": "22"
         }
       ]
     }
