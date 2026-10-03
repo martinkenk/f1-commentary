@@ -110,5 +110,61 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_qualifying_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 38",
+    "no": "",
+    "driver": "Lance Stroll; Franco Colapinto",
+    "team": "",
+    "session": "Qualifying",
+    "fact": "The F1 Cars below exceeded the 1:59.0 time limit between the Safety Car lines.",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_bahrain_grand_prix_in_malaysia_-_decision_-_qualifying_sc2-sc1_times.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_decision_-_qualifying_sc2-sc1_times.pdf"
+  },
+  {
+    "doc": "Doc 39",
+    "no": "",
+    "driver": "Lance Stroll; Franco Colapinto",
+    "team": "",
+    "session": "Qualifying",
+    "fact": "The F1 Cars below exceeded the 1:59.0 time limit between the Safety Car lines.",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_bahrain_grand_prix_in_malaysia_-_decision_-_qualifying_sc2-sc1_times_corrected.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_decision_-_qualifying_sc2-sc1_times_corrected.pdf"
+  },
+  {
+    "doc": "Doc 40",
+    "no": "18",
+    "driver": "Lance Stroll",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Qualifying",
+    "fact": "Car 18 exceeded the 1:59.0 time limit between the Safety Car lines.",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_18_-_failure_to_follow_race_directors_instructions_sc2-sc1_time_1st_offence.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_18_-_failure_to_follow_race_directors_instructions_sc2-sc1_time_1st_offence.pdf"
+  },
+  {
+    "doc": "Doc 41",
+    "no": "18",
+    "driver": "Lance Stroll",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Qualifying",
+    "fact": "Car 18 exceeded the 1:59.0 time limit between the Safety Car lines.",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_18_-_failure_to_follow_race_directors_instructions_sc2-sc1_time_2nd_offence.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_18_-_failure_to_follow_race_directors_instructions_sc2-sc1_time_2nd_offence.pdf"
   }
 ]
