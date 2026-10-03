@@ -1,16 +1,41 @@
 {
-  "reviewed_at": "2026-10-02T04:28:00Z",
-  "expires_at": "2026-10-02T06:00:00Z",
-  "through_session": null,
-  "feed_fingerprint": "67a041d31da605866be62fe779eaaddf5152fd4e573e43b59b7f5241d00c0be3",
+  "reviewed_at": "2026-10-03T10:50:00Z",
+  "expires_at": "2026-10-04T05:00:00Z",
+  "through_session": "Qualifying",
+  "feed_fingerprint": "a52dbccaa0dfd9b59cec45e48a3fdc3972bb68cf3841cd92599c557e3d35d011",
   "items": [
     {
-      "topic": "Grid watch",
-      "title": "Colapinto has a confirmed carry-over drop; Lindblad and Hadjar report PU penalties",
-      "date": "2026-10-01",
-      "summary": "Colapinto's five-place carry-over sanction is established by FIA Azerbaijan Document 66. The Race reports Racing Bulls announcing a back-of-grid start for Lindblad and Hadjar expecting five places. No Sepang stewards' rulings for those planned PU changes were found in the twelve-document review before FP1.",
-      "why_it_matters": "Distinguish an issued decision from a team or driver announcement. Neither establishes a final starting position before qualifying and the official grid.",
+      "topic": "Qualifying",
+      "title": "Verstappen takes Red Bull's first pole of 2026 as Mercedes endure their worst qualifying of the year",
+      "date": "2026-10-03",
+      "summary": "Max Verstappen led Q1, Q2 and Q3 and took pole with a 1m 35.130s, 0.298s clear of Lewis Hamilton, so Ferrari share the front row; Isack Hadjar was third on the road. The Race reports it is the first non-Mercedes-powered pole of the season and that Mercedes had their worst qualifying of 2026 despite debuting upgrades.",
+      "why_it_matters": "Mercedes' upgraded package did not translate into one-lap pace at a track last visited in 2017, so Sunday's order is less predictable. Official classification (FIA provisional document) was still being processed when this was written; check it for the final grid.",
       "sources": [
+        {
+          "label": "Formula1.com: Qualifying report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-seizes-first-pole-position-of-the-season-in-qualifying-for-bahrain-gp-in-malaysia.3BW0zzYBLhG54bsQoNKFvP"
+        },
+        {
+          "label": "The Race: Verstappen takes first Red Bull pole of 2026",
+          "url": "https://www.the-race.com/formula-1/verstappen-takes-first-red-bull-f1-pole-of-2026-malaysia-sepang-bahrain/"
+        },
+        {
+          "label": "Formula1.com: Hamilton on Ferrari's 'sweet spot'",
+          "url": "https://www.formula1.com/en/latest/article/hamilton-explains-how-ferrari-hit-the-sweet-spot-in-qualifying-for-bahrain-gp-in-malaysia.012Xq9ylnwbXl6HOmHai9v"
+        }
+      ]
+    },
+    {
+      "topic": "Grid watch",
+      "title": "Hadjar, Lindblad and Colapinto carry grid penalties into Sunday's race",
+      "date": "2026-10-03",
+      "summary": "Formula1.com reports Hadjar, Lindblad and Colapinto took penalties for exceeding power-unit components; Hadjar's is five places for a seventh ICE, and The Race's post-qualifying grid piece counts three penalties. Colapinto's five-place carry-over sanction is established by FIA Azerbaijan Document 66.",
+      "why_it_matters": "Hadjar qualified on the Red Bull front-row side of the order, so his penalty reshuffles the top of the race grid. Use the official starting grid, not qualifying order.",
+      "sources": [
+        {
+          "label": "Formula1.com: Hadjar, Lindblad, Colapinto grid penalties",
+          "url": "https://www.formula1.com/en/latest/article/hadjar-lindblad-and-colapinto-set-for-grid-penalties-at-bahrain-gp-in-malaysia.3eufcSTLQCJfXZ5kq3wYlt"
+        },
         {
           "label": "Formula1.com: Bahrain grid penalty report",
           "url": "https://www.formula1.com/en/latest/article/colapinto-hit-with-five-place-grid-penalty-for-bahrain-gp-in-malaysia-after-baku-collision.3gWVfzDMMr5hReiwTt1fPD"
@@ -22,36 +47,27 @@
         {
           "label": "The Race: three drivers facing grid penalties, 1 October",
           "url": "https://www.the-race.com/formula-1/three-drivers-facing-grid-penalties-for-f1-malaysia-return/"
-        }
-      ]
-    },
-    {
-      "topic": "Official heat declaration",
-      "title": "FIA declares a Heat Hazard for Sunday's race",
-      "date": "2026-09-30",
-      "summary": "FIA Document 3 declares a Heat Hazard under Article B1.5.10 because the official forecast Heat Index exceeds 31.0 degrees Celsius at some point during the Race. The venue is Sepang, with Sunday's start at 15:00 MYT / 10:00 Tallinn.",
-      "why_it_matters": "This is an official declaration, not a generic weather warning. Do not equate Heat Index with ambient temperature or infer cooling-system requirements from temperature alone.",
-      "sources": [
-        {
-          "label": "FIA Document 3: Heat Hazard declaration",
-          "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_heat_hazard_declaration.pdf"
-        }
-      ]
-    },
-    {
-      "topic": "Tyre nomination",
-      "title": "Pirelli details Sepang surface work before its return",
-      "date": "2026-09-30",
-      "summary": "Pirelli reports that Sepang's Turns 6–12 section was resurfaced in 2023, with further work around Turn 9, and that additional levelling and cleaning took place from early September 2026. Engineers still assess the overall surface characteristics as similar to 2017. The event poster rates tyre stress and abrasion 4/5, nominates C2/C3/C4 and estimates 22.5 seconds pit-stop loss.",
-      "why_it_matters": "Do not describe the circuit as untouched since 2017: sections have been resurfaced and levelled. Keep that work distinct from Pirelli's current assessment of similar overall surface characteristics; tyre behaviour for this generation remains unknown until practice.",
-      "sources": [
-        {
-          "label": "Formula1.com: Pirelli's latest Sepang tyre and surface assessment",
-          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-bahrain-grand-prix-in-malaysia.4vcrMxYY9DWg7PwyiNMrEV"
         },
         {
-          "label": "Pirelli: Tyre compound selections for Baku, Sepang and Singapore",
-          "url": "https://press.pirelli.com/tyre-compound-selections-for-baku-sepang-and-singapore/"
+          "label": "The Race: Malaysia starting grid after three penalties",
+          "url": "https://www.the-race.com/formula-1/f1-malaysian-grand-prix-in-bahrain-starting-grid-after-three-penalties/"
+        }
+      ]
+    },
+    {
+      "topic": "Stewards",
+      "title": "Qualifying lap times deleted for Bearman, Antonelli and Gasly",
+      "date": "2026-10-03",
+      "summary": "FIA Document 36 deletes lap times for Oliver Bearman, Kimi Antonelli and Pierre Gasly under Article 12.4.1.e because they did not use the track at turns 6 and 15. A separate summons for car 18 (alleged failure to follow Race Director's instructions, SC2-SC1 time) is listed; its outcome was not reviewed.",
+      "why_it_matters": "Deleted laps can change who progressed or where they start. Check the provisional classification for each affected driver.",
+      "sources": [
+        {
+          "label": "FIA Document 36: Qualifying deleted lap times",
+          "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_qualifying_deleted_lap_times.pdf"
+        },
+        {
+          "label": "FIA: summons, car 18",
+          "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_summons_-_car_18_-_alleged_failure_to_follow_race_directors_instructions_sc2-sc1_time.pdf"
         }
       ]
     },
@@ -69,6 +85,19 @@
         {
           "label": "FIA Document 12: Car Presentation Submissions",
           "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_car_presentation_submissions.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Official heat declaration",
+      "title": "FIA declares a Heat Hazard for Sunday's race",
+      "date": "2026-09-30",
+      "summary": "FIA Document 3 declares a Heat Hazard under Article B1.5.10 because the official forecast Heat Index exceeds 31.0 degrees Celsius at some point during the Race. The venue is Sepang, with Sunday's start at 15:00 MYT / 10:00 Tallinn.",
+      "why_it_matters": "This is an official declaration, not a generic weather warning. Do not equate Heat Index with ambient temperature or infer cooling-system requirements from temperature alone.",
+      "sources": [
+        {
+          "label": "FIA Document 3: Heat Hazard declaration",
+          "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_heat_hazard_declaration.pdf"
         }
       ]
     }
