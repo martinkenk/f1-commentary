@@ -1,7 +1,67 @@
 {
-  "checked_at": "2026-10-04T11:35:39+00:00",
-  "discovery_retrieved_at": "2026-10-04T11:35:31.882804+00:00",
+  "checked_at": "2026-10-04T16:13:45+00:00",
+  "discovery_retrieved_at": "2026-10-04T16:13:34.871822+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_1_-_alleged_driving_erratically.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_1_-_alleged_driving_erratically.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "0b36837ee7433ec7a305feeb6a5cd32d1e90ee801fac6fb4cc1742708b607cbd",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-bahrain-ef99deb54310-0b36837ee7433ec7-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-bahrain-ef99deb54310-0b36837ee7433ec7-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_27_-_unsafe_release.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_27_-_unsafe_release.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "fdda576e76d35cb19185c8db8ea10fd71d6a55e083ff260494175b81690c10df",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-bahrain-c80f1db21a2f-fdda576e76d35cb1-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-bahrain-c80f1db21a2f-fdda576e76d35cb1-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_decision_-_car_23_-_alleged_driving_erratically.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_decision_-_car_23_-_alleged_driving_erratically.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1281648d4f66c52df88f4816b4443aab65e787c2b597e40e7512eb48e202159e",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-bahrain-75bb5adb4d4a-1281648d4f66c52d-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-bahrain-75bb5adb4d4a-1281648d4f66c52d-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_race_deleted_lap_times.pdf",
       "filename": "2026_bahrain_grand_prix_in_malaysia_-_infringement_-_race_deleted_lap_times.pdf",
@@ -9,7 +69,7 @@
         "penalties"
       ],
       "sha256": "1785219c6aea71c648d1c9e0a4d330bb1e57955e3e275262cdc93805813cbb67",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -29,7 +89,7 @@
         "penalties"
       ],
       "sha256": "951a4238e610fb7f75798f745c9a26f765be91d8c3f8c0440afa4edf59876996",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -49,7 +109,7 @@
         "penalties"
       ],
       "sha256": "3136537d9902e059889b41a4d925e09fbf7ea6260c1504bbd3cca2060fbc5cdb",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -65,7 +125,7 @@
         "upgrades"
       ],
       "sha256": "fc338d58e2eb3f032795bcabd788ae6ea5fc90210bc44d9e34d1ed1f5177a632",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -85,7 +145,7 @@
         "penalties"
       ],
       "sha256": "2a0f4725dc2194a07896abc689f2e2a0dbd5482046e658d5284e5869d354c3da",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -105,7 +165,7 @@
         "penalties"
       ],
       "sha256": "b2654eb557f99e3e8d503a051230e5f1fe4c601b8e01ea9c4fcbcc04a73a113e",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -125,27 +185,11 @@
         "penalties"
       ],
       "sha256": "bb559f8a5362fb80c7fbf27a4e1cdf3711f6f0e2db9701134e78e01b2e71cb86",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
           "asset": "fia-bahrain-8c5d5570541a-bb559f8a5362fb80-p2.png"
-        }
-      ],
-      "revision": 0
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_decision_-_qualifying_sc2-sc1_times.pdf",
-      "filename": "2026_bahrain_grand_prix_in_malaysia_-_decision_-_qualifying_sc2-sc1_times.pdf",
-      "categories": [
-        "penalties"
-      ],
-      "sha256": "5cc7b9c1ae1f5f2593549ef301cfa2af8681fa798ad344ddcf34b37fc32cc7dd",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
-      "pages": [
-        {
-          "page": 2,
-          "asset": "fia-bahrain-f810d57816bc-5cc7b9c1ae1f5f25-p2.png"
         }
       ],
       "revision": 0
@@ -157,7 +201,7 @@
         "penalties"
       ],
       "sha256": "99baccab2103913a53c23b53443da3c1336f39b5550e525987e4b41a2f54adc3",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -173,7 +217,7 @@
         "circuit"
       ],
       "sha256": "49d04f2b597921175f62541afe9781ac5e9e677189d3ee0d145db340256d1983",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -209,7 +253,7 @@
         "penalties"
       ],
       "sha256": "612c67569fb88285ccf4fbd23eca4d04f1b0b6a2928a321a366f4d3bd07df510",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -225,7 +269,7 @@
         "powerunit"
       ],
       "sha256": "cfa3cee4669faacaf6d91d459de464bce244ab633050e9135b9c4d443622b131",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -245,7 +289,7 @@
         "circuit"
       ],
       "sha256": "6f7ea7479cc5536d5a6c85a15ed790f23aed3c0236b4aa2da9dd4ddaf1c91387",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -281,7 +325,7 @@
         "penalties"
       ],
       "sha256": "ca953548f5919a5719bf745c7b54130e173d90e825b92d53944fbf29e0cc6e69",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -301,7 +345,7 @@
         "circuit"
       ],
       "sha256": "5e7fa6964dade0b3271ae8f254f0c0cc13bc1beb99429d3e1043e85f404ea992",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -317,7 +361,7 @@
         "penalties"
       ],
       "sha256": "3adf3f45e5f0815fd37315e69a863d5e8a94616ddbf547ed8b9e83f8af95b682",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -337,7 +381,7 @@
         "penalties"
       ],
       "sha256": "d8d806a171e14f6775d9b92c9d36a4c0c043ff7e1acbc6c133fa4093be2edc8b",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -357,7 +401,7 @@
         "penalties"
       ],
       "sha256": "ac2b2c1da6c46b803766aa9347015d2631ecf5dc427ab34503800b06cee775a1",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -373,7 +417,7 @@
         "penalties"
       ],
       "sha256": "9c3081ce34a50fd5ba3778d3019554d5f5c732e111fb62045c9e93c94c7bfd00",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -389,7 +433,7 @@
         "penalties"
       ],
       "sha256": "abd0977d8a05dd55249e3e7af8716f1cc9f49a17d0553826b9dde01b67bd6910",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -409,7 +453,7 @@
         "powerunit"
       ],
       "sha256": "e6d06398c22fc136abd7ba00b8336b4cf3e3430371658cfa8fcebd127b1e0043",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -429,7 +473,7 @@
         "schedule"
       ],
       "sha256": "8a20917ca751e4cc77902585586fa4a4ad326bdf2afd55e6627972c855f096cd",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -473,7 +517,7 @@
         "upgrades"
       ],
       "sha256": "be68005deb6890e760be6fc032dc7026c7a44f8761ad5894a617d855e9218e3c",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -557,7 +601,7 @@
         "powerunit"
       ],
       "sha256": "740e0a4fdeee01f9c102b9c732ebbb30272557e0a07f573a86cdfbeb7a7f8b43",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -573,7 +617,7 @@
         "circuit"
       ],
       "sha256": "0be2e3083166131c846638a287b4e037fc3648ca5c8a3aa9aa6f36f901b4811b",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -609,7 +653,7 @@
         "circuit"
       ],
       "sha256": "0490017fd5eda55480198e7ebaaf85329a5e28b384e17c3386b42be7c4af05d4",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -637,7 +681,7 @@
         "upgrades"
       ],
       "sha256": "1fa667a60c4b4ebd7a326713e368fe274bd374358bba2228e89faff8880bbd38",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -653,7 +697,7 @@
         "powerunit"
       ],
       "sha256": "50419bb38d97434c20e9835f01599ba0f6f4fd5b0c8076b35fbc98b892d8b010",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
@@ -669,7 +713,7 @@
         "schedule"
       ],
       "sha256": "d6ddf9b0fc39c035ea1adc0328095e82146347d9264a79300d0b05859665bd34",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -685,7 +729,7 @@
         "powerunit"
       ],
       "sha256": "c780d5e2942b1fa33a72d179faa89a4b0c185b6d2a84d090e152d21bca893724",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 1,
@@ -701,11 +745,27 @@
         "tyres"
       ],
       "sha256": "e4f79eb595c9a4c7a3785710ea232abe2320adf8e30dae7a2a5a417c4aad0428",
-      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "fetched_at": "2026-10-04T16:13:45+00:00",
       "pages": [
         {
           "page": 2,
           "asset": "fia-bahrain-d8d466a384bc-e4f79eb595c9a4c7-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_decision_-_qualifying_sc2-sc1_times.pdf",
+      "filename": "2026_bahrain_grand_prix_in_malaysia_-_decision_-_qualifying_sc2-sc1_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "5cc7b9c1ae1f5f2593549ef301cfa2af8681fa798ad344ddcf34b37fc32cc7dd",
+      "fetched_at": "2026-10-04T11:35:39+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-bahrain-f810d57816bc-5cc7b9c1ae1f5f25-p2.png"
         }
       ],
       "revision": 0
@@ -755,5 +815,10 @@
       "revision": 0
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_decision_-_qualifying_sc2-sc1_times.pdf",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
 }

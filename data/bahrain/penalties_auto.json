@@ -208,5 +208,47 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_race_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 57",
+    "no": "23",
+    "driver": "Alexander Albon",
+    "team": "Atlassian Williams F1 Team",
+    "session": "Race",
+    "fact": "Driving erratically in the pit entry road.",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_bahrain_grand_prix_in_malaysia_-_decision_-_car_23_-_alleged_driving_erratically.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_decision_-_car_23_-_alleged_driving_erratically.pdf"
+  },
+  {
+    "doc": "Doc 58",
+    "no": "27",
+    "driver": "Nico Hulkenberg",
+    "team": "Audi Revolut F1 Team",
+    "session": "Race",
+    "fact": "Unsafe act during the pit stop resulting in an unsafe situation.",
+    "outcome": "The competitor (Audi Revolut F1 Team) is fined €30,000 of which €20,000 is",
+    "kind": "fine",
+    "source_pdf": "2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_27_-_unsafe_release.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_27_-_unsafe_release.pdf"
+  },
+  {
+    "doc": "Doc 59",
+    "no": "1",
+    "driver": "Lando Norris",
+    "team": "McLaren Mastercard F1 Team",
+    "session": "Race",
+    "fact": "Driving erratically under Safety Car conditions.",
+    "outcome": "Driver: Reprimand (Driving).",
+    "kind": "reprimand",
+    "source_pdf": "2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_1_-_alleged_driving_erratically.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_infringement_-_car_1_-_alleged_driving_erratically.pdf"
   }
 ]
