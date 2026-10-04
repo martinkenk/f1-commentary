@@ -10,7 +10,7 @@
       "Kimi Antonelli",
       "ANT",
       "Mercedes",
-      302
+      320
     ],
     [
       2,
@@ -24,49 +24,49 @@
       "Lewis Hamilton",
       "HAM",
       "Ferrari",
-      199
+      214
     ],
     [
       4,
-      "Lando Norris",
-      "NOR",
-      "McLaren",
-      186
-    ],
-    [
-      5,
       "Charles Leclerc",
       "LEC",
       "Ferrari",
-      179
+      191
+    ],
+    [
+      5,
+      "Lando Norris",
+      "NOR",
+      "McLaren",
+      188
     ],
     [
       6,
       "Max Verstappen",
       "VER",
       "Red Bull Racing",
-      163
+      188
     ],
     [
       7,
       "Oscar Piastri",
       "PIA",
       "McLaren",
-      120
+      128
     ],
     [
       8,
       "Isack Hadjar",
       "HAD",
       "Red Bull Racing",
-      86
+      96
     ],
     [
       9,
       "Liam Lawson",
       "LAW",
       "Racing Bulls",
-      59
+      65
     ],
     [
       10,
@@ -80,7 +80,7 @@
       "Arvid Lindblad",
       "LIN",
       "Racing Bulls",
-      37
+      38
     ],
     [
       12,
@@ -119,24 +119,24 @@
     ],
     [
       17,
+      "Fernando Alonso",
+      "ALO",
+      "Aston Martin",
+      7
+    ],
+    [
+      18,
       "Carlos Sainz",
       "SAI",
       "Williams",
       7
     ],
     [
-      18,
+      19,
       "Alexander Albon",
       "ALB",
       "Williams",
       5
-    ],
-    [
-      19,
-      "Fernando Alonso",
-      "ALO",
-      "Aston Martin",
-      3
     ],
     [
       20,
@@ -171,27 +171,27 @@
     [
       1,
       "Mercedes",
-      538
+      556
     ],
     [
       2,
       "Ferrari",
-      378
+      405
     ],
     [
       3,
       "McLaren",
-      306
+      316
     ],
     [
       4,
       "Red Bull Racing",
-      263
+      298
     ],
     [
       5,
       "Racing Bulls",
-      83
+      90
     ],
     [
       6,
@@ -216,7 +216,7 @@
     [
       10,
       "Aston Martin",
-      3
+      7
     ],
     [
       11,
@@ -224,6 +224,6 @@
       0
     ]
   ],
-  "fetched_at": "2026-10-03T22:33:57+00:00",
+  "fetched_at": "2026-10-04T11:35:13+00:00",
   "results_round": 15
 }

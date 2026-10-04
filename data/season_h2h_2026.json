@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-10-03T22:33:57+00:00",
+  "checked_at": "2026-10-04T11:35:13+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -32,7 +32,8 @@
     "spain/race-result",
     "azerbaijan/qualifying",
     "azerbaijan/race-result",
-    "bahrain/qualifying"
+    "bahrain/qualifying",
+    "bahrain/race-result"
   ],
   "errors": [],
   "sessions": [
@@ -5268,7 +5269,7 @@
       "label": "Qualifying",
       "date": "2026-09-25",
       "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/qualifying",
-      "fetched_at": "2026-10-03T22:33:57+00:00",
+      "fetched_at": "2026-10-04T11:35:13+00:00",
       "drivers": [
         {
           "code": "RUS",
@@ -5456,7 +5457,7 @@
       "label": "Race",
       "date": "2026-09-26",
       "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
-      "fetched_at": "2026-10-03T22:33:57+00:00",
+      "fetched_at": "2026-10-04T11:35:13+00:00",
       "drivers": [
         {
           "code": "RUS",
@@ -5644,7 +5645,7 @@
       "label": "Qualifying",
       "date": "2026-10-03",
       "url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/qualifying",
-      "fetched_at": "2026-10-03T22:33:57+00:00",
+      "fetched_at": "2026-10-04T11:35:13+00:00",
       "drivers": [
         {
           "code": "VER",
@@ -5821,6 +5822,194 @@
           "position": 22,
           "status": "classified",
           "raw_position": "22"
+        }
+      ]
+    },
+    {
+      "key": "bahrain/race-result",
+      "round": 16,
+      "gp": "bahrain",
+      "name": "Bahrain Grand Prix",
+      "label": "Race",
+      "date": "2026-10-04",
+      "url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result",
+      "fetched_at": "2026-10-04T11:35:13+00:00",
+      "drivers": [
+        {
+          "code": "VER",
+          "name": "Max Verstappen",
+          "team": "Red Bull Racing",
+          "position": 1,
+          "status": "classified",
+          "raw_position": "1"
+        },
+        {
+          "code": "ANT",
+          "name": "Kimi Antonelli",
+          "team": "Mercedes",
+          "position": 2,
+          "status": "classified",
+          "raw_position": "2"
+        },
+        {
+          "code": "HAM",
+          "name": "Lewis Hamilton",
+          "team": "Ferrari",
+          "position": 3,
+          "status": "classified",
+          "raw_position": "3"
+        },
+        {
+          "code": "LEC",
+          "name": "Charles Leclerc",
+          "team": "Ferrari",
+          "position": 4,
+          "status": "classified",
+          "raw_position": "4"
+        },
+        {
+          "code": "HAD",
+          "name": "Isack Hadjar",
+          "team": "Red Bull Racing",
+          "position": 5,
+          "status": "classified",
+          "raw_position": "5"
+        },
+        {
+          "code": "PIA",
+          "name": "Oscar Piastri",
+          "team": "McLaren",
+          "position": 6,
+          "status": "classified",
+          "raw_position": "6"
+        },
+        {
+          "code": "LAW",
+          "name": "Liam Lawson",
+          "team": "Racing Bulls",
+          "position": 7,
+          "status": "classified",
+          "raw_position": "7"
+        },
+        {
+          "code": "ALO",
+          "name": "Fernando Alonso",
+          "team": "Aston Martin",
+          "position": 8,
+          "status": "classified",
+          "raw_position": "8"
+        },
+        {
+          "code": "NOR",
+          "name": "Lando Norris",
+          "team": "McLaren",
+          "position": 9,
+          "status": "classified",
+          "raw_position": "9"
+        },
+        {
+          "code": "LIN",
+          "name": "Arvid Lindblad",
+          "team": "Racing Bulls",
+          "position": 10,
+          "status": "classified",
+          "raw_position": "10"
+        },
+        {
+          "code": "HUL",
+          "name": "Nico Hulkenberg",
+          "team": "Audi",
+          "position": 11,
+          "status": "classified",
+          "raw_position": "11"
+        },
+        {
+          "code": "STR",
+          "name": "Lance Stroll",
+          "team": "Aston Martin",
+          "position": 12,
+          "status": "classified",
+          "raw_position": "12"
+        },
+        {
+          "code": "COL",
+          "name": "Franco Colapinto",
+          "team": "Alpine",
+          "position": 13,
+          "status": "classified",
+          "raw_position": "13"
+        },
+        {
+          "code": "BEA",
+          "name": "Oliver Bearman",
+          "team": "Haas F1 Team",
+          "position": 14,
+          "status": "classified",
+          "raw_position": "14"
+        },
+        {
+          "code": "OCO",
+          "name": "Esteban Ocon",
+          "team": "Haas F1 Team",
+          "position": 15,
+          "status": "classified",
+          "raw_position": "15"
+        },
+        {
+          "code": "GAS",
+          "name": "Pierre Gasly",
+          "team": "Alpine",
+          "position": 16,
+          "status": "classified",
+          "raw_position": "16"
+        },
+        {
+          "code": "SAI",
+          "name": "Carlos Sainz",
+          "team": "Williams",
+          "position": 17,
+          "status": "classified",
+          "raw_position": "17"
+        },
+        {
+          "code": "BOR",
+          "name": "Gabriel Bortoleto",
+          "team": "Audi",
+          "position": 18,
+          "status": "classified",
+          "raw_position": "18"
+        },
+        {
+          "code": "PER",
+          "name": "Sergio Perez",
+          "team": "Cadillac",
+          "position": 19,
+          "status": "classified",
+          "raw_position": "19"
+        },
+        {
+          "code": "RUS",
+          "name": "George Russell",
+          "team": "Mercedes",
+          "position": 20,
+          "status": "classified",
+          "raw_position": "20"
+        },
+        {
+          "code": "ALB",
+          "name": "Alexander Albon",
+          "team": "Williams",
+          "position": null,
+          "status": "unclassified",
+          "raw_position": "NC"
+        },
+        {
+          "code": "BOT",
+          "name": "Valtteri Bottas",
+          "team": "Cadillac",
+          "position": null,
+          "status": "unclassified",
+          "raw_position": "NC"
         }
       ]
     }
