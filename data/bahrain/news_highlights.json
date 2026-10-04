@@ -1,74 +1,74 @@
 {
-  "reviewed_at": "2026-10-02T04:28:00Z",
-  "expires_at": "2026-10-02T06:00:00Z",
-  "through_session": null,
-  "feed_fingerprint": "67a041d31da605866be62fe779eaaddf5152fd4e573e43b59b7f5241d00c0be3",
+  "reviewed_at": "2026-10-04T16:20:00Z",
+  "expires_at": "2026-10-05T10:00:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "2eb58f5433353c05853633a49f1f7bbcb487681e93348ae06137997035f7879a",
   "items": [
     {
-      "topic": "Grid watch",
-      "title": "Colapinto has a confirmed carry-over drop; Lindblad and Hadjar report PU penalties",
-      "date": "2026-10-01",
-      "summary": "Colapinto's five-place carry-over sanction is established by FIA Azerbaijan Document 66. The Race reports Racing Bulls announcing a back-of-grid start for Lindblad and Hadjar expecting five places. No Sepang stewards' rulings for those planned PU changes were found in the twelve-document review before FP1.",
-      "why_it_matters": "Distinguish an issued decision from a team or driver announcement. Neither establishes a final starting position before qualifying and the official grid.",
+      "topic": "Race result",
+      "title": "Verstappen wins a rain-hit Sepang race for Red Bull's first victory of 2026",
+      "date": "2026-10-04",
+      "summary": "Verstappen converted pole into the win from Antonelli (+2.307s) and Hamilton (+4.919s), with Leclerc fourth and Hadjar fifth. A heavy downpour delayed the start; Hamilton and Leclerc started on slicks, fell back, then recovered to the podium and P4. Piastri, Lawson, Alonso, Norris and Lindblad completed the points.",
+      "why_it_matters": "It is Red Bull's breakthrough win of the season and a decisive tyre-call story: the intermediate-to-slick switch window punished those who started on slicks, yet Ferrari's recoveries still produced a podium.",
       "sources": [
         {
-          "label": "Formula1.com: Bahrain grid penalty report",
-          "url": "https://www.formula1.com/en/latest/article/colapinto-hit-with-five-place-grid-penalty-for-bahrain-gp-in-malaysia-after-baku-collision.3gWVfzDMMr5hReiwTt1fPD"
+          "label": "Formula1.com: race report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-wins-rain-hit-bahrain-gp-in-malaysia-over-antonelli-as-russell-retires-late-on.6qfpIHPch8mIVj2YgfHdCp"
         },
         {
-          "label": "FIA Document 66: Azerbaijan Race decision",
-          "url": "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_infringement_-_car_43_-_collision_with_car_10_in_turn_1.pdf"
-        },
-        {
-          "label": "The Race: three drivers facing grid penalties, 1 October",
-          "url": "https://www.the-race.com/formula-1/three-drivers-facing-grid-penalties-for-f1-malaysia-return/"
+          "label": "The Race: winners and losers",
+          "url": "https://www.the-race.com/formula-1/winners-and-losers-from-f1s-2026-bahrain-gp-in-malaysia/"
         }
       ]
     },
     {
-      "topic": "Official heat declaration",
-      "title": "FIA declares a Heat Hazard for Sunday's race",
-      "date": "2026-09-30",
-      "summary": "FIA Document 3 declares a Heat Hazard under Article B1.5.10 because the official forecast Heat Index exceeds 31.0 degrees Celsius at some point during the Race. The venue is Sepang, with Sunday's start at 15:00 MYT / 10:00 Tallinn.",
-      "why_it_matters": "This is an official declaration, not a generic weather warning. Do not equate Heat Index with ambient temperature or infer cooling-system requirements from temperature alone.",
+      "topic": "FIA technical review",
+      "title": "FIA software bug caused power loss on the formation lap; update issued during the delay",
+      "date": "2026-10-04",
+      "summary": "The FIA said an unprecedented combination of low engine speed, low-grip conditions, wet-weather energy-management settings and Sepang's sector layout caused an unintended loss of power on a number of cars. It released updated software removing the energy-limit constraint in the affected sectors during the rain delay and will review the issue with teams and PU manufacturers. Nikolas Tombazis said the code had little wet-running testing.",
+      "why_it_matters": "A regulation-linked software fault, not driver error, disrupted the start procedure. The promised full review could bring changes to energy-management settings for future wet races.",
       "sources": [
         {
-          "label": "FIA Document 3: Heat Hazard declaration",
-          "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_heat_hazard_declaration.pdf"
+          "label": "The Race: software bug explained",
+          "url": "https://www.the-race.com/formula-1/software-bug-that-triggered-f1s-malaysia-chaos-explained/"
         }
       ]
     },
     {
-      "topic": "Tyre nomination",
-      "title": "Pirelli details Sepang surface work before its return",
-      "date": "2026-09-30",
-      "summary": "Pirelli reports that Sepang's Turns 6–12 section was resurfaced in 2023, with further work around Turn 9, and that additional levelling and cleaning took place from early September 2026. Engineers still assess the overall surface characteristics as similar to 2017. The event poster rates tyre stress and abrasion 4/5, nominates C2/C3/C4 and estimates 22.5 seconds pit-stop loss.",
-      "why_it_matters": "Do not describe the circuit as untouched since 2017: sections have been resurfaced and levelled. Keep that work distinct from Pirelli's current assessment of similar overall surface characteristics; tyre behaviour for this generation remains unknown until practice.",
+      "topic": "Championship",
+      "title": "Russell's late power-unit failure hands Antonelli the title momentum",
+      "date": "2026-10-04",
+      "summary": "Russell was battling Antonelli for second when his Mercedes stopped on the start/finish straight behind the final Safety Car, classified 20th. Formula1.com says Antonelli was already set to extend his championship lead over Russell by three points before the retirement. Toto Wolff called it a PU failure not caused by the Safety Car, 'one of my worst experiences', and stressed the DNFs as a risk for the remaining seven races.",
+      "why_it_matters": "It is Russell's third retirement of the year and Mercedes' fourth, hurting both his title chances and the constructors' fight. Mercedes has yet to assess the cause. Use the timestamped standings table for current totals.",
       "sources": [
         {
-          "label": "Formula1.com: Pirelli's latest Sepang tyre and surface assessment",
-          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-bahrain-grand-prix-in-malaysia.4vcrMxYY9DWg7PwyiNMrEV"
+          "label": "Formula1.com: race report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-wins-rain-hit-bahrain-gp-in-malaysia-over-antonelli-as-russell-retires-late-on.6qfpIHPch8mIVj2YgfHdCp"
         },
         {
-          "label": "Pirelli: Tyre compound selections for Baku, Sepang and Singapore",
-          "url": "https://press.pirelli.com/tyre-compound-selections-for-baku-sepang-and-singapore/"
+          "label": "Formula1.com: Wolff reaction",
+          "url": "https://www.formula1.com/en/latest/article/one-of-my-worst-experiences-wolff-not-in-a-happy-place-after-russell-dnf-at-bahrain-gp-in-malaysia.31mD5xtSaBYdMAkMZNxCHQ"
+        },
+        {
+          "label": "The Race: winners and losers",
+          "url": "https://www.the-race.com/formula-1/winners-and-losers-from-f1s-2026-bahrain-gp-in-malaysia/"
         }
       ]
     },
     {
-      "topic": "Mercedes development",
-      "title": "FIA confirms 14 upgrade items, including Mercedes' seven-part package",
-      "date": "2026-10-02",
-      "summary": "FIA Document 12, issued Friday at 10:03 MYT, lists seven Mercedes items, two Racing Bulls items and one each for McLaren, Red Bull, Ferrari, Haas and Alpine. Williams, Aston Martin, Audi and Cadillac explicitly submitted no updates.",
-      "why_it_matters": "All eleven teams now have reviewed declarations and inline readers on the Upgrades page. Counts refer to declared component rows, not lap-time gain or a guarantee that both cars ran every item.",
+      "topic": "Race incidents",
+      "title": "Bortoleto penalised after Sainz contact; Norris loses control behind the Safety Car",
+      "date": "2026-10-04",
+      "summary": "Bortoleto and Sainz collided on a mid-race restart and Bortoleto received a 10-second penalty. Norris ran through the gravel behind the final Safety Car and finished ninth. Albon's stoppage with a gearbox failure brought out the late Safety Car; Bottas's lap-nine spin caused the earlier one.",
+      "why_it_matters": "The restart order and Safety Car periods reshaped the points positions, costing Williams a strong early run and McLaren a chance at fifth and sixth.",
       "sources": [
         {
-          "label": "Formula1.com: Russell on Mercedes' Bahrain upgrades",
-          "url": "https://www.formula1.com/en/latest/article/bring-it-on-russell-predicts-mercedes-bahrain-upgrades-could-play-in-my-favour.2MrIZO0XrStD76V1fTLAlA"
+          "label": "Formula1.com: race report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-wins-rain-hit-bahrain-gp-in-malaysia-over-antonelli-as-russell-retires-late-on.6qfpIHPch8mIVj2YgfHdCp"
         },
         {
-          "label": "FIA Document 12: Car Presentation Submissions",
-          "url": "https://www.fia.com/system/files/decision-document/2026_bahrain_grand_prix_in_malaysia_-_car_presentation_submissions.pdf"
+          "label": "The Race: winners and losers",
+          "url": "https://www.the-race.com/formula-1/winners-and-losers-from-f1s-2026-bahrain-gp-in-malaysia/"
         }
       ]
     }
