@@ -1,0 +1,55 @@
+{
+  "reviewed_at": "2026-10-05T23:30:00Z",
+  "expires_at": "2026-10-06T23:30:00Z",
+  "through_session": null,
+  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "items": [
+    {
+      "topic": "Title picture after Sepang",
+      "title": "Antonelli arrives in Singapore 84 points clear after Russell's late retirement",
+      "date": "2026-10-04",
+      "summary": "Formula1.com's Bahrain GP in Malaysia review says Kimi Antonelli took second to extend his championship lead, while George Russell's power unit failed with only a handful of laps left. Formula1.com puts the gap between them at 84 points, over three Grand Prix wins; the refreshed standings table shows Antonelli 320, Russell 236. Mercedes also left Sepang with questions over their first big upgrade package since Canada.",
+      "why_it_matters": "The drivers' title fight is Antonelli's to lose, so Mercedes' reliability and whether the upgrade is understood are the main storylines going into the night race.",
+      "sources": [
+        {
+          "label": "Formula1.com: Bahrain lowdown, all the key moments",
+          "url": "https://www.formula1.com/en/latest/article/bahrain-lowdown-all-the-key-moments-as-verstappen-returns-to-the-top-and-russells-race-ends-in-heartbreak.1oz2f6p6qJsF3c58rtU8yd"
+        },
+        {
+          "label": "Formula1.com: drivers' standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        }
+      ]
+    },
+    {
+      "topic": "Red Bull momentum",
+      "title": "Verstappen's first 2026 win lifts Red Bull, but Hadjar wants a fix before Singapore",
+      "date": "2026-10-04",
+      "summary": "Verstappen converted a first 2026 pole into his first win of the season at Sepang. Team mate Isack Hadjar was on course for a podium until a late battery problem let Hamilton and Leclerc past, leaving him fifth. He told Formula1.com the main issue was chassis grip and that the team needs to fix it and do better in Singapore.",
+      "why_it_matters": "Red Bull arrive with a race win and recent updates, but Hadjar's grip and battery comments are the open questions to check in practice.",
+      "sources": [
+        {
+          "label": "Formula1.com: Bahrain lowdown, all the key moments",
+          "url": "https://www.formula1.com/en/latest/article/bahrain-lowdown-all-the-key-moments-as-verstappen-returns-to-the-top-and-russells-race-ends-in-heartbreak.1oz2f6p6qJsF3c58rtU8yd"
+        },
+        {
+          "label": "Formula1.com: how a battery issue robbed Hadjar of a podium",
+          "url": "https://www.formula1.com/en/latest/article/how-a-battery-issue-robbed-frustrated-hadjar-of-a-podium-in-sepang.lpydtOJ2CszTQCvhK4pDo"
+        }
+      ]
+    },
+    {
+      "topic": "Audi special livery",
+      "title": "Audi run a one-off Singapore livery for their first night race",
+      "date": "2026-10-05",
+      "summary": "Audi will run a Singapore-specific variant of Titanium Silver Grey with a peranakan pattern on the sidepods and rear wing, carried over onto the race suits of Nico Hulkenberg and Gabriel Bortoleto. Formula1.com describes it as the team's first night race in Formula 1.",
+      "why_it_matters": "It is a visual cue for the broadcast; it has no known performance implication.",
+      "sources": [
+        {
+          "label": "Formula1.com: Audi unveil special livery for Singapore Grand Prix",
+          "url": "https://www.formula1.com/en/latest/article/gallery-audi-unveil-special-livery-for-singapore-grand-prix.5Z07QWFA7vVqCPC1jb6AIq"
+        }
+      ]
+    }
+  ]
+}
