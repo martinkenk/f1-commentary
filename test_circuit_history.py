@@ -583,8 +583,10 @@ class RefreshTests(unittest.TestCase):
         snapshot["coverage"]["completed_calendar_events"].append("azerbaijan")
         history._write(self.path, snapshot)
         before = self.path.stat().st_mtime_ns
-        with patch.object(history, "ROOT", self.root), patch.object(history, "_fetch",
-                                                                  side_effect=AssertionError("network")):
+        with patch.object(history, "ROOT", self.root), patch.object(
+                history, "_fetch", side_effect=AssertionError("network")), patch.object(
+                    history, "_expected",
+                    return_value=snapshot["coverage"]["completed_calendar_events"]):
             ctx = {"year": "2026", "dir": "spain", "race_date": "2026-09-13", "round_no": 14}
             self.assertEqual(history.load_profile(ctx)["completed_races"], 0)
             bad = history.context({**ctx, "race_date": "2026-09-14"})
@@ -593,6 +595,21 @@ class RefreshTests(unittest.TestCase):
             history._write(self.status, {"ok": False, "error": "Source temporarily unavailable"})
             self.assertEqual(history.context(ctx)["error"], "Source temporarily unavailable")
         self.assertEqual(self.path.stat().st_mtime_ns, before)
+
+    def test_context_prioritizes_newly_completed_race_over_refresh_error(self):
+        with patch.object(history, "_release", return_value=RELEASE), patch.object(
+                history, "_database", return_value=(self.data, SOURCE)):
+            self.refresh()
+        snapshot = history._read(self.path)
+        history._write(self.status, {"ok": False, "error": "Source temporarily unavailable"})
+        expected = snapshot["coverage"]["completed_calendar_events"] + ["bahrain"]
+        with patch.object(history, "ROOT", self.root), patch.object(
+                history, "_expected", return_value=expected):
+            ctx = {"year": "2026", "dir": "spain", "race_date": "2026-09-13", "round_no": 14}
+            self.assertEqual(
+                history.context(ctx)["error"],
+                "History refresh needed after completed calendar races: bahrain",
+            )
 
     def test_checksum_verification_and_license_provenance(self):
         buffer = io.BytesIO()
