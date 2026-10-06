@@ -16,6 +16,8 @@ class CoveragePreflightTests(unittest.TestCase):
         self.assertIn("cancel-in-progress: false", concurrency)
         deploy = (preflight.ROOT / ".github/workflows/deploy.yml").read_text()
         self.assertIn("group: pages", deploy)
+        self.assertIn("if: github.event_name != 'push'", deploy)
+        self.assertIn("git checkout -B main origin/main", deploy)
         guard = lock.split("  verify-publication:\n", 1)[1]
         self.assertIn("- agent\n      - safe_outputs", guard)
         self.assertIn("needs.safe_outputs.outputs.code_push_failure_count", guard)
