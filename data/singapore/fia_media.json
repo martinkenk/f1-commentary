@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-10-07T15:18:59+00:00",
-  "discovery_retrieved_at": "2026-10-07T15:18:55.341181+00:00",
+  "checked_at": "2026-10-07T21:06:09+00:00",
+  "discovery_retrieved_at": "2026-10-07T21:05:47.764640+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
@@ -9,7 +9,7 @@
         "tyres"
       ],
       "sha256": "a50092321c3c3ba659cc99c8d0281682c6a6aa839bb6c31add3b50a8c1fd36c1",
-      "fetched_at": "2026-10-07T15:18:59+00:00",
+      "fetched_at": "2026-10-07T21:06:09+00:00",
       "pages": [
         {
           "page": 2,
@@ -25,7 +25,7 @@
         "schedule"
       ],
       "sha256": "81977dca81a92c84e44a71c52d84af82f3e299bc53bbd4e76b25c9ac8a632d42",
-      "fetched_at": "2026-10-07T15:18:59+00:00",
+      "fetched_at": "2026-10-07T21:06:09+00:00",
       "pages": [
         {
           "page": 2,
