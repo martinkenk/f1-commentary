@@ -1,7 +1,71 @@
 {
-  "checked_at": "2026-10-08T12:33:21+00:00",
-  "discovery_retrieved_at": "2026-10-08T12:33:16.419569+00:00",
+  "checked_at": "2026-10-08T19:35:47+00:00",
+  "discovery_retrieved_at": "2026-10-08T19:35:42.331281+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
+      "filename": "2026_singapore_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "8bd2227af6272a03e692b0f27bb1bded920cd7f16107f493781770461fa14aae",
+      "fetched_at": "2026-10-08T19:35:47+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-singapore-115947cd46e9-8bd2227af6272a03-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-singapore-115947cd46e9-8bd2227af6272a03-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-singapore-115947cd46e9-8bd2227af6272a03-p4.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_race_directors_competition_notes.pdf",
+      "filename": "2026_singapore_grand_prix_-_race_directors_competition_notes.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "df6034c68726b5fe942114adac08cf5f3c59e479c48fd79362ac70d2a685fc8f",
+      "fetched_at": "2026-10-08T19:35:47+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-singapore-38d0fdab08f2-df6034c68726b5fe-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-singapore-38d0fdab08f2-df6034c68726b5fe-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-singapore-38d0fdab08f2-df6034c68726b5fe-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-singapore-38d0fdab08f2-df6034c68726b5fe-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-singapore-38d0fdab08f2-df6034c68726b5fe-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-singapore-38d0fdab08f2-df6034c68726b5fe-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-singapore-38d0fdab08f2-df6034c68726b5fe-p8.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_car_display_procedure.pdf",
       "filename": "2026_singapore_grand_prix_-_car_display_procedure.pdf",
@@ -9,7 +73,7 @@
         "upgrades"
       ],
       "sha256": "49a14f5f531a3642d2358f58030425fa855f974598a4acc84c9dfa3dc4488d11",
-      "fetched_at": "2026-10-08T12:33:21+00:00",
+      "fetched_at": "2026-10-08T19:35:47+00:00",
       "pages": [
         {
           "page": 2,
@@ -25,7 +89,7 @@
         "schedule"
       ],
       "sha256": "c91ba8557a04d6f7101096aa05f1c040538762f5153dc3193b070dd51c80a197",
-      "fetched_at": "2026-10-08T12:33:21+00:00",
+      "fetched_at": "2026-10-08T19:35:47+00:00",
       "pages": [
         {
           "page": 1,
@@ -41,7 +105,7 @@
         "powerunit"
       ],
       "sha256": "9d0e5bdab5230430ed71d18edb3b8a6187c8c9fa3105050c62f4087444ac38c1",
-      "fetched_at": "2026-10-08T12:33:21+00:00",
+      "fetched_at": "2026-10-08T19:35:47+00:00",
       "pages": [
         {
           "page": 2,
@@ -57,7 +121,7 @@
         "tyres"
       ],
       "sha256": "a50092321c3c3ba659cc99c8d0281682c6a6aa839bb6c31add3b50a8c1fd36c1",
-      "fetched_at": "2026-10-08T12:33:21+00:00",
+      "fetched_at": "2026-10-08T19:35:47+00:00",
       "pages": [
         {
           "page": 2,
@@ -73,7 +137,7 @@
         "schedule"
       ],
       "sha256": "81977dca81a92c84e44a71c52d84af82f3e299bc53bbd4e76b25c9ac8a632d42",
-      "fetched_at": "2026-10-08T12:33:21+00:00",
+      "fetched_at": "2026-10-08T19:35:47+00:00",
       "pages": [
         {
           "page": 2,
