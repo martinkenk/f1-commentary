@@ -1,0 +1,47 @@
+{
+ "reviewed_at": "2026-10-08T12:11:49Z",
+ "expires_at": "2026-10-09T00:11:49Z",
+ "through_session": null,
+ "feed_fingerprint": "04357dda06c7570c9d581648693c03b22c9e0db9cdd388a26af9663483488773",
+ "items": [
+  {
+   "topic": "Red Bull momentum",
+   "title": "Verstappen arrives in Singapore after Red Bull's first Ford-powered win and first non-Mercedes pole",
+   "date": "2026-10-07",
+   "summary": "Formula1.com's race-week preview says Verstappen's Sepang victory was his first of 2026 and the first for Red Bull Ford Powertrains as a power unit manufacturer; the first non-Mercedes pole of the season also came in Malaysia. It follows his near-miss on Russell in Baku.",
+   "why_it_matters": "Frames Singapore as a test of whether Red Bull's all-round Sepang pace carries to a street circuit and a Sprint weekend. Seven races remain, and the preview itself says a title comeback is not on the cards without something extraordinary.",
+   "sources": [
+    {
+     "label": "Formula1.com: It's Race Week - 5 storylines ahead of the 2026 Singapore GP",
+     "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-singapore-grand-prix.1yu3dSkVOAvPULoMR9vn5Z"
+    }
+   ]
+  },
+  {
+   "topic": "Mercedes update and Russell penalty",
+   "title": "Mercedes still analysing a disappointing update; Russell confirmed for a back-of-grid penalty",
+   "date": "2026-10-07",
+   "summary": "Formula1.com reports Toto Wolff expected about 0.3s from the Malaysia package but felt after qualifying it had set the team back by a similar amount. Russell then retired late with a suspected power unit issue, and Mercedes have confirmed he will take a penalty that sends him to the back of the grid in Singapore.",
+   "why_it_matters": "Mercedes have only one practice session (Sprint format) to find answers, and reliability has been a season-long weakness. Treat the penalty as team-confirmed; the official grid is set by the FIA.",
+   "sources": [
+    {
+     "label": "Formula1.com: It's Race Week - 5 storylines ahead of the 2026 Singapore GP",
+     "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-singapore-grand-prix.1yu3dSkVOAvPULoMR9vn5Z"
+    }
+   ]
+  },
+  {
+   "topic": "Regulations / finance",
+   "title": "Williams-backed 'cost cap trap' fix expected at the November F1 Commission",
+   "date": "2026-10-07",
+   "summary": "The Race reports Williams boss James Vowles wants a sliding-scale catch-up mechanism for teams outside the big four, in place for 2027. It is expected to be raised at the November F1 Commission and would need FIA, FOM and six of the 11 teams, per The Race's understanding.",
+   "why_it_matters": "A proposal, not a rule change; useful background if the competitive gap between the top four and the midfield comes up on air.",
+   "sources": [
+    {
+     "label": "The Race: The plan to fix F1's 'cost cap trap' revealed",
+     "url": "https://www.the-race.com/formula-1/formula1-cost-cap-fix-f1-williams-2027-2028/"
+    }
+   ]
+  }
+ ]
+}
