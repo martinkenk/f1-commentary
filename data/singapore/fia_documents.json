@@ -1,7 +1,14 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Singapore%20Grand%20Prix",
-  "retrieved_at": "2026-10-09T10:29:27.534465+00:00",
+  "retrieved_at": "2026-10-09T10:36:10.095237+00:00",
   "documents": [
+    {
+      "filename": "2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "categories": [
+        "powerunit"
+      ]
+    },
     {
       "filename": "doc_15_-_2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
       "url": "https://www.fia.com/system/files/documents/doc_15_-_2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
