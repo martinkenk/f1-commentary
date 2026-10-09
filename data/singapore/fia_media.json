@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-10-09T19:10:35+00:00",
-  "discovery_retrieved_at": "2026-10-09T19:10:28.280139+00:00",
+  "checked_at": "2026-10-09T23:44:25+00:00",
+  "discovery_retrieved_at": "2026-10-09T23:44:21.896971+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
@@ -29,7 +29,7 @@
         "penalties"
       ],
       "sha256": "90ff001d409aa1c4c9509e4b490a8e29d0c60b6d4df32fd53b05d86de05d6ccc",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T23:44:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -89,7 +89,7 @@
         "circuit"
       ],
       "sha256": "f9d551c814ac5903d261e1b640a89701a75b9856936dc1eac03bb36bb4e2e150",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T23:44:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -161,7 +161,7 @@
         "upgrades"
       ],
       "sha256": "caf5c69b36c7f1c4dab9e311199edaf38f995da420a247af809baafa6bff2c30",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T23:44:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -325,7 +325,7 @@
         "powerunit"
       ],
       "sha256": "9d0e5bdab5230430ed71d18edb3b8a6187c8c9fa3105050c62f4087444ac38c1",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T23:44:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -341,7 +341,7 @@
         "tyres"
       ],
       "sha256": "a50092321c3c3ba659cc99c8d0281682c6a6aa839bb6c31add3b50a8c1fd36c1",
-      "fetched_at": "2026-10-09T19:10:35+00:00",
+      "fetched_at": "2026-10-09T23:44:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -425,11 +425,11 @@
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times.pdf",
       "error": "HTTP Error 403: Forbidden"
     },
     {
@@ -441,10 +441,6 @@
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_race_directors_competition_notes_v2.pdf",
       "error": "HTTP Error 403: Forbidden"
     },
@@ -453,11 +449,15 @@
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_car_presentation_submissions.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_race_directors_competition_notes.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_car_display_procedure.pdf",
       "error": "HTTP Error 403: Forbidden"
     },
     {
@@ -465,7 +465,7 @@
       "error": "HTTP Error 403: Forbidden"
     },
     {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_power_unit_information.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_competition_visa.pdf",
       "error": "HTTP Error 403: Forbidden"
     }
   ]
