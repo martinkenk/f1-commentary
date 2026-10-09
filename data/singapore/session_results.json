@@ -5,7 +5,7 @@
     "results_slug": "singapore",
     "gp": "singapore"
   },
-  "checked_at": "2026-10-09T10:47:53+00:00",
+  "checked_at": "2026-10-09T12:22:01+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/practice/1",
-      "fetched_at": "2026-10-09T10:47:53+00:00",
+      "fetched_at": "2026-10-09T12:22:01+00:00",
       "session_start": "2026-10-09T16:30:00+08:00",
       "retained": false
     }

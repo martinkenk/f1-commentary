@@ -1,7 +1,27 @@
 {
-  "checked_at": "2026-10-09T10:46:48+00:00",
-  "discovery_retrieved_at": "2026-10-09T10:46:44.494037+00:00",
+  "checked_at": "2026-10-09T12:21:10+00:00",
+  "discovery_retrieved_at": "2026-10-09T12:21:06.516594+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf",
+      "filename": "2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "90ff001d409aa1c4c9509e4b490a8e29d0c60b6d4df32fd53b05d86de05d6ccc",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-singapore-a5bf087f425a-90ff001d409aa1c4-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-singapore-a5bf087f425a-90ff001d409aa1c4-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
       "filename": "2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
@@ -9,7 +29,7 @@
         "powerunit"
       ],
       "sha256": "bcaca020279e07dae4655887d10d643f1657e6752f9199f627d29873f2b524c2",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -29,7 +49,7 @@
         "penalties"
       ],
       "sha256": "bf1fcafa87116a4e9bd1cdccea7926a749cc7f5996ef6f64cfb8fc790106a29a",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -49,7 +69,7 @@
         "circuit"
       ],
       "sha256": "f9d551c814ac5903d261e1b640a89701a75b9856936dc1eac03bb36bb4e2e150",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 1,
@@ -65,7 +85,7 @@
         "powerunit"
       ],
       "sha256": "e1d48dab5c0da9108aeb4da1aee6d79ffd7dce2ebe15b0eb98797c41b18cd9f2",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -85,7 +105,7 @@
         "circuit"
       ],
       "sha256": "448d04956b047c83b236e9ad7cf843796862512d23b7a976516abb2064963371",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -125,7 +145,7 @@
         "powerunit"
       ],
       "sha256": "f2836113b804bb12df58aa1cddce3b29e5493d62c302aaa2ba392f44a73c1760",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -141,7 +161,7 @@
         "upgrades"
       ],
       "sha256": "caf5c69b36c7f1c4dab9e311199edaf38f995da420a247af809baafa6bff2c30",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -209,7 +229,7 @@
         "circuit"
       ],
       "sha256": "8bd2227af6272a03e692b0f27bb1bded920cd7f16107f493781770461fa14aae",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -233,7 +253,7 @@
         "circuit"
       ],
       "sha256": "df6034c68726b5fe942114adac08cf5f3c59e479c48fd79362ac70d2a685fc8f",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -273,7 +293,7 @@
         "upgrades"
       ],
       "sha256": "49a14f5f531a3642d2358f58030425fa855f974598a4acc84c9dfa3dc4488d11",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -289,7 +309,7 @@
         "schedule"
       ],
       "sha256": "c91ba8557a04d6f7101096aa05f1c040538762f5153dc3193b070dd51c80a197",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 1,
@@ -305,7 +325,7 @@
         "powerunit"
       ],
       "sha256": "9d0e5bdab5230430ed71d18edb3b8a6187c8c9fa3105050c62f4087444ac38c1",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -321,7 +341,7 @@
         "tyres"
       ],
       "sha256": "a50092321c3c3ba659cc99c8d0281682c6a6aa839bb6c31add3b50a8c1fd36c1",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,
@@ -337,7 +357,7 @@
         "schedule"
       ],
       "sha256": "81977dca81a92c84e44a71c52d84af82f3e299bc53bbd4e76b25c9ac8a632d42",
-      "fetched_at": "2026-10-09T10:46:48+00:00",
+      "fetched_at": "2026-10-09T12:21:10+00:00",
       "pages": [
         {
           "page": 2,

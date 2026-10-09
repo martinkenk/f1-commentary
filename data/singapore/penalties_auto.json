@@ -12,5 +12,19 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 20",
+    "no": "63",
+    "driver": "George Russell",
+    "team": "Mercedes-AMG PETRONAS F1 Team",
+    "session": "",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Drop of 40 grid positions in the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf"
   }
 ]
