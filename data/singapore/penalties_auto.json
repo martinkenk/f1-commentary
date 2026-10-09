@@ -26,5 +26,33 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 29",
+    "no": "3",
+    "driver": "Max Verstappen",
+    "team": "Oracle Red Bull Racing",
+    "session": "Sprint Qualifying",
+    "fact": "Car 3 overtook Car 44 under single yellow flags.",
+    "outcome": "No penalty is applied.",
+    "kind": "noaction",
+    "source_pdf": "2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf"
+  },
+  {
+    "doc": "Doc 31",
+    "no": "",
+    "driver": "Sergio Perez; Valtteri Bottas; Carlos Sainz; Franco Colapinto; Nico Hulkenberg; Gabriel Bortoleto; Lando Norris; Oscar Piastri",
+    "team": "",
+    "session": "Sprint Qualifying",
+    "fact": "The F1 Cars below exceeded the 1:52.0 time limit between the Safety Car lines.",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_singapore_grand_prix_-_decision_-_sprint_qualifying_sc2-sc1_times.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_decision_-_sprint_qualifying_sc2-sc1_times.pdf"
   }
 ]

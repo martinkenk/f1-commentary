@@ -364,6 +364,20 @@
     ]
   },
   {
+    "id": "a75978ab3c9b",
+    "url": "https://www.formula1.com/en/latest/article/just-not-fast-enough-to-fight-leclerc-reflects-on-ferraris-singapore-gp-sprint-qualifying.21EtqZ7mRhjgCybXJkEs5Y",
+    "title": "'Just not fast enough to fight' – Charles Leclerc reflects on Ferrari's 2026 Formula 1 Singapore Grand Prix Sprint Quali",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "9 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Charles Leclerc believes Ferrari were \"just not fast enough to fight\" for pole position in Sprint Qualifying ahead of the Singapore Grand Prix this weekend. Leclerc managed to achieve the third fastest time on Friday at the Marina Bay street circuit, just over two tenths away from Sprint polesitter, Max Verstappen . The Monegasque believes it was the maximum that was possible and that Ferrari stil"
+    ]
+  },
+  {
     "id": "42311daf379c",
     "url": "https://www.formula1.com/en/latest/article/fp1-russell-beats-leclerc-and-norris-to-top-spot-in-sole-practice-ahead-of-singapore-gp.6gZxy1UbfI5R8VLWXUBwZu",
     "title": "2026 Singapore Grand Prix FP1 report and highlights: George Russell beats Charles Leclerc and Lando Norris to top spot i",
@@ -378,6 +392,48 @@
     ]
   },
   {
+    "id": "c7c771995ada",
+    "url": "https://www.formula1.com/en/latest/article/verstappen-clinches-pole-position-in-singapore-sprint-qualifying-ahead-of-russell.4dvkvpkCXftdhX7sLI2dcQ",
+    "title": "2026 Singapore Grand Prix Sprint Qualifying report and highlights: Max Verstappen clinches pole position in Singapore Sp",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "9 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Max Verstappen clinched pole position for the Singapore Sprint, beating Mercedes’ George Russell and Ferrari's Charles Leclerc in a busy session under the lights at the Marina Bay Street Circuit. With four teams seemingly in the mix after a single hour of Free Practice, Verstappen timed his final lap to perfection to eclipse the efforts of each of his rivals, ending the session with a time of 1m 3"
+    ]
+  },
+  {
+    "id": "84a3dfad4d48",
+    "url": "https://www.the-race.com/business/button-hopes-f1-calendar-wont-keep-expanding/",
+    "title": "Button hopes F1 calendar won't keep expanding",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "09 Oct",
+    "date": "2026-10-09",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Jenson Button hopes Formula 1’s calendar does not expand beyond 24 events, as he believes it would put too much strain on the personnel in teams. The F1 calendar featured 17 races back when Button won the world championship in 2009, and by the time he retired in 2016 it had grown to 21 events. With that number climbing to 24 in recent years, Button believes the growing calendar is fine for drivers"
+    ]
+  },
+  {
+    "id": "e776105051b7",
+    "url": "https://www.the-race.com/formula-1/f1-2026-singapore-gp-sprint-qualifying-results/",
+    "title": "F1 2026 Singapore GP sprint qualifying results",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "09 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "The sprint weekend in Singapore is underway and the grid for the sprint race is set. Here are the results. SQ3 1 Max Verstappen (Red Bull) 1m31.156s 2 George Russell (Mercedes) +0.120s 3 Charles Leclerc (Ferrari) +0.243s 4 Oscar Piastri (McLaren) +0.298s 5 Lando Norris (McLaren) +0.431s 6 Lewis Hamilton (Ferrari) +0.546s 7 Kimi Antonelli (Mercedes) +0.693s 8 Liam Lawson (Racing Bulls) +1.185s 9 Is"
+    ]
+  },
+  {
     "id": "86e680be6af2",
     "url": "https://www.the-race.com/formula-1/f1-2026-singapore-grand-prix-practice-results/",
     "title": "F1 2026 Singapore Grand Prix practice results",
@@ -389,6 +445,76 @@
     "session": "",
     "paragraphs": [
       "Yes, you've read this correctly, Singapore is a sprint weekend! So just the one practice before sprint qualifying gets underway on Friday. Here are the results from that lone practice session."
+    ]
+  },
+  {
+    "id": "3adc4f93f183",
+    "url": "https://www.the-race.com/formula-1/f1-singapore-grand-prix-sprint-race-starting-grid/",
+    "title": "F1 Singapore Grand Prix sprint race starting grid",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "09 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Sprint",
+    "paragraphs": [
+      "Max Verstappen and George Russell will share the front row for the sprint race at Formula 1's Singapore Grand Prix. Below you'll find the full starting grid... Singapore sprint F1 starting grid 1 Max Verstappen (Red Bull) 2 George Russell (Mercedes) 3 Charles Leclerc (Ferrari) 4 Oscar Piastri (McLaren) 5 Lando Norris (McLaren) 6 Lewis Hamilton (Ferrari) 7 Kimi Antonelli (Mercedes) 8 Liam Lawson (R"
+    ]
+  },
+  {
+    "id": "7a61d82dd03c",
+    "url": "https://www.formula1.com/en/latest/article/could-verstappen-prove-tough-to-beat-in-the-singapore-sprint.5yt8hh7ft5DHVRUbRSAqkC",
+    "title": "FRIDAY DEBRIEF: Could Max Verstappen prove tough to beat in the Singapore Sprint?",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "9 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Sprint",
+    "paragraphs": [
+      "Verstappen has proven time and time again over the years that he's capable of delivering the unexpected – and that was the case once again on Friday evening under the lights at Marina Bay as he stormed to a brilliant pole position in Sprint Qualifying."
+    ]
+  },
+  {
+    "id": "2ffeefd97f09",
+    "url": "https://www.formula1.com/en/latest/article/antonelli-struggling-with-very-difficult-new-spec-mercedes-after-p7-in-singapore-sprint-qualifying.PuBAg4FVi18iuQaMRyBgS",
+    "title": "Kimi Antonelli struggling with ‘very difficult’ new-spec Mercedes after P7 in Singapore Sprint Qualifying",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "9 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Kimi Antonelli has conceded that driving Mercedes’ upgraded car in Singapore – amid the team’s decision to split specifications – proved to be a struggle during Sprint Qualifying, with the Italian labelling his version of the W17 as “very difficult” after ending the session in P7. The Silver Arrows confirmed ahead of the action getting underway at the Marina Bay Street Circuit that George Russell"
+    ]
+  },
+  {
+    "id": "d1b394650901",
+    "url": "https://www.formula1.com/en/latest/article/norris-and-piastri-divided-over-mclarens-performance-in-very-tricky-sprint-qualifying-in-singapore.1myBR2fHEKECN8JHD3iFKW",
+    "title": "Lando Norris and Oscar Piastri divided over McLaren’s performance in ‘very tricky’ Sprint Qualifying in Singapore",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "9 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Oscar Piastri and Lando Norris were left with conflicting emotions after qualifying in the top five for the Sprint in Singapore – the former satisfied to extract the maximum while the latter insisted that he didn’t do “a good enough job”. A hectic SQ3 saw Norris initially claim the top spot just ahead of Piastri and their competitors at Mercedes , but with Ferrari and Red Bull both opting to run a"
+    ]
+  },
+  {
+    "id": "b16190210300",
+    "url": "https://www.the-race.com/formula-1/rivals-reject-williams-proposal-for-f1-cost-cap-reform/",
+    "title": "Rivals reject Williams proposal for F1 cost cap reform",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "09 Oct",
+    "date": "2026-10-09",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "Williams looks set to fall short of securing enough support to change Formula 1’s cost cap rules for 2027, with key rivals rejecting the idea of a revamp. Off the back of a push by Williams team principal James Vowles to introduce a catch-up mechanism within the financial regulations, the matter looks set to go to a team vote at the next F1 Commission meeting. For the changes to go through it woul"
     ]
   },
   {
@@ -420,6 +546,62 @@
     ]
   },
   {
+    "id": "11ddb39a28a2",
+    "url": "https://www.the-race.com/formula-1/verstappen-beats-russells-old-spec-mercedes-to-singapore-sprint-pole/",
+    "title": "Verstappen beats Russell's old-spec Mercedes to Singapore sprint pole",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "09 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Sprint",
+    "paragraphs": [
+      "Max Verstappen’s supreme form continued as he beat George Russell’s older-spec Mercedes to claim pole position for Formula 1's 2026 sprint race in Singapore. Dominant Malaysia F1 race winner Verstappen only needed one lap in SQ3 to claim his first sprint race pole of the season with a 1m31.156s. That was 0.120s quicker than his closest challenger, Russell, driving the older-spec Mercedes, while te"
+    ]
+  },
+  {
+    "id": "ab54fafe1821",
+    "url": "https://www.the-race.com/formula-1/verstappen-sprint-pole-in-jeopardy-over-hamilton-yellow-flag-incident/",
+    "title": "Verstappen sprint pole in jeopardy over Hamilton yellow flag incident",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "09 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Sprint",
+    "paragraphs": [
+      "Sprint race poleman Max Verstappen has been summoned to the stewards at Formula 1’s Singapore Grand Prix for potentially overtaking Lewis Hamilton under yellow flags during sprint qualifying. The incident took place in SQ1 when Sergio Perez nosed his Cadillac into the barriers at the Turn 5 right-hander, damaging his front wing. Perez’s front wing detached at Turn 8, and Hamilton (having finished"
+    ]
+  },
+  {
+    "id": "7c87732f71f3",
+    "url": "https://www.formula1.com/en/latest/article/what-the-teams-said-sprint-qualifying-in-singapore-2026.15FW4Oo4cNZdSNNfnTdyDp",
+    "title": "What the teams said – Sprint Qualifying at the 2026 Singapore Grand Prix",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "9 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Neither Verstappen nor Hadjar ran the softs in FP1, leaving their true pace a little unknown going into Sprint Qualifying. Both drivers made it relatively comfortably into SQ3 but once there, Hadjar failed to set a time after running wide and losing his lap to track limits. Verstappen though nailed his final lap to grab pole by over a tenth, as he picked up where he left off in Sepang."
+    ]
+  },
+  {
+    "id": "be2de33e0fb2",
+    "url": "https://www.formula1.com/en/latest/article/why-verstappen-avoided-a-penalty-after-sprint-qualifying-yellow-flag-incident-in-singapore.41kSukNyM3UHFGoX0absV6",
+    "title": "Why Max Verstappen avoided a penalty after Sprint Qualifying yellow flag incident in Singapore",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "9 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Max Verstappen put himself in the best spot for a Sprint victory at the Singapore Grand Prix after sealing pole in Sprint Qualifying. However, the Dutchman initially faced some uncertainty over his position due to a potential yellow flag infringement during SQ1, an incident that was only investigated once the session was over. Following the stewards’ hearing, it was confirmed that Verstappen would"
+    ]
+  },
+  {
     "id": "9079b1524d1e",
     "url": "https://www.the-race.com/formula-1/why-red-bull-is-crucial-to-f1-cost-cap-overhaul/",
     "title": "Why Red Bull is crucial to F1 cost cap overhaul",
@@ -431,6 +613,62 @@
     "session": "",
     "paragraphs": [
       "Williams team boss James Vowles is confident he can secure the votes in the next Formula 1 Commission meeting to push through changes to cost cap rules - and Red Bull is crucial to the timing of them. Vowles is leading an effort for a catch-up mechanism to be introduced to F1’s financial regulations to give smaller teams the scope to invest more. As first revealed by The Race, the idea is for a po"
+    ]
+  },
+  {
+    "id": "f620d63350a9",
+    "url": "https://www.the-race.com/formula-1/why-verstappen-keeps-singapore-sprint-pole-despite-yellow-flag-breach/",
+    "title": "Why Verstappen keeps Singapore sprint pole despite yellow flag 'breach'",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "09 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Sprint",
+    "paragraphs": [
+      "Max Verstappen has kept his pole position for Formula 1's Singapore sprint race despite breaching the yellow flag rules by overtaking Lewis Hamilton. Verstappen passed Hamilton between Turns 7 and 8 in sprint qualifying when single waved yellow flags were deployed after Sergio Perez's Cadillac picked up front wing damage and shed debris. That required Verstappen and Hamilton to visit the stewards"
+    ]
+  },
+  {
+    "id": "40ca71dec8e9",
+    "url": "https://www.the-race.com/formula-1/winners-and-losers-from-sprint-qualifying-at-f1s-singapore-gp/",
+    "title": "Winners and losers from sprint qualifying at F1's Singapore GP",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "09 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Another FIA error and a big performance split between the two different-spec Mercedes cars contribute to the winners and losers list from an exciting sprint qualifying session at Formula 1's Singapore Grand Prix. Here are our picks... Loser - Kimi Antonelli/Mercedes’ upgrade (7th) Sprint qualifying is ‘only one data point’, as Toto Wolff would no doubt put it, but it’s nevertheless not an encourag"
+    ]
+  },
+  {
+    "id": "67259785f6af",
+    "url": "https://www.formula1.com/en/latest/article/i-can-confirm-the-old-car-is-not-bad-russell-reacts-to-p2-in-singapore-sprint-qualifying-with-downgraded-mercedes.DPwDvyn5ma6L2AnZzdR81",
+    "title": "‘I can confirm the old car is not bad!’ – George Russell reacts to P2 in Singapore Sprint Qualifying with downgraded Mer",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "9 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "George Russell bounced back from the disappointment of his late-race retirement at the Bahrain Grand Prix in Malaysia with a strong run to second place during Sprint Qualifying in Singapore, as he reverted to an older-specification car. After struggling to assess the upgrades they introduced at Sepang, Mercedes have split their approach for the Marina Bay weekend, with Russell going back to the pa"
+    ]
+  },
+  {
+    "id": "63fa3799e965",
+    "url": "https://www.formula1.com/en/latest/article/i-dont-feel-like-its-driveable-hadjar-assesses-very-poor-performance-in-singapore-sprint-qualifying.3ITCXB4gJln2mODqwiFIoH",
+    "title": "‘I don’t feel like it’s driveable’ – Isack Hadjar assesses ‘very poor performance’ in Singapore Sprint Qualifying",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "9 Oct",
+    "date": "2026-10-09",
+    "kind": "session",
+    "session": "Qualifying",
+    "paragraphs": [
+      "Isack Hadjar was left feeling that a “good start of the day turned into a very poor performance” on Friday at the Singapore Grand Prix, with the Frenchman stating that his car was not “driveable” after ending Sprint Qualifying in P9. Off the back of Max Verstappen sealing his and Red Bull ’s first victory of the season last time out in Malaysia, the four-time World Champion again looked to have st"
     ]
   }
 ]

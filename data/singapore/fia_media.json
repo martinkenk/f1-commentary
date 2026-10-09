@@ -1,7 +1,27 @@
 {
-  "checked_at": "2026-10-09T12:29:44+00:00",
-  "discovery_retrieved_at": "2026-10-09T12:29:40.799821+00:00",
+  "checked_at": "2026-10-09T19:10:35+00:00",
+  "discovery_retrieved_at": "2026-10-09T19:10:28.280139+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
+      "filename": "2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "54de53d975c9da13a058ceacdb269b9f095af1de3d063f21075e5870690098d5",
+      "fetched_at": "2026-10-09T19:10:35+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-singapore-7d15400232d3-54de53d975c9da13-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-singapore-7d15400232d3-54de53d975c9da13-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf",
       "filename": "2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf",
@@ -74,26 +94,6 @@
         {
           "page": 1,
           "asset": "fia-singapore-5f0eb44fbfd8-f9d551c814ac5903-p1.png"
-        }
-      ],
-      "revision": 0
-    },
-    {
-      "url": "https://www.fia.com/system/files/documents/doc_15_-_2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
-      "filename": "doc_15_-_2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
-      "categories": [
-        "powerunit"
-      ],
-      "sha256": "e1d48dab5c0da9108aeb4da1aee6d79ffd7dce2ebe15b0eb98797c41b18cd9f2",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
-      "pages": [
-        {
-          "page": 2,
-          "asset": "fia-singapore-53fbfc67b446-e1d48dab5c0da910-p2.png"
-        },
-        {
-          "page": 3,
-          "asset": "fia-singapore-53fbfc67b446-e1d48dab5c0da910-p3.png"
         }
       ],
       "revision": 0
@@ -253,7 +253,7 @@
         "circuit"
       ],
       "sha256": "df6034c68726b5fe942114adac08cf5f3c59e479c48fd79362ac70d2a685fc8f",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T19:10:35+00:00",
       "pages": [
         {
           "page": 2,
@@ -293,7 +293,7 @@
         "upgrades"
       ],
       "sha256": "49a14f5f531a3642d2358f58030425fa855f974598a4acc84c9dfa3dc4488d11",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T19:10:35+00:00",
       "pages": [
         {
           "page": 2,
@@ -341,7 +341,7 @@
         "tyres"
       ],
       "sha256": "a50092321c3c3ba659cc99c8d0281682c6a6aa839bb6c31add3b50a8c1fd36c1",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T19:10:35+00:00",
       "pages": [
         {
           "page": 2,
@@ -357,7 +357,7 @@
         "schedule"
       ],
       "sha256": "81977dca81a92c84e44a71c52d84af82f3e299bc53bbd4e76b25c9ac8a632d42",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T19:10:35+00:00",
       "pages": [
         {
           "page": 2,
@@ -393,7 +393,80 @@
         }
       ],
       "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/documents/doc_15_-_2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "filename": "doc_15_-_2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "e1d48dab5c0da9108aeb4da1aee6d79ffd7dce2ebe15b0eb98797c41b18cd9f2",
+      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-singapore-53fbfc67b446-e1d48dab5c0da910-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-singapore-53fbfc67b446-e1d48dab5c0da910-p3.png"
+        }
+      ],
+      "revision": 0
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_decision_-_sprint_qualifying_sc2-sc1_times.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times_yellow_flags.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_race_directors_competition_notes_v2.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_car_presentation_submissions.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_heat_hazard_declaration.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_power_unit_information.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ]
 }
