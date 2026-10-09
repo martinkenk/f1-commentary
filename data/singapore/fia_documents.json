@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Singapore%20Grand%20Prix",
-  "retrieved_at": "2026-10-09T10:36:10.095237+00:00",
+  "retrieved_at": "2026-10-09T10:46:44.494037+00:00",
   "documents": [
     {
       "filename": "2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
@@ -8,6 +8,25 @@
       "categories": [
         "powerunit"
       ]
+    },
+    {
+      "filename": "2026_singapore_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ]
+    },
+    {
+      "filename": "2026_singapore_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "categories": [
+        "circuit"
+      ]
+    },
+    {
+      "filename": "2026_singapore_grand_prix_-_free_practice_1_classification.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_free_practice_1_classification.pdf",
+      "categories": []
     },
     {
       "filename": "doc_15_-_2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
