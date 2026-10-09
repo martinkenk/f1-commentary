@@ -1,6 +1,5 @@
 {
-  "checked_at": "2026-10-09T00:04:26.549722+00:00",
+  "checked_at": "2026-10-09T10:29:27.534465+00:00",
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Singapore%20Grand%20Prix",
-  "ok": false,
-  "error": "FIA documents page unavailable: <urlopen error [Errno -2] Name or service not known>; season fallback failed: <urlopen error [Errno -2] Name or service not known>"
+  "ok": true
 }

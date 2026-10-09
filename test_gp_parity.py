@@ -11,6 +11,7 @@ import content_azerbaijan
 import content_bahrain
 import content_generic
 import content_italy
+import content_singapore
 import content_spain
 import f1lib
 
@@ -19,7 +20,7 @@ class GPParityTests(unittest.TestCase):
     def setUp(self):
         self.contexts = {
             ctx["dir"]: ctx for ctx in build.season_gps()
-            if ctx["dir"] in ("italy", "spain", "bahrain")
+            if ctx["dir"] in ("italy", "spain", "bahrain", "singapore")
         }
         for slug, ctx in self.contexts.items():
             ctx.update(status="past", results=[], extra={}, weather={}, weather_ok=False)
@@ -39,6 +40,11 @@ class GPParityTests(unittest.TestCase):
         ctx = self.contexts["bahrain"].copy()
         ctx["status"] = "future"
         return content_bahrain.build_pages(ctx, self.env)
+
+    def singapore(self):
+        ctx = self.contexts["singapore"].copy()
+        ctx["status"] = "live"
+        return content_singapore.build_pages(ctx, self.env)
 
     def test_all_seventeen_surfaces_are_authored_or_engine_provided(self):
         engine_pages = {"results", "news", "h2h", "reliability", "penalties"}
@@ -73,6 +79,35 @@ class GPParityTests(unittest.TestCase):
         self.assertTrue(
             (Path(build.ROOT) / "assets_src" / "bahrain_pirelli_tyres_2026.webp").is_file()
         )
+
+    def test_singapore_uses_verified_event_specific_coverage(self):
+        self.assertIs(build.BESPOKE["singapore"], content_singapore.build_pages)
+        pages = self.singapore()
+        tyres = pages["tyres"]["body"]
+        self.assertIn("../assets/singapore_pirelli_tyres_2026.webp", tyres)
+        self.assertIn("4rG7uAn2d6vveGmRlkE5RM", tyres)
+        self.assertIn("C3 / C4 / C5", tyres)
+        self.assertTrue(
+            (Path(build.ROOT) / "assets_src" / "singapore_pirelli_tyres_2026.webp").is_file()
+        )
+
+        self.assertIn("Heat Hazard", pages["overview"]["body"])
+        self.assertIn("Heat Hazard", pages["schedule"]["body"])
+        self.assertIn("Heat Hazard", pages["notes"]["body"])
+        circuit = pages["circuit"]["body"]
+        self.assertIn("five Straight Mode zones", circuit)
+        self.assertIn("30 m after Turn 17", circuit)
+        self.assertIn("A5", circuit)
+
+        upgrades = pages["upgrades"]["body"]
+        for team in ("McLaren", "Mercedes", "Red Bull"):
+            self.assertIn(team, upgrades)
+        self.assertIn("No updates submitted", upgrades)
+        self.assertNotIn("will be populated", upgrades)
+
+        overview = pages["overview"]["body"]
+        self.assertIn("George Russell", overview)
+        self.assertIn("1:32.274", overview)
 
     def test_sepang_carries_colapinto_sanction_with_original_fia_reader(self):
         pages = self.bahrain()
