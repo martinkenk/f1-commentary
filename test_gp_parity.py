@@ -109,6 +109,22 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("George Russell", overview)
         self.assertIn("1:32.274", overview)
 
+    def test_singapore_figures_fit_screen_and_support_zoom(self):
+        pages = self.singapore()
+        for name in ("tyres", "upgrades", "circuit", "powerunit"):
+            figures = re.findall(r"<figure.*?</figure>", pages[name]["body"], re.S)
+            self.assertTrue(figures, name)
+            for figure in figures:
+                if "fia-singapore-" not in figure and "singapore_pirelli_" not in figure:
+                    continue
+                self.assertIn('class="circuit-fig"', figure)
+                self.assertIn('class="circuit-img tyre-preview-img"', figure)
+                self.assertIn('onclick="zoomImg(this)"', figure)
+                self.assertIn('role="button" tabindex="0"', figure)
+                self.assertIn("event.key==='Enter'", figure)
+                self.assertIn("event.key===' '", figure)
+                self.assertIn("Click to zoom / full screen.", figure)
+
     def test_sepang_carries_colapinto_sanction_with_original_fia_reader(self):
         pages = self.bahrain()
         article = content_bahrain.F1_PENALTY_ARTICLE

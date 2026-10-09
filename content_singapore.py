@@ -23,11 +23,13 @@ FIA_UPGRADES = FIA_ROOT + "2026_singapore_grand_prix_-_car_presentation_submissi
 
 def _figure(asset, alt, caption, source_url, source_label):
     return f"""
-    <figure class="track-map">
-      <a href="../assets/{asset}" target="_blank" rel="noopener">
-        <img src="../assets/{asset}" alt="{alt}" loading="lazy">
-      </a>
-      <figcaption>{caption} · <a href="{source_url}" target="_blank"
+    <figure class="circuit-fig">
+      <img src="../assets/{asset}" alt="{alt}" loading="lazy"
+        class="circuit-img tyre-preview-img" role="button" tabindex="0"
+        onclick="zoomImg(this)" title="Click to zoom / full screen"
+        onkeydown="if(event.key==='Enter'||event.key===' '){{event.preventDefault();zoomImg(this)}}">
+      <figcaption>{caption}. <strong>Click to zoom / full screen.</strong> ·
+      <a href="{source_url}" target="_blank"
       rel="noopener">{source_label}</a></figcaption>
     </figure>"""
 
