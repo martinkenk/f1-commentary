@@ -516,7 +516,62 @@ def fetch_extra(ctx):
 
 
 _DRIVER_COL = None
-def _result_table(block):
+
+
+def _lap_tyre_cell(compound, _row=None):
+    from pace_snapshot import TYRE_COMPOUNDS
+    return compound.title() if compound in TYRE_COMPOUNDS else "Unknown"
+
+
+def _result_lap_tyres(block, pace_session):
+    """Augment a copy of official rows only when driver and lap time agree."""
+    headers = list(block["headers"])
+    rows = [list(row) for row in block["rows"]]
+    label = block.get("label", "")
+    practice = label in ("Practice 1", "Practice 2", "Practice 3")
+    qualifying = label in ("Qualifying", "Sprint Qualifying")
+    if not (practice or qualifying):
+        return block
+    driver_idx = next((i for i, h in enumerate(headers)
+                       if h.lower().startswith("driver")), None)
+    if driver_idx is None:
+        return block
+    pace_session = pace_session or {}
+    if practice:
+        time_idx = next((i for i, h in enumerate(headers)
+                         if h.lower().startswith("time")), None)
+        if time_idx is None:
+            return block
+        leader_time = _parse_laptime(rows[0][time_idx]) if rows else None
+        columns = [(time_idx, "Tyre", pace_session.get("fastest") or [])]
+    else:
+        leader_time = None
+        segments = pace_session.get("qualifying_segments") or {}
+        columns = [(i, f"{h} tyre", segments.get(h.upper().replace("SQ", "Q")) or [])
+                   for i, h in enumerate(headers) if h.upper() in ("Q1", "Q2", "Q3", "SQ1", "SQ2", "SQ3")]
+    for time_idx, tyre_header, timing_rows in reversed(columns):
+        by_code = {r["code"]: r for r in timing_rows if r.get("code")}
+        headers.insert(time_idx + 1, tyre_header)
+        for row in rows:
+            _, code = _split_driver(row[driver_idx])
+            value = row[time_idx].strip()
+            recorded_time = _parse_laptime(value)
+            if practice and value.startswith("+") and leader_time is not None:
+                try:
+                    recorded_time = leader_time + float(value[1:].removesuffix("s"))
+                except ValueError:
+                    recorded_time = None
+            timing = by_code.get(code) or {}
+            timing_time = _parse_laptime(timing.get("lap_time"))
+            matched = (recorded_time is not None and timing_time is not None
+                       and round(recorded_time * 1000) == round(timing_time * 1000))
+            tyre = _lap_tyre_cell(timing.get("compound")) if matched else "Unknown"
+            row.insert(time_idx + 1, tyre if recorded_time is not None else "—")
+    return dict(block, headers=headers, rows=rows)
+
+
+def _result_table(block, pace_session=None):
+    block = _result_lap_tyres(block, pace_session)
     headers, rows = block["headers"], block["rows"]
     ncol = len(headers)
     thead = "".join(f"<th>{h}</th>" for h in headers)
@@ -579,6 +634,7 @@ def render_results(ctx):
          if "starting grid" not in results[i]["label"].casefold()),
         len(results) - 1,
     )
+    pace_by_label = {s["label"]: s for s in _load_pace(ctx) if s.get("label")}
     tabs, panes = [], []
     for i, b in enumerate(results):
         sid = f"res-{_slugify(b['label'])}"
@@ -596,10 +652,14 @@ def render_results(ctx):
                           f'Official Formula1.com classification</a> · retrieved '
                           f'{html.escape(b["fetched_at"])}'
                           f'{" · last-good snapshot retained after source failure" if b.get("retained") else ""}</p>')
+        if b["label"] in ("Practice 1", "Practice 2", "Practice 3", "Qualifying", "Sprint Qualifying"):
+            provenance += ('<p class="src">Tyres: FastF1 compound for the matching best lap '
+                           '(per knockout segment in qualifying). Unknown means timing or '
+                           'compound data is unavailable or does not match the published time.</p>')
         panes.append(
             f'<div class="tab-pane fade{" show active" if is_active else ""}" id="{sid}" '
             f'role="tabpanel" aria-labelledby="{sid}-tab" tabindex="0">'
-            f'<h2 class="sec">{b["label"]}</h2>{provenance}{_result_table(b)}</div>'
+            f'<h2 class="sec">{b["label"]}</h2>{provenance}{_result_table(b, pace_by_label.get(b["label"]))}</div>'
         )
 
     return (
@@ -964,6 +1024,7 @@ def render_pace_analysis(ctx):
                 ("driver", "Driver", _driver_cell),
                 ("team", "Team", None),
                 ("lap_time", "Fastest lap", None),
+                ("compound", "Tyre", _lap_tyre_cell),
                 ("optimal_time", "Theoretical optimal", None),
                 ("gap_to_optimal", "Time left on table", _gap),
                 ("top_speed", "Speed trap", _speed),
@@ -998,6 +1059,7 @@ def render_pace_analysis(ctx):
                     ("driver", "Driver", _driver_cell),
                     ("team", "Team", None),
                     ("lap_time", f"{seg_name} time", None),
+                    ("compound", "Tyre", _lap_tyre_cell),
                     ("seg_gap", f"Gap to {seg_name} fastest", _gap),
                     ("top_speed", "Speed trap", _speed),
                 ]))

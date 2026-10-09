@@ -1,5 +1,13 @@
 """Dependency-free helpers for preserving last-good pace-analysis sessions."""
 
+TYRE_COMPOUNDS = ("SOFT", "MEDIUM", "HARD", "INTERMEDIATE", "WET")
+
+
+def fastest_lap_compound(lap):
+    """Read the compound from the selected lap, not the driver's stint mode."""
+    compound = lap.get("Compound")
+    return compound if isinstance(compound, str) and compound in TYRE_COMPOUNDS else None
+
 
 def merge_completed_sessions(existing, refreshed, completed_codes, session_order):
     """Return completed sessions in display order, preferring fresh results."""

@@ -1,9 +1,16 @@
 import unittest
 
-from pace_snapshot import matching_session_articles, merge_completed_sessions
+from pace_snapshot import fastest_lap_compound, matching_session_articles, merge_completed_sessions
 
 
 class PaceSnapshotTests(unittest.TestCase):
+    def test_best_lap_compound_handles_wet_and_missing_data(self):
+        for compound in ("SOFT", "MEDIUM", "HARD", "INTERMEDIATE", "WET"):
+            self.assertEqual(fastest_lap_compound({"Compound": compound}), compound)
+        for compound in (None, float("nan"), "", "UNKNOWN", "<script>"):
+            self.assertIsNone(fastest_lap_compound({"Compound": compound}))
+        self.assertIsNone(fastest_lap_compound({}))
+
     def test_refresh_replaces_session_and_retains_failed_completed_session(self):
         existing = [
             {"session": "FP1", "value": "old-fp1"},

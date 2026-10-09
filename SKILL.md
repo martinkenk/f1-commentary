@@ -774,6 +774,11 @@ inventory. Prefer FIA/Pirelli/team published race-set graphics; FP1 substitute
 mapping applies only to timing-derived analysis, not the already entrant-specific
 published chart. Do not say an official report is unpublished merely because it is not loaded.
 FastF1 analysis is optional and must not hide independently available FIA data.
+Practice results show the tyre compound of each driver's best lap; qualifying
+shows a compound beside each Q1/Q2/Q3 (including Sprint Qualifying) time. Source
+the compound from that exact FastF1 lap, never the dominant stint or a presumed
+soft-tyre run. Match the driver and published time to the millisecond; mark
+unavailable or mismatched data as Unknown, and no recorded time with a dash.
 Long-run analysis must preserve lap order and use continuous sequences of at
 least five timed green-flag laps; missing laps break a run. Apply robust
 median/MAD filtering, reject sequences with fewer than 70% retained or more than

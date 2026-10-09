@@ -35,7 +35,7 @@ Output, per event directory (e.g. data/italy/fastf1_pace.json):
         {
           "session": "FP1", "label": "Practice 1",
           "fastest": [ {code, driver, team, lap_time, optimal_time,
-                        gap_to_optimal, top_speed}, ... ]  # sorted by pace
+                        gap_to_optimal, top_speed, compound}, ... ]  # sorted by pace
           "qualifying_segments": {"Q1": [...], "Q2": [...], "Q3": [...]}
                                   # only present for Q/SQ sessions
           "long_runs": [ {code, driver, team, stint, run, compound,
@@ -73,7 +73,7 @@ import numpy as np  # noqa: E402
 
 import standings  # noqa: E402
 from long_run_analysis import analyse_long_run_samples  # noqa: E402
-from pace_snapshot import matching_session_articles, merge_completed_sessions  # noqa: E402
+from pace_snapshot import fastest_lap_compound, matching_session_articles, merge_completed_sessions  # noqa: E402
 
 ROOT = _HERE
 CACHE_DIR = os.path.join(ROOT, ".fastf1_cache")
@@ -85,6 +85,8 @@ SESSION_MAP = [
     ("FP1", "Practice 1"),
     ("FP2", "Practice 2"),
     ("FP3", "Practice 3"),
+    ("SQ", "Sprint Qualifying"),
+    ("S", "Sprint"),
     ("Q", "Qualifying"),
     ("R", "Race"),
 ]
@@ -164,6 +166,7 @@ def _fastest_rows_from_laps(seg_laps, drv_map):
         rows.append(dict(
             code=code_, driver=drv_name, team=team,
             lap_time=_fmt_td(best["LapTime"]),
+            compound=fastest_lap_compound(best),
             lap_time_s=best["LapTime"].total_seconds(),
             optimal_time=_fmt_td(optimal),
             gap_to_optimal=(round((best["LapTime"] - optimal).total_seconds(), 3)

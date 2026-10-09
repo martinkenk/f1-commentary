@@ -53,6 +53,63 @@ class Response:
 
 
 class ResultsTests(unittest.TestCase):
+    def test_practice_tyres_match_driver_and_time_including_relative_gaps(self):
+        headers, rows = table()
+        block = {"label": "Practice 1", "headers": headers, "rows": rows}
+        original = copy.deepcopy(block)
+        pace = {"fastest": [
+            {"code": "AAA", "lap_time": "1:43.922", "compound": "MEDIUM"},
+            {"code": "AAB", "lap_time": "1:44.021", "compound": "SOFT"},
+            {"code": "AAC", "lap_time": "1:44.022", "compound": "HARD"},
+            {"code": "AAD", "lap_time": "1:44.021", "compound": None},
+        ]}
+        augmented = f1lib._result_lap_tyres(block, pace)
+        self.assertEqual(augmented["headers"][5], "Tyre")
+        self.assertEqual([row[5] for row in augmented["rows"][:5]],
+                         ["Medium", "Soft", "Unknown", "Unknown", "Unknown"])
+        self.assertEqual(block, original)
+        self.assertIn("<th>Tyre</th>", f1lib._result_table(block, pace))
+        self.assertEqual(f1lib._result_lap_tyres(block, None)["rows"][0][5], "Unknown")
+
+    def test_qualifying_tyres_are_specific_to_each_segment(self):
+        block = {"label": "Qualifying",
+                 "headers": ["Pos.", "No.", "Driver", "Team", "Q1", "Q2", "Q3", "Laps"],
+                 "rows": [["1", "63", "George Russell RUS", "Mercedes",
+                           "1:32.001", "1:31.500", "1:31.100", "18"],
+                          ["20", "1", "Lando Norris NOR", "McLaren",
+                           "1:33.001", "", "", "5"]]}
+        pace = {"qualifying_segments": {
+            "Q1": [{"code": "RUS", "lap_time": "1:32.001", "compound": "MEDIUM"},
+                   {"code": "NOR", "lap_time": "1:33.001", "compound": "INTERMEDIATE"}],
+            "Q2": [{"code": "RUS", "lap_time": "1:31.500", "compound": "SOFT"}],
+            "Q3": [{"code": "RUS", "lap_time": "1:31.101", "compound": "WET"}],
+        }}
+        for label in ("Qualifying", "Sprint Qualifying"):
+            block["label"] = label
+            augmented = f1lib._result_lap_tyres(block, pace)
+            self.assertEqual(augmented["headers"][4:10],
+                             ["Q1", "Q1 tyre", "Q2", "Q2 tyre", "Q3", "Q3 tyre"])
+            self.assertEqual(augmented["rows"][0][5:10:2], ["Medium", "Soft", "Unknown"])
+            self.assertEqual(augmented["rows"][1][5:10:2], ["Intermediate", "—", "—"])
+        block["label"] = "Race"
+        self.assertIs(f1lib._result_lap_tyres(block, pace), block)
+
+    def test_results_and_pace_tables_render_lap_tyres_with_source_explanation(self):
+        headers, rows = table()
+        pace = {"label": "Practice 1", "fastest": [
+            {"driver": "Driver 0", "code": "AAA", "lap_time": "1:43.922", "compound": "WET"}
+        ], "qualifying_segments": {
+            "Q1": [{"driver": "Driver 0", "code": "AAA", "lap_time": "1:43.922", "compound": "SOFT"}]
+        }}
+        with patch.object(f1lib, "_load_pace", return_value=[pace]):
+            rendered = f1lib.render_results({"results": [
+                {"label": "Practice 1", "headers": headers, "rows": rows}
+            ]})
+        self.assertIn("<th>Tyre</th>", rendered)
+        self.assertIn("<td>Wet</td>", rendered)
+        self.assertIn("<td>Soft</td>", rendered)
+        self.assertIn("does not match the published time", rendered)
+
     def collect(self, old=None, response=None, error=None, now=NOW):
         with patch.object(results, "load", return_value=old or {}), patch.object(
                 results.urllib.request, "urlopen", return_value=response or Response(),
