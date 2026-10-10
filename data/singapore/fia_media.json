@@ -1,7 +1,23 @@
 {
-  "checked_at": "2026-10-10T11:39:43+00:00",
+  "checked_at": "2026-10-10T16:19:00+00:00",
   "discovery_retrieved_at": "2026-10-10T11:39:36.077999+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times_yellow_flags.pdf",
+      "filename": "2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1bb9a63d86a7fc0a7e727a3e9384dd5d80cfd696fa31bde1fab4b71ba20e88f0",
+      "fetched_at": "2026-10-10T16:19:00+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-singapore-e3bfebbcd97c-1bb9a63d86a7fc0a-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
       "filename": "2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
@@ -9,7 +25,7 @@
         "penalties"
       ],
       "sha256": "54de53d975c9da13a058ceacdb269b9f095af1de3d063f21075e5870690098d5",
-      "fetched_at": "2026-10-10T11:39:43+00:00",
+      "fetched_at": "2026-10-10T16:19:00+00:00",
       "pages": [
         {
           "page": 1,
@@ -426,10 +442,6 @@
     },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_decision_-_sprint_qualifying_sc2-sc1_times.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times_yellow_flags.pdf",
       "error": "HTTP Error 403: Forbidden"
     },
     {

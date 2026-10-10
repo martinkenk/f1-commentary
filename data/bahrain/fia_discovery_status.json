@@ -1,6 +1,5 @@
 {
-  "checked_at": "2026-10-10T11:39:40.692114+00:00",
+  "checked_at": "2026-10-10T16:19:38.623535+00:00",
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Bahrain%20Grand%20Prix",
-  "ok": false,
-  "error": "FIA documents page unavailable: HTTP Error 403: Forbidden; season fallback failed: HTTP Error 403: Forbidden"
+  "ok": true
 }
