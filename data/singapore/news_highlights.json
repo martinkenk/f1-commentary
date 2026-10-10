@@ -1,0 +1,113 @@
+{
+ "reviewed_at": "2026-10-10T11:19:00Z",
+ "expires_at": "2026-10-10T23:00:00Z",
+ "through_session": "Sprint",
+ "feed_fingerprint": "692798cc37354dc17a64219cbbc94604d4488e20d7fedc76b9f325eebcbf8948",
+ "items": [
+  {
+   "topic": "Sprint result",
+   "title": "Verstappen wins the rain-delayed Sprint as Russell crashes from the lead and the McLarens collide",
+   "date": "2026-10-10",
+   "summary": "The Race and Formula1.com report that Verstappen won after Russell jumped him at the start but crashed at the end of lap one. Hamilton took second from a lightning start, Leclerc was third and Antonelli fourth. Norris hit team-mate Piastri at Turn 5 on the last lap: Piastri retired and Norris, eighth, is under investigation. Lawson was fifth and Bearman sixth, and Albon and Bortoleto collided before the safety car ended, an incident also to be investigated. There were nine retirements.",
+   "why_it_matters": "Russell is out of the Sprint and already carries a 40-place power-unit grid drop for the Race, so it is hard to see him recovering much. The Norris/Piastri and Albon/Bortoleto investigations may change the points order; check the FIA documents before quoting the final Sprint classification.",
+   "sources": [
+    {
+     "label": "The Race: Verstappen wins delayed Singapore sprint, Russell crashes from lead",
+     "url": "https://www.the-race.com/formula-1/verstappen-wins-delayed-singapore-sprint-russell-crashes-from-lead/"
+    },
+    {
+     "label": "The Race: F1 2026 Singapore Grand Prix sprint race result",
+     "url": "https://www.the-race.com/formula-1/f1-2026-singapore-grand-prix-sprint-race-result/"
+    },
+    {
+     "label": "Formula1.com: Sprint report and highlights",
+     "url": "https://www.formula1.com/en/latest/article/verstappen-wins-dramatic-rain-hit-singapore-sprint-as-russell-crashes-and-mclarens-collide.4r90mH2skljBa5sinFAsyp"
+    },
+    {
+     "label": "Formula1.com: Russell reacts to 'silly' crash in Singapore Sprint",
+     "url": "https://www.formula1.com/en/latest/article/i-just-misjudged-it-russell-reacts-to-silly-crash-in-singapore-sprint.15D0NGraWZQesM5BkeBJp3"
+    }
+   ]
+  },
+  {
+   "topic": "Sprint pole and yellow-flag ruling",
+   "title": "Verstappen takes Sprint pole at 1:31.156 and keeps it after a yellow-flag hearing",
+   "date": "2026-10-09",
+   "summary": "The Race says Verstappen needed one lap in SQ3 for the first Sprint pole of his season, 0.120s clear of Russell's older-spec Mercedes. He had been summoned for passing Hamilton between Turns 7 and 8 under single waved yellows after Perez hit the barriers at Turn 5 in SQ1. FIA Doc 29 records that Car 3 overtook Car 44 under single yellow flags and that no penalty was applied; Formula1.com explains why he avoided one.",
+   "why_it_matters": "Verstappen starts the Sprint from pole with the stewards' decision recorded. The Race reports the pass breached the yellow-flag rules even though the FIA applied no penalty, so keep the stewards' wording separate from commentary on it.",
+   "sources": [
+    {
+     "label": "The Race: Verstappen beats Russell's old-spec Mercedes to Singapore sprint pole",
+     "url": "https://www.the-race.com/formula-1/verstappen-beats-russells-old-spec-mercedes-to-singapore-sprint-pole/"
+    },
+    {
+     "label": "The Race: Why Verstappen keeps Singapore sprint pole despite yellow flag 'breach'",
+     "url": "https://www.the-race.com/formula-1/why-verstappen-keeps-singapore-sprint-pole-despite-yellow-flag-breach/"
+    },
+    {
+     "label": "Formula1.com: Why Max Verstappen avoided a penalty after Sprint Qualifying yellow flag incident",
+     "url": "https://www.formula1.com/en/latest/article/why-verstappen-avoided-a-penalty-after-sprint-qualifying-yellow-flag-incident-in-singapore.41kSukNyM3UHFGoX0absV6"
+    },
+    {
+     "label": "FIA Doc 29: Car 3 yellow flag infringement",
+     "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf"
+    }
+   ]
+  },
+  {
+   "topic": "Mercedes split specification",
+   "title": "Mercedes' old-spec car beats the new one: Russell fastest in practice and P2 in Sprint Qualifying, Antonelli P7",
+   "date": "2026-10-09",
+   "summary": "Mercedes split their aero packages, with Russell on the older specification and Antonelli on the update. Russell topped the only practice session; Antonelli was seventh, 1.3s slower, though The Race says the two ran very different programmes. In Sprint Qualifying Russell took P2 and said the old car is not bad, while Antonelli, P7, called the new-spec car very difficult to drive.",
+   "why_it_matters": "It tests whether the upgrade helped or hurt, and Mercedes carry the question into the Sprint. Treat the one-hour practice comparison cautiously because the programmes differed.",
+   "sources": [
+    {
+     "label": "The Race: Russell fastest in 'downgraded' Mercedes in only Singapore practice",
+     "url": "https://www.the-race.com/formula-1/f1-2026-singapore-gp-practice-russell-fastest/"
+    },
+    {
+     "label": "Formula1.com: Antonelli struggling with 'very difficult' new-spec Mercedes after P7",
+     "url": "https://www.formula1.com/en/latest/article/antonelli-struggling-with-very-difficult-new-spec-mercedes-after-p7-in-singapore-sprint-qualifying.PuBAg4FVi18iuQaMRyBgS"
+    },
+    {
+     "label": "Formula1.com: Russell reacts to P2 in Singapore Sprint Qualifying",
+     "url": "https://www.formula1.com/en/latest/article/i-can-confirm-the-old-car-is-not-bad-russell-reacts-to-p2-in-singapore-sprint-qualifying-with-downgraded-mercedes.DPwDvyn5ma6L2AnZzdR81"
+    }
+   ]
+  },
+  {
+   "topic": "Russell power-unit penalty",
+   "title": "FIA Doc 20: Russell's new power-unit elements carry a 40-place grid drop for the next Race",
+   "date": "2026-10-09",
+   "summary": "Mercedes confirmed on 7 October that Russell would take a penalty after his power-unit failure late in the Bahrain Grand Prix in Malaysia. The FIA's power-unit document lists the penalty as a drop of 40 grid positions in the next Race in which he participates.",
+   "why_it_matters": "The penalty is recorded against the Race grid, not the Sprint grid. Confirm the Sprint and Race starting grids once the FIA publishes them.",
+   "sources": [
+    {
+     "label": "Formula1.com: Mercedes confirm Russell is set for grid penalty",
+     "url": "https://www.formula1.com/en/latest/article/mercedes-confirm-russell-is-set-for-grid-penalty-at-singapore-grand-prix.4Wp0nfUrqdG5TvhD76T8mw"
+    },
+    {
+     "label": "FIA Doc 20: Car 63 changes to PU elements",
+     "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf"
+    }
+   ]
+  },
+  {
+   "topic": "Cost-cap reform",
+   "title": "Rivals reject Williams' cost-cap catch-up proposal ahead of the November F1 Commission",
+   "date": "2026-10-09",
+   "summary": "The Race reports Williams looks set to fall short of the support needed to change the 2027 cost-cap rules, with key rivals opposed. It is expected to go to a team vote at the next F1 Commission meeting, and The Race separately reports that Vowles is confident of the votes and that Red Bull is pivotal to the timing.",
+   "why_it_matters": "A proposal, not a rule change, and the reports conflict on whether it has the votes. Attribute each claim to The Race.",
+   "sources": [
+    {
+     "label": "The Race: Rivals reject Williams proposal for F1 cost cap reform",
+     "url": "https://www.the-race.com/formula-1/rivals-reject-williams-proposal-for-f1-cost-cap-reform/"
+    },
+    {
+     "label": "The Race: Why Red Bull is crucial to F1 cost cap overhaul",
+     "url": "https://www.the-race.com/formula-1/why-red-bull-is-crucial-to-f1-cost-cap-overhaul/"
+    }
+   ]
+  }
+ ]
+}

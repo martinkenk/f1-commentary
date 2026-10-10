@@ -1,7 +1,43 @@
 {
-  "checked_at": "2026-10-09T23:44:25+00:00",
-  "discovery_retrieved_at": "2026-10-09T23:44:21.896971+00:00",
+  "checked_at": "2026-10-09T21:49:02+00:00",
+  "discovery_retrieved_at": "2026-10-09T21:48:58.967179+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_decision_-_sprint_qualifying_sc2-sc1_times.pdf",
+      "filename": "2026_singapore_grand_prix_-_decision_-_sprint_qualifying_sc2-sc1_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "2678d50db6f3710846344055e9f5b811744fa43d021867995a0939820f375431",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-singapore-5a0430813fe9-2678d50db6f37108-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-singapore-5a0430813fe9-2678d50db6f37108-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times_yellow_flags.pdf",
+      "filename": "2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "1bb9a63d86a7fc0a7e727a3e9384dd5d80cfd696fa31bde1fab4b71ba20e88f0",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-singapore-e3bfebbcd97c-1bb9a63d86a7fc0a-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
       "filename": "2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
@@ -9,7 +45,7 @@
         "penalties"
       ],
       "sha256": "54de53d975c9da13a058ceacdb269b9f095af1de3d063f21075e5870690098d5",
-      "fetched_at": "2026-10-09T19:10:35+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 1,
@@ -23,13 +59,29 @@
       "revision": 0
     },
     {
+      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times.pdf",
+      "filename": "2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "bf1b8e1b3c1d75f831b1e9aa2732d26a0f9d94ab4f6146669bd1eae23714b130",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-singapore-d40214025e99-bf1b8e1b3c1d75f8-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
       "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf",
       "filename": "2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf",
       "categories": [
         "penalties"
       ],
       "sha256": "90ff001d409aa1c4c9509e4b490a8e29d0c60b6d4df32fd53b05d86de05d6ccc",
-      "fetched_at": "2026-10-09T23:44:25+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 1,
@@ -49,7 +101,7 @@
         "powerunit"
       ],
       "sha256": "bcaca020279e07dae4655887d10d643f1657e6752f9199f627d29873f2b524c2",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -69,7 +121,7 @@
         "penalties"
       ],
       "sha256": "bf1fcafa87116a4e9bd1cdccea7926a749cc7f5996ef6f64cfb8fc790106a29a",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -89,7 +141,7 @@
         "circuit"
       ],
       "sha256": "f9d551c814ac5903d261e1b640a89701a75b9856936dc1eac03bb36bb4e2e150",
-      "fetched_at": "2026-10-09T23:44:25+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 1,
@@ -105,7 +157,7 @@
         "circuit"
       ],
       "sha256": "448d04956b047c83b236e9ad7cf843796862512d23b7a976516abb2064963371",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -145,7 +197,7 @@
         "powerunit"
       ],
       "sha256": "f2836113b804bb12df58aa1cddce3b29e5493d62c302aaa2ba392f44a73c1760",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -161,7 +213,7 @@
         "upgrades"
       ],
       "sha256": "caf5c69b36c7f1c4dab9e311199edaf38f995da420a247af809baafa6bff2c30",
-      "fetched_at": "2026-10-09T23:44:25+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -229,7 +281,7 @@
         "circuit"
       ],
       "sha256": "8bd2227af6272a03e692b0f27bb1bded920cd7f16107f493781770461fa14aae",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -253,7 +305,7 @@
         "circuit"
       ],
       "sha256": "df6034c68726b5fe942114adac08cf5f3c59e479c48fd79362ac70d2a685fc8f",
-      "fetched_at": "2026-10-09T19:10:35+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -293,7 +345,7 @@
         "upgrades"
       ],
       "sha256": "49a14f5f531a3642d2358f58030425fa855f974598a4acc84c9dfa3dc4488d11",
-      "fetched_at": "2026-10-09T19:10:35+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -309,7 +361,7 @@
         "schedule"
       ],
       "sha256": "c91ba8557a04d6f7101096aa05f1c040538762f5153dc3193b070dd51c80a197",
-      "fetched_at": "2026-10-09T12:29:44+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 1,
@@ -325,7 +377,7 @@
         "powerunit"
       ],
       "sha256": "9d0e5bdab5230430ed71d18edb3b8a6187c8c9fa3105050c62f4087444ac38c1",
-      "fetched_at": "2026-10-09T23:44:25+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -341,7 +393,7 @@
         "tyres"
       ],
       "sha256": "a50092321c3c3ba659cc99c8d0281682c6a6aa839bb6c31add3b50a8c1fd36c1",
-      "fetched_at": "2026-10-09T23:44:25+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -357,7 +409,7 @@
         "schedule"
       ],
       "sha256": "81977dca81a92c84e44a71c52d84af82f3e299bc53bbd4e76b25c9ac8a632d42",
-      "fetched_at": "2026-10-09T19:10:35+00:00",
+      "fetched_at": "2026-10-09T21:49:02+00:00",
       "pages": [
         {
           "page": 2,
@@ -415,58 +467,5 @@
       "revision": 0
     }
   ],
-  "errors": [
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_decision_-_sprint_qualifying_sc2-sc1_times.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times_yellow_flags.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_sprint_qualifying_deleted_lap_times.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_new_pu_elements_for_this_competition.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_race_directors_competition_notes_v2.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_race_directors_competition_notes.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_car_display_procedure.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_heat_hazard_declaration.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    },
-    {
-      "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_competition_visa.pdf",
-      "error": "HTTP Error 403: Forbidden"
-    }
-  ]
+  "errors": []
 }
