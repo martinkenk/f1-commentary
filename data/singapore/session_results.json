@@ -5,7 +5,7 @@
     "results_slug": "singapore",
     "gp": "singapore"
   },
-  "checked_at": "2026-10-10T11:40:52+00:00",
+  "checked_at": "2026-10-10T16:42:34+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/practice/1",
-      "fetched_at": "2026-10-10T11:40:52+00:00",
+      "fetched_at": "2026-10-10T16:42:34+00:00",
       "session_start": "2026-10-09T16:30:00+08:00",
       "retained": false
     },
@@ -435,7 +435,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/sprint-qualifying",
-      "fetched_at": "2026-10-10T11:40:52+00:00",
+      "fetched_at": "2026-10-10T16:42:34+00:00",
       "session_start": "2026-10-09T20:30:00+08:00",
       "retained": false
     },
@@ -651,7 +651,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/sprint-results",
-      "fetched_at": "2026-10-10T11:40:52+00:00",
+      "fetched_at": "2026-10-10T16:42:34+00:00",
       "session_start": "2026-10-10T17:00:00+08:00",
       "retained": false
     }
@@ -671,6 +671,20 @@
       "label": "Sprint",
       "state": "available",
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/sprint-results"
+    },
+    {
+      "label": "Qualifying",
+      "state": "unavailable",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/qualifying",
+      "error": "Unknown classification position: RT",
+      "retained": false
+    },
+    {
+      "label": "Starting Grid",
+      "state": "unavailable",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/starting-grid",
+      "error": "Incomplete classification: 1 entrants",
+      "retained": false
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-10-10T11:39:19+00:00",
+  "checked_at": "2026-10-10T16:40:48+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -33,9 +33,16 @@
     "azerbaijan/qualifying",
     "azerbaijan/race-result",
     "bahrain/qualifying",
-    "bahrain/race-result"
+    "bahrain/race-result",
+    "singapore/qualifying"
   ],
-  "errors": [],
+  "errors": [
+    {
+      "key": "singapore/qualifying",
+      "url": "https://www.formula1.com/en/results/2026/races/1296/singapore/qualifying",
+      "error": "Unknown classification position: 'RT'"
+    }
+  ],
   "sessions": [
     {
       "key": "australia/qualifying",
@@ -5645,7 +5652,7 @@
       "label": "Qualifying",
       "date": "2026-10-03",
       "url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/qualifying",
-      "fetched_at": "2026-10-10T11:39:19+00:00",
+      "fetched_at": "2026-10-10T16:40:48+00:00",
       "drivers": [
         {
           "code": "VER",
@@ -5833,7 +5840,7 @@
       "label": "Race",
       "date": "2026-10-04",
       "url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result",
-      "fetched_at": "2026-10-10T11:39:19+00:00",
+      "fetched_at": "2026-10-10T16:40:48+00:00",
       "drivers": [
         {
           "code": "VER",
