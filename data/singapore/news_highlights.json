@@ -1,0 +1,88 @@
+{
+  "reviewed_at": "2026-10-10T16:30:00Z",
+  "expires_at": "2026-10-11T04:00:00Z",
+  "through_session": "Sprint",
+  "feed_fingerprint": "d7a0e32b61b38bad8c482e5e35ac4f1f29d7eec3aa16c722dce23e06a65f53dc",
+  "items": [
+    {
+      "topic": "Sprint result",
+      "title": "Verstappen wins the Singapore Sprint from Hamilton and Leclerc",
+      "date": "2026-10-10",
+      "summary": "Max Verstappen, who also took Sprint Qualifying pole (1:33.477), won the 20-lap Sprint. Lewis Hamilton was second and Charles Leclerc third, with Kimi Antonelli fourth and Liam Lawson fifth. Stewards' Document 29 (a Sprint Qualifying matter, no penalty applied) covers Car 3 overtaking Car 44 under single yellow flags.",
+      "why_it_matters": "Verstappen and both Ferraris lead the form into Saturday qualifying, while Mercedes' best result was Antonelli in fourth. Document 29 is the stewarding reference for Verstappen's Sprint Qualifying pass under single yellows.",
+      "sources": [
+        {
+          "label": "Formula1.com: Singapore Sprint results",
+          "url": "https://www.formula1.com/en/results/2026/races/1296/singapore/sprint-results"
+        },
+        {
+          "label": "Formula1.com: Singapore Sprint Qualifying results",
+          "url": "https://www.formula1.com/en/results/2026/races/1296/singapore/sprint-qualifying"
+        },
+        {
+          "label": "FIA Document 29: Car 3 / Car 44 single yellow decision",
+          "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_3_-_yellow_flag_infringement.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Grid penalty",
+      "title": "Russell faces a 40-place drop in Sunday's race after an engine change",
+      "date": "2026-10-07",
+      "summary": "Mercedes confirmed that George Russell's power-unit failure in Bahrain forced an engine change that takes him over the season allocation. FIA Document 20 lists a drop of 40 grid positions at the next race in which he participates. Formula1.com reports the penalty applies to Sunday's race rather than the Sprint, and Mercedes said it means a back-of-grid start.",
+      "why_it_matters": "Russell is second in the standings (236 points after Bahrain, 84 behind team-mate Antonelli, who leads on 320), so a back-row start affects the title picture. He promised an all-out attack from the back.",
+      "sources": [
+        {
+          "label": "Formula1.com: Mercedes confirm Russell grid penalty",
+          "url": "https://www.formula1.com/en/latest/article/mercedes-confirm-russell-is-set-for-grid-penalty-at-singapore-grand-prix.4Wp0nfUrqdG5TvhD76T8mw"
+        },
+        {
+          "label": "FIA Document 20: Car 63 PU elements",
+          "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf"
+        },
+        {
+          "label": "Formula1.com: Russell promises all-out attack",
+          "url": "https://www.formula1.com/en/latest/article/russell-promises-all-out-attack-from-back-of-singapore-grid-amid-engine-penalty.1Owe717iaaEqDioJZqUyaJ"
+        }
+      ]
+    },
+    {
+      "topic": "Mercedes upgrade",
+      "title": "Mercedes split car specifications to judge the Malaysia upgrade",
+      "date": "2026-10-08",
+      "summary": "The Race reports that Russell suggested running the older-specification Mercedes in Singapore and the team took that decision, to understand whether the major upgrade brought to Malaysia is actually an improvement. The Race and Formula1.com also covered Mercedes' upgrade doubts and Antonelli's comments on unlocking the package.",
+      "why_it_matters": "A split-spec Mercedes pairing gives a direct comparison between old and new parts across the weekend. Treat which driver has which specification as something to confirm from team and timing information.",
+      "sources": [
+        {
+          "label": "The Race: everything we learned from day one",
+          "url": "https://www.the-race.com/formula-1/everything-we-learned-from-day-one-at-f1s-singapore-gp/"
+        },
+        {
+          "label": "The Race: Mercedes old and new spec in Singapore",
+          "url": "https://www.the-race.com/formula-1/mercedes-taking-old-parts-to-singapore-amid-f1-upgrade-doubts/"
+        },
+        {
+          "label": "Formula1.com: splitting specifications is a no-brainer",
+          "url": "https://www.formula1.com/en/latest/article/why-splitting-car-specifications-is-a-no-brainer-for-mercedes-at-the-singapore-grand-prix.44OonD5CF8Eg4yQ2w5REwh"
+        }
+      ]
+    },
+    {
+      "topic": "McLaren pace",
+      "title": "Norris hopeful McLaren's straight-line deficit is cured",
+      "date": "2026-10-08",
+      "summary": "Lando Norris said the straight-line speed issue costing him one to two tenths against Oscar Piastri in Baku and Sepang should be better in Singapore after McLaren's changes. The cause has not been officially revealed; it was indicated as a fuel-injection issue in Baku. In the Sprint Norris finished eighth.",
+      "why_it_matters": "Norris and Verstappen are level on 188 points after Bahrain. Straight-line speed matters less at Marina Bay, so a clear improvement may be hard to isolate.",
+      "sources": [
+        {
+          "label": "The Race: everything we learned from day one",
+          "url": "https://www.the-race.com/formula-1/everything-we-learned-from-day-one-at-f1s-singapore-gp/"
+        },
+        {
+          "label": "Formula1.com: Norris hopeful speed issue will be cured",
+          "url": "https://www.formula1.com/en/latest/article/norris-hopeful-recent-straight-line-speed-issue-will-be-cured-in-singapore-as-he-admits-mclaren-need-to-do-a-better-job.7GhQrU0cCJGpY9v8lxyTkp"
+        }
+      ]
+    }
+  ]
+}
