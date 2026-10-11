@@ -278,5 +278,61 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_27_-_impeding_of_car_55.pdf"
+  },
+  {
+    "doc": "Doc 79",
+    "no": "63",
+    "driver": "George Russell",
+    "team": "Mercedes-AMG PETRONAS F1 Team",
+    "session": "Qualifying",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Drop of 20 grid positions in the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_singapore_grand_prix_-_infringement_-_car_63_-_additional_changes_to_pu_elements.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_additional_changes_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 80",
+    "no": "14",
+    "driver": "Fernando Alonso",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Qualifying",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Required to start the Race from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_singapore_grand_prix_-_infringement_-_car_14_-_pu_element_and_changes_made_during_parc_ferme.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_14_-_pu_element_and_changes_made_during_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 81",
+    "no": "18",
+    "driver": "Lance Stroll",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Qualifying",
+    "fact": "The setup of the suspension has been changed while under parc fermé.",
+    "outcome": "Required to start the Race from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_singapore_grand_prix_-_infringement_-_car_18_-_changes_made_during_parc_ferme.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_18_-_changes_made_during_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 83",
+    "no": "6",
+    "driver": "Isack Hadjar",
+    "team": "Oracle Red Bull Racing",
+    "session": "Qualifying",
+    "fact": "The following Power Unit elements have been used:",
+    "outcome": "Required to start the Race from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_singapore_grand_prix_-_infringement_-_car_6_-_pu_elements_and_changes_made_during_parc_ferme.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_6_-_pu_elements_and_changes_made_during_parc_ferme.pdf"
   }
 ]
