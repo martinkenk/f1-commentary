@@ -5,7 +5,7 @@
     "results_slug": "singapore",
     "gp": "singapore"
   },
-  "checked_at": "2026-10-11T11:54:41+00:00",
+  "checked_at": "2026-10-11T17:08:33+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/practice/1",
-      "fetched_at": "2026-10-11T11:54:41+00:00",
+      "fetched_at": "2026-10-11T17:08:33+00:00",
       "session_start": "2026-10-09T16:30:00+08:00",
       "retained": false
     },
@@ -435,7 +435,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/sprint-qualifying",
-      "fetched_at": "2026-10-11T11:54:41+00:00",
+      "fetched_at": "2026-10-11T17:08:33+00:00",
       "session_start": "2026-10-09T20:30:00+08:00",
       "retained": false
     },
@@ -651,7 +651,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/sprint-results",
-      "fetched_at": "2026-10-11T11:54:41+00:00",
+      "fetched_at": "2026-10-11T17:08:33+00:00",
       "session_start": "2026-10-10T17:00:00+08:00",
       "retained": false
     },
@@ -772,45 +772,45 @@
         ],
         [
           "16",
-          "14",
-          "Fernando Alonso ALO",
-          "Aston Martin",
-          "1:34.223"
-        ],
-        [
-          "17",
           "23",
           "Alexander Albon ALB",
           "Williams",
           "1:34.289"
         ],
         [
-          "18",
-          "18",
-          "Lance Stroll STR",
-          "Aston Martin",
-          "1:34.946"
-        ],
-        [
-          "19",
+          "17",
           "11",
           "Sergio Perez PER",
           "Cadillac",
           "1:35.123"
         ],
         [
-          "20",
+          "18",
           "77",
           "Valtteri Bottas BOT",
           "Cadillac",
           "1:35.984"
         ],
         [
-          "21",
+          "19",
           "63",
           "George Russell RUS",
           "Mercedes",
           "1:31.747"
+        ],
+        [
+          "20",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "1:34.223"
+        ],
+        [
+          "21",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "1:34.946"
         ],
         [
           "22",
@@ -821,9 +821,225 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/starting-grid",
-      "fetched_at": "2026-10-10T20:58:39+00:00",
+      "fetched_at": "2026-10-11T17:08:33+00:00",
       "session_start": "2026-10-10T22:00:00+08:00",
-      "retained": true
+      "retained": false
+    },
+    {
+      "label": "Race",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Laps",
+        "Time / Retired",
+        "Pts."
+      ],
+      "rows": [
+        [
+          "1",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "62",
+          "1:42:00.785",
+          "25"
+        ],
+        [
+          "2",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "62",
+          "+7.335s",
+          "18"
+        ],
+        [
+          "3",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "62",
+          "+24.573s",
+          "15"
+        ],
+        [
+          "4",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "62",
+          "+40.506s",
+          "12"
+        ],
+        [
+          "5",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "62",
+          "+49.644s",
+          "10"
+        ],
+        [
+          "6",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "62",
+          "+53.188s",
+          "8"
+        ],
+        [
+          "7",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "62",
+          "+81.666s",
+          "6"
+        ],
+        [
+          "8",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "62",
+          "+83.386s",
+          "4"
+        ],
+        [
+          "9",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "62",
+          "+84.677s",
+          "2"
+        ],
+        [
+          "10",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "62",
+          "+90.862s",
+          "1"
+        ],
+        [
+          "11",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "12",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "13",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "14",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "15",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "16",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "61",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "17",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "60",
+          "+2 laps",
+          "0"
+        ],
+        [
+          "18",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "59",
+          "DNF",
+          "0"
+        ],
+        [
+          "19",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "59",
+          "+3 laps",
+          "0"
+        ],
+        [
+          "NC",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "36",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "29",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "7",
+          "DNF",
+          "0"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result",
+      "fetched_at": "2026-10-11T17:08:33+00:00",
+      "session_start": "2026-10-11T20:00:00+08:00",
+      "retained": false
     }
   ],
   "statuses": [
@@ -851,10 +1067,13 @@
     },
     {
       "label": "Starting Grid",
-      "state": "unavailable",
-      "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/starting-grid",
-      "error": "Duplicate or unordered classification positions",
-      "retained": true
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/starting-grid"
+    },
+    {
+      "label": "Race",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result"
     }
   ]
 }

@@ -334,5 +334,47 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_6_-_pu_elements_and_changes_made_during_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 85",
+    "no": "18",
+    "driver": "Lance Stroll",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Reconnaissance Laps",
+    "fact": "Car 18 left the pit lane during the reconnaissance laps without performing a practice",
+    "outcome": "Driver: Warning.",
+    "kind": "warning",
+    "source_pdf": "2026_singapore_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instructions_-_practice_start.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instructions_-_practice_start.pdf"
+  },
+  {
+    "doc": "Doc 86",
+    "no": "44",
+    "driver": "Lewis Hamilton",
+    "team": "Scuderia Ferrari HP",
+    "session": "Race",
+    "fact": "Car 44 left the track in turn 1",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_singapore_grand_prix_-_decision_-_car_44_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_decision_-_car_44_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf"
+  },
+  {
+    "doc": "Doc 88",
+    "no": "",
+    "driver": "Oliver Bearman; Pierre Gasly; Arvid Lindblad; Alexander Albon; Carlos Sainz; Kimi Antonelli; Lance Stroll; Oscar Piastri; Isack Hadjar; Valtteri Bottas; Charles Leclerc; Liam Lawson; George Russell; Lewis Hamilton; Max Verstappen; Lando Norris; Esteban Ocon",
+    "team": "",
+    "session": "Race",
+    "fact": "The F1 Cars below did not use the track at turns 2, 7, 16 and 19.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_singapore_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_race_deleted_lap_times.pdf"
   }
 ]
