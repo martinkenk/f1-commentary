@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-10-11T17:06:53+00:00",
+  "checked_at": "2026-10-11T00:18:29+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -34,8 +34,7 @@
     "azerbaijan/race-result",
     "bahrain/qualifying",
     "bahrain/race-result",
-    "singapore/qualifying",
-    "singapore/race-result"
+    "singapore/qualifying"
   ],
   "errors": [
     {
@@ -5653,7 +5652,7 @@
       "label": "Qualifying",
       "date": "2026-10-03",
       "url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/qualifying",
-      "fetched_at": "2026-10-11T17:06:53+00:00",
+      "fetched_at": "2026-10-11T00:18:29+00:00",
       "drivers": [
         {
           "code": "VER",
@@ -5841,7 +5840,7 @@
       "label": "Race",
       "date": "2026-10-04",
       "url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/race-result",
-      "fetched_at": "2026-10-11T17:06:53+00:00",
+      "fetched_at": "2026-10-11T00:18:29+00:00",
       "drivers": [
         {
           "code": "VER",
@@ -6015,194 +6014,6 @@
           "code": "BOT",
           "name": "Valtteri Bottas",
           "team": "Cadillac",
-          "position": null,
-          "status": "unclassified",
-          "raw_position": "NC"
-        }
-      ]
-    },
-    {
-      "key": "singapore/race-result",
-      "round": 17,
-      "gp": "singapore",
-      "name": "Singapore Grand Prix",
-      "label": "Race",
-      "date": "2026-10-11",
-      "url": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result",
-      "fetched_at": "2026-10-11T17:06:53+00:00",
-      "drivers": [
-        {
-          "code": "VER",
-          "name": "Max Verstappen",
-          "team": "Red Bull Racing",
-          "position": 1,
-          "status": "classified",
-          "raw_position": "1"
-        },
-        {
-          "code": "LEC",
-          "name": "Charles Leclerc",
-          "team": "Ferrari",
-          "position": 2,
-          "status": "classified",
-          "raw_position": "2"
-        },
-        {
-          "code": "ANT",
-          "name": "Kimi Antonelli",
-          "team": "Mercedes",
-          "position": 3,
-          "status": "classified",
-          "raw_position": "3"
-        },
-        {
-          "code": "NOR",
-          "name": "Lando Norris",
-          "team": "McLaren",
-          "position": 4,
-          "status": "classified",
-          "raw_position": "4"
-        },
-        {
-          "code": "PIA",
-          "name": "Oscar Piastri",
-          "team": "McLaren",
-          "position": 5,
-          "status": "classified",
-          "raw_position": "5"
-        },
-        {
-          "code": "HAM",
-          "name": "Lewis Hamilton",
-          "team": "Ferrari",
-          "position": 6,
-          "status": "classified",
-          "raw_position": "6"
-        },
-        {
-          "code": "LAW",
-          "name": "Liam Lawson",
-          "team": "Racing Bulls",
-          "position": 7,
-          "status": "classified",
-          "raw_position": "7"
-        },
-        {
-          "code": "HUL",
-          "name": "Nico Hulkenberg",
-          "team": "Audi",
-          "position": 8,
-          "status": "classified",
-          "raw_position": "8"
-        },
-        {
-          "code": "RUS",
-          "name": "George Russell",
-          "team": "Mercedes",
-          "position": 9,
-          "status": "classified",
-          "raw_position": "9"
-        },
-        {
-          "code": "HAD",
-          "name": "Isack Hadjar",
-          "team": "Red Bull Racing",
-          "position": 10,
-          "status": "classified",
-          "raw_position": "10"
-        },
-        {
-          "code": "GAS",
-          "name": "Pierre Gasly",
-          "team": "Alpine",
-          "position": 11,
-          "status": "classified",
-          "raw_position": "11"
-        },
-        {
-          "code": "BEA",
-          "name": "Oliver Bearman",
-          "team": "Haas F1 Team",
-          "position": 12,
-          "status": "classified",
-          "raw_position": "12"
-        },
-        {
-          "code": "OCO",
-          "name": "Esteban Ocon",
-          "team": "Haas F1 Team",
-          "position": 13,
-          "status": "classified",
-          "raw_position": "13"
-        },
-        {
-          "code": "SAI",
-          "name": "Carlos Sainz",
-          "team": "Williams",
-          "position": 14,
-          "status": "classified",
-          "raw_position": "14"
-        },
-        {
-          "code": "LIN",
-          "name": "Arvid Lindblad",
-          "team": "Racing Bulls",
-          "position": 15,
-          "status": "classified",
-          "raw_position": "15"
-        },
-        {
-          "code": "ALO",
-          "name": "Fernando Alonso",
-          "team": "Aston Martin",
-          "position": 16,
-          "status": "classified",
-          "raw_position": "16"
-        },
-        {
-          "code": "PER",
-          "name": "Sergio Perez",
-          "team": "Cadillac",
-          "position": 17,
-          "status": "classified",
-          "raw_position": "17"
-        },
-        {
-          "code": "ALB",
-          "name": "Alexander Albon",
-          "team": "Williams",
-          "position": 18,
-          "status": "classified",
-          "raw_position": "18"
-        },
-        {
-          "code": "BOT",
-          "name": "Valtteri Bottas",
-          "team": "Cadillac",
-          "position": 19,
-          "status": "classified",
-          "raw_position": "19"
-        },
-        {
-          "code": "STR",
-          "name": "Lance Stroll",
-          "team": "Aston Martin",
-          "position": null,
-          "status": "unclassified",
-          "raw_position": "NC"
-        },
-        {
-          "code": "COL",
-          "name": "Franco Colapinto",
-          "team": "Alpine",
-          "position": null,
-          "status": "unclassified",
-          "raw_position": "NC"
-        },
-        {
-          "code": "BOR",
-          "name": "Gabriel Bortoleto",
-          "team": "Audi",
           "position": null,
           "status": "unclassified",
           "raw_position": "NC"
