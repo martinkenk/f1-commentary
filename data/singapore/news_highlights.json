@@ -1,0 +1,97 @@
+{
+  "reviewed_at": "2026-10-11T00:21:55Z",
+  "expires_at": "2026-10-11T20:21:55Z",
+  "through_session": "Sprint",
+  "feed_fingerprint": "7fe9afbe1900331f77418cf320a828b7a7f525c89d0fc0f23732eeeab0e1f73d",
+  "items": [
+    {
+      "topic": "Qualifying",
+      "title": "Verstappen takes a first Singapore pole by 0.054s from Leclerc",
+      "date": "2026-10-10",
+      "summary": "Max Verstappen's 1:31.373 beat Charles Leclerc (1:31.427) and Lewis Hamilton (1:31.496) in Q3; Verstappen did not improve on his final run and neither Ferrari found the gap to take pole. Antonelli and Norris were P4 and P5. The Race argues Ferrari handed the pole away through Leclerc's misjudgement.",
+      "why_it_matters": "A first Marina Bay pole for Verstappen after the Sprint win, with two Ferraris within 0.123s directly behind for Sunday's race.",
+      "sources": [
+        {
+          "label": "Formula1.com: Qualifying report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-beats-leclerc-to-pole-position-for-the-singapore-gp.7yum1V3S9aSTyj3Zzzs0Y9"
+        },
+        {
+          "label": "The Race: How Ferrari handed Singapore pole to Verstappen",
+          "url": "https://www.the-race.com/formula-1/how-ferrari-handed-singapore-pole-to-verstappen/"
+        }
+      ]
+    },
+    {
+      "topic": "Sprint",
+      "title": "Verstappen wins the rain-delayed Sprint as Russell crashes from the lead",
+      "date": "2026-10-10",
+      "summary": "After a downpour delayed the start, all cars ran intermediates. Russell passed Verstappen at the start but crashed at the final corner of lap one; Verstappen won from Hamilton and Leclerc, with Antonelli fourth and Lawson fifth. Eight drivers were not classified, including a three-car Williams/Audi/Cadillac collision and Hadjar's mechanical retirement.",
+      "why_it_matters": "Russell scored nothing in the Sprint while title leader Antonelli added points, and Verstappen has now won both the Bahrain GP in Malaysia and the Sprint.",
+      "sources": [
+        {
+          "label": "Formula1.com: Sprint report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-wins-dramatic-rain-hit-singapore-sprint-as-russell-crashes-and-mclarens-collide.4r90mH2skljBa5sinFAsyp"
+        },
+        {
+          "label": "The Race: Sprint report",
+          "url": "https://www.the-race.com/formula-1/verstappen-wins-delayed-singapore-sprint-russell-crashes-from-lead/"
+        }
+      ]
+    },
+    {
+      "topic": "Stewards",
+      "title": "No action for the McLaren Sprint collision; Russell serves a 40-place PU drop",
+      "date": "2026-10-10",
+      "summary": "Stewards investigated Norris/Piastri at Turn 5 on the final Sprint lap and took no further action, finding both drivers contributed and neither was wholly or predominantly to blame. Separately, FIA Document 20 lists a 40-grid-place drop for Russell for new power-unit elements, applied to his next race; Verstappen's Sprint Qualifying yellow-flag matter also drew no penalty.",
+      "why_it_matters": "Keeps McLaren's intra-team friction unresolved (Stella called it 'serious') and means Russell's Sunday starting position is governed by the penalty, not his qualifying time. Check the final official grid before quoting his slot.",
+      "sources": [
+        {
+          "label": "Formula1.com: Stewards' verdict on McLaren collision",
+          "url": "https://www.formula1.com/en/latest/article/stewards-reach-verdict-after-mclaren-intra-team-collision-in-singapore-gp-sprint.2LEoxWh3e7IEg674uCdLQ5"
+        },
+        {
+          "label": "Formula1.com: Stella 'disappointed' by clash",
+          "url": "https://www.formula1.com/en/latest/article/it-is-serious-stella-disappointed-by-norris-and-piastris-clash-in-singapore-sprint.7hW2cxQgohHZfu4wgvtfRQ"
+        },
+        {
+          "label": "FIA Document 20: Car 63 PU elements",
+          "url": "https://www.fia.com/system/files/decision-document/2026_singapore_grand_prix_-_infringement_-_car_63_-_changes_to_pu_elements.pdf"
+        },
+        {
+          "label": "The Race: grid after two penalties",
+          "url": "https://www.the-race.com/formula-1/f1-2026-singapore-grand-prix-starting-grid-after-two-penalties/"
+        }
+      ]
+    },
+    {
+      "topic": "Reliability",
+      "title": "Hadjar's weekend unravels: Sprint retirement, then no timed lap in Qualifying",
+      "date": "2026-10-10",
+      "summary": "Hadjar retired from the Sprint with a mechanical failure and a gearbox fault stopped him setting a timed lap in Qualifying, leaving him at the back. He had also lost a potential podium in Malaysia to a battery issue.",
+      "why_it_matters": "A recurring Red Bull reliability thread, even as Verstappen leads the team's pace on pole.",
+      "sources": [
+        {
+          "label": "Formula1.com: Hadjar on reliability woes",
+          "url": "https://www.formula1.com/en/latest/article/hadjar-really-p-d-to-miss-out-on-singapore-qualifying-as-reliability-woes-continue.4kqEILdQ3b5m391JE11XXy"
+        }
+      ]
+    },
+    {
+      "topic": "Mercedes",
+      "title": "Mercedes run split specifications; Antonelli says he is 'seeing the potential' in the upgrades",
+      "date": "2026-10-10",
+      "summary": "Mercedes brought two car specifications after struggling to understand their Sepang developments; Antonelli (new package) reported a better day, while Russell said he is trying to understand his lack of qualifying pace.",
+      "why_it_matters": "Frames the Mercedes upgrade question for the race; evidence so far is driver comment, with Antonelli fourth and Russell facing a penalty.",
+      "sources": [
+        {
+          "label": "Formula1.com: Antonelli on upgrades",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-now-seeing-the-potential-in-mercedes-upgrades-after-better-day-in-singapore.1BdEq0Y4u9ZIr3eSyJWhes"
+        },
+        {
+          "label": "Formula1.com: Russell on lack of pace",
+          "url": "https://www.formula1.com/en/latest/article/didnt-feel-the-same-russell-trying-to-understand-lack-of-pace-in-singapore-gp-qualifying.1sLY17kQLqTBgyoTRUQOHo"
+        }
+      ]
+    }
+  ]
+}
