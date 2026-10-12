@@ -1,0 +1,97 @@
+{
+  "reviewed_at": "2026-10-12T00:55:00+00:00",
+  "expires_at": "2026-10-12T20:00:00+00:00",
+  "through_session": "Race",
+  "feed_fingerprint": "33b6a0348f81a05e3bbdf480dca90ab2731107d1c8060c58c096ad970b401059",
+  "items": [
+    {
+      "topic": "Race result",
+      "title": "Verstappen wins his first Singapore Grand Prix from pole",
+      "date": "2026-10-11",
+      "summary": "Max Verstappen led throughout the hot, humid race for his first win at Marina Bay at the tenth attempt, finishing 7.3s ahead of Charles Leclerc with Kimi Antonelli third. Norris, Piastri and Hamilton completed the top six; Russell recovered from the back row to ninth.",
+      "why_it_matters": "His second win in a row after the Bahrain Grand Prix in Malaysia, and he also won the Sprint; Ferrari again had the pace to fight but not the result.",
+      "sources": [
+        {
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-seals-commanding-singapore-grand-prix-victory-from-leclerc-and-antonelli.49wDzysiVqi5cloGjle40A"
+        },
+        {
+          "label": "Formula1.com: Verstappen on maiden Singapore win",
+          "url": "https://www.formula1.com/en/latest/article/its-taken-a-while-verstappen-thrilled-with-maiden-singapore-win-at-10th-attempt.7A6wicGmDmoONtJzg1TdLl"
+        },
+        {
+          "label": "Formula1.com Singapore lowdown",
+          "url": "https://www.formula1.com/en/latest/article/singapore-lowdown-all-the-key-moments-as-verstappen-dominates-and-ferrari-face-strategy-turmoil.08P4aNzUgbtUZ7GnJ9njb"
+        }
+      ]
+    },
+    {
+      "topic": "Ferrari strategy",
+      "title": "Hamilton's Virtual Safety Car gamble costs Ferrari a podium",
+      "date": "2026-10-11",
+      "summary": "Hamilton started third on mediums, pitted first for softs and then stayed out under a Virtual Safety Car when a second-stop opportunity arose. He finished sixth. He took 'full responsibility'; team principal Fred Vasseur called it a 'mistake' that lost a podium.",
+      "why_it_matters": "Ferrari's strategy call-making is under scrutiny just as Leclerc secured second; expect questions about in-team decision-making.",
+      "sources": [
+        {
+          "label": "Formula1.com: Hamilton takes responsibility",
+          "url": "https://www.formula1.com/en/latest/article/a-painful-lesson-hamilton-apologises-as-he-takes-responsibility-for-strategy-gamble-in-singapore.6NUbQvdet1DQa5ElDtonw1"
+        },
+        {
+          "label": "Formula1.com: Vasseur reacts",
+          "url": "https://www.formula1.com/en/latest/article/it-was-a-mistake-vasseur-reacts-to-hamiltons-strategy-call-that-lost-a-podium-in-singapore.7FetC3ZueATDEKBKuuy4V"
+        }
+      ]
+    },
+    {
+      "topic": "Championship",
+      "title": "Antonelli moves to the brink of the title",
+      "date": "2026-10-11",
+      "summary": "Formula1.com reports Antonelli's podium, plus Russell's ninth from the back of the grid, leaves him 102 points clear in the drivers' standings, with a first chance of sealing the title. Our standings table remains on the last official Formula1.com refresh until that source updates.",
+      "why_it_matters": "Title-clinching permutations become the central storyline of the next round; check the official table before quoting totals.",
+      "sources": [
+        {
+          "label": "Formula1.com: Antonelli reacts",
+          "url": "https://www.formula1.com/en/latest/article/can-i-really-antonelli-reacts-as-he-gives-himself-first-chance-of-sealing-world-title-after-singapore-podium.2BhiC6Exd2Jtm9uT3xZ2Rb"
+        },
+        {
+          "label": "Formula1.com: Russell on recovery drive",
+          "url": "https://www.formula1.com/en/latest/article/the-story-of-the-season-russell-assesses-very-difficult-recovery-drive-in-singapore-grand-prix.bdIuyUxGaD3yWI4SpS7zZ"
+        }
+      ]
+    },
+    {
+      "topic": "McLaren",
+      "title": "Norris and Piastri collide in the Sprint; no stewards' action",
+      "date": "2026-10-10",
+      "summary": "The McLaren team-mates touched at Turn 5 on the final lap of the Sprint chasing Leclerc for the last podium place; Piastri retired. Stewards took no action against either driver. Andrea Stella called it 'serious'.",
+      "why_it_matters": "Internal McLaren friction carried into the race, where Norris finished fourth and Piastri fifth.",
+      "sources": [
+        {
+          "label": "Formula1.com: stewards' verdict",
+          "url": "https://www.formula1.com/en/latest/article/stewards-reach-verdict-after-mclaren-intra-team-collision-in-singapore-gp-sprint.2LEoxWh3e7IEg674uCdLQ5"
+        },
+        {
+          "label": "Formula1.com: Stella 'it is serious'",
+          "url": "https://www.formula1.com/en/latest/article/it-is-serious-stella-disappointed-by-norris-and-piastris-clash-in-singapore-sprint.7hW2cxQgohHZfu4wgvtfRQ"
+        },
+        {
+          "label": "Formula1.com Sprint report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-wins-dramatic-rain-hit-singapore-sprint-as-russell-crashes-and-mclarens-collide.4r90mH2skljBa5sinFAsyp"
+        }
+      ]
+    },
+    {
+      "topic": "2027 line-ups",
+      "title": "Racing Bulls to pick 2027 drivers 'in the coming weeks'",
+      "date": "2026-10-11",
+      "summary": "Alan Permane says Racing Bulls will decide between three contenders shortly. Formula1.com reports every team except Racing Bulls and Haas has confirmed unchanged pairings for next year.",
+      "why_it_matters": "The last open seats on the 2027 grid; Lawson scored points again in Singapore.",
+      "sources": [
+        {
+          "label": "Formula1.com: Permane on 2027",
+          "url": "https://www.formula1.com/en/latest/article/permane-states-racing-bulls-will-select-their-2027-driver-line-up-in-the-coming-weeks.39Cso2HINAEU5KViOulOZb"
+        }
+      ]
+    }
+  ]
+}
