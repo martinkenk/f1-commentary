@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-10-15T10:38:03+00:00",
+  "checked_at": "2026-10-15T16:02:07+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -4729,7 +4729,7 @@
       "label": "Race",
       "date": "2026-09-06",
       "url": "https://www.formula1.com/en/results/2026/races/1293/italy/race-result",
-      "fetched_at": "2026-10-08T12:32:52+00:00",
+      "fetched_at": "2026-10-15T16:02:07+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -5089,7 +5089,7 @@
       "label": "Race",
       "date": "2026-09-13",
       "url": "https://www.formula1.com/en/results/2026/races/1294/spain/race-result",
-      "fetched_at": "2026-10-08T12:32:52+00:00",
+      "fetched_at": "2026-10-15T16:02:07+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -6029,7 +6029,7 @@
       "label": "Race",
       "date": "2026-10-11",
       "url": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result",
-      "fetched_at": "2026-10-15T10:38:03+00:00",
+      "fetched_at": "2026-10-15T16:02:07+00:00",
       "drivers": [
         {
           "code": "VER",
