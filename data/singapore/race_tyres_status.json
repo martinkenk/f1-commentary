@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-10-19T11:42:59+00:00",
+  "checked_at": "2026-10-19T18:04:00+00:00",
   "state": "error",
-  "error": "https://coffeecornermotorsport.com/feed/: Unsupported publisher feed format: invalid XML; https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-singapore-gp.5jWKmehs0PU7rZJfM7hesc: Published article is access-restricted; no login or protected API attempted",
+  "error": "https://coffeecornermotorsport.com/feed/: Source fetch failed: <urlopen error timed out>; https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-singapore-gp.5jWKmehs0PU7rZJfM7hesc: Published article is access-restricted; no login or protected API attempted",
   "attempts": [
     {
       "url": "https://www.formula1.com/en/latest/all.html",
@@ -11,7 +11,7 @@
     {
       "url": "https://coffeecornermotorsport.com/feed/",
       "state": "error",
-      "message": "Unsupported publisher feed format: invalid XML"
+      "message": "Source fetch failed: <urlopen error timed out>"
     },
     {
       "url": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-singapore-gp.5jWKmehs0PU7rZJfM7hesc",
