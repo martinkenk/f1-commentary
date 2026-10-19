@@ -1,0 +1,51 @@
+{
+  "reviewed_at": "2026-10-19T17:40:00Z",
+  "expires_at": "2026-10-20T11:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "items": [
+    {
+      "topic": "Championship",
+      "title": "Antonelli can clinch the Drivers' title in Austin, but only with a win",
+      "date": "2026-10-19",
+      "summary": "Formula1.com's race-week preview says Kimi Antonelli can become champion at COTA only by winning. Even then he needs help: Russell would have to finish no higher than ninth and Hamilton no higher than fifth.",
+      "why_it_matters": "The permutation is narrow, so a title celebration is unlikely but live; frame the race around Antonelli's win and the results of Russell and Hamilton. Totals on this site's standings table remain the last official refresh.",
+      "sources": [
+        {
+          "label": "Formula1.com: It's race week – 5 storylines",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-united-states-grand-prix.4utgT1kLqHM2HAM98YP4TW"
+        }
+      ]
+    },
+    {
+      "topic": "Form",
+      "title": "Verstappen arrives on a two-race win streak; upgrades could reshuffle the order",
+      "date": "2026-10-19",
+      "summary": "Verstappen won the Bahrain GP in Malaysia and the Singapore GP (plus the Singapore Sprint). Formula1.com says McLaren plan further upgrades in Austin after Baku's package, while Mercedes have named no new parts but get a three-practice weekend to understand their Malaysia upgrade.",
+      "why_it_matters": "Pecking order has fluctuated all year; use FP1-FP3 pace and upgrade reports to judge whether Red Bull's momentum holds. Verstappen's title chances are described as very slim.",
+      "sources": [
+        {
+          "label": "Formula1.com: It's race week – 5 storylines",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-united-states-grand-prix.4utgT1kLqHM2HAM98YP4TW"
+        }
+      ]
+    },
+    {
+      "topic": "Line-ups",
+      "title": "Haas confirm Camara for 2027; Racing Bulls left with a vacancy",
+      "date": "2026-10-19",
+      "summary": "Haas announced F2 championship leader Rafael Camara on a multi-year deal, expected to partner Ollie Bearman in 2027, replacing Esteban Ocon. Formula1.com notes Racing Bulls have yet to confirm either driver for 2027. Haas also run a one-off 'Godzilla Minus Zero' livery in Austin.",
+      "why_it_matters": "Ocon races Austin as a departing driver and Bearman's 2027 seat is described as a formality by Komatsu, not officially confirmed in the source; the Racing Bulls seats are the open market story.",
+      "sources": [
+        {
+          "label": "Formula1.com: It's race week – 5 storylines",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-united-states-grand-prix.4utgT1kLqHM2HAM98YP4TW"
+        },
+        {
+          "label": "Formula1.com: Haas Godzilla livery gallery",
+          "url": "https://www.formula1.com/en/latest/article/gallery-haas-reveal-striking-godzilla-themed-livery-for-united-states-grand-prix-in-austin.37aecsdQPx4DOh7q1qrYTX"
+        }
+      ]
+    }
+  ]
+}
