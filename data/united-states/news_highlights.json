@@ -1,0 +1,39 @@
+{
+  "reviewed_at": "2026-10-21T14:03:00Z",
+  "expires_at": "2026-10-22T06:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "fbcdbcb96766b34bfe0dd7bd6f51d0fe63fe742adc9ff167ad77c9e4265a5728",
+  "items": [
+    {
+      "topic": "Championship",
+      "title": "Antonelli could be crowned champion in Austin",
+      "date": "2026-10-19",
+      "summary": "Formula1.com's race-week preview says a new Drivers' Champion could be crowned at the United States Grand Prix, with Kimi Antonelli in the position to do so.",
+      "why_it_matters": "Frame the weekend around the title. The official standings refresh has not yet reconciled with the Singapore classification, so check the dated standings table before quoting any points gap or clinching scenario.",
+      "sources": [
+        {"label": "Formula1.com: 5 storylines ahead of the 2026 United States Grand Prix", "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-united-states-grand-prix.4utgT1kLqHM2HAM98YP4TW"}
+      ]
+    },
+    {
+      "topic": "Tyres",
+      "title": "Pirelli picks C2/C3/C4, a step softer than last year's Austin trio",
+      "date": "2026-10-21",
+      "summary": "C2 is the hard, C3 the medium and C4 the soft. Drivers have two hard, three medium and eight soft sets, with an extra soft reserved for Q3 runners. The standard format applies, so there is no Sprint. Last year's Sprint weekend used the C1, C3 and C4.",
+      "why_it_matters": "Strategy talk starts from a standard-format allocation with two mandatory slick compounds in a dry race. Pirelli says the circuit loads both axles.",
+      "sources": [
+        {"label": "Formula1.com: What tyres will the teams and drivers have for the 2026 United States Grand Prix?", "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-united-states-grand-prix.44LKddYSbUJK1LxMAa6VLI"}
+      ]
+    },
+    {
+      "topic": "Liveries",
+      "title": "Haas and Mercedes run one-off Austin liveries",
+      "date": "2026-10-21",
+      "summary": "Haas revealed a Godzilla-themed VF-26 livery for Bearman and Ocon. Mercedes followed with a special livery highlighting its Mercedes-Benz MANUFAKTUR customisation programme.",
+      "why_it_matters": "Useful visual identification on air for the weekend. Note that these are appearance changes, not performance news.",
+      "sources": [
+        {"label": "Formula1.com: Haas Godzilla livery", "url": "https://www.formula1.com/en/latest/article/gallery-haas-reveal-striking-godzilla-themed-livery-for-united-states-grand-prix-in-austin.37aecsdQPx4DOh7q1qrYTX"},
+        {"label": "Formula1.com: Mercedes special livery", "url": "https://www.formula1.com/en/latest/article/gallery-mercedes-show-off-special-livery-for-united-states-grand-prix-weekend.56I955QMPnrmCAzO1hQdpu"}
+      ]
+    }
+  ]
+}
