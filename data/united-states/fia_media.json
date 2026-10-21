@@ -1,11 +1,67 @@
 {
-  "checked_at": "2026-10-21T13:35:20+00:00",
-  "discovery_retrieved_at": "",
-  "documents": [],
-  "errors": [
+  "checked_at": "2026-10-21T19:59:43+00:00",
+  "discovery_retrieved_at": "2026-10-21T19:58:35.346449+00:00",
+  "documents": [
     {
-      "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/United%20States%20Grand%20Prix",
-      "error": "No saved FIA discovery manifest"
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "filename": "2026_united_states_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "categories": [
+        "tyres"
+      ],
+      "sha256": "3c6025f854f80b2f22f563eaa36330cd0af6ce62073812e59667238ee441afa5",
+      "fetched_at": "2026-10-21T19:59:43+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-united-states-122313d1fa49-3c6025f854f80b2f-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_competition_visa.pdf",
+      "filename": "2026_united_states_grand_prix_-_competition_visa.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "51241315c81c111f9b5be508544f92518c68ae94d71ae59d65e3f78d59467595",
+      "fetched_at": "2026-10-21T19:59:43+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-united-states-1e2d4046ba9a-51241315c81c111f-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-united-states-1e2d4046ba9a-51241315c81c111f-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-united-states-1e2d4046ba9a-51241315c81c111f-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-united-states-1e2d4046ba9a-51241315c81c111f-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-united-states-1e2d4046ba9a-51241315c81c111f-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-united-states-1e2d4046ba9a-51241315c81c111f-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-united-states-1e2d4046ba9a-51241315c81c111f-p8.png"
+        },
+        {
+          "page": 9,
+          "asset": "fia-united-states-1e2d4046ba9a-51241315c81c111f-p9.png"
+        }
+      ],
+      "revision": 0
     }
-  ]
+  ],
+  "errors": []
 }
