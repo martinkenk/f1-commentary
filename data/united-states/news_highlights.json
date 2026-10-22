@@ -1,0 +1,60 @@
+{
+  "reviewed_at": "2026-10-22T16:05:00+00:00",
+  "expires_at": "2026-10-23T08:00:00+00:00",
+  "through_session": null,
+  "feed_fingerprint": "fbcdbcb96766b34bfe0dd7bd6f51d0fe63fe742adc9ff167ad77c9e4265a5728",
+  "items": [
+    {
+      "topic": "Championship",
+      "title": "Antonelli can clinch the title in Austin, but only with a win",
+      "date": "2026-10-19",
+      "summary": "Formula1.com's preview says Kimi Antonelli must win the race to take the Drivers' title this weekend, and would also need other results to fall his way: Russell finishing no higher than ninth and Hamilton no higher than fifth, per the article's scenario.",
+      "why_it_matters": "The permutations are conditional on a win; anything less defers the celebrations. Check live standings before quoting points gaps, as the article's figures are as of its publication.",
+      "sources": [
+        {
+          "label": "Formula1.com race-week storylines",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-united-states-grand-prix.4utgT1kLqHM2HAM98YP4TW"
+        }
+      ]
+    },
+    {
+      "topic": "Tyres",
+      "title": "C2/C3/C4 for COTA, with wear rather than graining the key factor",
+      "date": "2026-10-21",
+      "summary": "Pirelli brings C2 hard, C3 medium and C4 soft to a standard-format weekend: two hard, three medium and eight soft sets, plus an extra soft for Q3 runners. Pirelli expects high wear on an ageing surface, with Turns 9-11 resurfaced this year, and says the C2 could favour a one-stop race, with heat opening the door to alternatives.",
+      "why_it_matters": "The strategy question is whether the harder compound allows long stints or Texas heat pushes teams to alternative plans. Pirelli's one-stop view is a pre-weekend expectation, not a result.",
+      "sources": [
+        {
+          "label": "Formula1.com / Pirelli tyre preview",
+          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-united-states-grand-prix.44LKddYSbUJK1LxMAa6VLI"
+        }
+      ]
+    },
+    {
+      "topic": "Development",
+      "title": "Upgrade race continues: McLaren plan more, Mercedes want to understand Malaysia package",
+      "date": "2026-10-19",
+      "summary": "McLaren plan further upgrades in Austin building on the Baku package. Mercedes have not announced new parts but will use a three-practice weekend to understand the upgrade introduced in Malaysia, which they have struggled to exploit fully. Verstappen has won the last two races for Red Bull.",
+      "why_it_matters": "Practice pace is the first evidence of whether the form swings seen this season continue. Confirmed parts should be checked against the FIA car-presentation filings when published.",
+      "sources": [
+        {
+          "label": "Formula1.com race-week storylines",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-united-states-grand-prix.4utgT1kLqHM2HAM98YP4TW"
+        }
+      ]
+    },
+    {
+      "topic": "Line-ups",
+      "title": "Haas confirm Rafael Camara for 2027; Racing Bulls seats open",
+      "date": "2026-10-19",
+      "summary": "Haas announced F2 leader Rafael Camara on a multi-year deal, expected to partner Ollie Bearman in 2027. Formula1.com says Racing Bulls are the only team with an official vacancy, with neither driver confirmed.",
+      "why_it_matters": "A 2027 announcement, not a change for this weekend; Camara has not yet appeared in an FP1 session.",
+      "sources": [
+        {
+          "label": "Formula1.com race-week storylines",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-united-states-grand-prix.4utgT1kLqHM2HAM98YP4TW"
+        }
+      ]
+    }
+  ]
+}
