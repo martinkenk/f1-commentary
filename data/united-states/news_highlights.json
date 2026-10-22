@@ -1,0 +1,38 @@
+{
+  "reviewed_at": "2026-10-22T20:48:00Z",
+  "expires_at": "2026-10-23T18:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "fbcdbcb96766b34bfe0dd7bd6f51d0fe63fe742adc9ff167ad77c9e4265a5728",
+  "items": [
+    {
+      "topic": "Championship",
+      "title": "Antonelli can clinch a maiden title in Austin",
+      "date": "2026-10-22",
+      "summary": "Formula1.com reports Kimi Antonelli, with eight wins and six further podiums in 17 races, can take the title at COTA. He needs to win while team mate George Russell finishes no higher than ninth, and Hamilton and Verstappen must also finish down the order. A title would make him the youngest first-time champion, beating Sebastian Vettel's 2010 record.",
+      "why_it_matters": "This is the headline scenario of the weekend, but it is conditional on several results; Antonelli himself called it a 'perfect weekend' requirement. Check the standings page for the current table.",
+      "sources": [
+        {"label": "Formula1.com: Antonelli targets 'perfect weekend'", "url": "https://www.formula1.com/en/latest/article/it-would-be-a-dream-antonelli-targets-perfect-weekend-in-austin-to-claim-maiden-f1-title.39LQkTCcrGsLcfcPGgd4ud"}
+      ]
+    },
+    {
+      "topic": "Pecking order",
+      "title": "Red Bull's rise is debated after back-to-back Verstappen wins",
+      "date": "2026-10-22",
+      "summary": "Verstappen won in Malaysia and Singapore. Hadjar says the car is not the fastest and that Ferrari were quickest in Singapore, while Piastri credits Red Bull's Baku upgrades with a big step but notes Ferrari are strong in corners and lose on the straights. Hadjar also had a troubled Singapore weekend that ended with a pit-lane start and P10.",
+      "why_it_matters": "These are driver opinions rather than measured pace; use Friday running to test whether Red Bull or Ferrari lead on a track with a long back straight.",
+      "sources": [
+        {"label": "Formula1.com: Hadjar on Red Bull's weaknesses", "url": "https://www.formula1.com/en/latest/article/i-dont-think-we-have-the-fastest-car-hadjar-highlights-red-bulls-weaknesses-ahead-of-united-states-gp.2ttdHRoEEAi7hCQCc5mABd"}
+      ]
+    },
+    {
+      "topic": "Weather",
+      "title": "Dry and hot until a possible Sunday shower",
+      "date": "2026-10-21",
+      "summary": "Formula1.com's forecast shows Friday and Saturday dry, with track temperatures above 55C. Sunday has a 20% chance of rain as a storm system approaches, with afternoon gusts of 35-40 km/h and track temperatures near 50C.",
+      "why_it_matters": "A forecast, not a certainty: heat favours tyre-management strategy, and the small Sunday rain risk and wind are worth monitoring.",
+      "sources": [
+        {"label": "Formula1.com weather forecast", "url": "https://www.formula1.com/en/latest/article/what-is-the-weather-forecast-for-the-2026-united-states-grand-prix.ol8Mla3euA6b0oGK4Vneg"}
+      ]
+    }
+  ]
+}
