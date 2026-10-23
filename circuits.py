@@ -310,6 +310,10 @@ CIRCUITS = {
             "section; blistering and graining both appear. Bumps add to the tyre workload."
         ),
         "drs": 2,
+        "tyre_compounds": ("C2 Hard", "C3 Medium", "C4 Soft"),
+        "tyre_compounds_source": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-united-states-grand-prix.44LKddYSbUJK1LxMAa6VLI",
+        "tyre_preview_asset": "united-states_pirelli_tyres_2026.webp",
+        "tyre_preview_source": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-united-states-grand-prix.44LKddYSbUJK1LxMAa6VLI",
         "lap_record": "1:36.169 — Charles Leclerc, 2019",
         "notes": [
             "First Grand Prix: 2012.",
