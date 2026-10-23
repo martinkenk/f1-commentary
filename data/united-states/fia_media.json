@@ -1,7 +1,123 @@
 {
-  "checked_at": "2026-10-23T16:12:47+00:00",
-  "discovery_retrieved_at": "2026-10-23T16:11:19.997646+00:00",
+  "checked_at": "2026-10-23T20:50:53+00:00",
+  "discovery_retrieved_at": "2026-10-23T20:50:38.576929+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "filename": "2026_united_states_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "65190ad59bdd5b0d7b358b8662038c06480582d5560ee9eb01aa9a3a0c68d4f4",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-united-states-f586b97b33e8-65190ad59bdd5b0d-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-united-states-f586b97b33e8-65190ad59bdd5b0d-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-united-states-f586b97b33e8-65190ad59bdd5b0d-p4.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_race_directors_competition_notes_v2.pdf",
+      "filename": "2026_united_states_grand_prix_-_race_directors_competition_notes_v2.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "316739c77f603f47f5e8f9cbd5b79ae410a9c39b0b8087313d1cd261e7eb9478",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-united-states-1e4e1cb87537-316739c77f603f47-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-united-states-1e4e1cb87537-316739c77f603f47-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-united-states-1e4e1cb87537-316739c77f603f47-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-united-states-1e4e1cb87537-316739c77f603f47-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-united-states-1e4e1cb87537-316739c77f603f47-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-united-states-1e4e1cb87537-316739c77f603f47-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-united-states-1e4e1cb87537-316739c77f603f47-p8.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_car_5_-_pu_elements.pdf",
+      "filename": "2026_united_states_grand_prix_-_infringement_-_car_5_-_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "2b0cf6f1e083dd2a57c73c53d4d8b177884a536aa647708b49795e88337e4999",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-united-states-0c9b3a2bc1db-2b0cf6f1e083dd2a-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_car_43_-_pu_element.pdf",
+      "filename": "2026_united_states_grand_prix_-_infringement_-_car_43_-_pu_element.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "f0ef6c1165043373c067535fec82f1a4dcccba5c941437668bd55de56c53f91f",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-united-states-11ec1093f8b2-f0ef6c1165043373-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "filename": "2026_united_states_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "a87702e0a378fa937acbce0cce9d8097a5dcdad1a405a2d9f0dc2b620786881d",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-united-states-86829f5cc3cf-a87702e0a378fa93-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-united-states-86829f5cc3cf-a87702e0a378fa93-p3.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_car_presentation_submissions.pdf",
       "filename": "2026_united_states_grand_prix_-_car_presentation_submissions.pdf",
@@ -9,7 +125,7 @@
         "upgrades"
       ],
       "sha256": "fea610fdb9e255ee52b561f9bf482c149e354596e84b28396699415b842b4fd8",
-      "fetched_at": "2026-10-23T16:12:47+00:00",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -93,7 +209,7 @@
         "powerunit"
       ],
       "sha256": "041eeb15e46ebb8b765e3dcaf5d8176daaf8555c8bf24bf2ed767e843f65bb72",
-      "fetched_at": "2026-10-23T16:12:47+00:00",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -109,7 +225,7 @@
         "powerunit"
       ],
       "sha256": "981bca3ac1190bcd0acefdfa24cdc850d02e4c93318362e999d353784dc7c64b",
-      "fetched_at": "2026-10-23T16:12:47+00:00",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -125,7 +241,7 @@
         "circuit"
       ],
       "sha256": "120b2bce2d733b8c85a9a7ef9040ff0684eeb4615983cda79daae66c2c6c35c2",
-      "fetched_at": "2026-10-23T16:12:47+00:00",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -149,7 +265,7 @@
         "circuit"
       ],
       "sha256": "c27ee4ad957d544d84af4127be1bd75ab318c9c8f6bca4847cd1b5a295dda6cc",
-      "fetched_at": "2026-10-23T16:12:47+00:00",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -189,7 +305,7 @@
         "upgrades"
       ],
       "sha256": "640b288fc4ac789f103d87c73ed9092075489460df7769b9a7df1cd62e1174fb",
-      "fetched_at": "2026-10-23T16:12:47+00:00",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -205,7 +321,7 @@
         "powerunit"
       ],
       "sha256": "c1792447eba36d345046f5852d9834171df85a3dc2b64ed78b26e8b40a3e7fe2",
-      "fetched_at": "2026-10-23T16:12:47+00:00",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
       "pages": [
         {
           "page": 1,
@@ -221,7 +337,7 @@
         "tyres"
       ],
       "sha256": "3c6025f854f80b2f22f563eaa36330cd0af6ce62073812e59667238ee441afa5",
-      "fetched_at": "2026-10-23T16:12:47+00:00",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
       "pages": [
         {
           "page": 2,
@@ -237,7 +353,7 @@
         "schedule"
       ],
       "sha256": "51241315c81c111f9b5be508544f92518c68ae94d71ae59d65e3f78d59467595",
-      "fetched_at": "2026-10-23T16:12:47+00:00",
+      "fetched_at": "2026-10-23T20:50:53+00:00",
       "pages": [
         {
           "page": 2,

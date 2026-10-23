@@ -1,0 +1,211 @@
+{
+  "event": {
+    "year": "2026",
+    "race_id": "1297",
+    "results_slug": "united-states",
+    "gp": "united-states"
+  },
+  "checked_at": "2026-10-23T20:52:26+00:00",
+  "sessions": [
+    {
+      "label": "Practice 1",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "1:36.052",
+          "26"
+        ],
+        [
+          "2",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "+0.084s",
+          "25"
+        ],
+        [
+          "3",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "+0.245s",
+          "22"
+        ],
+        [
+          "4",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "+0.326s",
+          "26"
+        ],
+        [
+          "5",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "+0.481s",
+          "25"
+        ],
+        [
+          "6",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+0.503s",
+          "23"
+        ],
+        [
+          "7",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+0.734s",
+          "23"
+        ],
+        [
+          "8",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+0.943s",
+          "23"
+        ],
+        [
+          "9",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+1.011s",
+          "26"
+        ],
+        [
+          "10",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "+1.257s",
+          "22"
+        ],
+        [
+          "11",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+1.613s",
+          "23"
+        ],
+        [
+          "12",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+1.636s",
+          "22"
+        ],
+        [
+          "13",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+1.731s",
+          "25"
+        ],
+        [
+          "14",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+1.738s",
+          "23"
+        ],
+        [
+          "15",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+1.749s",
+          "23"
+        ],
+        [
+          "16",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "+1.844s",
+          "26"
+        ],
+        [
+          "17",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+2.069s",
+          "23"
+        ],
+        [
+          "18",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+2.070s",
+          "21"
+        ],
+        [
+          "19",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+2.794s",
+          "19"
+        ],
+        [
+          "20",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+3.001s",
+          "21"
+        ],
+        [
+          "21",
+          "25",
+          "Colton Herta HER",
+          "Cadillac",
+          "+3.927s",
+          "21"
+        ],
+        [
+          "22",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+40.416s",
+          "19"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/1",
+      "fetched_at": "2026-10-23T20:52:26+00:00",
+      "session_start": "2026-10-23T12:30:00-05:00",
+      "retained": false
+    }
+  ],
+  "statuses": [
+    {
+      "label": "Practice 1",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/1"
+    }
+  ]
+}
