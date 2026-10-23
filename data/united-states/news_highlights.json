@@ -1,0 +1,72 @@
+{
+  "reviewed_at": "2026-10-23T00:07:22Z",
+  "expires_at": "2026-10-23T22:07:22Z",
+  "through_session": null,
+  "feed_fingerprint": "24517645da419550984c7076d89085459bc83343acf0ecdf1b259f7ac3033720",
+  "items": [
+    {
+      "topic": "Championship",
+      "title": "Antonelli can clinch a maiden Drivers' title in Austin",
+      "date": "2026-10-22",
+      "summary": "Kimi Antonelli arrives at the United States Grand Prix on the cusp of the championship in his second F1 season, with eight wins and six further podiums from 17 Grands Prix. He says winning the title this weekend would be 'a dream' but that it needs a 'perfect weekend'.",
+      "why_it_matters": "The title could be decided as early as Sunday; the exact points scenario must be taken from the timestamped standings page, not from preview prose.",
+      "sources": [
+        {
+          "label": "Formula1.com: Antonelli targets 'perfect weekend'",
+          "url": "https://www.formula1.com/en/latest/article/it-would-be-a-dream-antonelli-targets-perfect-weekend-in-austin-to-claim-maiden-f1-title.39LQkTCcrGsLcfcPGgd4ud"
+        },
+        {
+          "label": "Formula1.com: race-week storylines",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-united-states-grand-prix.4utgT1kLqHM2HAM98YP4TW"
+        }
+      ]
+    },
+    {
+      "topic": "Red Bull form",
+      "title": "Verstappen and Red Bull arrive on a Malaysia–Singapore winning run, but doubts remain",
+      "date": "2026-10-22",
+      "summary": "Max Verstappen won the last two Grands Prix, in Malaysia and Singapore, after Red Bull's major upgrades, and targets a fifth win at COTA. Verstappen warns that the form may not continue, and Isack Hadjar says Red Bull do not 'have the fastest car' and rates Ferrari the quickest team last time out. Verstappen also backed Laurent Mekies' contract extension to 2031.",
+      "why_it_matters": "Driver opinion, not measured pace: use Friday long runs to test whether Red Bull or Ferrari is the genuine benchmark.",
+      "sources": [
+        {
+          "label": "Formula1.com: Hadjar on Red Bull's weaknesses",
+          "url": "https://www.formula1.com/en/latest/article/i-dont-think-we-have-the-fastest-car-hadjar-highlights-red-bulls-weaknesses-ahead-of-united-states-gp.2ttdHRoEEAi7hCQCc5mABd"
+        },
+        {
+          "label": "Formula1.com: Verstappen backs Mekies",
+          "url": "https://www.formula1.com/en/latest/article/he-fully-deserves-it-verstappen-backs-mekies-contract-extension-but-wary-of-red-bulls-winning-form-continuing-in-austin.2z5DsziITrRNyz7pVwJzu8"
+        },
+        {
+          "label": "Formula1.com: weather forecast",
+          "url": "https://www.formula1.com/en/latest/article/what-is-the-weather-forecast-for-the-2026-united-states-grand-prix.ol8Mla3euA6b0oGK4Vneg"
+        }
+      ]
+    },
+    {
+      "topic": "Tyres",
+      "title": "Pirelli brings C2/C3/C4 for a standard-format weekend",
+      "date": "2026-10-21",
+      "summary": "Pirelli nominated C2 hard, C3 medium and C4 soft. Last year's Sprint weekend used non-consecutive C1, C3 and C4; this year the usual Grand Prix format applies.",
+      "why_it_matters": "The Pirelli event-preview graphic is on the Tyres page. Official race-set inventories are not published yet.",
+      "sources": [
+        {
+          "label": "Formula1.com/Pirelli: tyre allocation",
+          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-united-states-grand-prix.44LKddYSbUJK1LxMAa6VLI"
+        }
+      ]
+    },
+    {
+      "topic": "Track",
+      "title": "Drivers renew complaints about COTA's bumps",
+      "date": "2026-10-22",
+      "summary": "Verstappen fears drivers will suffer 'much more' spinal damage if the 'out of control' bumps at the Circuit of the Americas are not addressed; the track was resurfaced in 2022 to tackle the problem.",
+      "why_it_matters": "This is driver opinion, not an FIA decision; check Friday reaction to the surface.",
+      "sources": [
+        {
+          "label": "The Race: Verstappen's bump concerns",
+          "url": "https://www.the-race.com/formula-1/verstappens-spinal-damage-fears-from-out-of-control-f1-bumps/"
+        }
+      ]
+    }
+  ]
+}
