@@ -1,6 +1,5 @@
 {
-  "checked_at": "2026-10-24T18:30:07.657645+00:00",
+  "checked_at": "2026-10-24T22:09:19.168119+00:00",
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Singapore%20Grand%20Prix",
-  "ok": false,
-  "error": "FIA documents page unavailable: The read operation timed out; season fallback failed: The read operation timed out"
+  "ok": true
 }

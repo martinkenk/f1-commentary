@@ -5,7 +5,7 @@
     "results_slug": "united-states",
     "gp": "united-states"
   },
-  "checked_at": "2026-10-24T18:52:20+00:00",
+  "checked_at": "2026-10-24T22:10:54+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/1",
-      "fetched_at": "2026-10-24T18:52:20+00:00",
+      "fetched_at": "2026-10-24T22:10:54+00:00",
       "session_start": "2026-10-23T12:30:00-05:00",
       "retained": false
     },
@@ -389,7 +389,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/2",
-      "fetched_at": "2026-10-24T18:52:20+00:00",
+      "fetched_at": "2026-10-24T22:10:54+00:00",
       "session_start": "2026-10-23T16:00:00-05:00",
       "retained": false
     },
@@ -582,7 +582,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/3",
-      "fetched_at": "2026-10-24T18:52:20+00:00",
+      "fetched_at": "2026-10-24T22:10:54+00:00",
       "session_start": "2026-10-24T12:30:00-05:00",
       "retained": false
     }
@@ -602,6 +602,20 @@
       "label": "Practice 3",
       "state": "available",
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/3"
+    },
+    {
+      "label": "Qualifying",
+      "state": "unavailable",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
+      "error": "Incomplete classification: 1 entrants",
+      "retained": false
+    },
+    {
+      "label": "Starting Grid",
+      "state": "pending",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/starting-grid",
+      "error": "Incomplete classification: 1 entrants",
+      "retained": false
     }
   ]
 }

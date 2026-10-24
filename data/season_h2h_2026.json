@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-10-24T18:28:52+00:00",
+  "checked_at": "2026-10-24T22:09:01+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -35,13 +35,19 @@
     "bahrain/qualifying",
     "bahrain/race-result",
     "singapore/qualifying",
-    "singapore/race-result"
+    "singapore/race-result",
+    "united-states/qualifying"
   ],
   "errors": [
     {
       "key": "singapore/qualifying",
       "url": "https://www.formula1.com/en/results/2026/races/1296/singapore/qualifying",
       "error": "Unknown classification position: 'RT'"
+    },
+    {
+      "key": "united-states/qualifying",
+      "url": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
+      "error": "Incomplete Qualifying classification: 1 rows"
     }
   ],
   "sessions": [
