@@ -1,0 +1,50 @@
+{
+  "reviewed_at": "2026-10-23T23:58:00Z",
+  "expires_at": "2026-10-24T09:00:00Z",
+  "through_session": "Practice 1",
+  "feed_fingerprint": "3377579f272729c73348fc6a23eda2d5625a92b27915a5168614c03c3f8128c7",
+  "items": [
+    {
+      "topic": "Practice pace",
+      "title": "Leclerc tops both Friday sessions; Antonelli and Verstappen close",
+      "date": "2026-10-23",
+      "summary": "Charles Leclerc was fastest in FP1 ahead of Max Verstappen and Lando Norris, then led FP2 from Kimi Antonelli and Verstappen. Verstappen set the early FP2 benchmark on mediums, while track-limit deletions hit Hamilton, Hadjar and Antonelli.",
+      "why_it_matters": "Ferrari, Mercedes and Red Bull all look close on Friday pace; treat Friday times as indicative because fuel loads and engine modes are unknown.",
+      "sources": [
+        {"label": "Formula1.com FP2 report", "url": "https://www.formula1.com/en/latest/article/fp2-leclerc-sets-the-pace-from-antonelli-and-verstappen-in-second-practice-at-united-states-grand-prix.4lRGhApoylA3exqOxagIqx"},
+        {"label": "Formula1.com FP1 report", "url": "https://www.formula1.com/en/latest/article/fp1-leclerc-fastest-in-first-practice-for-the-united-states-gp-ahead-of-verstappen-and-norris.125WlaFK7K1mXXyLgb93ui"}
+      ]
+    },
+    {
+      "topic": "Grid penalties",
+      "title": "Lindblad, Colapinto and Bortoleto take power-unit grid penalties",
+      "date": "2026-10-23",
+      "summary": "Formula1.com reports a five-place penalty for Lindblad (sixth ICE against four allowed), a ten-place penalty for Colapinto (fourth control electronics unit) and a 20-place drop for Bortoleto (fourth energy store and control electronics), who is likely to start at the back.",
+      "why_it_matters": "Penalties apply to the qualifying result and are cumulative; anything over 15 places means a back-of-grid start. Check the final grid before quoting positions.",
+      "sources": [
+        {"label": "Formula1.com", "url": "https://www.formula1.com/en/latest/article/lindblad-colapinto-and-bortoleto-to-take-grid-penalties-for-united-states-grand-prix.4qjn84W4zOmwNXeELFWn0k"},
+        {"label": "The Race", "url": "https://www.the-race.com/formula-1/three-drivers-get-grid-penalties-at-f1s-us-gp/"}
+      ]
+    },
+    {
+      "topic": "McLaren",
+      "title": "Norris says McLaren drivers are still allowed to race",
+      "date": "2026-10-23",
+      "summary": "After the Sprint collision with Piastri in Singapore, Norris said they remain free to race but cannot have another contact. He also said the car is not drivable enough to win a championship and that a win this year still needs a quicker car.",
+      "why_it_matters": "These are Norris's own statements, not a published team policy; watch the first laps if the McLaren pair run together.",
+      "sources": [
+        {"label": "Formula1.com", "url": "https://www.formula1.com/en/latest/article/still-allowed-to-race-norris-offers-update-on-mclarens-intra-team-orders-ahead-of-united-states-gp.5eqxhHMneE3tNGRKrqFBiW"}
+      ]
+    },
+    {
+      "topic": "Ferrari upgrade",
+      "title": "Ferrari's Austin aero package may be bigger than drivers suggested",
+      "date": "2026-10-23",
+      "summary": "The Race reports Ferrari has revealed a potentially more significant aero upgrade than Hamilton and Leclerc let on, even though both played down the expected step.",
+      "why_it_matters": "This is a media report of the upgrade's scale; compare it with Leclerc's Friday pace and the weekend's evidence before presenting it as a proven gain.",
+      "sources": [
+        {"label": "The Race", "url": "https://www.the-race.com/formula-1/ferrari-f1-2026-us-gp-biggest-upgrade-revealed/"}
+      ]
+    }
+  ]
+}
