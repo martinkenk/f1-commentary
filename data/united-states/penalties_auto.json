@@ -40,5 +40,33 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 21",
+    "no": "63",
+    "driver": "George Russell",
+    "team": "Mercedes-AMG PETRONAS F1 Team",
+    "session": "Free Practice 2",
+    "fact": "Car 63 appeared to force Car 16 off the Track at Turn 18",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_united_states_grand_prix_-_decision_-_car_63_-_alleged_forcing_another_driver_off_the_track.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_decision_-_car_63_-_alleged_forcing_another_driver_off_the_track.pdf"
+  },
+  {
+    "doc": "Doc 24",
+    "no": "",
+    "driver": "Alexander Albon; Charles Leclerc; Lance Stroll; Lewis Hamilton; Oscar Piastri; Kimi Antonelli; Isack Hadjar; Arvid Lindblad; Gabriel Bortoleto; Pierre Gasly; Fernando Alonso; Lando Norris; Carlos Sainz; Oliver Bearman; George Russell; Nico Hulkenberg; Franco Colapinto; Sergio Perez; Max Verstappen; Liam Lawson; Valtteri Bottas",
+    "team": "",
+    "session": "Free Practice 2",
+    "fact": "The F1 Cars below did not use the track at turns 2, 4, 6, 7, 9, 12, 13, 15, 16, 18, 19 and 20.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_united_states_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf"
   }
 ]
