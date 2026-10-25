@@ -1,7 +1,17 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/United%20States%20Grand%20Prix",
-  "retrieved_at": "2026-10-25T10:28:17.561403+00:00",
+  "retrieved_at": "2026-10-25T15:02:22.500687+00:00",
   "documents": [
+    {
+      "filename": "2026_united_states_grand_prix_-_post-race_procedure.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_post-race_procedure.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_pre-race_procedure.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_pre-race_procedure.pdf",
+      "categories": []
+    },
     {
       "filename": "2026_united_states_grand_prix_-_provisional_starting_grid.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_provisional_starting_grid.pdf",
@@ -63,6 +73,57 @@
       "categories": [
         "penalties"
       ]
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ]
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_summons_-_car_6_-_alleged_erratic_driving.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_summons_-_car_6_-_alleged_erratic_driving.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_free_practice_3_classification.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_free_practice_3_classification.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_summons_-_car_44_-_alleged_impeding_by_car_5.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_summons_-_car_44_-_alleged_impeding_by_car_5.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_summons_-_car_5_-_alleged_impeding_of_car_44.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_summons_-_car_5_-_alleged_impeding_of_car_44.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_summons_-_audi_-_pit_lane_incident_-_car_27.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_summons_-_audi_-_pit_lane_incident_-_car_27.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_new_pu_elements_for_this_competition_0.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_new_pu_elements_for_this_competition_0.pdf",
+      "categories": [
+        "powerunit"
+      ]
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_race_directors_competition_notes_v3.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_race_directors_competition_notes_v3.pdf",
+      "categories": [
+        "circuit"
+      ]
+    },
+    {
+      "filename": "2026_united_states_grand_prix_-_post-qualifying_procedure.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_post-qualifying_procedure.pdf",
+      "categories": []
     },
     {
       "filename": "2026_united_states_grand_prix_-_p1_and_p2_scrutineering.pdf",
