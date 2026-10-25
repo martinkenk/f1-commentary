@@ -1,0 +1,100 @@
+{
+  "reviewed_at": "2026-10-25T15:00:00Z",
+  "expires_at": "2026-10-26T06:00:00Z",
+  "through_session": "Qualifying",
+  "feed_fingerprint": "f6574aa85d02bf26830f66222df71136ebc47ce27b12b327b21dcb4e814e8861",
+  "items": [
+    {
+      "topic": "Qualifying outcome",
+      "title": "Antonelli takes pole with a title chance on the table",
+      "date": "2026-10-24",
+      "summary": "Kimi Antonelli took pole with a 1:34.035 in his first Q3 run, ahead of Max Verstappen (1:34.214) and Isack Hadjar (1:34.250), giving Red Bull the second and third places. The Race counts it as his seventh pole of 2026 and his first since July.",
+      "why_it_matters": "Formula1.com's preview says Antonelli must win the race to be champion in Austin; otherwise the title waits until Mexico City at least. Verstappen was left baffled at missing pole.",
+      "sources": [
+        {
+          "label": "Formula1.com qualifying report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-seizes-pole-position-ahead-of-verstappen-in-qualifying-at-the-united-states-gp.4xdH4w09GhNDOJdknowRAk"
+        },
+        {
+          "label": "The Race qualifying report",
+          "url": "https://www.the-race.com/formula-1/antonelli-on-us-gp-pole-as-ferrari-pole-challenge-falls-apart/"
+        },
+        {
+          "label": "Formula1.com: What to watch for",
+          "url": "https://www.formula1.com/en/latest/article/what-to-watch-for-in-the-united-states-grand-prix.1Ftck085fCa8NWcCRtR6yq"
+        },
+        {
+          "label": "Formula1.com: Verstappen reaction",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-baffled-after-missing-out-on-united-states-grand-prix-pole-position-in-austin.6MHMgwAJfyIvn6cFUbeKLR"
+        }
+      ]
+    },
+    {
+      "topic": "Sanctions",
+      "title": "Three power-unit grid penalties reshape the order",
+      "date": "2026-10-25",
+      "summary": "Arvid Lindblad, Franco Colapinto and Gabriel Bortoleto all exceeded their permitted power-unit components. Lindblad's Racing Bulls changed an element after he qualified ninth; Bortoleto's team-mate Nico Hulkenberg gave him a tow in qualifying.",
+      "why_it_matters": "The starting grid differs from the qualifying order, so use the FIA starting-grid and penalty documents for exact positions, not the classification.",
+      "sources": [
+        {
+          "label": "Formula1.com: grid penalties",
+          "url": "https://www.formula1.com/en/latest/article/lindblad-colapinto-and-bortoleto-to-take-grid-penalties-for-united-states-grand-prix.4qjn84W4zOmwNXeELFWn0k"
+        },
+        {
+          "label": "The Race: starting grid with three penalties",
+          "url": "https://www.the-race.com/formula-1/f1-2026-united-states-grand-prix-starting-grid-engine-penalties/"
+        },
+        {
+          "label": "Formula1.com: Lawson helps Lindblad",
+          "url": "https://www.formula1.com/en/latest/article/how-lawson-helped-racing-bulls-team-mate-lindblad-by-sacrificing-his-q3-run.dTI59a1UDuyke2gc1RC7b"
+        }
+      ]
+    },
+    {
+      "topic": "Ferrari",
+      "title": "Ferrari led practice but faded in qualifying",
+      "date": "2026-10-24",
+      "summary": "Leclerc topped FP1 and FP2; Hamilton led FP3 after Leclerc had a track-limits lap deleted. In qualifying Hamilton took P5 and said Ferrari were losing out on the straights, while The Race says the pole challenge fell apart. Ferrari had brought an aero upgrade for the weekend.",
+      "why_it_matters": "Practice pace did not carry into qualifying. The reasons given are driver and press analysis, not a team-confirmed diagnosis.",
+      "sources": [
+        {
+          "label": "The Race: Ferrari weaknesses",
+          "url": "https://www.the-race.com/formula-1/why-another-ferrari-f1-pole-bid-faltered-us-gp-2026/"
+        },
+        {
+          "label": "Formula1.com: Hamilton on straights",
+          "url": "https://www.formula1.com/en/latest/article/hamilton-says-ferrari-are-losing-out-on-the-straights-after-taking-p5-in-us-gp-qualifying.3HHgLe8LEJj5Cb90uXqIYL"
+        },
+        {
+          "label": "The Race: FP3 and lap deletion",
+          "url": "https://www.the-race.com/formula-1/ferrari-completes-us-gp-practice-sweep/"
+        },
+        {
+          "label": "The Race: Ferrari upgrade",
+          "url": "https://www.the-race.com/formula-1/ferrari-f1-2026-us-gp-biggest-upgrade-revealed/"
+        }
+      ]
+    },
+    {
+      "topic": "Track limits",
+      "title": "Track-limit deletions are a recurring theme",
+      "date": "2026-10-24",
+      "summary": "Deleted laps hit Leclerc in FP3, Albon in practice and Norris late in qualifying; Norris called his session disappointing. FIA documents list lap-time deletions for several drivers.",
+      "why_it_matters": "Formula1.com names track limits as a race watch item, so expect further deletions and stewards' notes.",
+      "sources": [
+        {
+          "label": "Formula1.com: Norris after qualifying",
+          "url": "https://www.formula1.com/en/latest/article/norris-disappointed-with-austin-qualifying-performance-after-late-track-limits-blow.4iiR0KWRfy5HUziFbh89kp"
+        },
+        {
+          "label": "The Race: Williams' strange day",
+          "url": "https://www.the-race.com/formula-1/what-was-behind-williams-f1-team-strangest-day-2026/"
+        },
+        {
+          "label": "Formula1.com: What to watch for",
+          "url": "https://www.formula1.com/en/latest/article/what-to-watch-for-in-the-united-states-grand-prix.1Ftck085fCa8NWcCRtR6yq"
+        }
+      ]
+    }
+  ]
+}
