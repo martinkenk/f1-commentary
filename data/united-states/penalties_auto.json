@@ -166,5 +166,19 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf"
+  },
+  {
+    "doc": "Doc 48",
+    "no": "18",
+    "driver": "Lance Stroll",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Qualifying",
+    "fact": "The setup of the suspension has been changed while under parc fermé.",
+    "outcome": "Required to start the Race from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_united_states_grand_prix_-_infringement_-_car_18_-_changes_made_during_parc_ferme.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_car_18_-_changes_made_during_parc_ferme.pdf"
   }
 ]
