@@ -1,0 +1,52 @@
+{
+  "reviewed_at": "2026-10-25T23:25:00Z",
+  "expires_at": "2026-10-26T20:00:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "ec9bad34880a34f0f15aa4297406f7b358f6d4f9f92c0fdae2fc706a76c35362",
+  "items": [
+    {
+      "topic": "Race outcome",
+      "title": "Antonelli wins in Austin with a one-stop; title still not decided",
+      "date": "2026-10-25",
+      "summary": "Antonelli led from pole on mediums and won his ninth GP of the season by 13.078s over Leclerc, with Verstappen third and Hamilton fourth. Mercedes ran a one-stop (medium then hard) while Ferrari, McLaren and Red Bull mostly stopped twice. A late VSC for Bottas's stopped Cadillac did not change the result.",
+      "why_it_matters": "Formula1.com says the title needed an Antonelli win with Russell ninth or lower and Hamilton outside the top four; Russell finished eighth and Hamilton fourth, so the championship continues. Check the current standings page for totals once the source updates.",
+      "sources": [
+        {"label": "Formula1.com race report", "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"},
+        {"label": "The Race race report", "url": "https://www.the-race.com/formula-1/antonelli-on-the-brink-of-first-f1-title-after-crushing-us-gp-win/"}
+      ]
+    },
+    {
+      "topic": "Strategy",
+      "title": "One-stop beats two-stops as Norris's tyres fade and Red Bull struggle",
+      "date": "2026-10-25",
+      "summary": "Antonelli stopped once, on lap 24, and managed hards to the flag. Verstappen reported an 'undriveable' car, and the reports describe deployment/engine-braking problems on his car and incorrect throttle mapping on Hadjar's. Norris led a podium fight on ageing hards before Verstappen, Leclerc and Hamilton passed him in the closing laps.",
+      "why_it_matters": "Tyre life, not outright pace, decided second to fifth. Red Bull's Austin problems are as reported by the team and media; do not call them confirmed technical causes.",
+      "sources": [
+        {"label": "Formula1.com race report", "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"},
+        {"label": "The Race race report", "url": "https://www.the-race.com/formula-1/antonelli-on-the-brink-of-first-f1-title-after-crushing-us-gp-win/"}
+      ]
+    },
+    {
+      "topic": "Stewards and team orders",
+      "title": "Russell, Bearman penalised; team orders at Red Bull, McLaren and Haas",
+      "date": "2026-10-25",
+      "summary": "Russell received a five-second penalty for leaving the track and gaining an advantage in a lap-one clash with Piastri; he served it at his stop and finished eighth. Bearman was penalised for hitting Gasly and later given ten seconds, then retired. Hadjar was told to let Verstappen by, McLaren switched Norris and Piastri, and Haas moved Ocon ahead of Bearman.",
+      "why_it_matters": "The Russell penalty and Hadjar order both shaped the Mercedes and Red Bull title-race arithmetic. Check the stewards' documents page for the official wording.",
+      "sources": [
+        {"label": "Formula1.com race report", "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"},
+        {"label": "The Race race report", "url": "https://www.the-race.com/formula-1/antonelli-on-the-brink-of-first-f1-title-after-crushing-us-gp-win/"}
+      ]
+    },
+    {
+      "topic": "Grid and line-up",
+      "title": "Power-unit grid penalties for Lindblad, Colapinto, Bortoleto; Stroll from the pit lane",
+      "date": "2026-10-25",
+      "summary": "Lindblad started P14, Colapinto P20 and Bortoleto P21 after exceeding power-unit element allocations. Stroll started from the pit lane after parc ferme modifications and extra PU elements. Bortoleto recovered to P13 from his heavy penalty; Colapinto retired.",
+      "why_it_matters": "The penalties came from FIA documents listed on the penalties page and explain several out-of-position finishes.",
+      "sources": [
+        {"label": "Formula1.com race report", "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"},
+        {"label": "Formula1.com grid penalties report", "url": "https://www.formula1.com/en/latest/article/lindblad-colapinto-and-bortoleto-to-take-grid-penalties-for-united-states-grand-prix.4qjn84W4zOmwNXeELFWn0k"}
+      ]
+    }
+  ]
+}
