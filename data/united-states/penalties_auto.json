@@ -124,5 +124,33 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_car_5_-_impeding_of_car_44.pdf"
+  },
+  {
+    "doc": "Doc 40",
+    "no": "",
+    "driver": "Pierre Gasly; Carlos Sainz; Gabriel Bortoleto; Oliver Bearman; Max Verstappen; Isack Hadjar; Lando Norris",
+    "team": "",
+    "session": "Qualifying",
+    "fact": "The F1 Cars below did not use the track at turns 9, 11, 17 and 19.",
+    "outcome": "Deletion\tof\tthe\tlap\ttimes\tshown\tin\taccordance\twith\tArticle\t12.4.1.e\tof\tthe\tFIA\tInternational",
+    "kind": "note",
+    "source_pdf": "2026_united_states_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 41",
+    "no": "",
+    "driver": "Esteban Ocon; Oscar Piastri; George Russell; Kimi Antonelli; Franco Colapinto",
+    "team": "",
+    "session": "Qualifying",
+    "fact": "The F1 Cars below exceeded the 1:55.0 time limit between the Safety Car lines.",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_united_states_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf"
   }
 ]
