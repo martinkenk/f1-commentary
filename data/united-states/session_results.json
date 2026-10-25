@@ -5,7 +5,7 @@
     "results_slug": "united-states",
     "gp": "united-states"
   },
-  "checked_at": "2026-10-25T18:41:18+00:00",
+  "checked_at": "2026-10-25T22:13:47+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/1",
-      "fetched_at": "2026-10-25T18:41:18+00:00",
+      "fetched_at": "2026-10-25T22:13:47+00:00",
       "session_start": "2026-10-23T12:30:00-05:00",
       "retained": false
     },
@@ -389,7 +389,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/2",
-      "fetched_at": "2026-10-25T18:41:18+00:00",
+      "fetched_at": "2026-10-25T22:13:47+00:00",
       "session_start": "2026-10-23T16:00:00-05:00",
       "retained": false
     },
@@ -582,7 +582,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/practice/3",
-      "fetched_at": "2026-10-25T18:41:18+00:00",
+      "fetched_at": "2026-10-25T22:13:47+00:00",
       "session_start": "2026-10-24T12:30:00-05:00",
       "retained": false
     },
@@ -821,7 +821,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
-      "fetched_at": "2026-10-25T18:41:18+00:00",
+      "fetched_at": "2026-10-25T22:13:47+00:00",
       "session_start": "2026-10-24T16:00:00-05:00",
       "retained": false
     },
@@ -942,57 +942,273 @@
         ],
         [
           "16",
-          "18",
-          "Lance Stroll STR",
-          "Aston Martin",
-          "1:36.677"
-        ],
-        [
-          "17",
           "55",
           "Carlos Sainz SAI",
           "Williams",
           "1:36.770"
         ],
         [
-          "18",
+          "17",
           "23",
           "Alexander Albon ALB",
           "Williams",
           "1:36.967"
         ],
         [
-          "19",
+          "18",
           "11",
           "Sergio Perez PER",
           "Cadillac",
           "1:37.433"
         ],
         [
-          "20",
+          "19",
           "77",
           "Valtteri Bottas BOT",
           "Cadillac",
           "1:37.523"
         ],
         [
-          "21",
+          "20",
           "43",
           "Franco Colapinto COL",
           "Alpine",
           "1:35.722"
         ],
         [
-          "22",
+          "21",
           "5",
           "Gabriel Bortoleto BOR",
           "Audi",
           "1:35.691"
+        ],
+        [
+          "22",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "1:36.677"
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/starting-grid",
-      "fetched_at": "2026-10-25T18:41:18+00:00",
+      "fetched_at": "2026-10-25T22:13:47+00:00",
       "session_start": "2026-10-24T17:00:00-05:00",
+      "retained": false
+    },
+    {
+      "label": "Race",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Laps",
+        "Time / Retired",
+        "Pts."
+      ],
+      "rows": [
+        [
+          "1",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "56",
+          "1:35:16.650",
+          "25"
+        ],
+        [
+          "2",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "56",
+          "+13.078s",
+          "18"
+        ],
+        [
+          "3",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "56",
+          "+17.485s",
+          "15"
+        ],
+        [
+          "4",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "56",
+          "+18.515s",
+          "12"
+        ],
+        [
+          "5",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "56",
+          "+30.521s",
+          "10"
+        ],
+        [
+          "6",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "56",
+          "+34.373s",
+          "8"
+        ],
+        [
+          "7",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "56",
+          "+52.674s",
+          "6"
+        ],
+        [
+          "8",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "56",
+          "+54.303s",
+          "4"
+        ],
+        [
+          "9",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "56",
+          "+79.183s",
+          "2"
+        ],
+        [
+          "10",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "56",
+          "+87.516s",
+          "1"
+        ],
+        [
+          "11",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "56",
+          "+94.945s",
+          "0"
+        ],
+        [
+          "12",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "55",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "13",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "55",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "14",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "55",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "15",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "55",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "16",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "55",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "17",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "55",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "18",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "55",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "19",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "55",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "NC",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "48",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "35",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "24",
+          "DNF",
+          "0"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/race-result",
+      "fetched_at": "2026-10-25T22:13:47+00:00",
+      "session_start": "2026-10-25T15:00:00-05:00",
       "retained": false
     }
   ],
@@ -1021,6 +1237,11 @@
       "label": "Starting Grid",
       "state": "available",
       "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/starting-grid"
+    },
+    {
+      "label": "Race",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1297/united-states/race-result"
     }
   ]
 }

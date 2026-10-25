@@ -180,5 +180,61 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_car_18_-_changes_made_during_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 51",
+    "no": "5",
+    "driver": "Gabriel Bortoleto",
+    "team": "Audi Revolut F1 Team",
+    "session": "Race",
+    "fact": "Car 5 left the track in turn 11",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_united_states_grand_prix_-_decision_-_car_5_-_alleged_leaving_the_track_and_gaining_and_advantage.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_decision_-_car_5_-_alleged_leaving_the_track_and_gaining_and_advantage.pdf"
+  },
+  {
+    "doc": "Doc 52",
+    "no": "87",
+    "driver": "Oliver Bearman",
+    "team": "TGR Haas F1 Team",
+    "session": "Race",
+    "fact": "Car 87 collided with Car 10 in T13.",
+    "outcome": "10 second time penalty.",
+    "kind": "penalty",
+    "source_pdf": "2026_united_states_grand_prix_-_infringement_-_car_87_-_causing_a_collision.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_car_87_-_causing_a_collision.pdf"
+  },
+  {
+    "doc": "Doc 53",
+    "no": "63",
+    "driver": "George Russell",
+    "team": "Mercedes-AMG PETRONAS F1 Team",
+    "session": "Race",
+    "fact": "Car 63 left the track and repoined gaining a lasting advantage, in Turn 12",
+    "outcome": "5 second time penalty.",
+    "kind": "penalty",
+    "source_pdf": "2026_united_states_grand_prix_-_infringement_-_car_63_-_leaving_the_track_and_gaining_an_advantage.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_car_63_-_leaving_the_track_and_gaining_an_advantage.pdf"
+  },
+  {
+    "doc": "Doc 55",
+    "no": "",
+    "driver": "Gabriel Bortoleto; Fernando Alonso; Oscar Piastri; Oliver Bearman; Lando Norris; Lewis Hamilton; Nico Hulkenberg; Alexander Albon; Charles Leclerc; Franco Colapinto; Isack Hadjar; Kimi Antonelli; Carlos Sainz; George Russell; Lance Stroll",
+    "team": "",
+    "session": "Race",
+    "fact": "The F1 Cars below did not use the track at turns 2, 9, 11, 12, 15, 19 and 20.",
+    "outcome": "Deletion of the lap times shown in accordance with Article 12.4.1.e of the FIA International",
+    "kind": "note",
+    "source_pdf": "2026_united_states_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_united_states_grand_prix_-_infringement_-_race_deleted_lap_times.pdf"
   }
 ]
