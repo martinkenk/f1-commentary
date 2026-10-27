@@ -1,0 +1,84 @@
+{
+  "reviewed_at": "2026-10-27T00:55:00Z",
+  "expires_at": "2026-10-27T20:00:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "2e2b2e89a37e44ce07f6dcbda76a7dc604ea966d9fbad212e244f67451cbb602",
+  "items": [
+    {
+      "topic": "Race outcome",
+      "title": "Antonelli wins in Austin with a one-stop; title still not decided",
+      "date": "2026-10-25",
+      "summary": "Antonelli led from pole on mediums and won his ninth GP of the season by 13.078s over Leclerc, with Verstappen third and Hamilton fourth. Mercedes ran a one-stop (medium then hard) while Ferrari, McLaren and Red Bull mostly stopped twice. A late VSC for Bottas's stopped Cadillac did not change the result.",
+      "why_it_matters": "Formula1.com's Monday lowdown says Antonelli now needs only two points in Mexico City to seal his first title; Hamilton is one point behind Russell in the drivers' standings per the same article. The site's standings table is still pending the post-Austin refresh.",
+      "sources": [
+        {
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"
+        },
+        {
+          "label": "The Race race report",
+          "url": "https://www.the-race.com/formula-1/antonelli-on-the-brink-of-first-f1-title-after-crushing-us-gp-win/"
+        },
+        {
+          "label": "Formula1.com Austin lowdown",
+          "url": "https://www.formula1.com/en/latest/article/austin-lowdown-all-the-key-moments-as-antonelli-dominates-to-edge-towards-title.4HFlGYh5oSLacvlbJEIa1y"
+        }
+      ]
+    },
+    {
+      "topic": "Strategy",
+      "title": "One-stop beats two-stops as Norris's tyres fade and Red Bull struggle",
+      "date": "2026-10-25",
+      "summary": "Antonelli stopped once, on lap 24, and managed hards to the flag. Red Bull's Verstappen said the second-stint soft call was not agreed and complained of engine braking and a poor pitstop; Mekies said the soft was not the baseline option and the team must review the high degradation. Hadjar called for a clutch redesign after repeated weak starts and complained of radio problems.",
+      "why_it_matters": "Red Bull's problems are as described by drivers and team principal; do not call them confirmed technical causes. Tyre life decided second to fifth.",
+      "sources": [
+        {
+          "label": "The Race: Verstappen and Hadjar furious",
+          "url": "https://www.the-race.com/formula-1/why-verstappen-hadjar-furious-red-bull-f1-us-gp/"
+        },
+        {
+          "label": "Formula1.com Austin lowdown",
+          "url": "https://www.formula1.com/en/latest/article/austin-lowdown-all-the-key-moments-as-antonelli-dominates-to-edge-towards-title.4HFlGYh5oSLacvlbJEIa1y"
+        },
+        {
+          "label": "The Race race report",
+          "url": "https://www.the-race.com/formula-1/antonelli-on-the-brink-of-first-f1-title-after-crushing-us-gp-win/"
+        }
+      ]
+    },
+    {
+      "topic": "Stewards and team orders",
+      "title": "Russell, Bearman penalised; team orders at Red Bull, McLaren and Haas",
+      "date": "2026-10-25",
+      "summary": "Russell received a five-second penalty for leaving the track and gaining an advantage in a lap-one clash with Piastri; he served it at his stop and finished eighth. Bearman was penalised for hitting Gasly and later given ten seconds, then retired. Hadjar was told to let Verstappen by, McLaren switched Norris and Piastri, and Haas moved Ocon ahead of Bearman.",
+      "why_it_matters": "The Russell penalty and Hadjar order both shaped the Mercedes and Red Bull title-race arithmetic. Check the stewards' documents page for the official wording.",
+      "sources": [
+        {
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"
+        },
+        {
+          "label": "The Race race report",
+          "url": "https://www.the-race.com/formula-1/antonelli-on-the-brink-of-first-f1-title-after-crushing-us-gp-win/"
+        }
+      ]
+    },
+    {
+      "topic": "Grid and line-up",
+      "title": "Power-unit grid penalties for Lindblad, Colapinto, Bortoleto; Stroll from the pit lane",
+      "date": "2026-10-25",
+      "summary": "Lindblad started P14, Colapinto P20 and Bortoleto P21 after exceeding power-unit element allocations. Stroll started from the pit lane after parc ferme modifications and extra PU elements. Bortoleto recovered to P13 from his heavy penalty; Colapinto retired.",
+      "why_it_matters": "The penalties came from FIA documents listed on the penalties page and explain several out-of-position finishes.",
+      "sources": [
+        {
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"
+        },
+        {
+          "label": "Formula1.com grid penalties report",
+          "url": "https://www.formula1.com/en/latest/article/lindblad-colapinto-and-bortoleto-to-take-grid-penalties-for-united-states-grand-prix.4qjn84W4zOmwNXeELFWn0k"
+        }
+      ]
+    }
+  ]
+}
