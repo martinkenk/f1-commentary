@@ -1,0 +1,42 @@
+{
+  "reviewed_at": "2026-10-27T00:55:00Z",
+  "expires_at": "2026-10-27T20:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "a1fe78e690d63a12025284e3e05146eec4edc6a03b14f165c5c9741785e6249f",
+  "items": [
+    {
+      "topic": "Title race",
+      "title": "Antonelli can clinch the title in Mexico City",
+      "date": "2026-10-26",
+      "summary": "After winning in Austin, Antonelli needs only two points in Mexico City to seal his maiden championship, which would make him the youngest champion. Formula1.com also reports Hamilton one point behind Russell in the drivers' standings, with Leclerc second in the last two races.",
+      "why_it_matters": "The title can be decided on Mexico weekend, so expect clinch scenarios to shape the narrative. Verify totals against the standings page, which is still pending its post-Austin refresh.",
+      "sources": [
+        {
+          "label": "Formula1.com Austin lowdown",
+          "url": "https://www.formula1.com/en/latest/article/austin-lowdown-all-the-key-moments-as-antonelli-dominates-to-edge-towards-title.4HFlGYh5oSLacvlbJEIa1y"
+        },
+        {
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"
+        }
+      ]
+    },
+    {
+      "topic": "Line-up",
+      "title": "Crawford and Slater confirmed for Mexico City FP1",
+      "date": "2026-10-23",
+      "summary": "Jak Crawford will drive Lance Stroll's Aston Martin AMR26 in Mexico City FP1, his fourth appearance this year. The article says it completes the team's mandated rookie sessions for the year. Audi development driver Freddie Slater will also make his first F1 weekend appearance in FP1 in Mexico City and Sao Paulo.",
+      "why_it_matters": "Both cars lose a regular driver's FP1 running, which affects early-session comparisons. Slater's race-weekend debut is a new storyline.",
+      "sources": [
+        {
+          "label": "Formula1.com: Crawford",
+          "url": "https://www.formula1.com/en/latest/article/crawford-set-for-mexico-city-fp1-outing-with-aston-martin.SpGxwvNGILiMifrzBTX7m"
+        },
+        {
+          "label": "Formula1.com: Slater",
+          "url": "https://www.formula1.com/en/latest/article/freddie-slater-to-make-f1-weekend-debut-with-fp1-outings-for-audi-in-mexico-city-and-sao-paulo.25wxy4YykefQKJRX5drRed"
+        }
+      ]
+    }
+  ]
+}
