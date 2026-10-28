@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-10-28T14:56:24+00:00",
+  "checked_at": "2026-10-28T15:16:39+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -6219,7 +6219,7 @@
       "label": "Qualifying",
       "date": "2026-10-24",
       "url": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
-      "fetched_at": "2026-10-28T14:56:24+00:00",
+      "fetched_at": "2026-10-28T15:16:39+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -6407,7 +6407,7 @@
       "label": "Race",
       "date": "2026-10-25",
       "url": "https://www.formula1.com/en/results/2026/races/1297/united-states/race-result",
-      "fetched_at": "2026-10-28T14:56:24+00:00",
+      "fetched_at": "2026-10-28T15:16:39+00:00",
       "drivers": [
         {
           "code": "ANT",
