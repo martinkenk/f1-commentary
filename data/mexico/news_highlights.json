@@ -1,0 +1,40 @@
+{
+  "reviewed_at": "2026-10-28T15:35:00Z",
+  "expires_at": "2026-10-29T12:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "1295ee0fa5f207f2fe56f7ec74fdae3e32f48e959114f77ca128799ccaa9bb40",
+  "items": [
+    {
+      "topic": "Title race",
+      "title": "Antonelli can clinch his first title in Mexico City",
+      "date": "2026-10-28",
+      "summary": "Formula1.com reports Antonelli arrives with a 123-point lead over Mercedes team mate Russell and could seal his maiden World Championship this weekend, after his Austin win.",
+      "why_it_matters": "Clinch scenarios will frame the weekend. The site's standings table is still pending its post-Austin refresh, so quote the 123-point gap as Formula1.com's figure rather than from the table.",
+      "sources": [
+        {"label": "Formula1.com: F1 TV Premium stream guide", "url": "https://www.formula1.com/en/latest/article/how-to-stream-the-2026-mexico-city-grand-prix-on-f1-tv-premium.E67qNTJ5yEN1ZueDeqLdv"}
+      ]
+    },
+    {
+      "topic": "Driver contract",
+      "title": "Perez extends at Cadillac to at least 2029 before home race",
+      "date": "2026-10-28",
+      "summary": "Cadillac announced on Wednesday that Sergio Perez has signed a contract extension keeping him with the team until at least 2029. Formula1.com's analysis says the team moved quickly to secure him, noting his pace is hard to gauge from classifications given Cadillac's position at the back of the pack.",
+      "why_it_matters": "Perez's home-race storyline now comes with long-term security. Treat the pace assessment as the analyst's view, not a result.",
+      "sources": [
+        {"label": "Formula1.com: contract extension", "url": "https://www.formula1.com/en/latest/article/perez-signs-contract-extension-to-remain-at-cadillac-until-at-least-2029.4oF3HFX8tK9qTWvU7wAXHM"},
+        {"label": "Formula1.com analysis", "url": "https://www.formula1.com/en/latest/article/analysis-why-cadillac-moved-quickly-to-secure-perezs-f1-future.4SIs2e4heBk8BrUrsodtaX"}
+      ]
+    },
+    {
+      "topic": "Line-up",
+      "title": "Crawford and Slater confirmed for Mexico City FP1",
+      "date": "2026-10-23",
+      "summary": "Jak Crawford will drive Lance Stroll's Aston Martin in Mexico City FP1, completing the team's mandated rookie sessions. Audi development driver Freddie Slater will also make his first F1 weekend appearance in FP1 in Mexico City and Sao Paulo.",
+      "why_it_matters": "Both cars lose a regular driver's FP1 running, which affects early-session comparisons.",
+      "sources": [
+        {"label": "Formula1.com: Crawford", "url": "https://www.formula1.com/en/latest/article/crawford-set-for-mexico-city-fp1-outing-with-aston-martin.SpGxwvNGILiMifrzBTX7m"},
+        {"label": "Formula1.com: Slater", "url": "https://www.formula1.com/en/latest/article/freddie-slater-to-make-f1-weekend-debut-with-fp1-outings-for-audi-in-mexico-city-and-sao-paulo.25wxy4YykefQKJRX5drRed"}
+      ]
+    }
+  ]
+}
