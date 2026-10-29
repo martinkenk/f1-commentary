@@ -1,0 +1,84 @@
+{
+  "reviewed_at": "2026-10-29T11:41:00Z",
+  "expires_at": "2026-10-30T06:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "90bf6e31d86c01bfefd54019248e793a3028031aaea583100207a5b8b7619212",
+  "items": [
+    {
+      "topic": "Championship",
+      "title": "Antonelli arrives in Mexico City with a first title in reach",
+      "date": "2026-10-28",
+      "summary": "Formula1.com says Kimi Antonelli arrives with a 123-point lead over Mercedes team-mate George Russell after winning in Austin, and could seal his maiden title this weekend. Austin did not make the title mathematically certain because Hamilton and Russell remained in contention.",
+      "why_it_matters": "Treat clinching as a possibility that depends on this race's results, not a foregone conclusion. Quote the margin as of 28 Oct, before any Mexico session.",
+      "sources": [
+        {
+          "label": "Formula1.com: how to stream Mexico City GP",
+          "url": "https://www.formula1.com/en/latest/article/how-to-stream-the-2026-mexico-city-grand-prix-on-f1-tv-premium.E67qNTJ5yEN1ZueDeqLdv"
+        },
+        {
+          "label": "Formula1.com: race-week storylines",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-mexico-city-grand-prix.3qhXiCGvBjL6deUeE7qpvT"
+        },
+        {
+          "label": "Formula1.com: Wolff on Antonelli's Austin win",
+          "url": "https://www.formula1.com/en/latest/article/why-wolff-believes-that-austin-victory-was-antonellis-best-race-so-far.5EknFIzoqV4V2lU00IzdER"
+        }
+      ]
+    },
+    {
+      "topic": "Line-ups",
+      "title": "Perez extends at Cadillac as FP1 outings are confirmed for Crawford and Slater",
+      "date": "2026-10-28",
+      "summary": "Cadillac announced on Wednesday that Sergio Perez will stay with the team until at least 2029. Jak Crawford will drive Lance Stroll's Aston Martin in Mexico City FP1, and Audi development driver Freddie Slater will make his FP1 debut in Mexico City and Sao Paulo.",
+      "why_it_matters": "Perez's home-race story is now a long-term commitment. Two regular drivers will give up their cars in FP1, so FP1 order says little about team pecking order.",
+      "sources": [
+        {
+          "label": "Formula1.com: Perez extension",
+          "url": "https://www.formula1.com/en/latest/article/perez-signs-contract-extension-to-remain-at-cadillac-until-at-least-2029.4oF3HFX8tK9qTWvU7wAXHM"
+        },
+        {
+          "label": "Formula1.com: Cadillac analysis",
+          "url": "https://www.formula1.com/en/latest/article/analysis-why-cadillac-moved-quickly-to-secure-perezs-f1-future.4SIs2e4heBk8BrUrsodtaX"
+        },
+        {
+          "label": "Formula1.com: Crawford FP1",
+          "url": "https://www.formula1.com/en/latest/article/crawford-set-for-mexico-city-fp1-outing-with-aston-martin.SpGxwvNGILiMifrzBTX7m"
+        },
+        {
+          "label": "Formula1.com: Slater FP1",
+          "url": "https://www.formula1.com/en/latest/article/freddie-slater-to-make-f1-weekend-debut-with-fp1-outings-for-audi-in-mexico-city-and-sao-paulo.25wxy4YykefQKJRX5drRed"
+        }
+      ]
+    },
+    {
+      "topic": "Tyres",
+      "title": "Pirelli nominates C3, C4 and C5 for Mexico City",
+      "date": "2026-10-28",
+      "summary": "Pirelli's selection is C3 hard, C4 medium and C5 soft, which Formula1.com notes differs from last year's choice. The official preview graphic and FIA prescriptions are tracked on the Tyres & Strategy page.",
+      "why_it_matters": "Altitude and low grip make the tyre and brake-cooling story venue-specific. Use the official allocation rather than assumptions from other rounds.",
+      "sources": [
+        {
+          "label": "Formula1.com: tyres for Mexico City GP",
+          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-mexico-city-grand-prix.3a3o08HqrmdQ9IqXYUwJrH"
+        }
+      ]
+    },
+    {
+      "topic": "Race risk",
+      "title": "Mexico City's interruptions and brake demands shape strategy",
+      "date": "2026-10-28",
+      "summary": "Formula1.com's risk analysis describes a race that breaks engines and fries brakes, with a regular rotation of Safety Cars, VSCs and red flags. Its forecast piece recalls a warm, sunny race last year.",
+      "why_it_matters": "Neutralisation risk makes flexible strategy plausible, but this is analysis, not a forecast for race day.",
+      "sources": [
+        {
+          "label": "Formula1.com: the risk perspective",
+          "url": "https://www.formula1.com/en/latest/article/the-risk-perspective-how-f1-drivers-engineers-and-strategists-tackle-the-mexico-city-grand-prix.B8P8xr5i1sPDgQOmL7hzs"
+        },
+        {
+          "label": "Formula1.com: weather forecast",
+          "url": "https://www.formula1.com/en/latest/article/what-is-the-weather-forecast-for-the-2026-mexico-city-grand-prix.3KktGrfJjMyHWilzlrQGK6"
+        }
+      ]
+    }
+  ]
+}

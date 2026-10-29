@@ -1,0 +1,59 @@
+{
+  "reviewed_at": "2026-10-29T11:41:00Z",
+  "expires_at": "2026-10-30T06:00:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "4221ac9b414286193da099aad10d9c5727707649c7cbcd9cede89b42f1094b40",
+  "items": [
+    {
+      "topic": "Race outcome",
+      "title": "Antonelli wins in Austin from pole",
+      "date": "2026-10-26",
+      "summary": "Antonelli took pole on medium tyres, got away well and built a lead over Verstappen, then won comfortably on a one-stop strategy. Leclerc finished second. Lawson was ninth after qualifying as best of the rest.",
+      "why_it_matters": "The win left the title open mathematically, with Hamilton and Russell still in contention.",
+      "sources": [
+        {
+          "label": "Formula1.com: team reactions",
+          "url": "https://www.formula1.com/en/latest/article/why-wolff-believes-that-austin-victory-was-antonellis-best-race-so-far.5EknFIzoqV4V2lU00IzdER"
+        },
+        {
+          "label": "Formula1.com: Palmer analysis",
+          "url": "https://www.formula1.com/en/latest/article/was-antonellis-us-grand-prix-victory-his-most-dominant-win-yet.6jLJgm7H1yfJHHC3moJ4k4"
+        },
+        {
+          "label": "Formula1.com: Lawson",
+          "url": "https://www.formula1.com/en/latest/article/were-in-a-good-place-lawson-excited-for-whats-to-come-after-more-points-in-austin.6vU3y2Du9rHiEgtFZLkyde"
+        }
+      ]
+    },
+    {
+      "topic": "Red Bull",
+      "title": "Verstappen and Hadjar criticise Red Bull's execution",
+      "date": "2026-10-26",
+      "summary": "The Race reports that both drivers complained about avoidable problems, including poor getaways and radio problems, that stopped them capitalising on their car's potential.",
+      "why_it_matters": "This is the drivers' account as reported by one outlet; do not present it as a team finding.",
+      "sources": [
+        {
+          "label": "The Race: Verstappen and Hadjar furious",
+          "url": "https://www.the-race.com/formula-1/why-verstappen-hadjar-furious-red-bull-f1-us-gp/"
+        }
+      ]
+    },
+    {
+      "topic": "Technical",
+      "title": "Ferrari's Austin upgrade targets rear downforce",
+      "date": "2026-10-28",
+      "summary": "Formula1.com says Ferrari changed the floor body, floorboards, sidepod/undercut and diffuser. The aim was more rear downforce, though Ferrari also claim added front-floor load. The Race argues Austin showed where Ferrari still lacks.",
+      "why_it_matters": "Separate Ferrari's claims from measured performance; Leclerc still said the team came short of winning.",
+      "sources": [
+        {
+          "label": "Formula1.com Tech Weekly",
+          "url": "https://www.formula1.com/en/latest/article/what-went-into-ferraris-latest-upgrade-package-in-the-united-states.3I72X1Dos3Nty2sNxMfDD4"
+        },
+        {
+          "label": "The Race: Ferrari analysis",
+          "url": "https://www.the-race.com/formula-1/what-the-us-gp-really-exposed-about-where-ferrari-is-lacking/"
+        }
+      ]
+    }
+  ]
+}
