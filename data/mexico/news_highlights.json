@@ -1,0 +1,55 @@
+{
+  "items": [
+    {
+      "topic": "Drivers' title",
+      "title": "Antonelli can clinch the title in Mexico City, but was unwell on Thursday",
+      "date": "2026-10-30",
+      "summary": "Formula1.com and The Race both frame Mexico City as the first chance for Kimi Antonelli to be crowned after Austin did not quite finish the job. The Race wrote on 26 October that two points, the equivalent of ninth place, would be enough, and that a failure by George Russell and Lewis Hamilton to win would also do it. Formula1.com's 28 October preview put his lead over Russell at 123 points. Formula1.com's paddock report says the Mercedes driver missed Thursday's media duties with a viral illness, with dispensation granted.",
+      "why_it_matters": "The title storyline is the main thread of the weekend, and his health is the early variable to track. Quote the points arithmetic as the sources' pre-weekend figures; the official standings table has not yet been reconciled with the US GP result.",
+      "sources": [
+        {"label": "The Race: Mexican GP weekend schedule and title scenario", "url": "https://www.the-race.com/promoted/what-time-is-f1-2026-mexican-grand-prix-full-weekend-schedule/"},
+        {"label": "Formula1.com: How to stream the Mexico City GP", "url": "https://www.formula1.com/en/latest/article/how-to-stream-the-2026-mexico-city-grand-prix-on-f1-tv-premium.E67qNTJ5yEN1ZueDeqLdv"},
+        {"label": "Formula1.com: Paddock Insider, Mexico City", "url": "https://www.formula1.com/en/latest/article/all-the-stories-that-got-the-mexico-city-paddock-talking.7nwhBepDfju9wmdjGdxEPk"}
+      ]
+    },
+    {
+      "topic": "Line-ups",
+      "title": "Ten of 11 teams field an FP1-only rookie; Slater, Tsolov and Mini make weekend debuts",
+      "date": "2026-10-30",
+      "summary": "The Race reports that all teams except Ferrari are changing a driver for FP1. Gabriele Mini, Nikola Tsolov and Freddie Slater make F1 weekend debuts. Slater runs for Audi, Jak Crawford takes Lance Stroll's Aston Martin in FP1 for his fourth appearance of 2026.",
+      "why_it_matters": "FP1 running data from the rookies is less representative of the regular drivers' pace. Some of the swaps carry driver-market interest, so expect questions on air.",
+      "sources": [
+        {"label": "The Race: Three Mexico FP1 changes with high driver market stakes", "url": "https://www.the-race.com/formula-1/three-mexico-fp1-changes-with-high-driver-market-stakes/"},
+        {"label": "Formula1.com: Slater FP1 outings for Audi", "url": "https://www.formula1.com/en/latest/article/freddie-slater-to-make-f1-weekend-debut-with-fp1-outings-for-audi-in-mexico-city-and-sao-paulo.25wxy4YykefQKJRX5drRed"},
+        {"label": "Formula1.com: Crawford FP1 with Aston Martin", "url": "https://www.formula1.com/en/latest/article/crawford-set-for-mexico-city-fp1-outing-with-aston-martin.SpGxwvNGILiMifrzBTX7m"}
+      ]
+    },
+    {
+      "topic": "Home hero",
+      "title": "Perez extends with Cadillac to at least 2029 and starts his 300th Grand Prix",
+      "date": "2026-10-30",
+      "summary": "Cadillac announced on Wednesday that Sergio Perez has signed an extension keeping him with the team until at least 2029. Formula1.com says his 10th home race is also his 300th Grand Prix and his first in Cadillac colours.",
+      "why_it_matters": "A home-crowd milestone and a contract story in one: the natural emotional storyline for the Mexican fans.",
+      "sources": [
+        {"label": "Formula1.com: Perez signs extension with Cadillac", "url": "https://www.formula1.com/en/latest/article/perez-signs-contract-extension-to-remain-at-cadillac-until-at-least-2029.4oF3HFX8tK9qTWvU7wAXHM"},
+        {"label": "Formula1.com: Why Perez means so much to Mexico", "url": "https://www.formula1.com/en/latest/article/why-sergio-perez-means-so-much-to-mexico-as-he-celebrates-his-300th-grand-prix.55aJ3d90HUJ8smyvsIZtsr"}
+      ]
+    },
+    {
+      "topic": "Technical and tyres",
+      "title": "Altitude test for the first MGU-H-free engines; Pirelli picks C3, C4 and C5",
+      "date": "2026-10-29",
+      "summary": "The Race notes this is the first Mexican GP of the modern era with hybrid V6s running without the MGU-H, and that the altitude makes it a demanding test. Formula1.com reports Pirelli's nominations as C3 hard, C4 medium and C5 soft, and describes the race as one with a regular rotation of Safety Cars, VSCs and red flags.",
+      "why_it_matters": "Thin air stresses cooling, brakes and power-unit energy management, so reliability and strategy variance are the themes to watch. The FIA documents and tyre-set inventory have not been transcribed here and remain pending.",
+      "sources": [
+        {"label": "The Race: Everything we learned on day one", "url": "https://www.the-race.com/formula-1/everything-we-learned-on-day-one-of-f1s-mexican-gp/"},
+        {"label": "Formula1.com: Tyres for the Mexico City GP", "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-mexico-city-grand-prix.3a3o08HqrmdQ9IqXYUwJrH"},
+        {"label": "Formula1.com: The risk perspective", "url": "https://www.formula1.com/en/latest/article/the-risk-perspective-how-f1-drivers-engineers-and-strategists-tackle-the-mexico-city-grand-prix.B8P8xr5i1sPDgQOmL7hzs"}
+      ]
+    }
+  ],
+  "reviewed_at": "2026-10-30T11:33:00+00:00",
+  "expires_at": "2026-10-31T10:00:00+00:00",
+  "through_session": null,
+  "feed_fingerprint": "81093699e78b420a8e7006b5b04d06c574abc4722e40fee32f2fdf270a8a0b7c"
+}
