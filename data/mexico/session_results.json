@@ -1,0 +1,211 @@
+{
+  "event": {
+    "year": "2026",
+    "race_id": "1298",
+    "results_slug": "mexico",
+    "gp": "mexico"
+  },
+  "checked_at": "2026-10-30T21:51:43+00:00",
+  "sessions": [
+    {
+      "label": "Practice 1",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "1:18.128",
+          "29"
+        ],
+        [
+          "2",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "+0.659s",
+          "30"
+        ],
+        [
+          "3",
+          "72",
+          "Frederik Vesti VES",
+          "Mercedes",
+          "+0.733s",
+          "24"
+        ],
+        [
+          "4",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+0.738s",
+          "25"
+        ],
+        [
+          "5",
+          "36",
+          "Ayumu Iwasa IWA",
+          "Red Bull Racing",
+          "+0.985s",
+          "23"
+        ],
+        [
+          "6",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+1.082s",
+          "33"
+        ],
+        [
+          "7",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+1.229s",
+          "29"
+        ],
+        [
+          "8",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+1.248s",
+          "30"
+        ],
+        [
+          "9",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+1.284s",
+          "28"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+1.350s",
+          "30"
+        ],
+        [
+          "11",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+1.417s",
+          "21"
+        ],
+        [
+          "12",
+          "91",
+          "Nikola Tsolov TSO",
+          "Racing Bulls",
+          "+1.476s",
+          "29"
+        ],
+        [
+          "13",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+1.480s",
+          "27"
+        ],
+        [
+          "14",
+          "62",
+          "Gabriele Mini MIN",
+          "Alpine",
+          "+1.818s",
+          "22"
+        ],
+        [
+          "15",
+          "50",
+          "Ryo Hirakawa HIR",
+          "Haas F1 Team",
+          "+1.854s",
+          "30"
+        ],
+        [
+          "16",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+1.878s",
+          "31"
+        ],
+        [
+          "17",
+          "67",
+          "Leonardo Fornaroli FOR",
+          "McLaren",
+          "+2.107s",
+          "25"
+        ],
+        [
+          "18",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "+2.267s",
+          "31"
+        ],
+        [
+          "19",
+          "34",
+          "Jak Crawford CRA",
+          "Aston Martin",
+          "+2.675s",
+          "15"
+        ],
+        [
+          "20",
+          "46",
+          "Luke Browning BRO",
+          "Williams",
+          "+2.741s",
+          "33"
+        ],
+        [
+          "21",
+          "98",
+          "Freddie Slater SLA",
+          "Audi",
+          "+2.817s",
+          "14"
+        ],
+        [
+          "22",
+          "25",
+          "Colton Herta HER",
+          "Cadillac",
+          "+3.237s",
+          "30"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/1",
+      "fetched_at": "2026-10-30T21:51:43+00:00",
+      "session_start": "2026-10-30T12:30:00-06:00",
+      "retained": false
+    }
+  ],
+  "statuses": [
+    {
+      "label": "Practice 1",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/1"
+    }
+  ]
+}
