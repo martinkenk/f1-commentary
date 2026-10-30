@@ -1,0 +1,72 @@
+{
+  "reviewed_at": "2026-10-30T21:40:00Z",
+  "expires_at": "2026-10-31T17:00:00Z",
+  "through_session": "Practice 1",
+  "feed_fingerprint": "1b1474498c24519a7701731b10a32b079b20d9d3ef4605e080cb51e3d3fc171b",
+  "items": [
+    {
+      "topic": "Practice 1 result",
+      "title": "Leclerc fastest in FP1 as Ferrari lead a session dominated by stand-in drivers",
+      "date": "2026-10-30",
+      "summary": "Charles Leclerc set 1m18.128s on his first soft-tyre run, 0.659s clear of Kimi Antonelli, with Mercedes stand-in Fred Vesti third. Ten of 11 teams ran a young driver; only Ferrari kept its regular line-up. Isack Hadjar coasted back with a power-unit issue, Jak Crawford caused a brief Virtual Safety Car, and Freddie Slater's Audi debut was compromised after a sidepod fan was left attached at the pit-lane release; the stewards were due to investigate.",
+      "why_it_matters": "Half the grid missed meaningful FP1 running by their regular drivers, so FP1 times are a weak guide to the order. Ferrari were the only team with full continuity; the Antonelli title picture is unaffected by FP1 but the first real read on the cars comes in FP2.",
+      "sources": [
+        {
+          "label": "Formula1.com: FP1 report",
+          "url": "https://www.formula1.com/en/latest/article/fp1-leclerc-leads-antonelli-in-mexico-city-as-new-faces-make-formula-1-debuts.5IkozqYxX25QgmGJqc0NlA"
+        },
+        {
+          "label": "The Race: what happened in FP1 with 10 rookies",
+          "url": "https://www.the-race.com/formula-1/what-happened-f1-2026-mexican-gp-first-practice/"
+        }
+      ]
+    },
+    {
+      "topic": "Bottas grid penalty",
+      "title": "Bottas takes five new power-unit elements and a 50-place grid drop",
+      "date": "2026-10-30",
+      "summary": "Cadillac fitted a new ICE, turbocharger, energy store, control electronics and MGU-K to Valtteri Bottas's car. Each is a first breach of the season allocation, so the FIA notice lists a drop of 50 grid places, subject to him being classified in qualifying. Bottas missed Thursday's media duties through illness and Sergio Perez was also unwell; Colton Herta drove Bottas's car in FP1.",
+      "why_it_matters": "A penalty over 15 places means a back-of-grid start regardless if he is classified in qualifying. Bottas has not yet been confirmed for 2027 while Perez is signed to 2029.",
+      "sources": [
+        {
+          "label": "Formula1.com: Bottas set for grid penalty",
+          "url": "https://www.formula1.com/en/latest/article/bottas-set-for-grid-penalty-at-mexico-city-grand-prix-after-power-unit-changes.2J7hkopU6hrvgFvlK82cip"
+        },
+        {
+          "label": "FIA: Car 77 PU elements document",
+          "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_77_-_pu_elements.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Altitude and the first MGU-H-free Mexico",
+      "title": "Mexico City is the first altitude test for the 2026 engines without an MGU-H",
+      "date": "2026-10-29",
+      "summary": "The Race reports this is the first Mexican GP for hybrid V6s without the MGU-H. Honda's Shintaro Orihara called boost and turbo lag \"quite challenging\", even at idle, and teams expect heavy MGU-K 'torque infilling' because deployment is saved for the three long straights. Audi's larger turbo is expected to struggle most; Gabriel Bortoleto highlighted the slow final sector.",
+      "why_it_matters": "Power-unit behaviour, not just downforce, may decide the order. Manufacturer comparisons here are informed by team comments, not official data.",
+      "sources": [
+        {
+          "label": "The Race: everything we learned on day one",
+          "url": "https://www.the-race.com/formula-1/everything-we-learned-on-day-one-of-f1s-mexican-gp/"
+        }
+      ]
+    },
+    {
+      "topic": "Driver market",
+      "title": "Perez extends at Cadillac to 2029; Bearman wants Haas; Bottas still unconfirmed",
+      "date": "2026-10-30",
+      "summary": "Sergio Perez signed with Cadillac until at least 2029 in his home race week. Oliver Bearman said it is \"very clear\" he wants to stay with Haas, though no announcement has been made; Haas has confirmed Rafael Camara will replace Esteban Ocon. Valtteri Bottas's 2027 seat has not been announced.",
+      "why_it_matters": "Perez's 300th Grand Prix gives the home crowd a contract story; remaining 2027 seats are the live market threads this weekend. Bearman's status is his own statement, not a team confirmation.",
+      "sources": [
+        {
+          "label": "Formula1.com: Perez signs Cadillac extension",
+          "url": "https://www.formula1.com/en/latest/article/sergio-perez-signs-contract-extension-to-remain-at-cadillac-until-at-least-2029.4oF3HFX8tK9qTWvU7wAXHM"
+        },
+        {
+          "label": "Formula1.com: Bearman on his F1 future",
+          "url": "https://www.formula1.com/en/latest/article/clear-i-want-to-continue-with-haas-bearman-offers-update-on-f1-future-ahead-of-mexico-city-gp.JM5Cf94lnTraFxuKBR8nx"
+        }
+      ]
+    }
+  ]
+}
