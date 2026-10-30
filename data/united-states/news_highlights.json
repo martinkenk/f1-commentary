@@ -1,0 +1,55 @@
+{
+  "reviewed_at": "2026-10-30T21:40:00Z",
+  "expires_at": "2026-10-31T17:00:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "4221ac9b414286193da099aad10d9c5727707649c7cbcd9cede89b42f1094b40",
+  "items": [
+    {
+      "topic": "Race result",
+      "title": "Antonelli wins the United States GP on a one-stop; title decision deferred",
+      "date": "2026-10-25",
+      "summary": "Kimi Antonelli converted pole into a ninth win of the season, 13.078s ahead of Charles Leclerc, with Max Verstappen third and Lewis Hamilton fourth. He ran a long medium stint then the hard to the flag while many rivals stopped twice; a late Virtual Safety Car, caused by Valtteri Bottas stopping, did not change the result. Bottas, Franco Colapinto and Ollie Bearman retired.",
+      "why_it_matters": "Antonelli could not clinch the championship in Austin and carries the chance into Mexico City. The clinching scenario depends on his result relative to George Russell and Hamilton; check the current standings page for the exact permutations.",
+      "sources": [
+        {
+          "label": "Formula1.com: race report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"
+        },
+        {
+          "label": "The Race: Antonelli on the brink of first title",
+          "url": "https://www.the-race.com/formula-1/antonelli-on-the-brink-of-first-f1-title-after-crushing-us-gp-win/"
+        }
+      ]
+    },
+    {
+      "topic": "Mercedes and Ferrari form",
+      "title": "Russell struggles to P8 while Ferrari's upgrade delivers a podium but not the win",
+      "date": "2026-10-26",
+      "summary": "Russell finished eighth and said he could not explain his race pace. Ferrari were fastest in practice with upgrades fitted and took second and fourth in the race; Formula1.com's Monday debrief examines how one lap cost Leclerc a shot at victory, and Hamilton singled out his 'biggest issue' of the race.",
+      "why_it_matters": "Mercedes' two cars are no longer evenly matched, and Ferrari's practice pace did not convert into a win. This is a team and driver account, not an FIA finding.",
+      "sources": [
+        {
+          "label": "Formula1.com: Austin lowdown",
+          "url": "https://www.formula1.com/en/latest/article/austin-lowdown-all-the-key-moments-as-antonelli-dominates-to-edge-towards-title.4HFlGYh5oSLacvlbJEIa1y"
+        },
+        {
+          "label": "Formula1.com: Hamilton and Leclerc after the race",
+          "url": "https://www.formula1.com/en/latest/article/hamilton-singles-out-his-biggest-issue-in-united-states-gp-with-leclerc-optimistic-after-podium.5mv33bCKbMzoECWZ6JqTBD"
+        }
+      ]
+    },
+    {
+      "topic": "Power-unit grid penalties",
+      "title": "Lindblad, Colapinto, Bortoleto and Stroll all started behind their qualifying positions",
+      "date": "2026-10-25",
+      "summary": "Arvid Lindblad started P14 while Colapinto and Bortoleto dropped to P20 and P21 after exceeding power-unit allocations; Bortoleto's drop was 80 places. Lance Stroll started from the pit lane after car modifications in parc ferme and extra PU elements. Bortoleto finished 13th.",
+      "why_it_matters": "Penalty-driven starts explain several midfield results and show how stretched the 2026 PU allocations are late in the season.",
+      "sources": [
+        {
+          "label": "Formula1.com: race report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-surges-to-dominant-victory-in-united-states-grand-prix-ahead-of-leclerc-and-verstappen.6kmBQv9FNTW7LzkDj8S34j"
+        }
+      ]
+    }
+  ]
+}
