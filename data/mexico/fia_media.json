@@ -1,7 +1,119 @@
 {
-  "checked_at": "2026-10-30T21:50:44+00:00",
-  "discovery_retrieved_at": "2026-10-30T21:50:36.677361+00:00",
+  "checked_at": "2026-10-31T11:29:25+00:00",
+  "discovery_retrieved_at": "2026-10-31T11:29:13.714197+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_30_-_turn_14_incident_with_car_3_.pdf",
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_car_30_-_turn_14_incident_with_car_3_.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "7edb6af474a672b8ed93e882ccf310af9befb450df4ed7a3ed40af54ccdd387f",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-mexico-e46c992b69ba-7edb6af474a672b8-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-mexico-e46c992b69ba-7edb6af474a672b8-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_3_-_turn_14_incident_with_car_30_.pdf",
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_car_3_-_turn_14_incident_with_car_30_.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "ddfac56d0dcaadc98782d7970c941a6d9aef6659ca0b593700b04944c4c73f30",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-mexico-c9e36f7b6c3d-ddfac56d0dcaadc9-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-mexico-c9e36f7b6c3d-ddfac56d0dcaadc9-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_5_-_covering_components.pdf",
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_car_5_-_covering_components.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "079f9d5364e5628d021986d2ad8beffe4322d2e74d63b3ddd42a7a122f3b889b",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-mexico-147bebec8cd8-079f9d5364e5628d-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-mexico-147bebec8cd8-079f9d5364e5628d-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "filename": "2026_mexico_city_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "d5946eaf69558e315567ac1b2900a28155f8aefdc97cdce58e4d297ec4a798ac",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-mexico-38e02d21b82d-d5946eaf69558e31-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "c0290e2dea89faf1d1108d0d297a45dee499e9dcc4525e3db39d3c5075bc089f",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-mexico-ab274d3907eb-c0290e2dea89faf1-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-mexico-ab274d3907eb-c0290e2dea89faf1-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_98_-_released_in_an_unsafe_condition.pdf",
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_car_98_-_released_in_an_unsafe_condition.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "8feddd35e9db24e578f2b1bf1b59e758b77ff9fbb236bb565431c7c2d51785a7",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-mexico-4a21edbd210a-8feddd35e9db24e5-p1.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf",
       "filename": "2026_mexico_city_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf",
@@ -9,7 +121,7 @@
         "penalties"
       ],
       "sha256": "32a1fda0d26278000f88ea3aaed0c9207f25da13324e62d41004bbce8ef7334b",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -25,7 +137,7 @@
         "penalties"
       ],
       "sha256": "02d310ab20bc32da66dbe7da40f46850824ce27a8db74ca8064b3352115e4a11",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -45,7 +157,7 @@
         "penalties"
       ],
       "sha256": "58ebfcbaab955b7986fb5a7373c578e5d22aae08c82148f45d2639dd4e719777",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -61,7 +173,7 @@
         "powerunit"
       ],
       "sha256": "f196acf88eb5435b30146022172de7242d6d99d8054227aed20762be64a5dfed",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -81,7 +193,7 @@
         "upgrades"
       ],
       "sha256": "b0abaa12d28b6685e520b2b69ae970d258e00795a386dd75fda9c2db6f8fd21b",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -161,7 +273,7 @@
         "powerunit"
       ],
       "sha256": "b9eec32c5df1ef253665c8b1cddf114e7deb28158fc1418110b68c0395975ebf",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -177,7 +289,7 @@
         "circuit"
       ],
       "sha256": "36b19ce8decadd26be1f0640d57a2b9b2840403582d13f02cf4e05bb840873cc",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -221,7 +333,7 @@
         "circuit"
       ],
       "sha256": "353a2b06543f06d89493c7642dae37aaf127eb41696dc62129574234c4df1525",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -245,7 +357,7 @@
         "powerunit"
       ],
       "sha256": "dffe8a06feb5a324c12dbd557493ef44554a5e5cbcfc31076722b3da6244bbbf",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -261,7 +373,7 @@
         "upgrades"
       ],
       "sha256": "3b51e2cfc4f82d59b4f740efb9ffaf0bef424040124d5def6c22d38847834424",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -277,7 +389,7 @@
         "tyres"
       ],
       "sha256": "9375d11a17253c5a3f9ceefa1eee26514de5f2afbfe6e89b2ce07116f501b9ad",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -293,7 +405,7 @@
         "schedule"
       ],
       "sha256": "03cd12d370ecfce14b11c4c9b4e25a67d3e8a7c5b377189d16913e635d8a1571",
-      "fetched_at": "2026-10-30T21:50:44+00:00",
+      "fetched_at": "2026-10-31T11:29:25+00:00",
       "pages": [
         {
           "page": 2,
