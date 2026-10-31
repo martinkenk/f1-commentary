@@ -1,0 +1,101 @@
+{
+  "reviewed_at": "2026-10-31T20:34:18Z",
+  "expires_at": "2026-11-01T20:34:18Z",
+  "through_session": "Practice 2",
+  "feed_fingerprint": "7cbbe69e7a0af2dd71e0d92f963a8dd632cae2e3a8c3622c0a22d9cdde000584",
+  "items": [
+    {
+      "topic": "Line-up change",
+      "title": "Hirakawa replaces Ocon at Haas for the rest of the weekend",
+      "date": "2026-10-31",
+      "summary": "Haas announced on Saturday morning that reserve driver Ryo Hirakawa will take over from Esteban Ocon for the remainder of the Mexico City Grand Prix weekend. Hirakawa had driven Haas's FP1 on Friday before Ocon returned for FP2. The saved reports quote the team's short statement but, in the text reviewed, give no reason for the switch.",
+      "why_it_matters": "A late change of race driver: Hirakawa has only FP1 laps to work from. Do not offer a reason for the change unless Haas gives one.",
+      "sources": [
+        {
+          "label": "Formula1.com: Hirakawa to replace Ocon",
+          "url": "https://www.formula1.com/en/latest/article/hirakawa-to-replace-ocon-at-haas-for-remainder-of-mexico-city-grand-prix-weekend.2cl5jN0g3rZ2pIYQvc00xM"
+        },
+        {
+          "label": "The Race: Ocon replaced at Haas",
+          "url": "https://www.the-race.com/formula-1/esteban-ocon-replaced-haas-f1-rest-of-mexico-f1-weekend/"
+        }
+      ]
+    },
+    {
+      "topic": "Sanctions",
+      "title": "Verstappen and Lawson each get a one-place grid drop for their FP2 clash",
+      "date": "2026-10-31",
+      "summary": "The stewards penalised Max Verstappen and Liam Lawson after the Turn 12 incident early in FP2, calling it 'clumsy' and 'unacceptable'. The FIA decision documents give each driver a drop of one grid position for the next race in which they compete. Separately, Isack Hadjar received a formal warning for a paddock interaction with a guest, and Valtteri Bottas carries a 50-place drop for power-unit elements (Doc 17).",
+      "why_it_matters": "The one-place drops are small but apply to the race grid. Bottas's 50-place drop is the heaviest sanction on the weekend's decision list. Hadjar's is only a warning.",
+      "sources": [
+        {
+          "label": "Formula1.com: grid penalties",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-and-lawson-get-grid-penalties-after-clumsy-mexico-city-practice-clash.2m2ey8Pl7g5IfQfGeepilD"
+        },
+        {
+          "label": "The Race: grid drops",
+          "url": "https://www.the-race.com/formula-1/verstappen-and-lawson-get-grid-drops-for-clumsy-mexico-clash/"
+        },
+        {
+          "label": "The Race: Hadjar warning",
+          "url": "https://www.the-race.com/formula-1/isack-hadjar-warning-pushing-mexico-f1-paddock-guest/"
+        },
+        {
+          "label": "FIA: Bottas PU elements decision",
+          "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_77_-_pu_elements.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Session outcome",
+      "title": "Norris tops FP3 by 0.001s from Antonelli as Ferrari's Friday edge fades",
+      "date": "2026-10-31",
+      "summary": "Lando Norris set a 1m17.600s in the final minutes to lead Kimi Antonelli by 0.001s, with Charles Leclerc a tenth back. Leclerc had topped both Friday sessions, and Formula1.com's data estimated Ferrari's qualifying-simulation advantage at around 0.17s before FP3. The Race says Ferrari's pace faltered on Saturday after aborted Leclerc soft-tyre attempts.",
+      "why_it_matters": "The order is very tight at the front and practice running was disrupted by rookie sessions, so FP3 is not a clean qualifying forecast. Hamilton's Ferrari also had an FP2 stoppage.",
+      "sources": [
+        {
+          "label": "Formula1.com: FP3 report",
+          "url": "https://www.formula1.com/en/latest/article/fp3-norris-pips-antonelli-and-leclerc-to-top-spot-in-final-practice-for-mexico-city-gp.1s5lDqpwmCBl5aqSGq4Ffn"
+        },
+        {
+          "label": "The Race: final practice",
+          "url": "https://www.the-race.com/formula-1/f1-mexican-gp-final-practice-what-happened/"
+        },
+        {
+          "label": "Formula1.com: Ferrari favourites debrief",
+          "url": "https://www.formula1.com/en/latest/article/are-ferrari-the-favourites-after-friday-practice-in-mexico-city.cvthLLii4LO7DJgTUQoxx"
+        }
+      ]
+    },
+    {
+      "topic": "Technical",
+      "title": "Hamilton's FP2 stoppage: Ferrari still investigating",
+      "date": "2026-10-31",
+      "summary": "Hamilton said Ferrari were still investigating what went wrong with his car in FP2, adding that he was 'praying that everything's okay'. Ferrari were the only team not to run a rookie in FP1 and had fitted an aero rake to his SF-26 for the session.",
+      "why_it_matters": "No cause has been confirmed in the reports reviewed, so avoid speculating. It matters for Ferrari's reliability and any possible component changes.",
+      "sources": [
+        {
+          "label": "Formula1.com: Hamilton on FP2 stoppage",
+          "url": "https://www.formula1.com/en/latest/article/praying-that-everythings-okay-hamilton-reflects-on-really-unfortunate-fp2-stoppage-in-mexico.B3uFU4WqI2rTzIgVsHqe2"
+        }
+      ]
+    },
+    {
+      "topic": "Championship",
+      "title": "Antonelli can clinch the title this weekend",
+      "date": "2026-10-26",
+      "summary": "The Race reported that Kimi Antonelli needs two points, the equivalent of a ninth place, to become world champion at 20. It added that Russell and Hamilton failing to win the race would also settle it. Formula1.com says Antonelli won in Austin.",
+      "why_it_matters": "This was a pre-weekend scenario. Our standings refresh failed to reconcile with the Austin classification, so verify the live table before quoting totals.",
+      "sources": [
+        {
+          "label": "The Race: Mexican GP schedule and title scenario",
+          "url": "https://www.the-race.com/promoted/what-time-is-f1-2026-mexican-grand-prix-full-weekend-schedule/"
+        },
+        {
+          "label": "Formula1.com: Mexico City preview",
+          "url": "https://www.formula1.com/en/latest/article/what-time-is-the-formula-1-2026-mexico-city-grand-prix-and-how-can-i-watch-it.7ugr1iuBkVF1pD5fqJHNA3"
+        }
+      ]
+    }
+  ]
+}
