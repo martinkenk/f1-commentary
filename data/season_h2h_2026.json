@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-11-01T18:41:17+00:00",
+  "checked_at": "2026-11-01T23:15:29+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -38,7 +38,8 @@
     "singapore/race-result",
     "united-states/qualifying",
     "united-states/race-result",
-    "mexico/qualifying"
+    "mexico/qualifying",
+    "mexico/race-result"
   ],
   "errors": [
     {
@@ -5280,7 +5281,7 @@
       "label": "Qualifying",
       "date": "2026-09-25",
       "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/qualifying",
-      "fetched_at": "2026-10-25T22:11:35+00:00",
+      "fetched_at": "2026-11-01T23:15:29+00:00",
       "drivers": [
         {
           "code": "RUS",
@@ -6220,7 +6221,7 @@
       "label": "Qualifying",
       "date": "2026-10-24",
       "url": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
-      "fetched_at": "2026-11-01T18:41:17+00:00",
+      "fetched_at": "2026-11-01T23:15:29+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -6408,7 +6409,7 @@
       "label": "Race",
       "date": "2026-10-25",
       "url": "https://www.formula1.com/en/results/2026/races/1297/united-states/race-result",
-      "fetched_at": "2026-11-01T18:41:17+00:00",
+      "fetched_at": "2026-11-01T23:15:29+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -6596,7 +6597,7 @@
       "label": "Qualifying",
       "date": "2026-10-31",
       "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/qualifying",
-      "fetched_at": "2026-11-01T18:41:17+00:00",
+      "fetched_at": "2026-11-01T23:15:29+00:00",
       "drivers": [
         {
           "code": "HAM",
@@ -6773,6 +6774,194 @@
           "position": null,
           "status": "dsq",
           "raw_position": "DQ"
+        }
+      ]
+    },
+    {
+      "key": "mexico/race-result",
+      "round": 19,
+      "gp": "mexico",
+      "name": "Mexico City Grand Prix",
+      "label": "Race",
+      "date": "2026-11-01",
+      "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result",
+      "fetched_at": "2026-11-01T23:15:29+00:00",
+      "drivers": [
+        {
+          "code": "VER",
+          "name": "Max Verstappen",
+          "team": "Red Bull Racing",
+          "position": 1,
+          "status": "classified",
+          "raw_position": "1"
+        },
+        {
+          "code": "HAM",
+          "name": "Lewis Hamilton",
+          "team": "Ferrari",
+          "position": 2,
+          "status": "classified",
+          "raw_position": "2"
+        },
+        {
+          "code": "ANT",
+          "name": "Kimi Antonelli",
+          "team": "Mercedes",
+          "position": 3,
+          "status": "classified",
+          "raw_position": "3"
+        },
+        {
+          "code": "LEC",
+          "name": "Charles Leclerc",
+          "team": "Ferrari",
+          "position": 4,
+          "status": "classified",
+          "raw_position": "4"
+        },
+        {
+          "code": "NOR",
+          "name": "Lando Norris",
+          "team": "McLaren",
+          "position": 5,
+          "status": "classified",
+          "raw_position": "5"
+        },
+        {
+          "code": "RUS",
+          "name": "George Russell",
+          "team": "Mercedes",
+          "position": 6,
+          "status": "classified",
+          "raw_position": "6"
+        },
+        {
+          "code": "PIA",
+          "name": "Oscar Piastri",
+          "team": "McLaren",
+          "position": 7,
+          "status": "classified",
+          "raw_position": "7"
+        },
+        {
+          "code": "COL",
+          "name": "Franco Colapinto",
+          "team": "Alpine",
+          "position": 8,
+          "status": "classified",
+          "raw_position": "8"
+        },
+        {
+          "code": "LAW",
+          "name": "Liam Lawson",
+          "team": "Racing Bulls",
+          "position": 9,
+          "status": "classified",
+          "raw_position": "9"
+        },
+        {
+          "code": "GAS",
+          "name": "Pierre Gasly",
+          "team": "Alpine",
+          "position": 10,
+          "status": "classified",
+          "raw_position": "10"
+        },
+        {
+          "code": "BOR",
+          "name": "Gabriel Bortoleto",
+          "team": "Audi",
+          "position": 11,
+          "status": "classified",
+          "raw_position": "11"
+        },
+        {
+          "code": "HAD",
+          "name": "Isack Hadjar",
+          "team": "Red Bull Racing",
+          "position": 12,
+          "status": "classified",
+          "raw_position": "12"
+        },
+        {
+          "code": "HIR",
+          "name": "Ryo Hirakawa",
+          "team": "Haas F1 Team",
+          "position": 13,
+          "status": "classified",
+          "raw_position": "13"
+        },
+        {
+          "code": "ALB",
+          "name": "Alexander Albon",
+          "team": "Williams",
+          "position": 14,
+          "status": "classified",
+          "raw_position": "14"
+        },
+        {
+          "code": "SAI",
+          "name": "Carlos Sainz",
+          "team": "Williams",
+          "position": 15,
+          "status": "classified",
+          "raw_position": "15"
+        },
+        {
+          "code": "HUL",
+          "name": "Nico Hulkenberg",
+          "team": "Audi",
+          "position": 16,
+          "status": "classified",
+          "raw_position": "16"
+        },
+        {
+          "code": "PER",
+          "name": "Sergio Perez",
+          "team": "Cadillac",
+          "position": 17,
+          "status": "classified",
+          "raw_position": "17"
+        },
+        {
+          "code": "LIN",
+          "name": "Arvid Lindblad",
+          "team": "Racing Bulls",
+          "position": null,
+          "status": "unclassified",
+          "raw_position": "NC"
+        },
+        {
+          "code": "BEA",
+          "name": "Oliver Bearman",
+          "team": "Haas F1 Team",
+          "position": null,
+          "status": "unclassified",
+          "raw_position": "NC"
+        },
+        {
+          "code": "BOT",
+          "name": "Valtteri Bottas",
+          "team": "Cadillac",
+          "position": null,
+          "status": "unclassified",
+          "raw_position": "NC"
+        },
+        {
+          "code": "STR",
+          "name": "Lance Stroll",
+          "team": "Aston Martin",
+          "position": null,
+          "status": "unclassified",
+          "raw_position": "NC"
+        },
+        {
+          "code": "ALO",
+          "name": "Fernando Alonso",
+          "team": "Aston Martin",
+          "position": null,
+          "status": "unclassified",
+          "raw_position": "NC"
         }
       ]
     }
