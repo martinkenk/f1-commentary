@@ -236,5 +236,19 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_30_-_technical_nonconformity.pdf"
+  },
+  {
+    "doc": "Doc 65",
+    "no": "30",
+    "driver": "Liam Lawson",
+    "team": "Visa Cash App Racing Bulls F1 Team",
+    "session": "Qualifying",
+    "fact": "The setup of the suspension has been changed while under parc fermé.",
+    "outcome": "Required to start the Race from the pit lane.",
+    "kind": "note",
+    "source_pdf": "2026_mexico_city_grand_prix_-_infringement_-_car_30_-_changes_made_during_parc_ferme.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_30_-_changes_made_during_parc_ferme.pdf"
   }
 ]
