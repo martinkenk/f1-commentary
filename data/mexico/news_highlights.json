@@ -1,0 +1,54 @@
+{
+  "reviewed_at": "2026-11-01T21:25:00Z",
+  "expires_at": "2026-11-02T06:00:00Z",
+  "through_session": "Qualifying",
+  "feed_fingerprint": "789c1f78e365a3cbab98e7fd9d4a9c6d4f0cdc44abfa3b286edaa5629ebbe6b1",
+  "items": [
+    {
+      "topic": "Title decider",
+      "title": "Antonelli can clinch the title with ninth or better from fourth on the grid",
+      "date": "2026-11-01",
+      "summary": "Formula1.com's official-grid report says Kimi Antonelli, 20, could end Sunday's race as Formula 1's youngest ever World Champion. He starts fourth, and a result of ninth or better guarantees the crown whatever anyone else does.",
+      "why_it_matters": "This is the headline scenario of the race. Antonelli's own qualifying comment, per Formula1.com, was that he did not do a good enough job and felt more tense than usual. Check the live classification against the ninth-place threshold before stating a title result.",
+      "sources": [
+        {"label": "Formula1.com: official Mexico City grid", "url": "https://www.formula1.com/en/latest/article/official-grid-who-starts-where-for-the-2026-mexico-city-grand-prix.4AUykgAAZz3GMiI15Fqfir"},
+        {"label": "Formula1.com: Antonelli after qualifying", "url": "https://www.formula1.com/en/latest/article/i-didnt-do-a-good-enough-job-antonelli-admits-feeling-more-tense-than-usual-in-mexico-city-qualifying.2DHPy7wRU0Qymi79OMvZyy"}
+      ]
+    },
+    {
+      "topic": "Session outcome",
+      "title": "Hamilton takes Ferrari's first pole of 2026 by 0.009s from Russell",
+      "date": "2026-10-31",
+      "summary": "Lewis Hamilton took his first grand prix pole for Ferrari, and the team's first of 2026, with a 1m16.514s that beat George Russell's Mercedes by 0.009s. He had missed the Turn 10 apex on an earlier Q3 run. Charles Leclerc was third, with Antonelli fifth on the road and Norris sixth.",
+      "why_it_matters": "Ferrari start first and third with Russell's Mercedes between them, so the run to the first corner is the key flashpoint. The stewards also issued a statement to teams ahead of the race on opening-lap conduct after the four-wide Turn 1 incident in 2025.",
+      "sources": [
+        {"label": "The Race: Hamilton takes first Ferrari pole", "url": "https://www.the-race.com/formula-1/hamilton-takes-first-ferrari-gp-pole-in-mexico/"},
+        {"label": "Formula1.com: Leclerc after losing out to Hamilton", "url": "https://www.formula1.com/en/latest/article/leclerc-angry-with-myself-after-losing-out-to-ferrari-team-mate-hamilton-in-mexico-city-qualifying.6C1Gik6c58NfUOcaLpJTeM"},
+        {"label": "The Race: stewards' Turn 1 statement", "url": "https://www.the-race.com/formula-1/f1s-attempt-to-prevent-a-repeat-of-mexico-turn-1-antics/"}
+      ]
+    },
+    {
+      "topic": "Grid penalties and disqualification",
+      "title": "Lawson disqualified from qualifying; Verstappen drops to fifth, Bottas starts 21st",
+      "date": "2026-11-01",
+      "summary": "Liam Lawson was disqualified from qualifying for a technical breach on his Racing Bulls car after setting eighth, and he is classified last on the starting grid with no time. Max Verstappen, fourth in qualifying, drops one place to fifth for the FP2 clash with Lawson, which puts Antonelli fourth. Valtteri Bottas, 21st on the road, also carries power-unit penalties.",
+      "why_it_matters": "Lawson's exclusion lifts Lindblad into the top eight. The Formula1.com article text opened here does not state which regulation was breached, so do not offer a reason on air. Treat the official grid and the stewards' documents as the authority for the final order.",
+      "sources": [
+        {"label": "Formula1.com: Lawson disqualified", "url": "https://www.formula1.com/en/latest/article/lawson-disqualified-from-mexico-city-gp-qualifying-for-technical-breach.1LIHCl2P75cYj0cGJgyZhx"},
+        {"label": "Formula1.com: official Mexico City grid", "url": "https://www.formula1.com/en/latest/article/official-grid-who-starts-where-for-the-2026-mexico-city-grand-prix.4AUykgAAZz3GMiI15Fqfir"},
+        {"label": "The Race: starting grid with Verstappen penalty", "url": "https://www.the-race.com/formula-1/f1-2026-mexican-grand-prix-starting-grid-with-verstappen-penalty/"}
+      ]
+    },
+    {
+      "topic": "Line-up change",
+      "title": "Hirakawa makes a shock debut for Haas in place of Ocon, 18th on the grid",
+      "date": "2026-11-01",
+      "summary": "Ryo Hirakawa, 32, replaced Esteban Ocon at Haas for the remainder of the weekend and qualified 19th on the road after traffic compromised his final run. He starts 18th after Lawson's disqualification.",
+      "why_it_matters": "He has limited running in the car, so a clean finish from a late-notice debut is the realistic benchmark. The sources opened give no reason for Ocon's absence, so do not offer one.",
+      "sources": [
+        {"label": "The Race: how Hirakawa is faring", "url": "https://www.the-race.com/formula-1/how-ocons-replacements-really-faring-on-his-shock-f1-debut/"},
+        {"label": "Formula1.com: Hirakawa replaces Ocon", "url": "https://www.formula1.com/en/latest/article/hirakawa-to-replace-ocon-at-haas-for-remainder-of-mexico-city-grand-prix-weekend.2cl5jN0g3rZ2pIYQvc00xM"}
+      ]
+    }
+  ]
+}

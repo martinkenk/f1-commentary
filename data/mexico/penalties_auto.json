@@ -250,5 +250,33 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_30_-_changes_made_during_parc_ferme.pdf"
+  },
+  {
+    "doc": "Doc 68",
+    "no": "55",
+    "driver": "Carlos Sainz",
+    "team": "Atlassian Williams F1 Team",
+    "session": "Reconnaissance Laps",
+    "fact": "Pit lane speeding – 90.9 km/h",
+    "outcome": "The competitor (Atlassian Williams F1 Team) is fined €1000.",
+    "kind": "fine",
+    "source_pdf": "2026_mexico_city_grand_prix_-_infringement_-_car_55_-_pit_lane_speeding.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_55_-_pit_lane_speeding.pdf"
+  },
+  {
+    "doc": "Doc 69",
+    "no": "16",
+    "driver": "Charles Leclerc",
+    "team": "Scuderia Ferrari HP",
+    "session": "Race",
+    "fact": "Car 16 left the track and gained a lasting advantage",
+    "outcome": "5 second time penalty.",
+    "kind": "penalty",
+    "source_pdf": "2026_mexico_city_grand_prix_-_infringement_-_car_16_-_left_the_track_and_gained_a_lasting_advantage.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_16_-_left_the_track_and_gained_a_lasting_advantage.pdf"
   }
 ]
