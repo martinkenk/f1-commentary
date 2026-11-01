@@ -1,0 +1,40 @@
+{
+  "reviewed_at": "2026-11-01T00:16:00Z",
+  "expires_at": "2026-11-01T06:00:00Z",
+  "through_session": "Practice 3",
+  "feed_fingerprint": "7cbbe69e7a0af2dd71e0d92f963a8dd632cae2e3a8c3622c0a22d9cdde000584",
+  "items": [
+    {
+      "topic": "Line-up change",
+      "title": "Hirakawa replaces Ocon at Haas for the rest of the weekend",
+      "date": "2026-10-31",
+      "summary": "Haas announced on Saturday morning that reserve driver Ryo Hirakawa takes over from Esteban Ocon for the remainder of the Mexico City weekend. Hirakawa had driven Haas's FP1 on Friday before Ocon returned for FP2, and he ran frequently in FP3 to gather data.",
+      "why_it_matters": "Treat Hirakawa as the Haas race driver this weekend. His running is limited to FP1 and FP3, so Haas's setup and Mexico City data are thinner than the rest of the field's. No reason for the change appears in the sources opened here, so do not offer one on air.",
+      "sources": [
+        {"label": "Formula1.com: Hirakawa to replace Ocon", "url": "https://www.formula1.com/en/latest/article/hirakawa-to-replace-ocon-at-haas-for-remainder-of-mexico-city-grand-prix-weekend.2cl5jN0g3rZ2pIYQvc00xM"},
+        {"label": "Formula1.com: FP3 report", "url": "https://www.formula1.com/en/latest/article/fp3-norris-pips-antonelli-and-leclerc-to-top-spot-in-final-practice-for-mexico-city-gp.1s5lDqpwmCBl5aqSGq4Ffn"}
+      ]
+    },
+    {
+      "topic": "Session outcome",
+      "title": "Norris tops FP3 by 0.001s from Antonelli, with Leclerc a tenth back",
+      "date": "2026-10-31",
+      "summary": "Lando Norris set a 1m17.600s late in final practice, 0.001s ahead of Kimi Antonelli, with Charles Leclerc about a tenth behind. Leclerc had topped both Friday sessions.",
+      "why_it_matters": "The top three are separated by about a tenth, so Ferrari, Mercedes and McLaren all go into qualifying as contenders. Practice running is not race pace, and fuel loads and engine modes are unknown.",
+      "sources": [
+        {"label": "Formula1.com: FP3 report", "url": "https://www.formula1.com/en/latest/article/fp3-norris-pips-antonelli-and-leclerc-to-top-spot-in-final-practice-for-mexico-city-gp.1s5lDqpwmCBl5aqSGq4Ffn"}
+      ]
+    },
+    {
+      "topic": "Grid penalties",
+      "title": "Verstappen/Lawson one-place drops; Bottas takes power-unit penalties",
+      "date": "2026-10-31",
+      "summary": "Stewards gave Max Verstappen and Liam Lawson a one-place grid drop each for their FP2 clash at Turn 12 and the following corner. The contact damaged Verstappen's floor and Lawson's front wing and brought out a red flag. Separately, Cadillac fitted new ICE, turbocharger, energy store, control electronics and MGU-K elements to Valtteri Bottas's car, which brings power-unit grid penalties under the regulations.",
+      "why_it_matters": "A one-place drop only matters if the pair qualify next to each other, so check their final grid slots. Bottas's penalty depends on the allocation count and may push him to the back. Confirm the final grid against the FIA classification and penalty documents.",
+      "sources": [
+        {"label": "Formula1.com: Verstappen and Lawson penalties", "url": "https://www.formula1.com/en/latest/article/verstappen-and-lawson-get-grid-penalties-after-clumsy-mexico-city-practice-clash.2m2ey8Pl7g5IfQfGeepilD"},
+        {"label": "Formula1.com: Bottas power-unit penalty", "url": "https://www.formula1.com/en/latest/article/bottas-set-for-grid-penalty-at-mexico-city-grand-prix-after-power-unit-changes.2J7hkopU6hrvgFvlK82cip"}
+      ]
+    }
+  ]
+}
