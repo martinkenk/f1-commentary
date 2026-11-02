@@ -5,7 +5,7 @@
     "results_slug": "mexico",
     "gp": "mexico"
   },
-  "checked_at": "2026-11-01T23:17:27+00:00",
+  "checked_at": "2026-11-02T14:22:21+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/1",
-      "fetched_at": "2026-11-01T23:17:27+00:00",
+      "fetched_at": "2026-11-02T14:22:21+00:00",
       "session_start": "2026-10-30T12:30:00-06:00",
       "retained": false
     },
@@ -389,7 +389,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/2",
-      "fetched_at": "2026-11-01T23:17:27+00:00",
+      "fetched_at": "2026-11-02T14:22:21+00:00",
       "session_start": "2026-10-30T16:00:00-06:00",
       "retained": false
     },
@@ -582,7 +582,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/3",
-      "fetched_at": "2026-11-01T23:17:27+00:00",
+      "fetched_at": "2026-11-02T14:22:21+00:00",
       "session_start": "2026-10-31T11:30:00-06:00",
       "retained": false
     },
@@ -821,7 +821,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/qualifying",
-      "fetched_at": "2026-11-01T23:17:27+00:00",
+      "fetched_at": "2026-11-02T14:22:21+00:00",
       "session_start": "2026-10-31T15:00:00-06:00",
       "retained": false
     },
@@ -991,7 +991,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/starting-grid",
-      "fetched_at": "2026-11-01T23:17:27+00:00",
+      "fetched_at": "2026-11-02T14:22:21+00:00",
       "session_start": "2026-10-31T16:00:00-06:00",
       "retained": false
     },
@@ -1063,69 +1063,42 @@
         ],
         [
           "7",
-          "81",
-          "Oscar Piastri PIA",
-          "McLaren",
-          "71",
-          "+19.475s",
-          "6"
-        ],
-        [
-          "8",
-          "43",
-          "Franco Colapinto COL",
-          "Alpine",
-          "71",
-          "+20.204s",
-          "4"
-        ],
-        [
-          "9",
           "30",
           "Liam Lawson LAW",
           "Racing Bulls",
           "71",
           "+20.899s",
-          "2"
+          "6"
         ],
         [
-          "10",
-          "10",
-          "Pierre Gasly GAS",
-          "Alpine",
-          "71",
-          "+21.483s",
-          "1"
-        ],
-        [
-          "11",
+          "8",
           "5",
           "Gabriel Bortoleto BOR",
           "Audi",
           "71",
           "+22.041s",
-          "0"
+          "4"
         ],
         [
-          "12",
+          "9",
           "6",
           "Isack Hadjar HAD",
           "Red Bull Racing",
           "71",
           "+22.503s",
-          "0"
+          "2"
         ],
         [
-          "13",
+          "10",
           "50",
           "Ryo Hirakawa HIR",
           "Haas F1 Team",
           "71",
           "+25.373s",
-          "0"
+          "1"
         ],
         [
-          "14",
+          "11",
           "23",
           "Alexander Albon ALB",
           "Williams",
@@ -1134,7 +1107,7 @@
           "0"
         ],
         [
-          "15",
+          "12",
           "55",
           "Carlos Sainz SAI",
           "Williams",
@@ -1143,7 +1116,16 @@
           "0"
         ],
         [
-          "16",
+          "13",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "71",
+          "+29.475s",
+          "0"
+        ],
+        [
+          "14",
           "27",
           "Nico Hulkenberg HUL",
           "Audi",
@@ -1152,12 +1134,30 @@
           "0"
         ],
         [
-          "17",
+          "15",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "71",
+          "+30.204s",
+          "0"
+        ],
+        [
+          "16",
           "11",
           "Sergio Perez PER",
           "Cadillac",
           "71",
           "+30.695s",
+          "0"
+        ],
+        [
+          "17",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "71",
+          "+51.483s",
           "0"
         ],
         [
@@ -1207,7 +1207,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result",
-      "fetched_at": "2026-11-01T23:17:27+00:00",
+      "fetched_at": "2026-11-02T14:22:21+00:00",
       "session_start": "2026-11-01T14:00:00-06:00",
       "retained": false
     }

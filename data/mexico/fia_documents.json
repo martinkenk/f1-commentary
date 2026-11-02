@@ -1,7 +1,72 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Mexico%20City%20Grand%20Prix",
-  "retrieved_at": "2026-11-01T23:15:36.477788+00:00",
+  "retrieved_at": "2026-11-02T14:21:11.011401+00:00",
   "documents": [
+    {
+      "filename": "2026_mexico_city_grand_prix_-_championship_points.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_championship_points.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_final_race_classification.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_final_race_classification.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_car_43_-_failing_to_slow_under_yellow_flags.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_43_-_failing_to_slow_under_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ]
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_car_10_-_failing_to_slow_under_yellow_flags.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_10_-_failing_to_slow_under_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ]
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_car_63_-_failure_to_attend_mandatory_post-race_commitments.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_63_-_failure_to_attend_mandatory_post-race_commitments.pdf",
+      "categories": [
+        "penalties"
+      ]
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_summons_-_car_63_-_alleged_failure_to_attend_mandatory_post-race_commitments.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_car_63_-_alleged_failure_to_attend_mandatory_post-race_commitments.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_race_scrutineering.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_race_scrutineering.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ]
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_infringement_-_car_81_-_causing_a_collision.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_81_-_causing_a_collision.pdf",
+      "categories": [
+        "penalties"
+      ]
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_summons_-_car_43_-_alleged_failure_to_slow_for_yellow_flags.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_car_43_-_alleged_failure_to_slow_for_yellow_flags.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_mexico_city_grand_prix_-_summons_-_car_10_-_alleged_failure_to_slow_for_yellow_flags.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_car_10_-_alleged_failure_to_slow_for_yellow_flags.pdf",
+      "categories": []
+    },
     {
       "filename": "2026_mexico_city_grand_prix_-_decision_-_car_10_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_car_10_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf",
