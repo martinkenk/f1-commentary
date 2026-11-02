@@ -1,0 +1,56 @@
+{
+  "reviewed_at": "2026-11-02T14:05:00Z",
+  "expires_at": "2026-11-03T13:00:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "de59d69a2bdd20dd878d1fa7be7638af4d4af01c63e0c67036d930ff75ec7272",
+  "items": [
+    {
+      "topic": "Race outcome",
+      "title": "Verstappen wins in Mexico City as Antonelli clinches the title",
+      "date": "2026-11-02",
+      "summary": "Verstappen started fifth after his qualifying lock-up and Lawson incident, then used Ferrari's opening-lap battle to take his third win of 2026. Hamilton finished 0.799s behind. Antonelli took third and secured his maiden Drivers' Championship.",
+      "why_it_matters": "Lead with the title and the Ferrari win that got away. The published session table still shows the pre-penalty order, so quote Alpine and McLaren positions with care.",
+      "sources": [
+        {"label": "Formula1.com key moments", "url": "https://www.formula1.com/en/latest/article/mexico-city-lowdown-all-the-key-moments-as-antonelli-secures-maiden-title-and-verstappen-denies-ferrari-victory.3mPqECWFPlJsdg4jUOZUXz"},
+        {"label": "Formula1.com: Verstappen on the move", "url": "https://www.formula1.com/en/latest/article/verstappen-on-the-opportunistic-move-that-earned-him-fantastic-win-at-mexico-city-gp.5C4UF8HgiJdAGfZeXRBbpB"},
+        {"label": "Formula1.com results", "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result"}
+      ]
+    },
+    {
+      "topic": "Ferrari fallout",
+      "title": "Hamilton and Leclerc's opening-lap clash costs Ferrari victory",
+      "date": "2026-11-02",
+      "summary": "The pair tangled at Turn 4 while fighting for the lead. Leclerc passed Hamilton off track and was penalised; he now says the penalty was deserved. Hamilton says Ferrari had a P1-P2 car and wants serious talks. Vasseur called it a matter of respect.",
+      "why_it_matters": "This is the main Ferrari storyline into Brazil. Report the quotes as the drivers' and team principal's own views, not as a confirmed change of team-order policy.",
+      "sources": [
+        {"label": "Formula1.com: Leclerc concedes penalty", "url": "https://www.formula1.com/en/latest/article/leclerc-concedes-he-deserved-penalty-over-hamilton-clash-in-mexico-city-gp.4rYJb2xww8myo1gtgBV5pV"},
+        {"label": "Formula1.com: Hamilton reflects", "url": "https://www.formula1.com/en/latest/article/we-have-to-have-some-serious-talks-hamilton-reflects-on-costly-ferrari-intra-team-battle-in-mexico.20AlOSmTwJkVVJRtw70vIp"},
+        {"label": "Formula1.com: Vasseur", "url": "https://www.formula1.com/en/latest/article/its-a-matter-of-respect-vasseur-airs-frustrations-over-ferrari-intra-team-clash-in-mexico.33Ed4HMOlbqcaZlQ37hA0F"},
+        {"label": "The Race analysis", "url": "https://www.the-race.com/formula-1/where-ferrari-f1-drivers-mexico-clash-crossed-new-line/"}
+      ]
+    },
+    {
+      "topic": "Post-race stewards",
+      "title": "Piastri's 10s penalty and Alpine's yellow-flag penalties reshuffle the points",
+      "date": "2026-11-02",
+      "summary": "Piastri received a 10-second penalty for the collision with Lindblad and lost seventh. Colapinto and Gasly then lost their finishes for separate yellow-flag infringements, leaving Alpine without points. Mercedes was also fined because Russell skipped the media pen.",
+      "why_it_matters": "Use the final post-penalty classification, not the earlier chequered-flag order. The exact revised order and updated standings were not available when this briefing was reviewed.",
+      "sources": [
+        {"label": "Formula1.com: Piastri penalty", "url": "https://www.formula1.com/en/latest/article/piastri-loses-p7-after-being-handed-post-race-penalty-at-mexico-city-gp.5dk3wHeak2yu7xWF0OhsRt"},
+        {"label": "Formula1.com: Alpine points loss", "url": "https://www.formula1.com/en/latest/article/alpines-gasly-and-colapinto-stripped-of-mexico-city-gp-points-after-post-race-penalties.2wLfobQHufuH1L1aMYPl7h"},
+        {"label": "The Race: Alpine double penalty", "url": "https://www.the-race.com/formula-1/double-penalty-costs-alpine-all-its-mexican-gp-points/"},
+        {"label": "The Race: Russell fine", "url": "https://www.the-race.com/formula-1/mercedes-explains-distraught-russells-post-race-absence-after-fine/"}
+      ]
+    },
+    {
+      "topic": "Mercedes",
+      "title": "Russell's opening-lap deployment problem costs him a shot at victory",
+      "date": "2026-11-02",
+      "summary": "Russell missed pole by 0.009s and made a quick start. A deployment problem on the opening lap cancelled that out, and he finished sixth for eight points. Teammate Antonelli took the title with third place.",
+      "why_it_matters": "It separates Mercedes' title celebration from Russell's lost opportunity, and it is an open reliability and deployment question for Brazil.",
+      "sources": [
+        {"label": "Formula1.com: Russell details issue", "url": "https://www.formula1.com/en/latest/article/russell-details-frustrating-opening-lap-issue-in-mexico-city-that-cost-him-a-shot-at-victory.3K9bqtqg1bCnFQf9NxWM5J"}
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-11-01T23:15:29+00:00",
+  "checked_at": "2026-11-02T13:42:41+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -6221,7 +6221,7 @@
       "label": "Qualifying",
       "date": "2026-10-24",
       "url": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
-      "fetched_at": "2026-11-01T23:15:29+00:00",
+      "fetched_at": "2026-11-02T13:42:41+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -6409,7 +6409,7 @@
       "label": "Race",
       "date": "2026-10-25",
       "url": "https://www.formula1.com/en/results/2026/races/1297/united-states/race-result",
-      "fetched_at": "2026-11-01T23:15:29+00:00",
+      "fetched_at": "2026-11-02T13:42:41+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -6597,7 +6597,7 @@
       "label": "Qualifying",
       "date": "2026-10-31",
       "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/qualifying",
-      "fetched_at": "2026-11-01T23:15:29+00:00",
+      "fetched_at": "2026-11-02T13:42:41+00:00",
       "drivers": [
         {
           "code": "HAM",
@@ -6785,7 +6785,7 @@
       "label": "Race",
       "date": "2026-11-01",
       "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result",
-      "fetched_at": "2026-11-01T23:15:29+00:00",
+      "fetched_at": "2026-11-02T13:42:41+00:00",
       "drivers": [
         {
           "code": "VER",
@@ -6836,89 +6836,89 @@
           "raw_position": "6"
         },
         {
-          "code": "PIA",
-          "name": "Oscar Piastri",
-          "team": "McLaren",
+          "code": "LAW",
+          "name": "Liam Lawson",
+          "team": "Racing Bulls",
           "position": 7,
           "status": "classified",
           "raw_position": "7"
         },
         {
-          "code": "COL",
-          "name": "Franco Colapinto",
-          "team": "Alpine",
+          "code": "BOR",
+          "name": "Gabriel Bortoleto",
+          "team": "Audi",
           "position": 8,
           "status": "classified",
           "raw_position": "8"
         },
         {
-          "code": "LAW",
-          "name": "Liam Lawson",
-          "team": "Racing Bulls",
+          "code": "HAD",
+          "name": "Isack Hadjar",
+          "team": "Red Bull Racing",
           "position": 9,
           "status": "classified",
           "raw_position": "9"
         },
         {
-          "code": "GAS",
-          "name": "Pierre Gasly",
-          "team": "Alpine",
+          "code": "HIR",
+          "name": "Ryo Hirakawa",
+          "team": "Haas F1 Team",
           "position": 10,
           "status": "classified",
           "raw_position": "10"
         },
         {
-          "code": "BOR",
-          "name": "Gabriel Bortoleto",
-          "team": "Audi",
+          "code": "ALB",
+          "name": "Alexander Albon",
+          "team": "Williams",
           "position": 11,
           "status": "classified",
           "raw_position": "11"
         },
         {
-          "code": "HAD",
-          "name": "Isack Hadjar",
-          "team": "Red Bull Racing",
+          "code": "SAI",
+          "name": "Carlos Sainz",
+          "team": "Williams",
           "position": 12,
           "status": "classified",
           "raw_position": "12"
         },
         {
-          "code": "HIR",
-          "name": "Ryo Hirakawa",
-          "team": "Haas F1 Team",
+          "code": "PIA",
+          "name": "Oscar Piastri",
+          "team": "McLaren",
           "position": 13,
           "status": "classified",
           "raw_position": "13"
         },
         {
-          "code": "ALB",
-          "name": "Alexander Albon",
-          "team": "Williams",
+          "code": "HUL",
+          "name": "Nico Hulkenberg",
+          "team": "Audi",
           "position": 14,
           "status": "classified",
           "raw_position": "14"
         },
         {
-          "code": "SAI",
-          "name": "Carlos Sainz",
-          "team": "Williams",
+          "code": "COL",
+          "name": "Franco Colapinto",
+          "team": "Alpine",
           "position": 15,
           "status": "classified",
           "raw_position": "15"
         },
         {
-          "code": "HUL",
-          "name": "Nico Hulkenberg",
-          "team": "Audi",
+          "code": "PER",
+          "name": "Sergio Perez",
+          "team": "Cadillac",
           "position": 16,
           "status": "classified",
           "raw_position": "16"
         },
         {
-          "code": "PER",
-          "name": "Sergio Perez",
-          "team": "Cadillac",
+          "code": "GAS",
+          "name": "Pierre Gasly",
+          "team": "Alpine",
           "position": 17,
           "status": "classified",
           "raw_position": "17"
