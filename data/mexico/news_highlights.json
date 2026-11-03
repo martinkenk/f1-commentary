@@ -1,0 +1,64 @@
+{
+  "reviewed_at": "2026-11-03T22:28:00Z",
+  "expires_at": "2026-11-04T12:00:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "bafc35868da8868c990ecec32a317a0b579271498a0861ba332c196f1869cad6",
+  "items": [
+    {
+      "topic": "Race outcome and title",
+      "title": "Verstappen wins; Antonelli clinches the title with third",
+      "date": "2026-11-02",
+      "summary": "Verstappen started fifth and beat Hamilton by 0.7s after a red flag and a late Safety Car restart. Antonelli finished third, which made him the youngest World Champion and the first Italian champion since Ascari in 1953. Verstappen's win was his third in the last four Grands Prix.",
+      "why_it_matters": "The title is settled, so the story is Antonelli's historic result and Verstappen's late-season surge. Present this as Formula1.com's account; the official classification changed after the race (see the stewards card).",
+      "sources": [
+        {"label": "Formula1.com: Mexico City lowdown", "url": "https://www.formula1.com/en/latest/article/mexico-city-lowdown-all-the-key-moments-as-antonelli-secures-maiden-title-and-verstappen-denies-ferrari-victory.3mPqECWFPlJsdg4jUOZUXz"},
+        {"label": "The Race: Everything we learned", "url": "https://www.the-race.com/formula-1/everything-we-learned-from-f1s-2026-mexican-grand-prix/"}
+      ]
+    },
+    {
+      "topic": "Ferrari",
+      "title": "Leclerc-Hamilton lap-one clash hands Verstappen the win",
+      "date": "2026-11-02",
+      "summary": "Hamilton, on his first Ferrari pole, led into Turn 1 until Leclerc challenged around the outside. Both ran wide at Turn 4, Leclerc cut the grass to take the lead and Hamilton fell behind Verstappen. Leclerc received a five-second penalty and later accepted he deserved it. Vasseur called it a lack of respect and said Ferrari would clear things up.",
+      "why_it_matters": "Ferrari's internal discipline is the main off-track talking point heading to Brazil. Keep quotes attributed: Hamilton and Vasseur criticised the approach, while Leclerc pointed at the circuit layout.",
+      "sources": [
+        {"label": "Formula1.com: Mexico City lowdown", "url": "https://www.formula1.com/en/latest/article/mexico-city-lowdown-all-the-key-moments-as-antonelli-secures-maiden-title-and-verstappen-denies-ferrari-victory.3mPqECWFPlJsdg4jUOZUXz"},
+        {"label": "The Race: Everything we learned", "url": "https://www.the-race.com/formula-1/everything-we-learned-from-f1s-2026-mexican-grand-prix/"}
+      ]
+    },
+    {
+      "topic": "Stewards",
+      "title": "Post-race penalties reshape the points places",
+      "date": "2026-11-02",
+      "summary": "Piastri received a 10-second penalty for the Lindblad collision and dropped from P7 to P15. Colapinto (10s) and Gasly (stop-and-go) lost their P8 and P10 for yellow-flag infringements, leaving Alpine without points. Per Formula1.com, the final scorers behind the top six were Lawson P7, Bortoleto P8, Hadjar P9 and Hirakawa P10. Mercedes was separately fined EUR 5,000 after Russell skipped the media pen.",
+      "why_it_matters": "The chequered-flag order is not the official result. Use the post-penalty classification on air; the stewards' decision documents were not read in full for this card.",
+      "sources": [
+        {"label": "Formula1.com: Piastri penalty", "url": "https://www.formula1.com/en/latest/article/piastri-loses-p7-after-being-handed-post-race-penalty-at-mexico-city-gp.5dk3wHeak2yu7xWF0OhsRt"},
+        {"label": "Formula1.com: Gasly and Colapinto penalties", "url": "https://www.formula1.com/en/latest/article/alpines-gasly-and-colapinto-stripped-of-mexico-city-gp-points-after-post-race-penalties.2wLfobQHufuH1L1aMYPl7h"},
+        {"label": "The Race: Russell absence and fine", "url": "https://www.the-race.com/formula-1/mercedes-explains-distraught-russells-post-race-absence-after-fine/"}
+      ]
+    },
+    {
+      "topic": "Technical",
+      "title": "Energy-deployment speed limit blunts overtaking",
+      "date": "2026-11-03",
+      "summary": "Hamilton called the end-of-straight deployment limit stupid and Norris said it ruins racing. The Race explains that cars arrived on the long straight with energy and ran near the limit early, so pursuers lost deployment and gaps froze. Russell also lost four places at the start with an energy-deployment problem.",
+      "why_it_matters": "This is a regulation-driven talking point for the remaining races. The Race's explanation is its analysis; drivers' criticism is not a confirmed rule change.",
+      "sources": [
+        {"label": "The Race: The 'stupid' speed limit", "url": "https://www.the-race.com/formula-1/the-stupid-speed-limit-that-neutered-mexican-gp-explained/"},
+        {"label": "Formula1.com: Mexico City lowdown", "url": "https://www.formula1.com/en/latest/article/mexico-city-lowdown-all-the-key-moments-as-antonelli-secures-maiden-title-and-verstappen-denies-ferrari-victory.3mPqECWFPlJsdg4jUOZUXz"}
+      ]
+    },
+    {
+      "topic": "Line-ups",
+      "title": "Hirakawa scores on debut; Camara replaces Ocon in Brazil",
+      "date": "2026-11-03",
+      "summary": "Reserve driver Ryo Hirakawa replaced Ocon at Haas in Mexico City and finished P10 after the penalties. Haas then confirmed Ocon will not return this year, and F2 leader Rafael Camara will make his F1 debut in Sao Paulo.",
+      "why_it_matters": "A rookie line-up change for the next round. Haas's own wording of Ocon's departure is in the Formula1.com report.",
+      "sources": [
+        {"label": "Formula1.com: Camara to debut at Sao Paulo", "url": "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"},
+        {"label": "Formula1.com: Gasly and Colapinto penalties", "url": "https://www.formula1.com/en/latest/article/alpines-gasly-and-colapinto-stripped-of-mexico-city-gp-points-after-post-race-penalties.2wLfobQHufuH1L1aMYPl7h"}
+      ]
+    }
+  ]
+}

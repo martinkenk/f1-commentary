@@ -1,0 +1,29 @@
+{
+  "reviewed_at": "2026-11-03T22:28:00Z",
+  "expires_at": "2026-11-04T12:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "items": [
+    {
+      "topic": "Line-ups",
+      "title": "Camara to make F1 debut with Haas; Ocon will not return",
+      "date": "2026-11-03",
+      "summary": "Ferrari junior and Formula 2 standings leader Rafael Camara will drive for Haas at the Sao Paulo Grand Prix. Haas confirmed Esteban Ocon, who had already announced he would leave at the end of the season, will not compete for the team again this year. Reserve Ryo Hirakawa covered in Mexico City and finished P10 after penalties.",
+      "why_it_matters": "A debutant on the grid changes the rookie and team-mate context for Brazil.",
+      "sources": [
+        {"label": "Formula1.com: Camara to debut at Sao Paulo", "url": "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"}
+      ]
+    },
+    {
+      "topic": "Weekend context",
+      "title": "First race after Antonelli's title, with the teams' fight still open",
+      "date": "2026-11-03",
+      "summary": "Antonelli arrives as World Champion after clinching the title in Mexico City. Formula1.com says the drivers' title is decided but there are high stakes in the constructors' championship and the race-win battle. This is a conventional weekend, without a sprint.",
+      "why_it_matters": "Frame Brazil around the constructors' fight and Ferrari's fallout from Mexico rather than the drivers' title.",
+      "sources": [
+        {"label": "Formula1.com: Sao Paulo GP preview and schedule", "url": "https://www.formula1.com/en/latest/article/what-time-is-the-formula-1-2026-sao-paulo-grand-prix-and-how-can-i-watch-it.6hpbTPt6gucIHBH8QztPjb"},
+        {"label": "The Race: Brazilian GP schedule", "url": "https://www.the-race.com/formula-1/what-time-is-f1s-2026-brazilian-grand-prix-full-weekend-schedule/"}
+      ]
+    }
+  ]
+}
