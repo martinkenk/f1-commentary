@@ -1,0 +1,84 @@
+{
+  "reviewed_at": "2026-11-04T22:48:00Z",
+  "expires_at": "2026-11-05T20:00:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "bafc35868da8868c990ecec32a317a0b579271498a0861ba332c196f1869cad6",
+  "items": [
+    {
+      "topic": "Race outcome",
+      "title": "Verstappen wins as Antonelli clinches the title",
+      "summary": "Max Verstappen recovered from a grid penalty to win, keeping Lewis Hamilton at bay. Kimi Antonelli's podium secured his maiden Drivers' Championship. Hamilton had taken Ferrari's first pole of 2026 with a 1m 16.514s Q3 lap.",
+      "why_it_matters": "The title is decided and Ferrari lost a race they were positioned to win; this is the post-race baseline for Sao Paulo.",
+      "sources": [
+        {
+          "label": "Formula1.com: key moments",
+          "url": "https://www.formula1.com/en/latest/article/mexico-city-lowdown-all-the-key-moments-as-antonelli-secures-maiden-title-and-verstappen-denies-ferrari-victory.3mPqECWFPlJsdg4jUOZUXz"
+        },
+        {
+          "label": "Formula1.com: Verstappen on his winning move",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-on-the-opportunistic-move-that-earned-him-fantastic-win-at-mexico-city-gp.5C4UF8HgiJdAGfZeXRBbpB"
+        }
+      ],
+      "date": "2026-11-02"
+    },
+    {
+      "topic": "Ferrari",
+      "title": "Opening-lap clash leaves Ferrari with P2 and P4",
+      "summary": "Fred Vasseur said Ferrari should have won after the intra-team opening-lap clash and called it 'a matter of respect'. Leclerc conceded he deserved a penalty and Hamilton expects 'some serious talks'.",
+      "why_it_matters": "Team harmony is the main Ferrari storyline; these are team and driver accounts, not an official finding beyond the stewards' decision.",
+      "sources": [
+        {
+          "label": "Formula1.com: Vasseur",
+          "url": "https://www.formula1.com/en/latest/article/its-a-matter-of-respect-vasseur-airs-frustrations-over-ferrari-intra-team-clash-in-mexico.33Ed4HMOlbqcaZlQ37hA0F"
+        },
+        {
+          "label": "Formula1.com: Leclerc",
+          "url": "https://www.formula1.com/en/latest/article/leclerc-concedes-he-deserved-penalty-over-hamilton-clash-in-mexico-city-gp.4rYJb2xww8myo1gtgBV5pV"
+        },
+        {
+          "label": "Formula1.com: Hamilton",
+          "url": "https://www.formula1.com/en/latest/article/we-have-to-have-some-serious-talks-hamilton-reflects-on-costly-ferrari-intra-team-battle-in-mexico.20AlOSmTwJkVVJRtw70vIp"
+        },
+        {
+          "label": "The Race: Ferrari clash",
+          "url": "https://www.the-race.com/formula-1/where-ferrari-f1-drivers-mexico-clash-crossed-new-line/"
+        }
+      ],
+      "date": "2026-11-02"
+    },
+    {
+      "topic": "Post-race penalties",
+      "title": "Piastri, Gasly and Colapinto lose finishing positions",
+      "summary": "Oscar Piastri lost P7 for a 10-second penalty for causing a collision with Arvid Lindblad. Pierre Gasly (P10) and Franco Colapinto (P8) were separately penalised for yellow-flag infringements and lost their finishes; The Race reports Alpine lost all its Mexican GP points.",
+      "why_it_matters": "Use the amended classification, not the chequered-flag order, when quoting points or form.",
+      "sources": [
+        {
+          "label": "Formula1.com: Piastri penalty",
+          "url": "https://www.formula1.com/en/latest/article/piastri-loses-p7-after-being-handed-post-race-penalty-at-mexico-city-gp.5dk3wHeak2yu7xWF0OhsRt"
+        },
+        {
+          "label": "Formula1.com: Alpine penalties",
+          "url": "https://www.formula1.com/en/latest/article/alpines-gasly-and-colapinto-stripped-of-mexico-city-gp-points-after-post-race-penalties.2wLfobQHufuH1L1aMYPl7h"
+        },
+        {
+          "label": "The Race: Alpine points",
+          "url": "https://www.the-race.com/formula-1/double-penalty-costs-alpine-all-its-mexican-gp-points/"
+        }
+      ],
+      "date": "2026-11-02"
+    },
+    {
+      "topic": "Aston Martin",
+      "title": "Honda-powered Aston Martin double retirement after five laps",
+      "summary": "One AMR26 retired in the pits after five laps while the other stopped on track at the same time. Formula1.com calls it perhaps the team's most disappointing weekend of 2026.",
+      "why_it_matters": "A reliability and Honda power-unit talking point heading into Sao Paulo; the cause is covered in the linked report.",
+      "sources": [
+        {
+          "label": "Formula1.com: Aston Martin retirements",
+          "url": "https://www.formula1.com/en/latest/article/why-aston-martins-mexico-city-grand-prix-ended-after-five-laps.2j9GYm3FSjAOGu23hmaMTA"
+        }
+      ],
+      "date": "2026-11-02"
+    }
+  ]
+}

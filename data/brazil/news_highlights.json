@@ -1,0 +1,64 @@
+{
+  "reviewed_at": "2026-11-04T22:48:00Z",
+  "expires_at": "2026-11-05T20:00:00Z",
+  "through_session": null,
+  "feed_fingerprint": "7bb6fa82ad1b1eeba75e28485a476e873b05c2ee39c44caf0007aa363cb994d6",
+  "items": [
+    {
+      "topic": "Haas line-up",
+      "title": "Camara replaces Ocon for Haas in Sao Paulo",
+      "date": "2026-11-04",
+      "summary": "Haas confirmed that Esteban Ocon will not drive for them again this year. Ferrari junior and Formula 2 standings leader Rafael Camara makes his F1 debut at his home race. Reserve Ryo Hirakawa covered in Mexico City but is unavailable because of a World Endurance Championship finale.",
+      "why_it_matters": "A Brazilian debutant at Interlagos is the human-interest lead; Camara says there is 'a lot to learn' and has not previously driven a 2026 F1 car in a race weekend.",
+      "sources": [
+        {
+          "label": "Formula1.com: Camara to make F1 debut",
+          "url": "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
+        },
+        {
+          "label": "Formula1.com: Camara on his debut",
+          "url": "https://www.formula1.com/en/latest/article/camara-concedes-there-is-a-lot-to-learn-ahead-of-special-f1-debut-with-haas-in-sao-paulo.28dp6c9ntdxBu0xmEWAAUm"
+        }
+      ]
+    },
+    {
+      "topic": "Championship",
+      "title": "Mercedes arrive with a chance to add the constructors' title",
+      "summary": "Kimi Antonelli clinched the Drivers' Championship in Mexico City. Formula1.com's race-week preview says Antonelli and Mercedes now go to Sao Paulo to try to seal the Constructors' title.",
+      "why_it_matters": "Frame the weekend as a possible team-title clincher; check the current standings page for the exact scenario before saying it is mathematically available.",
+      "sources": [
+        {
+          "label": "Formula1.com: race-week storylines",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
+        }
+      ],
+      "date": "2026-11-04"
+    },
+    {
+      "topic": "Tyres",
+      "title": "Pirelli move to the softer end of the range",
+      "summary": "Pirelli selected C3 as hard, C4 as medium and C5 as soft for Sao Paulo, which Formula1.com describes as a shift towards the softer end of the range.",
+      "why_it_matters": "Compound choice frames strategy and degradation talk. The official race-set inventory is only published after qualifying and remains pending.",
+      "sources": [
+        {
+          "label": "Formula1.com: Sao Paulo tyre allocation",
+          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-sao-paulo-grand-prix.bjn9KJgqDprqvVr9z7i5V"
+        }
+      ],
+      "date": "2026-11-04"
+    },
+    {
+      "topic": "Weather and history",
+      "title": "Interlagos weather is a live variable; last year was dry",
+      "summary": "Formula1.com has published its Sao Paulo weather preview and notes that Brazil often produces wet classics, though last year's race was dry and won by Lando Norris from Kimi Antonelli and Max Verstappen.",
+      "why_it_matters": "Use the schedule page's forecast as it updates and avoid assuming a wet or dry race from history.",
+      "sources": [
+        {
+          "label": "Formula1.com: Sao Paulo weather forecast",
+          "url": "https://www.formula1.com/en/latest/article/what-is-the-weather-forecast-for-the-2026-sao-paulo-grand-prix.6DTTG84ES6tbC6eISpqnR8"
+        }
+      ],
+      "date": "2026-11-04"
+    }
+  ]
+}
