@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-11-03T21:41:53+00:00",
+  "checked_at": "2026-11-04T16:02:11+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -5469,7 +5469,7 @@
       "label": "Race",
       "date": "2026-09-26",
       "url": "https://www.formula1.com/en/results/2026/races/1295/azerbaijan/race-result",
-      "fetched_at": "2026-10-28T14:56:24+00:00",
+      "fetched_at": "2026-11-04T16:02:11+00:00",
       "drivers": [
         {
           "code": "RUS",
@@ -5657,7 +5657,7 @@
       "label": "Qualifying",
       "date": "2026-10-03",
       "url": "https://www.formula1.com/en/results/2026/races/1308/bahrain/qualifying",
-      "fetched_at": "2026-10-28T14:56:24+00:00",
+      "fetched_at": "2026-11-04T16:02:11+00:00",
       "drivers": [
         {
           "code": "VER",
@@ -6221,7 +6221,7 @@
       "label": "Qualifying",
       "date": "2026-10-24",
       "url": "https://www.formula1.com/en/results/2026/races/1297/united-states/qualifying",
-      "fetched_at": "2026-11-03T21:41:53+00:00",
+      "fetched_at": "2026-11-04T16:02:11+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -6409,7 +6409,7 @@
       "label": "Race",
       "date": "2026-10-25",
       "url": "https://www.formula1.com/en/results/2026/races/1297/united-states/race-result",
-      "fetched_at": "2026-11-03T21:41:53+00:00",
+      "fetched_at": "2026-11-04T16:02:11+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -6597,7 +6597,7 @@
       "label": "Qualifying",
       "date": "2026-10-31",
       "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/qualifying",
-      "fetched_at": "2026-11-03T21:41:53+00:00",
+      "fetched_at": "2026-11-04T16:02:11+00:00",
       "drivers": [
         {
           "code": "HAM",
@@ -6785,7 +6785,7 @@
       "label": "Race",
       "date": "2026-11-01",
       "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result",
-      "fetched_at": "2026-11-03T21:41:53+00:00",
+      "fetched_at": "2026-11-04T16:02:11+00:00",
       "drivers": [
         {
           "code": "VER",
