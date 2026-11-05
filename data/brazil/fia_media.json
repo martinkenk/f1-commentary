@@ -1,11 +1,71 @@
 {
-  "checked_at": "2026-11-04T16:02:52+00:00",
-  "discovery_retrieved_at": "",
-  "documents": [],
-  "errors": [
+  "checked_at": "2026-11-05T13:46:50+00:00",
+  "discovery_retrieved_at": "2026-11-05T13:46:44.670108+00:00",
+  "documents": [
     {
-      "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix",
-      "error": "No saved FIA discovery manifest"
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "filename": "2026_sao_paulo_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "categories": [
+        "tyres"
+      ],
+      "sha256": "84d11f15335e159edbfc72e1239da1a702bf861b51224461ae4792f7dd4e4c0d",
+      "fetched_at": "2026-11-05T13:46:50+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-brazil-8188298e7b47-84d11f15335e159e-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_visa.pdf",
+      "filename": "2026_sao_paulo_grand_prix_-_competition_visa.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "a599a4c28c8fc5f85df2e78b8e90e6b13b3ebc5209632e51d97fb4d7e328733b",
+      "fetched_at": "2026-11-05T13:46:50+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-brazil-9f3181eb9a72-a599a4c28c8fc5f8-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-brazil-9f3181eb9a72-a599a4c28c8fc5f8-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-brazil-9f3181eb9a72-a599a4c28c8fc5f8-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-brazil-9f3181eb9a72-a599a4c28c8fc5f8-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-brazil-9f3181eb9a72-a599a4c28c8fc5f8-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-brazil-9f3181eb9a72-a599a4c28c8fc5f8-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-brazil-9f3181eb9a72-a599a4c28c8fc5f8-p8.png"
+        },
+        {
+          "page": 9,
+          "asset": "fia-brazil-9f3181eb9a72-a599a4c28c8fc5f8-p9.png"
+        },
+        {
+          "page": 10,
+          "asset": "fia-brazil-9f3181eb9a72-a599a4c28c8fc5f8-p10.png"
+        }
+      ],
+      "revision": 0
     }
-  ]
+  ],
+  "errors": []
 }
