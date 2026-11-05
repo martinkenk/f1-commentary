@@ -1,7 +1,39 @@
 {
-  "checked_at": "2026-11-05T13:46:50+00:00",
-  "discovery_retrieved_at": "2026-11-05T13:46:44.670108+00:00",
+  "checked_at": "2026-11-05T20:54:16+00:00",
+  "discovery_retrieved_at": "2026-11-05T20:54:10.262276+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_display_procedure.pdf",
+      "filename": "2026_sao_paulo_grand_prix_-_car_display_procedure.pdf",
+      "categories": [
+        "upgrades"
+      ],
+      "sha256": "2a89a0a215ed1559de0dbd301ed184097cfe30ceec0fef661e662592a6033a89",
+      "fetched_at": "2026-11-05T20:54:16+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-brazil-aa9f1c5887bb-2a89a0a215ed1559-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_power_unit_information.pdf",
+      "filename": "2026_sao_paulo_grand_prix_-_power_unit_information.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "b034c0e63a20560dd3e02f1f1a38423fe68bb1fdc1599f43e8f3e712eb589104",
+      "fetched_at": "2026-11-05T20:54:16+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-brazil-70a86f7aabae-b034c0e63a20560d-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
       "filename": "2026_sao_paulo_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
@@ -9,7 +41,7 @@
         "tyres"
       ],
       "sha256": "84d11f15335e159edbfc72e1239da1a702bf861b51224461ae4792f7dd4e4c0d",
-      "fetched_at": "2026-11-05T13:46:50+00:00",
+      "fetched_at": "2026-11-05T20:54:16+00:00",
       "pages": [
         {
           "page": 2,
@@ -25,7 +57,7 @@
         "schedule"
       ],
       "sha256": "a599a4c28c8fc5f85df2e78b8e90e6b13b3ebc5209632e51d97fb4d7e328733b",
-      "fetched_at": "2026-11-05T13:46:50+00:00",
+      "fetched_at": "2026-11-05T20:54:16+00:00",
       "pages": [
         {
           "page": 2,
