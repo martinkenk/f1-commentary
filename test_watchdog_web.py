@@ -194,7 +194,8 @@ class QueuedWorkerTests(unittest.TestCase):
             with patch.object(watchdog, "STATE", state), \
                  patch.object(watchdog, "command", side_effect=self.command), \
                  patch.object(watchdog, "recent_runs", return_value=[
-                     {"name": "Build & deploy to GitHub Pages", "status": "in_progress"}]), \
+                     {"name": "Calendar refresh", "path": ".github/workflows/deploy.yml",
+                      "status": "in_progress"}]), \
                  patch.object(watchdog, "run_agent") as agent:
                 self.assertEqual(watchdog.run(), 0)
                 agent.assert_not_called()

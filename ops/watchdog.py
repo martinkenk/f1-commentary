@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STATE = Path.home() / ".local/state/f1-watchdog"
 REPOSITORY = "martinkenk/f1-commentary"
 WORKFLOWS = {"Build & deploy to GitHub Pages", "Critical race coverage"}
+WORKFLOW_PATHS = {".github/workflows/deploy.yml", ".github/workflows/critical-race-coverage.lock.yml"}
 ACTIVE = {"queued", "in_progress", "waiting", "pending", "requested"}
 
 
@@ -35,7 +36,7 @@ def command(args, cwd=ROOT, timeout=60):
 
 
 def active_runs(runs):
-    return [run for run in runs if run.get("name") in WORKFLOWS
+    return [run for run in runs if (run.get("name") in WORKFLOWS or run.get("path") in WORKFLOW_PATHS)
             and run.get("status") in ACTIVE]
 
 
@@ -53,11 +54,11 @@ def recent_runs(authenticated):
         with urllib.request.urlopen(request, timeout=30) as response:
             payload = json.load(response)
     return [{key: run.get(key) for key in (
-        "id", "name", "status", "conclusion", "created_at", "html_url", "head_sha")}
+        "id", "name", "path", "status", "conclusion", "created_at", "html_url", "head_sha")}
         for run in payload["workflow_runs"]]
 
 
-def agent_arguments(prompt, report_dir, session_id=None):
+def agent_arguments(prompt, report_dir, session_id=None, resume=False):
     args = [
         "copilot", "-C", str(ROOT), "--model", "auto", "--autopilot",
         "--max-autopilot-continues", "6", "--no-ask-user", "--allow-all-tools",
@@ -83,7 +84,8 @@ def agent_arguments(prompt, report_dir, session_id=None):
         "--allow-url", "archive-api.open-meteo.com", "-p", prompt,
     ]
     if session_id:
-        args[1:1] = ["--session-id", session_id, "--name", f"F1 watchdog {report_dir.parent.name}"]
+        args[1:1] = (["--resume", session_id] if resume else
+                     ["--session-id", session_id, "--name", f"F1 watchdog {report_dir.parent.name}"])
     return args
 
 
@@ -191,6 +193,15 @@ def run(audit_only=False, timeout=2700):
                 task = None
                 status.update(status="blocked", summary=f"Operator job remains queued: {reason}")
                 return 0
+            if task and task.get("resume_run"):
+                prior = STATE / "runs" / task["resume_run"]
+                record = json.loads((prior / "status.json").read_text())
+                session = record.get("session_id")
+                if not session:
+                    raise ValueError("Selected run has no resumable session ID")
+                uuid.UUID(session)
+                status["session_id"] = session
+                write_json(latest_path, status)
             prompt = (ROOT / "ops/watchdog-context.md").read_text()
             request = STATE / "repair-request.json"
             if request.exists():
@@ -211,15 +222,6 @@ def run(audit_only=False, timeout=2700):
                 f"{guidance or '(No additional guidance.)'}\n"
             )
             if task:
-                if task.get("resume_run"):
-                    prior = STATE / "runs" / task["resume_run"]
-                    record = json.loads((prior / "status.json").read_text())
-                    session = record.get("session_id")
-                    if not session:
-                        raise ValueError("Selected run has no resumable session ID")
-                    uuid.UUID(session)
-                    status["session_id"] = session
-                    write_json(latest_path, status)
                 prompt += (
                     "\n## Explicit operator task (browser control room)\n"
                     "Complete this task instead of a general coverage sweep. Relevant website "
@@ -230,11 +232,13 @@ def run(audit_only=False, timeout=2700):
                     "credentials, web authentication or your own permissions. Do not install "
                     "operator-service updates yourself; report when installation is required.\n"
                     f"Task: {task['title']}\n{task['prompt']}\n")
-            code = run_agent(agent_arguments(prompt, report_dir / "cli", status["session_id"]),
+            code = run_agent(agent_arguments(prompt, report_dir / "cli", status["session_id"],
+                                            resume=bool(task and task.get("resume_run"))),
                              report_dir / "agent.log", timeout)
             status["agent_exit_code"] = code
             if code:
                 status["status"] = "timed_out" if code == 124 else "agent_failed"
+                status["error"] = f"Copilot exited {code}; inspect this run's agent output"
                 return code
             if not result_path.is_file():
                 raise RuntimeError("Agent exited without the required report.json; inspect agent.log")

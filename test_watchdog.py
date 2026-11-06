@@ -30,6 +30,19 @@ class WatchdogTests(unittest.TestCase):
             self.assertIn(domain, args)
         self.assertEqual(args[-1], "PROMPT")
 
+    def test_dynamic_run_titles_still_block_using_stable_workflow_paths(self):
+        run = {"name": "Calendar refresh 20261106T120000Z", "status": "in_progress",
+               "path": ".github/workflows/deploy.yml"}
+        self.assertEqual(watchdog.active_runs([run]), [run])
+
+    def test_followup_resumes_without_trying_to_rename_existing_session(self):
+        identity = "d579ad9e-29fa-4e91-8d48-6a7fd274969b"
+        args = watchdog.agent_arguments("prompt", Path("/runs/run/cli"), identity, resume=True)
+        self.assertIn("--resume", args)
+        self.assertEqual(args[args.index("--resume") + 1], identity)
+        self.assertNotIn("--name", args)
+        self.assertNotIn("--session-id", args)
+
     def test_missing_gh_auth_still_audits_but_cannot_publish(self):
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory)
