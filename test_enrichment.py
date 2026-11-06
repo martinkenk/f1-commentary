@@ -28,6 +28,8 @@ def document(filename):
 PU = document("2026_italian_grand_prix_-_power_unit_information.pdf")
 MAP = document("2026_italian_grand_prix_-_competition_notes_-_circuit_map.pdf")
 DECISION = document("2026_italian_grand_prix_-_decision_-_car_12.pdf")
+TECHNICAL_REPORT = document(
+    "2026_mexico_city_grand_prix_-_mgu-k_infringement_car_30.pdf")
 ARTICLE = {"url": "https://www.the-race.com/formula-1/monza-test/",
            "title": "Monza report", "source": "The Race", "src_kind": "race",
            "body": "A race report.", "when": "6 Sep", "date": "2026-09-06"}
@@ -148,13 +150,19 @@ class EnrichmentTests(unittest.TestCase):
         docs = [PU, MAP, DECISION,
                 document("2026_car_presentation_submissions.pdf"),
                 document("2026_final_classification.pdf"),
-                document("2026_summons_alleged_infringement.pdf")]
+                document("2026_summons_alleged_infringement.pdf"),
+                TECHNICAL_REPORT]
         page = "".join(f'<a href="{d["url"]}">PDF</a>' for d in docs + [PU])
         with patch.object(enrich, "_get", return_value=page):
             found = enrich.fia_documents(CTX)
             decisions = enrich.fia_decision_pdfs(CTX)
         self.assertEqual(len(found), len(docs))
         self.assertEqual([d["filename"] for d in decisions], [DECISION["filename"]])
+        self.assertEqual(found[-1]["categories"], ["penalties"])
+        self.assertTrue(enrich.is_fia_decision(document(
+            "2026_dutch_grand_prix_-_infringement-_car_55.pdf")))
+        self.assertTrue(enrich.is_fia_decision(document(
+            "2026_belgian_grand_prix_-_tyre_return_infringement.pdf")))
         self.assertEqual(found[0]["categories"], ["powerunit"])
         self.assertEqual(found[1]["categories"], ["circuit"])
 
@@ -303,6 +311,50 @@ class EnrichmentTests(unittest.TestCase):
         self.assertIn("18 - Lance Stroll", record["outcome"])
         self.assertNotIn("grid", record["outcome"])
         self.assertEqual(record["no"], "")
+
+    def test_singular_permission_to_start_is_extracted_as_a_note(self):
+        text = (
+            "2026 MEXICO CITY GRAND PRIX\n"
+            "In accordance with Article B2.4.3b of the FIA F1 Regulations, "
+            "the Stewards determine the following F1 Car is eligible to start the Race:\n"
+            "1. 30 - Liam Lawson – Visa Cash App Racing Bulls F1 Team\n"
+            "The F1 Car will be placed on the grid in accordance with Article B2.5.4.\n"
+            "Document 58"
+        )
+        with patch.object(enrich, "llm_json", return_value=None):
+            record = enrich.structure_decision(
+                text, "decision_-_car_30_-_permission_to_start.pdf")
+        self.assertEqual(record["doc"], "Doc 58")
+        self.assertEqual(record["kind"], "note")
+        self.assertEqual(record["session"], "Race")
+        self.assertEqual(record["no"], "30")
+        self.assertEqual(record["driver"], "Liam Lawson")
+        self.assertEqual(record["team"], "Visa Cash App Racing Bulls F1 Team")
+        self.assertIn("Eligible to start", record["outcome"])
+
+    def test_driver_change_permission_is_an_explicit_administrative_note(self):
+        text = (
+            "2026 MEXICO CITY GRAND PRIX\n"
+            "The Stewards have received a request from TGR Haas F1 Team to change "
+            "the driver of car 31, Esteban Ocon.\n"
+            "In accordance with Article B1.7.2 of the FIA F1 Regulations, "
+            "the Stewards grant permission for the driver, Ryo Hirakawa, "
+            "with the car number 50, to participate in the 2026 Mexico City "
+            "Grand Prix in place of Esteban Ocon for the rest of the competition.\n"
+            "Further, this permission is subject to Ryo Hirakawa passing the "
+            "scrutineering requirements.\nDocument 36"
+        )
+        with patch.object(enrich, "llm_json", return_value=None):
+            record = enrich.structure_decision(
+                text, "decision_-_driver_change_tgr_haas_f1_team.pdf")
+        self.assertEqual(record["doc"], "Doc 36")
+        self.assertEqual(record["kind"], "note")
+        self.assertEqual(record["no"], "50")
+        self.assertEqual(record["driver"], "Ryo Hirakawa")
+        self.assertEqual(record["team"], "TGR Haas F1 Team")
+        self.assertEqual(record["fact"], "Driver change")
+        self.assertIn("Esteban Ocon (car 31)", record["outcome"])
+        self.assertIn("subject to passing scrutineering", record["outcome"])
 
     def test_session_stoppage_prose_is_not_a_driver_penalty(self):
         text = (

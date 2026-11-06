@@ -1,0 +1,9 @@
+{
+  "reviewed_at": "2026-11-06T09:52:31Z",
+  "basis": "Visually reviewed the FIA screenshot pages and read the matching PDFs: Doc 36 grants Ryo Hirakawa permission to replace Esteban Ocon subject to scrutineering; Doc 58 permits Liam Lawson to start the Race. The MGU-K document is the Technical Delegate's report referring the matter to the Stewards, not a ruling. Its image remains available separately from the decision tracker.",
+  "fia_sha256": {
+    "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_driver_change_tgr_haas_f1_team.pdf": "94e13b2f3ae34e7a7e93d983a008d15a6210ac765efc0fdb51bee0422b4b0937",
+    "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_car_30_-_permission_to_start.pdf": "6860b77e7698ed4adaa099e8c5ee0af8b29b5101d3b68f5a944cf5ed985cf412",
+    "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_mgu-k_infringement_car_30.pdf": "3317b2ea30710b31857af8ee49e6e9d913ed37c29dc489043bc03e5b12d8ded1"
+  }
+}

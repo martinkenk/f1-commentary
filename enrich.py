@@ -455,8 +455,12 @@ def fia_documents(ctx):
 
 
 def is_fia_decision(pdf):
-    """Keep broad discovery separate from stewards' extraction."""
-    return "penalties" in f1lib.fia_document_categories(pdf["filename"])
+    """Do not parse the MGU-K technical report as a steward ruling."""
+    filename = pdf["filename"].lower()
+    technical_report = re.search(
+        r"(?:^|[_-])mgu[-_]k_infringement_car_\d+(?:\.pdf)?$", filename)
+    return ("penalties" in f1lib.fia_document_categories(filename)
+            and not technical_report)
 
 
 def fia_decision_pdfs(ctx):
@@ -721,6 +725,16 @@ def _normalise_pdf_text(text):
     return text.replace("\u00a0", " ").replace("\u202f", " ")
 
 
+def _driver_change_fields(text):
+    flat = re.sub(r"\s+", " ", _normalise_pdf_text(text)).strip()
+    return re.search(
+        r"request from (.+?) to change the driver of car\s+(\d+),\s*(.+?)\.\s*"
+        r"In accordance with .+?, the Stewards grant permission for the driver,\s*"
+        r"(.+?),\s*with the car number\s+(\d+),\s*to participate in the .+? "
+        r"in place of\s+(.+?)\s+for the rest of the competition",
+        flat, re.I)
+
+
 def decision_identity(text, filename=""):
     """Read subjects from this decision, never from a current-season roster."""
     text = _normalise_pdf_text(text)
@@ -741,6 +755,9 @@ def decision_identity(text, filename=""):
                 people.append((match[1], match[2].strip()))
     if not people and "eligible to start" in text.lower():
         people = re.findall(r"(?m)^\s*\d+\.\s*(\d+)\s*[-–]\s*(.+?)\s*[-–]\s*", text)
+    driver_change = _driver_change_fields(text)
+    if not people and driver_change:
+        people = [(driver_change[5], driver_change[4])]
     subject = re.search(r"(?:^|[_ -])car[_ -]+(\d+)(?:[_ .-]|$)", filename, re.I)
     if not people and subject:
         number = subject[1]
@@ -750,9 +767,16 @@ def decision_identity(text, filename=""):
             people = [(number, match[1].strip())]
     people = list(dict.fromkeys(people))
     competitor = re.search(r"(?im)^\s*Competitor[ \t]+([^\n]+)", text)
+    permission_team = re.search(
+        r"(?m)^\s*\d+\.\s*\d+\s*[-–]\s*[^-\n]+?\s*[-–]\s*([^\n]+)", text)
+    team = competitor[1].strip() if competitor else ""
+    if not team and driver_change:
+        team = driver_change[1].strip()
+    elif not team and len(people) == 1 and permission_team:
+        team = permission_team[1].strip()
     result = {"driver": "; ".join(name for _, name in people),
               "no": people[0][0] if len(people) == 1 else "",
-              "team": competitor[1].strip() if competitor else ""}
+              "team": team}
     if people:
         result["identity_status"] = "named"
     elif subject or re.search(r"deleted lap times|Car\s+Driver", text, re.I):
@@ -821,13 +845,20 @@ def _fake_decision(text):
     if not dec:
         # Some administrative rulings are prose, without a Decision/Fact table.
         flat = re.sub(r"\s+", " ", text).strip()
+        driver_change = _driver_change_fields(text)
         permission = re.search(
-            r"the Stewards determine the following F1 Cars are eligible to start the Race:"
-            r"\s*(.+?)\s*The F1 Cars will be placed", flat, re.I)
+            r"the Stewards determine the following F1 Cars? (?:are|is) eligible "
+            r"to start the Race:\s*(.+?)\s*The F1 Cars? will be placed", flat, re.I)
         stop = re.search(
             r"The Stewards, exercising their authority.{1,300}?"
             r"decided to temporarily stop (Free Practice [123])\.", flat, re.I)
-        if permission:
+        if driver_change:
+            fact = "Driver change"
+            dec = (f"Permission granted for {driver_change[4]} "
+                   f"(car {driver_change[5]}) to participate in place of "
+                   f"{driver_change[3]} (car {driver_change[2]}) for the rest "
+                   "of the competition, subject to passing scrutineering.")
+        elif permission:
             fact, session = "Permission to start", "Race"
             dec = "Eligible to start the Race: " + permission.group(1)
         elif stop:

@@ -112,6 +112,20 @@
     "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_30_-_turn_14_incident_with_car_3_.pdf"
   },
   {
+    "doc": "Doc 36",
+    "no": "50",
+    "driver": "Ryo Hirakawa",
+    "team": "TGR Haas F1 Team",
+    "session": "",
+    "fact": "Driver change",
+    "outcome": "Permission granted for Ryo Hirakawa (car 50) to participate in place of Esteban Ocon (car 31) for the rest of the competition, subject to passing scrutineering.",
+    "kind": "note",
+    "source_pdf": "2026_mexico_city_grand_prix_-_decision_-_driver_change_tgr_haas_f1_team.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_driver_change_tgr_haas_f1_team.pdf"
+  },
+  {
     "doc": "Doc 41",
     "no": "6",
     "driver": "Isack Hadjar",
@@ -236,6 +250,20 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_30_-_technical_nonconformity.pdf"
+  },
+  {
+    "doc": "Doc 58",
+    "no": "30",
+    "driver": "Liam Lawson",
+    "team": "Visa Cash App Racing Bulls F1 Team",
+    "session": "Race",
+    "fact": "Permission to start",
+    "outcome": "Eligible to start the Race: 1. 30 - Liam Lawson – Visa Cash App Racing Bulls F1 Team",
+    "kind": "note",
+    "source_pdf": "2026_mexico_city_grand_prix_-_decision_-_car_30_-_permission_to_start.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_car_30_-_permission_to_start.pdf"
   },
   {
     "doc": "Doc 65",
