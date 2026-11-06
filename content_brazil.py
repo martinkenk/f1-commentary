@@ -10,9 +10,12 @@ STORYLINES = "https://www.formula1.com/en/latest/article/its-race-week-5-storyli
 MCLAREN = "https://www.formula1.com/en/latest/article/want-to-believe-that-we-can-still-make-improvements-norris-wary-of-new-mclaren-upgrades-in-sao-paulo.6NvdXqDIqBz1Mw1xveJv0k"
 FERRARI = "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-talks-ahead-of-sao-paulo-grand-prix-after-intra-team-battle-with-leclerc.3JXGpQWTdOA2a9PiH7NL8X"
 RUSSELL_PENALTY = "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"
+RUSSELL_F1 = "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"
 FIA_EVENT = "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
 FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
 FIA_UPGRADES_ASSET = "fia-brazil-d82872895e6d-eaf9202e01277f4e"
+FIA_NEW_PU_URL = FIA + "new_pu_elements_for_this_competition.pdf"
+FIA_NEW_PU_ASSET = "fia-brazil-46906038b849-b706ad97554d079c-p2"
 UPGRADE_SUBMISSIONS = (
     ("McLaren", 2, (
         ("Front Wing", "Performance - Flow Conditioning",
@@ -81,14 +84,20 @@ Drivers' Championship in Mexico. Entering Brazil, Mercedes leads Ferrari
 that lead by three points clinches the constructors' title. This is the
 pre-weekend scenario, not a declaration that Mercedes has already won.
 <a href="{STORYLINES}">Official title scenario</a>.</p>''', "bi-trophy", "accent")}
-{card("Mercedes: Russell confirms a five-place drop", f'''<p>The Race reports
-that Russell said Mercedes chose Brazil for the five-place penalty tied to a
-new internal-combustion engine. The FIA's pre-practice, season-to-date usage
-report lists five ICEs used by Russell; it is not an event-specific new-parts
-declaration or a penalty decision. The later 14:29 UTC FIA listing now includes
-that usage report, but still does not establish whether the planned ADUO
-power-unit upgrade is arriving.
-<a href="{RUSSELL_PENALTY}">Russell's comments, 6 November</a> ·
+{card("Mercedes: FIA reports Russell's sixth ICE", f'''<p>FIA Document 14
+reports a new ICE for Russell at the twentieth competition: it is his sixth
+against four allowed and the Technical Delegate says it is not compliant with
+Sporting Regulation B8.2.2(a). The Race and Formula1.com report a five-place penalty
+(grid drop), but this Technical Delegate's report is not the Stewards' sanction
+decision; Document 14
+itself names no sanction, so check the FIA event page for any later decision.
+The pre-practice,
+season-to-date usage report (Document 8) listed five ICEs; it is not an
+event-specific new-parts declaration or a penalty decision. The FIA filings
+do not establish whether the planned ADUO specification is arriving.
+<a href="{RUSSELL_F1}">Formula1.com report</a> ·
+<a href="{RUSSELL_PENALTY}">The Race report</a> ·
+<a href="{FIA_NEW_PU_URL}">FIA Document 14</a> ·
 <a href="{FIA_EVENT}">FIA event documents</a>.</p>''', "bi-exclamation-triangle")}
 {card("Ferrari: talks still to happen", f'''<p>Hamilton said on Thursday that
 face-to-face talks following the Mexico battle had not yet taken place.
@@ -139,6 +148,16 @@ not a verified 2026 strategy window.</p>
 
 
 def _powerunit():
+    new_elements = (
+        ("63", "Mercedes", "George Russell", "ICE", "5", "4",
+         "Sixth used; not compliant with B8.2.2(a)"),
+        ("51", "Haas Ferrari", "Rafael Câmara", "PU-ANC", "5", "6",
+         "One of six allowed; compliant with B8.2.2(g)"),
+    )
+    new_elements_table = "".join(
+        "<tr>" + "".join(f"<td>{value}</td>" for value in row) + "</tr>"
+        for row in new_elements
+    )
     usage_rows = (
         ("81", "Oscar Piastri", 4, 3, 3, 2, 3, 3, 5),
         ("01", "Lando Norris", 4, 3, 3, 2, 3, 4, 5),
@@ -168,14 +187,28 @@ def _powerunit():
         for row in usage_rows
     )
     return f"""
+<h2 class="sec">Brazil's new power-unit elements</h2>
+<p>FIA Document 14, published at 16:33 CET on 6 November, lists Russell's
+sixth ICE and Rafael Câmara's new PU-ANC. The Technical Delegate states that
+Russell's ICE is not compliant with B8.2.2(a), while Câmara's PU-ANC is within
+the six-element allowance under B8.2.2(g). This report is not the Stewards'
+penalty decision: Formula1.com and The Race separately report a five-place
+grid drop for Russell; Document 14 itself names no sanction, so check the FIA
+event page for any later decision.</p>
+<div class="table-wrap"><table class="data compact" id="brazil-new-pu-elements">
+<thead><tr><th>No.</th><th>Constructor</th><th>Driver</th><th>New element</th>
+<th>Previously used</th><th>Season allowance</th><th>Technical Delegate's report</th></tr></thead>
+<tbody>{new_elements_table}</tbody></table></div>
+{_figure(FIA_NEW_PU_ASSET, "FIA Document 14: Brazil new power-unit elements, page 2",
+         "new_pu_elements_for_this_competition")}
 <h2 class="sec">Season-to-date power-unit usage</h2>
 <p>The FIA Technical Delegate's report dated <strong>6 November</strong> lists
 the number of each element used by the 22 race-entered drivers so far this
 season. It was retrieved at 14:30 UTC, before the scheduled 15:30 UTC start of
 FP1, so it is a pre-running snapshot. These are usage totals, not a declaration
-of which new parts are fitted for Brazil and not a penalty ruling. For example,
-Russell's five ICEs in this snapshot are distinct from the reported new ICE
-and five-place grid penalty for this event.</p>
+of which new parts are fitted for Brazil. Russell's five ICEs in that snapshot
+are the parts used before the new sixth ICE listed in Document 14; the usage
+report is not an event-specific new-parts declaration or a penalty decision.</p>
 <div class="table-wrap"><table class="data compact" id="brazil-pu-usage">
 <thead><tr><th>No.</th><th>Driver</th><th>ICE</th><th>TC</th><th>EXH</th>
 <th>MGU-K</th><th>ES</th><th>PU-CE</th><th>PU-ANC</th></tr></thead>

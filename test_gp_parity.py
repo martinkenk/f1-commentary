@@ -70,13 +70,22 @@ class GPParityTests(unittest.TestCase):
         body = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )["overview"]["body"]
+        body = " ".join(body.split())
         self.assertIn("five-place penalty", body)
         self.assertIn(content_brazil.RUSSELL_PENALTY, body)
+        self.assertIn(content_brazil.FIA_NEW_PU_URL, body)
+        self.assertIn("sixth against four allowed", body)
         self.assertIn("pre-practice, season-to-date usage", body)
         self.assertIn("not an event-specific new-parts", body)
-        self.assertIn("does not establish whether the planned ADUO", body)
+        self.assertIn("do not establish whether the planned ADUO", body)
         self.assertNotIn("14:00 UTC targeted FIA check", body)
         self.assertNotIn("12:46 UTC", body)
+        powerunit = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )["powerunit"]["body"]
+        self.assertIn("brazil-new-pu-elements", powerunit)
+        self.assertIn(content_brazil.FIA_NEW_PU_ASSET, powerunit)
+        self.assertIn("Rafael Câmara", powerunit)
 
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
         ctx = dict(self.contexts["brazil"], status="live")

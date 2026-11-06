@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-06T15:05:00Z",
-  "expires_at": "2026-11-06T15:25:00Z",
+  "reviewed_at": "2026-11-06T16:04:00Z",
+  "expires_at": "2026-11-06T16:45:00Z",
   "through_session": null,
-  "feed_fingerprint": "5bb95d0ecf3ad1a6f13f22c68b5274527f40b41da035354a85f14fa04a6efc09",
+  "feed_fingerprint": "bf6d1e62eb9934193c9a10e141c60c93a095eec7cee4192c0b86b0dc17843402",
   "items": [
     {
       "topic": "Championship",
@@ -18,13 +18,15 @@
     },
     {
       "topic": "Engine and grid",
-      "title": "Russell's reported ICE penalty meets the FIA's season-to-date usage report",
+      "title": "FIA reports Russell's sixth ICE as non-compliant; five-place drop reported",
       "date": "2026-11-06",
-      "summary": "The Race reports that Mercedes selected Brazil for a new internal-combustion engine and a five-place grid drop. In its 6 November pre-FP1 report, the FIA lists five ICEs, five TCs, five EXHs, four MGU-Ks, four ESs, four PU-CEs and five PU-ANCs used by Russell this season. The usage snapshot is not the event's new-parts declaration or a penalty ruling.",
-      "why_it_matters": "Keep Russell's reported penalty separate from the FIA's season-to-date usage totals; neither document establishes that the planned ADUO engine specification is arriving.",
+      "summary": "FIA Document 14 reports that Russell's new ICE is his sixth against four allowed, and the Technical Delegate says it is not compliant with B8.2.2(a). Formula1.com and The Race separately report a five-place grid drop. The earlier FIA Document 8 listed five ICEs used before this event; it is a season-to-date snapshot, not the new-part declaration.",
+      "why_it_matters": "Do not turn the Technical Delegate's report into the Stewards' penalty decision: Document 14 itself names no sanction, so check the FIA event page for any later ruling. The same filing says Rafael Câmara's new PU-ANC is compliant; the planned ADUO specification remains a separate, unconfirmed matter.",
       "sources": [
         {"label": "The Race: Russell on his engine change", "url": "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"},
-        {"label": "FIA: PU elements used per driver, 6 November", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf"}
+        {"label": "Formula1.com: Russell set for grid penalty", "url": "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"},
+        {"label": "FIA: New PU elements for this competition, Document 14", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition.pdf"},
+        {"label": "FIA: PU elements used per driver, Document 8", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf"}
       ]
     },
     {
