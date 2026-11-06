@@ -21,7 +21,7 @@ TOPICS = [
     ("Session outcome", r"\b(wins?|victory|pole|fp[123]|qualifying results|race results|sprint results)\b"),
     ("Team relations", r"(hamilton.*leclerc|leclerc.*hamilton|ferrari.*talks|team.orders)"),
     ("Championship", r"\b(championship|title|standings|russell.*team mate)\b"),
-    ("Technical and circuit", r"\b(upgrades?|power unit|aero|tyres?|pirelli|"
+    ("Technical and circuit", r"\b(upgrades?|power unit|aero|front wings?|tyres?|pirelli|"
      r"madring|circuit.*challenges)\b"),
 ]
 

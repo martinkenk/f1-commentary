@@ -63,6 +63,14 @@ class BriefingTests(unittest.TestCase):
         self.assertIn("feed has changed", selected["notice"])
         self.assertIn("Driver handed grid penalty", [item["title"] for item in selected["items"]])
 
+    def test_new_front_wing_reporting_invalidates_review(self):
+        title = "McLaren's 2027 F1 front wing breaks cover in Brazil"
+        self.feed.append(article(title, "https://example.org/front-wing"))
+        self.write()
+        selected = briefing.select(CTX, self.directory, NOW)
+        self.assertIn("feed has changed", selected["notice"])
+        self.assertIn(title, [item["title"] for item in selected["items"]])
+
     def test_automatic_selection_groups_sources_excludes_promos_and_wrong_dates(self):
         feed = [
             article(), article(url="https://example.org/second"),

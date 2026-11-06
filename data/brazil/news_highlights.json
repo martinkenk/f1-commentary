@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-06T13:05:01Z",
+  "reviewed_at": "2026-11-06T13:18:07Z",
   "expires_at": "2026-11-06T15:00:00Z",
   "through_session": null,
-  "feed_fingerprint": "4a9266a9feedb01fc88260582ff5209ed7e77f1e6a2d7c123a1269f44573ee00",
+  "feed_fingerprint": "5bb95d0ecf3ad1a6f13f22c68b5274527f40b41da035354a85f14fa04a6efc09",
   "items": [
     {
       "topic": "Championship",
@@ -53,13 +53,14 @@
     },
     {
       "topic": "McLaren upgrades",
-      "title": "Norris confirms small changes but gives no drivability guarantee",
-      "date": "2026-11-05",
-      "summary": "McLaren brings updates to Brazil, with Norris hoping for performance gains while cautioning that they might not make the car easier to drive.",
-      "why_it_matters": "Separate driver-reported development from the official component filing and measured performance. The Friday display is 11:00–12:00 BRT.",
+      "title": "McLaren brings 2026 updates and a 2027 front-wing concept to Brazil",
+      "date": "2026-11-06",
+      "summary": "The Race reports floor tweaks and an updated rear wing alongside a new-concept front wing McLaren expects to carry into its 2027 launch specification. McLaren says the changes target more downforce and better balance; Norris cautions that updates may not make the MCL40 easier to drive. The FIA index checked at 13:18 UTC still listed only event docs 1–7 and no Brazil car-presentation filing; this is before the scheduled 14:00 lookup.",
+      "why_it_matters": "This package combines immediate 2026 development with an early 2027 concept. Attribute the component details to The Race and do not infer performance gains before practice or treat the pre-deadline FIA listing as a final absence.",
       "sources": [
+        {"label": "The Race: McLaren's 2027 front wing and Brazil updates", "url": "https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/"},
         {"label": "Formula1.com: Norris on Brazil updates", "url": "https://www.formula1.com/en/latest/article/want-to-believe-that-we-can-still-make-improvements-norris-wary-of-new-mclaren-upgrades-in-sao-paulo.6NvdXqDIqBz1Mw1xveJv0k"},
-        {"label": "FIA: car display procedure", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_display_procedure.pdf"}
+        {"label": "FIA: Sao Paulo event documents", "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"}
       ]
     }
   ]
