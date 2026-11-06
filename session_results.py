@@ -56,7 +56,7 @@ def validate_table(headers, rows):
             if int(pos) < 1:
                 raise ValueError("Invalid classification position")
             positions.append(int(pos))
-        elif pos not in ("NC", "DNF", "DNS", "DSQ", "DQ"):
+        elif pos not in ("NC", "DNF", "RT", "DNS", "DSQ", "DQ"):
             raise ValueError(f"Unknown classification position: {pos}")
         numbers.add(number)
         codes.add(code)

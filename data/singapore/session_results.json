@@ -5,7 +5,7 @@
     "results_slug": "singapore",
     "gp": "singapore"
   },
-  "checked_at": "2026-11-06T06:14:11+00:00",
+  "checked_at": "2026-11-06T06:18:52+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/practice/1",
-      "fetched_at": "2026-11-06T06:14:11+00:00",
+      "fetched_at": "2026-11-06T06:18:52+00:00",
       "session_start": "2026-10-09T16:30:00+08:00",
       "retained": false
     },
@@ -435,7 +435,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/sprint-qualifying",
-      "fetched_at": "2026-11-06T06:14:11+00:00",
+      "fetched_at": "2026-11-06T06:18:52+00:00",
       "session_start": "2026-10-09T20:30:00+08:00",
       "retained": false
     },
@@ -651,8 +651,247 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/sprint-results",
-      "fetched_at": "2026-11-06T06:14:11+00:00",
+      "fetched_at": "2026-11-06T06:18:52+00:00",
       "session_start": "2026-10-10T17:00:00+08:00",
+      "retained": false
+    },
+    {
+      "label": "Qualifying",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Q1",
+        "Q2",
+        "Q3",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "1:33.241",
+          "1:31.639",
+          "1:31.373",
+          "15"
+        ],
+        [
+          "2",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "1:32.774",
+          "1:31.953",
+          "1:31.427",
+          "25"
+        ],
+        [
+          "3",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "1:32.429",
+          "1:31.529",
+          "1:31.496",
+          "25"
+        ],
+        [
+          "4",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "1:33.601",
+          "1:32.079",
+          "1:31.562",
+          "23"
+        ],
+        [
+          "5",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "1:32.775",
+          "1:31.895",
+          "1:31.712",
+          "24"
+        ],
+        [
+          "6",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:33.617",
+          "1:32.212",
+          "1:31.747",
+          "23"
+        ],
+        [
+          "7",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "1:33.076",
+          "1:32.245",
+          "1:31.860",
+          "22"
+        ],
+        [
+          "8",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "1:33.182",
+          "1:32.602",
+          "1:32.225",
+          "22"
+        ],
+        [
+          "9",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "1:32.885",
+          "1:32.319",
+          "1:32.369",
+          "21"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "1:33.288",
+          "1:32.498",
+          "1:32.781",
+          "21"
+        ],
+        [
+          "11",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "1:33.147",
+          "1:32.784",
+          "",
+          "19"
+        ],
+        [
+          "12",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "1:33.356",
+          "1:32.908",
+          "",
+          "12"
+        ],
+        [
+          "13",
+          "31",
+          "Esteban Ocon OCO",
+          "Haas F1 Team",
+          "1:33.803",
+          "1:33.323",
+          "",
+          "15"
+        ],
+        [
+          "14",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "1:33.774",
+          "1:33.526",
+          "",
+          "15"
+        ],
+        [
+          "15",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "1:34.169",
+          "1:33.658",
+          "",
+          "19"
+        ],
+        [
+          "16",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "1:33.261",
+          "1:33.787",
+          "",
+          "14"
+        ],
+        [
+          "17",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "1:34.223",
+          "",
+          "",
+          "9"
+        ],
+        [
+          "18",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "1:34.289",
+          "",
+          "",
+          "10"
+        ],
+        [
+          "19",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "1:34.946",
+          "",
+          "",
+          "8"
+        ],
+        [
+          "20",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "1:35.123",
+          "",
+          "",
+          "8"
+        ],
+        [
+          "21",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "1:35.984",
+          "",
+          "",
+          "10"
+        ],
+        [
+          "RT",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "",
+          "",
+          "",
+          "3"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/qualifying",
+      "fetched_at": "2026-11-06T06:18:52+00:00",
+      "session_start": "2026-10-10T21:00:00+08:00",
       "retained": false
     },
     {
@@ -821,7 +1060,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/starting-grid",
-      "fetched_at": "2026-11-06T06:14:11+00:00",
+      "fetched_at": "2026-11-06T06:18:52+00:00",
       "session_start": "2026-10-10T22:00:00+08:00",
       "retained": false
     },
@@ -1037,7 +1276,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/race-result",
-      "fetched_at": "2026-11-06T06:14:11+00:00",
+      "fetched_at": "2026-11-06T06:18:52+00:00",
       "session_start": "2026-10-11T20:00:00+08:00",
       "retained": false
     }
@@ -1060,10 +1299,8 @@
     },
     {
       "label": "Qualifying",
-      "state": "unavailable",
-      "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/qualifying",
-      "error": "Unknown classification position: RT",
-      "retained": false
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1296/singapore/qualifying"
     },
     {
       "label": "Starting Grid",

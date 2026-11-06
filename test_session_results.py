@@ -179,6 +179,17 @@ class ResultsTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 results.parse_table(page(headers, rows))
 
+    def test_retired_row_keeps_source_status_and_empty_qualifying_times(self):
+        _, rows = table()
+        headers = ["Pos.", "No.", "Driver", "Team", "Q1", "Q2", "Q3", "Laps"]
+        rows = [row[:4] + ["1:33.000", "", "", "3"] for row in rows]
+        rows[-1][0], rows[-1][4] = "RT", ""
+        parsed_headers, parsed_rows = results.parse_table(page(headers, rows))
+        self.assertEqual(parsed_headers, headers)
+        self.assertEqual(parsed_rows, rows)
+        self.assertEqual(parsed_rows[-1][0], "RT")
+        self.assertEqual(parsed_rows[-1][4:7], ["", "", ""])
+
     def test_wrong_event_year_source_or_session_cache_rejected(self):
         record, _ = self.collect()
         variants = []
