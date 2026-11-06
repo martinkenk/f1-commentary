@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-11-06T12:46:51+00:00",
-  "discovery_retrieved_at": "2026-11-06T12:46:46.802065+00:00",
+  "checked_at": "2026-11-06T13:08:29+00:00",
+  "discovery_retrieved_at": "2026-11-06T13:08:24.978763+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
@@ -9,7 +9,7 @@
         "circuit"
       ],
       "sha256": "8c3658719ff724191a2a3665c760345e348a24108d2f5ff0184705d491079d29",
-      "fetched_at": "2026-11-06T12:46:51+00:00",
+      "fetched_at": "2026-11-06T13:08:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -37,7 +37,7 @@
         "circuit"
       ],
       "sha256": "9ff6ac5312d5fd2fd91a98ac0554b6d9d2bb48b6c0de025b2e564c9a37f0a311",
-      "fetched_at": "2026-11-06T12:46:51+00:00",
+      "fetched_at": "2026-11-06T13:08:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -77,7 +77,7 @@
         "schedule"
       ],
       "sha256": "e19f7ebe4f41dd85985d2db37bdb9b753393986f507da686809e535a86bcd020",
-      "fetched_at": "2026-11-06T12:46:51+00:00",
+      "fetched_at": "2026-11-06T13:08:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -109,7 +109,7 @@
         "upgrades"
       ],
       "sha256": "2a89a0a215ed1559de0dbd301ed184097cfe30ceec0fef661e662592a6033a89",
-      "fetched_at": "2026-11-06T12:46:51+00:00",
+      "fetched_at": "2026-11-06T13:08:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -125,7 +125,7 @@
         "powerunit"
       ],
       "sha256": "b034c0e63a20560dd3e02f1f1a38423fe68bb1fdc1599f43e8f3e712eb589104",
-      "fetched_at": "2026-11-06T12:46:51+00:00",
+      "fetched_at": "2026-11-06T13:08:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -141,7 +141,7 @@
         "tyres"
       ],
       "sha256": "84d11f15335e159edbfc72e1239da1a702bf861b51224461ae4792f7dd4e4c0d",
-      "fetched_at": "2026-11-06T12:46:51+00:00",
+      "fetched_at": "2026-11-06T13:08:29+00:00",
       "pages": [
         {
           "page": 2,
@@ -157,7 +157,7 @@
         "schedule"
       ],
       "sha256": "a599a4c28c8fc5f85df2e78b8e90e6b13b3ebc5209632e51d97fb4d7e328733b",
-      "fetched_at": "2026-11-06T12:46:51+00:00",
+      "fetched_at": "2026-11-06T13:08:29+00:00",
       "pages": [
         {
           "page": 2,
