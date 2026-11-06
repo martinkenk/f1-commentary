@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-06T19:18:14Z",
-  "expires_at": "2026-11-06T19:45:00Z",
-  "through_session": "Practice 1",
-  "feed_fingerprint": "100c2d56e7c872a92a3f0d1e0b3f01f26a58102404e766a0f9a3100f4fcf18af",
+  "reviewed_at": "2026-11-06T20:49:18Z",
+  "expires_at": "2026-11-07T13:30:00Z",
+  "through_session": "Practice 2",
+  "feed_fingerprint": "156ef13a33299ab1bdfe6f220af2fc7ed701dea91d704aac58f841bcf1319daa",
   "items": [
     {
       "topic": "Championship",
@@ -18,14 +18,29 @@
     },
     {
       "topic": "Practice",
-      "title": "Norris edges Antonelli and Verstappen to top Brazil FP1",
+      "title": "Antonelli tops FP2 as Hülkenberg is unable to run",
       "date": "2026-11-06",
-      "summary": "The official 22-car Practice 1 classification has Lando Norris first in 1:11.717, 0.082s ahead of Kimi Antonelli, with Max Verstappen third at +0.236s. The Race also reports that Colton Herta completed the 100km needed for his final Super Licence point.",
-      "why_it_matters": "This was the first practice session only; its order awards no points and is not a forecast of qualifying or the Grand Prix. Herta's licence eligibility does not confirm a 2027 seat.",
+      "summary": "FIA Document 22 lists Kimi Antonelli fastest in FP2 at 1:10.763, 0.253s ahead of Lando Norris; Max Verstappen was +0.259s, George Russell +0.273s and Oscar Piastri +0.321s. Formula1.com reports Nico Hülkenberg did not run; he is absent from the FIA's 21-row timed classification. Stewards' Document 23 lists ten deleted-lap entries for nine drivers (Albon appears twice) after track-use issues at Turns 1 and 4; Race Director's Document 24 sets a below-1:13.0 interval between the Safety Car lines for qualifying and specified reconnaissance laps.",
+      "why_it_matters": "FP2 replaces FP1 as the latest completed classification. The lap-time ruling is not itself a revised classification or a race penalty. The 1:13.0 limit applies only during/after qualifying and on reconnaissance laps while pit exit is open, not to racing laps.",
       "sources": [
-        {"label": "Formula1.com: FP1 report and result", "url": "https://www.formula1.com/en/latest/article/fp1-norris-leads-antonelli-and-verstappen-in-opening-sao-paulo-gp-practice-session.3GXL3rAROwHsLxnxn9hReY"},
-        {"label": "Formula1.com: official Practice 1 classification", "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/1"},
-        {"label": "The Race: Brazil FP1 report", "url": "https://www.the-race.com/formula-1/what-happened-in-brazil-fp1-f1-sao-paulo/"}
+        {"label": "Formula1.com: FP2 report", "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-the-times-from-norris-in-second-practice-at-sao-paulo-gp.27XFbTG9Lji18qmtHbCJUA"},
+        {"label": "FIA: FP2 classification, Document 22", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_free_practice_2_classification.pdf"},
+        {"label": "Formula1.com: official Practice 2 classification", "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/2"},
+        {"label": "FIA: FP2 deleted lap times, Document 23", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf"},
+        {"label": "FIA: SC2–SC1 maximum, Document 24", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf"}
+      ]
+    },
+    {
+      "topic": "Stewards",
+      "title": "Stewards summon Camara and Leclerc after Turn 15 incident",
+      "date": "2026-11-06",
+      "summary": "FIA Documents 20 and 21 summon Rafael Camara (No. 51) and Charles Leclerc (No. 16), with their team representatives, to a 17:40 BRT hearing over an alleged Car 51 impeding of Car 16 at Turn 15 at 16:31. The 20:49 UTC FIA listing contains no later ruling.",
+      "why_it_matters": "The scheduled hearing time has passed, but the latest listing does not establish whether or how the Stewards resolved it. These summons are not findings or penalties.",
+      "sources": [
+        {"label": "FIA: Camara summons, Document 20", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_51_-_alleged_impeding_of_car_16.pdf"},
+        {"label": "FIA: Leclerc summons, Document 21", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_impeding_by_car_51.pdf"},
+        {"label": "FIA: complete Sao Paulo event documents, checked 20:49 UTC", "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"},
+        {"label": "Formula1.com: FP2 report", "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-the-times-from-norris-in-second-practice-at-sao-paulo-gp.27XFbTG9Lji18qmtHbCJUA"}
       ]
     },
     {
@@ -49,18 +64,6 @@
       "sources": [
         {"label": "FIA: Car Presentation Submissions, Document 12", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf"},
         {"label": "The Race: McLaren's Brazil upgrades and 2027 front wing", "url": "https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/"}
-      ]
-    },
-    {
-      "topic": "Penalties",
-      "title": "Colapinto fined after FP1 pit-lane speeding",
-      "date": "2026-11-06",
-      "summary": "The Stewards' Document 16 records Franco Colapinto at 80.6 km/h in the 80 km/h pit lane and fines BWT Alpine F1 Team EUR 100. Document 18 lists FP1 lap-time deletions for ten drivers at turns 1, 7, 10 and 12; Document 19 separately deletes five shown lap times after cars passed through a double-waved-yellow sector: Colapinto, Albon, Browning, Camara and Beganovic.",
-      "why_it_matters": "The fine applies to the team. Documents 18 and 19 concern lap-time deletions, not race penalties or changes to the official FP1 classification.",
-      "sources": [
-        {"label": "FIA: Colapinto pit-lane speeding, Document 16", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_43_-_pit_lane_speeding.pdf"},
-        {"label": "FIA: FP1 deleted lap times, Document 18", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"},
-        {"label": "FIA: double-waved-yellow lap deletions, Document 19", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"}
       ]
     }
   ]

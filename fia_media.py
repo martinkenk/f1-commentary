@@ -176,7 +176,8 @@ def main():
     parser.add_argument("--decisions-only", action="store_true",
                         help="backfill decision screenshots and source identities only")
     parser.add_argument("--category", action="append",
-                        choices=("powerunit", "circuit", "tyres", "upgrades", "schedule", "penalties"),
+                        choices=("powerunit", "circuit", "tyres", "upgrades", "schedule",
+                                 "penalties", "results", "stewards"),
                         help="refresh only this FIA document category; may be repeated")
     args = parser.parse_args()
     if args.category and args.decisions_only:

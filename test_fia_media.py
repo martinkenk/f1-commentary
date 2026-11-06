@@ -97,6 +97,36 @@ class FiaMediaTests(unittest.TestCase):
         self.assertIn("automatic screenshot", body)
         self.assertEqual(f1lib.render_fia_media(CTX, "circuit"), "")
 
+    def test_summons_and_classifications_have_distinct_page_destinations(self):
+        summons_url = "https://www.fia.com/system/files/decision-document/summons_car_51.pdf"
+        result_url = "https://www.fia.com/system/files/decision-document/free_practice_2_classification.pdf"
+        penalty_url = "https://www.fia.com/system/files/decision-document/infringement_car_63.pdf"
+        documents = [
+            {"url": summons_url, "filename": "summons_car_51.pdf"},
+            {"url": result_url, "filename": "free_practice_2_classification.pdf"},
+            {"url": penalty_url, "filename": "infringement_car_63.pdf"},
+        ]
+        self.manifest.write_text(json.dumps({"documents": documents}), encoding="utf-8")
+        with patch.object(fia_media, "_download", return_value=b"%PDF-new"), \
+                patch.object(fia_media, "_render", side_effect=self.render), \
+                patch.object(fia_media.enrich, "pdf_text", return_value="Decision penalty"):
+            self.assertTrue(fia_media.refresh_gp(CTX))
+        record = self.record()["documents"]
+        self.assertEqual([doc["categories"] for doc in record],
+                         [["stewards"], ["results"], ["penalties"]])
+        self.assertIn(summons_url, f1lib.render_fia_documents(CTX, "penalties"))
+        self.assertIn(penalty_url, f1lib.render_fia_documents(CTX, "penalties"))
+        self.assertIn("not findings or penalties",
+                      f1lib.render_fia_documents(CTX, "penalties"))
+        self.assertIn(result_url, f1lib.render_fia_documents(CTX, "results"))
+        self.assertIn(summons_url + "#page=2",
+                      f1lib.render_fia_media(CTX, "penalties"))
+        self.assertIn(penalty_url + "#page=2",
+                      f1lib.render_fia_media(CTX, "penalties"))
+        self.assertIn(result_url + "#page=2",
+                      f1lib.render_fia_media(CTX, "results"))
+        self.assertEqual(f1lib.render_fia_media(CTX, "penalties").count("<img"), 2)
+
     def test_parc_ferme_parts_report_is_collected_with_upgrade_media(self):
         report_url = (
             "https://www.fia.com/system/files/decision-document/"

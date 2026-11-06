@@ -198,7 +198,11 @@ class EnrichmentTests(unittest.TestCase):
             "car_presentation_submissions": ["upgrades"],
             "car_display_procedure": ["upgrades"],
             "infringement_-_car_30_-_change_to_pu_elements": ["penalties"],
-            "summons_-_car_30_-_alleged_infringement": [],
+            "summons_-_car_30_-_alleged_infringement": ["stewards"],
+            "free_practice_2_classification": ["results"],
+            "entry_list": ["schedule"],
+            "curfew": ["schedule"],
+            "self_scrutineering": ["schedule"],
             "decision_-_permission_to_start": ["penalties"],
             "race_scrutineering": [],
         }
@@ -393,6 +397,25 @@ class EnrichmentTests(unittest.TestCase):
             self.assertIn(time, record["outcome"])
         self.assertNotIn("Document", record["outcome"])
         self.assertEqual(enrich._fake_decision("Document 31 No ruling text")["outcome"], "")
+
+    def test_wrapped_decision_outcome_preserves_the_full_ruling(self):
+        text = (
+            "Document 23\nSession Free Practice 2\n\n"
+            "Fact The F1 Cars below did not use the track at turns 1 and 4.\n\n"
+            "Decision Deletion of the lap times shown in accordance with "
+            "Article 12.4.1.e of the FIA International\n"
+            "Sporting Code.\n\n"
+            "Note Competitors may appeal within the applicable time limits."
+        )
+        with patch.object(enrich, "llm_json", return_value=None):
+            record = enrich.structure_decision(
+                text, "infringement_-_free_practice_2_deleted_lap_times.pdf")
+        self.assertEqual(record["doc"], "Doc 23")
+        self.assertEqual(record["session"], "Free Practice 2")
+        self.assertEqual(
+            record["outcome"],
+            "Deletion of the lap times shown in accordance with Article "
+            "12.4.1.e of the FIA International Sporting Code.")
 
     def test_source_http_failures_are_visible(self):
         error = urllib.error.HTTPError("https://example.test", 503, "Unavailable", {}, None)

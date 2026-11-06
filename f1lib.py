@@ -71,6 +71,10 @@ def fia_document_categories(filename):
     """Route explicit filename subjects, not inferred PDF contents or numbers."""
     name = re.sub(r"[^a-z0-9]+", " ", filename.lower()).strip()
     categories = []
+    if "classification" in name:
+        categories.append("results")
+    if re.search(r"\bsummons\b", name):
+        categories.append("stewards")
     if (not re.search(r"\b(summons|classification|scrutineering|entry list|"
                       r"provisional starting grid|car presentation|self scrut)\b", name)
             and re.search(r"\b(infringement|decision|penalty|reprimand|fine|disqualif\w*|protest)\b", name)):
@@ -84,7 +88,8 @@ def fia_document_categories(filename):
         categories.append("tyres")
     if re.search(r"\b(car presentation|car display procedure|car component|upgrade submissions|parts and parameters)\b", name):
         categories.append("upgrades")
-    if re.search(r"\b(heat hazard declaration|competition visa|timetable)\b", name):
+    if re.search(r"\b(heat hazard declaration|competition visa|timetable|"
+                 r"entry list|curfew|self scrutineering)\b", name):
         categories.append("schedule")
     if re.search(r"\bpost race checks on car\b", name):
         categories.append("powerunit")
@@ -113,7 +118,9 @@ def render_fia_documents(ctx, category):
     labels = {"powerunit": "power-unit documents", "circuit": "maps & race-director notes",
               "tyres": "tyre documents",
               "upgrades": "car-presentation, upgrade & parts-change documents",
-              "schedule": "heat declarations, competition visa & timetable"}
+              "schedule": "entry lists, curfew, self-scrutineering, heat declarations, visa & timetable",
+              "results": "session classifications",
+              "penalties": "stewards' decisions and summons"}
     if category not in labels:
         return ""
     manifest = _load_fia_record(ctx, "fia_documents")
@@ -137,9 +144,12 @@ def render_fia_documents(ctx, category):
     elif status.get("ok") is not False:
         out.append('<p>Automatic discovery has not yet been recorded. '
                    'This does not mean the FIA has not published documents.</p>')
+    matching_categories = ({"penalties", "stewards"} if category == "penalties"
+                           else {category})
     documents = [d for d in manifest.get("documents", [])
                  if isinstance(d, dict) and _official_fia_url(d.get("url"))
-                 and category in fia_document_categories(d.get("filename", ""))]
+                 and matching_categories.intersection(
+                     fia_document_categories(d.get("filename", "")))]
     if documents:
         out.append('<ul class="fia-documents">')
         for doc in documents:
@@ -147,6 +157,8 @@ def render_fia_documents(ctx, category):
                        f'target="_blank" rel="noopener">'
                        f'{html.escape(doc["filename"])}</a> (official PDF)</li>')
         out.append("</ul>")
+        if category == "penalties":
+            out.append("<p>Summons request a hearing; they are not findings or penalties.</p>")
     elif retrieved:
         out.append('<p>No matching filenames were identified in the saved discovery. '
                    'Check the complete FIA listing; this is not a statement of non-publication.</p>')
@@ -158,14 +170,19 @@ def render_fia_documents(ctx, category):
 
 def render_fia_media(ctx, category, curated_html=""):
     """Show verified-download PDF pages, not invented technical summaries."""
-    if category not in ("powerunit", "circuit", "tyres", "upgrades", "schedule"):
+    if category not in ("powerunit", "circuit", "tyres", "upgrades", "schedule",
+                        "results", "penalties"):
         return ""
+    media_categories = ({"penalties", "stewards"} if category == "penalties"
+                        else {category})
     record = _load_fia_record(ctx, "fia_media")
     figures = re.findall(r"<figure\b.*?</figure>", curated_html, re.S | re.I)
     sections = []
     for document in record.get("documents", []):
         url = document.get("url", "")
-        if not _official_fia_url(url) or category not in fia_document_categories(document.get("filename", "")):
+        if (not _official_fia_url(url)
+                or not media_categories.intersection(
+                    fia_document_categories(document.get("filename", "")))):
             continue
         covered = set()
         for figure in figures:

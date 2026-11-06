@@ -859,8 +859,14 @@ def _fake_news(a, body):
 def _fake_decision(text):
     text = _normalise_pdf_text(text)
     def after(label):
-        m = re.search(r"(?m)^\s*" + label + r"[ \t]+(.+)", text)
-        return m.group(1).strip()[:200] if m else ""
+        next_field = (
+            r"\n[ \t]*(?:\n|(?:No\s*/\s*Driver|Competitor|Session|Fact|"
+            r"Infringement|Decision|Reason|Notes?)\b)"
+        )
+        m = re.search(
+            r"(?ms)^[ \t]*" + label + r"[ \t]+(.+?)(?=" + next_field + r"|\Z)",
+            text)
+        return re.sub(r"\s+", " ", m.group(1)).strip()[:200] if m else ""
     doc = re.search(r"document\s+(\d+)", text, re.I)
     fact = after("Fact")
     dec = after("Decision") or after("Infringement")

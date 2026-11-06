@@ -1,16 +1,41 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix",
-  "retrieved_at": "2026-11-06T20:16:48.241470+00:00",
+  "retrieved_at": "2026-11-06T20:49:06.334437+00:00",
   "documents": [
+    {
+      "filename": "2026_sao_paulo_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "categories": [
+        "circuit"
+      ]
+    },
+    {
+      "filename": "2026_sao_paulo_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ]
+    },
+    {
+      "filename": "2026_sao_paulo_grand_prix_-_free_practice_2_classification.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_free_practice_2_classification.pdf",
+      "categories": [
+        "results"
+      ]
+    },
     {
       "filename": "2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_impeding_by_car_51.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_impeding_by_car_51.pdf",
-      "categories": []
+      "categories": [
+        "stewards"
+      ]
     },
     {
       "filename": "2026_sao_paulo_grand_prix_-_summons_-_car_51_-_alleged_impeding_of_car_16.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_51_-_alleged_impeding_of_car_16.pdf",
-      "categories": []
+      "categories": [
+        "stewards"
+      ]
     },
     {
       "filename": "2026_sao_paulo_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf",
@@ -29,7 +54,9 @@
     {
       "filename": "2026_sao_paulo_grand_prix_-_free_practice_1_classification.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_free_practice_1_classification.pdf",
-      "categories": []
+      "categories": [
+        "results"
+      ]
     },
     {
       "filename": "2026_sao_paulo_grand_prix_-_infringement_-_car_43_-_pit_lane_speeding.pdf",
@@ -55,7 +82,9 @@
     {
       "filename": "2026_sao_paulo_grand_prix_-_entry_list.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_entry_list.pdf",
-      "categories": []
+      "categories": [
+        "schedule"
+      ]
     },
     {
       "filename": "2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf",
@@ -67,12 +96,16 @@
     {
       "filename": "2026_sao_paulo_grand_prix_-_curfew.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_curfew.pdf",
-      "categories": []
+      "categories": [
+        "schedule"
+      ]
     },
     {
       "filename": "2026_sao_paulo_grand_prix_-_self_scrutineering.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_self_scrutineering.pdf",
-      "categories": []
+      "categories": [
+        "schedule"
+      ]
     },
     {
       "filename": "2026_sao_paulo_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",

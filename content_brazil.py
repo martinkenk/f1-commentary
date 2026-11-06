@@ -1,9 +1,12 @@
-"""Source-reviewed Sao Paulo Grand Prix content, refreshed after FP1."""
+"""Source-reviewed Sao Paulo Grand Prix content, refreshed during the weekend."""
 import content_generic
 from f1lib import card
 from upgrade_render import render_submissions
 
 FIA = "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_"
+FIA_ENTRY_LIST_URL = FIA + "entry_list.pdf"
+FIA_FP2_DELETIONS_URL = FIA + "infringement_-_free_practice_2_deleted_lap_times.pdf"
+FIA_SC2_SC1_URL = FIA + "race_director_notes_-_sc2_-_sc1_times.pdf"
 CAMARA = "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
 FP1_LINEUP = "https://www.formula1.com/en/latest/article/which-rookie-drivers-are-getting-fp1-outings-at-the-sao-paulo-grand-prix.3DAnL1BS38Gu5KKzU70aBJ"
 FP1_REPORT = "https://www.formula1.com/en/latest/article/fp1-norris-leads-antonelli-and-verstappen-in-opening-sao-paulo-gp-practice-session.3GXL3rAROwHsLxnxn9hReY"
@@ -72,7 +75,8 @@ requirement. This clears the point requirement but does not confirm a 2027 seat.
 <a href="{FP1_LINEUP}">Formula1.com lineup</a> ·
 <a href="{FP1_RESULT}">official FP1 classification</a> ·
 <a href="{FP1_REPORT}">Formula1.com FP1 report</a> ·
-<a href="{THE_RACE_FP1}">The Race on Herta's milestone</a>.</p>''',
+<a href="{THE_RACE_FP1}">The Race on Herta's milestone</a> ·
+<a href="{FIA_ENTRY_LIST_URL}">FIA Document 13 entry list</a>.</p>''',
      "bi-person-badge", "accent")}
 {card("Haas: Rafael Camara's race debut", f'''<p>Rafael Camara partners Oliver
 Bearman for the <strong>whole Sao Paulo weekend</strong>, not merely FP1.
@@ -108,13 +112,19 @@ declaration or the penalty decision.
 <a href="{RUSSELL_PENALTY}">The Race report</a>. The FIA filings do not
 establish whether the planned ADUO specification is arriving.</p>''',
      "bi-exclamation-triangle")}
-{card("FP1: FIA deletes laps after a double-waved yellow", f'''<p>Stewards'
+{card("FP1/FP2: FIA lap-time deletions", f'''<p>Stewards'
 Document 19 deletes the shown FP1 lap times for Franco Colapinto (2:05.129),
 Alexander Albon (1:32.736), Luke Browning (1:33.848), Rafael Câmara (1:18.760)
 and Dino Beganovic (OUT LAP) after their cars passed through a double-waved
 yellow sector. This is a lap-time deletion, not a race penalty or a revised
 FP1 classification. <a href="{FIA_FP1_DOUBLE_YELLOW_URL}">FIA Document 19</a>
-(issued 6 November at 14:00 local).</p>''', "bi-flag")}
+(issued 6 November at 14:00 local).</p>
+<p>Document 23 lists ten FP2 lap entries for nine drivers (Albon appears twice)
+after cars did not use the track at Turns 1 and 4. The listed times are deleted;
+the decision is not itself a revised FP2 classification or a race penalty.
+<a href="{FIA_FP2_DELETIONS_URL}">FIA Document 23</a> ·
+<a href="https://www.formula1.com/en/results/2026/races/1299/brazil/practice/2">
+official FP2 classification</a>.</p>''', "bi-flag")}
 {card("Ferrari: Hamilton's Thursday comments", f'''<p>On Thursday 5 November,
 Hamilton said face-to-face talks with Leclerc about their Mexico battle had
 not yet taken place. That reports what he said then; it does not establish
@@ -128,7 +138,12 @@ reports that the front-wing concept is intended to carry into McLaren's 2027
 launch specification. <a href="{FIA_UPGRADES_URL}">FIA declaration</a> ·
 <a href="https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/">
 The Race technical report</a>.</p>''', "bi-tools")}
-</div>"""
+</div>
+<p><strong>Race control:</strong> FIA Race Director's Document 24 sets the
+maximum interval below <strong>1:13.0</strong> between the Safety Car lines
+during and after Qualifying, and on reconnaissance laps while the pit exit is
+open for the Race. This is not a racing-lap maximum.
+<a href="{FIA_SC2_SC1_URL}">FIA Document 24</a>.</p>"""
 
 
 def _tyres():
@@ -152,7 +167,8 @@ per driver; post-qualifying availability must be sourced separately.</p>
 <th>Expected stabilized (psi)</th><th>Camber limit</th></tr></thead><tbody>{table}</tbody></table></div>
 <p>Maximum heating: two hours, 70°C slick/intermediate and 40°C wet, measured
 at tread and sidewall rather than the blanket controller. Cold-pressure curves:
-front (T−70)×0.126+Pstart; rear (T−70)×0.125+Pstart. Check revisions after FP2.</p>
+front (T−70)×0.126+Pstart; rear (T−70)×0.125+Pstart. The FIA event listing at
+20:49 UTC contained no later Pirelli prescription.</p>
 <p>Pirelli's full poster estimates <strong>22.5 seconds pit-stop loss</strong>.
 Traction, braking, stress, abrasion, grip and lateral demand are all 3/5;
 track evolution is 5/5. Resurfacing between Turns 3–5 and 8–9 makes Friday's
@@ -266,11 +282,18 @@ detection remains TBC.</p>
          "FIA Interlagos map with normal and low-grip Straight Mode zones",
          "competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone")}
 <h2 class="sec">Race-control preparation</h2>
-<p>The maximum SC2–SC1 time for qualifying/reconnaissance laps is to be
-announced after FP2. The safety car waits before Turn 8 on resumption.
+<p>FIA Race Director's Document 24, issued 6 November at 17:29, requires drivers
+to stay below <strong>1:13.0</strong> between the Safety Car lines during and
+after Qualifying, and on reconnaissance laps while the pit exit is open for the
+Race. This is not a racing-lap maximum. The safety car waits before Turn 8 on
+resumption.
 Deployment uses light panels and messages rather than waved yellow flags
-or physical SC boards. An FP1 VSC test is planned after the final practice
-start, until all cars return to the pits.</p>
+or physical SC boards.</p>
+<p><a href="{FIA}race_directors_competition_notes.pdf">FIA Race Director's
+Competition Notes, Document 6</a> ·
+<a href="{FIA_SC2_SC1_URL}">Document 24</a> ·
+<a href="https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix">
+current FIA event document listing</a>.</p>
 <p>FIA circuit changes include resurfacing at T3–T5 and T8–T9; concrete
 replacing grasscrete before T1/T4 and at T12 exit; new blue detection lines;
 lower apex kerbs at T2/T8/T10; new debris fencing between T5–T6; adjusted
@@ -314,8 +337,9 @@ def build_pages(ctx, env):
     pages["circuit"]["body"] += _circuit()
     pages["upgrades"]["body"] = _teams() + f"""
 <h2 class="sec">Friday display and component submissions</h2>
-<p>The FIA display is Friday <strong>11:00–12:00 BRT / 16:00–17:00 Tallinn</strong>.
-If just one car has new major components, that is the car to display.
+<p>The FIA display window was Friday <strong>11:00–12:00 BRT /
+16:00–17:00 Tallinn</strong>; it has passed. The procedure says that if just
+one car has new major components, that is the car to display.
 <a href="{FIA}car_display_procedure.pdf#page=2">Official procedure</a>.</p>
 <p>The FIA's <strong>Car Display Procedure</strong> is separate from the
 all-team <strong>Car Presentation Submissions</strong>. Document 12 was
