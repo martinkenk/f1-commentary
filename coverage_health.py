@@ -40,6 +40,19 @@ def read(path, default=None):
     return json.loads(path.read_text()) if path.exists() else ({} if default is None else default)
 
 
+def record_collection(root, outcomes, scope="", now=None):
+    """A results-only build must not erase the last failed news/FIA collection."""
+    path = Path(root) / "data/collection_status.json"
+    record = read(path)
+    checked = (now or dt.datetime.now(UTC)).isoformat()
+    for source, outcome in outcomes.items():
+        if outcome in ("success", "failure"):
+            record[source] = {"outcome": outcome, "gp": scope, "checked_at": checked}
+    temporary = path.with_suffix(".tmp")
+    temporary.write_text(json.dumps(record, indent=2) + "\n")
+    temporary.replace(path)
+
+
 def report(gps, root, now=None):
     now = now or dt.datetime.now(UTC)
     root = Path(root)
@@ -131,13 +144,23 @@ def report(gps, root, now=None):
         if standings.get("results_round", 0) < completed:
             problem("season", "standings", f"Standings checkpoint is behind completed round {completed}")
     collection = json.loads(os.environ.get("F1_COLLECTION", "{}"))
+    last_checks = read(root / "data/collection_status.json")
     for source, outcome in collection.items():
-        if outcome == "failure":
-            problem("collection", "source_error", f"{source} collector failed; retained data is not fresh")
+        scope = os.environ.get("F1_COLLECTION_GP", "")
+        previous = last_checks.get(source, {})
+        if (outcome in ("success", "failure")
+                and (previous.get("outcome") != outcome or previous.get("gp") != scope)):
+            last_checks[source] = {"outcome": outcome, "gp": scope,
+                                   "checked_at": now.isoformat()}
+    for source, check in last_checks.items():
+        if check["outcome"] == "failure":
+            problem(check.get("gp") or "collection", "source_error",
+                    f"{source} collector failed; retained data is not fresh")
     return {"generated_at": now.isoformat(), "run_id": os.environ.get("GITHUB_RUN_ID"),
             "refresh_key": os.environ.get("F1_REFRESH_KEY", ""),
             "collection_gp": os.environ.get("F1_COLLECTION_GP", ""),
             "collection": collection,
+            "last_collection_checks": last_checks,
             "events": events, "findings": findings}
 
 
@@ -145,7 +168,12 @@ def main():
     import build
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--record-collection", action="store_true")
     args = parser.parse_args()
+    if args.record_collection:
+        record_collection(build.ROOT, json.loads(os.environ["F1_COLLECTION"]),
+                          os.environ.get("F1_COLLECTION_GP", ""))
+        return
     value = report(build.season_gps(), build.ROOT)
     text = json.dumps(value, indent=2) + "\n"
     if args.output:

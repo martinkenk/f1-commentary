@@ -51,6 +51,9 @@ fingerprints, collector outcomes, news review status, expected FIA/Pirelli/tyre
 deadlines and standings checkpoints. New FIA hashes require an explicit reviewed
 receipt, not merely a screenshot. Expected-source gaps ask for verification;
 they are not proof that the FIA has already released a document.
+`data/collection_status.json` retains each collector's last actual outcome and
+scope. A quick results-only build cannot clear a failed news/FIA check merely
+by skipping that collector; a real successful retry is required.
 
 The clock never edits source/data itself: it dispatches the existing tested
 publisher and verifies the live evidence. Its separate checkout cannot be

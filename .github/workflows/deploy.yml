@@ -260,6 +260,15 @@ jobs:
           echo "::warning::Official standings refresh failed. Publishing the last timestamped snapshot."
           echo "## Standings refresh failed — serving last successful snapshot" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Record collector outcomes without clearing skipped-source failures
+        env:
+          F1_COLLECTION_GP: ${{ inputs.gp }}
+          F1_COLLECTION: >-
+            {"calendar":"${{ steps.calendar.outcome }}","enrichment":"${{ steps.enrichment.outcome }}",
+            "fia_media":"${{ steps.fia_media.outcome }}","race_tyres":"${{ steps.race_tyres.outcome }}",
+            "session_results":"${{ steps.session_results.outcome }}","standings":"${{ steps.standings.outcome }}"}
+        run: python3 coverage_health.py --record-collection
+
       - name: Persist enrichment data
         # Commit data/ (calendar, news_auto.json, penalties_auto.json, _seen.json)
         # and any newly downloaded track maps back to main so the incremental cache

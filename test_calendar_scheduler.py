@@ -191,6 +191,19 @@ class HealthTests(unittest.TestCase):
             report = health.report([], ".", at("2026-11-06T09:00"))
         self.assertEqual(report["findings"][0]["kind"], "source_error")
 
+    def test_quick_build_retains_failed_news_check_until_news_is_retried(self):
+        now = at("2026-11-06T09:00")
+        with tempfile.TemporaryDirectory() as directory:
+            (Path(directory) / "data").mkdir()
+            health.record_collection(directory, {"enrichment": "failure"}, "brazil", now)
+            health.record_collection(directory, {"enrichment": "skipped", "session_results": "success"},
+                                     "brazil", now + dt.timedelta(minutes=5))
+            report = health.report([], directory, now + dt.timedelta(minutes=6))
+            self.assertTrue(any("enrichment collector failed" in x["message"] for x in report["findings"]))
+            health.record_collection(directory, {"enrichment": "success"}, "brazil",
+                                     now + dt.timedelta(minutes=10))
+            self.assertEqual(health.report([], directory, now + dt.timedelta(minutes=11))["findings"], [])
+
     def test_independent_monitor_rejects_stale_and_future_heartbeats(self):
         now = at("2026-11-06T09:00")
         def body(stamp, errors=None):
