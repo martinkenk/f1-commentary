@@ -5,15 +5,207 @@
     "results_slug": "brazil",
     "gp": "brazil"
   },
-  "checked_at": "2026-11-06T16:50:40+00:00",
-  "sessions": [],
+  "checked_at": "2026-11-06T17:00:30+00:00",
+  "sessions": [
+    {
+      "label": "Practice 1",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "1:11.717",
+          "33"
+        ],
+        [
+          "2",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "+0.082s",
+          "32"
+        ],
+        [
+          "3",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "+0.236s",
+          "29"
+        ],
+        [
+          "4",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+0.324s",
+          "31"
+        ],
+        [
+          "5",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "+0.386s",
+          "30"
+        ],
+        [
+          "6",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+0.439s",
+          "25"
+        ],
+        [
+          "7",
+          "62",
+          "Gabriele Mini MIN",
+          "Alpine",
+          "+0.852s",
+          "28"
+        ],
+        [
+          "8",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+0.897s",
+          "30"
+        ],
+        [
+          "9",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+0.937s",
+          "34"
+        ],
+        [
+          "10",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "+0.998s",
+          "32"
+        ],
+        [
+          "11",
+          "67",
+          "Leonardo Fornaroli FOR",
+          "McLaren",
+          "+1.116s",
+          "28"
+        ],
+        [
+          "12",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+1.120s",
+          "27"
+        ],
+        [
+          "13",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+1.300s",
+          "26"
+        ],
+        [
+          "14",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+1.321s",
+          "32"
+        ],
+        [
+          "15",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+1.654s",
+          "16"
+        ],
+        [
+          "16",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+1.794s",
+          "18"
+        ],
+        [
+          "17",
+          "46",
+          "Luke Browning BRO",
+          "Williams",
+          "+1.874s",
+          "12"
+        ],
+        [
+          "18",
+          "51",
+          "Rafael Câmara CAM",
+          "Haas F1 Team",
+          "+1.979s",
+          "30"
+        ],
+        [
+          "19",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+2.043s",
+          "28"
+        ],
+        [
+          "20",
+          "25",
+          "Colton Herta HER",
+          "Cadillac",
+          "+2.558s",
+          "31"
+        ],
+        [
+          "21",
+          "38",
+          "Dino Beganovic BEG",
+          "Ferrari",
+          "+2.640s",
+          "11"
+        ],
+        [
+          "22",
+          "98",
+          "Freddie Slater SLA",
+          "Audi",
+          "+3.249s",
+          "7"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/1",
+      "fetched_at": "2026-11-06T17:00:30+00:00",
+      "session_start": "2026-11-06T12:30:00-03:00",
+      "retained": false
+    }
+  ],
   "statuses": [
     {
       "label": "Practice 1",
-      "state": "unavailable",
-      "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/1",
-      "error": "Incomplete classification: 1 entrants",
-      "retained": false
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/1"
     }
   ]
 }
