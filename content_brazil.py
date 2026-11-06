@@ -6,6 +6,7 @@ from upgrade_render import render_submissions
 FIA = "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_"
 FIA_ENTRY_LIST_URL = FIA + "entry_list.pdf"
 FIA_FP2_DELETIONS_URL = FIA + "infringement_-_free_practice_2_deleted_lap_times.pdf"
+FIA_CAMARA_REPRIMAND_URL = FIA + "infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"
 FIA_SC2_SC1_URL = FIA + "race_director_notes_-_sc2_-_sc1_times.pdf"
 CAMARA = "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
 FP1_LINEUP = "https://www.formula1.com/en/latest/article/which-rookie-drivers-are-getting-fp1-outings-at-the-sao-paulo-grand-prix.3DAnL1BS38Gu5KKzU70aBJ"
@@ -125,6 +126,15 @@ the decision is not itself a revised FP2 classification or a race penalty.
 <a href="{FIA_FP2_DELETIONS_URL}">FIA Document 23</a> ·
 <a href="https://www.formula1.com/en/results/2026/races/1299/brazil/practice/2">
 official FP2 classification</a>.</p>''', "bi-flag")}
+{card("Stewards: Camara receives his first reprimand", f'''<p>FIA Document 25
+resolves the Turn 15 summons involving Rafael Camara (Car 51) and Charles
+Leclerc (Car 16). The Stewards found that Camara unnecessarily impeded Leclerc
+in FP2 at 16:31; after warnings that Car 16 was on a fast lap, Car 51 moved
+into the racing line and Leclerc had to take evasive action. The decision is a
+driving reprimand, Camara's first of the season. It is not a grid drop or a
+revised FP2 classification.
+<a href="{FIA_CAMARA_REPRIMAND_URL}">FIA Document 25</a> ·
+<a href="{FIA_EVENT}">FIA event documents</a>.</p>''', "bi-exclamation-triangle")}
 {card("Ferrari: Hamilton's Thursday comments", f'''<p>On Thursday 5 November,
 Hamilton said face-to-face talks with Leclerc about their Mexico battle had
 not yet taken place. That reports what he said then; it does not establish

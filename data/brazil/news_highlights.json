@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-06T20:49:18Z",
+  "reviewed_at": "2026-11-06T21:35:15Z",
   "expires_at": "2026-11-07T13:30:00Z",
   "through_session": "Practice 2",
   "feed_fingerprint": "156ef13a33299ab1bdfe6f220af2fc7ed701dea91d704aac58f841bcf1319daa",
@@ -32,15 +32,14 @@
     },
     {
       "topic": "Stewards",
-      "title": "Stewards summon Camara and Leclerc after Turn 15 incident",
+      "title": "Camara receives first reprimand after impeding Leclerc in FP2",
       "date": "2026-11-06",
-      "summary": "FIA Documents 20 and 21 summon Rafael Camara (No. 51) and Charles Leclerc (No. 16), with their team representatives, to a 17:40 BRT hearing over an alleged Car 51 impeding of Car 16 at Turn 15 at 16:31. The 20:49 UTC FIA listing contains no later ruling.",
-      "why_it_matters": "The scheduled hearing time has passed, but the latest listing does not establish whether or how the Stewards resolved it. These summons are not findings or penalties.",
+      "summary": "FIA Document 25 resolves the earlier summons: the Stewards found Rafael Camara (Car 51) unnecessarily impeded Charles Leclerc (Car 16) at Turn 15 in FP2 at 16:31. They issued Camara a driving reprimand, his first of the season.",
+      "why_it_matters": "The hearing now has an outcome. This is a reprimand, not a grid penalty, and the FP2 classification is unchanged.",
       "sources": [
+        {"label": "FIA: Stewards' decision, Document 25", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"},
         {"label": "FIA: Camara summons, Document 20", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_51_-_alleged_impeding_of_car_16.pdf"},
-        {"label": "FIA: Leclerc summons, Document 21", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_impeding_by_car_51.pdf"},
-        {"label": "FIA: complete Sao Paulo event documents, checked 20:49 UTC", "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"},
-        {"label": "Formula1.com: FP2 report", "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-the-times-from-norris-in-second-practice-at-sao-paulo-gp.27XFbTG9Lji18qmtHbCJUA"}
+        {"label": "FIA: Leclerc summons, Document 21", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_impeding_by_car_51.pdf"}
       ]
     },
     {
