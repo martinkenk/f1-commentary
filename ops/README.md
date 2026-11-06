@@ -152,6 +152,17 @@ service installation, credentials and changes to their own authority are not
 delegated to those agents. Use the existing authenticated browser terminal for
 exceptional operator maintenance, not a second concurrent checkout writer.
 
+The worker's 45-minute limit includes setup, not just model execution. Each
+prompt supplies absolute UTC edit and finish checkpoints, asks for an early
+provisional report, and caps deployment waiting at two minutes. If publication
+is still pending, report its commit/run URL for a later check instead of waiting
+until the worker is killed. A timeout cannot be ruled out (tools and upstream
+services can stall), so the wrapper also writes a blocked fallback report with
+HEAD and retained checkout state when the agent exits without one. A fallback
+is not proof of publication; the process status still records the failure.
+Existing reports are preserved. Changes to the installed worker require
+operator installation; repository publication alone does not update that copy.
+
 Install reviewed application files outside the worker checkout:
 
 ```bash

@@ -1,3 +1,4 @@
+import datetime as dt
 import json
 from pathlib import Path
 import subprocess
@@ -102,6 +103,71 @@ class WatchdogTests(unittest.TestCase):
              patch.object(watchdog.os, "killpg") as kill:
             self.assertEqual(watchdog.run_agent(["copilot"], Path(directory) / "log", 1), 124)
             kill.assert_called_once_with(1234, watchdog.signal.SIGTERM)
+
+    def test_budget_has_absolute_checkpoints_and_bounded_deployment_wait(self):
+        started = dt.datetime(2026, 11, 6, 14, 30, tzinfo=dt.timezone.utc)
+        prompt = watchdog.budget_instructions(started, 2700)
+        self.assertIn("2026-11-06T15:05:00+00:00", prompt)
+        self.assertIn("2026-11-06T15:13:00+00:00", prompt)
+        self.assertIn("Hard process deadline: 2026-11-06T15:15:00+00:00", prompt)
+        self.assertIn("provisional blocked report", prompt)
+        self.assertIn("at most two minutes", prompt)
+        short = watchdog.budget_instructions(started, 30)
+        self.assertIn("Stop new investigation and edits by 2026-11-06T14:30:20", short)
+
+    def test_timeout_counts_setup_and_preserves_or_generates_report(self):
+        started = dt.datetime(2026, 11, 6, 14, 30, tzinfo=dt.timezone.utc)
+        for existing_report in (False, True):
+            with self.subTest(existing_report=existing_report), tempfile.TemporaryDirectory() as directory:
+                state = Path(directory)
+                partial = {"status": "blocked", "summary": "Deployment pending", "sources": ["run URL"]}
+                head = "a" * 40
+
+                def command(args, **kwargs):
+                    if args == ["git", "rev-parse", "HEAD"]:
+                        value = head
+                    elif args == ["git", "status", "--short", "--branch"]:
+                        value = "## main...origin/main [ahead 1]\n M content_brazil.py"
+                    elif args[:3] == ["git", "branch", "--show-current"]:
+                        value = "main"
+                    else:
+                        value = ""
+                    return subprocess.CompletedProcess(args, 0, value, "")
+
+                def agent(args, log, timeout):
+                    self.assertEqual(timeout, 2690)
+                    self.assertIn("Hard process deadline: 2026-11-06T15:15:00+00:00", args[-1])
+                    if existing_report:
+                        report = next((state / "runs").iterdir()) / "report.json"
+                        report.write_text(json.dumps(partial))
+                    return 124
+
+                with patch.object(watchdog, "STATE", state), \
+                     patch.object(watchdog, "command", side_effect=command), \
+                     patch.object(watchdog, "recent_runs", return_value=[]), \
+                     patch.object(watchdog, "run_agent", side_effect=agent), \
+                     patch.object(watchdog.dt, "datetime", wraps=dt.datetime) as clock:
+                    clock.now.side_effect = [started, started + dt.timedelta(seconds=10),
+                                             started + dt.timedelta(seconds=2700)]
+                    self.assertEqual(watchdog.run(), 124)
+                status = json.loads((state / "latest.json").read_text())
+                report = json.loads(Path(status["report"]).read_text())
+                self.assertEqual(status["status"], "timed_out")
+                if existing_report:
+                    self.assertEqual(report, partial)
+                else:
+                    self.assertEqual(report["status"], "blocked")
+                    self.assertEqual(report["report_origin"], "wrapper_fallback")
+                    self.assertEqual(report["commit"], head)
+                    self.assertIn(" M content_brazil.py", report["remaining"][1])
+                    self.assertIsNone(report["deployment_url"])
+
+    def test_fallback_records_git_inspection_failure_explicitly(self):
+        with patch.object(watchdog, "command", side_effect=subprocess.TimeoutExpired("git", 5)):
+            report = watchdog.incomplete_report({"status": "timed_out", "error": "Copilot exited 124"})
+        self.assertEqual(report["status"], "blocked")
+        self.assertIsNone(report["commit"])
+        self.assertTrue(any("Could not capture checkout" in finding for finding in report["findings"]))
 
 
 if __name__ == "__main__":

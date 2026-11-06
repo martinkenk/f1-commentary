@@ -117,7 +117,61 @@ def run_agent(args, log, timeout):
             return 124
 
 
+def budget_instructions(started, timeout):
+    deadline = started + dt.timedelta(seconds=timeout)
+    reserve = min(600, timeout / 3)
+    finish_margin = min(120, timeout / 10)
+    return (
+        f"\n## Wall-clock checkpoints (UTC)\n"
+        f"Stop new investigation and edits by {(deadline - dt.timedelta(seconds=reserve)).isoformat()}.\n"
+        f"Write the final report and finish by "
+        f"{(deadline - dt.timedelta(seconds=finish_margin)).isoformat()}.\n"
+        f"Hard process deadline: {deadline.isoformat()}; setup time counts against it.\n"
+        "Write a provisional blocked report immediately after initial inspection, then update "
+        "it after validation and before any deployment wait. Record retained files, commit "
+        "and run URL; do not claim pending publication is live. Check UTC time at each phase "
+        "boundary. Do not start a command that cannot finish within the remaining budget. "
+        "Never use an unbounded gh run watch: check status with bounded calls, spend at most "
+        "two minutes waiting in total, then report pending deployment for a later invocation. "
+        "Do not repeat a completed audit or start unrelated work on a resumed conversation.\n"
+    )
+
+
+def incomplete_report(status):
+    """Keep process failure distinct from verified publication or source success."""
+    findings = [status.get("error") or status.get("summary") or "Worker did not finalize a report"]
+    commit = None
+    retained = status.get("retained_changes", "")
+    branch = status.get("checkout_branch", "unknown")
+    for args, label in ((["git", "rev-parse", "HEAD"], "commit"),
+                        (["git", "status", "--short", "--branch"], "checkout")):
+        try:
+            result = command(args, timeout=5)
+            if result.returncode:
+                findings.append(f"Could not capture {label}: git exited {result.returncode}")
+            elif label == "commit":
+                commit = result.stdout.strip()
+            else:
+                retained = result.stdout.strip()
+        except (OSError, subprocess.TimeoutExpired) as error:
+            findings.append(f"Could not capture {label}: {error}")
+    return {
+        "status": "blocked",
+        "summary": "Worker ended without a final report; publication is unverified. "
+                   "Inspect retained work before continuing.",
+        "findings": findings,
+        "changes": [],
+        "remaining": [f"Inspect branch {branch}, HEAD {commit or 'unknown'}, and agent.log.",
+                      f"Retained checkout state: {retained or 'no changes recorded'}",
+                      "Reconcile any pushed commit and deployment; do not reset or retry blindly."],
+        "sources": [], "commit": commit, "deployment_url": None, "reviewed_prs": [],
+        "report_origin": "wrapper_fallback",
+    }
+
+
 def run(audit_only=False, timeout=2700):
+    if timeout <= 0:
+        raise ValueError("Watchdog timeout must be positive")
     os.umask(0o077)
     STATE.mkdir(parents=True, exist_ok=True)
     with (STATE / "run.lock").open("a") as lock:
@@ -232,9 +286,15 @@ def run(audit_only=False, timeout=2700):
                     "credentials, web authentication or your own permissions. Do not install "
                     "operator-service updates yourself; report when installation is required.\n"
                     f"Task: {task['title']}\n{task['prompt']}\n")
+            prompt += budget_instructions(started, timeout)
+            remaining = timeout - (dt.datetime.now(dt.timezone.utc) - started).total_seconds()
+            if remaining <= 0:
+                status["status"] = "timed_out"
+                status["error"] = "Execution budget exhausted during setup; agent was not started"
+                return 124
             code = run_agent(agent_arguments(prompt, report_dir / "cli", status["session_id"],
                                             resume=bool(task and task.get("resume_run"))),
-                             report_dir / "agent.log", timeout)
+                             report_dir / "agent.log", remaining)
             status["agent_exit_code"] = code
             if code:
                 status["status"] = "timed_out" if code == 124 else "agent_failed"
@@ -262,6 +322,10 @@ def run(audit_only=False, timeout=2700):
             print(f"Watchdog failed: {error}", file=sys.stderr)
             return 1
         finally:
+            if not result_path.exists():
+                report = incomplete_report(status)
+                write_json(result_path, report)
+                status.setdefault("summary", report["summary"])
             status["finished_at"] = dt.datetime.now(dt.timezone.utc).isoformat()
             write_json(report_dir / "status.json", status)
             write_json(latest_path, status)
