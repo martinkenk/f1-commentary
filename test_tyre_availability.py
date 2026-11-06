@@ -173,6 +173,23 @@ class PublishedRaceTyreTests(unittest.TestCase):
                     self.assertEqual(review["drivers"]["VER"], [0, 3, 0, 1, 2, 0])
                     self.assertNotIn("HAD", review["drivers"])
 
+    def test_mexico_review_matches_chart_and_all_22_entrants(self):
+        snapshot = json.loads(
+            (Path(f1lib.DATA_DIR) / "mexico" / "race_tyres.json").read_text()
+        )
+        review = f1lib.reviewed_race_tyres({"dir": "mexico"}, snapshot)
+        self.assertEqual(review["state"], "verified")
+        self.assertEqual(review["race_date"], "2026-11-01")
+        self.assertEqual(review["entrants"], 22)
+        self.assertEqual(set(review["drivers"]), {
+            "PIA", "NOR", "RUS", "ANT", "VER", "HAD", "LEC", "HAM", "ALB", "SAI", "LIN",
+            "LAW", "STR", "ALO", "HIR", "BEA", "HUL", "BOR", "GAS", "COL", "PER", "BOT",
+        })
+        self.assertEqual(review["compounds"], ["C3", "C4", "C5"])
+        self.assertEqual(review["drivers"]["PIA"], [3, 2, 1, 0, 1, 0])
+        self.assertEqual(review["drivers"]["RUS"], [0, 4, 1, 0, 1, 0])
+        self.assertEqual(review["drivers"]["ALO"], [0, 1, 1, 0, 1, 0])
+
 
 if __name__ == "__main__":
     unittest.main()

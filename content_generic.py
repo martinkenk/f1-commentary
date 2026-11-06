@@ -247,7 +247,15 @@ def build_pages(ctx, env):
 
 {compound_status}
 {preview}
-{pending("Long-run degradation data", "after Friday practice", "bi-graph-down")}
+{(
+    '<div class="callout watch"><i class="bi bi-graph-down"></i> '
+    '<strong>Post-race degradation review:</strong> No source-reviewed stint-by-stint '
+    'degradation transcription is curated for this event. This is a coverage gap, not '
+    'evidence that the underlying session data was unpublished; any pre-race set '
+    'inventory shown is not stint data.</div>'
+    if ctx.get("status") == "past"
+    else pending("Long-run degradation data", "after Friday practice", "bi-graph-down")
+)}
 """
     P["tyres"] = dict(
         kicker="Pirelli · strategy",

@@ -340,9 +340,26 @@ CIRCUITS = {
             "thin air. Elsewhere it is harder than the layout suggests."
         ),
         "tyre_notes": (
-            "Low grip and low downforce mean sliding, which drives thermal degradation "
-            "despite modest cornering loads. Warm-up and braking (also compromised by thin "
-            "air) are recurring problems."
+            "Extensive resurfacing from Turn 16 to Turn 1 and Turns 7–16 left only the "
+            "first sector largely unchanged. Pirelli said the new asphalt's grip and "
+            "roughness needed assessment in early running; thin air reduces aerodynamic "
+            "load, so tyre slip and graining remain concerns. Warm-up and braking are "
+            "also affected by the altitude. The initial allocation was two Hard, three "
+            "Medium and eight Soft sets per driver, with an extra Soft reserved for Q3 "
+            "qualifiers; a dry race requires two different slick compounds. These are "
+            "pre-weekend rules, not the chart's post-qualifying remaining-set counts."
+        ),
+        "tyre_compounds": ("C3 Hard", "C4 Medium", "C5 Soft"),
+        "tyre_compounds_source": (
+            "https://www.formula1.com/en/latest/article/"
+            "what-tyres-will-the-teams-and-drivers-have-for-the-2026-mexico-city-grand-prix."
+            "3a3o08HqrmdQ9IqXYUwJrH"
+        ),
+        "tyre_preview_asset": "mexico_pirelli_tyres_2026.webp",
+        "tyre_preview_source": (
+            "https://www.formula1.com/en/latest/article/"
+            "what-tyres-will-the-teams-and-drivers-have-for-the-2026-mexico-city-grand-prix."
+            "3a3o08HqrmdQ9IqXYUwJrH"
         ),
         "drs": 3,
         "lap_record": "1:17.774 — Valtteri Bottas, 2021",

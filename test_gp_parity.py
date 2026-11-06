@@ -21,7 +21,7 @@ class GPParityTests(unittest.TestCase):
     def setUp(self):
         self.contexts = {
             ctx["dir"]: ctx for ctx in build.season_gps()
-            if ctx["dir"] in ("italy", "spain", "bahrain", "singapore", "brazil")
+            if ctx["dir"] in ("italy", "spain", "bahrain", "singapore", "brazil", "mexico")
         }
         for slug, ctx in self.contexts.items():
             ctx.update(status="past", results=[], extra={}, weather={}, weather_ok=False)
@@ -78,6 +78,33 @@ class GPParityTests(unittest.TestCase):
             media = f1lib.render_fia_media(ctx, slug, body)
             for asset in re.findall(r'src="\.\./assets/(fia-[^"]+)"', body):
                 self.assertNotIn(asset, media)
+
+    def test_mexico_published_pirelli_preview_replaces_pending_compound_copy(self):
+        body = content_generic.build_pages(
+            self.contexts["mexico"], self.env
+        )["tyres"]["body"]
+        self.assertIn("C3 Hard / C4 Medium / C5 Soft", body)
+        self.assertIn("mexico_pirelli_tyres_2026.webp", body)
+        self.assertIn(
+            "what-tyres-will-the-teams-and-drivers-have-for-the-2026-mexico-city-grand-prix",
+            body,
+        )
+        self.assertIn("Full-resolution original", body)
+        self.assertNotIn("Pirelli's compound allocation:", body)
+        self.assertTrue(
+            (Path(build.ROOT) / "assets_src" / "mexico_pirelli_tyres_2026.webp").is_file()
+        )
+
+    def test_past_generic_tyre_page_does_not_keep_friday_pending_placeholder(self):
+        future_ctx = dict(self.contexts["mexico"], status="future")
+        future = content_generic.build_pages(future_ctx, self.env)["tyres"]["body"]
+        self.assertIn("Long-run degradation data: awaiting a verified update.", future)
+        past = content_generic.build_pages(
+            dict(self.contexts["mexico"], status="past"), self.env
+        )["tyres"]["body"]
+        self.assertNotIn("Long-run degradation data: awaiting a verified update.", past)
+        self.assertIn("No source-reviewed stint-by-stint degradation transcription", past)
+        self.assertIn("not stint data", past)
 
     def test_all_seventeen_surfaces_are_authored_or_engine_provided(self):
         engine_pages = {"results", "news", "h2h", "reliability", "penalties"}
