@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-11-06T16:04:00Z",
-  "expires_at": "2026-11-06T16:45:00Z",
-  "through_session": null,
-  "feed_fingerprint": "bf6d1e62eb9934193c9a10e141c60c93a095eec7cee4192c0b86b0dc17843402",
+  "reviewed_at": "2026-11-06T17:00:03Z",
+  "expires_at": "2026-11-06T18:30:00Z",
+  "through_session": "Practice 1",
+  "feed_fingerprint": "100c2d56e7c872a92a3f0d1e0b3f01f26a58102404e766a0f9a3100f4fcf18af",
   "items": [
     {
       "topic": "Championship",
-      "title": "Antonelli arrives as champion; Mercedes targets the constructors' title",
+      "title": "Antonelli's drivers' title is settled; Mercedes still chasing constructors' crown",
       "date": "2026-11-04",
-      "summary": "Antonelli clinched the Drivers' Championship in Mexico and arrives on 380 points, 119 clear of Verstappen. Mercedes leads Ferrari 630–504. Formula1.com's pre-weekend scenario says gaining three points on Ferrari in Brazil seals the constructors' title.",
-      "why_it_matters": "The drivers' title is settled, but the constructors' title is not yet won. These are entering-Brazil totals, not projected race results.",
+      "summary": "Kimi Antonelli clinched the Drivers' Championship in Mexico. The latest official standings show 380 points for Antonelli and 261 for Verstappen; Mercedes leads Ferrari 630-504. Formula1.com's pre-weekend scenario says Mercedes seals the constructors' title if it gains three points on Ferrari in Brazil.",
+      "why_it_matters": "Brazil's practice has not changed the standings, and the constructors' title remains undecided. These are current pre-race totals, not a result projection.",
       "sources": [
         {"label": "Formula1.com: official driver standings", "url": "https://www.formula1.com/en/results/2026/drivers"},
         {"label": "Formula1.com: official constructor standings", "url": "https://www.formula1.com/en/results/2026/team"},
@@ -17,51 +17,49 @@
       ]
     },
     {
+      "topic": "Practice",
+      "title": "Norris edges Antonelli and Verstappen to top Brazil FP1",
+      "date": "2026-11-06",
+      "summary": "The official 22-car Practice 1 classification has Lando Norris first in 1:11.717, 0.082s ahead of Kimi Antonelli, with Max Verstappen third at +0.236s. The Race also reports that Colton Herta completed the 100km needed for his final Super Licence point.",
+      "why_it_matters": "This was the first practice session only; its order awards no points and is not a forecast of qualifying or the Grand Prix. Herta's licence eligibility does not confirm a 2027 seat.",
+      "sources": [
+        {"label": "Formula1.com: FP1 report and result", "url": "https://www.formula1.com/en/latest/article/fp1-norris-leads-antonelli-and-verstappen-in-opening-sao-paulo-gp-practice-session.3GXL3rAROwHsLxnxn9hReY"},
+        {"label": "Formula1.com: official Practice 1 classification", "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/1"},
+        {"label": "The Race: Brazil FP1 report", "url": "https://www.the-race.com/formula-1/what-happened-in-brazil-fp1-f1-sao-paulo/"}
+      ]
+    },
+    {
       "topic": "Engine and grid",
-      "title": "FIA reports Russell's sixth ICE as non-compliant; five-place drop reported",
+      "title": "FIA confirms Russell's five-place grid drop for sixth ICE",
       "date": "2026-11-06",
-      "summary": "FIA Document 14 reports that Russell's new ICE is his sixth against four allowed, and the Technical Delegate says it is not compliant with B8.2.2(a). Formula1.com and The Race separately report a five-place grid drop. The earlier FIA Document 8 listed five ICEs used before this event; it is a season-to-date snapshot, not the new-part declaration.",
-      "why_it_matters": "Do not turn the Technical Delegate's report into the Stewards' penalty decision: Document 14 itself names no sanction, so check the FIA event page for any later ruling. The same filing says Rafael Câmara's new PU-ANC is compliant; the planned ADUO specification remains a separate, unconfirmed matter.",
+      "summary": "Document 14 recorded Russell's sixth ICE against four allowed and the Technical Delegate's non-compliance finding. The Stewards' separate Document 15 now imposes a five-place drop for the next race in which he participates.",
+      "why_it_matters": "Document 14 is the technical report; Document 15 is the sanction. Keeping them separate avoids treating the earlier report as the penalty decision.",
       "sources": [
-        {"label": "The Race: Russell on his engine change", "url": "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"},
-        {"label": "Formula1.com: Russell set for grid penalty", "url": "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"},
-        {"label": "FIA: New PU elements for this competition, Document 14", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition.pdf"},
-        {"label": "FIA: PU elements used per driver, Document 8", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf"}
+        {"label": "FIA: new PU elements, Document 14", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition.pdf"},
+        {"label": "FIA: Russell PU change, Stewards' Document 15", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_63_-_changes_to_pu_element.pdf"},
+        {"label": "Formula1.com: Russell's grid penalty", "url": "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"}
       ]
     },
     {
-      "topic": "Driver changes",
-      "title": "Six rookies take FP1 seats; Camara makes his Haas race debut",
+      "topic": "Upgrades",
+      "title": "McLaren brings four declared car updates to Interlagos",
       "date": "2026-11-06",
-      "summary": "Formula1.com lists Fornaroli for Piastri, Beganovic for Leclerc, Browning for Sainz, Slater for Hulkenberg, Mini for Gasly and Herta for Perez in FP1. Herta needs at least 100 km in a clean session for his final Super Licence point. Separately, Camara partners Bearman for the full weekend in place of Ocon; Haas has confirmed the Brazil drive only.",
-      "why_it_matters": "Distinguish six one-session substitutions from Camara's full-weekend F1 debut and from unconfirmed future race seats. Herta's mileage target is a requirement, not a completed result.",
+      "summary": "FIA Document 12 lists McLaren changes to the front wing, rear wing, beam wing and floor furniture; the other ten teams submitted nil returns. The Race reports that the new front-wing concept is intended to carry into McLaren's 2027 launch specification.",
+      "why_it_matters": "These are team-declared components and design aims, not independently measured performance gains. The FIA page-3 diagram accompanies the declaration.",
       "sources": [
-        {"label": "Formula1.com: Sao Paulo FP1 rookie line-up", "url": "https://www.formula1.com/en/latest/article/which-rookie-drivers-are-getting-fp1-outings-at-the-sao-paulo-grand-prix.3DAnL1BS38Gu5KKzU70aBJ"}
+        {"label": "FIA: Car Presentation Submissions, Document 12", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf"},
+        {"label": "The Race: McLaren's Brazil upgrades and 2027 front wing", "url": "https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/"}
       ]
     },
     {
-      "topic": "Ferrari",
-      "title": "Hamilton set for 400th start as Ferrari talks remain pending",
-      "date": "2026-11-05",
-      "summary": "Hamilton is set to make his 400th Grand Prix start in Sao Paulo, becoming only the second driver to reach the milestone. On Thursday he said his planned post-Mexico face-to-face discussion with Leclerc had not happened and he wants a stronger working basis for the coming campaign.",
-      "why_it_matters": "The race-week milestone is distinct from the still-pending Ferrari conversation; do not imply that talks occurred or team orders changed.",
-      "sources": [
-        {
-          "label": "Formula1.com: Hamilton's 400th Grand Prix appearance",
-          "url": "https://www.formula1.com/en/latest/article/can-lewis-hamilton-celebrate-400th-grand-prix-appearance-with-sao-paulo-grand-prix-win.6O8sThsqZ2HQ8Pza5yN58m"
-        },
-        {"label": "Formula1.com: Hamilton's Thursday comments", "url": "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-talks-ahead-of-sao-paulo-grand-prix-after-intra-team-battle-with-leclerc.3JXGpQWTdOA2a9PiH7NL8X"}
-      ]
-    },
-    {
-      "topic": "McLaren upgrades",
-      "title": "FIA Document 12 lists four McLaren updates and ten nil returns",
+      "topic": "Penalties",
+      "title": "Colapinto fined after FP1 pit-lane speeding",
       "date": "2026-11-06",
-      "summary": "FIA Document 12 lists four McLaren performance items: front wing, rear wing, beam wing and floor furniture. The stated aims are flow conditioning or local aerodynamic load. Mercedes, Red Bull, Ferrari, Williams, Racing Bulls, Aston Martin, Haas, Audi, Alpine and Cadillac each return no updates. The Race reports that McLaren's front-wing concept is intended to carry into its 2027 launch specification.",
-      "why_it_matters": "The declaration records team explanations, not independently measured downforce, lap-time or net-performance gains. It also supersedes the earlier pre-publication listing checks; those checks did not establish non-publication.",
+      "summary": "The Stewards' Document 16 records Franco Colapinto at 80.6 km/h in the 80 km/h pit lane and fines BWT Alpine F1 Team EUR 100. Separate Document 18 lists lap-time deletions for ten drivers at turns 1, 7, 10 and 12.",
+      "why_it_matters": "The fine applies to the team. The listed lap deletions are not additional race penalties or changes to the official FP1 classification.",
       "sources": [
-        {"label": "The Race: McLaren's 2027 front wing and Brazil updates", "url": "https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/"},
-        {"label": "FIA: Car Presentation Submissions, Document 12", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf"}
+        {"label": "FIA: Colapinto pit-lane speeding, Document 16", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_43_-_pit_lane_speeding.pdf"},
+        {"label": "FIA: FP1 deleted lap times, Document 18", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"}
       ]
     }
   ]
