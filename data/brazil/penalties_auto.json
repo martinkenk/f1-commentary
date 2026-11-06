@@ -68,5 +68,19 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 25",
+    "no": "51",
+    "driver": "Rafael Camara",
+    "team": "TGR Haas F1 Team",
+    "session": "Free Practice 2",
+    "fact": "Car 51 unnecessarily impeded Car 16 in turn 15.",
+    "outcome": "Driver: Reprimand (Driving). This is the driver’s 1st reprimand of the season.",
+    "kind": "reprimand",
+    "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"
   }
 ]
