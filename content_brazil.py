@@ -64,9 +64,10 @@ one-hour FP1:</p><ul><li><strong>McLaren:</strong> Leonardo Fornaroli for Oscar 
 <li><strong>Audi:</strong> Freddie Slater for Nico Hulkenberg</li>
 <li><strong>Alpine:</strong> Gabriele Mini for Pierre Gasly</li>
 <li><strong>Cadillac:</strong> Colton Herta for Sergio Perez</li></ul>
-<p>Herta completed the 100 km needed for his final Super Licence point during
-FP1, as reported by The Race; Formula1.com explains the requirement. This
-clears the point requirement but does not confirm a 2027 race seat.
+<p>The Race reports Herta picked up his final Super Licence point after FP1,
+passing the 100 km running requirement when combined with his four other
+qualifying FP1 outings and IndyCar results. Formula1.com explains the
+requirement. This clears the point requirement but does not confirm a 2027 seat.
 <a href="{FP1_LINEUP}">Formula1.com lineup</a> ·
 <a href="{FP1_RESULT}">official FP1 classification</a> ·
 <a href="{FP1_REPORT}">Formula1.com FP1 report</a> ·
