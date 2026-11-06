@@ -56,10 +56,10 @@ jobs:
       REFRESH_GP: ${{ inputs.gp }}
     steps:
       - uses: actions/checkout@v5
-      - name: Sync queued scheduled or manual run to latest main
-        if: github.event_name != 'push'
+      - name: Sync every queued run to latest main before collection
         run: |
           git fetch origin main
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/main
           git checkout -B main origin/main
       - uses: actions/setup-python@v6
         with:

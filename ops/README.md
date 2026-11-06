@@ -42,6 +42,9 @@ has finished. GitHub dispatch/Pages is still best-effort: missed T-30 deadlines
 are recorded and alerted, never reported as successful freshness. Rapid dispatches
 skip historical/telemetry work; ordinary scheduled builds retain those collectors.
 The editor and publisher use separate locks because the editor only submits PRs.
+All queued deployments, including pushes, fetch current `main` before collecting
+and check that the requested commit is still an ancestor. Otherwise a preceding
+build's bot data commit can conflict with the next build's generated timestamps.
 The 30-minute collection-to-deadline margin accommodates the existing two
 ten-minute Pages deployment attempts; a real smoke deployment exercised that
 timeout/retry path. It is not a guarantee against a prolonged GitHub outage.

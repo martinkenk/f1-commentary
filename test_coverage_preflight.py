@@ -17,7 +17,9 @@ class CoveragePreflightTests(unittest.TestCase):
         deploy = (preflight.ROOT / ".github/workflows/deploy.yml").read_text()
         self.assertIn("group: pages-publisher", deploy)
         self.assertNotIn("group: pages-editor", deploy)
-        self.assertIn("if: github.event_name != 'push'", deploy)
+        sync = deploy.split("- name: Sync every queued run", 1)[1].split("- uses:", 1)[0]
+        self.assertNotIn("if:", sync)
+        self.assertIn('git merge-base --is-ancestor "$GITHUB_SHA" origin/main', sync)
         self.assertIn("git checkout -B main origin/main", deploy)
         guard = lock.split("  verify-publication:\n", 1)[1]
         self.assertIn("- agent\n      - safe_outputs", guard)
@@ -34,6 +36,34 @@ class CoveragePreflightTests(unittest.TestCase):
         self.assertIn("git merge --ff-only origin/main", lock)
         self.assertIn("/tmp/gh-aw/python/venv/bin/python3", lock)
         self.assertIn("--python-preference only-managed", lock)
+
+    def test_queued_push_refreshes_shallow_checkout_before_collecting(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source, checkout = root / "source", root / "checkout"
+            source.mkdir()
+
+            def git(*args, cwd=source):
+                return subprocess.run(["git", *args], cwd=cwd, check=True,
+                                      capture_output=True, text=True).stdout.strip()
+
+            git("init", "-b", "main")
+            git("config", "user.name", "Test")
+            git("config", "user.email", "test@example.com")
+            (source / "snapshot.json").write_text('{"checked_at":"old"}')
+            git("add", ".")
+            git("commit", "-m", "queued code")
+            queued = git("rev-parse", "HEAD")
+            git("clone", "--depth=1", source.as_uri(), str(checkout))
+            (source / "snapshot.json").write_text('{"checked_at":"new"}')
+            git("commit", "-am", "preceding deployment saved data")
+            workflow = (preflight.ROOT / ".github/workflows/deploy.yml").read_text()
+            block = workflow.split("- name: Sync every queued run", 1)[1].split("- uses:", 1)[0]
+            script = block.split("run: |\n", 1)[1]
+            subprocess.run(["bash", "-e", "-c", script], cwd=checkout, check=True,
+                           env=dict(os.environ, GITHUB_SHA=queued), capture_output=True)
+            self.assertEqual((checkout / "snapshot.json").read_text(), '{"checked_at":"new"}')
+            self.assertEqual(git("rev-parse", "HEAD", cwd=checkout), git("rev-parse", "HEAD"))
 
     def test_actual_policies_allow_collector_outputs_and_shared_rendering(self):
         paths = ["data/standings_2026.json", "data/season_h2h_2026.json",
