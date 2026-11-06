@@ -1,0 +1,7 @@
+{
+  "reviewed_at": "2026-11-06T09:31:40Z",
+  "basis": "Visually rechecked all three cached Document 57 pages while reconciling historical coverage PRs. Corrected Car 30's component from header to headrest; retained the complete approved-parts list and distinction from declared aerodynamic upgrades. This receipt covers only that exact cached PDF revision, not a fresh all-document audit.",
+  "fia_sha256": {
+    "https://www.fia.com/system/files/decision-document/2026_azerbaijan_grand_prix_-_parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf": "66512a7b1e64fda633d5be08fb2c41f779d4593d6618dd76ff3d0c375a1afaf8"
+  }
+}

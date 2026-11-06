@@ -687,7 +687,7 @@ above and is not, by itself, evidence of a defect or reliability failure.</p>
     "<strong>Red Bull Racing, Cars 03 and 06 (Verstappen and Hadjar):</strong> Car 03, left- and right-hand fuel lift-pump assemblies and new ICE, turbocharger, exhaust and ancillary PU components, with associated parameter changes; Car 06, clutch-shaft torque sensor and associated SCM. Document 55 separately records the new PU elements as compliant.",
     "<strong>Ferrari, Car 16 (Leclerc):</strong> left-hand floor-board brace.",
     "<strong>Atlassian Williams, Car 23 (Sainz):</strong> gearbox-control hydraulics and rotac actuator set, associated parameter changes, and a TPMS ECU.",
-    "<strong>Racing Bulls, Cars 41 and 30 (Lindblad and Lawson):</strong> Car 41, previously used ICE, turbocharger and exhaust with associated parameter changes, plus a right-hand cooling radiator; Car 30, header.",
+    "<strong>Racing Bulls, Cars 41 and 30 (Lindblad and Lawson):</strong> Car 41, previously used ICE, turbocharger and exhaust with associated parameter changes, plus a right-hand cooling radiator; Car 30, headrest.",
     "<strong>Aston Martin Aramco Honda, Car 18 (Stroll):</strong> ICE water-system radiator and right-hand front pushrod.",
     "<strong>Audi, Car 27 (Hulkenberg):</strong> gearbox assembly and control hydraulics, BBW, rear-brake friction material and associated parameter changes, plus gearbox-oil heat-exchanger QD fittings and associated hoses.",
     "<strong>Alpine, Car 43 (Colapinto):</strong> ICE sump bumper protection plate.",

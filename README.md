@@ -4,9 +4,9 @@ A good-looking, static, **multi-Grand-Prix** site to support **live TV commentar
 Left-hand sidebar menu; every Grand Prix gets its own landing page plus **17 subpages**.
 
 Loaded: **every remaining round of the 2026 season** — 14 Grands Prix from Belgium
-(round 10) to Abu Dhabi (round 23). Belgium, Hungary, the Netherlands, Italy and Spain have
-hand-written prose; the rest are generated from the official calendar and a per-venue
-reference library. Results, championship standings, news, FIA document links and
+(round 10) to Abu Dhabi (round 23). Bespoke modules registered in `build.py`
+supplement the shared calendar-driven pages and per-venue reference library.
+Results, championship standings, news, FIA document links and
 source-faithful PDF screenshot galleries
 refresh automatically; interpreted technical tables and curated race-week prose
 are proposed by the coverage editor and require PR review before publication.
@@ -14,9 +14,18 @@ are proposed by the coverage editor and require PR review before publication.
 > Regenerate this for any GP — before or during the weekend — with **[SKILL.md](SKILL.md)**,
 > the step-by-step runbook (architecture, sources, FIA docs, weather, live results, build, verify).
 
-A separate owner-authorized [host watchdog](ops/README.md) audits automation and
-live coverage hourly using that runbook. It may publish verified repairs when
-authenticated; read-only runs explicitly report blocked publication.
+A separate owner-authorized [host watchdog](ops/README.md) uses a **one-minute
+calendar clock**, independently of the bounded AI repair worker. It collects at
+T−60 minutes for publication by T−30 before every session, then polls official
+results every two minutes near the expected finish until validated results are
+live (backing off after six overdue hours). It may publish verified repairs when
+authenticated; read-only runs explicitly report blocked publication. An
+independent GitHub heartbeat monitor detects a stopped host or unresolved errors.
+
+Portable instructions live in this README, `SKILL.md` and `ops/README.md`.
+An operator may also supply **`LOCAL-AUTOMATION.md`**, excluded locally through
+`.git/info/exclude`, for private machine access, installation and recovery context.
+Do not commit that file or copy infrastructure/credential details into PRs.
 
 ## View it
 Open `site/index.html` (the multi-GP hub), or serve the folder:
@@ -83,6 +92,18 @@ that a session has not run. Uncached local builds still try the official source.
   historical versions. Last-good images survive source failures.
 - `coverage_inventory.py` – inventories every GP's data/assets and source failures,
   checks generated pages/local images, and flags uncached PDFs for editorial review.
+- `coverage_health.py` – publishes `automation-health.json` with classification
+  fingerprints, collector outcomes, news freshness and expected-source/review gaps.
+  `data/collection_status.json` preserves failures until the collector actually
+  succeeds; skipping enrichment in a rapid results build cannot clear its error.
+- `circuit_history.py`, `history_render.py` – checksum-verified F1DB venue/GP
+  history, recent winners and historical teammate comparisons with current-grid
+  participation. Records stop before the selected weekend.
+- `passing_history.py` – historical on-track passing figures, with RacingPass
+  archives, reviewed 2025 statistics and current F1 Fantasy scoring kept separate.
+  A recent fetch is not evidence that the latest race is covered.
+- `race_tyres.py`, `upgrade_render.py` – source-linked remaining-set graphics and
+  revision-bound numerical reviews, plus all-team inline upgrade-document readers.
 - `news_briefing.py` – highlights collated top stories on Overview and Weekend News.
   Editors maintain `data/<gp>/news_highlights.json` with sourced summaries and
   on-air implications. Every build detects expiry, new sessions and changed
@@ -123,10 +144,11 @@ decision PDFs** into penalty rows.
   audits or block coverage of another GP. These editorial changes do not go live
   until their PR is merged.
 - Standings do not depend on that editorial gate: CI runs `python3 standings.py`
-  before the build, persists the official driver/constructor snapshot, and derives
+  **after session-results collection** and before the build, persists the official driver/constructor snapshot, and derives
   the displayed gaps from it. Pages show the retrieval time and warn if the
   snapshot is over 24 hours old. Current tables are labelled as season totals,
-  not falsely attributed to an earlier race.
+  not falsely attributed to an earlier race. The round checkpoint must match
+  all race awards already included; a download timestamp is not that checkpoint.
 - FIA discovery retains a complete document index, not only penalty-shaped
   filenames. Failed extraction is retried instead of permanently marked seen.
   Incomplete enrichment and failed standings refreshes produce workflow warnings
@@ -146,7 +168,11 @@ LLM_ENDPOINT=... LLM_MODEL=... LLM_TOKEN=... python3 enrich.py
 python3 backfill_meta.py --dry-run                   # repair slug titles / missing dates
 ```
 CI runs it Thu–Mon every 2h during a race weekend, plus twice a day on Tue/Wed so
-midweek driver-market news isn't missed.
+midweek driver-market news isn't missed. These baseline runs supplement, rather
+than replace, calendar-triggered pre-session and result dispatches. Queued
+publishers synchronize current main before collection. The draft-PR editor and
+publisher have separate `pages-editor` / `pages-publisher` concurrency groups;
+an editorial audit must not block a session's freshness deadline.
 See **[SKILL.md](SKILL.md)** for the full design and a provider-neutral external-agent
 scheduling prompt. It documents all 17 pages' subfeatures, earlier-GP parity,
 source/revision handling, optional dependencies, review versus authorized publish
@@ -155,6 +181,12 @@ modes, and live deployment confirmation.
 After building, run `python3 coverage_inventory.py --all --check` for an offline
 inventory of every registered GP. This catches missing pages and local images;
 it is not a substitute for the skill's factual/editorial audit.
+Likewise, a green Pages build can retain incomplete sources. Inspect the live
+`automation-health.json`, actual source warnings and exact deployed commit.
+Expected publication deadlines mean **investigate availability**, not invent
+missing data or declare an upstream publication exists. New FIA PDF hashes
+require actual review and a `coverage_review.json` receipt; screenshots alone
+are not verified interpretation.
 
 ## Times & weather
 - All times shown in **circuit-local + Tallinn** — no other zones. The offset is

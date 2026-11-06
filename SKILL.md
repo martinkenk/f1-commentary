@@ -69,6 +69,30 @@ rounds periodically, but do not attach today's generic news to distant events.
 |---|---|---|
 | `deploy.yml` | Thu-Mon 06:00-20:00 every 2h; Tue/Wed 08:00 and 16:00; main pushes; manual dispatch | Collects data/assets, commits them, builds and publishes directly |
 | `critical-race-coverage.md` / `.lock.yml` | Sun/Mon/Thu/Fri/Sat 05:23, 11:23, 17:23, 21:23; Tue/Wed 08:23, 17:23; manual dispatch | Researches and fixes editorial coverage in draft PRs; review/merge still required |
+| `ops/calendar_scheduler.py` | One-minute host timer; calendar-derived session deadlines | Dispatches existing publisher and verifies live classification evidence; requests bounded owner-authorized repairs |
+| `watchdog-health.yml` | Every half hour | Independently checks the configured health issue for stale heartbeat and unresolved failures |
+
+The host clock collects fresh news/data at **T−60** for a **T−30 publication
+deadline** before each session; AI review is eligible at T−105. Poll results
+every two minutes near the estimated finish (Race starts at T+60), continuing
+until the validated classification is visible live. After six overdue hours,
+back off to 15-minute polling without abandoning the result. Session durations,
+retry state and exact controls are documented in `ops/README.md`; use actual
+calendar dates/UTC offsets, not a fixed Friday–Sunday assumption.
+
+Before any maintenance pause, record it visibly and preserve unfinished work.
+Restore and verify the timer/heartbeat before ending maintenance. A green
+GitHub build cannot detect a silently stopped host; the independent monitor
+must remain enabled. Machine addresses, installed paths, retained checkouts and
+resume IDs belong in the operator's locally excluded `LOCAL-AUTOMATION.md`,
+not in portable guidance or public reports.
+
+Interpreter tool approval and filesystem path approval are separate. A venv
+symlink can resolve outside its granted directory, and an interactive exact-file
+approval may not survive a fresh unattended invocation. Do not bypass denials
+or expand your own authority: an operator must approve any required canonical
+directory, preserve service hardening, and verify a fresh restricted smoke run
+before clearing `agent_blocked_reason`. Details are in `ops/README.md`.
 
 **An open PR must never suppress an audit.** Choose the event before matching a
 PR. An Italy PR cannot block Spain. Inspect its branch, diff, body and sources.
@@ -131,10 +155,12 @@ Keep create/update scopes aligned. Recompile `.lock.yml` after workflow changes;
 `test_coverage_preflight.py` guards these paths and the 10 MiB / 100-file limits.
 FIA 403/504/timeouts remain explicit upstream failures, with last-good data
 retained; a green deployment must not be described as a complete source refresh.
-The editor and deployment share the `pages` workflow concurrency group, with no
-in-progress cancellation. This serializes automatic data writers across the
-whole audit/submission cycle. Editor setup fast-forwards main after waiting for
-that lock. Do not dispatch a deployment from inside the locked editorial run.
+The editor and deployment use separate `pages-editor` and `pages-publisher`
+concurrency groups, with no in-progress cancellation. A long REVIEW-only editor
+must not block session publication. Every queued deployment, including a push,
+fetches current main and checks requested-commit ancestry before collecting.
+This avoids conflicts with a preceding build's generated-data commit. The host
+worker's local lock does not lock GitHub: recheck remote writers before pushing.
 The publication guard fails the run if safe outputs report a code-push error:
 the pinned framework can otherwise finish green after a rebase conflict without
 creating a PR. Always confirm the actual PR/link, not only the run conclusion.
@@ -144,7 +170,7 @@ creating a PR. Always confirm the actual PR/link, not only the run conclusion.
 `build.py` reads `data/calendar_2026.json`, uses chronological rounds from
 `FIRST_ROUND`, creates contexts and calls `f1lib.build_all`. Currently there are
 **14 GPs / 238 subpages**, plus the season index. `BESPOKE` registers Belgium,
-Hungary, Netherlands, Italy, Spain and Bahrain; other rounds inherit
+Hungary, Netherlands, Italy, Spain, Azerbaijan, Bahrain, Singapore and Brazil; other rounds inherit
 `content_generic.py`.
 New calendar rounds need no hand-written module unless their prose outgrows the
 generic content. `circuits.py` supplies venue coordinates, character and history.
@@ -164,6 +190,8 @@ generic content. `circuits.py` supplies venue coordinates, character and history
 | `f1lib.py` | Shared HTML/CSS, source galleries, results, weather, news/H2H/reliability/penalties |
 | `content_<gp>.py` | Reviewed event-specific stories, tables, decisions, strategy and context |
 | `coverage_inventory.py` | Offline JSON inventory of data/assets, missing pages, broken local images and source status |
+| `coverage_health.py`, `data/collection_status.json` | Live source/review deadlines, result fingerprints and retained outcomes of actual collector invocations |
+| `ops/calendar_scheduler.py`, `ops/watchdog.py` | Durable clock/dispatch/publication verification and separately bounded AI repair |
 | `versioning.py` | Material-change history, shared assets, version picker |
 | `assets_src/` | Committed source assets, copied to `site/assets/` |
 | `site/`, `public/` | Generated build/history output; never hand-edit or commit on main |
@@ -174,6 +202,41 @@ PDFs without automatic screenshots and broken image references. `--check` fails
 for missing pages/broken local images, **not** for legitimately pending sources.
 An uncached PDF can have a manual figure; verify it before adding duplicates.
 The inventory cannot certify factual/editorial completeness.
+
+### Health, source review and publication evidence
+
+Read live `automation-health.json` and any supplied `repair-request.json` before
+repeating a full audit. Workflow success, source HTTP 200, screenshot existence
+and completed editorial review are separate evidence. A results-only build
+cannot clear a failed news/FIA outcome by skipping it; inspect collector scope,
+time and warnings. Correlate dispatched requests with the actual run and live
+classification fingerprint, not just the latest successful workflow.
+
+Health checks expect classification follow-up after finish+15 minutes, maps and
+tyre information by T−24 hours, PU information by T−2 hours, and upgrade
+submissions around FP1. These are review deadlines, **not claims of publication**.
+Check changed FIA hashes and post-qualifying strategy/race-set sources too.
+Do not create filler or fabricate numbers to satisfy a deadline.
+
+After actually reading a new/revised FIA source and updating its interpretation,
+write `data/<gp>/coverage_review.json`: `reviewed_at`, brief `basis`, and
+`fia_sha256` mapping source URL to the exact `fia_media.json` SHA. Never
+bulk-acknowledge cached images. Add `race_strategy.reviewed_at` and `sources`
+only after checking the current post-qualifying strategy evidence. Remaining-set
+numbers still use the separate image-bound `race_tyres_verified.json` contract.
+Access-restricted sources remain explicitly restricted, without fake receipts.
+
+Standings' `results_round` must match **all awards already included**, even after
+the event leaves the active audit window. A source retrieval timestamp cannot
+establish that round. Collect classifications before standings reconciliation;
+never apply an already-counted race again. Official qualifying `RT` is a valid
+raw status, not a numbered place; preserve no-time/excluded H2H semantics.
+
+When reviewing a PR backlog, compare full merge-base-to-head diffs against current
+main, expiry/session fingerprints, source versions and asset hashes. Preserve
+useful unpublished changes in a tested current-main integration; close expired
+briefings and superseded snapshots with a reference. Never merge historical
+standings or renew expired news merely to empty the queue.
 
 Earlier reference modules are feature examples, not current fact sources:
 Hungary has especially rich strategy, season H2H, track-history and context;

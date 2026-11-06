@@ -6,9 +6,11 @@ report on each fresh Copilot session. It can publish relevant verified fixes
 when authenticated, but defaults to read-only if GitHub credentials are absent
 or a deployment/editor workflow is active.
 
-## Installed host layout
+## Deployment layout
 
-Host: `ssh 192.168.110.151 -p2222`, user `martin`.
+Use a dedicated nonroot service user. Machine access, container/host details,
+retained checkouts and session IDs belong in the locally excluded
+`LOCAL-AUTOMATION.md` supplied by the operator. Do not publish that handoff.
 
 | Location | Purpose |
 |---|---|
@@ -68,8 +70,8 @@ Logs/state are owner-only.
 `agent_blocked_reason`, when present, prevents repeated paid agent attempts and
 is prominently reported. Clear it only after resolving the underlying failure
 and observing a successful unattended smoke run. Read-only mode also suppresses
-clock dispatches. Issue #115 is the installed operator dashboard; repository
-variable `F1_WATCHDOG_HEALTH_ISSUE` selects it for the independent monitor.
+clock dispatches. Repository variable `F1_WATCHDOG_HEALTH_ISSUE` selects the
+operator dashboard issue for the independent monitor.
 
 ## Authentication
 
@@ -105,7 +107,7 @@ update to 1.0.106 did not clear it. Do not equate timer recovery with permission
 recovery: the calendar collector can run, while AI publication remains explicitly
 blocked until the operator resolves that approval interactively.
 
-The approval investigation identified the separate path gate:
+The subsequent approval investigation identified the separate path gate:
 `venv/bin/python3` resolves to `/usr/bin/python3.12`. The CLI checks the resolved
 target, not just the virtualenv path. An interactive exact-file approval works
 only in that process; resuming it unattended does not retain the grant.
@@ -115,17 +117,21 @@ the virtualenv directory and explicit interpreter tool rule. It does not grant
 `/usr`, `/`, unrestricted paths, or an alternate interpreter. Existing
 `ProtectSystem=strict` keeps system binaries read-only; the denied host-management
 commands are unchanged. Recheck this canonical path if the runtime moves.
+The fix was verified with a fresh unattended CLI using actual wrapper arguments
+under service-equivalent restrictions, executing the interpreter and importing
+the PDF dependencies. The blocker was removed only after independent evidence
+verification; a subsequent full PUBLISH run completed and deployed a repair.
+An interactive success, CLI upgrade or timer restart alone is not that proof.
 
 ## Operations
 
 ### Curses console (recommended)
 
-Open **https://192.168.110.151:7681/** and select the **f1-watchdog** terminal.
-Alternatively, run `f1-watchdog` in a shell inside the web terminal, or connect
-directly with:
+Use the operator's existing terminal or SSH connection (see the private local
+handoff) and run:
 
 ```bash
-ssh -t -p 2222 192.168.110.151 ~/.local/bin/f1-watchdog
+~/.local/bin/f1-watchdog
 ```
 
 The console refreshes service/timer status and run history automatically.
