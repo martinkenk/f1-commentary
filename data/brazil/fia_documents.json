@@ -1,7 +1,24 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix",
-  "retrieved_at": "2026-11-06T14:14:22.633776+00:00",
+  "retrieved_at": "2026-11-06T14:29:56.091960+00:00",
   "documents": [
+    {
+      "filename": "2026_sao_paulo_grand_prix_-_curfew.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_curfew.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_sao_paulo_grand_prix_-_self_scrutineering.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_self_scrutineering.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_sao_paulo_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "categories": [
+        "powerunit"
+      ]
+    },
     {
       "filename": "2026_sao_paulo_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
