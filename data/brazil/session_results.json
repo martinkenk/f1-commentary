@@ -5,7 +5,7 @@
     "results_slug": "brazil",
     "gp": "brazil"
   },
-  "checked_at": "2026-11-06T19:22:23+00:00",
+  "checked_at": "2026-11-06T20:12:30+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/1",
-      "fetched_at": "2026-11-06T19:22:23+00:00",
+      "fetched_at": "2026-11-06T20:12:30+00:00",
       "session_start": "2026-11-06T12:30:00-03:00",
       "retained": false
     }
@@ -209,7 +209,7 @@
     },
     {
       "label": "Practice 2",
-      "state": "pending",
+      "state": "unavailable",
       "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/2",
       "error": "Incomplete classification: 1 entrants",
       "retained": false
