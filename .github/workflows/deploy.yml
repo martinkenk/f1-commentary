@@ -25,7 +25,7 @@ on:
       refresh:
         description: Collection scope
         type: choice
-        options: [full, pre-session, results]
+        options: [full, pre-session, results, upgrades]
         default: full
       gp:
         description: Optional GP slug for session/news/FIA/tyre collection
@@ -65,6 +65,16 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Require a GP for the targeted upgrade watch
+        if: inputs.refresh == 'upgrades'
+        env:
+          REFRESH_GP: ${{ inputs.gp }}
+        run: |
+          if [ -z "$REFRESH_GP" ]; then
+            echo "::error::The upgrades refresh requires one GP slug."
+            exit 1
+          fi
+
       - name: Data refresh regression tests
         run: |
           python3 -m pip install --quiet Pillow
@@ -72,7 +82,7 @@ jobs:
 
       - name: Refresh calendar weekly and active track maps every run
         id: calendar
-        if: inputs.refresh != 'results'
+        if: inputs.refresh == '' || inputs.refresh == 'full' || inputs.refresh == 'pre-session'
         # Session times, circuit stats and track maps occasionally change as F1
         # confirms details for later rounds. Re-scraping weekly keeps every
         # upcoming GP page current without touching the build path, which stays
@@ -93,6 +103,7 @@ jobs:
 
       - name: Refresh season teammate comparisons
         id: season_h2h
+        if: inputs.refresh != 'upgrades'
         continue-on-error: true
         run: python3 season_h2h.py
 
@@ -150,7 +161,9 @@ jobs:
           LLM_FAKE: "1"
         run: |
           python3 -m pip install --quiet pypdf pymupdf
-          if [ -n "$REFRESH_GP" ]; then
+          if [ "${{ inputs.refresh }}" = "upgrades" ]; then
+            python3 enrich.py --gp "$REFRESH_GP" --fia-only
+          elif [ -n "$REFRESH_GP" ]; then
             python3 enrich.py --max 25 --gp "$REFRESH_GP"
           else
             python3 enrich.py --max 25
@@ -168,7 +181,9 @@ jobs:
         continue-on-error: true
         run: |
           python3 -m pip install --quiet pymupdf
-          if [ -n "$REFRESH_GP" ]; then
+          if [ "${{ inputs.refresh }}" = "upgrades" ]; then
+            python3 fia_media.py --gp "$REFRESH_GP" --category upgrades
+          elif [ -n "$REFRESH_GP" ]; then
             python3 fia_media.py --gp "$REFRESH_GP"
           else
             python3 fia_media.py
@@ -182,7 +197,7 @@ jobs:
 
       - name: Refresh published race tyre inventories
         id: race_tyres
-        if: inputs.refresh != 'results'
+        if: inputs.refresh != 'results' && inputs.refresh != 'upgrades'
         continue-on-error: true
         run: |
           if [ -n "$REFRESH_GP" ]; then
@@ -221,7 +236,7 @@ jobs:
           echo "## FastF1 refresh incomplete — inspect timing-source logs" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Backfill Formula1.com headlines and dates
-        if: inputs.refresh != 'results'
+        if: inputs.refresh != 'results' && inputs.refresh != 'upgrades'
         # Formula1.com's listing page exposes only a URL slug, so a card can be
         # stored with a de-hyphenated slug for a title and no publication date.
         # Undated cards cannot be ordered against the rest of the feed, which is
@@ -233,6 +248,7 @@ jobs:
 
       - name: Refresh official session classifications
         id: session_results
+        if: inputs.refresh != 'upgrades'
         continue-on-error: true
         run: |
           if [ -n "$REFRESH_GP" ]; then
@@ -249,6 +265,7 @@ jobs:
 
       - name: Refresh official championship standings
         id: standings
+        if: inputs.refresh != 'upgrades'
         continue-on-error: true
         # Classifications must be available before accepting updated points, so
         # the standings checkpoint cannot lag points already in the snapshot.
@@ -301,6 +318,7 @@ jobs:
       - name: Publish machine-readable coverage and collection evidence
         env:
           F1_REFRESH_KEY: ${{ inputs.refresh_key }}
+          F1_REFRESH_MODE: ${{ inputs.refresh }}
           F1_COLLECTION_GP: ${{ inputs.gp }}
           F1_COLLECTION: >-
             {"calendar":"${{ steps.calendar.outcome }}","enrichment":"${{ steps.enrichment.outcome }}",

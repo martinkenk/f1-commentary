@@ -158,6 +158,7 @@ def report(gps, root, now=None):
                     f"{source} collector failed; retained data is not fresh")
     return {"generated_at": now.isoformat(), "run_id": os.environ.get("GITHUB_RUN_ID"),
             "refresh_key": os.environ.get("F1_REFRESH_KEY", ""),
+            "refresh_mode": os.environ.get("F1_REFRESH_MODE", ""),
             "collection_gp": os.environ.get("F1_COLLECTION_GP", ""),
             "collection": collection,
             "last_collection_checks": last_checks,

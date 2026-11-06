@@ -1062,6 +1062,8 @@ def main():
                     help="enrich every registered GP instead of just the active window")
     ap.add_argument("--max", type=int, default=6,
                     help="max new articles processed per GP per run")
+    ap.add_argument("--fia-only", action="store_true",
+                    help="refresh only the FIA event-document listing for the selected GP")
     args = ap.parse_args()
 
     gps = load_gps()
@@ -1070,9 +1072,20 @@ def main():
         if not gps:
             print(f"No GP with dir '{args.gp}'")
             return 1
+    elif args.fia_only:
+        ap.error("--fia-only requires --gp")
     elif not args.all:
         gps = active_gps(gps)
         print("Active window: " + ", ".join(f'{g["dir"]} ({g["status"]})' for g in gps))
+
+    if args.fia_only:
+        ctx = gps[0]
+        print(f"{ctx['flag']} {ctx['name']}: checking FIA event documents only")
+        discover_fia(ctx)
+        if FAILURES:
+            print(f"Failed — {len(FAILURES)} FIA discovery error(s); a later calendar check may retry.")
+            return 1
+        return 0
 
     endpoint = os.environ.get("LLM_ENDPOINT", DEFAULT_ENDPOINT)
     backend = ("HEURISTIC (LLM_FAKE)" if os.environ.get("LLM_FAKE")

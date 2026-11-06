@@ -70,7 +70,8 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("brazil-energy-limits", pages["powerunit"]["body"])
         self.assertNotIn("once it is issued", pages["powerunit"]["body"])
         self.assertIn("Two Straight Mode zones, one Overtake activation", pages["circuit"]["body"])
-        self.assertIn("not yet the Car Presentation Submissions", pages["upgrades"]["body"])
+        self.assertIn("complete substantive pages", pages["upgrades"]["body"])
+        self.assertNotIn("Review at 06:05 UTC", pages["upgrades"]["body"])
         for slug in ("tyres", "powerunit", "circuit"):
             body = pages[slug]["body"]
             for asset in re.findall(r'src="\.\./assets/([^"]+)"', body):

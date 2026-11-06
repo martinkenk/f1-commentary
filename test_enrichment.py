@@ -426,6 +426,21 @@ class EnrichmentTests(unittest.TestCase):
                 patch("sys.argv", ["enrich.py", "--all"]):
             self.assertEqual(enrich.main(), 0)
 
+    def test_fia_only_mode_discovers_documents_without_running_other_enrichment(self):
+        with patch.object(enrich, "load_gps", return_value=[CTX]), \
+                patch.object(enrich, "discover_fia", return_value=[]) as discover, \
+                patch.object(enrich, "enrich_gp", side_effect=AssertionError("not FIA-only")), \
+                patch("sys.argv", ["enrich.py", "--gp", "italy", "--fia-only"]):
+            self.assertEqual(enrich.main(), 0)
+        discover.assert_called_once_with(CTX)
+
+    def test_fia_only_mode_requires_a_single_gp(self):
+        with patch.object(enrich, "load_gps", return_value=[CTX]), \
+                patch("sys.argv", ["enrich.py", "--fia-only"]):
+            with self.assertRaises(SystemExit) as error:
+                enrich.main()
+        self.assertEqual(error.exception.code, 2)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -89,7 +89,8 @@ def _render(raw, prefix):
     return pages
 
 
-def refresh_gp(ctx, decisions_only=False):
+def refresh_gp(ctx, decisions_only=False, categories=None):
+    category_filter = set(categories or ())
     directory = DATA_DIR / ctx["dir"]
     discovered = _read(directory / "fia_documents.json")
     previous = _read(directory / "fia_media.json")
@@ -105,17 +106,24 @@ def refresh_gp(ctx, decisions_only=False):
         url, filename = penalty.get("source_url"), penalty.get("source_pdf")
         if f1lib._official_fia_url(url) and filename:
             sources.setdefault(url, {"url": url, "filename": filename})
-    attempted = {url for url, source in sources.items()
-                 if (not decisions_only
-                     or "penalties" in f1lib.fia_document_categories(source["filename"]))}
+    attempted = {
+        url for url, source in sources.items()
+        if (not decisions_only
+            or "penalties" in f1lib.fia_document_categories(source["filename"]))
+        and (not category_filter or bool(
+            category_filter & set(f1lib.fia_document_categories(source["filename"]))))
+    }
     errors = [error for error in previous.get("errors", [])
-              if decisions_only and error.get("url") not in attempted]
+              if (decisions_only or category_filter) and error.get("url") not in attempted]
     checked_at = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+    missing_discovery = not discovered
     if not discovered:
         errors.append({"url": ctx.get("fia_url", ""), "error": "No saved FIA discovery manifest"})
     for source in sources.values():
-        categories = f1lib.fia_document_categories(source["filename"])
-        if not categories or (decisions_only and "penalties" not in categories):
+        document_categories = f1lib.fia_document_categories(source["filename"])
+        if (not document_categories
+                or (decisions_only and "penalties" not in document_categories)
+                or (category_filter and not category_filter & set(document_categories))):
             continue
         url = source["url"]
         try:
@@ -130,12 +138,12 @@ def refresh_gp(ctx, decisions_only=False):
                 prefix = f"fia-{ctx['dir']}-{identity}-{digest[:16]}"
                 pages = _render(raw, prefix)
             records[url] = {
-                "url": url, "filename": source["filename"], "categories": categories,
+                "url": url, "filename": source["filename"], "categories": document_categories,
                 "sha256": digest, "fetched_at": checked_at, "pages": pages,
                 "revision": old.get("revision", 0) + int(bool(old.get("sha256"))
                                                        and old["sha256"] != digest),
             }
-            if "penalties" in categories:
+            if "penalties" in document_categories:
                 text = enrich.pdf_text(raw)
                 for penalty in penalties:
                     if (penalty.get("source_url") == url
@@ -157,6 +165,8 @@ def refresh_gp(ctx, decisions_only=False):
     })
     if penalties:
         _write(penalties_path, penalties)
+    if category_filter:
+        return not missing_discovery and not any(error.get("url") in attempted for error in errors)
     return not errors
 
 
@@ -165,7 +175,12 @@ def main():
     parser.add_argument("--gp", help="one registered GP slug; otherwise use the active window")
     parser.add_argument("--decisions-only", action="store_true",
                         help="backfill decision screenshots and source identities only")
+    parser.add_argument("--category", action="append",
+                        choices=("powerunit", "circuit", "tyres", "upgrades", "schedule", "penalties"),
+                        help="refresh only this FIA document category; may be repeated")
     args = parser.parse_args()
+    if args.category and args.decisions_only:
+        parser.error("--category cannot be combined with --decisions-only")
     gps = enrich.load_gps()
     if args.gp:
         gps = [gp for gp in gps if gp["dir"] == args.gp]
@@ -179,7 +194,7 @@ def main():
 
     failed = False
     for gp in gps:
-        if not refresh_gp(gp, decisions_only=args.decisions_only):
+        if not refresh_gp(gp, decisions_only=args.decisions_only, categories=args.category):
             failed = True
     return int(failed)
 

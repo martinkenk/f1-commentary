@@ -35,7 +35,12 @@ def live(now):
 class CalendarTests(unittest.TestCase):
     def test_calendar_offsets_drive_preflight_and_polling(self):
         jobs = list(scheduler.jobs([context()], at("2026-11-06T14:00")))
-        pre, results = jobs[:2]
+        upgrade = next(job for job in jobs if job["kind"] == "upgrades")
+        pre = next(job for job in jobs if job["kind"] == "pre" and job["label"] == "Practice 1")
+        results = next(job for job in jobs if job["kind"] == "results"
+                       and job["label"] == "Practice 1")
+        self.assertEqual(upgrade["due"], at("2026-11-06T14:00"))
+        self.assertEqual(upgrade["deadline"], at("2026-11-06T15:30"))
         self.assertEqual(pre["due"], at("2026-11-06T14:30"))
         self.assertEqual(pre["deadline"], at("2026-11-06T15:00"))
         self.assertEqual(results["due"], at("2026-11-06T16:20"))
@@ -44,17 +49,21 @@ class CalendarTests(unittest.TestCase):
 
     def test_revised_timezone_and_sprint_schedule_change_job_identity(self):
         ctx = context()
-        ctx["cal"]["sessions"][0].update(label="Sprint Qualifying", gmt_offset="+05:30")
+        ctx["cal"]["sessions"][0].update(time="13:30", gmt_offset="+05:30")
         first = list(scheduler.jobs([ctx], at("2026-11-06T01:00")))
-        self.assertEqual(first[0]["due"], at("2026-11-06T06:00"))
-        self.assertEqual(first[1]["due"], at("2026-11-06T07:35"))
+        upgrade = next(job for job in first if job["kind"] == "upgrades")
+        pre = next(job for job in first if job["kind"] == "pre")
+        self.assertEqual(upgrade["due"], at("2026-11-06T06:30"))
+        self.assertEqual(pre["due"], at("2026-11-06T07:00"))
         ctx["cal"]["sessions"][0]["time"] = "13:00"
         second = list(scheduler.jobs([ctx], at("2026-11-06T01:00")))
-        self.assertNotEqual(first[0]["key"], second[0]["key"])
+        self.assertEqual(upgrade["key"],
+                         next(job for job in second if job["kind"] == "upgrades")["key"])
+        self.assertNotEqual(pre["key"], next(job for job in second if job["kind"] == "pre")["key"])
 
     def test_preflight_requires_successful_collection_not_just_fresh_build(self):
         now = at("2026-11-06T14:55")
-        pre = next(scheduler.jobs([context()], now))
+        pre = next(job for job in scheduler.jobs([context()], now) if job["kind"] == "pre")
         value = live(now)
         self.assertTrue(scheduler.live_satisfies(pre, {}, value))
         value["collection"]["enrichment"] = "failure"
@@ -66,7 +75,8 @@ class CalendarTests(unittest.TestCase):
 
     def test_old_or_retained_classification_does_not_finish_polling(self):
         now = at("2026-11-06T16:30")
-        job = list(scheduler.jobs([context()], now))[1]
+        job = next(job for job in scheduler.jobs([context()], now)
+                   if job["kind"] == "results" and job["label"] == "Practice 1")
         value = live(now)
         value["events"] = {"brazil": {"sessions": {"Practice 1": {"digest": "old"}}}}
         self.assertFalse(scheduler.live_satisfies(job, {"digest": "new"}, value))
@@ -77,7 +87,8 @@ class CalendarTests(unittest.TestCase):
 
     def test_unpublished_results_remain_polled_after_the_active_weekend_window(self):
         earlier = at("2026-11-06T16:30")
-        job = list(scheduler.jobs([context()], earlier))[1]
+        job = next(job for job in scheduler.jobs([context()], earlier)
+                   if job["kind"] == "results" and job["label"] == "Practice 1")
         records = {job["key"]: {"polled_at": earlier.isoformat(), "error": "delayed"}}
         late = at("2026-11-20T12:00")
         self.assertEqual([x["key"] for x in scheduler.jobs([context()], late, records)], [job["key"]])
@@ -133,7 +144,8 @@ class CalendarTests(unittest.TestCase):
                 scheduler.tick(now + dt.timedelta(minutes=3))
                 self.assertEqual(dispatch.call_count, 1)
                 record = json.loads((state_path / "scheduler.json").read_text())
-                key = list(scheduler.jobs([context()], now))[1]["key"]
+                key = next(job["key"] for job in scheduler.jobs([context()], now)
+                           if job["kind"] == "results" and job["label"] == "Practice 1")
                 self.assertEqual(record["jobs"][key]["status"], "done")
 
     def test_restart_records_missed_preflight_without_historical_dispatch(self):
@@ -152,6 +164,83 @@ class CalendarTests(unittest.TestCase):
                 dispatch.assert_not_called()
                 record = json.loads((state_path / "scheduler.json").read_text())
                 self.assertTrue(any("missed pre-session" in error for error in record["errors"]))
+
+    def test_upgrade_watch_is_one_stable_job_and_requires_its_own_publication(self):
+        ctx = context()
+        first = at("2026-11-06T14:05")
+        job = next(job for job in scheduler.jobs([ctx], first) if job["kind"] == "upgrades")
+        item = {"refresh_key": "upgrade-key"}
+        value = live(first)
+        value.update(refresh_mode="upgrades", refresh_key="upgrade-key", collection_gp="brazil")
+        self.assertTrue(scheduler.live_satisfies(job, item, value))
+        value["refresh_mode"] = "pre-session"
+        self.assertFalse(scheduler.live_satisfies(job, item, value))
+        value["refresh_mode"] = "upgrades"
+        value["collection"]["fia_media"] = "failure"
+        self.assertFalse(scheduler.live_satisfies(job, item, value))
+        records = {job["key"]: {"status": "done"}}
+        self.assertFalse(any(job["kind"] == "upgrades"
+                             for job in scheduler.jobs([ctx], first, records)))
+
+    def test_upgrade_dispatch_persists_single_attempt_before_request(self):
+        now = at("2026-11-06T14:00")
+        job = next(job for job in scheduler.jobs([context()], now) if job["kind"] == "upgrades")
+        with tempfile.TemporaryDirectory() as directory, \
+                patch.object(scheduler, "STATE", Path(directory)), \
+                patch.object(scheduler, "checked"):
+            state = {"jobs": {}}
+            scheduler.dispatch(state, "upgrades", "brazil", now, job)
+            saved = json.loads((Path(directory) / "scheduler.json").read_text())
+        self.assertEqual(saved["jobs"][job["key"]]["status"], "dispatched")
+        self.assertEqual(saved["jobs"][job["key"]]["refresh_key"], "20261106T140000Z")
+        self.assertEqual(saved["request"]["job_key"], job["key"])
+
+    def test_upgrade_run_failure_is_terminal_for_the_weekend(self):
+        now = at("2026-11-06T14:10")
+        job = next(job for job in scheduler.jobs([context()], now) if job["kind"] == "upgrades")
+        state = {"errors": [], "jobs": {job["key"]: {"status": "dispatched",
+                "refresh_key": "upgrade-key"}},
+                 "request": {"at": "2026-11-06T14:00:00+00:00",
+                             "title": "Calendar refresh key", "job_key": job["key"],
+                             "gp": "brazil", "due": job["due"].isoformat(),
+                             "start": job["start"].isoformat()}}
+        run = {"display_title": "Calendar refresh key", "id": 123,
+               "html_url": "https://github.com/run", "status": "completed",
+               "conclusion": "failure"}
+        scheduler.reconcile_request(state, [run], live(now), now)
+        self.assertEqual(state["jobs"][job["key"]]["status"], "failed")
+        self.assertFalse(any(item["kind"] == "upgrades"
+                             for item in scheduler.jobs([context()], now, state["jobs"])))
+
+    def test_successful_upgrade_run_is_verified_against_its_live_refresh_key(self):
+        now = at("2026-11-06T14:10")
+        job = next(job for job in scheduler.jobs([context()], now) if job["kind"] == "upgrades")
+        state = {"errors": [], "jobs": {job["key"]: {"status": "dispatched",
+                "refresh_key": "upgrade-key"}},
+                 "request": {"at": "2026-11-06T14:00:00+00:00",
+                             "title": "Calendar refresh key", "job_key": job["key"],
+                             "gp": "brazil", "due": job["due"].isoformat(),
+                             "start": job["start"].isoformat()}}
+        run = {"display_title": "Calendar refresh key", "id": 123,
+               "html_url": "https://github.com/run", "status": "completed",
+               "conclusion": "success"}
+        evidence = live(now)
+        evidence.update(refresh_mode="upgrades", refresh_key="upgrade-key",
+                        collection_gp="brazil")
+        scheduler.reconcile_request(state, [run], evidence, now)
+        self.assertEqual(state["jobs"][job["key"]]["status"], "done")
+        self.assertEqual(state["jobs"][job["key"]]["published_at"], now.isoformat())
+        self.assertEqual(state["errors"], [])
+
+    def test_completed_upgrade_check_does_not_retrigger_only_for_unpublished_filing(self):
+        findings = [
+            {"gp": "brazil", "kind": "expected_source",
+             "message": "Check publication/collection of upgrade submissions; expected by first practice"},
+            {"gp": "brazil", "kind": "editorial", "message": "Review new FIA source"},
+        ]
+        records = {"2026/brazil/upgrades": {"status": "done"}}
+        self.assertEqual(scheduler.retryable_findings(findings, [context()], records), [findings[1]])
+        self.assertEqual(scheduler.retryable_findings(findings, [context()], {}), findings)
 
 
 class HealthTests(unittest.TestCase):
@@ -190,6 +279,11 @@ class HealthTests(unittest.TestCase):
         with patch.dict("os.environ", {"F1_COLLECTION": '{"standings":"failure"}'}):
             report = health.report([], ".", at("2026-11-06T09:00"))
         self.assertEqual(report["findings"][0]["kind"], "source_error")
+
+    def test_refresh_mode_is_reported_for_scheduler_reconciliation(self):
+        with patch.dict("os.environ", {"F1_REFRESH_MODE": "upgrades"}):
+            report = health.report([], ".", at("2026-11-06T09:00"))
+        self.assertEqual(report["refresh_mode"], "upgrades")
 
     def test_quick_build_retains_failed_news_check_until_news_is_retried(self):
         now = at("2026-11-06T09:00")

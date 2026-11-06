@@ -45,6 +45,15 @@ def jobs(gps, now, records=None):
         if race is None or now < race - dt.timedelta(days=10):
             continue
         recent = now <= race + dt.timedelta(days=2)
+        first_practice = session_results.session_start(ctx, "Practice 1")
+        if first_practice is not None and now <= race + dt.timedelta(days=2):
+            key = f"{ctx['year']}/{ctx['dir']}/upgrades"
+            if key not in (records or {}) or (records or {})[key].get("status") not in (
+                    "done", "failed", "missed"):
+                yield {"key": key, "kind": "upgrades", "ctx": ctx,
+                       "label": "Car Presentation Submissions",
+                       "due": first_practice - dt.timedelta(minutes=90),
+                       "deadline": first_practice, "start": first_practice}
         for label, endpoint in session_results.f1lib.RESULT_SESSIONS:
             start = session_results.session_start(ctx, label)
             if start is None:
@@ -67,9 +76,31 @@ def jobs(gps, now, records=None):
                        session_results.source_url(ctx, endpoint)}
 
 
+def retryable_findings(findings, gps, records):
+    """Do not rerun an unchanged missing-upgrades check after its single attempt."""
+    upgrade_status = {
+        ctx["dir"]: (records or {}).get(f"{ctx['year']}/{ctx['dir']}/upgrades", {}).get("status")
+        for ctx in gps
+    }
+    return [finding for finding in findings
+            if not (finding.get("kind") == "expected_source"
+                    and finding.get("message", "").startswith(
+                        "Check publication/collection of upgrade submissions;")
+                    and upgrade_status.get(finding.get("gp", "")) in (
+                        "done", "failed", "missed"))]
+
+
 def live_satisfies(job, item, live):
     if live is None:
         return False
+    if job["kind"] == "upgrades":
+        collected = live.get("collection", {})
+        return (live.get("refresh_mode") == "upgrades"
+                and live.get("refresh_key") == item.get("refresh_key")
+                and live.get("collection_gp") == job["ctx"]["dir"]
+                and job["due"] <= health.timestamp(live["generated_at"]) < job["start"]
+                and collected.get("enrichment") == "success"
+                and collected.get("fia_media") == "success")
     if job["kind"] == "pre":
         collected = live.get("collection", {})
         return (live.get("collection_gp", "") in ("", job["ctx"]["dir"])
@@ -111,6 +142,18 @@ def reconcile_request(state, runs, live, now):
             state["errors"].append(f"Successful deployment not yet visible live: {run['html_url']}")
             if now - health.timestamp(request["at"]) < dt.timedelta(minutes=20):
                 return True
+        job_key = request.get("job_key")
+        if job_key:
+            item = state.setdefault("jobs", {}).setdefault(job_key, {})
+            job = {"kind": "upgrades", "ctx": {"dir": request["gp"]},
+                   "due": health.timestamp(request["due"]),
+                   "start": health.timestamp(request["start"])}
+            if run["conclusion"] == "success" and live_satisfies(job, item, live):
+                item.update(status="done", published_at=live["generated_at"])
+            else:
+                item.update(status="failed", error="Targeted upgrade collection or publication failed")
+                state["errors"].append(
+                    f"{request['gp']} car-upgrade watch failed; this weekend's single attempt is recorded")
         state["last_request"] = request
         state.pop("request")
         state["retry_after"] = (now + dt.timedelta(minutes=2)).isoformat()
@@ -119,14 +162,22 @@ def reconcile_request(state, runs, live, now):
     if now - health.timestamp(request["at"]) < dt.timedelta(minutes=5):
         return True
     state["errors"].append(f"Dispatch never appeared in Actions: {request['title']}")
+    if request.get("job_key"):
+        state.setdefault("jobs", {}).setdefault(request["job_key"], {}).update(
+            status="failed", error="Scheduled upgrade dispatch did not appear in Actions")
     state.pop("request")
     return False
 
 
-def dispatch(state, mode, gp, now):
+def dispatch(state, mode, gp, now, job=None):
     key = now.strftime("%Y%m%dT%H%M%SZ")
     state["request"] = {"at": now.isoformat(), "title": f"Calendar refresh {key}",
                         "mode": mode, "gp": gp}
+    if job and job["kind"] == "upgrades":
+        state["request"].update(job_key=job["key"], due=job["due"].isoformat(),
+                                start=job["start"].isoformat())
+        state.setdefault("jobs", {}).setdefault(job["key"], {}).update(
+            status="dispatched", refresh_key=key, requested_at=now.isoformat())
     watchdog.write_json(STATE / "scheduler.json", state)
     checked(["gh", "workflow", "run", "deploy.yml", "--repo", watchdog.REPOSITORY,
              "--ref", "main", "-f", f"refresh={mode}", "-f", f"gp={gp}",
@@ -190,6 +241,18 @@ def tick(now=None):
             if now < job["due"]:
                 continue
             item = records.setdefault(job["key"], {})
+            if job["kind"] == "upgrades":
+                if item.get("status") in ("done", "failed", "missed"):
+                    continue
+                if item.get("status") == "dispatched":
+                    pending.append({"gp": job["ctx"]["dir"], "session": job["label"],
+                                    "kind": job["kind"], "deadline": job["deadline"].isoformat()})
+                    continue
+                if now >= job["start"]:
+                    item.update(status="missed", error="No pre-session upgrade collection recorded")
+                    if now <= job["start"] + dt.timedelta(hours=2):
+                        state["errors"].append(f"{job['ctx']['dir']}: missed car-upgrade collection")
+                    continue
             if (job["kind"] == "pre" and now >= job["start"]
                     and item.get("status") != "done" and not live_satisfies(job, item, live)):
                 # Restart catch-up records a missed refresh, never publishes an old pre-session job.
@@ -233,19 +296,24 @@ def tick(now=None):
         findings = live.get("findings", []) if live else [
             {"gp": "site", "kind": "publication", "message": "Live health endpoint unavailable"}]
         state["coverage_findings"] = findings
-        if findings:
-            state["errors"].append(f"{len(findings)} live coverage findings need retry/review (see automation-health.json)")
+        actionable_findings = retryable_findings(findings, gps, records)
+        if actionable_findings:
+            state["errors"].append(
+                f"{len(actionable_findings)} live coverage findings need retry/review (see automation-health.json)")
         audit_only = preferences.get("audit_only", False)
         if audit_only:
             state["errors"].append("Operator read-only mode: dispatch and repair disabled")
         retry_ready = not state.get("retry_after") or now >= health.timestamp(state["retry_after"])
         # Re-run the deterministic collectors before escalating stale source data to an agent.
-        refresh_due = (findings and (not state.get("last_coverage_refresh") or
+        refresh_due = (actionable_findings and (not state.get("last_coverage_refresh") or
                        now - health.timestamp(state["last_coverage_refresh"]) >= dt.timedelta(hours=1)))
         if not busy and not audit_only and retry_ready and (due or refresh_due):
-            chosen = min(due, key=lambda job: (job["kind"] != "pre", job["deadline"])) if due else None
-            dispatch(state, "pre-session" if not chosen or chosen["kind"] == "pre" else "results",
-                     chosen["ctx"]["dir"] if chosen else "", now)
+            priority = {"upgrades": 0, "pre": 1, "results": 2}
+            chosen = min(due, key=lambda job: (priority[job["kind"]], job["deadline"])) if due else None
+            mode = ({"upgrades": "upgrades", "pre": "pre-session", "results": "results"}
+                    .get(chosen["kind"], "pre-session") if chosen else "pre-session")
+            dispatch(state, mode, chosen["ctx"]["dir"] if chosen else "", now,
+                     chosen if chosen and chosen["kind"] == "upgrades" else None)
             state["last_coverage_refresh"] = now.isoformat()
             busy = True
         latest = health.read(STATE / "latest.json")
@@ -261,11 +329,11 @@ def tick(now=None):
                            for job in planned)
             last = state.get("agent_requested_at")
             cooldown = not last or now - health.timestamp(last) >= dt.timedelta(hours=1)
-            if (not busy and not audit_only and cooldown and (imminent or findings)
+            if (not busy and not audit_only and cooldown and (imminent or actionable_findings)
                     and checked(["systemctl", "--user", "show", "f1-watchdog.service",
                                  "--property=ActiveState", "--value"]) not in ("active", "activating")):
                 watchdog.write_json(STATE / "repair-request.json",
-                                    {"requested_at": now.isoformat(), "findings": findings,
+                                    {"requested_at": now.isoformat(), "findings": actionable_findings,
                                      "pre_session": imminent, "pending": pending})
                 checked(["systemctl", "--user", "start", "--no-block", "f1-watchdog.service"])
                 state["agent_requested_at"] = now.isoformat()

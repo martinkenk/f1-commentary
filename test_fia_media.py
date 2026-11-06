@@ -121,6 +121,32 @@ class FiaMediaTests(unittest.TestCase):
         self.assertIn("-p2.png", body)
         self.assertIn(report_url + "#page=2", body)
 
+    def test_targeted_upgrade_refresh_does_not_fetch_unrelated_fia_documents(self):
+        upgrade_url = (
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_spanish_grand_prix_-_car_presentation_submissions.pdf"
+        )
+        self.manifest.write_text(json.dumps({
+            "retrieved_at": "2026-09-11T09:00:00+00:00",
+            "documents": [
+                {"url": URL, "filename": "power_unit_information.pdf"},
+                {"url": upgrade_url, "filename": "car_presentation_submissions.pdf"},
+            ],
+        }), encoding="utf-8")
+        previous_error = {"url": URL, "error": "HTTP 403"}
+        fia_media._write(self.root / "data/spain/fia_media.json", {
+            "documents": [], "errors": [previous_error],
+        })
+        with patch.object(fia_media, "_download", return_value=b"%PDF-upgrades") as download, \
+                patch.object(fia_media, "_render", side_effect=self.render):
+            self.assertTrue(fia_media.refresh_gp(CTX, categories=["upgrades"]))
+        download.assert_called_once_with(upgrade_url)
+        record = self.record()
+        self.assertEqual(record["documents"][0]["filename"], "car_presentation_submissions.pdf")
+        self.assertEqual(record["errors"], [previous_error])
+        body = f1lib.render_fia_media(CTX, "upgrades")
+        self.assertIn(upgrade_url + "#page=2", body)
+
     def test_curated_page_figures_are_not_duplicated(self):
         with patch.object(fia_media, "_download", return_value=b"%PDF-first"), \
                 patch.object(fia_media, "_render", side_effect=self.render):

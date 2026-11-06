@@ -165,10 +165,11 @@ def build_pages(ctx, env):
 <p>The FIA display is Friday <strong>11:00–12:00 BRT / 16:00–17:00 Tallinn</strong>.
 If just one car has new major components, that is the car to display.
 <a href="{FIA}car_display_procedure.pdf#page=2">Official procedure</a>.</p>
-<p><strong>Review at 06:05 UTC, 6 November:</strong> the seven-document FIA
-listing contains the display procedure, not yet the Car Presentation Submissions.
-McLaren's reported changes are not a substitute for the eventual all-team filing.
-New source documents are linked below when discovered.</p>"""
+<p>The FIA's <strong>Car Display Procedure</strong> is separate from the
+all-team <strong>Car Presentation Submissions</strong>. Team comments are not
+a substitute for that filing. When published, its complete substantive pages
+are preserved in the official FIA source gallery below pending team-by-team
+review.</p>"""
     pages["schedule"]["body"] += f"""
 <p><strong>Standard weekend, not Sprint:</strong> Friday FP1 12:30 and FP2 16:00;
 Saturday FP3 11:30 and Qualifying 15:00; Sunday Race 14:00 (all BRT).
