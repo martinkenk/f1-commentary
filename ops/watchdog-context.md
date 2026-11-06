@@ -173,8 +173,10 @@ Read SKILL.md for the full source schemas, dated FIA values and lessons:
   JSON, the unlisted `f1lib.py`, PyPy taking precedence over CPython, 20-minute
   timeouts, and concurrent deployment data commits. Repairs are in `83cf5d310`
   and `0e5da551f`: aligned allowlists, managed CPython/PDF dependencies, 45-minute
-  execution budget, compiled-policy `coverage_preflight.py`, shared `pages`
-  concurrency and a publication guard for deferred code-push failures.
+  execution budget, compiled-policy `coverage_preflight.py` and a publication
+  guard for deferred code-push failures. The old shared `pages` lock was later
+  replaced by separate `pages-editor` / `pages-publisher` groups so a long
+  draft-PR audit cannot delay calendar-triggered publication.
 - Exact safe-output limits use `git format-patch` including commit headers, not
   merely net diff size. Run committed preflight against the correct base. Do not
   merge main onto an existing editorial PR head and submit unrelated history.
