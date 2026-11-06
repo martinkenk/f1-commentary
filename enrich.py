@@ -54,6 +54,7 @@ import hashlib
 import argparse
 import urllib.request
 import urllib.parse
+from html.parser import HTMLParser
 
 import f1lib
 
@@ -361,7 +362,29 @@ def f1_body(url):
         low = s.lower()
         if len(s) > 40 and "." in s and not any(b in low for b in _BOILER):
             keep.append(s)
-    return " ".join(keep)[:6000]
+    if keep:
+        return " ".join(keep)[:6000]
+
+    class DescriptionParser(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.description = ""
+            self.open_graph_description = ""
+
+        def handle_starttag(self, tag, attrs):
+            if tag.lower() != "meta":
+                return
+            attributes = {name.lower(): value for name, value in attrs}
+            content = (attributes.get("content") or "").strip()
+            if attributes.get("name", "").lower() == "description" and content:
+                self.description = content
+            elif (attributes.get("property", "").lower() == "og:description"
+                  and content and not self.open_graph_description):
+                self.open_graph_description = content
+
+    parser = DescriptionParser()
+    parser.feed(page)
+    return _strip(parser.description or parser.open_graph_description)[:6000]
 
 
 def _fmt_date(rfc):

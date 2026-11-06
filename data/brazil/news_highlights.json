@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-06T06:05:00Z",
+  "reviewed_at": "2026-11-06T11:04:29Z",
   "expires_at": "2026-11-06T16:30:00Z",
   "through_session": null,
-  "feed_fingerprint": "d0ca282f1fc413be75fa89ddabf9ac4ba8730582f9975824f8a8090ddcae0960",
+  "feed_fingerprint": "3dae796059f6f022ec29c118eeb166c52a9de21ec74edc99fc0c39de2940e780",
   "items": [
     {
       "topic": "Driver changes",
@@ -40,11 +40,15 @@
     },
     {
       "topic": "Ferrari",
-      "title": "Hamilton says face-to-face talks still needed after Mexico",
+      "title": "Hamilton set for 400th start as Ferrari talks remain pending",
       "date": "2026-11-05",
-      "summary": "Hamilton said on Thursday that the planned discussions with Leclerc had not yet taken place after their opening-lap Mexico battle. He wants Ferrari to establish a stronger working basis for the next campaign.",
-      "why_it_matters": "Do not turn a planned meeting into a completed resolution or invent team orders. Watch for a subsequent confirmed outcome.",
+      "summary": "Hamilton is set to make his 400th Grand Prix start in Sao Paulo, becoming only the second driver to reach the milestone. On Thursday he said his planned post-Mexico face-to-face discussion with Leclerc had not happened and he wants a stronger working basis for the coming campaign.",
+      "why_it_matters": "The race-week milestone is distinct from the still-pending Ferrari conversation; do not imply that talks occurred or team orders changed.",
       "sources": [
+        {
+          "label": "Formula1.com: Hamilton's 400th Grand Prix appearance",
+          "url": "https://www.formula1.com/en/latest/article/can-lewis-hamilton-celebrate-400th-grand-prix-appearance-with-sao-paulo-grand-prix-win.6O8sThsqZ2HQ8Pza5yN58m"
+        },
         {"label": "Formula1.com: Hamilton's Thursday comments", "url": "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-talks-ahead-of-sao-paulo-grand-prix-after-intra-team-battle-with-leclerc.3JXGpQWTdOA2a9PiH7NL8X"}
       ]
     },

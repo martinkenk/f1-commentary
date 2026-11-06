@@ -1,9 +1,21 @@
 {
-  "reviewed_at": "2026-11-06T09:52:31Z",
-  "basis": "Visually reviewed the FIA screenshot pages and read the matching PDFs: Doc 36 grants Ryo Hirakawa permission to replace Esteban Ocon subject to scrutineering; Doc 58 permits Liam Lawson to start the Race. The MGU-K document is the Technical Delegate's report referring the matter to the Stewards, not a ruling. Its image remains available separately from the decision tracker.",
+  "reviewed_at": "2026-11-06T11:03:41Z",
+  "basis": "Visually reviewed the substantive screenshot pages for FIA Docs 69, 79, 84 and 85 and checked them against their PDFs: Leclerc received five seconds, Piastri ten seconds after the Race, Gasly a stop-and-go for double yellows and Colapinto ten seconds for a single yellow. The latest official result has Piastri P13 after the initial P15 report and subsequent Alpine decisions. Existing Docs 36, 58 and MGU-K referral reviews are retained. Also reviewed the post-qualifying strategy forecast graphic and official Pirelli race analysis; the Formula1.com strategy guide is access-restricted.",
   "fia_sha256": {
     "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_driver_change_tgr_haas_f1_team.pdf": "94e13b2f3ae34e7a7e93d983a008d15a6210ac765efc0fdb51bee0422b4b0937",
     "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_car_30_-_permission_to_start.pdf": "6860b77e7698ed4adaa099e8c5ee0af8b29b5101d3b68f5a944cf5ed985cf412",
-    "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_mgu-k_infringement_car_30.pdf": "3317b2ea30710b31857af8ee49e6e9d913ed37c29dc489043bc03e5b12d8ded1"
+    "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_mgu-k_infringement_car_30.pdf": "3317b2ea30710b31857af8ee49e6e9d913ed37c29dc489043bc03e5b12d8ded1",
+    "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_16_-_left_the_track_and_gained_a_lasting_advantage.pdf": "fd80a739060c0be0ed09d1198a4475901f5586528441c121c3814a578fd1d5ff",
+    "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_81_-_causing_a_collision.pdf": "8563eedf1e9345f90f6218de006a9d99cd51e0c1310324c857048a78273e4a42",
+    "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_10_-_failing_to_slow_under_yellow_flags.pdf": "dd27b429b08da51f564442c8698ff7e3c5c781b402ad1e7f599326c0e8e54884",
+    "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_43_-_failing_to_slow_under_yellow_flags.pdf": "d50fd320d8a0315d64ba90d4286e5f917047a1f7630d058cb0e98f9a421c4825"
+  },
+  "race_strategy": {
+    "reviewed_at": "2026-11-06T11:03:41Z",
+    "sources": [
+      "https://press.pirelli.com/the-champions-podium-verstappen-wins-in-mexico-as-kimi-secures-the-title/",
+      "https://coffeecornermotorsport.com/mexico-city-grand-prix-2026-tyre-strategy/"
+    ],
+    "basis": "The visually reviewed Pirelli forecast chart compared M-S at laps 35-41 with S-M-S at laps 19-25 and 45-51 (22-second average pit loss); the official race report records Verstappen's M-S-S via the red flag and Antonelli's 43-lap opening Soft stint. Predictions are distinguished from actual stints. The F1 Unlocked strategy guide is access-restricted."
   }
 }

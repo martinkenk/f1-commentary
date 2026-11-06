@@ -1765,9 +1765,8 @@ def render_index(gps):
     events are grouped into completed, current and upcoming and the one to open
     next is called out explicitly.
     """
-    today = datetime.date.today()
     for ctx in gps:
-        ctx.setdefault("status", event_status(ctx, today))
+        ctx.setdefault("status", event_status(ctx))
 
     live = [c for c in gps if c["status"] == "live"]
     upcoming = [c for c in gps if c["status"] == "future"]
@@ -2438,14 +2437,21 @@ def _normalise_session(session):
     return "", "", "", ""
 
 
-def event_status(ctx, today=None):
-    """Classify a GP as 'past', 'live' or 'future' from its session dates.
+def event_status(ctx, today=None, now=None):
+    """Classify a GP as 'past', 'live' or 'future' from its scheduled sessions.
 
-    'live' means the weekend has started but the race hasn't happened yet, which
-    is when the hub is actually used on air. Anything with no parsable dates is
-    treated as live so it never silently stops fetching.
+    The normal build uses the first session's published local start time, so a
+    GP is not labelled live merely because its first-session date has arrived.
+    Passing ``today`` retains the date-only behavior used by deterministic
+    calendar callers; ``now`` supports exact, timezone-aware checks.
     """
-    today = today or datetime.date.today()
+    if now is None and today is None:
+        now = datetime.datetime.now(datetime.timezone.utc)
+    if now is not None:
+        if now.tzinfo is None:
+            raise ValueError("now must be timezone-aware")
+        now = now.astimezone(datetime.timezone.utc)
+
     dates = []
     for session in ctx.get("sessions", []):
         _name, _wd, date, _local = _normalise_session(session)
@@ -2455,6 +2461,35 @@ def event_status(ctx, today=None):
             continue
     if not dates:
         return "live"
+
+    if now is not None:
+        scheduled = []
+        for session in (ctx.get("cal") or {}).get("sessions", []):
+            date, local_time, offset = (
+                session.get("date"), session.get("time"), session.get("gmt_offset")
+            )
+            if not date or not local_time or not offset:
+                continue
+            try:
+                scheduled.append(datetime.datetime.fromisoformat(
+                    f"{date}T{local_time}{offset}"
+                ))
+            except ValueError:
+                continue
+        if scheduled:
+            first = min(scheduled)
+            local_date = now.astimezone(first.tzinfo).date()
+            if now < first:
+                return "future"
+            if local_date < min(dates):
+                return "future"
+            if local_date > max(dates):
+                return "past"
+            return "live"
+
+        today = now.date()
+    else:
+        today = today or datetime.date.today()
     if today < min(dates):
         return "future"
     if today > max(dates):

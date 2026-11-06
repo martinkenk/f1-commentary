@@ -1,0 +1,117 @@
+{
+  "reviewed_at": "2026-11-06T11:03:41Z",
+  "expires_at": "2026-11-06T14:30:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "bafc35868da8868c990ecec32a317a0b579271498a0861ba332c196f1869cad6",
+  "items": [
+    {
+      "topic": "Championship",
+      "title": "Antonelli clinches the Drivers' title with a podium in Mexico",
+      "date": "2026-11-02",
+      "summary": "Kimi Antonelli secured his first Drivers' Championship with third place in Mexico and became Formula 1's youngest champion. The post-race standings put Antonelli on 380 points, ahead of Max Verstappen on 261 and Lewis Hamilton on 259.",
+      "why_it_matters": "The Drivers' title is settled, but the constructors' championship remains live: Mercedes leads Ferrari 630–504.",
+      "sources": [
+        {
+          "label": "Formula1.com: Mexico City race report",
+          "url": "https://www.formula1.com/en/latest/article/mexico-city-lowdown-all-the-key-moments-as-antonelli-secures-maiden-title-and-verstappen-denies-ferrari-victory.3mPqECWFPlJsdg4jUOZUXz"
+        },
+        {
+          "label": "Formula1.com: official driver standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        },
+        {
+          "label": "Formula1.com: official constructor standings",
+          "url": "https://www.formula1.com/en/results/2026/team"
+        }
+      ]
+    },
+    {
+      "topic": "Race result",
+      "title": "Verstappen takes a sixth Mexico City win",
+      "date": "2026-11-02",
+      "summary": "Max Verstappen won from fifth on the grid, finishing 0.799 seconds ahead of Hamilton for his third victory of 2026 and sixth at the Mexico City Grand Prix. Hamilton finished second and Leclerc fourth after his five-second penalty.",
+      "why_it_matters": "The updated results show the order after all post-race decisions, not the provisional order at the chequered flag.",
+      "sources": [
+        {
+          "label": "Formula1.com: Verstappen on his Mexico City win",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-on-the-opportunistic-move-that-earned-him-fantastic-win-at-mexico-city-gp.5C4UF8HgiJdAGfZeXRBbpB"
+        },
+        {
+          "label": "Formula1.com: official Mexico City race result",
+          "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result"
+        }
+      ]
+    },
+    {
+      "topic": "Stewards",
+      "title": "Post-race penalties reshaped the points-paying order",
+      "date": "2026-11-02",
+      "summary": "Piastri received a ten-second penalty for his collision with Lindblad. Gasly was given a stop-and-go for failing to slow in a double-yellow sector, while Colapinto received ten seconds for not slowing sufficiently under a single yellow. The latest official classification places Piastri 13th and scoreless; the initial report had him 15th before the later Alpine decisions.",
+      "why_it_matters": "Keep the updated final classification distinct from the intermediate post-race report; the Alpine rulings also removed both drivers from the points.",
+      "sources": [
+        {
+          "label": "Formula1.com: Piastri penalty",
+          "url": "https://www.formula1.com/en/latest/article/piastri-loses-p7-after-being-handed-post-race-penalty-at-mexico-city-gp.5dk3wHeak2yu7xWF0OhsRt"
+        },
+        {
+          "label": "FIA: Piastri decision, Doc 79",
+          "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_81_-_causing_a_collision.pdf"
+        },
+        {
+          "label": "Formula1.com: Alpine penalties",
+          "url": "https://www.formula1.com/en/latest/article/alpines-gasly-and-colapinto-stripped-of-mexico-city-gp-points-after-post-race-penalties.2wLfobQHufuH1L1aMYPl7h"
+        },
+        {
+          "label": "FIA: Gasly decision, Doc 84",
+          "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_10_-_failing_to_slow_under_yellow_flags.pdf"
+        },
+        {
+          "label": "FIA: Colapinto decision, Doc 85",
+          "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_43_-_failing_to_slow_under_yellow_flags.pdf"
+        },
+        {
+          "label": "Formula1.com: official Mexico City race result",
+          "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result"
+        }
+      ]
+    },
+    {
+      "topic": "Ferrari",
+      "title": "Leclerc accepted a five-second penalty after the Turn 4 clash",
+      "date": "2026-11-02",
+      "summary": "The stewards penalised Leclerc five seconds for leaving the track and gaining a lasting advantage during the opening-lap battle with Hamilton. Leclerc said he deserved the penalty; Hamilton was classified second and Leclerc fourth.",
+      "why_it_matters": "The ruling and the drivers' comments are confirmed; they do not establish any team-order change.",
+      "sources": [
+        {
+          "label": "Formula1.com: Leclerc on his penalty",
+          "url": "https://www.formula1.com/en/latest/article/leclerc-concedes-he-deserved-penalty-over-hamilton-clash-in-mexico-city-gp.4rYJb2xww8myo1gtgBV5pV"
+        },
+        {
+          "label": "FIA: Leclerc decision, Doc 69",
+          "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_16_-_left_the_track_and_gained_a_lasting_advantage.pdf"
+        },
+        {
+          "label": "Formula1.com: official Mexico City race result",
+          "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result"
+        }
+      ]
+    },
+    {
+      "topic": "Tyres and strategy",
+      "title": "Mexico's red flag changed the strategy picture",
+      "date": "2026-11-02",
+      "summary": "The post-qualifying Pirelli chart compared a fastest Medium-to-Soft one-stop on laps 35–41 with a Soft–Medium–Soft two-stop at laps 19–25 and 45–51; average pit loss was 22 seconds over 71 laps. In the race, Verstappen went from Medium to Soft on lap 27 and changed to another Soft under the red flag. Antonelli kept his opening Soft stint to lap 43 before switching to Medium, then also used Soft after the red flag. Pirelli said one stop would otherwise have been the most competitive option.",
+      "why_it_matters": "The published windows were pre-race simulations, not actual stint timing; neutralisations changed the strategies that decided the result.",
+      "sources": [
+        {
+          "label": "Pirelli: official Mexico City race analysis",
+          "url": "https://press.pirelli.com/the-champions-podium-verstappen-wins-in-mexico-as-kimi-secures-the-title/"
+        },
+        {
+          "label": "Coffee Corner Motorsport: Pirelli strategy chart and forecast (secondary source)",
+          "url": "https://coffeecornermotorsport.com/mexico-city-grand-prix-2026-tyre-strategy/"
+        }
+      ]
+    }
+  ]
+}

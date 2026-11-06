@@ -25,6 +25,24 @@ class SessionCompatibilityTests(unittest.TestCase):
         self.assertIn("11:30", rows)
         self.assertIn("Fri", rows)
 
+    def test_event_is_upcoming_until_its_first_session_start(self):
+        ctx = {
+            "sessions": [
+                ("Practice 1", "Fri 6 Nov", "2026-11-06", "12:30"),
+                ("Race", "Sun 8 Nov", "2026-11-08", "14:00"),
+            ],
+            "cal": {"sessions": [
+                {"label": "Practice 1", "date": "2026-11-06",
+                 "time": "12:30", "gmt_offset": "-03:00"},
+                {"label": "Race", "date": "2026-11-08",
+                 "time": "14:00", "gmt_offset": "-03:00"},
+            ]},
+        }
+        before = datetime.datetime(2026, 11, 6, 15, 29, tzinfo=datetime.timezone.utc)
+        start = datetime.datetime(2026, 11, 6, 15, 30, tzinfo=datetime.timezone.utc)
+        self.assertEqual(f1lib.event_status(ctx, now=before), "future")
+        self.assertEqual(f1lib.event_status(ctx, now=start), "live")
+
     def test_active_gps_accepts_raw_calendar_events(self):
         today = datetime.datetime.now(datetime.timezone.utc).date()
         yesterday = today - datetime.timedelta(days=1)

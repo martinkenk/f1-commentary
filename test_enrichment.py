@@ -89,6 +89,26 @@ class EnrichmentTests(unittest.TestCase):
             "body": "Bahrain Grand Prix preparation",
         }, ctx))
 
+    def test_formula1_description_is_used_when_article_body_is_not_in_html(self):
+        article = {
+            "url": "https://www.formula1.com/en/latest/article/example",
+            "title": "Hamilton approaches 400 Grand Prix starts",
+            "source": "Formula1.com",
+            "src_kind": "f1",
+        }
+        description = (
+            "Formula 1 heads to Brazil this weekend, with Lewis Hamilton becoming "
+            "only the second driver in history to reach 400 Grand Prix starts."
+        )
+        page = (
+            '<meta content="Fallback summary" property="og:description">'
+            f'<meta content="{description}" name="description">'
+        )
+        with patch.object(enrich, "_f1_page", return_value=page), \
+                patch.object(enrich, "llm_json", return_value=None):
+            card = enrich.summarise_article(article, {"name": "Sao Paulo Grand Prix"})
+        self.assertEqual(card["paragraphs"], [description])
+
     def test_safety_and_compliance_filings_have_visible_destinations(self):
         for filename in ("heat_hazard_declaration.pdf", "competition_visa.pdf", "timetable_v3.pdf"):
             self.assertEqual(f1lib.fia_document_categories(filename), ["schedule"])

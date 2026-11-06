@@ -5,9 +5,9 @@
     "checked_at": "2026-11-06T10:43:55.552436+00:00"
   },
   "enrichment": {
-    "outcome": "failure",
+    "outcome": "success",
     "gp": "",
-    "checked_at": "2026-11-06T10:43:55.552436+00:00"
+    "checked_at": "2026-11-06T11:06:00.230377+00:00"
   },
   "fia_media": {
     "outcome": "success",

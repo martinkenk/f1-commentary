@@ -31,7 +31,6 @@ class Images(HTMLParser):
 
 def inventory(gps, root=None):
     root = Path(root or build.ROOT)
-    today = datetime.datetime.now(datetime.timezone.utc).date()
     events, histories = [], {}
     for ctx in gps:
         year = int(ctx.get("year", build.SEASON))
@@ -88,7 +87,7 @@ def inventory(gps, root=None):
         passing = passing_history.context(ctx, profile, root=root)
         events.append({
             "gp": ctx["dir"], "race_date": ctx["race_date"],
-            "status": f1lib.event_status(ctx, today), "content_module": ctx["pages"].__module__,
+            "status": f1lib.event_status(ctx), "content_module": ctx["pages"].__module__,
             "data": stored,
             "event_assets": sorted(p.name for p in (root / "assets_src").glob(f"*{ctx['dir']}*")),
             "missing_rendered_pages": missing, "broken_local_images": broken,
