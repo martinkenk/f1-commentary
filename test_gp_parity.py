@@ -73,7 +73,9 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("five-place penalty", body)
         self.assertIn(content_brazil.RUSSELL_PENALTY, body)
         self.assertIn("not evidence that the planned ADUO", body)
-        self.assertIn("12:46 UTC", body)
+        self.assertIn("14:00 UTC targeted FIA check", body)
+        self.assertIn("not proof of", body)
+        self.assertNotIn("12:46 UTC", body)
 
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
         ctx = dict(self.contexts["brazil"], status="live")
@@ -86,7 +88,11 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("brazil-energy-limits", pages["powerunit"]["body"])
         self.assertNotIn("once it is issued", pages["powerunit"]["body"])
         self.assertIn("Two Straight Mode zones, one Overtake activation", pages["circuit"]["body"])
-        self.assertIn("complete substantive pages", pages["upgrades"]["body"])
+        self.assertIn("14:00 UTC check", pages["upgrades"]["body"])
+        self.assertIn("Documents 1–7", pages["upgrades"]["body"])
+        self.assertIn("does not establish", pages["upgrades"]["body"])
+        self.assertIn("non-publication", pages["upgrades"]["body"])
+        self.assertNotIn("12:46 UTC", pages["upgrades"]["body"])
         self.assertNotIn("Review at 06:05 UTC", pages["upgrades"]["body"])
         for slug in ("tyres", "powerunit", "circuit"):
             body = pages[slug]["body"]

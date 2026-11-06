@@ -59,9 +59,11 @@ pre-weekend scenario, not a declaration that Mercedes has already won.
 {card("Mercedes: Russell confirms a five-place drop", f'''<p>The Race reports
 that Russell said Mercedes chose Brazil for the five-place penalty tied to a
 new internal-combustion engine. This is not evidence that the planned ADUO
-power-unit upgrade is arriving. The FIA event listing last checked at
-12:46 UTC did not yet include an engine-elements-used filing; reconcile the
-exact component entry and formal grid adjustment against the FIA documents.
+power-unit upgrade is arriving. At the 14:00 UTC targeted FIA check, the
+event listing still contained only Documents 1–7 and did not list an
+engine-elements-used filing. This is a listing status, not proof of
+non-publication; reconcile any later component entry and formal grid
+adjustment against the FIA documents.
 <a href="{RUSSELL_PENALTY}">Russell's comments, 6 November</a> ·
 <a href="{FIA_EVENT}">FIA event documents</a>.</p>''', "bi-exclamation-triangle")}
 {card("Ferrari: talks still to happen", f'''<p>Hamilton said on Thursday that
@@ -184,9 +186,10 @@ If just one car has new major components, that is the car to display.
 <a href="{FIA}car_display_procedure.pdf#page=2">Official procedure</a>.</p>
 <p>The FIA's <strong>Car Display Procedure</strong> is separate from the
 all-team <strong>Car Presentation Submissions</strong>. Team comments are not
-a substitute for that filing. When published, its complete substantive pages
-are preserved in the official FIA source gallery below pending team-by-team
-review.</p>"""
+a substitute for that filing. At the 14:00 UTC check, the FIA index listed
+Documents 1–7 and no Car Presentation Submissions; this does not establish
+non-publication. If a filing appears, its substantive pages will be preserved
+and reviewed team by team.</p>"""
     pages["schedule"]["body"] += f"""
 <p><strong>Standard weekend, not Sprint:</strong> Friday FP1 12:30 and FP2 16:00;
 Saturday FP3 11:30 and Qualifying 15:00; Sunday Race 14:00 (all BRT).

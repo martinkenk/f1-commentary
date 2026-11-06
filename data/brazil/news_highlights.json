@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-06T13:18:07Z",
-  "expires_at": "2026-11-06T15:00:00Z",
+  "reviewed_at": "2026-11-06T14:09:32Z",
+  "expires_at": "2026-11-06T14:30:00Z",
   "through_session": null,
   "feed_fingerprint": "5bb95d0ecf3ad1a6f13f22c68b5274527f40b41da035354a85f14fa04a6efc09",
   "items": [
@@ -20,8 +20,8 @@
       "topic": "Engine and grid",
       "title": "Russell confirms a five-place drop for a new ICE in Brazil",
       "date": "2026-11-06",
-      "summary": "The Race reports that Russell said Mercedes chose Brazil for the five-place penalty tied to a new internal-combustion engine. This is separate from the planned ADUO power-unit upgrade. At the 12:46 UTC FIA listing check, no Brazil engine-elements-used filing was present; verify the component entry and formal grid adjustment against the FIA documents.",
-      "why_it_matters": "The expected grid drop affects Russell's race, but a new ICE does not establish that the ADUO specification is arriving. Keep the driver's comments distinct from the pending FIA element-use record.",
+      "summary": "The Race reports that Russell said Mercedes chose Brazil for the five-place penalty tied to a new internal-combustion engine. This is separate from the planned ADUO power-unit upgrade. At the 14:00 UTC targeted FIA check, Documents 1–7 were still the only Brazil event documents listed; no engine-elements-used filing appeared.",
+      "why_it_matters": "The reported grid drop affects Russell's race, but a new ICE does not establish that the ADUO specification is arriving. The 14:00 listing is a check, not proof of non-publication; verify any later component entry and formal grid adjustment.",
       "sources": [
         {"label": "The Race: Russell on his engine change", "url": "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"},
         {"label": "FIA: Sao Paulo event documents", "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"}
@@ -55,8 +55,8 @@
       "topic": "McLaren upgrades",
       "title": "McLaren brings 2026 updates and a 2027 front-wing concept to Brazil",
       "date": "2026-11-06",
-      "summary": "The Race reports floor tweaks and an updated rear wing alongside a new-concept front wing McLaren expects to carry into its 2027 launch specification. McLaren says the changes target more downforce and better balance; Norris cautions that updates may not make the MCL40 easier to drive. The FIA index checked at 13:18 UTC still listed only event docs 1–7 and no Brazil car-presentation filing; this is before the scheduled 14:00 lookup.",
-      "why_it_matters": "This package combines immediate 2026 development with an early 2027 concept. Attribute the component details to The Race and do not infer performance gains before practice or treat the pre-deadline FIA listing as a final absence.",
+      "summary": "The Race reports floor tweaks and an updated rear wing alongside a new-concept front wing McLaren expects to carry into its 2027 launch specification. McLaren says the changes target more downforce and better balance; Norris cautions that updates may not make the MCL40 easier to drive. The 14:00 UTC targeted FIA check still listed only event Documents 1–7, with no Car Presentation Submissions.",
+      "why_it_matters": "This package combines immediate 2026 development with an early 2027 concept. Attribute the component details to The Race and do not infer performance gains before practice or treat one listing check as proof of non-publication.",
       "sources": [
         {"label": "The Race: McLaren's 2027 front wing and Brazil updates", "url": "https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/"},
         {"label": "Formula1.com: Norris on Brazil updates", "url": "https://www.formula1.com/en/latest/article/want-to-believe-that-we-can-still-make-improvements-norris-wary-of-new-mclaren-upgrades-in-sao-paulo.6NvdXqDIqBz1Mw1xveJv0k"},
