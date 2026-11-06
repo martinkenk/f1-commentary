@@ -4,9 +4,12 @@ from f1lib import card
 
 FIA = "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_"
 CAMARA = "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
+FP1_LINEUP = "https://www.formula1.com/en/latest/article/which-rookie-drivers-are-getting-fp1-outings-at-the-sao-paulo-grand-prix.3DAnL1BS38Gu5KKzU70aBJ"
 STORYLINES = "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
 MCLAREN = "https://www.formula1.com/en/latest/article/want-to-believe-that-we-can-still-make-improvements-norris-wary-of-new-mclaren-upgrades-in-sao-paulo.6NvdXqDIqBz1Mw1xveJv0k"
 FERRARI = "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-talks-ahead-of-sao-paulo-grand-prix-after-intra-team-battle-with-leclerc.3JXGpQWTdOA2a9PiH7NL8X"
+RUSSELL_PENALTY = "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"
+FIA_EVENT = "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
 
 
 def _figure(asset, title, document, page=2):
@@ -21,6 +24,18 @@ def _lineup():
     return f"""
 <h2 class="sec">Confirmed driver changes</h2>
 <div class="grid cols-2">
+{card("Six confirmed FP1 substitutions", f'''<p>Formula1.com lists six drivers
+who will take over for one hour in FP1 before the regular drivers return for
+FP2:</p><ul><li><strong>McLaren:</strong> Leonardo Fornaroli for Oscar Piastri</li>
+<li><strong>Ferrari:</strong> Dino Beganovic for Charles Leclerc</li>
+<li><strong>Williams:</strong> Luke Browning for Carlos Sainz</li>
+<li><strong>Audi:</strong> Freddie Slater for Nico Hulkenberg</li>
+<li><strong>Alpine:</strong> Gabriele Mini for Pierre Gasly</li>
+<li><strong>Cadillac:</strong> Colton Herta for Sergio Perez</li></ul>
+<p>Herta needs at least 100 km in a clean session for his final required Super
+Licence point. These are practice outings, not confirmed changes to the race
+pairings. <a href="{FP1_LINEUP}">Formula1.com’s full rundown</a>.</p>''',
+     "bi-person-badge", "accent")}
 {card("Haas: Rafael Camara's race debut", f'''<p>Rafael Camara partners Oliver
 Bearman for the <strong>whole Sao Paulo weekend</strong>, not merely FP1.
 Haas says Esteban Ocon will not return to its race seat in 2026. Mexico stand-in
@@ -28,12 +43,6 @@ Ryo Hirakawa has World Endurance Championship commitments this weekend.
 Camara's early promotion is confirmed for Brazil only; do not assume he will
 contest the remaining 2026 races. <a href="{CAMARA}">Haas announcement via Formula1.com,
 3 November</a>.</p>''', "bi-person-badge", "accent")}
-{card("Cadillac: Colton Herta in FP1", f'''<p>Formula1.com's 4 November preview
-confirms Herta will take <strong>Sergio Perez's car in FP1</strong>. This is a
-practice outing, not a confirmed change to Cadillac's race pairing. The report
-says 100 km and a clean session would supply his final required Super Licence
-point; it does not establish that he has completed those conditions.
-<a href="{STORYLINES}">Official weekend preview</a>.</p>''', "bi-person-badge")}
 </div>"""
 
 
@@ -47,6 +56,14 @@ Drivers' Championship in Mexico. Entering Brazil, Mercedes leads Ferrari
 that lead by three points clinches the constructors' title. This is the
 pre-weekend scenario, not a declaration that Mercedes has already won.
 <a href="{STORYLINES}">Official title scenario</a>.</p>''', "bi-trophy", "accent")}
+{card("Mercedes: Russell confirms a five-place drop", f'''<p>The Race reports
+that Russell said Mercedes chose Brazil for the five-place penalty tied to a
+new internal-combustion engine. This is not evidence that the planned ADUO
+power-unit upgrade is arriving. The FIA event listing last checked at
+12:46 UTC did not yet include an engine-elements-used filing; reconcile the
+exact component entry and formal grid adjustment against the FIA documents.
+<a href="{RUSSELL_PENALTY}">Russell's comments, 6 November</a> ·
+<a href="{FIA_EVENT}">FIA event documents</a>.</p>''', "bi-exclamation-triangle")}
 {card("Ferrari: talks still to happen", f'''<p>Hamilton said on Thursday that
 face-to-face talks following the Mexico battle had not yet taken place.
 Watch for confirmed rules of engagement rather than assuming team orders or

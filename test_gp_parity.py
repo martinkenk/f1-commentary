@@ -53,11 +53,27 @@ class GPParityTests(unittest.TestCase):
         pages = content_brazil.build_pages(ctx, self.env)
         for slug in ("rookies", "overview", "teams", "notes"):
             self.assertIn("Rafael Camara", pages[slug]["body"])
-            self.assertIn("Colton Herta", pages[slug]["body"])
-            self.assertIn("Sergio Perez", pages[slug]["body"])
+            for name in (
+                "Leonardo Fornaroli", "Oscar Piastri", "Dino Beganovic",
+                "Charles Leclerc", "Luke Browning", "Carlos Sainz",
+                "Freddie Slater", "Nico Hulkenberg", "Gabriele Mini",
+                "Pierre Gasly", "Colton Herta", "Sergio Perez",
+            ):
+                self.assertIn(name, pages[slug]["body"])
         self.assertNotIn("awaiting a verified update", pages["rookies"]["body"])
         self.assertIn("whole Sao Paulo weekend", pages["rookies"]["body"])
-        self.assertIn("practice outing, not a confirmed change", pages["rookies"]["body"])
+        self.assertIn("practice outings, not confirmed changes", pages["rookies"]["body"])
+        self.assertIn(content_brazil.FP1_LINEUP, pages["rookies"]["body"])
+        self.assertIn("100 km", pages["rookies"]["body"])
+
+    def test_brazil_russell_penalty_is_attributed_and_not_mistaken_for_upgrade(self):
+        body = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )["overview"]["body"]
+        self.assertIn("five-place penalty", body)
+        self.assertIn(content_brazil.RUSSELL_PENALTY, body)
+        self.assertIn("not evidence that the planned ADUO", body)
+        self.assertIn("12:46 UTC", body)
 
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
         ctx = dict(self.contexts["brazil"], status="live")
