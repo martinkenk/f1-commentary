@@ -15,6 +15,7 @@ FERRARI = "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-tal
 RUSSELL_PENALTY = "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"
 RUSSELL_F1 = "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"
 FIA_EVENT = "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
+FIA_FP1_DOUBLE_YELLOW_URL = FIA + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"
 FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
 FIA_UPGRADES_ASSET = "fia-brazil-d82872895e6d-eaf9202e01277f4e"
 FIA_NEW_PU_URL = FIA + "new_pu_elements_for_this_competition.pdf"
@@ -107,6 +108,13 @@ declaration or the penalty decision.
 <a href="{RUSSELL_PENALTY}">The Race report</a>. The FIA filings do not
 establish whether the planned ADUO specification is arriving.</p>''',
      "bi-exclamation-triangle")}
+{card("FP1: FIA deletes laps after a double-waved yellow", f'''<p>Stewards'
+Document 19 deletes the shown FP1 lap times for Franco Colapinto (2:05.129),
+Alexander Albon (1:32.736), Luke Browning (1:33.848), Rafael Câmara (1:18.760)
+and Dino Beganovic (OUT LAP) after their cars passed through a double-waved
+yellow sector. This is a lap-time deletion, not a race penalty or a revised
+FP1 classification. <a href="{FIA_FP1_DOUBLE_YELLOW_URL}">FIA Document 19</a>
+(issued 6 November at 14:00 local).</p>''', "bi-flag")}
 {card("Ferrari: Hamilton's Thursday comments", f'''<p>On Thursday 5 November,
 Hamilton said face-to-face talks with Leclerc about their Mexico battle had
 not yet taken place. That reports what he said then; it does not establish

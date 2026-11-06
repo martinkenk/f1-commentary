@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-06T17:00:03Z",
+  "reviewed_at": "2026-11-06T18:18:15Z",
   "expires_at": "2026-11-06T18:30:00Z",
   "through_session": "Practice 1",
   "feed_fingerprint": "100c2d56e7c872a92a3f0d1e0b3f01f26a58102404e766a0f9a3100f4fcf18af",
@@ -55,11 +55,12 @@
       "topic": "Penalties",
       "title": "Colapinto fined after FP1 pit-lane speeding",
       "date": "2026-11-06",
-      "summary": "The Stewards' Document 16 records Franco Colapinto at 80.6 km/h in the 80 km/h pit lane and fines BWT Alpine F1 Team EUR 100. Separate Document 18 lists lap-time deletions for ten drivers at turns 1, 7, 10 and 12.",
-      "why_it_matters": "The fine applies to the team. The listed lap deletions are not additional race penalties or changes to the official FP1 classification.",
+      "summary": "The Stewards' Document 16 records Franco Colapinto at 80.6 km/h in the 80 km/h pit lane and fines BWT Alpine F1 Team EUR 100. Document 18 lists FP1 lap-time deletions for ten drivers at turns 1, 7, 10 and 12; Document 19 separately deletes five shown lap times after cars passed through a double-waved-yellow sector: Colapinto, Albon, Browning, Camara and Beganovic.",
+      "why_it_matters": "The fine applies to the team. Documents 18 and 19 concern lap-time deletions, not race penalties or changes to the official FP1 classification.",
       "sources": [
         {"label": "FIA: Colapinto pit-lane speeding, Document 16", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_43_-_pit_lane_speeding.pdf"},
-        {"label": "FIA: FP1 deleted lap times, Document 18", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"}
+        {"label": "FIA: FP1 deleted lap times, Document 18", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"},
+        {"label": "FIA: double-waved-yellow lap deletions, Document 19", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"}
       ]
     }
   ]

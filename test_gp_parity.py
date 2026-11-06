@@ -96,6 +96,21 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Document 15 imposes a five-place", powerunit)
         self.assertNotIn("check the FIA event page", powerunit)
 
+    def test_brazil_double_yellow_document_is_interpreted_in_briefings(self):
+        pages = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )
+        for slug in ("overview", "notes"):
+            body = pages[slug]["body"]
+            normalized = " ".join(body.split())
+            for name in ("Franco Colapinto", "Alexander Albon", "Luke Browning",
+                         "Rafael Câmara", "Dino Beganovic"):
+                self.assertIn(name, normalized)
+            self.assertIn(
+                "not a race penalty or a revised FP1 classification", normalized
+            )
+            self.assertIn(content_brazil.FIA_FP1_DOUBLE_YELLOW_URL, normalized)
+
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
         ctx = dict(self.contexts["brazil"], status="live")
         pages = content_brazil.build_pages(ctx, self.env)
