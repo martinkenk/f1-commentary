@@ -36,7 +36,7 @@ class CalendarTests(unittest.TestCase):
     def test_calendar_offsets_drive_preflight_and_polling(self):
         jobs = list(scheduler.jobs([context()], at("2026-11-06T14:00")))
         pre, results = jobs[:2]
-        self.assertEqual(pre["due"], at("2026-11-06T14:45"))
+        self.assertEqual(pre["due"], at("2026-11-06T14:30"))
         self.assertEqual(pre["deadline"], at("2026-11-06T15:00"))
         self.assertEqual(results["due"], at("2026-11-06T16:20"))
         self.assertEqual(results["deadline"], at("2026-11-06T16:45"))
@@ -46,7 +46,7 @@ class CalendarTests(unittest.TestCase):
         ctx = context()
         ctx["cal"]["sessions"][0].update(label="Sprint Qualifying", gmt_offset="+05:30")
         first = list(scheduler.jobs([ctx], at("2026-11-06T01:00")))
-        self.assertEqual(first[0]["due"], at("2026-11-06T06:15"))
+        self.assertEqual(first[0]["due"], at("2026-11-06T06:00"))
         self.assertEqual(first[1]["due"], at("2026-11-06T07:35"))
         ctx["cal"]["sessions"][0]["time"] = "13:00"
         second = list(scheduler.jobs([ctx], at("2026-11-06T01:00")))

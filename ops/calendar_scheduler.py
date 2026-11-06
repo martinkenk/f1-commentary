@@ -53,7 +53,7 @@ def jobs(gps, now, records=None):
             identity = f"{ctx['year']}/{ctx['dir']}/{endpoint}/{start.isoformat()}"
             if recent and label != "Starting Grid":
                 yield {"key": identity + "/pre", "kind": "pre", "ctx": ctx, "label": label,
-                       "due": start - dt.timedelta(minutes=45),
+                       "due": start - dt.timedelta(minutes=60),
                        "deadline": start - dt.timedelta(minutes=30), "start": start}
             key = identity + "/results"
             if not recent and (key not in (records or {}) or records[key].get("status") == "done"):

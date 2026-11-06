@@ -30,7 +30,7 @@ hourly `f1-watchdog.timer` must remain disabled.
 
 | Trigger | Policy |
 |---|---|
-| Before every session | AI review eligible at T-90 minutes; fresh deterministic collection at T-45, publication deadline T-30 |
+| Before every session | AI review eligible at T-105 minutes; fresh deterministic collection at T-60, publication deadline T-30 |
 | Session finish | Poll every 2 minutes from estimated end minus 10 minutes; races start polling at T+60 to cover short dry races |
 | Expected durations | Practice/qualifying 60 min, Sprint Qualifying 45, Sprint 30, race 120; final grid from qualifying end |
 | Delayed results | Continue until a validated classification is visible live; after six overdue hours back off to 15-minute polling |
@@ -42,6 +42,9 @@ has finished. GitHub dispatch/Pages is still best-effort: missed T-30 deadlines
 are recorded and alerted, never reported as successful freshness. Rapid dispatches
 skip historical/telemetry work; ordinary scheduled builds retain those collectors.
 The editor and publisher use separate locks because the editor only submits PRs.
+The 30-minute collection-to-deadline margin accommodates the existing two
+ten-minute Pages deployment attempts; a real smoke deployment exercised that
+timeout/retry path. It is not a guarantee against a prolonged GitHub outage.
 
 Every build publishes `/automation-health.json`: validated classification
 fingerprints, collector outcomes, news review status, expected FIA/Pirelli/tyre
