@@ -1,0 +1,11 @@
+[Unit]
+Description=One-minute F1 calendar clock (collection does not require an AI session)
+
+[Timer]
+OnCalendar=*-*-* *:*:00 UTC
+Persistent=true
+AccuracySec=1s
+Unit=f1-calendar.service
+
+[Install]
+WantedBy=timers.target

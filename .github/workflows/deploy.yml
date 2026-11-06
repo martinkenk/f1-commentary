@@ -1,4 +1,5 @@
 name: Build & deploy to GitHub Pages
+run-name: ${{ inputs.refresh_key && format('Calendar refresh {0}', inputs.refresh_key) || github.event.head_commit.message || 'Scheduled data refresh' }}
 
 # Refreshes official results snapshots, rebuilds the site with live weather,
 # maintains a rollback-able version history, and publishes to GitHub Pages.
@@ -19,12 +20,28 @@ on:
     # runs a day is enough to keep the news feed current without the weekend
     # cadence, since there is no session timing or weather to chase.
     - cron: "0 8,16 * * 2,3"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: Collection scope
+        type: choice
+        options: [full, pre-session, results]
+        default: full
+      gp:
+        description: Optional GP slug for session/news/FIA/tyre collection
+        type: string
+        default: ""
+      refresh_key:
+        description: Scheduler correlation key
+        type: string
+        default: ""
 
 # One deployment at a time. Do NOT cancel in progress — a cancelled run could
 # interrupt the history push and corrupt the version store.
 concurrency:
-  group: pages
+  # The editor writes review branches, not main. Its 45-minute run must not
+  # hold the publication lock across a session deadline.
+  group: pages-publisher
   cancel-in-progress: false
 
 permissions:
@@ -35,6 +52,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      REFRESH_GP: ${{ inputs.gp }}
     steps:
       - uses: actions/checkout@v5
       - name: Sync queued scheduled or manual run to latest main
@@ -53,6 +72,7 @@ jobs:
 
       - name: Refresh calendar weekly and active track maps every run
         id: calendar
+        if: inputs.refresh != 'results'
         # Session times, circuit stats and track maps occasionally change as F1
         # confirms details for later rounds. Re-scraping weekly keeps every
         # upcoming GP page current without touching the build path, which stays
@@ -84,6 +104,7 @@ jobs:
 
       - name: Refresh historical circuit records
         id: circuit_history
+        if: inputs.refresh == '' || inputs.refresh == 'full'
         continue-on-error: true
         run: python3 circuit_history.py
 
@@ -95,6 +116,7 @@ jobs:
 
       - name: Refresh current and historical overtaking counts
         id: passing_history
+        if: inputs.refresh == '' || inputs.refresh == 'full'
         continue-on-error: true
         # Refresh the current-season Fantasy feed; keep reviewed 2025 counts and
         # RacingPass history in separate series. Source-specific failures retain
@@ -109,6 +131,7 @@ jobs:
 
       - name: Auto-enrich (article cards + FIA decision structuring)
         id: enrichment
+        if: inputs.refresh != 'results'
         # Extracts new F1.com / The Race articles into news cards and structures
         # new FIA decision PDFs into penalty rows. GitHub Models was retired in
         # July 2026, so CI uses the deterministic fallback; the separate Copilot
@@ -127,7 +150,11 @@ jobs:
           LLM_FAKE: "1"
         run: |
           python3 -m pip install --quiet pypdf pymupdf
-          python3 enrich.py --max 25
+          if [ -n "$REFRESH_GP" ]; then
+            python3 enrich.py --max 25 --gp "$REFRESH_GP"
+          else
+            python3 enrich.py --max 25
+          fi
 
       - name: Report incomplete enrichment
         if: steps.enrichment.outcome == 'failure'
@@ -137,10 +164,15 @@ jobs:
 
       - name: Refresh FIA document screenshots
         id: fia_media
+        if: inputs.refresh != 'results'
         continue-on-error: true
         run: |
           python3 -m pip install --quiet pymupdf
-          python3 fia_media.py
+          if [ -n "$REFRESH_GP" ]; then
+            python3 fia_media.py --gp "$REFRESH_GP"
+          else
+            python3 fia_media.py
+          fi
 
       - name: Report incomplete FIA screenshots
         if: steps.fia_media.outcome == 'failure'
@@ -150,8 +182,14 @@ jobs:
 
       - name: Refresh published race tyre inventories
         id: race_tyres
+        if: inputs.refresh != 'results'
         continue-on-error: true
-        run: python3 race_tyres.py
+        run: |
+          if [ -n "$REFRESH_GP" ]; then
+            python3 race_tyres.py --gp "$REFRESH_GP"
+          else
+            python3 race_tyres.py
+          fi
 
       - name: Report incomplete race tyre inventory refresh
         if: steps.race_tyres.outcome == 'failure'
@@ -161,6 +199,7 @@ jobs:
 
       - name: FastF1 pace analysis (fastest laps, long runs, speed/delta charts)
         id: pace
+        if: inputs.refresh == '' || inputs.refresh == 'full'
         # Pulls real lap-timing + telemetry for completed sessions of the active
         # GP via FastF1 (https://docs.fastf1.dev/) and renders it as a "Pace
         # analysis" section on the Results page: fastest-lap vs. theoretical
@@ -182,6 +221,7 @@ jobs:
           echo "## FastF1 refresh incomplete — inspect timing-source logs" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Backfill Formula1.com headlines and dates
+        if: inputs.refresh != 'results'
         # Formula1.com's listing page exposes only a URL slug, so a card can be
         # stored with a de-hyphenated slug for a title and no publication date.
         # Undated cards cannot be ordered against the rest of the feed, which is
@@ -194,7 +234,12 @@ jobs:
       - name: Refresh official session classifications
         id: session_results
         continue-on-error: true
-        run: python3 session_results.py
+        run: |
+          if [ -n "$REFRESH_GP" ]; then
+            python3 session_results.py --gp "$REFRESH_GP"
+          else
+            python3 session_results.py
+          fi
 
       - name: Report incomplete session classifications
         if: steps.session_results.outcome == 'failure'
@@ -243,6 +288,16 @@ jobs:
 
       - name: Inventory all GP pages and source assets
         run: python3 coverage_inventory.py --all --check
+
+      - name: Publish machine-readable coverage and collection evidence
+        env:
+          F1_REFRESH_KEY: ${{ inputs.refresh_key }}
+          F1_COLLECTION_GP: ${{ inputs.gp }}
+          F1_COLLECTION: >-
+            {"calendar":"${{ steps.calendar.outcome }}","enrichment":"${{ steps.enrichment.outcome }}",
+            "fia_media":"${{ steps.fia_media.outcome }}","race_tyres":"${{ steps.race_tyres.outcome }}",
+            "session_results":"${{ steps.session_results.outcome }}","standings":"${{ steps.standings.outcome }}"}
+        run: python3 coverage_health.py --output site/automation-health.json
 
       - name: Restore version history
         env:

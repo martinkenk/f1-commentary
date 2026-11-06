@@ -2,7 +2,7 @@
 name: Critical race coverage
 timeout-minutes: 45
 concurrency:
-  group: pages
+  group: pages-editor
   cancel-in-progress: false
 runtimes:
   python:
@@ -153,9 +153,11 @@ aim to submit by minute 35. Audit every surface, but implement the highest-impac
 coherent subset first. Record remaining gaps in the PR rather than expanding
 scope indefinitely and losing all work to the timeout. Do not start a second
 round of discretionary edits after final validation.
-The entire workflow shares the `pages` concurrency group with deployment so
-automatic data commits cannot race the editorial PR submission. Setup fast-forwards
-the checkout after acquiring that lock; do not launch a deployment from this run.
+This review-only workflow serializes its PR writers using `pages-editor`.
+Deployment uses a separate `pages-publisher` lock so a 45-minute editorial run
+cannot block timed session updates. Main may advance during research: refresh
+and reconcile before PR submission, preserving newer generated data. Setup
+fast-forwards the checkout; do not launch a deployment from this run.
 
 Use `/tmp/gh-aw/python/venv/bin/python3` for **every** Python command below and
 in `SKILL.md`; bare `python3` can resolve to an older PyPy in the sandbox.

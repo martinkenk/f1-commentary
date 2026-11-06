@@ -233,7 +233,7 @@ class ResultsTests(unittest.TestCase):
 
     def test_collector_precedes_persistence_and_build_in_deployment(self):
         workflow = Path(__file__).with_name(".github").joinpath("workflows/deploy.yml").read_text()
-        self.assertLess(workflow.index("run: python3 session_results.py"),
+        self.assertLess(workflow.index("python3 session_results.py"),
                         workflow.index("- name: Persist enrichment data"))
         self.assertLess(workflow.index("- name: Persist enrichment data"),
                         workflow.index("- name: Build site"))

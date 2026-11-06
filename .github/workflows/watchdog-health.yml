@@ -1,0 +1,22 @@
+name: External watchdog health
+on:
+  schedule:
+    - cron: "11,41 * * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: watchdog-health
+  cancel-in-progress: false
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check host heartbeat and unresolved failures
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEALTH_ISSUE: ${{ vars.F1_WATCHDOG_HEALTH_ISSUE }}
+        run: python3 ops/check_heartbeat.py --issue "$HEALTH_ISSUE"

@@ -17,13 +17,50 @@ Host: `ssh 192.168.110.151 -p2222`, user `martin`.
 | `~/.local/state/f1-watchdog/latest.json` | Last run status, authentication/publication mode, report path |
 | `~/.local/state/f1-watchdog/runs/<UTC timestamp>/` | Per-run report, agent output and CLI logs |
 | `~/.local/state/f1-watchdog/memory.md` | Revalidated operational lessons between fresh sessions |
-| `~/.config/systemd/user/f1-watchdog.{service,timer}` | Installed copies of these units |
+| `~/projects/f1-commentary-scheduler` | Separate clean checkout for the deterministic clock |
+| `~/.local/state/f1-watchdog/scheduler.json` | Durable deadlines, attempts, live evidence and failures |
+| `~/.config/systemd/user/f1-watchdog.service` | On-demand bounded AI repair worker |
+| `~/.config/systemd/user/f1-calendar.{service,timer}` | One-minute deterministic calendar clock |
 
-The timer runs hourly at **minute 37 UTC**, with up to two minutes of jitter.
-`Persistent=true` catches up after downtime. User lingering starts the timer at
-boot and keeps it active after SSH logout. A local file lock prevents duplicate
-runs; the service limits each agent to 45 minutes and kills remaining child
-processes at 50 minutes. Logs/state are owner-only.
+The calendar timer ticks every minute, without randomized delay. It reads the
+latest source calendar, including each session's date and UTC offset. User
+lingering keeps it running after logout/reboot. `Persistent=true` catches missed
+ticks; durable per-session records prevent duplicate dispatches. The legacy
+hourly `f1-watchdog.timer` must remain disabled.
+
+| Trigger | Policy |
+|---|---|
+| Before every session | AI review eligible at T-90 minutes; fresh deterministic collection at T-45, publication deadline T-30 |
+| Session finish | Poll official classifications every 2 minutes from estimated end minus 10 minutes |
+| Expected durations | Practice/qualifying 60 min, Sprint Qualifying 45, Sprint 30, race 120; final grid from qualifying end |
+| Delayed results | Continue until a validated classification is visible live; after six overdue hours back off to 15-minute polling |
+| Source/editorial gaps | Deterministic retries hourly, then bounded AI repair when permitted; never invent missing information |
+| Host heartbeat | Update health issue at least every 30 minutes; independent GitHub job alerts after 90 minutes without a heartbeat |
+
+Session durations are estimates, not declarations that a red-flagged session
+has finished. GitHub dispatch/Pages is still best-effort: missed T-30 deadlines
+are recorded and alerted, never reported as successful freshness. Rapid dispatches
+skip historical/telemetry work; ordinary scheduled builds retain those collectors.
+The editor and publisher use separate locks because the editor only submits PRs.
+
+Every build publishes `/automation-health.json`: validated classification
+fingerprints, collector outcomes, news review status, expected FIA/Pirelli/tyre
+deadlines and standings checkpoints. New FIA hashes require an explicit reviewed
+receipt, not merely a screenshot. Expected-source gaps ask for verification;
+they are not proof that the FIA has already released a document.
+
+The clock never edits source/data itself: it dispatches the existing tested
+publisher and verifies the live evidence. Its separate checkout cannot be
+contaminated by unfinished agent edits. The repair worker retains its own lock
+and 45-minute budget. The clock keeps collecting if Copilot is unavailable.
+Logs/state are owner-only.
+
+`preferences.json` retains `audit_only` and adds `health_issue` (the issue number).
+`agent_blocked_reason`, when present, prevents repeated paid agent attempts and
+is prominently reported. Clear it only after resolving the underlying failure
+and observing a successful unattended smoke run. Read-only mode also suppresses
+clock dispatches. Issue #115 is the installed operator dashboard; repository
+variable `F1_WATCHDOG_HEALTH_ISSUE` selects it for the independent monitor.
 
 ## Authentication
 
@@ -51,6 +88,14 @@ while GitHub's deterministic deploys continued. The subsequent audit integrated
 that work separately; a green deployment does not clear the agent's permission
 problem.
 
+On 6 November the paused timer was discovered still stopped. The stale checkout
+was retained as `~/projects/f1-commentary-watchdog-retained-20261106` and replaced
+with a fresh clone. Both a scoped virtualenv path and an exact interpreter tool
+approval were tested; unattended execution was still denied. The automatic CLI
+update to 1.0.106 did not clear it. Do not equate timer recovery with permission
+recovery: the calendar collector can run, while AI publication remains explicitly
+blocked until the operator resolves that approval interactively.
+
 ## Operations
 
 ### Curses console (recommended)
@@ -69,6 +114,7 @@ The console refreshes service/timer status and run history automatically.
 |---|---|
 | Up / Down | Select a run |
 | Enter / `l` / `j` | Read report / follow agent log / view service journal |
+| `h` | Calendar health, pending deadlines and publication/repair blockers |
 | `a` | Fetch a read-only snapshot of GitHub automation and open PRs |
 | `s` / `x` | Start now / confirm stop of current audit |
 | `p` / `r` | Pause / resume future scheduling (persists across reboot) |
@@ -96,13 +142,13 @@ shell. No extra network listener or browser credential is added.
 ### Shell commands
 
 ```bash
-systemctl --user status f1-watchdog.timer --no-pager
-systemctl --user list-timers f1-watchdog.timer --all --no-pager
+systemctl --user status f1-calendar.timer --no-pager
+systemctl --user list-timers f1-calendar.timer --all --no-pager
 systemctl --user start --no-block f1-watchdog.service
 journalctl --user -u f1-watchdog.service -n 60 --no-pager
 python3 -m json.tool ~/.local/state/f1-watchdog/latest.json
 systemctl --user stop f1-watchdog.service
-systemctl --user disable --now f1-watchdog.timer
+systemctl --user disable --now f1-calendar.timer
 ```
 
 One-off read-only audit:
@@ -129,3 +175,12 @@ dependency changes require explicit operator installation; the agent is not
 authorized to reconfigure its own scheduler or authority contract. Logs are
 retained for diagnosis; inspect disk usage periodically and remove only reviewed,
 completed run directories when retention cleanup is needed.
+
+Install reviewed `f1-calendar.service` and `f1-calendar.timer` into
+`~/.config/systemd/user/`, then run `systemctl --user daemon-reload`,
+`systemctl --user disable --now f1-watchdog.timer` and
+`systemctl --user enable --now f1-calendar.timer`. Create the separate scheduler
+clone first. Keep the console's installed copy in sync. Verify `scheduler.json`,
+the next timer tick, a real dispatch and the resulting live health endpoint.
+Never leave a maintenance pause without either restoring it or a visible blocker
+in the health issue.

@@ -235,7 +235,7 @@ class StandingsTests(unittest.TestCase):
 
     def test_deployment_collects_classifications_before_standings(self):
         workflow = (Path(__file__).parent / ".github/workflows/deploy.yml").read_text()
-        self.assertLess(workflow.index("run: python3 session_results.py"),
+        self.assertLess(workflow.index("python3 session_results.py"),
                         workflow.index("run: python3 standings.py"))
 
     def test_missing_snapshot_is_not_fabricated(self):

@@ -60,6 +60,8 @@ def agent_arguments(prompt, report_dir, session_id=None):
         "--deny-tool", "shell(scp)", "--deny-tool", "shell(crontab)",
         "--deny-tool", "shell(systemctl)", "--deny-tool", "shell(loginctl)",
         "--add-dir", str(STATE), "--log-dir", str(report_dir),
+        "--add-dir", sys.prefix,
+        "--allow-tool", f"shell({sys.executable}:*)",
         "--allow-url", "github.com", "--allow-url", "api.github.com",
         "--allow-url", "release-assets.githubusercontent.com",
         "--allow-url", "raw.githubusercontent.com", "--allow-url", "objects.githubusercontent.com",
@@ -164,6 +166,9 @@ def run(audit_only=False, timeout=2700):
                         + merge.stderr.strip())
             write_json(latest_path, status)
             prompt = (ROOT / "ops/watchdog-context.md").read_text()
+            request = STATE / "repair-request.json"
+            if request.exists():
+                prompt += "\n\n## Deterministic coverage findings\n" + request.read_text()
             prompt += (
                 f"\n\n## This invocation\nUTC start: {started.isoformat()}\n"
                 f"Publication mode: {status['mode']}\n"

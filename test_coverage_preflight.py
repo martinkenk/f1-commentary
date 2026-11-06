@@ -12,10 +12,11 @@ class CoveragePreflightTests(unittest.TestCase):
     def test_editor_serializes_data_writers_and_reports_failed_pushes(self):
         lock = preflight.LOCK.read_text()
         concurrency = re.search(r"^concurrency:\n((?:  .*\n)+)", lock, re.M)[1]
-        self.assertIn("group: pages", concurrency)
+        self.assertIn("group: pages-editor", concurrency)
         self.assertIn("cancel-in-progress: false", concurrency)
         deploy = (preflight.ROOT / ".github/workflows/deploy.yml").read_text()
-        self.assertIn("group: pages", deploy)
+        self.assertIn("group: pages-publisher", deploy)
+        self.assertNotIn("group: pages-editor", deploy)
         self.assertIn("if: github.event_name != 'push'", deploy)
         self.assertIn("git checkout -B main origin/main", deploy)
         guard = lock.split("  verify-publication:\n", 1)[1]

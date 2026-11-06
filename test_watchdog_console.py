@@ -101,8 +101,9 @@ class ConsoleTests(unittest.TestCase):
                  patch.object(console.curses, "reset_prog_mode"):
                 ui.takeover()
             self.assertEqual(control.call_args_list[0].args, ("disable", "--now", console.TIMER))
-            self.assertEqual(control.call_args_list[1].args, ("stop", console.SERVICE))
-            self.assertEqual(control.call_count, 2)
+            self.assertEqual(control.call_args_list[1].args, ("stop", "f1-calendar.service"))
+            self.assertEqual(control.call_args_list[2].args, ("stop", console.SERVICE))
+            self.assertEqual(control.call_count, 3)
             lock.assert_called_once()
             run.assert_called_once()
             self.assertIn("PAUSED", ui.message)

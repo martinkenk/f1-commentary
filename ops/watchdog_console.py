@@ -17,7 +17,7 @@ HOME = Path.home()
 STATE = HOME / ".local/state/f1-watchdog"
 CHECKOUT = HOME / "projects/f1-commentary-watchdog"
 SERVICE = "f1-watchdog.service"
-TIMER = "f1-watchdog.timer"
+TIMER = "f1-calendar.timer"
 ANSI = re.compile(r"\x1b\][^\x07]*(?:\x07|\x1b\\)|\x1b\[[0-?]*[ -/]*[@-~]")
 
 
@@ -162,6 +162,10 @@ class Console:
                  f"   Last mode: {self.latest.get('mode', '?')}")
         self.put(5, self.latest.get("summary") or self.latest.get("error") or
                  self.latest.get("publication_deferred") or "Select a run to inspect its report or logs.")
+        clock = read_json(self.state / "scheduler.json")
+        self.put(6, f"Clock: {clock.get('checked_at', 'not started')}  "
+                 f"Pending: {len(clock.get('pending', []))}  "
+                 f"Errors: {len(clock.get('errors', []))}  h: health detail")
         self.put(7, "RUN (UTC)             STATUS         MODE", curses.A_BOLD)
         visible = max(1, height - 14)
         start = max(0, self.selected - visible + 1)
@@ -252,6 +256,7 @@ class Console:
                             "when you return; press r to resume it. Unfinished files will be preserved."):
             return
         systemctl("disable", "--now", TIMER)
+        systemctl("stop", "f1-calendar.service", timeout=60)
         systemctl("stop", SERVICE, timeout=60)
         self.state.mkdir(parents=True, exist_ok=True)
         with (self.state / "run.lock").open("a") as lock:
@@ -285,7 +290,7 @@ class Console:
             self.message = "Future audits paused persistently. The current run is not stopped."
         elif key == ord("r"):
             systemctl("enable", "--now", TIMER)
-            self.message = "Hourly scheduling enabled. A missed scheduled run may start immediately."
+            self.message = "Calendar clock enabled. Missed deadlines are checked on the next tick."
         elif key == ord("m"):
             path = self.state / "preferences.json"
             settings = read_json(path)
@@ -315,6 +320,9 @@ class Console:
                     raise RuntimeError(result.stderr.strip())
                 return result.stdout or "No journal entries."
             self.viewer("SERVICE JOURNAL", journal, True)
+        elif key == ord("h"):
+            self.viewer("CALENDAR HEALTH", lambda: json.dumps(
+                read_json(self.state / "scheduler.json"), indent=2))
         elif key == ord("g"):
             self.guidance()
         elif key == ord("a"):
@@ -366,7 +374,8 @@ HELP = """Use this console in the private web terminal or over SSH.
 
 s starts the systemd service. x stops only the current audit after confirmation.
 p persistently disables the timer without stopping a running audit.
-r enables the hourly timer; Persistent=true can catch up a missed run.
+r enables the one-minute calendar clock; Persistent=true catches missed ticks.
+h shows collector deadlines, publication evidence and repair blockers.
 m toggles the next-run read-only/publish preference. Publication still requires
 GitHub authentication and no active deployment/editor.
 
