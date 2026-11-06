@@ -1,7 +1,19 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix",
-  "retrieved_at": "2026-11-06T14:29:56.091960+00:00",
+  "retrieved_at": "2026-11-06T15:00:52.271525+00:00",
   "documents": [
+    {
+      "filename": "2026_sao_paulo_grand_prix_-_entry_list.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_entry_list.pdf",
+      "categories": []
+    },
+    {
+      "filename": "2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf",
+      "categories": [
+        "upgrades"
+      ]
+    },
     {
       "filename": "2026_sao_paulo_grand_prix_-_curfew.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_curfew.pdf",
