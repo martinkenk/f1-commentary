@@ -1,6 +1,7 @@
 """Source-reviewed Sao Paulo preparation, checked before Friday running."""
 import content_generic
 from f1lib import card
+from upgrade_render import render_submissions
 
 FIA = "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_"
 CAMARA = "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
@@ -10,6 +11,30 @@ MCLAREN = "https://www.formula1.com/en/latest/article/want-to-believe-that-we-ca
 FERRARI = "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-talks-ahead-of-sao-paulo-grand-prix-after-intra-team-battle-with-leclerc.3JXGpQWTdOA2a9PiH7NL8X"
 RUSSELL_PENALTY = "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"
 FIA_EVENT = "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
+FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
+FIA_UPGRADES_ASSET = "fia-brazil-d82872895e6d-eaf9202e01277f4e"
+UPGRADE_SUBMISSIONS = (
+    ("McLaren", 2, (
+        ("Front Wing", "Performance - Flow Conditioning",
+         "A new front-wing design aims to improve flow conditioning towards the floor and bodywork."),
+        ("Rear Wing", "Performance - Local Load",
+         "A new rear-wing assembly is designed to increase aerodynamic load efficiently in all conditions."),
+        ("Beam Wing", "Performance - Flow Conditioning",
+         "A new beam wing is intended to improve interaction and flow conditioning with the new rear wing."),
+        ("Floor Furniture", "Performance - Flow Conditioning",
+         "A small floor-furniture modification aims to improve flow conditioning and floor aerodynamic performance."),
+    )),
+    ("Mercedes", 4, ()),
+    ("Red Bull", 5, ()),
+    ("Ferrari", 6, ()),
+    ("Williams", 7, ()),
+    ("Racing Bulls", 8, ()),
+    ("Aston Martin", 9, ()),
+    ("Haas", 10, ()),
+    ("Audi", 11, ()),
+    ("Alpine", 12, ()),
+    ("Cadillac", 13, ()),
+)
 
 
 def _figure(asset, title, document, page=2):
@@ -58,12 +83,11 @@ pre-weekend scenario, not a declaration that Mercedes has already won.
 <a href="{STORYLINES}">Official title scenario</a>.</p>''', "bi-trophy", "accent")}
 {card("Mercedes: Russell confirms a five-place drop", f'''<p>The Race reports
 that Russell said Mercedes chose Brazil for the five-place penalty tied to a
-new internal-combustion engine. This is not evidence that the planned ADUO
-power-unit upgrade is arriving. At the 14:00 UTC targeted FIA check, the
-event listing still contained only Documents 1–7 and did not list an
-engine-elements-used filing. This is a listing status, not proof of
-non-publication; reconcile any later component entry and formal grid
-adjustment against the FIA documents.
+new internal-combustion engine. The FIA's pre-practice, season-to-date usage
+report lists five ICEs used by Russell; it is not an event-specific new-parts
+declaration or a penalty decision. The later 14:29 UTC FIA listing now includes
+that usage report, but still does not establish whether the planned ADUO
+power-unit upgrade is arriving.
 <a href="{RUSSELL_PENALTY}">Russell's comments, 6 November</a> ·
 <a href="{FIA_EVENT}">FIA event documents</a>.</p>''', "bi-exclamation-triangle")}
 {card("Ferrari: talks still to happen", f'''<p>Hamilton said on Thursday that
@@ -71,10 +95,14 @@ face-to-face talks following the Mexico battle had not yet taken place.
 Watch for confirmed rules of engagement rather than assuming team orders or
 that a meeting has resolved the issue. <a href="{FERRARI}">Hamilton's
 5 November comments</a>.</p>''', "bi-people")}
-{card("McLaren: changes reported, gains unproven", f'''<p>Norris confirms small
-updates for Brazil but does not promise improved drivability. Separate the
-driver's report from the eventual FIA component declaration and measured
-performance. <a href="{MCLAREN}">Norris's 5 November comments</a>.</p>''', "bi-tools")}
+{card("McLaren: four declared changes, gains unproven", f'''<p>FIA Document 12
+lists four performance-motivated items: front wing, rear wing, beam wing and
+floor furniture. The team's stated aims concern flow conditioning and local
+aerodynamic load; these are design intentions, not measured gains. The Race
+reports that the front-wing concept is intended to carry into McLaren's 2027
+launch specification. <a href="{FIA_UPGRADES_URL}">FIA declaration</a> ·
+<a href="https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/">
+The Race technical report</a>.</p>''', "bi-tools")}
 </div>"""
 
 
@@ -111,7 +139,50 @@ not a verified 2026 strategy window.</p>
 
 
 def _powerunit():
+    usage_rows = (
+        ("81", "Oscar Piastri", 4, 3, 3, 2, 3, 3, 5),
+        ("01", "Lando Norris", 4, 3, 3, 2, 3, 4, 5),
+        ("63", "George Russell", 5, 5, 5, 4, 4, 4, 5),
+        ("12", "Kimi Antonelli", 5, 3, 3, 2, 4, 4, 6),
+        ("03", "Max Verstappen", 4, 4, 4, 3, 3, 3, 5),
+        ("06", "Isack Hadjar", 8, 7, 7, 4, 4, 4, 8),
+        ("16", "Charles Leclerc", 4, 4, 4, 3, 3, 3, 6),
+        ("44", "Lewis Hamilton", 4, 4, 4, 3, 3, 3, 6),
+        ("23", "Alexander Albon", 5, 3, 3, 2, 3, 4, 5),
+        ("55", "Carlos Sainz", 4, 4, 3, 2, 3, 4, 5),
+        ("41", "Arvid Lindblad", 6, 5, 5, 2, 3, 3, 6),
+        ("30", "Liam Lawson", 5, 5, 5, 2, 3, 3, 7),
+        ("18", "Lance Stroll", 6, 7, 3, 5, 8, 7, 9),
+        ("14", "Fernando Alonso", 5, 6, 3, 5, 7, 6, 9),
+        ("50", "Ryo Hirakawa", 4, 4, 4, 3, 3, 3, 5),
+        ("87", "Oliver Bearman", 4, 4, 4, 4, 4, 4, 4),
+        ("27", "Nico Hulkenberg", 4, 4, 4, 3, 3, 3, 5),
+        ("05", "Gabriel Bortoleto", 5, 5, 5, 4, 5, 5, 7),
+        ("10", "Pierre Gasly", 4, 3, 3, 2, 3, 3, 5),
+        ("43", "Franco Colapinto", 5, 3, 2, 2, 3, 4, 5),
+        ("11", "Sergio Perez", 4, 4, 4, 3, 3, 3, 4),
+        ("77", "Valtteri Bottas", 5, 5, 4, 4, 4, 4, 5),
+    )
+    usage_table = "".join(
+        "<tr>" + "".join(f"<td>{value}</td>" for value in row) + "</tr>"
+        for row in usage_rows
+    )
     return f"""
+<h2 class="sec">Season-to-date power-unit usage</h2>
+<p>The FIA Technical Delegate's report dated <strong>6 November</strong> lists
+the number of each element used by the 22 race-entered drivers so far this
+season. It was retrieved at 14:30 UTC, before the scheduled 15:30 UTC start of
+FP1, so it is a pre-running snapshot. These are usage totals, not a declaration
+of which new parts are fitted for Brazil and not a penalty ruling. For example,
+Russell's five ICEs in this snapshot are distinct from the reported new ICE
+and five-place grid penalty for this event.</p>
+<div class="table-wrap"><table class="data compact" id="brazil-pu-usage">
+<thead><tr><th>No.</th><th>Driver</th><th>ICE</th><th>TC</th><th>EXH</th>
+<th>MGU-K</th><th>ES</th><th>PU-CE</th><th>PU-ANC</th></tr></thead>
+<tbody>{usage_table}</tbody></table></div>
+{_figure("fia-brazil-9c06be5d7cce-e6a9731048b45159-p2",
+         "FIA season-to-date power-unit elements used report, 6 November",
+         "pu_elements_used_per_driver_up_to_now")}
 <h2 class="sec">Published Sao Paulo energy map</h2>
 <div class="table-wrap"><table class="data" id="brazil-energy-limits">
 <thead><tr><th>Session / condition</th><th>Maximum recharge per lap</th></tr></thead>
@@ -160,6 +231,19 @@ pages 2, 7–8</a>. The full source pages follow below.</p>
 """
 
 
+def _upgrade_filing():
+    return """
+<div class="callout">
+  <strong>FIA Document 12:</strong> McLaren lists four declared components;
+  the other ten teams each submitted an explicit nil return. The filing states
+  team rationales, not independently measured performance gains.
+</div>
+""" + render_submissions(
+        UPGRADE_SUBMISSIONS, source_url=FIA_UPGRADES_URL,
+        asset_prefix=FIA_UPGRADES_ASSET, document="FIA Document 12",
+        event="Brazilian GP", issued="6 November 2026, 15:32 CET")
+
+
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
     for slug in ("overview", "notes"):
@@ -185,11 +269,11 @@ def build_pages(ctx, env):
 If just one car has new major components, that is the car to display.
 <a href="{FIA}car_display_procedure.pdf#page=2">Official procedure</a>.</p>
 <p>The FIA's <strong>Car Display Procedure</strong> is separate from the
-all-team <strong>Car Presentation Submissions</strong>. Team comments are not
-a substitute for that filing. At the 14:00 UTC check, the FIA index listed
-Documents 1–7 and no Car Presentation Submissions; this does not establish
-non-publication. If a filing appears, its substantive pages will be preserved
-and reviewed team by team.</p>"""
+all-team <strong>Car Presentation Submissions</strong>. Document 12 was
+published at 15:32 CET on 6 November, after the earlier 14:00 and 14:29 UTC
+listing checks. Its team-by-team declarations and explicit nil returns are
+transcribed below; the full substantive PDF pages, including McLaren's
+location diagram, remain available in the expandable readers.</p>""" + _upgrade_filing()
     pages["schedule"]["body"] += f"""
 <p><strong>Standard weekend, not Sprint:</strong> Friday FP1 12:30 and FP2 16:00;
 Saturday FP3 11:30 and Qualifying 15:00; Sunday Race 14:00 (all BRT).

@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-06T14:09:32Z",
-  "expires_at": "2026-11-06T14:30:00Z",
+  "reviewed_at": "2026-11-06T15:05:00Z",
+  "expires_at": "2026-11-06T15:25:00Z",
   "through_session": null,
   "feed_fingerprint": "5bb95d0ecf3ad1a6f13f22c68b5274527f40b41da035354a85f14fa04a6efc09",
   "items": [
@@ -18,13 +18,13 @@
     },
     {
       "topic": "Engine and grid",
-      "title": "Russell confirms a five-place drop for a new ICE in Brazil",
+      "title": "Russell's reported ICE penalty meets the FIA's season-to-date usage report",
       "date": "2026-11-06",
-      "summary": "The Race reports that Russell said Mercedes chose Brazil for the five-place penalty tied to a new internal-combustion engine. This is separate from the planned ADUO power-unit upgrade. At the 14:00 UTC targeted FIA check, Documents 1–7 were still the only Brazil event documents listed; no engine-elements-used filing appeared.",
-      "why_it_matters": "The reported grid drop affects Russell's race, but a new ICE does not establish that the ADUO specification is arriving. The 14:00 listing is a check, not proof of non-publication; verify any later component entry and formal grid adjustment.",
+      "summary": "The Race reports that Mercedes selected Brazil for a new internal-combustion engine and a five-place grid drop. In its 6 November pre-FP1 report, the FIA lists five ICEs, five TCs, five EXHs, four MGU-Ks, four ESs, four PU-CEs and five PU-ANCs used by Russell this season. The usage snapshot is not the event's new-parts declaration or a penalty ruling.",
+      "why_it_matters": "Keep Russell's reported penalty separate from the FIA's season-to-date usage totals; neither document establishes that the planned ADUO engine specification is arriving.",
       "sources": [
         {"label": "The Race: Russell on his engine change", "url": "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"},
-        {"label": "FIA: Sao Paulo event documents", "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"}
+        {"label": "FIA: PU elements used per driver, 6 November", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf"}
       ]
     },
     {
@@ -53,14 +53,13 @@
     },
     {
       "topic": "McLaren upgrades",
-      "title": "McLaren brings 2026 updates and a 2027 front-wing concept to Brazil",
+      "title": "FIA Document 12 lists four McLaren updates and ten nil returns",
       "date": "2026-11-06",
-      "summary": "The Race reports floor tweaks and an updated rear wing alongside a new-concept front wing McLaren expects to carry into its 2027 launch specification. McLaren says the changes target more downforce and better balance; Norris cautions that updates may not make the MCL40 easier to drive. The 14:00 UTC targeted FIA check still listed only event Documents 1–7, with no Car Presentation Submissions.",
-      "why_it_matters": "This package combines immediate 2026 development with an early 2027 concept. Attribute the component details to The Race and do not infer performance gains before practice or treat one listing check as proof of non-publication.",
+      "summary": "FIA Document 12 lists four McLaren performance items: front wing, rear wing, beam wing and floor furniture. The stated aims are flow conditioning or local aerodynamic load. Mercedes, Red Bull, Ferrari, Williams, Racing Bulls, Aston Martin, Haas, Audi, Alpine and Cadillac each return no updates. The Race reports that McLaren's front-wing concept is intended to carry into its 2027 launch specification.",
+      "why_it_matters": "The declaration records team explanations, not independently measured downforce, lap-time or net-performance gains. It also supersedes the earlier pre-publication listing checks; those checks did not establish non-publication.",
       "sources": [
         {"label": "The Race: McLaren's 2027 front wing and Brazil updates", "url": "https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/"},
-        {"label": "Formula1.com: Norris on Brazil updates", "url": "https://www.formula1.com/en/latest/article/want-to-believe-that-we-can-still-make-improvements-norris-wary-of-new-mclaren-upgrades-in-sao-paulo.6NvdXqDIqBz1Mw1xveJv0k"},
-        {"label": "FIA: Sao Paulo event documents", "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"}
+        {"label": "FIA: Car Presentation Submissions, Document 12", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf"}
       ]
     }
   ]

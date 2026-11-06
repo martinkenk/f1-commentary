@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-06T06:25:00Z",
-  "basis": "Brazil audit published in ecfa1b82f and b34c71f8b: source screenshots and circuit, schedule, tyres, power-unit and upgrade-display interpretation. Car display procedure is not a car presentation submission.",
+  "reviewed_at": "2026-11-06T15:05:00Z",
+  "basis": "Brazil audit published in ecfa1b82f and b34c71f8b, updated 6 November before FP1. Visually reviewed and transcribed the pre-FP1 FIA PU usage table (22 drivers; season-to-date counts are not event declarations or penalty rulings) and all substantive pages 2-13 of Car Presentation Submissions Document 12. McLaren declares four performance-intent items; the other ten teams each submit nil returns. Reviewed team text and McLaren's page-3 component diagram; stated aims are not measured gains. Car Display Procedure is separate from the team submission.",
   "fia_sha256": {
     "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf": "8c3658719ff724191a2a3665c760345e348a24108d2f5ff0184705d491079d29",
     "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_race_directors_competition_notes.pdf": "9ff6ac5312d5fd2fd91a98ac0554b6d9d2bb48b6c0de025b2e564c9a37f0a311",
@@ -8,6 +8,8 @@
     "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_display_procedure.pdf": "2a89a0a215ed1559de0dbd301ed184097cfe30ceec0fef661e662592a6033a89",
     "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_power_unit_information.pdf": "b034c0e63a20560dd3e02f1f1a38423fe68bb1fdc1599f43e8f3e712eb589104",
     "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_notes_-_pirelli_preview.pdf": "84d11f15335e159edbfc72e1239da1a702bf861b51224461ae4792f7dd4e4c0d",
-    "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_visa.pdf": "a599a4c28c8fc5f85df2e78b8e90e6b13b3ebc5209632e51d97fb4d7e328733b"
+    "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf": "e6a9731048b45159555134cff6402d7ee0afee242e26bc7a0f4fcf91b7a07d74",
+    "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_visa.pdf": "a599a4c28c8fc5f85df2e78b8e90e6b13b3ebc5209632e51d97fb4d7e328733b",
+    "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf": "eaf9202e01277f4e051bc97165164078a72505f73d9472a71c69b84412809f56"
   }
 }

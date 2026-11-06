@@ -72,9 +72,10 @@ class GPParityTests(unittest.TestCase):
         )["overview"]["body"]
         self.assertIn("five-place penalty", body)
         self.assertIn(content_brazil.RUSSELL_PENALTY, body)
-        self.assertIn("not evidence that the planned ADUO", body)
-        self.assertIn("14:00 UTC targeted FIA check", body)
-        self.assertIn("not proof of", body)
+        self.assertIn("pre-practice, season-to-date usage", body)
+        self.assertIn("not an event-specific new-parts", body)
+        self.assertIn("does not establish whether the planned ADUO", body)
+        self.assertNotIn("14:00 UTC targeted FIA check", body)
         self.assertNotIn("12:46 UTC", body)
 
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
@@ -88,12 +89,38 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("brazil-energy-limits", pages["powerunit"]["body"])
         self.assertNotIn("once it is issued", pages["powerunit"]["body"])
         self.assertIn("Two Straight Mode zones, one Overtake activation", pages["circuit"]["body"])
-        self.assertIn("14:00 UTC check", pages["upgrades"]["body"])
-        self.assertIn("Documents 1–7", pages["upgrades"]["body"])
-        self.assertIn("does not establish", pages["upgrades"]["body"])
-        self.assertIn("non-publication", pages["upgrades"]["body"])
+        upgrades = pages["upgrades"]["body"]
+        upgrades_text = " ".join(upgrades.split())
+        self.assertIn("14:00 and 14:29 UTC listing checks", upgrades_text)
+        self.assertIn("15:32 CET", upgrades_text)
+        self.assertIn("FIA Document 12", upgrades_text)
+        self.assertIn("lists four performance-motivated items", upgrades_text)
+        self.assertIn("other ten teams each submitted an explicit nil return", upgrades_text)
+        self.assertIn("Performance - Flow Conditioning", upgrades_text)
+        self.assertIn("Performance - Local Load", upgrades_text)
+        self.assertNotIn("If the filing appears", upgrades_text)
+        for team, page, items in content_brazil.UPGRADE_SUBMISSIONS:
+            self.assertIn(f'href="#upgrade-submission-{page}" data-document-reader', upgrades)
+            self.assertIn(f'<details id="upgrade-submission-{page}">', upgrades)
+            for number in ([page, page + 1] if items else [page]):
+                asset = f"{content_brazil.FIA_UPGRADES_ASSET}-p{number}.png"
+                self.assertIn(asset, upgrades)
+                self.assertTrue((Path(__file__).parent / "assets_src" / asset).is_file())
+                self.assertIn(content_brazil.FIA_UPGRADES_URL + f"#page={number}", upgrades)
+        self.assertEqual(upgrades.count('<details id="upgrade-submission-'), 11)
         self.assertNotIn("12:46 UTC", pages["upgrades"]["body"])
         self.assertNotIn("Review at 06:05 UTC", pages["upgrades"]["body"])
+        powerunit = pages["powerunit"]["body"]
+        usage = re.search(
+            r'<table class="data compact" id="brazil-pu-usage">(.*?)</table>',
+            powerunit,
+            re.S,
+        )
+        self.assertIsNotNone(usage)
+        self.assertEqual(len(re.findall(r"<tr>", usage.group(1))), 23)
+        self.assertIn("<td>63</td><td>George Russell</td><td>5</td><td>5</td><td>5</td>"
+                      "<td>4</td><td>4</td><td>4</td><td>5</td>", usage.group(1))
+        self.assertIn("pu_elements_used_per_driver_up_to_now.pdf#page=2", powerunit)
         for slug in ("tyres", "powerunit", "circuit"):
             body = pages[slug]["body"]
             for asset in re.findall(r'src="\.\./assets/([^"]+)"', body):
