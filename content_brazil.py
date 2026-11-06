@@ -1,4 +1,4 @@
-"""Source-reviewed Sao Paulo preparation, checked before Friday running."""
+"""Source-reviewed Sao Paulo Grand Prix content, refreshed after FP1."""
 import content_generic
 from f1lib import card
 from upgrade_render import render_submissions
@@ -6,6 +6,9 @@ from upgrade_render import render_submissions
 FIA = "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_"
 CAMARA = "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
 FP1_LINEUP = "https://www.formula1.com/en/latest/article/which-rookie-drivers-are-getting-fp1-outings-at-the-sao-paulo-grand-prix.3DAnL1BS38Gu5KKzU70aBJ"
+FP1_REPORT = "https://www.formula1.com/en/latest/article/fp1-norris-leads-antonelli-and-verstappen-in-opening-sao-paulo-gp-practice-session.3GXL3rAROwHsLxnxn9hReY"
+FP1_RESULT = "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/1"
+THE_RACE_FP1 = "https://www.the-race.com/formula-1/what-happened-in-brazil-fp1-f1-sao-paulo/"
 STORYLINES = "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
 MCLAREN = "https://www.formula1.com/en/latest/article/want-to-believe-that-we-can-still-make-improvements-norris-wary-of-new-mclaren-upgrades-in-sao-paulo.6NvdXqDIqBz1Mw1xveJv0k"
 FERRARI = "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-talks-ahead-of-sao-paulo-grand-prix-after-intra-team-battle-with-leclerc.3JXGpQWTdOA2a9PiH7NL8X"
@@ -16,6 +19,7 @@ FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
 FIA_UPGRADES_ASSET = "fia-brazil-d82872895e6d-eaf9202e01277f4e"
 FIA_NEW_PU_URL = FIA + "new_pu_elements_for_this_competition.pdf"
 FIA_NEW_PU_ASSET = "fia-brazil-46906038b849-b706ad97554d079c-p2"
+RUSSELL_FIA_PENALTY = FIA + "infringement_-_car_63_-_changes_to_pu_element.pdf"
 UPGRADE_SUBMISSIONS = (
     ("McLaren", 2, (
         ("Front Wing", "Performance - Flow Conditioning",
@@ -52,17 +56,21 @@ def _lineup():
     return f"""
 <h2 class="sec">Confirmed driver changes</h2>
 <div class="grid cols-2">
-{card("Six confirmed FP1 substitutions", f'''<p>Formula1.com lists six drivers
-who will take over for one hour in FP1 before the regular drivers return for
-FP2:</p><ul><li><strong>McLaren:</strong> Leonardo Fornaroli for Oscar Piastri</li>
+{card("Six rookie stand-ins in FP1", f'''<p>Formula1.com's lineup and the
+official classification show six drivers took the regular seats for Friday's
+one-hour FP1:</p><ul><li><strong>McLaren:</strong> Leonardo Fornaroli for Oscar Piastri</li>
 <li><strong>Ferrari:</strong> Dino Beganovic for Charles Leclerc</li>
 <li><strong>Williams:</strong> Luke Browning for Carlos Sainz</li>
 <li><strong>Audi:</strong> Freddie Slater for Nico Hulkenberg</li>
 <li><strong>Alpine:</strong> Gabriele Mini for Pierre Gasly</li>
 <li><strong>Cadillac:</strong> Colton Herta for Sergio Perez</li></ul>
-<p>Herta needs at least 100 km in a clean session for his final required Super
-Licence point. These are practice outings, not confirmed changes to the race
-pairings. <a href="{FP1_LINEUP}">Formula1.com’s full rundown</a>.</p>''',
+<p>Herta completed the 100 km needed for his final Super Licence point during
+FP1, as reported by The Race; Formula1.com explains the requirement. This
+clears the point requirement but does not confirm a 2027 race seat.
+<a href="{FP1_LINEUP}">Formula1.com lineup</a> ·
+<a href="{FP1_RESULT}">official FP1 classification</a> ·
+<a href="{FP1_REPORT}">Formula1.com FP1 report</a> ·
+<a href="{THE_RACE_FP1}">The Race on Herta's milestone</a>.</p>''',
      "bi-person-badge", "accent")}
 {card("Haas: Rafael Camara's race debut", f'''<p>Rafael Camara partners Oliver
 Bearman for the <strong>whole Sao Paulo weekend</strong>, not merely FP1.
@@ -76,34 +84,33 @@ contest the remaining 2026 races. <a href="{CAMARA}">Haas announcement via Formu
 
 def _teams():
     return f"""
-<h2 class="sec">The pre-practice team watch</h2>
+<h2 class="sec">Team and grid storylines</h2>
 <div class="grid cols-2">
-{card("Mercedes: constructors' title opportunity", f'''<p>Antonelli clinched the
-Drivers' Championship in Mexico. Entering Brazil, Mercedes leads Ferrari
-<strong>630–504 (126 points)</strong>. Formula1.com's title preview says extending
-that lead by three points clinches the constructors' title. This is the
-pre-weekend scenario, not a declaration that Mercedes has already won.
+{card("Mercedes: constructors' title still in play", f'''<p>Antonelli clinched
+the Drivers' Championship in Mexico. The latest official standings still show
+Mercedes leading Ferrari <strong>630–504 (126 points)</strong>. Formula1.com's
+pre-weekend scenario says gaining three points on Ferrari in Brazil clinches
+the constructors' title; practice awards no points, and the title is not yet
+settled.
 <a href="{STORYLINES}">Official title scenario</a>.</p>''', "bi-trophy", "accent")}
-{card("Mercedes: FIA reports Russell's sixth ICE", f'''<p>FIA Document 14
+{card("Mercedes: Russell receives a five-place drop", f'''<p>FIA Document 14
 reports a new ICE for Russell at the twentieth competition: it is his sixth
 against four allowed and the Technical Delegate says it is not compliant with
-Sporting Regulation B8.2.2(a). The Race and Formula1.com report a five-place penalty
-(grid drop), but this Technical Delegate's report is not the Stewards' sanction
-decision; Document 14
-itself names no sanction, so check the FIA event page for any later decision.
-The pre-practice,
-season-to-date usage report (Document 8) listed five ICEs; it is not an
-event-specific new-parts declaration or a penalty decision. The FIA filings
-do not establish whether the planned ADUO specification is arriving.
-<a href="{RUSSELL_F1}">Formula1.com report</a> ·
-<a href="{RUSSELL_PENALTY}">The Race report</a> ·
+Sporting Regulation B8.2.2(a). The Stewards' separate Document 15 now imposes
+a five-place drop for the next race in which Russell participates. The
+season-to-date usage report (Document 8) is not an event-specific parts
+declaration or the penalty decision.
 <a href="{FIA_NEW_PU_URL}">FIA Document 14</a> ·
-<a href="{FIA_EVENT}">FIA event documents</a>.</p>''', "bi-exclamation-triangle")}
-{card("Ferrari: talks still to happen", f'''<p>Hamilton said on Thursday that
-face-to-face talks following the Mexico battle had not yet taken place.
-Watch for confirmed rules of engagement rather than assuming team orders or
-that a meeting has resolved the issue. <a href="{FERRARI}">Hamilton's
-5 November comments</a>.</p>''', "bi-people")}
+<a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a> ·
+<a href="{RUSSELL_F1}">Formula1.com report</a> ·
+<a href="{RUSSELL_PENALTY}">The Race report</a>. The FIA filings do not
+establish whether the planned ADUO specification is arriving.</p>''',
+     "bi-exclamation-triangle")}
+{card("Ferrari: Hamilton's Thursday comments", f'''<p>On Thursday 5 November,
+Hamilton said face-to-face talks with Leclerc about their Mexico battle had
+not yet taken place. That reports what he said then; it does not establish
+whether they later spoke or whether team rules changed.
+<a href="{FERRARI}">Formula1.com's 5 November report</a>.</p>''', "bi-people")}
 {card("McLaren: four declared changes, gains unproven", f'''<p>FIA Document 12
 lists four performance-motivated items: front wing, rear wing, beam wing and
 floor furniture. The team's stated aims concern flow conditioning and local
@@ -192,9 +199,9 @@ def _powerunit():
 sixth ICE and Rafael Câmara's new PU-ANC. The Technical Delegate states that
 Russell's ICE is not compliant with B8.2.2(a), while Câmara's PU-ANC is within
 the six-element allowance under B8.2.2(g). This report is not the Stewards'
-penalty decision: Formula1.com and The Race separately report a five-place
-grid drop for Russell; Document 14 itself names no sanction, so check the FIA
-event page for any later decision.</p>
+penalty decision. The Stewards' separate Document 15 imposes a five-place
+drop for the next race in which Russell participates.
+<a href="{RUSSELL_FIA_PENALTY}">Read Document 15</a>.</p>
 <div class="table-wrap"><table class="data compact" id="brazil-new-pu-elements">
 <thead><tr><th>No.</th><th>Constructor</th><th>Driver</th><th>New element</th>
 <th>Previously used</th><th>Season allowance</th><th>Technical Delegate's report</th></tr></thead>

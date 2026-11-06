@@ -62,8 +62,12 @@ class GPParityTests(unittest.TestCase):
                 self.assertIn(name, pages[slug]["body"])
         self.assertNotIn("awaiting a verified update", pages["rookies"]["body"])
         self.assertIn("whole Sao Paulo weekend", pages["rookies"]["body"])
-        self.assertIn("practice outings, not confirmed changes", pages["rookies"]["body"])
+        self.assertIn("completed the 100 km needed", pages["rookies"]["body"])
+        self.assertIn("does not confirm a 2027 race seat", pages["rookies"]["body"])
+        self.assertNotIn("Herta needs at least 100 km", pages["rookies"]["body"])
         self.assertIn(content_brazil.FP1_LINEUP, pages["rookies"]["body"])
+        self.assertIn(content_brazil.FP1_RESULT, pages["rookies"]["body"])
+        self.assertIn(content_brazil.THE_RACE_FP1, pages["rookies"]["body"])
         self.assertIn("100 km", pages["rookies"]["body"])
 
     def test_brazil_russell_penalty_is_attributed_and_not_mistaken_for_upgrade(self):
@@ -71,13 +75,15 @@ class GPParityTests(unittest.TestCase):
             dict(self.contexts["brazil"], status="live"), self.env
         )["overview"]["body"]
         body = " ".join(body.split())
-        self.assertIn("five-place penalty", body)
+        self.assertIn("five-place drop", body)
         self.assertIn(content_brazil.RUSSELL_PENALTY, body)
         self.assertIn(content_brazil.FIA_NEW_PU_URL, body)
+        self.assertIn(content_brazil.RUSSELL_FIA_PENALTY, body)
         self.assertIn("sixth against four allowed", body)
-        self.assertIn("pre-practice, season-to-date usage", body)
-        self.assertIn("not an event-specific new-parts", body)
+        self.assertIn("season-to-date usage report (Document 8)", body)
+        self.assertIn("not an event-specific parts declaration", body)
         self.assertIn("do not establish whether the planned ADUO", body)
+        self.assertNotIn("check the FIA event page", body)
         self.assertNotIn("14:00 UTC targeted FIA check", body)
         self.assertNotIn("12:46 UTC", body)
         powerunit = content_brazil.build_pages(
@@ -86,6 +92,9 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("brazil-new-pu-elements", powerunit)
         self.assertIn(content_brazil.FIA_NEW_PU_ASSET, powerunit)
         self.assertIn("Rafael Câmara", powerunit)
+        self.assertIn(content_brazil.RUSSELL_FIA_PENALTY, powerunit)
+        self.assertIn("Document 15 imposes a five-place", powerunit)
+        self.assertNotIn("check the FIA event page", powerunit)
 
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
         ctx = dict(self.contexts["brazil"], status="live")
