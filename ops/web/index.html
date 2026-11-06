@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>F1 Control Room</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <section id="login" class="login-shell">
+    <form id="login-form" class="login-card">
+      <div class="brand-mark">F1<span> / CONTROL</span></div>
+      <p class="eyebrow">PRIVATE OPERATIONS WORKSPACE</p>
+      <h1>Your pit wall.<br>Your development team.</h1>
+      <p>Monitor the pipeline, investigate a run, and put an agent to work.</p>
+      <div id="setup-help" hidden>
+        <p>First visit: open the existing <a id="terminal-login" target="_blank" rel="noopener">browser terminal</a>
+          and run <code>f1-web-access</code> to get a one-time setup code. Choose a password below.</p>
+        <label for="setup-code">One-time setup code</label>
+        <input id="setup-code" autocomplete="off">
+      </div>
+      <label for="password">Operator password</label>
+      <input id="password" type="password" autocomplete="current-password" required maxlength="1024">
+      <button type="submit" class="primary">Enter control room <span aria-hidden="true">&rarr;</span></button>
+      <p id="login-error" role="alert"></p>
+      <small>Private HTTPS &middot; 12-hour sessions &middot; No third-party scripts</small>
+    </form>
+  </section>
+
+  <div id="workspace" class="workspace" hidden>
+    <aside class="sidebar">
+      <div class="brand-mark">F1<span> / CONTROL</span></div>
+      <p class="eyebrow">COMMENTARY OPERATIONS</p>
+      <nav aria-label="Workspace">
+        <button class="nav active" data-tab="overview">01 <span>Overview</span></button>
+        <button class="nav" data-tab="agents">02 <span>Agent workspace</span></button>
+        <button class="nav" data-tab="history">03 <span>Run history</span></button>
+        <button class="nav" data-tab="repository">04 <span>Repository</span></button>
+        <button class="nav" data-tab="settings">05 <span>Operating policy</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <a href="https://martinkenk.github.io/f1-commentary/" target="_blank" rel="noopener">Open live website &nearr;</a>
+        <a id="terminal-workspace" target="_blank" rel="noopener">Browser terminal &nearr;</a>
+        <button id="logout" class="quiet">Sign out</button>
+        <small>One writer. Durable jobs.<br>Source failures stay visible.</small>
+      </div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <span class="eyebrow">AUTOMATION / <span id="tab-label">OVERVIEW</span></span>
+        <span id="connection" role="status">Connecting&hellip;</span>
+      </header>
+      <div id="notice" role="status" hidden></div>
+      <section id="overview" class="tab">
+        <div class="page-heading"><div><p class="eyebrow">THE PIT WALL</p><h1>Everything in view.</h1>
+          <p>Live automation, publication deadlines, and the work happening behind the page.</p></div>
+          <button data-action="start" class="primary">Run coverage audit</button></div>
+        <div id="metrics" class="metrics"></div>
+        <div id="blockers" class="alert" hidden></div>
+        <div class="two-col">
+          <article class="card"><div class="card-head"><h2>Session clock</h2><span class="tag">DETERMINISTIC</span></div>
+            <p class="muted">Collection and live verification continue independently of the AI worker.</p>
+            <div id="deadlines"></div>
+            <div class="button-row"><button data-action="pause" class="quiet">Pause calendar</button>
+              <button data-action="resume" class="quiet">Resume calendar</button></div>
+          </article>
+          <article class="card"><div class="card-head"><h2>Latest agent outcome</h2><span id="latest-status" class="tag"></span></div>
+            <p id="latest-summary"></p><dl id="latest-meta"></dl>
+            <button id="latest-open" class="quiet">Inspect report &amp; output &rarr;</button>
+            <button data-action="stop" class="danger">Stop active agent</button>
+          </article>
+        </div>
+        <article class="card"><div class="card-head"><h2>Coverage findings</h2><span class="muted">Retained data is not fresh data</span></div>
+          <div id="findings"></div></article>
+        <article class="card"><div class="card-head"><h2>Service journal</h2><button id="journal-refresh" class="quiet">Refresh journal</button></div>
+          <pre id="journal">Load the journal to inspect calendar and worker service events.</pre></article>
+      </section>
+
+      <section id="agents" class="tab" hidden>
+        <div class="page-heading"><div><p class="eyebrow">YOUR DEVELOPMENT TEAM</p><h1>Give the next instruction.</h1>
+          <p>Fix coverage, investigate an issue, or build and deploy a website feature.</p></div></div>
+        <div class="two-col">
+          <form id="task-form" class="card">
+            <h2>Launch an agent</h2>
+            <div class="presets"><button type="button" class="quiet" data-preset="repair">Repair automation</button>
+              <button type="button" class="quiet" data-preset="feature">Build a feature</button>
+              <button type="button" class="quiet" data-preset="audit">Read-only diagnosis</button></div>
+            <label for="task-title">Task name</label><input id="task-title" maxlength="160" placeholder="A short name for this job">
+            <label for="task-prompt">Instructions</label>
+            <textarea id="task-prompt" rows="10" required placeholder="Describe the outcome, affected pages, acceptance criteria, and any constraints."></textarea>
+            <div class="form-grid"><div><label for="task-mode">Publication policy</label><select id="task-mode">
+              <option value="publish">Implement &amp; publish when safe</option><option value="read_only">Read-only investigation</option>
+            </select></div><div><label for="task-resume">Conversation</label><select id="task-resume">
+              <option value="">New agent session</option></select></div></div>
+            <p class="muted">Follow-ups wait until the selected session finishes, then resume its conversation.
+              New jobs also queue behind the current writer. Nothing interrupts or silently steers a live run.</p>
+            <button type="submit" class="primary">Queue agent <span aria-hidden="true">&rarr;</span></button>
+          </form>
+          <article class="card"><div class="card-head"><h2>Work queue</h2><span id="queue-count" class="tag"></span></div>
+            <p class="muted">Jobs persist across restarts. Publication waits for credentials, policy and other GitHub writers.</p>
+            <div id="tasks"></div></article>
+        </div>
+      </section>
+
+      <section id="history" class="tab" hidden>
+        <div class="page-heading"><div><p class="eyebrow">THE FLIGHT RECORDER</p><h1>What ran. What changed.</h1>
+          <p>Reports distinguish proposed work, published repairs, and unresolved sources.</p></div></div>
+        <article class="card"><div class="table-wrap"><table><thead><tr><th>Started / UTC</th><th>Job</th><th>Outcome</th><th>Policy</th><th>Summary</th></tr></thead>
+          <tbody id="history-rows"></tbody></table></div></article>
+      </section>
+
+      <section id="repository" class="tab" hidden>
+        <div class="page-heading"><div><p class="eyebrow">DEVELOP &amp; SHIP</p><h1>The working tree.</h1>
+          <p>Review the worker checkout here. Use the agent workspace to request, test and publish changes.</p></div>
+          <button id="repo-refresh" class="quiet">Refresh repository</button></div>
+        <article class="card"><h2>Status &amp; recent commits</h2><pre id="repo-status">Loading&hellip;</pre></article>
+        <article class="card"><h2>Uncommitted changes</h2><pre id="repo-diff">Loading&hellip;</pre></article>
+      </section>
+
+      <section id="settings" class="tab" hidden>
+        <div class="page-heading"><div><p class="eyebrow">OPERATING ENVELOPE</p><h1>Set the direction.</h1>
+          <p>Human-controlled guidance and policy. Changes apply to future runs, not an active conversation.</p></div></div>
+        <div class="two-col"><form id="guidance-form" class="card"><h2>Persistent instructions</h2>
+          <label for="guidance">Guidance for every future agent run</label>
+          <textarea id="guidance" rows="12" placeholder="Priorities, acceptance criteria, or areas that need special attention."></textarea>
+          <button type="submit" class="primary">Save guidance</button></form>
+          <article class="card"><h2>Publication policy</h2><p id="policy-label"></p>
+            <p>Read-only also suppresses calendar publication dispatches. Publish mode never bypasses authentication,
+              writer checks, source evidence, or validation. Existing unknown preference fields are preserved.</p>
+            <button id="policy-toggle" class="quiet">Change future-run policy</button>
+            <hr><h2>Bounded by design</h2><p>Agents have a 45-minute budget, a single checkout writer lock,
+              and the existing service restrictions. They can improve this website and repository automation;
+              they cannot reconfigure their own host permissions or operator services.</p></article></div>
+        <article class="card"><h2>Operator activity</h2><pre id="operator-events"></pre></article>
+      </section>
+
+      <section id="run-detail" class="card" hidden>
+        <div class="card-head"><div><p class="eyebrow">RUN INSPECTOR</p><h2 id="run-title"></h2></div>
+          <div class="button-row"><button id="follow-up" class="quiet">Send follow-up</button><button id="close-run" class="quiet">Close</button></div></div>
+        <div class="two-col"><div><h3>Final report</h3><pre id="report"></pre></div>
+          <div><h3>Agent output <span class="muted">/ auto-refreshing</span></h3><pre id="agent-log"></pre></div></div>
+      </section>
+      <footer>F1 COMMENTARY CONTROL ROOM <span>Evidence before confidence. Verification before publication.</span></footer>
+    </main>
+  </div>
+</body>
+</html>

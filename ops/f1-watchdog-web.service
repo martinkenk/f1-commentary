@@ -1,0 +1,22 @@
+[Unit]
+Description=Private HTTPS F1 automation control room
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=%h/.config/f1-watchdog-web/environment
+ExecStart=%h/.local/share/f1-watchdog/venv/bin/python3 %h/.local/share/f1-watchdog/web/watchdog_web.py --origin ${F1_WEB_ORIGIN}
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=%h/.local/state/f1-watchdog %h/.config/f1-watchdog-web
+ReadOnlyPaths=%h/.ssh
+MemoryMax=256M
+TasksMax=48
+
+[Install]
+WantedBy=default.target

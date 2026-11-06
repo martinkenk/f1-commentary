@@ -12,6 +12,11 @@ import urllib.error
 import urllib.request
 import uuid
 
+try:
+    from . import agent_queue
+except ImportError:
+    import agent_queue
+
 ROOT = Path(__file__).resolve().parents[1]
 STATE = Path.home() / ".local/state/f1-watchdog"
 REPOSITORY = "martinkenk/f1-commentary"
@@ -127,9 +132,20 @@ def run(audit_only=False, timeout=2700):
         latest_path = STATE / "latest.json"
         status = {"started_at": started.isoformat(), "run_id": run_id,
                   "status": "running", "report": str(result_path)}
+        task = None
         try:
+            task = agent_queue.claim(STATE, run_id)
+            if task:
+                status["task_id"] = task["id"]
+                status["task_title"] = task["title"]
+                audit_only = audit_only or task["mode"] == "read_only"
             previous = json.loads(latest_path.read_text()) if latest_path.exists() else None
             preferred_audit, guidance = operator_settings(STATE)
+            preferences = STATE / "preferences.json"
+            if preferences.exists():
+                blocker = json.loads(preferences.read_text()).get("agent_blocked_reason")
+                if blocker:
+                    raise RuntimeError(f"Operator agent blocker: {blocker}")
             audit_only = audit_only or preferred_audit
             status["session_id"] = str(uuid.uuid4())
             write_json(latest_path, status)
@@ -166,6 +182,15 @@ def run(audit_only=False, timeout=2700):
                         "Fast-forward failed; preserve and inspect unpublished local commits. "
                         + merge.stderr.strip())
             write_json(latest_path, status)
+            if task and task["mode"] == "publish" and not writable:
+                reason = status.get("publication_deferred") or status.get(
+                    "authentication_required") or "Operator policy is read-only"
+                agent_queue.update(
+                    STATE, task["id"], status="queued", error=reason,
+                    not_before=(started + dt.timedelta(minutes=5)).isoformat())
+                task = None
+                status.update(status="blocked", summary=f"Operator job remains queued: {reason}")
+                return 0
             prompt = (ROOT / "ops/watchdog-context.md").read_text()
             request = STATE / "repair-request.json"
             if request.exists():
@@ -185,6 +210,26 @@ def run(audit_only=False, timeout=2700):
                 "Do not edit or delete the operator's guidance or preferences.\n"
                 f"{guidance or '(No additional guidance.)'}\n"
             )
+            if task:
+                if task.get("resume_run"):
+                    prior = STATE / "runs" / task["resume_run"]
+                    record = json.loads((prior / "status.json").read_text())
+                    session = record.get("session_id")
+                    if not session:
+                        raise ValueError("Selected run has no resumable session ID")
+                    uuid.UUID(session)
+                    status["session_id"] = session
+                    write_json(latest_path, status)
+                prompt += (
+                    "\n## Explicit operator task (browser control room)\n"
+                    "Complete this task instead of a general coverage sweep. Relevant website "
+                    "features, tests and repository automation improvements are authorized, "
+                    "within the publication mode and authority boundaries above. Validate "
+                    "changes, publish only when permitted, verify live results and write the "
+                    "required report for THIS invocation. Do not change host services, "
+                    "credentials, web authentication or your own permissions. Do not install "
+                    "operator-service updates yourself; report when installation is required.\n"
+                    f"Task: {task['title']}\n{task['prompt']}\n")
             code = run_agent(agent_arguments(prompt, report_dir / "cli", status["session_id"]),
                              report_dir / "agent.log", timeout)
             status["agent_exit_code"] = code
@@ -216,6 +261,10 @@ def run(audit_only=False, timeout=2700):
             status["finished_at"] = dt.datetime.now(dt.timezone.utc).isoformat()
             write_json(report_dir / "status.json", status)
             write_json(latest_path, status)
+            if task:
+                agent_queue.update(STATE, task["id"], status=status["status"],
+                                   finished_at=status["finished_at"],
+                                   summary=status.get("summary"), error=status.get("error"))
 
 
 if __name__ == "__main__":

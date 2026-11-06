@@ -125,6 +125,74 @@ An interactive success, CLI upgrade or timer restart alone is not that proof.
 
 ## Operations
 
+### Browser control room
+
+`ops/watchdog_web.py` adds a private, standalone HTTPS application; it is not
+part of the public Pages site. The Overview shows calendar freshness, deadlines,
+source findings, worker state, latest outcome and service journal. Agent workspace
+accepts prompted repair/development jobs and follow-up instructions. Run history
+provides reports and auto-refreshing output; Repository shows status, recent
+commits and a bounded tracked-code diff. Operating policy edits persistent guidance
+and read-only/publish preference without dropping other preference fields.
+
+Jobs are durable files under `tasks/` in the existing state directory, with
+operator events in `operator-events.jsonl`. The web dispatcher checks every five
+seconds; the existing watchdog claims jobs under its writer lock, never starting
+concurrent checkout writers. Follow-ups resume the selected Copilot conversation
+after it finishes. Instructions do not enter a live running session. Publishing
+jobs wait and retry after five minutes when policy, authentication or an active
+GitHub writer prevents publication. Read-only jobs remain read-only. Cancel only
+affects queued jobs; Stop preserves unfinished edits. Pausing the calendar does
+not cancel explicitly queued jobs.
+
+Website features can be implemented, tested and published entirely from prompts
+in the browser. Agents retain their existing 45-minute budget, source contracts,
+service hardening, path/domain permissions and publication checks. Operator
+service installation, credentials and changes to their own authority are not
+delegated to those agents. Use the existing authenticated browser terminal for
+exceptional operator maintenance, not a second concurrent checkout writer.
+
+Install reviewed application files outside the worker checkout:
+
+```bash
+python3 ops/install_web.py --origin https://<operator-host>:8443
+```
+
+The installer checks that the worker is idle and queue-capable, installs reviewed
+code and the service, creates owner-only configuration, and starts the web UI.
+It preserves existing authentication/certificates and prints the public certificate
+fingerprint. It writes `F1_WEB_ORIGIN` into the private file
+`~/.config/f1-watchdog-web/environment`. Pre-supply `cert.pem` and `key.pem` there
+for trusted LAN TLS, otherwise it generates a long-lived self-signed certificate
+with the correct hostname/IP subject alternative name. Verify its fingerprint
+before accepting the browser warning. The listener binds to container loopback port
+8443; route that port through the container's existing LAN proxy mechanism.
+Do not open an unauthenticated listener, publish it on the Internet, or modify
+the TrueNAS management webserver. Certificate renewal is an operator responsibility.
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable --now f1-watchdog-web.service
+~/.local/share/f1-watchdog/venv/bin/python3 \
+  ~/.local/share/f1-watchdog/web/watchdog_web.py --setup-code
+```
+
+Generate the first-login code only inside the existing authenticated operator
+terminal; the deployment's `f1-web-access` convenience launcher does this.
+The code expires in 30 minutes and is single-use. The browser exchanges it for
+a password of at least 12 characters; only a salted scrypt hash is stored.
+HTTPS-only, HttpOnly, SameSite cookies expire after 12 hours; restarts invalidate
+sessions. Mutation endpoints require a session, CSRF token and the configured
+Host/Origin. Failed logins are throttled, request/log sizes are bounded, and
+all source/report/prompt content is displayed as text, not executable markup.
+Keep the config directory owner-only and outside the agent's writable paths.
+No new GitHub/Copilot credentials are created or copied.
+
+Install `agent_queue.py` alongside the worker's updated `watchdog.py` before
+enabling this service. Updating a checkout alone does not update the installed UI.
+After installation verify authenticated status/logs, an actual bounded read-only
+agent job, and that `f1-calendar.timer` remains enabled with fresh ticks.
+
 ### Curses console (recommended)
 
 Use the operator's existing terminal or SSH connection (see the private local
