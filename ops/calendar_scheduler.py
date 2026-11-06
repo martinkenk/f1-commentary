@@ -210,7 +210,7 @@ def heartbeat(state, preferences, now):
 def tick(now=None):
     now = now or dt.datetime.now(UTC)
     state = health.read(STATE / "scheduler.json")
-    state.update(checked_at=now.isoformat(), errors=[])
+    state.update(checked_at=now.isoformat(), errors=[], execution_errors=[])
     preferences = health.read(STATE / "preferences.json")
     try:
         # The clock has its own checkout: agent edits can never change the running scheduler.
@@ -224,7 +224,9 @@ def tick(now=None):
             live = fetch_json(LIVE + f"?t={now.strftime('%Y%m%d%H%M')}")
         except (OSError, ValueError) as error:
             live = None
-            state["errors"].append(f"Live publication evidence unavailable: {error}")
+            message = f"Live publication evidence unavailable: {error}"
+            state["errors"].append(message)
+            state["execution_errors"].append(message)
         state["live_generated_at"] = live["generated_at"] if live else None
         runs = api(f"repos/{watchdog.REPOSITORY}/actions/workflows/deploy.yml/runs?per_page=30")["workflow_runs"]
         busy = reconcile_request(state, runs, live, now)
@@ -339,14 +341,22 @@ def tick(now=None):
                 state["agent_requested_at"] = now.isoformat()
     except (OSError, ValueError, KeyError, RuntimeError, subprocess.TimeoutExpired) as error:
         state["errors"].append(str(error))
+        state["execution_errors"].append(str(error))
     finally:
         try:
             heartbeat(state, preferences, now)
         except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:
-            state["errors"].append(f"Health issue update failed: {error}")
+            message = f"Health issue update failed: {error}"
+            state["errors"].append(message)
+            state["execution_errors"].append(message)
+        state["health_status"] = ("error" if state["execution_errors"] else
+                                  "attention" if state["errors"] else "healthy")
         watchdog.write_json(STATE / "scheduler.json", state)
-    print(json.dumps({key: state.get(key) for key in ("checked_at", "errors", "pending", "request")}, indent=2))
-    return int(bool(state["errors"]))
+    print(json.dumps({key: state.get(key) for key in (
+        "checked_at", "health_status", "errors", "execution_errors", "pending", "request")}, indent=2))
+    # A completed monitoring check is not a service failure merely because it
+    # detected a coverage gap. Findings still drive retries and health alerts.
+    return int(bool(state["execution_errors"]))
 
 
 def main():

@@ -66,6 +66,13 @@ contaminated by unfinished agent edits. The repair worker retains its own lock
 and 45-minute budget. The clock keeps collecting if Copilot is unavailable.
 Logs/state are owner-only.
 
+A completed calendar check exits successfully even when it detects coverage
+findings, overdue publication or an agent blocker. These remain in `errors`,
+drive retries/health-issue alerts, and set `health_status` to `attention`; service
+success is not a claim of complete coverage. Actual execution failures (repository,
+API, live-evidence access or heartbeat errors) also populate `execution_errors`,
+set `health_status` to `error`, and exit nonzero. A clean check is `healthy`.
+
 `preferences.json` retains `audit_only` and adds `health_issue` (the issue number).
 `agent_blocked_reason`, when present, prevents repeated paid agent attempts and
 is prominently reported. Clear it only after resolving the underlying failure

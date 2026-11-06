@@ -33,6 +33,57 @@ def live(now):
 
 
 class CalendarTests(unittest.TestCase):
+    def test_completed_check_with_editorial_findings_is_attention_not_service_failure(self):
+        now = at("2026-11-06T12:00")
+        evidence = live(now)
+        evidence["findings"] = [{"gp": "brazil", "kind": "editorial",
+                                 "message": "The previous editorial briefing has expired."}]
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory)
+            (state_path / "preferences.json").write_text('{"health_issue":115}')
+            (state_path / "scheduler.json").write_text(json.dumps({
+                "last_coverage_refresh": now.isoformat(), "agent_requested_at": now.isoformat()}))
+            with patch.object(scheduler, "STATE", state_path), \
+                 patch.object(scheduler, "checked", return_value=""), \
+                 patch("build.season_gps", return_value=[]), \
+                 patch.object(scheduler, "fetch_json", return_value=evidence), \
+                 patch.object(scheduler, "api", return_value={"workflow_runs": []}), \
+                 patch.object(scheduler, "heartbeat") as heartbeat:
+                self.assertEqual(scheduler.tick(now), 0)
+            record = json.loads((state_path / "scheduler.json").read_text())
+            self.assertEqual(record["health_status"], "attention")
+            self.assertEqual(record["coverage_findings"], evidence["findings"])
+            self.assertTrue(record["errors"])
+            self.assertEqual(record["execution_errors"], [])
+            heartbeat.assert_called_once()
+
+    def test_scheduler_execution_failure_still_exits_nonzero(self):
+        now = at("2026-11-06T12:00")
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory)
+            with patch.object(scheduler, "STATE", state_path), \
+                 patch.object(scheduler, "checked", side_effect=RuntimeError("Repository fetch failed")), \
+                 patch.object(scheduler, "heartbeat"):
+                self.assertEqual(scheduler.tick(now), 1)
+            record = json.loads((state_path / "scheduler.json").read_text())
+            self.assertEqual(record["health_status"], "error")
+            self.assertEqual(record["execution_errors"], ["Repository fetch failed"])
+
+    def test_heartbeat_failure_is_not_hidden_as_successful_check(self):
+        now = at("2026-11-06T12:00")
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory)
+            with patch.object(scheduler, "STATE", state_path), \
+                 patch.object(scheduler, "checked", return_value=""), \
+                 patch("build.season_gps", return_value=[]), \
+                 patch.object(scheduler, "fetch_json", return_value=live(now)), \
+                 patch.object(scheduler, "api", return_value={"workflow_runs": []}), \
+                 patch.object(scheduler, "heartbeat", side_effect=RuntimeError("GitHub unavailable")):
+                self.assertEqual(scheduler.tick(now), 1)
+            record = json.loads((state_path / "scheduler.json").read_text())
+            self.assertEqual(record["health_status"], "error")
+            self.assertIn("Health issue update failed", record["execution_errors"][0])
+
     def test_calendar_offsets_drive_preflight_and_polling(self):
         jobs = list(scheduler.jobs([context()], at("2026-11-06T14:00")))
         upgrade = next(job for job in jobs if job["kind"] == "upgrades")
