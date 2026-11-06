@@ -58,8 +58,11 @@ def jobs(gps, now, records=None):
             key = identity + "/results"
             if not recent and (key not in (records or {}) or records[key].get("status") == "done"):
                 continue
+            # Race duration varies substantially by venue. Cover short dry races
+            # without declaring a delayed/red-flagged race finished.
+            lead = 60 if label == "Race" else 0 if label == "Starting Grid" else 10
             yield {"key": key, "kind": "results", "ctx": ctx, "label": label,
-                   "due": end - dt.timedelta(minutes=10 if label != "Starting Grid" else 0),
+                   "due": end - dt.timedelta(minutes=lead),
                    "deadline": end + dt.timedelta(minutes=15), "start": start, "url":
                        session_results.source_url(ctx, endpoint)}
 

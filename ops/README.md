@@ -31,7 +31,7 @@ hourly `f1-watchdog.timer` must remain disabled.
 | Trigger | Policy |
 |---|---|
 | Before every session | AI review eligible at T-90 minutes; fresh deterministic collection at T-45, publication deadline T-30 |
-| Session finish | Poll official classifications every 2 minutes from estimated end minus 10 minutes |
+| Session finish | Poll every 2 minutes from estimated end minus 10 minutes; races start polling at T+60 to cover short dry races |
 | Expected durations | Practice/qualifying 60 min, Sprint Qualifying 45, Sprint 30, race 120; final grid from qualifying end |
 | Delayed results | Continue until a validated classification is visible live; after six overdue hours back off to 15-minute polling |
 | Source/editorial gaps | Deterministic retries hourly, then bounded AI repair when permitted; never invent missing information |

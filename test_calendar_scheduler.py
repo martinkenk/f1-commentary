@@ -40,7 +40,7 @@ class CalendarTests(unittest.TestCase):
         self.assertEqual(pre["deadline"], at("2026-11-06T15:00"))
         self.assertEqual(results["due"], at("2026-11-06T16:20"))
         self.assertEqual(results["deadline"], at("2026-11-06T16:45"))
-        self.assertEqual(jobs[-1]["due"], at("2026-11-08T18:50"))
+        self.assertEqual(jobs[-1]["due"], at("2026-11-08T18:00"))
 
     def test_revised_timezone_and_sprint_schedule_change_job_identity(self):
         ctx = context()
