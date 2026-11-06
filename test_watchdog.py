@@ -61,6 +61,26 @@ class WatchdogTests(unittest.TestCase):
             self.assertIn("authentication_required", status)
             self.assertIn("Publication mode: READ_ONLY", prompts[0])
 
+    def test_virtualenv_interpreter_grants_only_its_resolved_binary_directory(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            system_bin = root / "usr/bin"
+            system_bin.mkdir(parents=True)
+            runtime = system_bin / "python3.12"
+            runtime.touch()
+            venv = root / "venv"
+            (venv / "bin").mkdir(parents=True)
+            interpreter = venv / "bin/python3"
+            interpreter.symlink_to(runtime)
+            with patch.object(watchdog.sys, "executable", str(interpreter)), \
+                 patch.object(watchdog.sys, "prefix", str(venv)):
+                args = watchdog.agent_arguments("PROMPT", Path("/tmp/logs"))
+            directories = [args[i + 1] for i, arg in enumerate(args) if arg == "--add-dir"]
+            self.assertEqual(directories, [str(watchdog.STATE), str(venv), str(system_bin.resolve())])
+            self.assertIn(f"shell({interpreter}:*)", args)
+            self.assertNotIn(str(system_bin.resolve().parent), directories)
+            self.assertNotIn("--allow-all-paths", args)
+
     def test_timeout_stops_only_the_started_process_group(self):
         process = unittest.mock.Mock(pid=1234)
         process.wait.side_effect = [subprocess.TimeoutExpired("copilot", 1), 0]

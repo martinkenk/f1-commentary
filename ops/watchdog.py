@@ -61,6 +61,7 @@ def agent_arguments(prompt, report_dir, session_id=None):
         "--deny-tool", "shell(systemctl)", "--deny-tool", "shell(loginctl)",
         "--add-dir", str(STATE), "--log-dir", str(report_dir),
         "--add-dir", sys.prefix,
+        "--add-dir", str(Path(sys.executable).resolve().parent),
         "--allow-tool", f"shell({sys.executable}:*)",
         "--allow-url", "github.com", "--allow-url", "api.github.com",
         "--allow-url", "release-assets.githubusercontent.com",

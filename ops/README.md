@@ -105,6 +105,17 @@ update to 1.0.106 did not clear it. Do not equate timer recovery with permission
 recovery: the calendar collector can run, while AI publication remains explicitly
 blocked until the operator resolves that approval interactively.
 
+The approval investigation identified the separate path gate:
+`venv/bin/python3` resolves to `/usr/bin/python3.12`. The CLI checks the resolved
+target, not just the virtualenv path. An interactive exact-file approval works
+only in that process; resuming it unattended does not retain the grant.
+The owner therefore authorized adding `/usr/bin`. The wrapper grants the
+resolved interpreter's parent directory on every fresh invocation, alongside
+the virtualenv directory and explicit interpreter tool rule. It does not grant
+`/usr`, `/`, unrestricted paths, or an alternate interpreter. Existing
+`ProtectSystem=strict` keeps system binaries read-only; the denied host-management
+commands are unchanged. Recheck this canonical path if the runtime moves.
+
 ## Operations
 
 ### Curses console (recommended)
