@@ -63,6 +63,15 @@ class ComparisonTests(unittest.TestCase):
         self.assertEqual(parsed[0]["status"], "no-time")
         self.assertIsNone(h2h.compare(parsed[0], parsed[1], "Qualifying")[0])
 
+    def test_retired_qualifier_keeps_session_without_inventing_a_position(self):
+        source = page("Qualifying").replace("<td>1</td>", "<td>RT</td>", 1).replace("1:22.000", "", 1)
+        parsed = h2h.parse_classification(source, "Qualifying")
+        self.assertEqual(len(parsed), 20)
+        self.assertEqual(parsed[0]["raw_position"], "RT")
+        self.assertIsNone(parsed[0]["position"])
+        self.assertEqual(parsed[0]["status"], "no-time")
+        self.assertIsNone(h2h.compare(parsed[0], parsed[1], "Qualifying")[0])
+
     def test_classifications_and_exclusions_are_explicit(self):
         self.assertEqual(h2h.compare(driver("AAA", 2), driver("BBB", 8), "Race")[0], 0)
         retired = driver("BBB", None, status="unclassified")

@@ -1,0 +1,63 @@
+{
+  "reviewed_at": "2026-11-06T06:05:00Z",
+  "expires_at": "2026-11-06T16:30:00Z",
+  "through_session": null,
+  "feed_fingerprint": "d0ca282f1fc413be75fa89ddabf9ac4ba8730582f9975824f8a8090ddcae0960",
+  "items": [
+    {
+      "topic": "Driver changes",
+      "title": "Camara makes his Haas race debut; Herta takes Perez's FP1",
+      "date": "2026-11-04",
+      "summary": "Haas confirms Rafael Camara alongside Oliver Bearman for Brazil, with Ocon not returning to its race seat this season and Mexico substitute Hirakawa committed to WEC. Camara is confirmed for this weekend only. Cadillac will field Colton Herta in Sergio Perez's car during FP1.",
+      "why_it_matters": "Camara's full-weekend race debut and Herta's practice-only outing are different. Neither should remain an unpopulated lineup placeholder.",
+      "sources": [
+        {"label": "Formula1.com: Haas announcement", "url": "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"},
+        {"label": "Formula1.com: weekend storylines and Herta outing", "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"}
+      ]
+    },
+    {
+      "topic": "Championship",
+      "title": "Antonelli arrives as champion; Mercedes targets the constructors' title",
+      "date": "2026-11-05",
+      "summary": "Antonelli clinched the Drivers' Championship in Mexico and arrives on 380 points, 119 clear of Verstappen. Mercedes leads Ferrari 630–504. Formula1.com's pre-weekend scenario says gaining three points on Ferrari in Brazil seals the constructors' title.",
+      "why_it_matters": "The drivers' title is settled, but the constructors' title is not yet won. These are entering-Brazil totals, not projected race results.",
+      "sources": [
+        {"label": "Formula1.com: official driver standings", "url": "https://www.formula1.com/en/results/2026/drivers"},
+        {"label": "Formula1.com: official constructor standings", "url": "https://www.formula1.com/en/results/2026/team"},
+        {"label": "Formula1.com: constructors' title scenario", "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"}
+      ]
+    },
+    {
+      "topic": "Tyres and surface",
+      "title": "C3/C4/C5 and resurfaced sections make Friday's long runs important",
+      "date": "2026-11-04",
+      "summary": "Pirelli nominates C3 Hard, C4 Medium and C5 Soft, a step softer than 2025. Sections between Turns 3–5 and 8–9 were resurfaced. The complete poster rates track evolution 5/5 and estimates 22.5 seconds pit-stop loss.",
+      "why_it_matters": "The preview and FIA pressure limits are published now. Driver-by-driver remaining race sets and 2026 strategy windows still require later sources; last year's two-stop race is context, not this year's recommendation.",
+      "sources": [
+        {"label": "Formula1.com / Pirelli: full event preview", "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-sao-paulo-grand-prix.bjn9KJgqDprqvVr9z7i5V"},
+        {"label": "FIA: tyre prescriptions", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_competition_notes_-_pirelli_preview.pdf"}
+      ]
+    },
+    {
+      "topic": "Ferrari",
+      "title": "Hamilton says face-to-face talks still needed after Mexico",
+      "date": "2026-11-05",
+      "summary": "Hamilton said on Thursday that the planned discussions with Leclerc had not yet taken place after their opening-lap Mexico battle. He wants Ferrari to establish a stronger working basis for the next campaign.",
+      "why_it_matters": "Do not turn a planned meeting into a completed resolution or invent team orders. Watch for a subsequent confirmed outcome.",
+      "sources": [
+        {"label": "Formula1.com: Hamilton's Thursday comments", "url": "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-talks-ahead-of-sao-paulo-grand-prix-after-intra-team-battle-with-leclerc.3JXGpQWTdOA2a9PiH7NL8X"}
+      ]
+    },
+    {
+      "topic": "McLaren upgrades",
+      "title": "Norris confirms small changes but gives no drivability guarantee",
+      "date": "2026-11-05",
+      "summary": "McLaren brings updates to Brazil, with Norris hoping for performance gains while cautioning that they might not make the car easier to drive. The early-Friday FIA listing includes the display procedure but not yet the component submissions.",
+      "why_it_matters": "Separate driver-reported development from the official component filing and measured performance. The Friday display is 11:00–12:00 BRT.",
+      "sources": [
+        {"label": "Formula1.com: Norris on Brazil updates", "url": "https://www.formula1.com/en/latest/article/want-to-believe-that-we-can-still-make-improvements-norris-wary-of-new-mclaren-upgrades-in-sao-paulo.6NvdXqDIqBz1Mw1xveJv0k"},
+        {"label": "FIA: car display procedure", "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_display_procedure.pdf"}
+      ]
+    }
+  ]
+}

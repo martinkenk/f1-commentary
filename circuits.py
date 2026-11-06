@@ -371,14 +371,20 @@ CIRCUITS = {
             ("Subida dos Boxes", "The long, climbing final sequence onto the pit straight — exit speed here sets up the next lap's pass."),
         ],
         "overtaking": (
-            "Very good. A long uphill straight with DRS into a downhill braking zone, plus "
+            "Very good. A long uphill straight into a downhill braking zone, plus "
             "several secondary opportunities. Interlagos reliably produces genuine racing."
         ),
         "tyre_notes": (
-            "Anti-clockwise loading stresses the right-hand tyres and the neck. The surface "
-            "is bumpy and the short lap means high stint lap counts and traffic management."
+            "Anti-clockwise loading stresses the right-hand tyres and the neck. Sections "
+            "between Turns 3–5 and Turns 8–9 were resurfaced in 2026. Pirelli rates track "
+            "evolution 5/5; practice must establish degradation on the new surface."
         ),
-        "drs": 2,
+        "straight_mode_zones": 2,
+        "overtake_zones": 1,
+        "tyre_compounds": ("C3 Hard", "C4 Medium", "C5 Soft"),
+        "tyre_compounds_source": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-sao-paulo-grand-prix.bjn9KJgqDprqvVr9z7i5V",
+        "tyre_preview_asset": "brazil_pirelli_tyres_2026.webp",
+        "tyre_preview_source": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-sao-paulo-grand-prix.bjn9KJgqDprqvVr9z7i5V",
         "lap_record": "1:10.540 — Valtteri Bottas, 2018",
         "notes": [
             "First Grand Prix: 1973.",

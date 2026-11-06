@@ -51,17 +51,6 @@ jobs:
           python3 -m pip install --quiet Pillow
           python3 -m unittest discover -p 'test_*.py'
 
-      - name: Refresh official championship standings
-        id: standings
-        continue-on-error: true
-        run: python3 standings.py
-
-      - name: Report stale standings fallback
-        if: steps.standings.outcome == 'failure'
-        run: |
-          echo "::warning::Official standings refresh failed. Publishing the last timestamped snapshot."
-          echo "## Standings refresh failed — serving last successful snapshot" >> "$GITHUB_STEP_SUMMARY"
-
       - name: Refresh calendar weekly and active track maps every run
         id: calendar
         # Session times, circuit stats and track maps occasionally change as F1
@@ -212,6 +201,19 @@ jobs:
         run: |
           echo "::warning::Official session results refresh incomplete. Retaining sourced last-good classifications."
           echo "## Session results incomplete — inspect session_results.json source statuses" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Refresh official championship standings
+        id: standings
+        continue-on-error: true
+        # Classifications must be available before accepting updated points, so
+        # the standings checkpoint cannot lag points already in the snapshot.
+        run: python3 standings.py
+
+      - name: Report stale standings fallback
+        if: steps.standings.outcome == 'failure'
+        run: |
+          echo "::warning::Official standings refresh failed. Publishing the last timestamped snapshot."
+          echo "## Standings refresh failed — serving last successful snapshot" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Persist enrichment data
         # Commit data/ (calendar, news_auto.json, penalties_auto.json, _seen.json)

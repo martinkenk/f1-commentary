@@ -137,6 +137,7 @@ class StandingsTests(unittest.TestCase):
             }
             with patch.object(standings, "snapshot_path", return_value=path), \
                     patch.object(standings, "_new_race_results", return_value=[race]), \
+                    patch.object(standings, "_missing_race_checkpoints", return_value=[]), \
                     patch("urllib.request.urlopen",
                           side_effect=[
                               io.BytesIO(source_table(drivers, "drivers").encode()),
@@ -173,6 +174,69 @@ class StandingsTests(unittest.TestCase):
         self.assertNotIn("overdue", fresh["notice"])
         self.assertIn("overdue", stale["notice"])
         self.assertIn("10 Sep 2026", stale["as_of"])
+
+    def test_race_checkpoint_not_fetch_timestamp_controls_reconciliation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "data/test").mkdir(parents=True)
+            event = {"round": 16, "slug": "test", "name": "Test GP", "race_date": "2026-10-04"}
+            (root / "data/calendar_2026.json").write_text(json.dumps(
+                {"year": 2026, "events": [event]}))
+            (root / "data/test/session_results.json").write_text(json.dumps({
+                "event": {"year": "2026", "gp": "test"},
+                "sessions": [{
+                    "label": "Race", "fetched_at": "2026-10-04T09:00:00+00:00",
+                    "source_url": "https://www.formula1.com/results",
+                    "headers": ["Driver", "Team", "Pts."],
+                    "rows": [["Winner WIN", "Team", "25"]],
+                }],
+            }))
+            previous = {"results_round": 15, "fetched_at": "2026-10-04T10:00:00+00:00"}
+            with patch.object(standings, "ROOT", root):
+                races = standings._new_race_results(previous, 2026)
+                self.assertEqual(races[0]["driver_points"], {"WIN": 25})
+                previous["results_round"] = 16
+                self.assertEqual(standings._new_race_results(previous, 2026), [])
+
+    def test_unclassified_race_blocks_changed_points_but_not_future_races(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "data").mkdir()
+            (root / "data/calendar_2026.json").write_text(json.dumps({
+                "events": [{"round": 16, "name": "Test GP", "race_date": "2026-10-04",
+                            "sessions": [{"label": "Race", "date": "2026-10-04",
+                                          "time": "15:00", "gmt_offset": "+08:00"}]}],
+            }))
+            prior = {"results_round": 15, "fetched_at": "2026-10-03T10:00:00+00:00"}
+            with patch.object(standings, "ROOT", root):
+                before = datetime.datetime(2026, 10, 4, 6, tzinfo=datetime.timezone.utc)
+                after = datetime.datetime(2026, 10, 4, 10, tzinfo=datetime.timezone.utc)
+                self.assertEqual(standings._missing_race_checkpoints(prior, [], 2026, before), [])
+                self.assertEqual(standings._missing_race_checkpoints(prior, [], 2026, after), ["Test GP"])
+                self.assertEqual(standings._missing_race_checkpoints(
+                    prior, [{"round": 16}], 2026, after), [])
+
+    def test_refresh_refuses_new_totals_without_classification_checkpoint(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "standings.json"
+            prior = {"year": 2026, "fetched_at": "2026-10-04T06:00:00+00:00",
+                     "results_round": 15,
+                     "drivers": standings.parse_table(table("drivers"), "drivers"),
+                     "constructors": standings.parse_table(table("team"), "team")}
+            path.write_text(json.dumps(prior))
+            with patch.object(standings, "snapshot_path", return_value=path), \
+                    patch.object(standings, "_new_race_results", return_value=[]), \
+                    patch.object(standings, "_missing_race_checkpoints", return_value=["Test GP"]), \
+                    patch("urllib.request.urlopen", side_effect=[
+                        io.BytesIO(table("drivers", 125).encode()), io.BytesIO(table("team", 125).encode())]):
+                with self.assertRaisesRegex(ValueError, "Cannot checkpoint changed standings"):
+                    standings.refresh()
+            self.assertEqual(json.loads(path.read_text()), prior)
+
+    def test_deployment_collects_classifications_before_standings(self):
+        workflow = (Path(__file__).parent / ".github/workflows/deploy.yml").read_text()
+        self.assertLess(workflow.index("run: python3 session_results.py"),
+                        workflow.index("run: python3 standings.py"))
 
     def test_missing_snapshot_is_not_fabricated(self):
         with patch.object(standings, "load_snapshot", return_value={}):

@@ -280,6 +280,28 @@ points. Tables and all current headline/gap prose use the same context `summary`
 `as_of`, `notice`, driver and constructor rows. More than 24h old warns visibly.
 Current season totals are not historical "entering this GP" standings.
 
+Refresh `session_results.py` before `standings.py`. The standings
+`results_round` checkpoint, not the classification's download timestamp,
+determines which race points are still to be reconciled. If a race has started
+but its classification is unavailable, do not accept changed standings with an
+older checkpoint. Keep the previous snapshot and report the missing prerequisite.
+The 6 November audit traced month-old standings to commit `c66010c67`: every
+4 October points increase matched Sepang's race awards, but its checkpoint
+remained round 15. The next run therefore added round 16 again. The repair
+verified that historical transition, corrected the checkpoint to 16, and then
+refreshed both official tables through Mexico (round 19). Do not "repair" future
+mismatches by arbitrarily advancing checkpoints or bypassing reconciliation.
+
+São Paulo's reviewed preparation lives in `content_brazil.py`: distinguish
+Camara's Brazil race debut from Herta's Perez-car FP1 outing, two Straight Mode
+zones from one Overtake activation, and the full Pirelli preview from post-
+qualifying remaining sets. `timetable` PDFs, including numbered revisions,
+route to Schedule alongside visas. At the 6 November pre-practice review,
+component submissions and driver PU-usage lists were not in the seven-document
+listing; a display procedure is not an upgrade declaration. Refresh reviewed
+news after reading actual article bodies; an unmerged briefing PR is not live
+and is not a reason to skip the audit.
+
 ## 4. Sources, historical records, FIA PDFs and images
 
 Primary sources first: FIA decisions/technical papers, Formula1.com official

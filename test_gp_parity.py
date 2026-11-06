@@ -9,6 +9,7 @@ from unittest.mock import mock_open, patch
 import build
 import content_azerbaijan
 import content_bahrain
+import content_brazil
 import content_generic
 import content_italy
 import content_singapore
@@ -20,7 +21,7 @@ class GPParityTests(unittest.TestCase):
     def setUp(self):
         self.contexts = {
             ctx["dir"]: ctx for ctx in build.season_gps()
-            if ctx["dir"] in ("italy", "spain", "bahrain", "singapore")
+            if ctx["dir"] in ("italy", "spain", "bahrain", "singapore", "brazil")
         }
         for slug, ctx in self.contexts.items():
             ctx.update(status="past", results=[], extra={}, weather={}, weather_ok=False)
@@ -45,6 +46,38 @@ class GPParityTests(unittest.TestCase):
         ctx = self.contexts["singapore"].copy()
         ctx["status"] = "live"
         return content_singapore.build_pages(ctx, self.env)
+
+    def test_brazil_published_lineup_replaces_pending_placeholders(self):
+        ctx = dict(self.contexts["brazil"], status="live")
+        self.assertIs(build.BESPOKE["brazil"], content_brazil.build_pages)
+        pages = content_brazil.build_pages(ctx, self.env)
+        for slug in ("rookies", "overview", "teams", "notes"):
+            self.assertIn("Rafael Camara", pages[slug]["body"])
+            self.assertIn("Colton Herta", pages[slug]["body"])
+            self.assertIn("Sergio Perez", pages[slug]["body"])
+        self.assertNotIn("awaiting a verified update", pages["rookies"]["body"])
+        self.assertIn("whole Sao Paulo weekend", pages["rookies"]["body"])
+        self.assertIn("practice outing, not a confirmed change", pages["rookies"]["body"])
+
+    def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
+        ctx = dict(self.contexts["brazil"], status="live")
+        pages = content_brazil.build_pages(ctx, self.env)
+        tyres = pages["tyres"]["body"]
+        self.assertIn("brazil_pirelli_tyres_2026.webp", tyres)
+        self.assertIn("brazil-tyre-limits", tyres)
+        self.assertNotIn("Pirelli's compound allocation:", tyres)
+        self.assertIn("tyre-preview-img", tyres)
+        self.assertIn("brazil-energy-limits", pages["powerunit"]["body"])
+        self.assertNotIn("once it is issued", pages["powerunit"]["body"])
+        self.assertIn("Two Straight Mode zones, one Overtake activation", pages["circuit"]["body"])
+        self.assertIn("not yet the Car Presentation Submissions", pages["upgrades"]["body"])
+        for slug in ("tyres", "powerunit", "circuit"):
+            body = pages[slug]["body"]
+            for asset in re.findall(r'src="\.\./assets/([^"]+)"', body):
+                self.assertTrue((Path(build.ROOT) / "assets_src" / asset).is_file(), asset)
+            media = f1lib.render_fia_media(ctx, slug, body)
+            for asset in re.findall(r'src="\.\./assets/(fia-[^"]+)"', body):
+                self.assertNotIn(asset, media)
 
     def test_all_seventeen_surfaces_are_authored_or_engine_provided(self):
         engine_pages = {"results", "news", "h2h", "reliability", "penalties"}

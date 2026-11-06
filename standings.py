@@ -129,7 +129,6 @@ def _new_race_results(snapshot, year, now=None):
     calendar = json.loads(calendar_path.read_text(encoding="utf-8"))
     if int(calendar.get("year", 0)) != year or not isinstance(calendar.get("events"), list):
         raise ValueError(f"Invalid {year} calendar while checking standings freshness")
-    previous_fetched = datetime.datetime.fromisoformat(snapshot["fetched_at"])
     after_round = _previous_results_round(snapshot, calendar)
     now = now or datetime.datetime.now(datetime.timezone.utc)
     races = []
@@ -151,8 +150,6 @@ def _new_race_results(snapshot, year, now=None):
         if not race:
             continue
         fetched_at = datetime.datetime.fromisoformat(race["fetched_at"])
-        if fetched_at <= previous_fetched:
-            continue
         headers = [header.lower().rstrip(".") for header in race["headers"]]
         required = ("driver", "team", "pts")
         if any(column not in headers for column in required):
@@ -186,6 +183,31 @@ def _new_race_results(snapshot, year, now=None):
             "driver_names": driver_names,
         })
     return races
+
+
+def _missing_race_checkpoints(previous, races, year, now=None):
+    """Do not accept changed totals ahead of the classification checkpoint."""
+    path = ROOT / "data" / f"calendar_{year}.json"
+    if not path.exists():
+        return []
+    calendar = json.loads(path.read_text(encoding="utf-8"))
+    after_round = _previous_results_round(previous, calendar)
+    covered = {race["round"] for race in races}
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    missing = []
+    for event in calendar["events"]:
+        if int(event["round"]) <= after_round or int(event["round"]) in covered:
+            continue
+        race = next((s for s in event.get("sessions", []) if s["label"] == "Race"), None)
+        if race:
+            start = datetime.datetime.fromisoformat(
+                f'{race["date"]}T{race["time"]}:00{race["gmt_offset"]}')
+            started = start <= now
+        else:
+            started = datetime.date.fromisoformat(event["race_date"]) < now.date()
+        if started:
+            missing.append(event["name"])
+    return missing
 
 
 def _race_points_mismatches(previous, current, races):
@@ -249,6 +271,13 @@ def refresh(year=SEASON):
             if missing:
                 raise ValueError(f"Official {key} table lost recorded entries: {sorted(missing)}")
         races = _new_race_results(previous, year)
+        if any(previous[key] != snapshot[key] for key in ("drivers", "constructors")):
+            missing = _missing_race_checkpoints(previous, races, year)
+            if missing:
+                raise ValueError(
+                    "Cannot checkpoint changed standings without official Race classifications "
+                    f"for {', '.join(missing)}; retaining the previous snapshot. "
+                    "Refresh session_results.py before standings.py.")
         mismatches = _race_points_mismatches(previous, snapshot, races)
         if mismatches:
             now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")

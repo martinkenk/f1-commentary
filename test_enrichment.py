@@ -88,7 +88,7 @@ class EnrichmentTests(unittest.TestCase):
         }, ctx))
 
     def test_safety_and_compliance_filings_have_visible_destinations(self):
-        for filename in ("heat_hazard_declaration.pdf", "competition_visa.pdf"):
+        for filename in ("heat_hazard_declaration.pdf", "competition_visa.pdf", "timetable_v3.pdf"):
             self.assertEqual(f1lib.fia_document_categories(filename), ["schedule"])
         self.assertEqual(f1lib.fia_document_categories(
             "post-race_checks_on_car_number_16_2026_azerbaijan_gp.pdf"), ["powerunit"])

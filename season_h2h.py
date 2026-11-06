@@ -63,7 +63,7 @@ def parse_classification(page, kind):
             raise ValueError(f"Invalid or duplicate driver identity: {values['driver']}")
         seen.add(code)
         raw = values["pos"].upper()
-        if not raw.isdigit() and raw not in ("NC", "DNF", "DNS", "DSQ", "DQ"):
+        if not raw.isdigit() and raw not in ("NC", "DNF", "RT", "DNS", "DSQ", "DQ"):
             raise ValueError(f"Unknown classification position: {raw!r}")
         position = int(raw) if raw.isdigit() else None
         if position is not None and position < 1:
