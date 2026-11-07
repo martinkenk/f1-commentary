@@ -66,6 +66,17 @@ contaminated by unfinished agent edits. The repair worker retains its own lock
 and 45-minute budget. The clock keeps collecting if Copilot is unavailable.
 Logs/state are owner-only.
 
+The wrapper enforces a finalization reserve, rather than relying only on prompt
+deadlines. After 35 minutes of a normal 45-minute run it stops that agent process
+group, captures retained-work evidence in `interruption.json`, and resumes the
+same conversation once with a finalization-only instruction. Setup and shutdown
+time count against the original deadline. The final turn must validate and finish
+existing work or record an explicit blocker, not restart research or wait for
+Pages. Existing authority and writer checks still apply; failed validation never
+authorizes a push. Both phases append to `agent.log`, and any provisional report
+is preserved as `report-before-finalization.json`. A second timeout remains a
+visible failure with fresh retained-work evidence, never automatic success.
+
 A completed calendar check exits successfully even when it detects coverage
 findings, overdue publication or an agent blocker. These remain in `errors`,
 drive retries/health-issue alerts, and set `health_status` to `attention`; service

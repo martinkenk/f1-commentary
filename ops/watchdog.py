@@ -104,7 +104,7 @@ def operator_settings(state=STATE):
 
 
 def run_agent(args, log, timeout):
-    with log.open("w") as output:
+    with log.open("a") as output:
         process = subprocess.Popen(args, cwd=ROOT, stdout=output, stderr=subprocess.STDOUT,
                                    start_new_session=True)
         try:
@@ -114,8 +114,13 @@ def run_agent(args, log, timeout):
             try:
                 process.wait(timeout=20)
             except subprocess.TimeoutExpired:
+                pass
+            # A CLI can exit before a child command; do not overlap it with finalization.
+            try:
                 os.killpg(process.pid, signal.SIGKILL)
-                process.wait()
+            except ProcessLookupError:
+                pass
+            process.wait()
             return 124
 
 
@@ -136,6 +141,25 @@ def budget_instructions(started, timeout):
         "Never use an unbounded gh run watch: check status with bounded calls, spend at most "
         "two minutes waiting in total, then report pending deployment for a later invocation. "
         "Do not repeat a completed audit or start unrelated work on a resumed conversation.\n"
+    )
+
+
+def finalization_instructions(status, result_path, deadline):
+    return (
+        "The investigation phase reached its wall-clock limit and its process group was stopped. "
+        "This is the single reserved FINALIZATION turn in the SAME conversation, not a new audit. "
+        f"Publication mode remains {status['mode']}; all original permission and source boundaries apply. "
+        f"Finish before {deadline.isoformat()}. Write the final report to {result_path} now, "
+        "then update it only as completion is verified. Inspect git status and the last commands for "
+        "interrupted operations; preserve all edits. Do not reread the entire runbook, start new "
+        "research, refresh sources, or expand the scope. Finish only already-understood work that "
+        "can be validated within this remaining budget. Never skip failing checks to publish. "
+        "Recheck active writers and origin/main before any normal push; defer on conflicts. "
+        "If a repair was pushed, record its full commit and deployment URL and report publication "
+        "as pending unless live evidence is already verified. Do not wait for a deployment: the "
+        "calendar verifies publication independently. If validation or safe publication cannot "
+        "finish, report blocked with exact retained files, commands/failures and next steps, then exit. "
+        "Do not repeat completed work or start another autopilot task after writing the report."
     )
 
 
@@ -267,6 +291,8 @@ def run(audit_only=False, timeout=2700):
                 f"Publication mode: {status['mode']}\n"
                 f"Checkout: {ROOT}\nState directory: {STATE}\n"
                 f"Required final report: {result_path}\n"
+                "Live health evidence: https://martinkenk.github.io/f1-commentary/automation-health.json "
+                "(fetch this URL; no local state-directory copy is supplied).\n"
                 f"Interpreter: {sys.executable}\n"
                 f"Hard execution limit: {timeout} seconds; reserve the last 10 minutes "
                 "for validation, publication and the report.\n"
@@ -294,9 +320,28 @@ def run(audit_only=False, timeout=2700):
                 status["status"] = "timed_out"
                 status["error"] = "Execution budget exhausted during setup; agent was not started"
                 return 124
+            reserve = min(600, timeout / 3)
+            # Leave room to stop the first process group and finish before the hard deadline.
+            finalize = reserve >= 60 and remaining > reserve
             code = run_agent(agent_arguments(prompt, report_dir / "cli", status["session_id"],
                                             resume=bool(task and task.get("resume_run"))),
-                             report_dir / "agent.log", remaining)
+                             report_dir / "agent.log", remaining - reserve if finalize else remaining)
+            if code == 124 and finalize:
+                status["investigation_exit_code"] = code
+                checkpoint = incomplete_report(status)
+                write_json(report_dir / "interruption.json", checkpoint)
+                if result_path.exists():
+                    (report_dir / "report-before-finalization.json").write_bytes(result_path.read_bytes())
+                resumed_at = dt.datetime.now(dt.timezone.utc)
+                remaining = timeout - (resumed_at - started).total_seconds() - 20
+                if remaining > 0:
+                    status.update(phase="finalizing", finalization_started_at=resumed_at.isoformat())
+                    write_json(latest_path, status)
+                    deadline = started + dt.timedelta(seconds=timeout - 20)
+                    code = run_agent(
+                        agent_arguments(finalization_instructions(status, result_path, deadline),
+                                        report_dir / "cli", status["session_id"], resume=True),
+                        report_dir / "agent.log", remaining)
             status["agent_exit_code"] = code
             if code:
                 status["status"] = "timed_out" if code == 124 else "agent_failed"
@@ -328,6 +373,10 @@ def run(audit_only=False, timeout=2700):
             print(f"Watchdog failed: {error}", file=sys.stderr)
             return 1
         finally:
+            if status["status"] in ("timed_out", "agent_failed", "failed"):
+                checkpoint = incomplete_report(status)
+                write_json(report_dir / "interruption.json", checkpoint)
+                status.setdefault("summary", checkpoint["summary"])
             if not result_path.exists():
                 report = incomplete_report(status)
                 write_json(result_path, report)

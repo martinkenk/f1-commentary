@@ -4,7 +4,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import call, patch
 
 from ops import watchdog
 
@@ -97,12 +97,13 @@ class WatchdogTests(unittest.TestCase):
 
     def test_timeout_stops_only_the_started_process_group(self):
         process = unittest.mock.Mock(pid=1234)
-        process.wait.side_effect = [subprocess.TimeoutExpired("copilot", 1), 0]
+        process.wait.side_effect = [subprocess.TimeoutExpired("copilot", 1), 0, 0]
         with tempfile.TemporaryDirectory() as directory, \
              patch.object(watchdog.subprocess, "Popen", return_value=process), \
              patch.object(watchdog.os, "killpg") as kill:
             self.assertEqual(watchdog.run_agent(["copilot"], Path(directory) / "log", 1), 124)
-            kill.assert_called_once_with(1234, watchdog.signal.SIGTERM)
+            self.assertEqual(kill.call_args_list, [
+                call(1234, watchdog.signal.SIGTERM), call(1234, watchdog.signal.SIGKILL)])
 
     def test_budget_has_absolute_checkpoints_and_bounded_deployment_wait(self):
         started = dt.datetime(2026, 11, 6, 14, 30, tzinfo=dt.timezone.utc)
@@ -135,7 +136,7 @@ class WatchdogTests(unittest.TestCase):
                     return subprocess.CompletedProcess(args, 0, value, "")
 
                 def agent(args, log, timeout):
-                    self.assertEqual(timeout, 2690)
+                    self.assertEqual(timeout, 2090)
                     self.assertIn("Hard process deadline: 2026-11-06T15:15:00+00:00", args[-1])
                     if existing_report:
                         report = next((state / "runs").iterdir()) / "report.json"
@@ -148,11 +149,15 @@ class WatchdogTests(unittest.TestCase):
                      patch.object(watchdog, "run_agent", side_effect=agent), \
                      patch.object(watchdog.dt, "datetime", wraps=dt.datetime) as clock:
                     clock.now.side_effect = [started, started + dt.timedelta(seconds=10),
+                                             started + dt.timedelta(seconds=2700),
                                              started + dt.timedelta(seconds=2700)]
                     self.assertEqual(watchdog.run(), 124)
                 status = json.loads((state / "latest.json").read_text())
                 report = json.loads(Path(status["report"]).read_text())
                 self.assertEqual(status["status"], "timed_out")
+                checkpoint = json.loads((Path(status["report"]).parent / "interruption.json").read_text())
+                self.assertEqual(checkpoint["commit"], head)
+                self.assertIn(" M content_brazil.py", checkpoint["remaining"][1])
                 if existing_report:
                     self.assertEqual(report, partial)
                 else:
@@ -161,6 +166,68 @@ class WatchdogTests(unittest.TestCase):
                     self.assertEqual(report["commit"], head)
                     self.assertIn(" M content_brazil.py", report["remaining"][1])
                     self.assertIsNone(report["deployment_url"])
+
+    def test_reserved_finalization_resumes_once_and_preserves_partial_report(self):
+        started = dt.datetime(2026, 11, 7, 16, tzinfo=dt.timezone.utc)
+        for final_code, mode in ((0, "PUBLISH"), (124, "PUBLISH"), (0, "READ_ONLY")):
+            with self.subTest(final_code=final_code, mode=mode), tempfile.TemporaryDirectory() as directory:
+                state = Path(directory)
+                calls = []
+                partial = {"status": "blocked", "summary": "Initial inspection"}
+                final = {"status": "blocked", "summary": "Repair not yet published",
+                         "findings": [], "changes": ["Validated repair"], "remaining": ["Deployment"],
+                         "sources": [], "commit": "b" * 40}
+                if mode == "READ_ONLY":
+                    final.update(status="read_only", summary="Audit completed without mutation", changes=[], commit=None)
+
+                def command(args, **kwargs):
+                    value = "main" if args[:3] == ["git", "branch", "--show-current"] else ""
+                    return subprocess.CompletedProcess(args, 0, value, "")
+
+                def agent(args, log, timeout):
+                    calls.append((args, timeout))
+                    report = log.parent / "report.json"
+                    if len(calls) == 1:
+                        self.assertEqual(timeout, 2090)
+                        report.write_text(json.dumps(partial))
+                        return 124
+                    self.assertEqual(timeout, 570)
+                    self.assertEqual(json.loads((state / "latest.json").read_text())["phase"], "finalizing")
+                    self.assertIn("--resume", args)
+                    identity = calls[0][0][calls[0][0].index("--session-id") + 1]
+                    self.assertEqual(args[args.index("--resume") + 1], identity)
+                    self.assertIn(f"Publication mode remains {mode}", args[-1])
+                    self.assertIn("Do not wait for a deployment", args[-1])
+                    if final_code == 0:
+                        report.write_text(json.dumps(final))
+                    return final_code
+
+                with patch.object(watchdog, "STATE", state), \
+                     patch.object(watchdog, "command", side_effect=command), \
+                     patch.object(watchdog, "recent_runs", return_value=[]), \
+                     patch.object(watchdog, "run_agent", side_effect=agent), \
+                     patch.object(watchdog.dt, "datetime", wraps=dt.datetime) as clock:
+                    clock.now.side_effect = [started, started + dt.timedelta(seconds=10),
+                                             started + dt.timedelta(seconds=2110),
+                                             started + dt.timedelta(seconds=2680)]
+                    self.assertEqual(watchdog.run(audit_only=mode == "READ_ONLY"), final_code)
+                self.assertEqual(len(calls), 2)
+                status = json.loads((state / "latest.json").read_text())
+                expected = "timed_out" if final_code else (
+                    "read_only" if mode == "READ_ONLY" else "waiting_publication")
+                self.assertEqual(status["status"], expected)
+                saved = Path(status["report"]).parent / "report-before-finalization.json"
+                self.assertEqual(json.loads(saved.read_text()), partial)
+                if final_code:
+                    self.assertEqual(json.loads(Path(status["report"]).read_text()), partial)
+
+    def test_process_logs_append_across_finalization(self):
+        with tempfile.TemporaryDirectory() as directory:
+            log = Path(directory) / "agent.log"
+            for value in ("investigation", "finalization"):
+                self.assertEqual(watchdog.run_agent(
+                    [watchdog.sys.executable, "-c", f"print({value!r})"], log, 5), 0)
+            self.assertEqual(log.read_text(), "investigation\nfinalization\n")
 
     def test_fallback_records_git_inspection_failure_explicitly(self):
         with patch.object(watchdog, "command", side_effect=subprocess.TimeoutExpired("git", 5)):
