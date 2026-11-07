@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-07T19:31:18Z",
-  "expires_at": "2026-11-07T20:00:00Z",
+  "reviewed_at": "2026-11-07T20:31:00Z",
+  "expires_at": "2026-11-07T21:15:00Z",
   "through_session": "Practice 3",
   "feed_fingerprint": "bcb95c2edff7d98b66f81417bae43239f93798d6f02a01cdfd55a43d6df8ea51",
   "items": [
@@ -8,8 +8,8 @@
       "topic": "Qualifying",
       "title": "Brazilian qualifying halted by rain; official grid remains unavailable",
       "date": "2026-11-07",
-      "summary": "The Race reports that Q1 was red-flagged barely two minutes after the pit lane opened in torrential rain. Its report later describes standing water and no confirmed restart time. At 19:26 UTC, Formula1.com's official Qualifying and Starting Grid pages both showed \"No results available\". The qualifying classification and starting order therefore remain unpublished at this check; do not infer them from practice or championship standings.",
-      "why_it_matters": "The weather interruption leaves the official order unresolved. Keep grid-penalty implications provisional until Formula1.com or the FIA publishes the classification and grid.",
+      "summary": "The Race reports that Q1 was red-flagged almost immediately in heavy rain. At 20:26 UTC, Formula1.com's official Qualifying and Starting Grid pages both returned \"No results available\". The live FIA event listing had no revised session timetable, so no replacement start time or qualifying order is confirmed by the sources checked.",
+      "why_it_matters": "Do not infer a starting order or the application of accumulated grid penalties from practice pace or an earlier team statement; wait for the official classification and grid.",
       "sources": [
         {
           "label": "The Race: qualifying red-flagged by rain",
@@ -22,15 +22,19 @@
         {
           "label": "Formula1.com: official Starting Grid",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
+        },
+        {
+          "label": "FIA: live São Paulo event documents",
+          "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
         }
       ]
     },
     {
       "topic": "Power-unit changes",
-      "title": "FIA confirms Ferrari pair's 10-place drops and Verstappen's 30-place ruling",
+      "title": "Hamilton receives 65 further grid places after additional power-unit changes",
       "date": "2026-11-07",
-      "summary": "Documents 35 and 37 impose 10-place drops on Leclerc and Hamilton for their fifth ICEs. After FP3, Ferrari told Formula1.com it had replaced Hamilton's entire power unit and that he would start from the back; this later team statement does not specify the replacement's component counts. Documents 33 and 39 separately impose 30-place drops on Verstappen and Perez, with conditional Race-grid allocation under Article B2.5.4.b.iv. Perez's fifth PU-ANC in Document 30 is within its allowance; Russell's five-place penalty is separate.",
-      "why_it_matters": "The later Hamilton starting-position update is distinct from the original FIA fifth-ICE decision and does not establish a component-by-component count. Keep the 30-place rulings and Perez's separate Document 40 warning distinct.",
+      "summary": "FIA Document 42 lists Hamilton's sixth ICE, fifth TC and exhaust, fourth ES, PU-CE and MGU-K, and seventh PU-ANC. Document 43 imposes a further 65-place drop for the next Race, in addition to the earlier 10-place Document 37 penalty. If Car 44 is classified in Qualifying, the decision specifies Race-grid allocation under Article B2.5.4.b.iv; the actual position remains unknown while the official order is unavailable.",
+      "why_it_matters": "The updated FIA component report and ruling supersede the earlier team statement that Hamilton would start from the back without detailed counts. Keep the 75-place cumulative penalty distinct from the still-unpublished assigned grid position.",
       "sources": [
         {
           "label": "Formula1.com: confirmed power-unit penalties",
@@ -59,6 +63,14 @@
         {
           "label": "FIA: Hamilton's 10-place penalty, Document 37",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_44_-_changes_to_pu_element.pdf"
+        },
+        {
+          "label": "FIA: Hamilton's additional new elements, Document 42",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition_1.pdf"
+        },
+        {
+          "label": "FIA: Hamilton's additional 65-place penalty, Document 43",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_44_-_additional_changes_to_pu_elements.pdf"
         },
         {
           "label": "FIA: Russell's separate five-place decision, Document 15",

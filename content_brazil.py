@@ -19,6 +19,8 @@ FIA_PEREZ_UNSAFE_URL = FIA + "infringement_-_car_11_-_driving_in_an_unsafe_condi
 FIA_VERSTAPPEN_PENALTY_URL = FIA + "infringement_-_car_3_-_changes_to_pu_elements.pdf"
 FIA_LECLERC_PENALTY_URL = FIA + "infringement_-_car_16_-_changes_to_pu_element.pdf"
 FIA_HAMILTON_PENALTY_URL = FIA + "infringement_-_car_44_-_changes_to_pu_element.pdf"
+FIA_HAMILTON_NEW_PU_URL = FIA + "new_pu_elements_for_this_competition_1.pdf"
+FIA_HAMILTON_ADDITIONAL_PENALTY_URL = FIA + "infringement_-_car_44_-_additional_changes_to_pu_elements.pdf"
 FIA_GARAGE_DOORS_URL = FIA + "garage_doors.pdf"
 FIA_POST_QUALIFYING_URL = FIA + "post-qualifying_procedure.pdf"
 FIA_BEARMAN_REVERSAL_URL = FIA + "infringement_-_car_87_-_reversing_in_the_pit_lane.pdf"
@@ -37,6 +39,9 @@ HAMILTON_PENALTY = "https://www.the-race.com/formula-1/hamilton-set-for-brazil-g
 F1_PU_PENALTIES = "https://www.formula1.com/en/latest/article/hamilton-leclerc-and-verstappen-set-for-sao-paulo-grand-prix-penalties-after-power-unit-changes.7B5CuFFCN1F6Txc8YwcEhd"
 HAMILTON_F1_UPDATE = "https://www.formula1.com/en/latest/article/hamilton-set-to-start-at-back-of-the-grid-after-further-penalty-ahead-of-sao-paulo-grand-prix.5SFs44M6cNSDvUBCWE9FWZ"
 FIA_EVENT = "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
+THE_RACE_QUALIFYING = "https://www.the-race.com/formula-1/brazilian-gp-qualifying-red-flagged-almost-immediately-due-to-rain/"
+F1_QUALIFYING_RESULTS = "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
+F1_STARTING_GRID = "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
 FIA_FP1_DOUBLE_YELLOW_URL = FIA + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"
 FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
 FIA_UPGRADES_ASSET = "fia-brazil-d82872895e6d-eaf9202e01277f4e"
@@ -138,12 +143,15 @@ for his fifth ICE, fifth turbocharger and fourth MGU-K; if Car 11 is classified
 in Qualifying, its Race-grid position is allocated under the same article.
 Document 30's fifth PU-ANC for Perez is within that element's allowance.
 Stewards' Documents 35 and 37 impose 10-place drops for Leclerc (Car 16) and
-Hamilton (Car 44), respectively, for their fifth ICEs. After FP3, Ferrari
-confirmed that it replaced Car 44's entire power unit; Formula1.com quotes the
-team saying Hamilton will start Sunday's Race from the back. This later
-starting-position update does not specify the replacement's individual
-components, so do not infer component counts from it or conflate it with
-Document 37. Russell's separate five-place drop followed his sixth ICE
+Hamilton (Car 44), respectively, for their fifth ICEs. FIA Document 42 then
+lists Hamilton's sixth ICE, fifth turbocharger and exhaust, fourth energy store,
+fourth control electronics unit and MGU-K, and seventh PU-ANC. Document 43
+imposes a further 65-place drop for those changes, in addition to Document
+37's 10 places. If Car 44 is classified in Qualifying, its Race-grid position
+is allocated under Article B2.5.4.b.iv; the cumulative 75-place penalty does
+not establish an actual grid position before classification. This later FIA
+filing supersedes the earlier team statement that Hamilton would start from
+the back without specifying component counts. Russell's separate five-place drop followed his sixth ICE
 (sixth against four allowed) in Document 15. Check the official grid before
 quoting any starting position.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
@@ -152,6 +160,8 @@ quoting any starting position.
 <a href="{FIA_PEREZ_PU_PENALTY_URL}">FIA Document 39</a> ·
 <a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
 <a href="{FIA_HAMILTON_PENALTY_URL}">FIA Document 37</a> ·
+<a href="{FIA_HAMILTON_NEW_PU_URL}">FIA Document 42</a> ·
+<a href="{FIA_HAMILTON_ADDITIONAL_PENALTY_URL}">FIA Document 43</a> ·
 <a href="{F1_PU_PENALTIES}">Formula1.com on the penalties</a> ·
 <a href="{HAMILTON_F1_UPDATE}">Formula1.com on Hamilton's later replacement</a> ·
 <a href="{HAMILTON_PENALTY}">The Race on Hamilton's penalty</a> ·
@@ -256,27 +266,41 @@ not a verified 2026 strategy window.</p>
 def _powerunit():
     new_elements = (
         ("03", "Red Bull Racing RB Ford", "Max Verstappen", "ICE", "4", "4",
-         "Fifth of four; not compliant"),
+         "Fifth of four; not compliant", "30"),
         ("03", "Red Bull Racing RB Ford", "Max Verstappen", "TC", "4", "4",
-         "Fifth of four; not compliant"),
+         "Fifth of four; not compliant", "30"),
         ("03", "Red Bull Racing RB Ford", "Max Verstappen", "EXH", "4", "4",
-         "Fifth of four; not compliant"),
+         "Fifth of four; not compliant", "30"),
         ("03", "Red Bull Racing RB Ford", "Max Verstappen", "PU-ANC", "5", "6",
-         "Sixth of six; within allowance"),
+         "Sixth of six; within allowance", "30"),
         ("16", "Ferrari", "Charles Leclerc", "ICE", "4", "4",
-         "Fifth of four; not compliant"),
+         "Fifth of four; not compliant", "30"),
         ("44", "Ferrari", "Lewis Hamilton", "ICE", "4", "4",
-         "Fifth of four; not compliant"),
+         "Fifth of four; not compliant", "30"),
         ("11", "Cadillac Ferrari", "Sergio Perez", "ICE", "4", "4",
-         "Fifth of four; not compliant"),
+         "Fifth of four; not compliant", "30"),
         ("11", "Cadillac Ferrari", "Sergio Perez", "TC", "4", "4",
-         "Fifth of four; not compliant"),
+         "Fifth of four; not compliant", "30"),
         ("11", "Cadillac Ferrari", "Sergio Perez", "MGU-K", "3", "3",
-         "Fourth of three; not compliant"),
+         "Fourth of three; not compliant", "30"),
         ("11", "Cadillac Ferrari", "Sergio Perez", "PU-ANC", "4", "6",
-         "Fifth of six; within allowance"),
+         "Fifth of six; within allowance", "30"),
         ("63", "Mercedes", "George Russell", "PU-ANC", "5", "6",
-         "Sixth of six; within allowance"),
+         "Sixth of six; within allowance", "30"),
+        ("44", "Ferrari", "Lewis Hamilton", "ICE", "5", "4",
+         "Sixth of four; not compliant", "42"),
+        ("44", "Ferrari", "Lewis Hamilton", "TC", "4", "4",
+         "Fifth of four; not compliant", "42"),
+        ("44", "Ferrari", "Lewis Hamilton", "EXH", "4", "4",
+         "Fifth of four; not compliant", "42"),
+        ("44", "Ferrari", "Lewis Hamilton", "ES", "3", "3",
+         "Fourth of three; not compliant", "42"),
+        ("44", "Ferrari", "Lewis Hamilton", "PU-CE", "3", "3",
+         "Fourth of three; not compliant", "42"),
+        ("44", "Ferrari", "Lewis Hamilton", "MGU-K", "3", "3",
+         "Fourth of three; not compliant", "42"),
+        ("44", "Ferrari", "Lewis Hamilton", "PU-ANC", "6", "6",
+         "Seventh of six; not compliant", "42"),
     )
     new_elements_table = "".join(
         "<tr>" + "".join(f"<td>{value}</td>" for value in row) + "</tr>"
@@ -331,11 +355,15 @@ drop for Perez's fifth ICE, fifth turbocharger and fourth MGU-K. If Car 11 is
 classified in Qualifying,
 the decision allocates its Race-grid position under Article B2.5.4.b.iv.
 Document 30's fifth PU-ANC for Perez remains within that element's allowance.
-After FP3, Ferrari said it replaced Hamilton's entire power unit and that he
-would start from the back. This later report does not supply an FIA
-component-by-component declaration; Document 30 is an earlier snapshot, not
-Hamilton's post-replacement usage total. <a href="{HAMILTON_F1_UPDATE}">
-Formula1.com on the later replacement</a>.
+The later FIA Technical Delegate's Document 42 reports Hamilton's sixth ICE,
+fifth TC and EXH, fourth ES, PU-CE and MGU-K, and seventh PU-ANC. The source
+states each is beyond its season allowance. The Stewards' Document 43 imposes
+a further 65-place drop for these parts, in addition to Document 37's 10-place
+drop for the fifth ICE. If Car 44 is classified in Qualifying, its Race-grid
+position is allocated under Article B2.5.4.b.iv; no actual grid position can
+be inferred before the classification is published. This component-by-component
+FIA report supersedes the earlier team statement that Hamilton would start from
+the back without detailed counts.
 The separate Document 15 imposes a five-place drop for Russell's sixth ICE
 (sixth against four allowed).
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
@@ -348,8 +376,18 @@ The separate Document 15 imposes a five-place drop for Russell's sixth ICE
 <a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a>.</p>
 <div class="table-wrap"><table class="data compact" id="brazil-new-pu-elements">
 <thead><tr><th>No.</th><th>Constructor</th><th>Driver</th><th>New element</th>
-<th>Previously used</th><th>Season allowance</th><th>Technical Delegate's report</th></tr></thead>
+<th>Previously used</th><th>Season allowance</th><th>Report status</th>
+<th>FIA document</th></tr></thead>
 <tbody>{new_elements_table}</tbody></table></div>
+{_figure("fia-brazil-066498a702e5-2829a7a6b78737f0-p2",
+         "FIA Document 42: Hamilton's additional new ICE, turbocharger and exhaust, page 2",
+         "new_pu_elements_for_this_competition_1", 2)}
+{_figure("fia-brazil-066498a702e5-2829a7a6b78737f0-p3",
+         "FIA Document 42: Hamilton's additional new energy store, control electronics, MGU-K and PU-ANC, page 3",
+         "new_pu_elements_for_this_competition_1", 3)}
+<p><a href="{FIA_HAMILTON_ADDITIONAL_PENALTY_URL}">FIA Document 43</a>
+records the additional 65-place penalty and conditional Race-grid allocation.
+Its full two-page decision remains available in the Penalties reader.</p>
 {_figure(FIA_NEW_PU_REV2_P2_ASSET,
          "FIA Document 30: new ICE, turbocharger and exhaust entries, page 2",
          FIA_NEW_PU_REV2_DOC, 2)}
@@ -495,6 +533,17 @@ imposed a driving reprimand, his second of the season; this ruling is not a
 grid penalty. <a href="{FIA_BEARMAN_REVERSAL_URL}">Read the FIA decision</a>.
 Check the official classification and starting grid under
 <a href="results.html">Results</a>.</p>"""
+    pages["notes"]["body"] += f"""
+<p><strong>Hamilton's revised power-unit penalty:</strong> FIA Document 42
+lists Car 44's sixth ICE, fifth TC and EXH, fourth ES, PU-CE and MGU-K, and
+seventh PU-ANC. Document 43 adds a 65-place drop to Document 37's earlier
+10-place penalty (75 places cumulatively). If classified in Qualifying, the
+Race-grid position is allocated under Article B2.5.4.b.iv; the actual position
+is not known while the official qualifying and grid tables remain unavailable.
+<a href="{FIA_HAMILTON_NEW_PU_URL}">Document 42</a> ·
+<a href="{FIA_HAMILTON_ADDITIONAL_PENALTY_URL}">Document 43</a> ·
+<a href="{F1_QUALIFYING_RESULTS}">official Qualifying</a> ·
+<a href="{F1_STARTING_GRID}">official Starting Grid</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(
@@ -524,12 +573,20 @@ transcribed below; the full substantive PDF pages, including McLaren's
 location diagram, remain available in the expandable readers.</p>""" + _upgrade_filing()
     pages["schedule"]["body"] += f"""
 <p><strong>Standard weekend, not Sprint:</strong> Friday FP1 12:30 and FP2 16:00;
-Saturday FP3 11:30 and Qualifying 15:00; Sunday Race 14:00 (all BRT).
-Add five hours for Tallinn (EET): race <strong>19:00 Sunday 8 November</strong>.
-<a href="{FIA}timetable_v3.pdf">FIA timetable V3</a>. The FP1, FP2 and FP3
-classifications are published; qualifying and race results await those sessions.
-Long-run analysis depends on available timing data, and race-set counts require
-a published inventory chart.</p>
+Saturday FP3 11:30 and Qualifying was scheduled for 15:00; Sunday Race is
+scheduled for 14:00 (all BRT). Add five hours for Tallinn (EET): Race
+<strong>19:00 Sunday 8 November</strong>. <a href="{FIA}timetable_v3.pdf">FIA
+timetable V3</a>. The Race reports that Saturday qualifying was red-flagged
+almost immediately in heavy rain. At 20:26 UTC, Formula1.com's official
+Qualifying and Starting Grid pages both returned “No results available”; the
+FIA event listing had no revised session timetable. No replacement start time
+or qualifying order is inferred.
+<a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
+<a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·
+<a href="{F1_STARTING_GRID}">official Starting Grid</a> ·
+<a href="{FIA_EVENT}">live FIA event documents</a>. FP1, FP2 and FP3
+classifications are published; race-set counts still require a published
+inventory chart.</p>
 <p><strong>Curfew report, 7 November:</strong> FIA Technical Delegate
 Document 27 says Oracle Red Bull Racing and Aston Martin personnel were inside
 the circuit during the 11.5-hour pre-FP3 curfew, from 21:00 Friday to 08:30

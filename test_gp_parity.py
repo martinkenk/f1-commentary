@@ -144,8 +144,11 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("not an event-specific parts declaration", body)
         self.assertIn("do not establish whether the planned ADUO", body)
         self.assertIn(content_brazil.HAMILTON_F1_UPDATE, body)
-        self.assertIn("Ferrari confirmed that it replaced Car 44's entire power unit", body)
-        self.assertIn("Hamilton will start Sunday's Race from the back", body)
+        self.assertIn(content_brazil.FIA_HAMILTON_NEW_PU_URL, body)
+        self.assertIn(content_brazil.FIA_HAMILTON_ADDITIONAL_PENALTY_URL, body)
+        self.assertIn("further 65-place drop", body)
+        self.assertIn("cumulative 75-place penalty", body)
+        self.assertIn("does not establish an actual grid position", body)
         self.assertNotIn("check the FIA event page", body)
         self.assertNotIn("14:00 UTC targeted FIA check", body)
         self.assertNotIn("12:46 UTC", body)
@@ -158,8 +161,22 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_brazil.RUSSELL_FIA_PENALTY, powerunit)
         self.assertIn("Document 15 imposes a five-place", powerunit)
         self.assertIn(content_brazil.HAMILTON_F1_UPDATE, powerunit)
-        self.assertIn("Document 30 is an earlier snapshot", powerunit)
+        self.assertIn(content_brazil.FIA_HAMILTON_NEW_PU_URL, powerunit)
+        self.assertIn("Sixth of four; not compliant", powerunit)
+        self.assertIn("Seventh of six; not compliant", powerunit)
+        self.assertIn("FIA document</th>", powerunit)
+        self.assertIn("additional 65-place penalty", powerunit)
         self.assertNotIn("check the FIA event page", powerunit)
+        notes = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )["notes"]["body"]
+        self.assertIn(content_brazil.FIA_HAMILTON_ADDITIONAL_PENALTY_URL, notes)
+        self.assertIn("75 places cumulatively", notes)
+        schedule = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )["schedule"]["body"]
+        self.assertIn("No replacement start time", schedule)
+        self.assertIn(content_brazil.F1_STARTING_GRID, schedule)
 
     def test_brazil_double_yellow_document_is_interpreted_in_briefings(self):
         pages = content_brazil.build_pages(
