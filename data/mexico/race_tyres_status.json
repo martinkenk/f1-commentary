@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T14:10:54+00:00",
+  "checked_at": "2026-11-07T16:53:29+00:00",
   "state": "available",
   "error": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-mexico-city-gp.22mzBSWEviowqhyGTbfhY: Published article is access-restricted; no login or protected API attempted",
   "attempts": [
@@ -10,8 +10,8 @@
     },
     {
       "url": "https://coffeecornermotorsport.com/feed/",
-      "state": "available",
-      "message": "Public discovery parsed; 1 candidate article(s)"
+      "state": "not_found",
+      "message": "Public discovery parsed; 0 candidate article(s)"
     },
     {
       "url": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-mexico-city-gp.22mzBSWEviowqhyGTbfhY",
