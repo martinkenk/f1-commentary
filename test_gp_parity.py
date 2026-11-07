@@ -175,7 +175,7 @@ class GPParityTests(unittest.TestCase):
         schedule = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )["schedule"]["body"]
-        self.assertIn("No replacement start time", schedule)
+        self.assertIn("no race-grid order is inferred", schedule)
         self.assertIn(content_brazil.F1_STARTING_GRID, schedule)
 
     def test_brazil_double_yellow_document_is_interpreted_in_briefings(self):
