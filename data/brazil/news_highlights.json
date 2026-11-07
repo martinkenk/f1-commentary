@@ -1,35 +1,27 @@
 {
-  "reviewed_at": "2026-11-07T17:49:47Z",
-  "expires_at": "2026-11-07T18:30:00Z",
+  "reviewed_at": "2026-11-07T19:31:18Z",
+  "expires_at": "2026-11-07T20:00:00Z",
   "through_session": "Practice 3",
   "feed_fingerprint": "bcb95c2edff7d98b66f81417bae43239f93798d6f02a01cdfd55a43d6df8ea51",
   "items": [
     {
-      "topic": "Practice 3",
-      "title": "Verstappen tops final practice; top five fit inside 0.274s",
+      "topic": "Qualifying",
+      "title": "Brazilian qualifying halted by rain; official grid remains unavailable",
       "date": "2026-11-07",
-      "summary": "The official 22-car FP3 classification has Max Verstappen first in 1:11.622, 0.025s ahead of Kimi Antonelli; Lando Norris is third at +0.131s, George Russell fourth at +0.184s and Charles Leclerc fifth at +0.274s. FIA Document 36 separately deletes listed FP3 lap times for Rafael Camara at Turn 1 and Verstappen at Turn 4; it does not replace the classification. Formula1.com reports Hamilton's session ended early after vibration and smoke reports, and rain arrived at the finish. Race Director Document 38 allows all teams to close their garage doors due to anticipated severe weather; it does not announce a session delay.",
-      "why_it_matters": "The top five are tightly grouped, but this is a single practice session rather than a qualifying order. Verstappen's 30-place penalty and the decision's conditional grid allocation make the official starting order important.",
+      "summary": "The Race reports that Q1 was red-flagged barely two minutes after the pit lane opened in torrential rain. Its report later describes standing water and no confirmed restart time. At 19:26 UTC, Formula1.com's official Qualifying and Starting Grid pages both showed \"No results available\". The qualifying classification and starting order therefore remain unpublished at this check; do not infer them from practice or championship standings.",
+      "why_it_matters": "The weather interruption leaves the official order unresolved. Keep grid-penalty implications provisional until Formula1.com or the FIA publishes the classification and grid.",
       "sources": [
         {
-          "label": "Formula1.com: FP3 report",
-          "url": "https://www.formula1.com/en/latest/article/fp3-verstappen-fastest-from-antonelli-and-norris-ahead-of-sao-paulo-grand-prix.43ghT9dACzjrhxyjTBgKct"
+          "label": "The Race: qualifying red-flagged by rain",
+          "url": "https://www.the-race.com/formula-1/brazilian-gp-qualifying-red-flagged-almost-immediately-due-to-rain/"
         },
         {
-          "label": "Formula1.com: official Practice 3 classification",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/3"
+          "label": "Formula1.com: official Qualifying results",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
         },
         {
-          "label": "FIA: FP3 classification, Document 32",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_free_practice_3_classification.pdf"
-        },
-        {
-          "label": "FIA: FP3 lap-time deletions, Document 36",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf"
-        },
-        {
-          "label": "FIA: severe-weather garage notice, Document 38",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_garage_doors.pdf"
+          "label": "Formula1.com: official Starting Grid",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
         }
       ]
     },
@@ -95,8 +87,8 @@
       "topic": "Championship",
       "title": "Mercedes can clinch the constructors' title with a three-point gain",
       "date": "2026-11-04",
-      "summary": "The latest official standings show Mercedes on 630 points, 126 ahead of Ferrari on 504. Formula1.com's pre-weekend scenario says Mercedes clinches the constructors' title if it gains three points on Ferrari in Brazil; the practice sessions have not changed the standings.",
-      "why_it_matters": "The Drivers' title is already settled, but the teams' championship remains live. Practice awards no points, so the three-point threshold is still a race-weekend scenario.",
+      "summary": "The latest official standings show Mercedes on 630 points, 126 ahead of Ferrari on 504. Formula1.com's pre-weekend scenario says Mercedes clinches the constructors' title if it gains three points on Ferrari in Brazil. No Brazil points have been awarded yet.",
+      "why_it_matters": "Kimi Antonelli has clinched the Drivers' title, while the Constructors' Championship remains live; the three-point threshold depends on the Race result.",
       "sources": [
         {
           "label": "Formula1.com: official constructor standings",
@@ -113,15 +105,15 @@
       ]
     },
     {
-      "topic": "Venue future",
-      "title": "Formula 1 extends Sao Paulo contract through 2035",
+      "topic": "FIA ruling",
+      "title": "Bearman reprimanded for reversing in the pit lane",
       "date": "2026-11-07",
-      "summary": "Formula1.com reports a new five-year agreement that keeps the Sao Paulo Grand Prix at Interlagos on the Formula 1 calendar through 2035.",
-      "why_it_matters": "The agreement secures the venue's long-term place on the calendar; it is separate from this weekend's sporting results.",
+      "summary": "FIA Document 41 identifies Oliver Bearman (Car 87, TGR Haas F1 Team) and says he reversed in the pit lane under his own power during Qualifying, breaching Article B1.6.3b. The Stewards imposed a driving reprimand, his second of the season; the document states no grid drop.",
+      "why_it_matters": "This is a new qualifying ruling, but a reprimand rather than a grid penalty. Keep it separate from the still-unpublished qualifying order.",
       "sources": [
         {
-          "label": "Formula1.com: Sao Paulo contract extension",
-          "url": "https://www.formula1.com/en/latest/article/formula-1-to-race-in-sao-paulo-through-to-2035-following-new-five-year-contract-extension.3RBVXeLDp6NMDUQSAIX8TL"
+          "label": "FIA: Car 87 pit-lane reversal, Document 41",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_reversing_in_the_pit_lane.pdf"
         }
       ]
     }

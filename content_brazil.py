@@ -21,6 +21,7 @@ FIA_LECLERC_PENALTY_URL = FIA + "infringement_-_car_16_-_changes_to_pu_element.p
 FIA_HAMILTON_PENALTY_URL = FIA + "infringement_-_car_44_-_changes_to_pu_element.pdf"
 FIA_GARAGE_DOORS_URL = FIA + "garage_doors.pdf"
 FIA_POST_QUALIFYING_URL = FIA + "post-qualifying_procedure.pdf"
+FIA_BEARMAN_REVERSAL_URL = FIA + "infringement_-_car_87_-_reversing_in_the_pit_lane.pdf"
 CAMARA = "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
 FP1_LINEUP = "https://www.formula1.com/en/latest/article/which-rookie-drivers-are-getting-fp1-outings-at-the-sao-paulo-grand-prix.3DAnL1BS38Gu5KKzU70aBJ"
 FP1_REPORT = "https://www.formula1.com/en/latest/article/fp1-norris-leads-antonelli-and-verstappen-in-opening-sao-paulo-gp-practice-session.3GXL3rAROwHsLxnxn9hReY"
@@ -487,6 +488,13 @@ def build_pages(ctx, env):
         "News</a> carries session reports and official updates. Recheck after "
         "each session for new material.</p>",
     )
+    pages["notes"]["body"] += f"""
+<p><strong>Qualifying steward decision:</strong> FIA Document 41 says Oliver
+Bearman (Car 87) reversed in the pit lane under its own power. The Stewards
+imposed a driving reprimand, his second of the season; this ruling is not a
+grid penalty. <a href="{FIA_BEARMAN_REVERSAL_URL}">Read the FIA decision</a>.
+Check the official classification and starting grid under
+<a href="results.html">Results</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(
