@@ -6,6 +6,7 @@ from upgrade_render import render_submissions
 FIA = "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_"
 FIA_ENTRY_LIST_URL = FIA + "entry_list.pdf"
 FIA_FP2_DELETIONS_URL = FIA + "infringement_-_free_practice_2_deleted_lap_times.pdf"
+FIA_FP3_DELETIONS_URL = FIA + "infringement_-_free_practice_3_deleted_lap_times.pdf"
 FIA_CAMARA_REPRIMAND_URL = FIA + "infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"
 FIA_SC2_SC1_URL = FIA + "race_director_notes_-_sc2_-_sc1_times.pdf"
 FIA_NEW_PU_REV2_URL = FIA + "new_pu_elements_for_this_competition_0.pdf"
@@ -14,6 +15,9 @@ FIA_NEW_PU_REV2_P2_ASSET = "fia-brazil-af563bed0bcb-46cf930a47e6c2c0-p2"
 FIA_NEW_PU_REV2_P3_ASSET = "fia-brazil-af563bed0bcb-46cf930a47e6c2c0-p3"
 FIA_PEREZ_SUMMONS_URL = FIA + "summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
 FIA_VERSTAPPEN_PENALTY_URL = FIA + "infringement_-_car_3_-_changes_to_pu_elements.pdf"
+FIA_LECLERC_PENALTY_URL = FIA + "infringement_-_car_16_-_changes_to_pu_element.pdf"
+FIA_HAMILTON_PENALTY_URL = FIA + "infringement_-_car_44_-_changes_to_pu_element.pdf"
+FIA_GARAGE_DOORS_URL = FIA + "garage_doors.pdf"
 FIA_POST_QUALIFYING_URL = FIA + "post-qualifying_procedure.pdf"
 CAMARA = "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
 FP1_LINEUP = "https://www.formula1.com/en/latest/article/which-rookie-drivers-are-getting-fp1-outings-at-the-sao-paulo-grand-prix.3DAnL1BS38Gu5KKzU70aBJ"
@@ -27,6 +31,7 @@ MCLAREN_UPDATE = "https://www.formula1.com/en/latest/article/we-seemed-to-gain-p
 RUSSELL_PENALTY = "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"
 RUSSELL_F1 = "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"
 HAMILTON_PENALTY = "https://www.the-race.com/formula-1/hamilton-set-for-brazil-grid-penalty-after-ferraris-worst-2026-friday/"
+F1_PU_PENALTIES = "https://www.formula1.com/en/latest/article/hamilton-leclerc-and-verstappen-set-for-sao-paulo-grand-prix-penalties-after-power-unit-changes.7B5CuFFCN1F6Txc8YwcEhd"
 FIA_EVENT = "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
 FIA_FP1_DOUBLE_YELLOW_URL = FIA + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"
 FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
@@ -115,20 +120,31 @@ Verstappen's fifth ICE, turbocharger and exhaust against four allowed, and a
 sixth PU-ANC within the six-part allowance; both Ferrari drivers receive a
 fifth ICE against four allowed. Perez's report lists a fifth ICE and turbo,
 fourth MGU-K and fifth PU-ANC. Russell's new PU-ANC is sixth of six. These are
-Technical Delegate counts, not all separate penalty rulings. Formula1.com
+Technical Delegate counts, not all separate penalty rulings. The
+<a href="{FIA}pu_elements_used_per_driver_up_to_now.pdf">season-to-date usage
+report (Document 8)</a> is a separate earlier snapshot, not an event-specific
+parts declaration. The FIA filings do not establish whether the planned ADUO
+specification is arriving. Formula1.com
 reported 10-place drops for Hamilton and Leclerc; the Stewards' later Document
 33 imposed a 30-place drop on Verstappen for the fifth ICE, turbocharger and
 exhaust. If Car 3 is classified in Qualifying, the decision specifies its
 Race-grid allocation under Article B2.5.4.b.iv, superseding the earlier
 back-of-grid report. Document 30 does not determine Perez's exact grid position.
-Russell's separate five-place drop was imposed in Document 15. Check the
-official grid before quoting any starting position.
+Stewards' Documents 35 and 37 impose 10-place drops for Leclerc (Car 16) and
+Hamilton (Car 44), respectively, for their fifth ICEs. Russell's separate
+five-place drop followed his sixth ICE (sixth against four allowed) in
+Document 15. Check the official grid before quoting any starting position.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
+<a href="{FIA_NEW_PU_URL}">previous new-elements report, Document 14</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
-<a href="{HAMILTON_PENALTY}">Formula1.com penalty report</a> ·
-<a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a>.</p>''',
+<a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
+<a href="{FIA_HAMILTON_PENALTY_URL}">FIA Document 37</a> ·
+<a href="{F1_PU_PENALTIES}">Formula1.com on the penalties</a> ·
+<a href="{HAMILTON_PENALTY}">The Race on Hamilton's penalty</a> ·
+<a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a> ·
+<a href="{RUSSELL_PENALTY}">The Race report on Russell</a>.</p>''',
      "bi-exclamation-triangle")}
-{card("FP1/FP2: FIA lap-time deletions", f'''<p>Stewards'
+{card("FIA practice lap-time deletions", f'''<p>Stewards'
 Document 19 deletes the shown FP1 lap times for Franco Colapinto (2:05.129),
 Alexander Albon (1:32.736), Luke Browning (1:33.848), Rafael Câmara (1:18.760)
 and Dino Beganovic (OUT LAP) after their cars passed through a double-waved
@@ -140,7 +156,12 @@ after cars did not use the track at Turns 1 and 4. The listed times are deleted;
 the decision is not itself a revised FP2 classification or a race penalty.
 <a href="{FIA_FP2_DELETIONS_URL}">FIA Document 23</a> ·
 <a href="https://www.formula1.com/en/results/2026/races/1299/brazil/practice/2">
-official FP2 classification</a>.</p>''', "bi-flag")}
+official FP2 classification</a>.</p>
+<p>FIA Document 36 also deletes two listed FP3 lap times after the cars did
+not use the track at Turns 1 and 4: Rafael Camara (Car 51), 1:34.799 at
+11:35:37, and Max Verstappen (Car 3), 1:52.648 at 11:57:43. This ruling
+deletes those entries; it is not itself a revised FP3 classification.
+<a href="{FIA_FP3_DELETIONS_URL}">FIA Document 36</a>.</p>''', "bi-flag")}
 {card("Stewards: Camara receives his first reprimand", f'''<p>FIA Document 25
 resolves the Turn 15 summons involving Rafael Camara (Car 51) and Charles
 Leclerc (Car 16). The Stewards found that Camara unnecessarily impeded Leclerc
@@ -153,11 +174,17 @@ revised FP2 classification.
 {card("Perez summoned after FP3", f'''<p>FIA Document 31 summons Sergio Perez
 (Car 11) and a Cadillac representative over the alleged unsafe condition of
 Car 3 at 12:22 BRT. They were required to report to the Stewards at 13:00 BRT.
-At the 16:05 UTC FIA-listing check, the Car 11 item remained the summons;
+At the 16:33 UTC FIA-listing check, the Car 11 item remained the summons;
 Document 33 is a separate power-unit decision for Car 3. No outcome for
 Perez's summons was verified; check for a subsequent decision before describing
 it. <a href="{FIA_PEREZ_SUMMONS_URL}">FIA Document 31</a> ·
 <a href="{FIA_EVENT}">current FIA event listing</a>.</p>''', "bi-exclamation-triangle")}
+{card("FIA issues a severe-weather garage notice", f'''<p>Race Director
+Document 38 says that, due to anticipated severe weather, all teams are
+allowed to close their garage doors. It is an operational precaution, not an
+announcement of a session delay. <a href="{FIA_GARAGE_DOORS_URL}">FIA
+Document 38</a> · <a href="{FIA_EVENT}">FIA event documents</a>.</p>''',
+     "bi-cloud-rain")}
 {card("McLaren: four declared changes, early gain reported by Norris", f'''<p>FIA Document 12
 lists four performance-motivated items: front wing, rear wing, beam wing and
 floor furniture. The team's stated aims concern flow conditioning and local
@@ -277,15 +304,19 @@ against three. Each is stated as not compliant with the relevant allowance.
 The same report says Verstappen's sixth PU-ANC, Perez's fifth and Russell's
 sixth are within the six-part PU-ANC allowance. Component counts are not
 Stewards' penalty decisions or a qualifying classification. Formula1.com
-reports 10-place drops for Hamilton and Leclerc. The Stewards' later Document
+Stewards' Documents 35 and 37 impose 10-place drops for Leclerc (Car 16) and
+Hamilton (Car 44), respectively, for their fifth ICEs. The Stewards' later Document
 33 imposes a 30-place drop on Verstappen for the fifth ICE, turbocharger and
 exhaust. If Car 3 is classified in Qualifying, it specifies Race-grid
 allocation under Article B2.5.4.b.iv; this supersedes the earlier
 back-of-grid report. Document 30 does not determine Perez's exact position.
-Russell's five-place drop is a separate Stewards' decision in Document 15.
+The separate Document 15 imposes a five-place drop for Russell's sixth ICE
+(sixth against four allowed).
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
-<a href="{HAMILTON_PENALTY}">Formula1.com on the grid penalties</a> ·
+<a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
+<a href="{FIA_HAMILTON_PENALTY_URL}">FIA Document 37</a> ·
+<a href="{F1_PU_PENALTIES}">Formula1.com on the grid penalties</a> ·
 <a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a>.</p>
 <div class="table-wrap"><table class="data compact" id="brazil-new-pu-elements">
 <thead><tr><th>No.</th><th>Constructor</th><th>Driver</th><th>New element</th>
@@ -297,6 +328,10 @@ Russell's five-place drop is a separate Stewards' decision in Document 15.
 {_figure(FIA_NEW_PU_REV2_P3_ASSET,
          "FIA Document 30: new MGU-K and PU-ANC entries, page 3",
          FIA_NEW_PU_REV2_DOC, 3)}
+<p>FIA Document 14's earlier report lists Rafael Câmara's fifth PU-ANC within
+the six-element allowance. Document 30 does not add a new element for Car 51;
+this is an earlier declaration, not a separate penalty.
+<a href="{FIA_NEW_PU_URL}">FIA Document 14</a>.</p>
 {_figure(FIA_NEW_PU_ASSET, "FIA Document 14: Brazil new power-unit elements, page 2",
          "new_pu_elements_for_this_competition")}
 <h2 class="sec">Season-to-date power-unit usage</h2>
@@ -418,8 +453,9 @@ def build_pages(ctx, env):
         raise ValueError("Sao Paulo session-notes placeholder changed")
     pages["notes"]["body"] = pages["notes"]["body"].replace(
         notes_pending,
-        "<p><strong>Session-by-session status:</strong> FP1, FP2 and FP3 "
-        "classifications have been published. The latest official result appears "
+        "<p><strong>Session-by-session status:</strong> FP1 and FP2 "
+        "classifications have been published; FP3 has now also been classified. "
+        "The latest official result appears "
         "in <a href=\"results.html\">Results</a>; <a href=\"news.html\">Weekend "
         "News</a> carries session reports and official updates. Recheck after "
         "each session for new material.</p>",
@@ -466,12 +502,22 @@ Saturday BRT. This was Oracle Red Bull Racing's second and Aston Martin's third
 of four permitted team exceptions; the report says no action should be taken.
 <a href="{FIA}curfew_0.pdf">FIA Document 27</a>.</p>"""
     pages["schedule"]["body"] += f"""
-<p><strong>FIA Document 29 — Post-Qualifying Procedure:</strong> the FIA event
-listing records this publication on 7 November. A direct PDF request returned
-HTTP 403 during this review, so its contents have not been verified or
-transcribed. This is an access limitation, not evidence that no procedure was
-published. <a href="{FIA_POST_QUALIFYING_URL}">FIA Document 29</a> ·
-<a href="{FIA_EVENT}">complete event listing</a>.</p>"""
+<p><strong>FIA Media Delegate's Document 29 — Post-Qualifying Procedure:</strong>
+if the top three take the chequered flag at the end of Q3, they return to the
+pit lane at the 1–3 boards, then are weighed by the FIA in full race gear.
+Post-qualifying interviews take place in Parc Fermé; access to the designated
+area is limited to mechanics, officials and pre-approved media, not driver
+physios or team PR. The top three then complete the photo, press-conference and TV-pen sequence.
+Drivers eliminated in Q1/Q2, those classified 4th–10th in Q3 and eligible
+drivers who did not participate in Q1 must attend the required TV-pen
+interviews immediately after weighing; drivers must not drink or increase
+their weight before it is recorded. Top-ten drivers report directly to the FIA
+scales on leaving their cars, and drivers who stop on track (unless sent to
+the Medical Centre) are weighed before returning to their teams.
+The parc-fermé layout is on page 4.
+<a href="{FIA_POST_QUALIFYING_URL}#page=2">FIA Document 29, procedure</a> ·
+<a href="{FIA_POST_QUALIFYING_URL}#page=4">parc-fermé diagram</a> ·
+<a href="{FIA_EVENT}">complete FIA event listing</a>.</p>"""
     pages["moments"]["body"] = """
 <h2 class="sec">Local winners and the circuit's evolution</h2>
 <div class="grid cols-2">

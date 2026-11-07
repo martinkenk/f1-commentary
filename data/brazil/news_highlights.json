@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-07T16:13:00Z",
+  "reviewed_at": "2026-11-07T16:33:30Z",
   "expires_at": "2026-11-07T17:45:00Z",
   "through_session": "Practice 3",
   "feed_fingerprint": "19fb286826aa5f30a07350769f3428aea290880acfa93cff5bce97475cc56724",
@@ -8,7 +8,7 @@
       "topic": "Practice 3",
       "title": "Verstappen tops final practice; top five fit inside 0.274s",
       "date": "2026-11-07",
-      "summary": "The official 22-car FP3 classification has Max Verstappen first in 1:11.622, 0.025s ahead of Kimi Antonelli; Lando Norris is third at +0.131s, George Russell fourth at +0.184s and Charles Leclerc fifth at +0.274s. Formula1.com's report says Hamilton's session ended early after vibration and smoke reports, and rain arrived at the finish. FIA Document 32's classification matches the Formula1.com result table.",
+      "summary": "The official 22-car FP3 classification has Max Verstappen first in 1:11.622, 0.025s ahead of Kimi Antonelli; Lando Norris is third at +0.131s, George Russell fourth at +0.184s and Charles Leclerc fifth at +0.274s. FIA Document 36 separately deletes listed FP3 lap times for Rafael Camara at Turn 1 and Verstappen at Turn 4; it does not replace the classification. Formula1.com reports Hamilton's session ended early after vibration and smoke reports, and rain arrived at the finish. Race Director Document 38 allows all teams to close their garage doors due to anticipated severe weather; it does not announce a session delay.",
       "why_it_matters": "The top five are tightly grouped, but this is a single practice session rather than a qualifying order. Verstappen's 30-place penalty and the decision's conditional grid allocation make the official starting order important.",
       "sources": [
         {
@@ -22,14 +22,22 @@
         {
           "label": "FIA: FP3 classification, Document 32",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_free_practice_3_classification.pdf"
+        },
+        {
+          "label": "FIA: FP3 lap-time deletions, Document 36",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf"
+        },
+        {
+          "label": "FIA: severe-weather garage notice, Document 38",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_garage_doors.pdf"
         }
       ]
     },
     {
       "topic": "Power-unit changes",
-      "title": "Verstappen receives 30-place drop after power-unit changes",
+      "title": "FIA confirms Ferrari pair's 10-place drops and Verstappen's 30-place ruling",
       "date": "2026-11-07",
-      "summary": "Formula1.com reports 10-place drops for Lewis Hamilton and Charles Leclerc after Ferrari fitted fifth ICEs. The Stewards' Document 33 imposes a 30-place drop on Max Verstappen for his fifth ICE, turbocharger and exhaust. If Car 3 is classified in Qualifying, the decision assigns its Race grid position under Article B2.5.4.b.iv, superseding the earlier back-of-grid report. FIA Document 30 separately records parts for Sergio Perez but does not determine his exact grid position; George Russell's five-place penalty is a separate ruling.",
+      "summary": "The Stewards' Documents 35 and 37 impose 10-place drops for Charles Leclerc and Lewis Hamilton, respectively, after each receives a fifth ICE. Document 33 separately imposes a 30-place drop on Max Verstappen for his fifth ICE, turbocharger and exhaust. If Car 3 is classified in Qualifying, the decision assigns its Race grid position under Article B2.5.4.b.iv, superseding the earlier back-of-grid report. FIA Document 30 separately records parts for Sergio Perez but does not determine his exact grid position; George Russell's five-place penalty is a separate ruling.",
       "why_it_matters": "Component declarations and penalty decisions are distinct. The official qualifying classification and grid determine how the 30-place sanction is applied; do not infer Perez's place from the Technical Delegate's component table.",
       "sources": [
         {
@@ -45,6 +53,14 @@
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_3_-_changes_to_pu_elements.pdf"
         },
         {
+          "label": "FIA: Leclerc's 10-place penalty, Document 35",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_16_-_changes_to_pu_element.pdf"
+        },
+        {
+          "label": "FIA: Hamilton's 10-place penalty, Document 37",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_44_-_changes_to_pu_element.pdf"
+        },
+        {
           "label": "FIA: Russell's separate five-place decision, Document 15",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_63_-_changes_to_pu_element.pdf"
         }
@@ -54,7 +70,7 @@
       "topic": "Stewards",
       "title": "Perez summoned over an alleged unsafe condition after FP3",
       "date": "2026-11-07",
-      "summary": "FIA Document 31 summons Sergio Perez (Car 11) and a Cadillac representative over the alleged unsafe condition of Car 3 at 12:22 BRT. They were required to report to the Stewards at 13:00 BRT. The latest reviewed event listing at 15:55 UTC still showed the summons, not a decision.",
+      "summary": "FIA Document 31 summons Sergio Perez (Car 11) and a Cadillac representative over the alleged unsafe condition of Car 3 at 12:22 BRT. They were required to report to the Stewards at 13:00 BRT. The latest reviewed event listing at 16:33 UTC still showed the summons, not a decision.",
       "why_it_matters": "This is an allegation, not a finding or penalty. Recheck the FIA listing before saying how the matter was resolved.",
       "sources": [
         {
@@ -89,15 +105,19 @@
       ]
     },
     {
-      "topic": "Venue",
-      "title": "Sao Paulo Grand Prix contract extended through 2035",
+      "topic": "Qualifying procedure",
+      "title": "FIA outlines post-Qualifying weighing and interview sequence",
       "date": "2026-11-07",
-      "summary": "Formula1.com reports a new five-year agreement that keeps the Sao Paulo Grand Prix at Interlagos on the Formula 1 calendar through 2035.",
-      "why_it_matters": "The extension gives the venue a long-term place on the calendar beyond the immediate championship weekend.",
+      "summary": "The FIA Media Delegate's Document 29 sets the post-Qualifying route for the top three, FIA weighing in race gear, Parc Fermé interviews, and press-conference/TV-pen duties. Other drivers have immediate weighing and media requirements after their final qualifying part; the document includes a Parc Fermé layout.",
+      "why_it_matters": "These are post-session operational instructions, not a change to the qualifying classification or a grid penalty.",
       "sources": [
         {
-          "label": "Formula1.com: Sao Paulo contract extension",
-          "url": "https://www.formula1.com/en/latest/article/formula-1-to-race-in-sao-paulo-through-to-2035-following-new-five-year-contract-extension.3RBVXeLDp6NMDUQSAIX8TL"
+          "label": "FIA: Post-Qualifying Procedure, Document 29",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_post-qualifying_procedure.pdf"
+        },
+        {
+          "label": "FIA: Parc Fermé layout, Document 29 page 4",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_post-qualifying_procedure.pdf#page=4"
         }
       ]
     }
