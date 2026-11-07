@@ -1,16 +1,20 @@
 {
-  "reviewed_at": "2026-11-07T10:34:32Z",
-  "expires_at": "2026-11-07T11:20:00Z",
+  "reviewed_at": "2026-11-07T12:27:50Z",
+  "expires_at": "2026-11-07T14:15:00Z",
   "through_session": "Practice 2",
   "feed_fingerprint": "b74b9c4fd9ccedb4bab847390ab389c8ec240add0183d11f489af54d16ff2b08",
   "items": [
     {
       "topic": "Practice",
-      "title": "Antonelli tops FP2 as Hülkenberg is unable to run",
-      "date": "2026-11-06",
-      "summary": "FIA Document 22 lists Kimi Antonelli fastest in FP2 at 1:10.763, 0.253s ahead of Lando Norris; Max Verstappen was +0.259s, George Russell +0.273s and Oscar Piastri +0.321s. Formula1.com reports Nico Hülkenberg did not run; he is absent from the FIA's 21-row timed classification. Stewards' Document 23 lists ten deleted-lap entries for nine drivers (Albon appears twice) after track-use issues at Turns 1 and 4; Race Director's Document 24 sets a below-1:13.0 interval between the Safety Car lines for qualifying and specified reconnaissance laps.",
-      "why_it_matters": "FP2 replaces FP1 as the latest completed classification. The lap-time ruling is not itself a revised classification or a race penalty. The 1:13.0 limit applies only during/after qualifying and on reconnaissance laps while pit exit is open, not to racing laps.",
+      "title": "Antonelli leads close FP2: the top five are within 0.321s",
+      "date": "2026-11-07",
+      "summary": "The official 21-car FP2 classification puts Kimi Antonelli fastest at 1:10.763, 0.253s ahead of Lando Norris; Max Verstappen (+0.259), George Russell (+0.273) and Oscar Piastri (+0.321) complete the top five. Nico Hülkenberg did not set a time. Formula1.com's Saturday Practice Debrief notes the fine margins among the leading teams and asks whether Mercedes can sustain its Friday pace. Stewards' Document 23 lists ten deleted-lap entries for nine drivers (Albon appears twice) after track-use issues at Turns 1 and 4; Race Director's Document 24 sets a below-1:13.0 interval between the Safety Car lines for qualifying and specified reconnaissance laps.",
+      "why_it_matters": "Antonelli leads the Friday sheet, but the top-five spread is only 0.321s and a single-lap classification does not establish race pace. FP3 is the next check on whether Mercedes can stay ahead. The lap-time ruling is not itself a revised classification or a race penalty. The 1:13.0 limit applies only during/after qualifying and on reconnaissance laps while pit exit is open, not to racing laps.",
       "sources": [
+        {
+          "label": "Formula1.com: Practice Debrief (public excerpt)",
+          "url": "https://www.formula1.com/en/latest/article/can-mercedes-keep-their-rivals-at-bay-in-sao-paulo.7eVy5I4aTwZqm4N1WE2rBX"
+        },
         {
           "label": "Formula1.com: FP2 report",
           "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-the-times-from-norris-in-second-practice-at-sao-paulo-gp.27XFbTG9Lji18qmtHbCJUA"

@@ -70,6 +70,15 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_brazil.THE_RACE_FP1, pages["rookies"]["body"])
         self.assertIn("100 km", pages["rookies"]["body"])
 
+    def test_brazil_notes_link_to_published_session_coverage(self):
+        body = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )["notes"]["body"]
+        self.assertIn("FP1 and FP2 classifications have been published", body)
+        self.assertIn('href="results.html">Results</a>', body)
+        self.assertIn('href="news.html">Weekend News</a>', body)
+        self.assertNotIn("Session-by-session commentary notes: awaiting", body)
+
     def test_brazil_russell_penalty_is_attributed_and_not_mistaken_for_upgrade(self):
         body = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env

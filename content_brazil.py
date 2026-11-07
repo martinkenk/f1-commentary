@@ -343,6 +343,19 @@ def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
     for slug in ("overview", "notes"):
         pages[slug]["body"] = _lineup() + _teams() + pages[slug]["body"]
+    notes_pending = content_generic.pending(
+        "Session-by-session commentary notes", "as the weekend runs", "bi-mic"
+    )
+    if notes_pending not in pages["notes"]["body"]:
+        raise ValueError("Sao Paulo session-notes placeholder changed")
+    pages["notes"]["body"] = pages["notes"]["body"].replace(
+        notes_pending,
+        "<p><strong>Session-by-session status:</strong> FP1 and FP2 "
+        "classifications have been published. The latest official result appears "
+        "in <a href=\"results.html\">Results</a>; <a href=\"news.html\">Weekend "
+        "News</a> carries session reports and official updates. Recheck after "
+        "each session for new material.</p>",
+    )
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(
