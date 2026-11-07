@@ -174,7 +174,7 @@ class WatchdogTests(unittest.TestCase):
                 state = Path(directory)
                 calls = []
                 partial = {"status": "blocked", "summary": "Initial inspection"}
-                final = {"status": "blocked", "summary": "Repair not yet published",
+                final = {"status": "fixed", "summary": "Repair pushed; publication is not confirmed.",
                          "findings": [], "changes": ["Validated repair"], "remaining": ["Deployment"],
                          "sources": [], "commit": "b" * 40}
                 if mode == "READ_ONLY":

@@ -68,6 +68,38 @@ class PublicationTests(unittest.TestCase):
             self.assertEqual(json.loads((state / "latest.json").read_text())["status"], "fixed")
             self.assertTrue((path / "publication.json").exists())
 
+    def test_premature_fixed_report_waits_for_live_evidence_and_finishes_only_once(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            path = state / "runs/20261107T164133Z"
+            status = {"run_id": path.name, "status": "fixed", "finished_at": "2026-11-07T16:55:55Z"}
+            report = {"status": "fixed", "commit": "a" * 40,
+                      "summary": "Repair pushed, but publication is not confirmed."}
+            queue.save(path / "status.json", status)
+            queue.save(path / "report.json", report)
+            queue.save(state / "latest.json", status)
+            now = dt.datetime.now(dt.timezone.utc)
+            self.assertEqual(followup.reconcile(
+                state, [], None, [], Mock(return_value="a" * 40), now), [])
+            self.assertEqual(json.loads((state / "latest.json").read_text())["status"], "waiting_publication")
+            self.assertFalse((path / "publication.json").exists())
+            deployed = {"id": 123, "status": "completed", "conclusion": "success",
+                        "head_sha": "b" * 40, "html_url": "https://github.com/run"}
+            live = {"run_id": "123", "generated_at": now.isoformat(), "findings": []}
+            response = Mock(status=200)
+            response.read.return_value = b"<html>Verified page</html>"
+            response.__enter__ = Mock(return_value=response)
+            response.__exit__ = Mock(return_value=False)
+            checked = Mock(side_effect=["a" * 40, "a" * 40 + "\n" + "b" * 40, "content_brazil.py"])
+            with patch.object(followup.urllib.request, "urlopen", return_value=response):
+                result = followup.reconcile(state, [deployed], live, [{"dir": "brazil"}], checked, now)
+            self.assertEqual(len(result), 1)
+            self.assertEqual(json.loads((path / "status.json").read_text())["status"], "fixed")
+            self.assertEqual(json.loads((path / "report.json").read_text()), report)
+            checked.reset_mock()
+            self.assertEqual(followup.reconcile(state, [deployed], live, [], checked, now), [])
+            checked.assert_not_called()
+
     def test_workflow_success_without_live_identity_or_ancestry_does_not_finish(self):
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory)

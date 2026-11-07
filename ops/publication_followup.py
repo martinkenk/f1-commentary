@@ -15,14 +15,15 @@ def pending_report(report):
     if report.get("report_origin") == "wrapper_fallback":
         return False
     summary = report.get("summary", "").lower()
-    return (report.get("status") == "blocked"
+    return (report.get("status") in ("blocked", "fixed")
             and SHA.fullmatch(report.get("commit") or "") is not None
             and any(word in summary for word in (
                 "still building", "still running", "still in progress",
                 "remains in progress", "remained in_progress", "deployment remains",
                 "deployment is still", "not yet confirmed published",
                 "not confirmed live", "not yet verified live", "publication is deferred",
-                "not yet published")))
+                "publication is not confirmed", "publication is unconfirmed",
+                "not yet confirmed live", "not yet published")))
 
 
 def waiting(state, limit=40):
@@ -37,7 +38,8 @@ def waiting(state, limit=40):
         if not status_path.exists() or not report_path.exists():
             continue
         status = json.loads(status_path.read_text())
-        if not status.get("finished_at") or status.get("status") not in ("blocked", "waiting_publication"):
+        if (not status.get("finished_at") or status.get("publication")
+                or status.get("status") not in ("blocked", "waiting_publication", "fixed")):
             continue
         report = json.loads(report_path.read_text())
         if pending_report(report):
@@ -62,6 +64,7 @@ def reconcile(state, runs, live, gps, checked, now):
             # A report may name an unpublished local commit, absent in the
             # scheduler clone. Preserve it for a safe agent continuation.
             continue
+        status.setdefault("previous_status", status["status"])
         status.update(status="waiting_publication", publication_commit=commit)
         agent_queue.save(path / "status.json", status)
         latest_path = state / "latest.json"
@@ -98,7 +101,7 @@ def reconcile(state, runs, live, gps, checked, now):
                     "live_generated_at": live["generated_at"],
                     "remaining_live_findings": live.get("findings", [])}
         agent_queue.save(path / "publication.json", evidence)
-        status.update(status="fixed", previous_status="blocked", publication=evidence,
+        status.update(status="fixed", publication=evidence,
                       summary=f"Published repair {commit[:8]}; deployment and live routes verified automatically. "
                               "Original audit and remaining source limitations are preserved in the report.")
         agent_queue.save(path / "status.json", status)
@@ -109,7 +112,7 @@ def reconcile(state, runs, live, gps, checked, now):
             task_path = state / "tasks" / (status["task_id"] + ".json")
             task = json.loads(task_path.read_text())
             # Never finish a newer continuation or a job that the operator cancelled.
-            if task.get("run_id") == path.name and task["status"] in ("blocked", "waiting_publication"):
+            if task.get("run_id") == path.name and task["status"] in ("blocked", "waiting_publication", "fixed"):
                 agent_queue.update(state, task["id"], status="fixed", summary=status["summary"],
                                    publication=evidence)
         outcomes.append(evidence)
