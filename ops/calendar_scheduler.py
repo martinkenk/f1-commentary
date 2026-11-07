@@ -229,6 +229,9 @@ def tick(now=None):
             state["execution_errors"].append(message)
         state["live_generated_at"] = live["generated_at"] if live else None
         runs = api(f"repos/{watchdog.REPOSITORY}/actions/workflows/deploy.yml/runs?per_page=30")["workflow_runs"]
+        from ops import publication_followup
+        state["publication_verifications"] = publication_followup.reconcile(
+            STATE, runs, live, gps, checked, now)
         busy = reconcile_request(state, runs, live, now)
         busy |= any(run["status"] in watchdog.ACTIVE for run in runs)
         due, pending = [], []

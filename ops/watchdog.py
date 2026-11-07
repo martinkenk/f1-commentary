@@ -14,8 +14,10 @@ import uuid
 
 try:
     from . import agent_queue
+    from . import publication_followup
 except ImportError:
     import agent_queue
+    import publication_followup
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE = Path.home() / ".local/state/f1-watchdog"
@@ -245,7 +247,7 @@ def run(audit_only=False, timeout=2700):
                     STATE, task["id"], status="queued", error=reason,
                     not_before=(started + dt.timedelta(minutes=5)).isoformat())
                 task = None
-                status.update(status="blocked", summary=f"Operator job remains queued: {reason}")
+                status.update(status="waiting", summary=f"Operator job will retry automatically: {reason}")
                 return 0
             if task and task.get("resume_run"):
                 prior = STATE / "runs" / task["resume_run"]
@@ -313,6 +315,10 @@ def run(audit_only=False, timeout=2700):
             if not writable and status["status"] != "blocked":
                 status["status"] = "read_only"
             status["summary"] = report["summary"]
+            if writable and publication_followup.pending_report(report):
+                status.update(status="waiting_publication", publication_commit=report["commit"],
+                              summary="Repair pushed; automatic calendar verification will finish publication. "
+                                      + report["summary"])
             print(f"Watchdog {status['status']}: {report['summary']}")
             return 1 if status["status"] == "blocked" else 0
         except (OSError, ValueError, KeyError, RuntimeError, subprocess.TimeoutExpired,
@@ -329,6 +335,17 @@ def run(audit_only=False, timeout=2700):
             status["finished_at"] = dt.datetime.now(dt.timezone.utc).isoformat()
             write_json(report_dir / "status.json", status)
             write_json(latest_path, status)
+            if task:
+                if (status["status"] == "blocked" and status.get("mode") == "PUBLISH"
+                        and "publication" in status.get("summary", "").lower()
+                        and "defer" in status.get("summary", "").lower()
+                        and task.get("automatic_retries", 0) < 3):
+                    agent_queue.update(
+                        STATE, task["id"], status="queued", resume_run=run_id,
+                        automatic_retries=task.get("automatic_retries", 0) + 1,
+                        not_before=(dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=5)).isoformat(),
+                        summary=status.get("summary"), error="Temporary publication conflict; automatic continuation queued")
+                    task = None
             if task:
                 agent_queue.update(STATE, task["id"], status=status["status"],
                                    finished_at=status["finished_at"],

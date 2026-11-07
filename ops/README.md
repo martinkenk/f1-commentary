@@ -132,6 +132,20 @@ An interactive success, CLI upgrade or timer restart alone is not that proof.
 
 ## Operations
 
+Publication waits finish automatically: the calendar reconciles completed
+blocked reports with the actually live successful Pages run, verifies commit
+ancestry and affected rendered routes, then records `publication.json` and updates
+the run/task to `fixed`. Original audit reports and source limitations are retained.
+Until independently verified the state is `waiting_publication`, not success.
+This costs no additional agent invocation and survives restarts. A later
+descendant deployment can publish an earlier repair too.
+
+Publisher conflicts before an operator job starts remain queued with automatic
+five-minute retry (`waiting`, not a failed audit). If an agent explicitly defers
+publication mid-task, the task resumes its conversation after five minutes, up
+to three automatic continuations. Credential/permission failures, interrupted
+edits and unrelated blocked findings are not blindly retried or marked successful.
+
 ### Browser control room
 
 `ops/watchdog_web.py` adds a private, standalone HTTPS application; it is not

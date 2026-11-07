@@ -5,7 +5,7 @@ const terminal = `${location.protocol}//${location.hostname}:7681/`;
 $("terminal-login").href = terminal;
 $("terminal-workspace").href = terminal;
 const tone = status => ["healthy", "fixed", "active", "completed"].includes(status) ? "good" :
-  ["running", "queued", "read_only"].includes(status) ? "warn" : "bad";
+  ["running", "queued", "read_only", "waiting", "waiting_publication"].includes(status) ? "warn" : "bad";
 const pretty = value => JSON.stringify(value, null, 2);
 const stamp = value => value ? new Date(value).toLocaleString(undefined, {hour12: false}) : "Not recorded";
 function node(tag, text, cls) {

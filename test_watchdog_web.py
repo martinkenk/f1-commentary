@@ -163,6 +163,28 @@ class QueuedWorkerTests(unittest.TestCase):
         value = "main\n" if args[:3] == ["git", "branch", "--show-current"] else ""
         return subprocess.CompletedProcess(args, 0, value, "")
 
+    def test_mid_task_writer_conflict_queues_bounded_same_conversation_retry(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            queue.enqueue(state, "Finish this repair")
+
+            def agent(args, log, timeout):
+                report = next((state / "runs").iterdir()) / "report.json"
+                queue.save(report, {"status": "blocked", "summary": "Publication deferred while another writer is active.",
+                                    "findings": [], "changes": [], "remaining": [], "sources": []})
+                return 0
+
+            with patch.object(watchdog, "STATE", state), \
+                 patch.object(watchdog, "command", side_effect=self.command), \
+                 patch.object(watchdog, "recent_runs", return_value=[]), \
+                 patch.object(watchdog, "run_agent", side_effect=agent):
+                self.assertEqual(watchdog.run(), 1)
+            job = queue.jobs(state)[0]
+            self.assertEqual(job["status"], "queued")
+            self.assertEqual(job["automatic_retries"], 1)
+            self.assertEqual(job["resume_run"], job["run_id"])
+            self.assertGreater(job["not_before"], queue.now())
+
     def test_task_prompt_mode_and_completion_are_persisted(self):
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory)
