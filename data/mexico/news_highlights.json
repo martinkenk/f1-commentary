@@ -1,14 +1,14 @@
 {
-  "reviewed_at": "2026-11-06T17:06:18Z",
-  "expires_at": "2026-11-07T17:00:00Z",
+  "reviewed_at": "2026-11-07T17:37:11Z",
+  "expires_at": "2026-11-07T21:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "bafc35868da8868c990ecec32a317a0b579271498a0861ba332c196f1869cad6",
   "items": [
     {
       "topic": "Championship",
-      "title": "Antonelli clinches the Drivers' title with a podium in Mexico",
-      "date": "2026-11-02",
-      "summary": "Kimi Antonelli secured his first Drivers' Championship with third place in Mexico and became Formula 1's youngest champion. The post-race standings put Antonelli on 380 points, ahead of Max Verstappen on 261 and Lewis Hamilton on 259.",
+      "title": "Antonelli seals the title after a near-retirement run to the Mexico podium",
+      "date": "2026-11-05",
+      "summary": "Kimi Antonelli secured his first Drivers' Championship with third place in Mexico and became Formula 1's youngest champion. Mercedes later revealed that the car returned with oil under the floor and a cracked sump; Antonelli said the engine began to struggle about four laps from the end. He finished on 380 points, ahead of Max Verstappen on 261 and Lewis Hamilton on 259.",
       "why_it_matters": "The Drivers' title is settled, but the constructors' championship remains live: Mercedes leads Ferrari 630–504.",
       "sources": [
         {
@@ -22,6 +22,10 @@
         {
           "label": "Formula1.com: official constructor standings",
           "url": "https://www.formula1.com/en/results/2026/team"
+        },
+        {
+          "label": "Formula1.com: Mercedes reveal Antonelli's near-retirement",
+          "url": "https://www.formula1.com/en/latest/article/right-on-the-edge-of-retirement-mercedes-reveal-how-close-kimi-antonelli-came-to-mexico-dnf.7iIZJXxnzN5HEz7WbDb3tl"
         }
       ]
     },
@@ -77,10 +81,10 @@
     },
     {
       "topic": "Ferrari",
-      "title": "Leclerc accepted a five-second penalty after the Turn 4 clash",
-      "date": "2026-11-02",
-      "summary": "The stewards penalised Leclerc five seconds for leaving the track and gaining a lasting advantage during the opening-lap battle with Hamilton. Leclerc said he deserved the penalty; Hamilton was classified second and Leclerc fourth.",
-      "why_it_matters": "The ruling and the drivers' comments are confirmed; they do not establish any team-order change.",
+      "title": "Vasseur confirms private talks with Hamilton after the Mexico clash",
+      "date": "2026-11-06",
+      "summary": "Charles Leclerc received a five-second penalty for leaving the track and gaining a lasting advantage during the opening-lap battle with Lewis Hamilton; Leclerc said he deserved it. Ferrari team principal Fred Vasseur later confirmed that he spoke with Hamilton but said he would keep their discussion private. Vasseur said he was not asking the teammates to be best friends.",
+      "why_it_matters": "The penalty and subsequent management response are confirmed, but the private conversation does not establish a new team-order policy.",
       "sources": [
         {
           "label": "Formula1.com: Leclerc on his penalty",
@@ -89,6 +93,10 @@
         {
           "label": "FIA: Leclerc decision, Doc 69",
           "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_16_-_left_the_track_and_gained_a_lasting_advantage.pdf"
+        },
+        {
+          "label": "Formula1.com: Vasseur confirms talks with Hamilton",
+          "url": "https://www.formula1.com/en/latest/article/im-not-asking-them-to-be-best-friends-vasseur-confirms-hamilton-and-leclerc-talks-after-mexico-battle.4ijCE2voRopz229owYCphO"
         },
         {
           "label": "Formula1.com: official Mexico City race result",

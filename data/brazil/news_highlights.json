@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-07T16:33:30Z",
-  "expires_at": "2026-11-07T17:45:00Z",
+  "reviewed_at": "2026-11-07T17:33:12Z",
+  "expires_at": "2026-11-07T17:55:00Z",
   "through_session": "Practice 3",
   "feed_fingerprint": "19fb286826aa5f30a07350769f3428aea290880acfa93cff5bce97475cc56724",
   "items": [
@@ -37,8 +37,8 @@
       "topic": "Power-unit changes",
       "title": "FIA confirms Ferrari pair's 10-place drops and Verstappen's 30-place ruling",
       "date": "2026-11-07",
-      "summary": "The Stewards' Documents 35 and 37 impose 10-place drops for Charles Leclerc and Lewis Hamilton, respectively, after each receives a fifth ICE. Document 33 separately imposes a 30-place drop on Max Verstappen for his fifth ICE, turbocharger and exhaust. If Car 3 is classified in Qualifying, the decision assigns its Race grid position under Article B2.5.4.b.iv, superseding the earlier back-of-grid report. FIA Document 30 separately records parts for Sergio Perez but does not determine his exact grid position; George Russell's five-place penalty is a separate ruling.",
-      "why_it_matters": "Component declarations and penalty decisions are distinct. The official qualifying classification and grid determine how the 30-place sanction is applied; do not infer Perez's place from the Technical Delegate's component table.",
+      "summary": "The Stewards' Documents 35 and 37 impose 10-place drops for Charles Leclerc and Lewis Hamilton, respectively, after each receives a fifth ICE. Document 33 separately imposes a 30-place drop on Max Verstappen for his fifth ICE, turbocharger and exhaust. Document 39 imposes a 30-place drop on Sergio Perez for his fifth ICE, fifth turbocharger and fourth MGU-K. If either driver is classified in Qualifying, the respective decision allocates his Race-grid position under Article B2.5.4.b.iv. Perez's fifth PU-ANC in Document 30 is within its allowance; George Russell's five-place penalty is separate.",
+      "why_it_matters": "The technical report and penalty decisions are distinct. Qualifying and the regulation determine the final grid allocation for the 30-place penalties; Perez's separate Document 40 formal warning is not another grid drop.",
       "sources": [
         {
           "label": "Formula1.com: confirmed power-unit penalties",
@@ -51,6 +51,10 @@
         {
           "label": "FIA: Verstappen's 30-place penalty, Document 33",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_3_-_changes_to_pu_elements.pdf"
+        },
+        {
+          "label": "FIA: Perez's 30-place penalty, Document 39",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_11_-_changes_to_pu_elements.pdf"
         },
         {
           "label": "FIA: Leclerc's 10-place penalty, Document 35",
@@ -68,18 +72,18 @@
     },
     {
       "topic": "Stewards",
-      "title": "Perez summoned over an alleged unsafe condition after FP3",
+      "title": "Perez receives a formal warning after discarding a loose cockpit item",
       "date": "2026-11-07",
-      "summary": "FIA Document 31 summons Sergio Perez (Car 11) and a Cadillac representative over the alleged unsafe condition of Car 3 at 12:22 BRT. They were required to report to the Stewards at 13:00 BRT. The latest reviewed event listing at 16:33 UTC still showed the summons, not a decision.",
-      "why_it_matters": "This is an allegation, not a finding or penalty. Recheck the FIA listing before saying how the matter was resolved.",
+      "summary": "FIA Document 40 resolves the FP3 unsafe-condition summons in Document 31. After reviewing in-car video, the Stewards found that Perez threw a small plastic cable organiser, which had detached from the seat belt, out of the car. Cadillac received a formal warning: throwing material onto the track during a live session was inappropriate even though this small, light item was unlikely to damage another car or injure a driver.",
+      "why_it_matters": "The warning follows a safety-related finding, but is not a grid penalty. Keep it separate from Perez's 30-place power-unit sanction in Document 39.",
       "sources": [
         {
-          "label": "FIA: Sergio Perez summons, Document 31",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
+          "label": "FIA: decision and formal warning, Document 40",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_11_-_driving_in_an_unsafe_condition.pdf"
         },
         {
-          "label": "FIA: current Sao Paulo event listing",
-          "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
+          "label": "FIA: resolved Sergio Perez summons, Document 31",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
         }
       ]
     },

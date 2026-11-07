@@ -14,6 +14,8 @@ FIA_NEW_PU_REV2_DOC = "new_pu_elements_for_this_competition_0"
 FIA_NEW_PU_REV2_P2_ASSET = "fia-brazil-af563bed0bcb-46cf930a47e6c2c0-p2"
 FIA_NEW_PU_REV2_P3_ASSET = "fia-brazil-af563bed0bcb-46cf930a47e6c2c0-p3"
 FIA_PEREZ_SUMMONS_URL = FIA + "summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
+FIA_PEREZ_PU_PENALTY_URL = FIA + "infringement_-_car_11_-_changes_to_pu_elements.pdf"
+FIA_PEREZ_UNSAFE_URL = FIA + "infringement_-_car_11_-_driving_in_an_unsafe_condition.pdf"
 FIA_VERSTAPPEN_PENALTY_URL = FIA + "infringement_-_car_3_-_changes_to_pu_elements.pdf"
 FIA_LECLERC_PENALTY_URL = FIA + "infringement_-_car_16_-_changes_to_pu_element.pdf"
 FIA_HAMILTON_PENALTY_URL = FIA + "infringement_-_car_44_-_changes_to_pu_element.pdf"
@@ -129,7 +131,10 @@ reported 10-place drops for Hamilton and Leclerc; the Stewards' later Document
 33 imposed a 30-place drop on Verstappen for the fifth ICE, turbocharger and
 exhaust. If Car 3 is classified in Qualifying, the decision specifies its
 Race-grid allocation under Article B2.5.4.b.iv, superseding the earlier
-back-of-grid report. Document 30 does not determine Perez's exact grid position.
+back-of-grid report. A separate Document 39 imposes a 30-place drop on Perez
+for his fifth ICE, fifth turbocharger and fourth MGU-K; if Car 11 is classified
+in Qualifying, its Race-grid position is allocated under the same article.
+Document 30's fifth PU-ANC for Perez is within that element's allowance.
 Stewards' Documents 35 and 37 impose 10-place drops for Leclerc (Car 16) and
 Hamilton (Car 44), respectively, for their fifth ICEs. Russell's separate
 five-place drop followed his sixth ICE (sixth against four allowed) in
@@ -137,6 +142,7 @@ Document 15. Check the official grid before quoting any starting position.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_NEW_PU_URL}">previous new-elements report, Document 14</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
+<a href="{FIA_PEREZ_PU_PENALTY_URL}">FIA Document 39</a> ·
 <a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
 <a href="{FIA_HAMILTON_PENALTY_URL}">FIA Document 37</a> ·
 <a href="{F1_PU_PENALTIES}">Formula1.com on the penalties</a> ·
@@ -171,14 +177,16 @@ driving reprimand, Camara's first of the season. It is not a grid drop or a
 revised FP2 classification.
 <a href="{FIA_CAMARA_REPRIMAND_URL}">FIA Document 25</a> ·
 <a href="{FIA_EVENT}">FIA event documents</a>.</p>''', "bi-exclamation-triangle")}
-{card("Perez summoned after FP3", f'''<p>FIA Document 31 summons Sergio Perez
-(Car 11) and a Cadillac representative over the alleged unsafe condition of
-Car 3 at 12:22 BRT. They were required to report to the Stewards at 13:00 BRT.
-At the 16:33 UTC FIA-listing check, the Car 11 item remained the summons;
-Document 33 is a separate power-unit decision for Car 3. No outcome for
-Perez's summons was verified; check for a subsequent decision before describing
-it. <a href="{FIA_PEREZ_SUMMONS_URL}">FIA Document 31</a> ·
-<a href="{FIA_EVENT}">current FIA event listing</a>.</p>''', "bi-exclamation-triangle")}
+{card("Cadillac warned after Perez throws loose cockpit item", f'''<p>FIA
+Document 40 resolves the unsafe-condition summons for Sergio Perez (Car 11).
+After reviewing in-car video, the Stewards found he threw a small plastic
+cable organiser that had come loose from the seat belt out of the car during
+FP3. Cadillac received a formal warning: the Stewards said throwing material
+onto the track during a live session was inappropriate, even though the item
+was small and unlikely to damage another car or injure a driver. This is not
+a grid penalty. <a href="{FIA_PEREZ_UNSAFE_URL}">FIA Document 40</a> ·
+<a href="{FIA_PEREZ_SUMMONS_URL}">resolved summons, Document 31</a>.</p>''',
+     "bi-exclamation-triangle")}
 {card("FIA issues a severe-weather garage notice", f'''<p>Race Director
 Document 38 says that, due to anticipated severe weather, all teams are
 allowed to close their garage doors. It is an operational precaution, not an
@@ -309,11 +317,17 @@ Hamilton (Car 44), respectively, for their fifth ICEs. The Stewards' later Docum
 33 imposes a 30-place drop on Verstappen for the fifth ICE, turbocharger and
 exhaust. If Car 3 is classified in Qualifying, it specifies Race-grid
 allocation under Article B2.5.4.b.iv; this supersedes the earlier
-back-of-grid report. Document 30 does not determine Perez's exact position.
+back-of-grid report. The Technical Delegate's Document 30 did not determine
+Perez's exact position; the later Stewards' Document 39 imposes a 30-place
+drop for Perez's fifth ICE, fifth turbocharger and fourth MGU-K. If Car 11 is
+classified in Qualifying,
+the decision allocates its Race-grid position under Article B2.5.4.b.iv.
+Document 30's fifth PU-ANC for Perez remains within that element's allowance.
 The separate Document 15 imposes a five-place drop for Russell's sixth ICE
 (sixth against four allowed).
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
+<a href="{FIA_PEREZ_PU_PENALTY_URL}">FIA Document 39</a> ·
 <a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
 <a href="{FIA_HAMILTON_PENALTY_URL}">FIA Document 37</a> ·
 <a href="{F1_PU_PENALTIES}">Formula1.com on the grid penalties</a> ·
