@@ -154,12 +154,12 @@ imposes a further 65-place drop for those changes, in addition to Document
 37's 10 places, a cumulative 75-place penalty. Car 44 qualified 11th, so the
 decision's conditional Race-grid allocation under Article B2.5.4.b.iv applies.
 The Race's provisional order lists
-Hamilton 20th, but Formula1.com has not published the official Starting Grid;
-that position is not confirmed. This later FIA filing supersedes the earlier
-team statement that Hamilton would start from the back without specifying
-component counts. Russell's separate five-place drop followed his sixth ICE
-(sixth against four allowed) in Document 15. Check the official grid before
-quoting any starting position.
+Hamilton 20th; the official Formula1.com Starting Grid now also lists him 20th.
+Use that published classification rather than the earlier provisional order.
+This later FIA filing supersedes the earlier team statement that Hamilton
+would start from the back without specifying component counts. Russell's
+separate five-place drop followed his sixth ICE (sixth against four allowed)
+in Document 15.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_NEW_PU_URL}">previous new-elements report, Document 14</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
@@ -387,11 +387,11 @@ fifth TC and EXH, fourth ES, PU-CE and MGU-K, and seventh PU-ANC. The source
 states each is beyond its season allowance. The Stewards' Document 43 imposes
 a further 65-place drop for these parts, in addition to Document 37's 10-place
 drop for the fifth ICE. Car 44 qualified 11th, so the conditional Race-grid
-allocation under Article B2.5.4.b.iv applies. The Race lists Hamilton 20th in
-its provisional post-penalty order; Formula1.com has not published the official
-Starting Grid, so no final position is confirmed. This component-by-component
-FIA report supersedes the earlier team statement that Hamilton would start from
-the back without detailed counts.
+allocation under Article B2.5.4.b.iv applies. The official Formula1.com
+Starting Grid now lists Hamilton 20th. The Race's earlier post-penalty order
+was provisional; use the official table for starting positions. This
+component-by-component FIA report supersedes the earlier team statement that
+Hamilton would start from the back without detailed counts.
 The separate Document 15 imposes a five-place drop for Russell's sixth ICE
 (sixth against four allowed).
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
@@ -575,9 +575,7 @@ lists Car 44's sixth ICE, fifth TC and EXH, fourth ES, PU-CE and MGU-K, and
 seventh PU-ANC. Document 43 adds a 65-place drop to Document 37's earlier
 10-place penalty (75 places cumulatively). Car 44 qualified 11th, so the
 decision's conditional Race-grid allocation under Article B2.5.4.b.iv applies.
-The Race lists Hamilton 20th in its provisional post-penalty order; the official
-Formula1.com Starting Grid remains unpublished, so no final position is
-confirmed.
+The official Formula1.com Starting Grid now lists Hamilton 20th.
 <a href="{FIA_HAMILTON_NEW_PU_URL}">Document 42</a> ·
 <a href="{FIA_HAMILTON_ADDITIONAL_PENALTY_URL}">Document 43</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying</a> ·
@@ -621,13 +619,14 @@ at 14:00 BRT (formation-lap start; 71 laps or 120 minutes, approximate finish
 The Race reports that Qualifying was delayed by 1h25 and red-flagged almost
 immediately in heavy rain. Formula1.com's official
 classification now lists all 22 qualifiers: Lando Norris took pole in 1:27.470,
-0.204s ahead of George Russell. Its Starting Grid page still says “No results
-available” (checked at 22:30 UTC); the results collector again received only
-one entrant and correctly rejected that incomplete response. The Race published
-a separate post-penalty order, clearly
-labelled provisional; do not present it as an official classification.
+0.204s ahead of George Russell. FIA Document 50's final classification confirms
+the 22-car order, and the official Starting Grid now lists all 22 entrants
+separately after penalties: Russell seventh, Leclerc 14th, Hamilton 20th,
+Verstappen 21st and Perez 22nd. Do not substitute starting positions for
+qualifying results. The Race's earlier post-penalty order was provisional.
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf#page=2">FIA Document 50, final classification p. 2</a> ·
 <a href="{F1_STARTING_GRID}">official Starting Grid</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional order</a> ·
 <a href="{FIA_EVENT}">live FIA event documents</a>. FP1, FP2 and FP3

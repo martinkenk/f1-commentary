@@ -149,8 +149,8 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("further 65-place drop", body)
         self.assertIn("75-place penalty", body)
         self.assertIn("Car 44 qualified 11th", body)
-        self.assertIn("provisional order lists Hamilton 20th", body)
-        self.assertIn("that position is not confirmed", body)
+        self.assertIn("official Formula1.com Starting Grid now also lists him 20th", body)
+        self.assertNotIn("that position is not confirmed", body)
         self.assertNotIn("check the FIA event page", body)
         self.assertNotIn("14:00 UTC targeted FIA check", body)
         self.assertNotIn("12:46 UTC", body)
@@ -178,7 +178,9 @@ class GPParityTests(unittest.TestCase):
             dict(self.contexts["brazil"], status="live"), self.env
         )["schedule"]["body"]
         self.assertIn("lists all 22 qualifiers", schedule)
-        self.assertIn("Starting Grid page still says", schedule)
+        self.assertIn("official Starting Grid now lists all 22 entrants", schedule)
+        self.assertIn("FIA Document 50, final classification p. 2", schedule)
+        self.assertNotIn("Starting Grid page still says", schedule)
         self.assertNotIn("No replacement start time", schedule)
         self.assertIn(content_brazil.F1_STARTING_GRID, schedule)
         self.assertIn(content_brazil.THE_RACE_PROVISIONAL_GRID, schedule)
@@ -204,8 +206,8 @@ class GPParityTests(unittest.TestCase):
         )
         schedule = " ".join(pages["schedule"]["body"].split())
         self.assertIn("Lando Norris took pole in 1:27.470", schedule)
-        self.assertIn("labelled provisional", schedule)
-        self.assertIn("do not present it as an official classification", schedule)
+        self.assertIn("earlier post-penalty order was provisional", schedule)
+        self.assertIn("Do not substitute starting positions for qualifying results", schedule)
         self.assertNotIn("Qualifying and Starting Grid pages both returned", schedule)
 
         notes = " ".join(pages["notes"]["body"].split())
