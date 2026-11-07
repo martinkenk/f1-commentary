@@ -29,6 +29,7 @@ import circuits
 import content_generic
 import content_hungary
 import content_belgium
+import content_mexico
 import content_netherlands
 import content_italy
 import content_spain
@@ -56,6 +57,7 @@ BESPOKE = {
     "bahrain": content_bahrain.build_pages,
     "singapore": content_singapore.build_pages,
     "brazil": content_brazil.build_pages,
+    "mexico": content_mexico.build_pages,
 }
 
 FLAGS = {

@@ -12,6 +12,7 @@ import content_bahrain
 import content_brazil
 import content_generic
 import content_italy
+import content_mexico
 import content_singapore
 import content_spain
 import f1lib
@@ -46,6 +47,30 @@ class GPParityTests(unittest.TestCase):
         ctx = self.contexts["singapore"].copy()
         ctx["status"] = "live"
         return content_singapore.build_pages(ctx, self.env)
+
+    def test_mexico_post_race_replaces_pre_race_team_and_notes_placeholders(self):
+        self.assertIs(build.BESPOKE["mexico"], content_mexico.build_pages)
+        ctx = dict(
+            self.contexts["mexico"],
+            status="past",
+            results=[{"label": "Race"}],
+        )
+        pages = content_mexico.build_pages(ctx, self.env)
+        for slug in ("teams", "notes"):
+            self.assertNotIn("awaiting a verified update", pages[slug]["body"])
+        self.assertIn("Antonelli", pages["teams"]["body"])
+        self.assertIn("630–504", pages["teams"]["body"])
+        self.assertIn("Piastri's ten-second", pages["teams"]["body"])
+        self.assertIn("Pirelli", pages["teams"]["body"])
+        self.assertIn("0.799 seconds", pages["notes"]["body"])
+        self.assertIn("final classification", pages["notes"]["body"])
+        self.assertIn(content_mexico.RACE_RESULT, pages["notes"]["body"])
+
+        future = content_mexico.build_pages(
+            dict(ctx, status="future", results=[]), self.env
+        )
+        self.assertIn("awaiting a verified update", future["teams"]["body"])
+        self.assertIn("awaiting a verified update", future["notes"]["body"])
 
     def test_brazil_published_lineup_replaces_pending_placeholders(self):
         ctx = dict(self.contexts["brazil"], status="live")
