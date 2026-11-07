@@ -1,30 +1,9 @@
 {
-  "reviewed_at": "2026-11-07T10:09:27Z",
-  "expires_at": "2026-11-07T13:30:00Z",
+  "reviewed_at": "2026-11-07T10:34:32Z",
+  "expires_at": "2026-11-07T11:20:00Z",
   "through_session": "Practice 2",
-  "feed_fingerprint": "156ef13a33299ab1bdfe6f220af2fc7ed701dea91d704aac58f841bcf1319daa",
+  "feed_fingerprint": "b74b9c4fd9ccedb4bab847390ab389c8ec240add0183d11f489af54d16ff2b08",
   "items": [
-    {
-      "topic": "Championship",
-      "title": "Antonelli's drivers' title is settled; Mercedes still chasing constructors' crown",
-      "date": "2026-11-04",
-      "summary": "Kimi Antonelli clinched the Drivers' Championship in Mexico. The latest official standings show 380 points for Antonelli and 261 for Verstappen; Mercedes leads Ferrari 630-504. Formula1.com's pre-weekend scenario says Mercedes seals the constructors' title if it gains three points on Ferrari in Brazil.",
-      "why_it_matters": "Brazil's practice has not changed the standings, and the constructors' title remains undecided. These are current pre-race totals, not a result projection.",
-      "sources": [
-        {
-          "label": "Formula1.com: official driver standings",
-          "url": "https://www.formula1.com/en/results/2026/drivers"
-        },
-        {
-          "label": "Formula1.com: official constructor standings",
-          "url": "https://www.formula1.com/en/results/2026/team"
-        },
-        {
-          "label": "Formula1.com: constructors' title scenario",
-          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
-        }
-      ]
-    },
     {
       "topic": "Practice",
       "title": "Antonelli tops FP2 as Hülkenberg is unable to run",
@@ -55,44 +34,69 @@
       ]
     },
     {
-      "topic": "Stewards",
-      "title": "Camara receives first reprimand after impeding Leclerc in FP2",
+      "topic": "Stewards and grid",
+      "title": "Russell gets five-place drop; Camara reprimanded after FP2",
       "date": "2026-11-06",
-      "summary": "FIA Document 25 resolves the earlier summons: the Stewards found Rafael Camara (Car 51) unnecessarily impeded Charles Leclerc (Car 16) at Turn 15 in FP2 at 16:31. They issued Camara a driving reprimand, his first of the season.",
-      "why_it_matters": "The hearing now has an outcome. This is a reprimand, not a grid penalty, and the FP2 classification is unchanged.",
+      "summary": "FIA Document 14 records Russell's sixth ICE against four allowed; the Stewards' separate Document 15 imposes a five-place grid drop. In Document 25, the Stewards found Rafael Camara unnecessarily impeded Charles Leclerc in FP2 and issued Camara his first driving reprimand of the season.",
+      "why_it_matters": "The rulings have different consequences: Russell's sanction affects his Brazil grid position; Camara's reprimand is not a grid penalty. Neither changes the FP2 classification.",
       "sources": [
         {
-          "label": "FIA: Stewards' decision, Document 25",
+          "label": "FIA: Russell's new PU elements, Document 14",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition.pdf"
+        },
+        {
+          "label": "FIA: Russell's grid penalty, Stewards' Document 15",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_63_-_changes_to_pu_element.pdf"
+        },
+        {
+          "label": "FIA: Camara's reprimand, Stewards' Document 25",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"
         },
         {
-          "label": "FIA: Camara summons, Document 20",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_51_-_alleged_impeding_of_car_16.pdf"
-        },
-        {
-          "label": "FIA: Leclerc summons, Document 21",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_impeding_by_car_51.pdf"
+          "label": "Formula1.com: Russell's Brazil grid penalty",
+          "url": "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"
         }
       ]
     },
     {
-      "topic": "Engine and grid",
-      "title": "FIA confirms Russell's five-place grid drop for sixth ICE",
-      "date": "2026-11-06",
-      "summary": "Document 14 recorded Russell's sixth ICE against four allowed and the Technical Delegate's non-compliance finding. The Stewards' separate Document 15 now imposes a five-place drop for the next race in which he participates.",
-      "why_it_matters": "Document 14 is the technical report; Document 15 is the sanction. Keeping them separate avoids treating the earlier report as the penalty decision.",
+      "topic": "Championship",
+      "title": "Antonelli's drivers' title is settled; Mercedes still chasing constructors' crown",
+      "date": "2026-11-04",
+      "summary": "Kimi Antonelli clinched the Drivers' Championship in Mexico. The latest official standings show 380 points for Antonelli and 261 for Verstappen; Mercedes leads Ferrari 630-504. Formula1.com's pre-weekend scenario says Mercedes seals the constructors' title if it gains three points on Ferrari in Brazil.",
+      "why_it_matters": "Brazil's practice has not changed the standings, and the constructors' title remains undecided. These are current pre-race totals, not a result projection.",
       "sources": [
         {
-          "label": "FIA: new PU elements, Document 14",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition.pdf"
+          "label": "Formula1.com: official driver standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
         },
         {
-          "label": "FIA: Russell PU change, Stewards' Document 15",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_63_-_changes_to_pu_element.pdf"
+          "label": "Formula1.com: official constructor standings",
+          "url": "https://www.formula1.com/en/results/2026/team"
         },
         {
-          "label": "Formula1.com: Russell's grid penalty",
-          "url": "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"
+          "label": "Formula1.com: constructors' title scenario",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
+        }
+      ]
+    },
+    {
+      "topic": "Technical and circuit",
+      "title": "Norris reports an early gain from McLaren's Brazil upgrades",
+      "date": "2026-11-06",
+      "summary": "FIA Document 12 lists four McLaren performance items: front wing, rear wing, beam wing and floor furniture. After Friday practice, Norris said the upgrades seemed to gain performance; he topped FP1 and finished second in FP2. The Race reports that the new front-wing concept is intended to carry into McLaren's 2027 launch specification.",
+      "why_it_matters": "The Friday evidence is encouraging but does not establish a race-long gain. Norris's remarks are a driver assessment; check whether the package remains effective through FP3 and qualifying.",
+      "sources": [
+        {
+          "label": "FIA: all-team car presentation submissions, Document 12",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf"
+        },
+        {
+          "label": "Formula1.com: Norris on McLaren's Friday upgrades",
+          "url": "https://www.formula1.com/en/latest/article/we-seemed-to-gain-performance-norris-offers-update-on-mclarens-upgrades-in-sao-paulo.6fULeVhwADSsEp722opGBk"
+        },
+        {
+          "label": "The Race: McLaren's 2027 front-wing concept",
+          "url": "https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/"
         }
       ]
     },

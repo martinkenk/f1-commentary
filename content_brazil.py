@@ -15,6 +15,7 @@ FP1_RESULT = "https://www.formula1.com/en/results/2026/races/1299/brazil/practic
 THE_RACE_FP1 = "https://www.the-race.com/formula-1/what-happened-in-brazil-fp1-f1-sao-paulo/"
 STORYLINES = "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
 MCLAREN = "https://www.formula1.com/en/latest/article/want-to-believe-that-we-can-still-make-improvements-norris-wary-of-new-mclaren-upgrades-in-sao-paulo.6NvdXqDIqBz1Mw1xveJv0k"
+MCLAREN_UPDATE = "https://www.formula1.com/en/latest/article/we-seemed-to-gain-performance-norris-offers-update-on-mclarens-upgrades-in-sao-paulo.6fULeVhwADSsEp722opGBk"
 FERRARI = "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-talks-ahead-of-sao-paulo-grand-prix-after-intra-team-battle-with-leclerc.3JXGpQWTdOA2a9PiH7NL8X"
 RUSSELL_PENALTY = "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"
 RUSSELL_F1 = "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"
@@ -140,12 +141,15 @@ Hamilton said face-to-face talks with Leclerc about their Mexico battle had
 not yet taken place. That reports what he said then; it does not establish
 whether they later spoke or whether team rules changed.
 <a href="{FERRARI}">Formula1.com's 5 November report</a>.</p>''', "bi-people")}
-{card("McLaren: four declared changes, gains unproven", f'''<p>FIA Document 12
+{card("McLaren: four declared changes, early gain reported by Norris", f'''<p>FIA Document 12
 lists four performance-motivated items: front wing, rear wing, beam wing and
 floor furniture. The team's stated aims concern flow conditioning and local
-aerodynamic load; these are design intentions, not measured gains. The Race
+aerodynamic load. After Friday practice, Norris said the package seemed to
+gain performance; he topped FP1 and finished second in FP2. This is an early
+driver assessment, not an independently measured race-long gain. The Race
 reports that the front-wing concept is intended to carry into McLaren's 2027
 launch specification. <a href="{FIA_UPGRADES_URL}">FIA declaration</a> ·
+<a href="{MCLAREN_UPDATE}">Formula1.com: Norris on the upgrades</a> ·
 <a href="https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/">
 The Race technical report</a>.</p>''', "bi-tools")}
 </div>
