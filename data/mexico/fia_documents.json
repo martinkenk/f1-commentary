@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Mexico%20City%20Grand%20Prix",
-  "retrieved_at": "2026-11-06T21:41:36.075306+00:00",
+  "retrieved_at": "2026-11-07T10:19:23.236632+00:00",
   "documents": [
     {
       "filename": "2026_mexico_city_grand_prix_-_championship_points.pdf",
@@ -373,7 +373,9 @@
     {
       "filename": "2026_mexico_city_grand_prix_-_fp1_and_fp2_scrutineering.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_fp1_and_fp2_scrutineering.pdf",
-      "categories": []
+      "categories": [
+        "powerunit"
+      ]
     },
     {
       "filename": "2026_mexico_city_grand_prix_-_summons_-_audi_-_car_5_covering_of_components.pdf",
