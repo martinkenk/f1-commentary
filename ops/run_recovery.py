@@ -12,7 +12,7 @@ def explain(status, report=None):
         return {"kind": "running", "cause": "The agent is still working.",
                 "next_step": "No intervention needed. Reports and output refresh automatically.",
                 "automatic": True, "action": None}
-    if value in ("waiting", "waiting_publication"):
+    if value in ("waiting", "waiting_publication") or "operator job remains queued" in text:
         publication = value == "waiting_publication"
         return {"kind": value, "cause": "The repair is pushed but live publication is not yet verified."
                 if publication else "Another publisher is using the repository.",
@@ -21,7 +21,9 @@ def explain(status, report=None):
                 "automatic": True, "action": None}
     if any(word in text for word in ("authentication", "auth login", "not logged", "credentials")):
         return {"kind": "authentication", "cause": "The service user is not authenticated.",
-                "next_step": "Open the browser terminal and complete gh/Copilot login as the service user. "
+                "next_step": "Open the browser terminal as the service user. Run "
+                             "`gh auth login --hostname github.com`, `gh auth setup-git`, and "
+                             "`copilot login --device-code` for the missing login. "
                              "Credentials are never copied or requested by this UI.",
                 "automatic": False, "action": "terminal", "label": "Open login terminal"}
     if any(word in text for word in ("permission denial", "permission denied", "approval", "agent blocker")):
@@ -30,6 +32,12 @@ def explain(status, report=None):
                              "Resolve only the required approval; do not grant unrestricted access. "
                              "Verify an unattended smoke run before clearing a blocker.",
                 "automatic": False, "action": "terminal", "label": "Review approval in terminal"}
+    if any(word in text for word in ("access-restricted", "freewall", "upstream outage", "source unavailable")):
+        return {"kind": "source_access", "cause": "The source is unavailable or access-restricted.",
+                "next_step": "Automatic collection retries continue while last-good data and the warning "
+                             "remain visible. An agent cannot bypass access restrictions or invent missing "
+                             "evidence; recovery depends on source availability.",
+                "automatic": True, "action": None}
     if value in ("timed_out", "agent_failed", "failed", "interrupted", "blocked"):
         return {"kind": "retained_work", "cause": status.get("error") or status.get("summary")
                 or report.get("summary") or "The agent did not finish its task.",
