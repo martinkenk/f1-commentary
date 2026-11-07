@@ -20,13 +20,13 @@
     "checked_at": "2026-11-07T22:48:40.440428+00:00"
   },
   "session_results": {
-    "outcome": "failure",
-    "gp": "",
-    "checked_at": "2026-11-07T22:48:40.440428+00:00"
+    "outcome": "success",
+    "gp": "brazil",
+    "checked_at": "2026-11-07T23:16:10.709716+00:00"
   },
   "standings": {
     "outcome": "success",
-    "gp": "",
-    "checked_at": "2026-11-07T22:48:40.440428+00:00"
+    "gp": "brazil",
+    "checked_at": "2026-11-07T23:16:10.709716+00:00"
   }
 }
