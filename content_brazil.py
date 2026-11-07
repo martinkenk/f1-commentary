@@ -538,12 +538,22 @@ Check the official classification and starting grid under
 lists Car 44's sixth ICE, fifth TC and EXH, fourth ES, PU-CE and MGU-K, and
 seventh PU-ANC. Document 43 adds a 65-place drop to Document 37's earlier
 10-place penalty (75 places cumulatively). If classified in Qualifying, the
-Race-grid position is allocated under Article B2.5.4.b.iv; the actual position
-is not known while the official qualifying and grid tables remain unavailable.
+Race-grid position is allocated under Article B2.5.4.b.iv. Hamilton was
+classified 11th (out in Q2), so the cumulative penalty exceeds the places
+available; the official starting grid was not confirmed in the sources checked.
 <a href="{FIA_HAMILTON_NEW_PU_URL}">Document 42</a> ·
 <a href="{FIA_HAMILTON_ADDITIONAL_PENALTY_URL}">Document 43</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying</a> ·
 <a href="{F1_STARTING_GRID}">official Starting Grid</a>.</p>"""
+    pages["notes"]["body"] += """
+<p><strong>Qualifying deleted laps:</strong> FIA Document 44 deletes lap times
+for Rafael Camara, Gabriel Bortoleto, Lance Stroll, Carlos Sainz, Oliver Bearman
+and Sergio Perez for not using the track at turns 1, 4, 8 and 12 (Article
+12.4.1.e), and Document 46 deletes a Stroll lap for passing a double waved
+yellow sector. Only the FIA's decision documents are cited here; check the
+penalties page for the full list.
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf">Document 44</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf">Document 46</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(
@@ -576,12 +586,15 @@ location diagram, remain available in the expandable readers.</p>""" + _upgrade_
 Saturday FP3 11:30 and Qualifying was scheduled for 15:00; Sunday Race is
 scheduled for 14:00 (all BRT). Add five hours for Tallinn (EET): Race
 <strong>19:00 Sunday 8 November</strong>. <a href="{FIA}timetable_v3.pdf">FIA
-timetable V3</a>. The Race reports that Saturday qualifying was red-flagged
-almost immediately in heavy rain. At 20:26 UTC, Formula1.com's official
-Qualifying and Starting Grid pages both returned “No results available”; the
-FIA event listing had no revised session timetable. No replacement start time
-or qualifying order is inferred.
-<a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
+timetable V3</a>. Heavy rain delayed Saturday qualifying by 1h25 and
+red-flagged Q1 almost immediately; the session then ran and the Formula1.com
+classification is published in <a href="results.html">Results</a>.
+Lando Norris took pole in 1:27.470, 0.204s ahead of George Russell, with Kimi
+Antonelli third, Charles Leclerc fourth and Liam Lawson fifth. Russell still
+carries the 5-place power-unit drop from FIA Document 15, so his race-grid slot
+is not his qualifying position. The official starting grid was not yet
+confirmed in the sources checked, and no race-grid order is inferred here.
+<a href="{THE_RACE_QUALIFYING}">The Race's red-flag report</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·
 <a href="{F1_STARTING_GRID}">official Starting Grid</a> ·
 <a href="{FIA_EVENT}">live FIA event documents</a>. FP1, FP2 and FP3
