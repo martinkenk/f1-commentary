@@ -82,5 +82,19 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"
+  },
+  {
+    "doc": "Doc 33",
+    "no": "3",
+    "driver": "Max Verstappen",
+    "team": "Oracle Red Bull Racing",
+    "session": "Free Practice 3",
+    "fact": "The following Power Unit elements have been used: 5th Engine (ICE); 5th Turbocharger (TC); 5th Exhaust Set (EXH).",
+    "outcome": "Drop of 30 grid positions for the next Race in which the driver participates. Subject to Car 3 being classified in Qualifying, Car 3 will be allocated a grid position in the Race in accordance with Article B2.5.4.b.iv of the FIA F1 Regulations.",
+    "kind": "penalty",
+    "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_3_-_changes_to_pu_elements.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_3_-_changes_to_pu_elements.pdf"
   }
 ]

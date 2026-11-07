@@ -90,7 +90,7 @@ def fia_document_categories(filename):
     if re.search(r"\b(car presentation|car display procedure|car component|upgrade submissions|parts and parameters)\b", name):
         categories.append("upgrades")
     if re.search(r"\b(heat hazard declaration|competition visa|timetable|"
-                 r"entry list|curfew|self scrutineering)\b", name):
+                 r"entry list|curfew|self scrutineering|post qualifying procedure)\b", name):
         categories.append("schedule")
     if re.search(r"\bpost race checks on car\b", name):
         categories.append("powerunit")

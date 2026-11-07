@@ -206,6 +206,7 @@ class EnrichmentTests(unittest.TestCase):
             "entry_list": ["schedule"],
             "curfew": ["schedule"],
             "self_scrutineering": ["schedule"],
+            "post-qualifying_procedure": ["schedule"],
             "decision_-_permission_to_start": ["penalties"],
             "race_scrutineering": [],
         }

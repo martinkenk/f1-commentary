@@ -1,127 +1,103 @@
 {
-  "reviewed_at": "2026-11-07T13:36:17Z",
-  "expires_at": "2026-11-07T14:20:00Z",
-  "through_session": "Practice 2",
-  "feed_fingerprint": "65e68af37f1d204774f625809efe72f45393342aec90e799fd5bd479b6918627",
+  "reviewed_at": "2026-11-07T16:13:00Z",
+  "expires_at": "2026-11-07T17:45:00Z",
+  "through_session": "Practice 3",
+  "feed_fingerprint": "19fb286826aa5f30a07350769f3428aea290880acfa93cff5bce97475cc56724",
   "items": [
     {
-      "topic": "Practice",
-      "title": "Antonelli leads close FP2: the top five are within 0.321s",
+      "topic": "Practice 3",
+      "title": "Verstappen tops final practice; top five fit inside 0.274s",
       "date": "2026-11-07",
-      "summary": "The official 21-car FP2 classification puts Kimi Antonelli fastest at 1:10.763, 0.253s ahead of Lando Norris; Max Verstappen (+0.259), George Russell (+0.273) and Oscar Piastri (+0.321) complete the top five. Nico Hülkenberg did not set a time. Formula1.com's Saturday Practice Debrief notes the fine margins among the leading teams and asks whether Mercedes can sustain its Friday pace. Stewards' Document 23 lists ten deleted-lap entries for nine drivers (Albon appears twice) after track-use issues at Turns 1 and 4; Race Director's Document 24 sets a below-1:13.0 interval between the Safety Car lines for qualifying and specified reconnaissance laps.",
-      "why_it_matters": "Antonelli leads the Friday sheet, but the top-five spread is only 0.321s and a single-lap classification does not establish race pace. FP3 is the next check on whether Mercedes can stay ahead. The lap-time ruling is not itself a revised classification or a race penalty. The 1:13.0 limit applies only during/after qualifying and on reconnaissance laps while pit exit is open, not to racing laps.",
+      "summary": "The official 22-car FP3 classification has Max Verstappen first in 1:11.622, 0.025s ahead of Kimi Antonelli; Lando Norris is third at +0.131s, George Russell fourth at +0.184s and Charles Leclerc fifth at +0.274s. Formula1.com's report says Hamilton's session ended early after vibration and smoke reports, and rain arrived at the finish. FIA Document 32's classification matches the Formula1.com result table.",
+      "why_it_matters": "The top five are tightly grouped, but this is a single practice session rather than a qualifying order. Verstappen's 30-place penalty and the decision's conditional grid allocation make the official starting order important.",
       "sources": [
         {
-          "label": "Formula1.com: Practice Debrief (public excerpt)",
-          "url": "https://www.formula1.com/en/latest/article/can-mercedes-keep-their-rivals-at-bay-in-sao-paulo.7eVy5I4aTwZqm4N1WE2rBX"
+          "label": "Formula1.com: FP3 report",
+          "url": "https://www.formula1.com/en/latest/article/fp3-verstappen-fastest-from-antonelli-and-norris-ahead-of-sao-paulo-grand-prix.43ghT9dACzjrhxyjTBgKct"
         },
         {
-          "label": "Formula1.com: FP2 report",
-          "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-the-times-from-norris-in-second-practice-at-sao-paulo-gp.27XFbTG9Lji18qmtHbCJUA"
+          "label": "Formula1.com: official Practice 3 classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/3"
         },
         {
-          "label": "FIA: FP2 classification, Document 22",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_free_practice_2_classification.pdf"
-        },
-        {
-          "label": "Formula1.com: official Practice 2 classification",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/2"
-        },
-        {
-          "label": "FIA: FP2 deleted lap times, Document 23",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf"
-        },
-        {
-          "label": "FIA: SC2–SC1 maximum, Document 24",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf"
+          "label": "FIA: FP3 classification, Document 32",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_free_practice_3_classification.pdf"
         }
       ]
     },
     {
-      "topic": "Stewards and grid",
-      "title": "Russell gets five-place drop; Camara reprimanded after FP2",
-      "date": "2026-11-06",
-      "summary": "FIA Document 14 records Russell's sixth ICE against four allowed; the Stewards' separate Document 15 imposes a five-place grid drop. In Document 25, the Stewards found Rafael Camara unnecessarily impeded Charles Leclerc in FP2 and issued Camara his first driving reprimand of the season.",
-      "why_it_matters": "The rulings have different consequences: Russell's sanction affects his Brazil grid position; Camara's reprimand is not a grid penalty. Neither changes the FP2 classification.",
+      "topic": "Power-unit changes",
+      "title": "Verstappen receives 30-place drop after power-unit changes",
+      "date": "2026-11-07",
+      "summary": "Formula1.com reports 10-place drops for Lewis Hamilton and Charles Leclerc after Ferrari fitted fifth ICEs. The Stewards' Document 33 imposes a 30-place drop on Max Verstappen for his fifth ICE, turbocharger and exhaust. If Car 3 is classified in Qualifying, the decision assigns its Race grid position under Article B2.5.4.b.iv, superseding the earlier back-of-grid report. FIA Document 30 separately records parts for Sergio Perez but does not determine his exact grid position; George Russell's five-place penalty is a separate ruling.",
+      "why_it_matters": "Component declarations and penalty decisions are distinct. The official qualifying classification and grid determine how the 30-place sanction is applied; do not infer Perez's place from the Technical Delegate's component table.",
       "sources": [
         {
-          "label": "FIA: Russell's new PU elements, Document 14",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition.pdf"
+          "label": "Formula1.com: confirmed power-unit penalties",
+          "url": "https://www.formula1.com/en/latest/article/hamilton-leclerc-and-verstappen-set-for-sao-paulo-grand-prix-penalties-after-power-unit-changes.7B5CuFFCN1F6Txc8YwcEhd"
         },
         {
-          "label": "FIA: Russell's grid penalty, Stewards' Document 15",
+          "label": "FIA: Technical Delegate's new-element report, Document 30",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition_0.pdf"
+        },
+        {
+          "label": "FIA: Verstappen's 30-place penalty, Document 33",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_3_-_changes_to_pu_elements.pdf"
+        },
+        {
+          "label": "FIA: Russell's separate five-place decision, Document 15",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_63_-_changes_to_pu_element.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Stewards",
+      "title": "Perez summoned over an alleged unsafe condition after FP3",
+      "date": "2026-11-07",
+      "summary": "FIA Document 31 summons Sergio Perez (Car 11) and a Cadillac representative over the alleged unsafe condition of Car 3 at 12:22 BRT. They were required to report to the Stewards at 13:00 BRT. The latest reviewed event listing at 15:55 UTC still showed the summons, not a decision.",
+      "why_it_matters": "This is an allegation, not a finding or penalty. Recheck the FIA listing before saying how the matter was resolved.",
+      "sources": [
+        {
+          "label": "FIA: Sergio Perez summons, Document 31",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
         },
         {
-          "label": "FIA: Camara's reprimand, Stewards' Document 25",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"
-        },
-        {
-          "label": "Formula1.com: Russell's Brazil grid penalty",
-          "url": "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"
+          "label": "FIA: current Sao Paulo event listing",
+          "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
         }
       ]
     },
     {
       "topic": "Championship",
-      "title": "Antonelli's drivers' title is settled; Mercedes still chasing constructors' crown",
+      "title": "Mercedes can clinch the constructors' title with a three-point gain",
       "date": "2026-11-04",
-      "summary": "Kimi Antonelli clinched the Drivers' Championship in Mexico. The latest official standings show 380 points for Antonelli and 261 for Verstappen; Mercedes leads Ferrari 630-504. Formula1.com's pre-weekend scenario says Mercedes seals the constructors' title if it gains three points on Ferrari in Brazil.",
-      "why_it_matters": "Brazil's practice has not changed the standings, and the constructors' title remains undecided. These are current pre-race totals, not a result projection.",
+      "summary": "The latest official standings show Mercedes on 630 points, 126 ahead of Ferrari on 504. Formula1.com's pre-weekend scenario says Mercedes clinches the constructors' title if it gains three points on Ferrari in Brazil; the practice sessions have not changed the standings.",
+      "why_it_matters": "The Drivers' title is already settled, but the teams' championship remains live. Practice awards no points, so the three-point threshold is still a race-weekend scenario.",
       "sources": [
-        {
-          "label": "Formula1.com: official driver standings",
-          "url": "https://www.formula1.com/en/results/2026/drivers"
-        },
         {
           "label": "Formula1.com: official constructor standings",
           "url": "https://www.formula1.com/en/results/2026/team"
         },
         {
-          "label": "Formula1.com: constructors' title scenario",
+          "label": "Formula1.com: official driver standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        },
+        {
+          "label": "Formula1.com: Sao Paulo title scenario",
           "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
         }
       ]
     },
     {
-      "topic": "Technical and circuit",
-      "title": "Norris reports an early gain from McLaren's Brazil upgrades",
-      "date": "2026-11-06",
-      "summary": "FIA Document 12 lists four McLaren performance items: front wing, rear wing, beam wing and floor furniture. After Friday practice, Norris said the upgrades seemed to gain performance; he topped FP1 and finished second in FP2. The Race reports that the new front-wing concept is intended to carry into McLaren's 2027 launch specification.",
-      "why_it_matters": "The Friday evidence is encouraging but does not establish a race-long gain. Norris's remarks are a driver assessment; check whether the package remains effective through FP3 and qualifying.",
-      "sources": [
-        {
-          "label": "FIA: all-team car presentation submissions, Document 12",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_car_presentation_submissions.pdf"
-        },
-        {
-          "label": "Formula1.com: Norris on McLaren's Friday upgrades",
-          "url": "https://www.formula1.com/en/latest/article/we-seemed-to-gain-performance-norris-offers-update-on-mclarens-upgrades-in-sao-paulo.6fULeVhwADSsEp722opGBk"
-        },
-        {
-          "label": "The Race: McLaren's 2027 front-wing concept",
-          "url": "https://www.the-race.com/formula-1/mclaren-2027-f1-front-wing-breaks-cover-in-brazil/"
-        }
-      ]
-    },
-    {
-      "topic": "Ferrari and grid",
-      "title": "The Race reports Hamilton is set for a Brazil grid penalty",
+      "topic": "Venue",
+      "title": "Sao Paulo Grand Prix contract extended through 2035",
       "date": "2026-11-07",
-      "summary": "The Race reports Ferrari planned power-unit component changes after FP2 and that Lewis Hamilton is set to take a Brazil grid penalty. The 13:30 UTC FIA refresh found no Hamilton-specific parts report or Stewards' ruling among the 27 discovered event documents.",
-      "why_it_matters": "This is an attributed expectation, not an FIA-confirmed penalty; the exact component and sanction remain unverified. Check the FIA documents before treating a starting position as settled.",
+      "summary": "Formula1.com reports a new five-year agreement that keeps the Sao Paulo Grand Prix at Interlagos on the Formula 1 calendar through 2035.",
+      "why_it_matters": "The extension gives the venue a long-term place on the calendar beyond the immediate championship weekend.",
       "sources": [
         {
-          "label": "The Race: Hamilton set for a Brazil grid penalty",
-          "url": "https://www.the-race.com/formula-1/hamilton-set-for-brazil-grid-penalty-after-ferraris-worst-2026-friday/"
-        },
-        {
-          "label": "FIA: current Sao Paulo event documents",
-          "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
-        },
-        {
-          "label": "Formula1.com: official Practice 2 classification",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/2"
+          "label": "Formula1.com: Sao Paulo contract extension",
+          "url": "https://www.formula1.com/en/latest/article/formula-1-to-race-in-sao-paulo-through-to-2035-following-new-five-year-contract-extension.3RBVXeLDp6NMDUQSAIX8TL"
         }
       ]
     }

@@ -8,9 +8,17 @@ FIA_ENTRY_LIST_URL = FIA + "entry_list.pdf"
 FIA_FP2_DELETIONS_URL = FIA + "infringement_-_free_practice_2_deleted_lap_times.pdf"
 FIA_CAMARA_REPRIMAND_URL = FIA + "infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"
 FIA_SC2_SC1_URL = FIA + "race_director_notes_-_sc2_-_sc1_times.pdf"
+FIA_NEW_PU_REV2_URL = FIA + "new_pu_elements_for_this_competition_0.pdf"
+FIA_NEW_PU_REV2_DOC = "new_pu_elements_for_this_competition_0"
+FIA_NEW_PU_REV2_P2_ASSET = "fia-brazil-af563bed0bcb-46cf930a47e6c2c0-p2"
+FIA_NEW_PU_REV2_P3_ASSET = "fia-brazil-af563bed0bcb-46cf930a47e6c2c0-p3"
+FIA_PEREZ_SUMMONS_URL = FIA + "summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
+FIA_VERSTAPPEN_PENALTY_URL = FIA + "infringement_-_car_3_-_changes_to_pu_elements.pdf"
+FIA_POST_QUALIFYING_URL = FIA + "post-qualifying_procedure.pdf"
 CAMARA = "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
 FP1_LINEUP = "https://www.formula1.com/en/latest/article/which-rookie-drivers-are-getting-fp1-outings-at-the-sao-paulo-grand-prix.3DAnL1BS38Gu5KKzU70aBJ"
 FP1_REPORT = "https://www.formula1.com/en/latest/article/fp1-norris-leads-antonelli-and-verstappen-in-opening-sao-paulo-gp-practice-session.3GXL3rAROwHsLxnxn9hReY"
+FP3_REPORT = "https://www.formula1.com/en/latest/article/fp3-verstappen-fastest-from-antonelli-and-norris-ahead-of-sao-paulo-grand-prix.43ghT9dACzjrhxyjTBgKct"
 FP1_RESULT = "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/1"
 THE_RACE_FP1 = "https://www.the-race.com/formula-1/what-happened-in-brazil-fp1-f1-sao-paulo/"
 STORYLINES = "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
@@ -101,18 +109,24 @@ pre-weekend scenario says gaining three points on Ferrari in Brazil clinches
 the constructors' title; practice awards no points, and the title is not yet
 settled.
 <a href="{STORYLINES}">Official title scenario</a>.</p>''', "bi-trophy", "accent")}
-{card("Mercedes: Russell receives a five-place drop", f'''<p>FIA Document 14
-reports a new ICE for Russell at the twentieth competition: it is his sixth
-against four allowed and the Technical Delegate says it is not compliant with
-Sporting Regulation B8.2.2(a). The Stewards' separate Document 15 now imposes
-a five-place drop for the next race in which Russell participates. The
-season-to-date usage report (Document 8) is not an event-specific parts
-declaration or the penalty decision.
-<a href="{FIA_NEW_PU_URL}">FIA Document 14</a> ·
-<a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a> ·
-<a href="{RUSSELL_F1}">Formula1.com report</a> ·
-<a href="{RUSSELL_PENALTY}">The Race report</a>. The FIA filings do not
-establish whether the planned ADUO specification is arriving.</p>''',
+{card("Power-unit changes reshape the grid", f'''<p>FIA Document 30 reports
+new elements for Verstappen, both Ferraris, Perez and Russell. It records
+Verstappen's fifth ICE, turbocharger and exhaust against four allowed, and a
+sixth PU-ANC within the six-part allowance; both Ferrari drivers receive a
+fifth ICE against four allowed. Perez's report lists a fifth ICE and turbo,
+fourth MGU-K and fifth PU-ANC. Russell's new PU-ANC is sixth of six. These are
+Technical Delegate counts, not all separate penalty rulings. Formula1.com
+reported 10-place drops for Hamilton and Leclerc; the Stewards' later Document
+33 imposed a 30-place drop on Verstappen for the fifth ICE, turbocharger and
+exhaust. If Car 3 is classified in Qualifying, the decision specifies its
+Race-grid allocation under Article B2.5.4.b.iv, superseding the earlier
+back-of-grid report. Document 30 does not determine Perez's exact grid position.
+Russell's separate five-place drop was imposed in Document 15. Check the
+official grid before quoting any starting position.
+<a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
+<a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
+<a href="{HAMILTON_PENALTY}">Formula1.com penalty report</a> ·
+<a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a>.</p>''',
      "bi-exclamation-triangle")}
 {card("FP1/FP2: FIA lap-time deletions", f'''<p>Stewards'
 Document 19 deletes the shown FP1 lap times for Franco Colapinto (2:05.129),
@@ -136,13 +150,14 @@ driving reprimand, Camara's first of the season. It is not a grid drop or a
 revised FP2 classification.
 <a href="{FIA_CAMARA_REPRIMAND_URL}">FIA Document 25</a> ·
 <a href="{FIA_EVENT}">FIA event documents</a>.</p>''', "bi-exclamation-triangle")}
-{card("Ferrari: Hamilton penalty expected after Friday component changes", f'''<p>The Race reports Ferrari planned power-unit component changes after FP2
-and that Hamilton is set to take a Brazil grid penalty. The 13:30 UTC FIA
-refresh found no Hamilton-specific parts report or Stewards' ruling among
-the 27 discovered event documents, so this remains an attributed expectation; the
-exact component and sanction are not confirmed in the FIA documents reviewed.
-<a href="{HAMILTON_PENALTY}">The Race's report</a> ·
-<a href="{FIA_EVENT}">FIA event listing</a>.</p>''', "bi-exclamation-triangle")}
+{card("Perez summoned after FP3", f'''<p>FIA Document 31 summons Sergio Perez
+(Car 11) and a Cadillac representative over the alleged unsafe condition of
+Car 3 at 12:22 BRT. They were required to report to the Stewards at 13:00 BRT.
+At the 16:05 UTC FIA-listing check, the Car 11 item remained the summons;
+Document 33 is a separate power-unit decision for Car 3. No outcome for
+Perez's summons was verified; check for a subsequent decision before describing
+it. <a href="{FIA_PEREZ_SUMMONS_URL}">FIA Document 31</a> ·
+<a href="{FIA_EVENT}">current FIA event listing</a>.</p>''', "bi-exclamation-triangle")}
 {card("McLaren: four declared changes, early gain reported by Norris", f'''<p>FIA Document 12
 lists four performance-motivated items: front wing, rear wing, beam wing and
 floor furniture. The team's stated aims concern flow conditioning and local
@@ -197,10 +212,28 @@ not a verified 2026 strategy window.</p>
 
 def _powerunit():
     new_elements = (
-        ("63", "Mercedes", "George Russell", "ICE", "5", "4",
-         "Sixth used; not compliant with B8.2.2(a)"),
-        ("51", "Haas Ferrari", "Rafael Câmara", "PU-ANC", "5", "6",
-         "One of six allowed; compliant with B8.2.2(g)"),
+        ("03", "Red Bull Racing RB Ford", "Max Verstappen", "ICE", "4", "4",
+         "Fifth of four; not compliant"),
+        ("03", "Red Bull Racing RB Ford", "Max Verstappen", "TC", "4", "4",
+         "Fifth of four; not compliant"),
+        ("03", "Red Bull Racing RB Ford", "Max Verstappen", "EXH", "4", "4",
+         "Fifth of four; not compliant"),
+        ("03", "Red Bull Racing RB Ford", "Max Verstappen", "PU-ANC", "5", "6",
+         "Sixth of six; within allowance"),
+        ("16", "Ferrari", "Charles Leclerc", "ICE", "4", "4",
+         "Fifth of four; not compliant"),
+        ("44", "Ferrari", "Lewis Hamilton", "ICE", "4", "4",
+         "Fifth of four; not compliant"),
+        ("11", "Cadillac Ferrari", "Sergio Perez", "ICE", "4", "4",
+         "Fifth of four; not compliant"),
+        ("11", "Cadillac Ferrari", "Sergio Perez", "TC", "4", "4",
+         "Fifth of four; not compliant"),
+        ("11", "Cadillac Ferrari", "Sergio Perez", "MGU-K", "3", "3",
+         "Fourth of three; not compliant"),
+        ("11", "Cadillac Ferrari", "Sergio Perez", "PU-ANC", "4", "6",
+         "Fifth of six; within allowance"),
+        ("63", "Mercedes", "George Russell", "PU-ANC", "5", "6",
+         "Sixth of six; within allowance"),
     )
     new_elements_table = "".join(
         "<tr>" + "".join(f"<td>{value}</td>" for value in row) + "</tr>"
@@ -235,18 +268,35 @@ def _powerunit():
         for row in usage_rows
     )
     return f"""
-<h2 class="sec">Brazil's new power-unit elements</h2>
-<p>FIA Document 14, published at 16:33 CET on 6 November, lists Russell's
-sixth ICE and Rafael Câmara's new PU-ANC. The Technical Delegate states that
-Russell's ICE is not compliant with B8.2.2(a), while Câmara's PU-ANC is within
-the six-element allowance under B8.2.2(g). This report is not the Stewards'
-penalty decision. The Stewards' separate Document 15 imposes a five-place
-drop for the next race in which Russell participates.
-<a href="{RUSSELL_FIA_PENALTY}">Read Document 15</a>.</p>
+<h2 class="sec">Updated Brazil power-unit elements</h2>
+<p>FIA Document 30 lists new components for five drivers for the remainder of
+the competition. Its Technical Delegate identifies Verstappen's fifth ICE,
+turbocharger and exhaust against four allowed; Leclerc and Hamilton's fifth
+ICEs against four; and Perez's fifth ICE and turbocharger plus fourth MGU-K
+against three. Each is stated as not compliant with the relevant allowance.
+The same report says Verstappen's sixth PU-ANC, Perez's fifth and Russell's
+sixth are within the six-part PU-ANC allowance. Component counts are not
+Stewards' penalty decisions or a qualifying classification. Formula1.com
+reports 10-place drops for Hamilton and Leclerc. The Stewards' later Document
+33 imposes a 30-place drop on Verstappen for the fifth ICE, turbocharger and
+exhaust. If Car 3 is classified in Qualifying, it specifies Race-grid
+allocation under Article B2.5.4.b.iv; this supersedes the earlier
+back-of-grid report. Document 30 does not determine Perez's exact position.
+Russell's five-place drop is a separate Stewards' decision in Document 15.
+<a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
+<a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
+<a href="{HAMILTON_PENALTY}">Formula1.com on the grid penalties</a> ·
+<a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a>.</p>
 <div class="table-wrap"><table class="data compact" id="brazil-new-pu-elements">
 <thead><tr><th>No.</th><th>Constructor</th><th>Driver</th><th>New element</th>
 <th>Previously used</th><th>Season allowance</th><th>Technical Delegate's report</th></tr></thead>
 <tbody>{new_elements_table}</tbody></table></div>
+{_figure(FIA_NEW_PU_REV2_P2_ASSET,
+         "FIA Document 30: new ICE, turbocharger and exhaust entries, page 2",
+         FIA_NEW_PU_REV2_DOC, 2)}
+{_figure(FIA_NEW_PU_REV2_P3_ASSET,
+         "FIA Document 30: new MGU-K and PU-ANC entries, page 3",
+         FIA_NEW_PU_REV2_DOC, 3)}
 {_figure(FIA_NEW_PU_ASSET, "FIA Document 14: Brazil new power-unit elements, page 2",
          "new_pu_elements_for_this_competition")}
 <h2 class="sec">Season-to-date power-unit usage</h2>
@@ -330,6 +380,17 @@ lower apex kerbs at T2/T8/T10; new debris fencing between T5–T6; adjusted
 light-panel heights; and an asphalt patch at T3 exit.
 <a href="{FIA}race_directors_competition_notes.pdf#page=8">Race Director's notes,
 pages 2, 7–8</a>. The full source pages follow below.</p>
+<p><strong>Race Director's Competition Notes V2, 7 November:</strong> cars not
+performing a practice start must leave the Pit Exit Road at the earliest
+opportunity, join the normal racing line and not cross back into the Pit Exit
+Road. During race reconnaissance laps, drivers may cross the separating white
+line only when leaving the pit lane without performing a practice start.
+Overtaking on the Pit Exit Road is prohibited during Qualifying unless a car
+slows with an obvious problem. These revised instructions are distinct from
+the below-1:13.0 Safety Car-line limit above.
+<a href="{FIA}race_directors_competition_notes_v2.pdf#page=5">FIA Competition
+Notes V2, page 5</a> ·
+<a href="{FIA}race_directors_competition_notes_v2.pdf#page=6">page 6</a>.</p>
 """
 
 
@@ -357,7 +418,7 @@ def build_pages(ctx, env):
         raise ValueError("Sao Paulo session-notes placeholder changed")
     pages["notes"]["body"] = pages["notes"]["body"].replace(
         notes_pending,
-        "<p><strong>Session-by-session status:</strong> FP1 and FP2 "
+        "<p><strong>Session-by-session status:</strong> FP1, FP2 and FP3 "
         "classifications have been published. The latest official result appears "
         "in <a href=\"results.html\">Results</a>; <a href=\"news.html\">Weekend "
         "News</a> carries session reports and official updates. Recheck after "
@@ -394,15 +455,23 @@ location diagram, remain available in the expandable readers.</p>""" + _upgrade_
 <p><strong>Standard weekend, not Sprint:</strong> Friday FP1 12:30 and FP2 16:00;
 Saturday FP3 11:30 and Qualifying 15:00; Sunday Race 14:00 (all BRT).
 Add five hours for Tallinn (EET): race <strong>19:00 Sunday 8 November</strong>.
-<a href="{FIA}timetable_v3.pdf">FIA timetable V3</a>. Session results,
-long-run analysis and the race-set inventory cannot be populated before the
-relevant sessions and source publications.</p>
+<a href="{FIA}timetable_v3.pdf">FIA timetable V3</a>. The FP1, FP2 and FP3
+classifications are published; qualifying and race results await those sessions.
+Long-run analysis depends on available timing data, and race-set counts require
+a published inventory chart.</p>
 <p><strong>Curfew report, 7 November:</strong> FIA Technical Delegate
 Document 27 says Oracle Red Bull Racing and Aston Martin personnel were inside
 the circuit during the 11.5-hour pre-FP3 curfew, from 21:00 Friday to 08:30
 Saturday BRT. This was Oracle Red Bull Racing's second and Aston Martin's third
 of four permitted team exceptions; the report says no action should be taken.
 <a href="{FIA}curfew_0.pdf">FIA Document 27</a>.</p>"""
+    pages["schedule"]["body"] += f"""
+<p><strong>FIA Document 29 — Post-Qualifying Procedure:</strong> the FIA event
+listing records this publication on 7 November. A direct PDF request returned
+HTTP 403 during this review, so its contents have not been verified or
+transcribed. This is an access limitation, not evidence that no procedure was
+published. <a href="{FIA_POST_QUALIFYING_URL}">FIA Document 29</a> ·
+<a href="{FIA_EVENT}">complete event listing</a>.</p>"""
     pages["moments"]["body"] = """
 <h2 class="sec">Local winners and the circuit's evolution</h2>
 <div class="grid cols-2">
