@@ -1,26 +1,34 @@
 {
-  "reviewed_at": "2026-11-07T20:31:00Z",
-  "expires_at": "2026-11-07T21:15:00Z",
-  "through_session": "Practice 3",
-  "feed_fingerprint": "bcb95c2edff7d98b66f81417bae43239f93798d6f02a01cdfd55a43d6df8ea51",
+  "reviewed_at": "2026-11-07T21:53:24Z",
+  "expires_at": "2026-11-08T09:53:24Z",
+  "through_session": "Qualifying",
+  "feed_fingerprint": "3c1ce7d928054390bb24aa5a7a067207f444f12c18d4462ff966f7379234b613",
   "items": [
     {
       "topic": "Qualifying",
-      "title": "Brazilian qualifying halted by rain; official grid remains unavailable",
+      "title": "Norris takes pole as Alonso reaches Q3; official grid table remains unavailable",
       "date": "2026-11-07",
-      "summary": "The Race reports that Q1 was red-flagged almost immediately in heavy rain. At 20:26 UTC, Formula1.com's official Qualifying and Starting Grid pages both returned \"No results available\". The live FIA event listing had no revised session timetable, so no replacement start time or qualifying order is confirmed by the sources checked.",
-      "why_it_matters": "Do not infer a starting order or the application of accumulated grid penalties from practice pace or an earlier team statement; wait for the official classification and grid.",
+      "summary": "Formula1.com's 22-car Qualifying classification lists Lando Norris on pole in 1:27.470, 0.204s ahead of George Russell. Its post-session report says Fernando Alonso reached Q3 for the first time this season and is expected to start eighth after Charles Leclerc's penalty. The Race also publishes a provisional 22-car post-penalty order; the official Starting Grid results page still says \"No results available\" and the collector reports one entrant.",
+      "why_it_matters": "Keep the qualifying classification distinct from penalty-adjusted starting positions. Alonso's reported eighth and The Race's full order are not a substitute for the still-unpublished official grid table.",
       "sources": [
+        {
+          "label": "Formula1.com: official 22-car Qualifying classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
+        },
+        {
+          "label": "Formula1.com: Alonso reaches Q3 for the first time this season",
+          "url": "https://www.formula1.com/en/latest/article/first-q3-of-the-season-feels-good-alonso-has-feet-on-the-ground-after-best-qualifying-of-the-season-in-brazil.4OATD4hn8zsO4htkxOYBBE"
+        },
         {
           "label": "The Race: qualifying red-flagged by rain",
           "url": "https://www.the-race.com/formula-1/brazilian-gp-qualifying-red-flagged-almost-immediately-due-to-rain/"
         },
         {
-          "label": "Formula1.com: official Qualifying results",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
+          "label": "The Race: provisional post-penalty grid",
+          "url": "https://www.the-race.com/formula-1/f1-2026-brazilian-grand-prix-starting-grid-with-four-penalties-copy/"
         },
         {
-          "label": "Formula1.com: official Starting Grid",
+          "label": "Formula1.com: official Starting Grid (no results posted)",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
         },
         {
@@ -31,10 +39,10 @@
     },
     {
       "topic": "Power-unit changes",
-      "title": "Hamilton receives 65 further grid places after additional power-unit changes",
+      "title": "Hamilton's cumulative 75-place penalty; Verstappen targets a fun recovery",
       "date": "2026-11-07",
-      "summary": "FIA Document 42 lists Hamilton's sixth ICE, fifth TC and exhaust, fourth ES, PU-CE and MGU-K, and seventh PU-ANC. Document 43 imposes a further 65-place drop for the next Race, in addition to the earlier 10-place Document 37 penalty. If Car 44 is classified in Qualifying, the decision specifies Race-grid allocation under Article B2.5.4.b.iv; the actual position remains unknown while the official order is unavailable.",
-      "why_it_matters": "The updated FIA component report and ruling supersede the earlier team statement that Hamilton would start from the back without detailed counts. Keep the 75-place cumulative penalty distinct from the still-unpublished assigned grid position.",
+      "summary": "FIA Documents 42–43 add 65 places to Hamilton's earlier 10-place drop; he qualified 11th and appears 20th in The Race's provisional order. Formula1.com's post-Qualifying report says Verstappen chose not to run in Q2 after setting a Q1 time, and that his 30-place penalty puts him 21st. The official Starting Grid table still has no results.",
+      "why_it_matters": "The component sanctions and qualifying classification are confirmed, but the article-reported and secondary penalty-adjusted positions remain distinct from the unpublished official grid table.",
       "sources": [
         {
           "label": "Formula1.com: confirmed power-unit penalties",
@@ -43,6 +51,10 @@
         {
           "label": "Formula1.com: Hamilton's later full power-unit change",
           "url": "https://www.formula1.com/en/latest/article/hamilton-set-to-start-at-back-of-the-grid-after-further-penalty-ahead-of-sao-paulo-grand-prix.5SFs44M6cNSDvUBCWE9FWZ"
+        },
+        {
+          "label": "Formula1.com: Verstappen's post-Qualifying penalty outlook",
+          "url": "https://www.formula1.com/en/latest/article/maybe-its-the-best-place-to-take-it-verstappen-sets-out-goal-from-back-of-the-grid-in-sao-paulo.3Q4PjMuHO5GVxoRFTwhggD"
         },
         {
           "label": "FIA: Technical Delegate's new-element report, Document 30",

@@ -99,7 +99,7 @@ class GPParityTests(unittest.TestCase):
         body = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )["notes"]["body"]
-        self.assertIn("FP1 and FP2 classifications have been published", body)
+        self.assertIn("Official classifications are published for FP1, FP2, FP3 and Qualifying", body)
         self.assertIn('href="results.html">Results</a>', body)
         self.assertIn('href="news.html">Weekend News</a>', body)
         self.assertNotIn("Session-by-session commentary notes: awaiting", body)
@@ -147,8 +147,10 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_brazil.FIA_HAMILTON_NEW_PU_URL, body)
         self.assertIn(content_brazil.FIA_HAMILTON_ADDITIONAL_PENALTY_URL, body)
         self.assertIn("further 65-place drop", body)
-        self.assertIn("cumulative 75-place penalty", body)
-        self.assertIn("does not establish an actual grid position", body)
+        self.assertIn("75-place penalty", body)
+        self.assertIn("Car 44 qualified 11th", body)
+        self.assertIn("provisional order lists Hamilton 20th", body)
+        self.assertIn("that position is not confirmed", body)
         self.assertNotIn("check the FIA event page", body)
         self.assertNotIn("14:00 UTC targeted FIA check", body)
         self.assertNotIn("12:46 UTC", body)
@@ -175,8 +177,11 @@ class GPParityTests(unittest.TestCase):
         schedule = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )["schedule"]["body"]
-        self.assertIn("No replacement start time", schedule)
+        self.assertIn("lists all 22 qualifiers", schedule)
+        self.assertIn("Starting Grid page still says", schedule)
+        self.assertNotIn("No replacement start time", schedule)
         self.assertIn(content_brazil.F1_STARTING_GRID, schedule)
+        self.assertIn(content_brazil.THE_RACE_PROVISIONAL_GRID, schedule)
 
     def test_brazil_double_yellow_document_is_interpreted_in_briefings(self):
         pages = content_brazil.build_pages(
@@ -192,6 +197,28 @@ class GPParityTests(unittest.TestCase):
                 "not a race penalty or a revised FP1 classification", normalized
             )
             self.assertIn(content_brazil.FIA_FP1_DOUBLE_YELLOW_URL, normalized)
+
+    def test_brazil_qualifying_grid_and_strategy_are_distinguished(self):
+        pages = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )
+        schedule = " ".join(pages["schedule"]["body"].split())
+        self.assertIn("Lando Norris took pole in 1:27.470", schedule)
+        self.assertIn("labelled provisional", schedule)
+        self.assertIn("do not present it as an official classification", schedule)
+        self.assertNotIn("Qualifying and Starting Grid pages both returned", schedule)
+
+        notes = " ".join(pages["notes"]["body"].split())
+        self.assertIn("eight deleted Qualifying lap-time entries", notes)
+        self.assertIn("Stroll's 1:42.680 lap", notes)
+        self.assertIn(content_brazil.FIA_QUALIFYING_DELETIONS_URL, notes)
+        self.assertIn(content_brazil.FIA_STROLL_DOUBLE_YELLOW_URL, notes)
+
+        tyres = " ".join(pages["tyres"]["body"].split())
+        self.assertIn("pre-qualifying assessment", tyres)
+        self.assertIn("found no Brazil inventory chart", tyres)
+        self.assertIn(content_brazil.PIRELLI_FP2_STRATEGY, tyres)
+        self.assertIn("no set counts are inferred", tyres)
 
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
         ctx = dict(self.contexts["brazil"], status="live")

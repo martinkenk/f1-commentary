@@ -24,6 +24,8 @@ FIA_HAMILTON_ADDITIONAL_PENALTY_URL = FIA + "infringement_-_car_44_-_additional_
 FIA_GARAGE_DOORS_URL = FIA + "garage_doors.pdf"
 FIA_POST_QUALIFYING_URL = FIA + "post-qualifying_procedure.pdf"
 FIA_BEARMAN_REVERSAL_URL = FIA + "infringement_-_car_87_-_reversing_in_the_pit_lane.pdf"
+FIA_QUALIFYING_DELETIONS_URL = FIA + "infringement_-_qualifying_deleted_lap_times.pdf"
+FIA_STROLL_DOUBLE_YELLOW_URL = FIA + "infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf"
 CAMARA = "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
 FP1_LINEUP = "https://www.formula1.com/en/latest/article/which-rookie-drivers-are-getting-fp1-outings-at-the-sao-paulo-grand-prix.3DAnL1BS38Gu5KKzU70aBJ"
 FP1_REPORT = "https://www.formula1.com/en/latest/article/fp1-norris-leads-antonelli-and-verstappen-in-opening-sao-paulo-gp-practice-session.3GXL3rAROwHsLxnxn9hReY"
@@ -42,6 +44,8 @@ FIA_EVENT = "https://www.fia.com/documents/championships/fia-formula-one-world-c
 THE_RACE_QUALIFYING = "https://www.the-race.com/formula-1/brazilian-gp-qualifying-red-flagged-almost-immediately-due-to-rain/"
 F1_QUALIFYING_RESULTS = "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
 F1_STARTING_GRID = "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
+THE_RACE_PROVISIONAL_GRID = "https://www.the-race.com/formula-1/f1-2026-brazilian-grand-prix-starting-grid-with-four-penalties-copy/"
+PIRELLI_FP2_STRATEGY = "https://press.pirelli.com/soft-delivers-at-interlagos-as-antonelli-sets-the-pace/"
 FIA_FP1_DOUBLE_YELLOW_URL = FIA + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"
 FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
 FIA_UPGRADES_ASSET = "fia-brazil-d82872895e6d-eaf9202e01277f4e"
@@ -147,11 +151,13 @@ Hamilton (Car 44), respectively, for their fifth ICEs. FIA Document 42 then
 lists Hamilton's sixth ICE, fifth turbocharger and exhaust, fourth energy store,
 fourth control electronics unit and MGU-K, and seventh PU-ANC. Document 43
 imposes a further 65-place drop for those changes, in addition to Document
-37's 10 places. If Car 44 is classified in Qualifying, its Race-grid position
-is allocated under Article B2.5.4.b.iv; the cumulative 75-place penalty does
-not establish an actual grid position before classification. This later FIA
-filing supersedes the earlier team statement that Hamilton would start from
-the back without specifying component counts. Russell's separate five-place drop followed his sixth ICE
+37's 10 places, a cumulative 75-place penalty. Car 44 qualified 11th, so the
+decision's conditional Race-grid allocation under Article B2.5.4.b.iv applies.
+The Race's provisional order lists
+Hamilton 20th, but Formula1.com has not published the official Starting Grid;
+that position is not confirmed. This later FIA filing supersedes the earlier
+team statement that Hamilton would start from the back without specifying
+component counts. Russell's separate five-place drop followed his sixth ICE
 (sixth against four allowed) in Document 15. Check the official grid before
 quoting any starting position.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
@@ -165,6 +171,7 @@ quoting any starting position.
 <a href="{F1_PU_PENALTIES}">Formula1.com on the penalties</a> ·
 <a href="{HAMILTON_F1_UPDATE}">Formula1.com on Hamilton's later replacement</a> ·
 <a href="{HAMILTON_PENALTY}">The Race on Hamilton's penalty</a> ·
+<a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional post-penalty order</a> ·
 <a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a> ·
 <a href="{RUSSELL_PENALTY}">The Race report on Russell</a>.</p>''',
      "bi-exclamation-triangle")}
@@ -185,7 +192,14 @@ official FP2 classification</a>.</p>
 not use the track at Turns 1 and 4: Rafael Camara (Car 51), 1:34.799 at
 11:35:37, and Max Verstappen (Car 3), 1:52.648 at 11:57:43. This ruling
 deletes those entries; it is not itself a revised FP3 classification.
-<a href="{FIA_FP3_DELETIONS_URL}">FIA Document 36</a>.</p>''', "bi-flag")}
+<a href="{FIA_FP3_DELETIONS_URL}">FIA Document 36</a>.</p>
+<p>FIA Document 44 lists eight deleted Qualifying lap-time entries affecting
+Rafael Câmara, Gabriel Bortoleto, Lance Stroll, Carlos Sainz, Oliver Bearman
+and Sergio Perez. Document 46 separately deletes Stroll's 1:42.680 lap for a
+double-waved-yellow sector. These are lap-time decisions, not additional grid
+penalties or replacements for the official qualifying classification.
+<a href="{FIA_QUALIFYING_DELETIONS_URL}">FIA Document 44</a> ·
+<a href="{FIA_STROLL_DOUBLE_YELLOW_URL}">FIA Document 46</a>.</p>''', "bi-flag")}
 {card("Stewards: Camara receives his first reprimand", f'''<p>FIA Document 25
 resolves the Turn 15 summons involving Rafael Camara (Car 51) and Charles
 Leclerc (Car 16). The Stewards found that Camara unnecessarily impeded Leclerc
@@ -258,6 +272,19 @@ Traction, braking, stress, abrasion, grip and lateral demand are all 3/5;
 track evolution is 5/5. Resurfacing between Turns 3–5 and 8–9 makes Friday's
 long runs important. Last year's effective two-stop race is historical context,
 not a verified 2026 strategy window.</p>
+<h2 class="sec">Latest published race-strategy assessment</h2>
+<p>Pirelli's latest public analysis, published after FP2 on 6 November, found
+more thermal degradation in the warmer FP1, particularly on C3. The cooler,
+changeable FP2 showed lower overheating and degradation, with consistent Soft
+performance; Pirelli flagged rear-right wear over longer stints. Its then-current
+forecast left wet options open and said two stops could be viable in dry
+conditions, but explicitly deferred a firm conclusion until later sessions.
+This is a pre-qualifying assessment, not a current Sunday forecast or final
+strategy recommendation. Qualifying was subsequently rain-affected. The public
+race-set feeds checked at 21:29 UTC found no Brazil inventory chart; no set
+counts are inferred, and Formula1.com's access-restricted strategy guide was
+not bypassed. <a href="{PIRELLI_FP2_STRATEGY}">Pirelli's FP2 analysis</a> ·
+<a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a>.</p>
 {_figure("fia-brazil-8188298e7b47-84d11f15335e159e-p2",
          "Sao Paulo tyre prescriptions, version 5 issue A", "competition_notes_-_pirelli_preview")}
 """
@@ -359,9 +386,10 @@ The later FIA Technical Delegate's Document 42 reports Hamilton's sixth ICE,
 fifth TC and EXH, fourth ES, PU-CE and MGU-K, and seventh PU-ANC. The source
 states each is beyond its season allowance. The Stewards' Document 43 imposes
 a further 65-place drop for these parts, in addition to Document 37's 10-place
-drop for the fifth ICE. If Car 44 is classified in Qualifying, its Race-grid
-position is allocated under Article B2.5.4.b.iv; no actual grid position can
-be inferred before the classification is published. This component-by-component
+drop for the fifth ICE. Car 44 qualified 11th, so the conditional Race-grid
+allocation under Article B2.5.4.b.iv applies. The Race lists Hamilton 20th in
+its provisional post-penalty order; Formula1.com has not published the official
+Starting Grid, so no final position is confirmed. This component-by-component
 FIA report supersedes the earlier team statement that Hamilton would start from
 the back without detailed counts.
 The separate Document 15 imposes a five-place drop for Russell's sixth ICE
@@ -519,8 +547,8 @@ def build_pages(ctx, env):
         raise ValueError("Sao Paulo session-notes placeholder changed")
     pages["notes"]["body"] = pages["notes"]["body"].replace(
         notes_pending,
-        "<p><strong>Session-by-session status:</strong> FP1 and FP2 "
-        "classifications have been published; FP3 has now also been classified. "
+        "<p><strong>Session-by-session status:</strong> Official classifications "
+        "are published for FP1, FP2, FP3 and Qualifying. "
         "The latest official result appears "
         "in <a href=\"results.html\">Results</a>; <a href=\"news.html\">Weekend "
         "News</a> carries session reports and official updates. Recheck after "
@@ -531,19 +559,30 @@ def build_pages(ctx, env):
 Bearman (Car 87) reversed in the pit lane under its own power. The Stewards
 imposed a driving reprimand, his second of the season; this ruling is not a
 grid penalty. <a href="{FIA_BEARMAN_REVERSAL_URL}">Read the FIA decision</a>.
-Check the official classification and starting grid under
-<a href="results.html">Results</a>.</p>"""
+See the published Qualifying result and the still-pending official Starting
+Grid under <a href="results.html">Results</a>.</p>
+<p><strong>Qualifying lap deletions:</strong> FIA Document 44 lists eight
+deleted lap-time entries affecting Rafael Câmara, Gabriel Bortoleto, Lance
+Stroll, Carlos Sainz, Oliver Bearman and Sergio Perez. Document 46 separately
+deletes Stroll's 1:42.680 lap for a double-waved-yellow sector. These are
+lap-time decisions, not additional grid penalties or replacements for the
+official qualifying classification.
+<a href="{FIA_QUALIFYING_DELETIONS_URL}">FIA Document 44</a> ·
+<a href="{FIA_STROLL_DOUBLE_YELLOW_URL}">FIA Document 46</a>.</p>"""
     pages["notes"]["body"] += f"""
 <p><strong>Hamilton's revised power-unit penalty:</strong> FIA Document 42
 lists Car 44's sixth ICE, fifth TC and EXH, fourth ES, PU-CE and MGU-K, and
 seventh PU-ANC. Document 43 adds a 65-place drop to Document 37's earlier
-10-place penalty (75 places cumulatively). If classified in Qualifying, the
-Race-grid position is allocated under Article B2.5.4.b.iv; the actual position
-is not known while the official qualifying and grid tables remain unavailable.
+10-place penalty (75 places cumulatively). Car 44 qualified 11th, so the
+decision's conditional Race-grid allocation under Article B2.5.4.b.iv applies.
+The Race lists Hamilton 20th in its provisional post-penalty order; the official
+Formula1.com Starting Grid remains unpublished, so no final position is
+confirmed.
 <a href="{FIA_HAMILTON_NEW_PU_URL}">Document 42</a> ·
 <a href="{FIA_HAMILTON_ADDITIONAL_PENALTY_URL}">Document 43</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying</a> ·
-<a href="{F1_STARTING_GRID}">official Starting Grid</a>.</p>"""
+<a href="{F1_STARTING_GRID}">official Starting Grid</a> ·
+<a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional order</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(
@@ -576,17 +615,20 @@ location diagram, remain available in the expandable readers.</p>""" + _upgrade_
 Saturday FP3 11:30 and Qualifying was scheduled for 15:00; Sunday Race is
 scheduled for 14:00 (all BRT). Add five hours for Tallinn (EET): Race
 <strong>19:00 Sunday 8 November</strong>. <a href="{FIA}timetable_v3.pdf">FIA
-timetable V3</a>. The Race reports that Saturday qualifying was red-flagged
-almost immediately in heavy rain. At 20:26 UTC, Formula1.com's official
-Qualifying and Starting Grid pages both returned “No results available”; the
-FIA event listing had no revised session timetable. No replacement start time
-or qualifying order is inferred.
+timetable V3</a>. The Race reports that Qualifying was delayed by 1h25 and
+red-flagged almost immediately in heavy rain. Formula1.com's official
+classification now lists all 22 qualifiers: Lando Norris took pole in 1:27.470,
+0.204s ahead of George Russell. Its Starting Grid page still says “No results
+available” (checked at 21:29 UTC); the results collector rejected its
+one-entrant response. The Race published a separate post-penalty order, clearly
+labelled provisional; do not present it as an official classification.
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·
 <a href="{F1_STARTING_GRID}">official Starting Grid</a> ·
+<a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional order</a> ·
 <a href="{FIA_EVENT}">live FIA event documents</a>. FP1, FP2 and FP3
-classifications are published; race-set counts still require a published
-inventory chart.</p>
+classifications and Qualifying are published; race-set counts still require a
+published inventory chart.</p>
 <p><strong>Curfew report, 7 November:</strong> FIA Technical Delegate
 Document 27 says Oracle Red Bull Racing and Aston Martin personnel were inside
 the circuit during the 11.5-hour pre-FP3 curfew, from 21:00 Friday to 08:30
