@@ -280,10 +280,10 @@ performance; Pirelli flagged rear-right wear over longer stints. Its then-curren
 forecast left wet options open and said two stops could be viable in dry
 conditions, but explicitly deferred a firm conclusion until later sessions.
 This is a pre-qualifying assessment, not a current Sunday forecast or final
-strategy recommendation. Qualifying was subsequently rain-affected. The public
-race-set feeds checked at 21:29 UTC found no Brazil inventory chart; no set
-counts are inferred, and Formula1.com's access-restricted strategy guide was
-not bypassed. <a href="{PIRELLI_FP2_STRATEGY}">Pirelli's FP2 analysis</a> ·
+strategy recommendation. Qualifying was subsequently rain-affected. Public
+race-set feeds checked at 22:30 UTC still found no Brazil inventory chart; no
+set counts are inferred, and Formula1.com's access-restricted strategy guide
+was not bypassed. <a href="{PIRELLI_FP2_STRATEGY}">Pirelli's FP2 analysis</a> ·
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a>.</p>
 {_figure("fia-brazil-8188298e7b47-84d11f15335e159e-p2",
          "Sao Paulo tyre prescriptions, version 5 issue A", "competition_notes_-_pirelli_preview")}
@@ -614,13 +614,17 @@ location diagram, remain available in the expandable readers.</p>""" + _upgrade_
 <p><strong>Standard weekend, not Sprint:</strong> Friday FP1 12:30 and FP2 16:00;
 Saturday FP3 11:30 and Qualifying was scheduled for 15:00; Sunday Race is
 scheduled for 14:00 (all BRT). Add five hours for Tallinn (EET): Race
-<strong>19:00 Sunday 8 November</strong>. <a href="{FIA}timetable_v3.pdf">FIA
-timetable V3</a>. The Race reports that Qualifying was delayed by 1h25 and
-red-flagged almost immediately in heavy rain. Formula1.com's official
+<strong>19:00 Sunday 8 November</strong>. FIA Stewards' Document 48, Timetable
+V4, updates Sunday's support/promoter schedule but retains the Grand Prix start
+at 14:00 BRT (formation-lap start; 71 laps or 120 minutes, approximate finish
+16:00). <a href="{FIA}timetable_v4.pdf#page=2">Timetable V4, page 2</a>.
+The Race reports that Qualifying was delayed by 1h25 and red-flagged almost
+immediately in heavy rain. Formula1.com's official
 classification now lists all 22 qualifiers: Lando Norris took pole in 1:27.470,
 0.204s ahead of George Russell. Its Starting Grid page still says “No results
-available” (checked at 21:29 UTC); the results collector rejected its
-one-entrant response. The Race published a separate post-penalty order, clearly
+available” (checked at 22:30 UTC); the results collector again received only
+one entrant and correctly rejected that incomplete response. The Race published
+a separate post-penalty order, clearly
 labelled provisional; do not present it as an official classification.
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·
