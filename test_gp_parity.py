@@ -143,6 +143,9 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("season-to-date usage report (Document 8)", body)
         self.assertIn("not an event-specific parts declaration", body)
         self.assertIn("do not establish whether the planned ADUO", body)
+        self.assertIn(content_brazil.HAMILTON_F1_UPDATE, body)
+        self.assertIn("Ferrari confirmed that it replaced Car 44's entire power unit", body)
+        self.assertIn("Hamilton will start Sunday's Race from the back", body)
         self.assertNotIn("check the FIA event page", body)
         self.assertNotIn("14:00 UTC targeted FIA check", body)
         self.assertNotIn("12:46 UTC", body)
@@ -154,6 +157,8 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Rafael Câmara", powerunit)
         self.assertIn(content_brazil.RUSSELL_FIA_PENALTY, powerunit)
         self.assertIn("Document 15 imposes a five-place", powerunit)
+        self.assertIn(content_brazil.HAMILTON_F1_UPDATE, powerunit)
+        self.assertIn("Document 30 is an earlier snapshot", powerunit)
         self.assertNotIn("check the FIA event page", powerunit)
 
     def test_brazil_double_yellow_document_is_interpreted_in_briefings(self):

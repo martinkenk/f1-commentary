@@ -34,6 +34,7 @@ RUSSELL_PENALTY = "https://www.the-race.com/formula-1/russell-serving-another-f1
 RUSSELL_F1 = "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"
 HAMILTON_PENALTY = "https://www.the-race.com/formula-1/hamilton-set-for-brazil-grid-penalty-after-ferraris-worst-2026-friday/"
 F1_PU_PENALTIES = "https://www.formula1.com/en/latest/article/hamilton-leclerc-and-verstappen-set-for-sao-paulo-grand-prix-penalties-after-power-unit-changes.7B5CuFFCN1F6Txc8YwcEhd"
+HAMILTON_F1_UPDATE = "https://www.formula1.com/en/latest/article/hamilton-set-to-start-at-back-of-the-grid-after-further-penalty-ahead-of-sao-paulo-grand-prix.5SFs44M6cNSDvUBCWE9FWZ"
 FIA_EVENT = "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
 FIA_FP1_DOUBLE_YELLOW_URL = FIA + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"
 FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
@@ -136,9 +137,14 @@ for his fifth ICE, fifth turbocharger and fourth MGU-K; if Car 11 is classified
 in Qualifying, its Race-grid position is allocated under the same article.
 Document 30's fifth PU-ANC for Perez is within that element's allowance.
 Stewards' Documents 35 and 37 impose 10-place drops for Leclerc (Car 16) and
-Hamilton (Car 44), respectively, for their fifth ICEs. Russell's separate
-five-place drop followed his sixth ICE (sixth against four allowed) in
-Document 15. Check the official grid before quoting any starting position.
+Hamilton (Car 44), respectively, for their fifth ICEs. After FP3, Ferrari
+confirmed that it replaced Car 44's entire power unit; Formula1.com quotes the
+team saying Hamilton will start Sunday's Race from the back. This later
+starting-position update does not specify the replacement's individual
+components, so do not infer component counts from it or conflate it with
+Document 37. Russell's separate five-place drop followed his sixth ICE
+(sixth against four allowed) in Document 15. Check the official grid before
+quoting any starting position.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_NEW_PU_URL}">previous new-elements report, Document 14</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
@@ -146,6 +152,7 @@ Document 15. Check the official grid before quoting any starting position.
 <a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
 <a href="{FIA_HAMILTON_PENALTY_URL}">FIA Document 37</a> ·
 <a href="{F1_PU_PENALTIES}">Formula1.com on the penalties</a> ·
+<a href="{HAMILTON_F1_UPDATE}">Formula1.com on Hamilton's later replacement</a> ·
 <a href="{HAMILTON_PENALTY}">The Race on Hamilton's penalty</a> ·
 <a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a> ·
 <a href="{RUSSELL_PENALTY}">The Race report on Russell</a>.</p>''',
@@ -323,6 +330,11 @@ drop for Perez's fifth ICE, fifth turbocharger and fourth MGU-K. If Car 11 is
 classified in Qualifying,
 the decision allocates its Race-grid position under Article B2.5.4.b.iv.
 Document 30's fifth PU-ANC for Perez remains within that element's allowance.
+After FP3, Ferrari said it replaced Hamilton's entire power unit and that he
+would start from the back. This later report does not supply an FIA
+component-by-component declaration; Document 30 is an earlier snapshot, not
+Hamilton's post-replacement usage total. <a href="{HAMILTON_F1_UPDATE}">
+Formula1.com on the later replacement</a>.
 The separate Document 15 imposes a five-place drop for Russell's sixth ICE
 (sixth against four allowed).
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
@@ -331,6 +343,7 @@ The separate Document 15 imposes a five-place drop for Russell's sixth ICE
 <a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
 <a href="{FIA_HAMILTON_PENALTY_URL}">FIA Document 37</a> ·
 <a href="{F1_PU_PENALTIES}">Formula1.com on the grid penalties</a> ·
+<a href="{HAMILTON_F1_UPDATE}">Formula1.com on Hamilton's later replacement</a> ·
 <a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a>.</p>
 <div class="table-wrap"><table class="data compact" id="brazil-new-pu-elements">
 <thead><tr><th>No.</th><th>Constructor</th><th>Driver</th><th>New element</th>

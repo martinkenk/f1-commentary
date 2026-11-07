@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-07T17:33:12Z",
-  "expires_at": "2026-11-07T17:55:00Z",
+  "reviewed_at": "2026-11-07T17:49:47Z",
+  "expires_at": "2026-11-07T18:30:00Z",
   "through_session": "Practice 3",
-  "feed_fingerprint": "19fb286826aa5f30a07350769f3428aea290880acfa93cff5bce97475cc56724",
+  "feed_fingerprint": "bcb95c2edff7d98b66f81417bae43239f93798d6f02a01cdfd55a43d6df8ea51",
   "items": [
     {
       "topic": "Practice 3",
@@ -37,12 +37,16 @@
       "topic": "Power-unit changes",
       "title": "FIA confirms Ferrari pair's 10-place drops and Verstappen's 30-place ruling",
       "date": "2026-11-07",
-      "summary": "The Stewards' Documents 35 and 37 impose 10-place drops for Charles Leclerc and Lewis Hamilton, respectively, after each receives a fifth ICE. Document 33 separately imposes a 30-place drop on Max Verstappen for his fifth ICE, turbocharger and exhaust. Document 39 imposes a 30-place drop on Sergio Perez for his fifth ICE, fifth turbocharger and fourth MGU-K. If either driver is classified in Qualifying, the respective decision allocates his Race-grid position under Article B2.5.4.b.iv. Perez's fifth PU-ANC in Document 30 is within its allowance; George Russell's five-place penalty is separate.",
-      "why_it_matters": "The technical report and penalty decisions are distinct. Qualifying and the regulation determine the final grid allocation for the 30-place penalties; Perez's separate Document 40 formal warning is not another grid drop.",
+      "summary": "Documents 35 and 37 impose 10-place drops on Leclerc and Hamilton for their fifth ICEs. After FP3, Ferrari told Formula1.com it had replaced Hamilton's entire power unit and that he would start from the back; this later team statement does not specify the replacement's component counts. Documents 33 and 39 separately impose 30-place drops on Verstappen and Perez, with conditional Race-grid allocation under Article B2.5.4.b.iv. Perez's fifth PU-ANC in Document 30 is within its allowance; Russell's five-place penalty is separate.",
+      "why_it_matters": "The later Hamilton starting-position update is distinct from the original FIA fifth-ICE decision and does not establish a component-by-component count. Keep the 30-place rulings and Perez's separate Document 40 warning distinct.",
       "sources": [
         {
           "label": "Formula1.com: confirmed power-unit penalties",
           "url": "https://www.formula1.com/en/latest/article/hamilton-leclerc-and-verstappen-set-for-sao-paulo-grand-prix-penalties-after-power-unit-changes.7B5CuFFCN1F6Txc8YwcEhd"
+        },
+        {
+          "label": "Formula1.com: Hamilton's later full power-unit change",
+          "url": "https://www.formula1.com/en/latest/article/hamilton-set-to-start-at-back-of-the-grid-after-further-penalty-ahead-of-sao-paulo-grand-prix.5SFs44M6cNSDvUBCWE9FWZ"
         },
         {
           "label": "FIA: Technical Delegate's new-element report, Document 30",
@@ -109,19 +113,15 @@
       ]
     },
     {
-      "topic": "Qualifying procedure",
-      "title": "FIA outlines post-Qualifying weighing and interview sequence",
+      "topic": "Venue future",
+      "title": "Formula 1 extends Sao Paulo contract through 2035",
       "date": "2026-11-07",
-      "summary": "The FIA Media Delegate's Document 29 sets the post-Qualifying route for the top three, FIA weighing in race gear, Parc Fermé interviews, and press-conference/TV-pen duties. Other drivers have immediate weighing and media requirements after their final qualifying part; the document includes a Parc Fermé layout.",
-      "why_it_matters": "These are post-session operational instructions, not a change to the qualifying classification or a grid penalty.",
+      "summary": "Formula1.com reports a new five-year agreement that keeps the Sao Paulo Grand Prix at Interlagos on the Formula 1 calendar through 2035.",
+      "why_it_matters": "The agreement secures the venue's long-term place on the calendar; it is separate from this weekend's sporting results.",
       "sources": [
         {
-          "label": "FIA: Post-Qualifying Procedure, Document 29",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_post-qualifying_procedure.pdf"
-        },
-        {
-          "label": "FIA: Parc Fermé layout, Document 29 page 4",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_post-qualifying_procedure.pdf#page=4"
+          "label": "Formula1.com: Sao Paulo contract extension",
+          "url": "https://www.formula1.com/en/latest/article/formula-1-to-race-in-sao-paulo-through-to-2035-following-new-five-year-contract-extension.3RBVXeLDp6NMDUQSAIX8TL"
         }
       ]
     }
