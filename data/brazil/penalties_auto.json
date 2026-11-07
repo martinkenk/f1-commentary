@@ -180,5 +180,19 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_reversing_in_the_pit_lane.pdf"
+  },
+  {
+    "doc": "Doc 43",
+    "no": "44",
+    "driver": "Lewis Hamilton",
+    "team": "Scuderia Ferrari HP",
+    "session": "Qualifying",
+    "fact": "The following Power Unit elements have been used: 6th Engine (ICE) 5th Turbocharger (TC) 5th Exhaust Set (EXH) 4th Energy Store (ES) 4th Control Electronics Unit (PU-CE) 4th MGU-K 7th Power Unit Ancil",
+    "outcome": "Drop of 65 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_44_-_additional_changes_to_pu_elements.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_44_-_additional_changes_to_pu_elements.pdf"
   }
 ]
