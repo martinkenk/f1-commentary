@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-06T21:41:54+00:00",
+  "checked_at": "2026-11-07T10:10:54+00:00",
   "discovery_retrieved_at": "2026-11-06T21:41:36.075306+00:00",
   "documents": [
     {
@@ -787,6 +787,30 @@
       "revision": 0
     },
     {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_fp1_and_fp2_scrutineering.pdf",
+      "filename": "2026_mexico_city_grand_prix_-_fp1_and_fp2_scrutineering.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "1f12d0d14e6302a1fe707cca629bd65debea9d47c72169f3d4cb71b19e4b6fa7",
+      "fetched_at": "2026-11-07T10:10:54+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-mexico-e5ebd97ca050-1f12d0d14e6302a1-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-mexico-e5ebd97ca050-1f12d0d14e6302a1-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-mexico-e5ebd97ca050-1f12d0d14e6302a1-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
       "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_audi_-_car_5_covering_of_components.pdf",
       "filename": "2026_mexico_city_grand_prix_-_summons_-_audi_-_car_5_covering_of_components.pdf",
       "categories": [
@@ -993,7 +1017,7 @@
         "powerunit"
       ],
       "sha256": "f196acf88eb5435b30146022172de7242d6d99d8054227aed20762be64a5dfed",
-      "fetched_at": "2026-11-06T21:41:54+00:00",
+      "fetched_at": "2026-11-07T10:10:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -1125,7 +1149,7 @@
         "powerunit"
       ],
       "sha256": "b9eec32c5df1ef253665c8b1cddf114e7deb28158fc1418110b68c0395975ebf",
-      "fetched_at": "2026-11-06T21:41:54+00:00",
+      "fetched_at": "2026-11-07T10:10:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -1209,7 +1233,7 @@
         "powerunit"
       ],
       "sha256": "dffe8a06feb5a324c12dbd557493ef44554a5e5cbcfc31076722b3da6244bbbf",
-      "fetched_at": "2026-11-06T21:41:54+00:00",
+      "fetched_at": "2026-11-07T10:10:54+00:00",
       "pages": [
         {
           "page": 2,

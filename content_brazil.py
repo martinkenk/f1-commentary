@@ -177,8 +177,8 @@ per driver; post-qualifying availability must be sourced separately.</p>
 <th>Expected stabilized (psi)</th><th>Camber limit</th></tr></thead><tbody>{table}</tbody></table></div>
 <p>Maximum heating: two hours, 70°C slick/intermediate and 40°C wet, measured
 at tread and sidewall rather than the blanket controller. Cold-pressure curves:
-front (T−70)×0.126+Pstart; rear (T−70)×0.125+Pstart. The FIA event listing at
-20:49 UTC contained no later Pirelli prescription.</p>
+front (T−70)×0.126+Pstart; rear (T−70)×0.125+Pstart. The latest successful FIA
+document discovery at 10:08 UTC contained no later Pirelli prescription.</p>
 <p>Pirelli's full poster estimates <strong>22.5 seconds pit-stop loss</strong>.
 Traction, braking, stress, abrasion, grip and lateral demand are all 3/5;
 track evolution is 5/5. Resurfacing between Turns 3–5 and 8–9 makes Friday's
@@ -277,6 +277,15 @@ L17</strong>, activation <strong>3411 m, L18</strong>. Keep the published TBC
 qualification; do not convert it into a confirmed distance.</p>
 {_figure("fia-brazil-70a86f7aabae-b034c0e63a20560d-p2",
          "Sao Paulo power-unit information and exceptions", "power_unit_information")}
+<h2 class="sec">FP1 and FP2 technical checks</h2>
+<p>FIA Technical Delegate Document 26 records checks before, during and after
+Friday's sessions, including fuel-energy flow, energy-store state of charge,
+ERS recharge limits, MGU-K limits, gear ratios and tyre monitoring. After FP2,
+car 55 was weighed and rear-brake pressure control was checked on cars 63, 12,
+16, 44, 30 and 43. Fuel and engine-oil samples from cars 43 and 23 were
+analysed; the report says they were consistent with approved references and
+that all listed items complied with the 2026 Technical Regulations.
+<a href="{FIA}fp1_and_fp2_scrutineering.pdf#page=1">FIA Document 26, pages 1–4</a>.</p>
 """
 
 

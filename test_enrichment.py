@@ -114,6 +114,9 @@ class EnrichmentTests(unittest.TestCase):
             self.assertEqual(f1lib.fia_document_categories(filename), ["schedule"])
         self.assertEqual(f1lib.fia_document_categories(
             "post-race_checks_on_car_number_16_2026_azerbaijan_gp.pdf"), ["powerunit"])
+        self.assertEqual(f1lib.fia_document_categories(
+            "2026_sao_paulo_grand_prix_-_fp1_and_fp2_scrutineering.pdf"),
+            ["powerunit"])
 
     def test_relevant_keeps_cross_event_context_without_other_event_headline(self):
         spain = {

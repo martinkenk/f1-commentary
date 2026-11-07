@@ -79,7 +79,8 @@ def fia_document_categories(filename):
                       r"provisional starting grid|car presentation|self scrut)\b", name)
             and re.search(r"\b(infringement|decision|penalty|reprimand|fine|disqualif\w*|protest)\b", name)):
         categories.append("penalties")
-    if re.search(r"\b(power unit information|pu elements used|new pu elements)\b", name):
+    if re.search(r"\b(power unit information|pu elements used|new pu elements|"
+                 r"fp1 and fp2 scrutineering)\b", name):
         categories.append("powerunit")
     if re.search(r"\b(circuit map|track map|race director(?:s| s)? "
                  r"(?:(?:event|competition) )?notes)\b", name):
