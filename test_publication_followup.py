@@ -5,10 +5,34 @@ import tempfile
 import unittest
 from unittest.mock import Mock, patch
 
-from ops import agent_queue as queue, publication_followup as followup
+from ops import agent_queue as queue, publication_followup as followup, run_recovery
 
 
 class PublicationTests(unittest.TestCase):
+    def test_unpublished_local_commit_does_not_break_calendar_or_get_marked_live(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            path = state / "runs/20261107T120000Z"
+            queue.save(path / "status.json", {"status": "blocked", "finished_at": "yes"})
+            queue.save(path / "report.json", {
+                "status": "blocked", "commit": "a" * 40,
+                "summary": "Publication is deferred; local commit retained."})
+            with patch.object(followup.urllib.request, "urlopen") as fetch:
+                self.assertEqual(followup.reconcile(
+                    state, [], None, [], Mock(return_value="b" * 40),
+                    dt.datetime.now(dt.timezone.utc)), [])
+                fetch.assert_not_called()
+            self.assertEqual(json.loads((path / "status.json").read_text())["status"], "blocked")
+
+    def test_recovery_explains_automatic_wait_and_manual_permission_boundaries(self):
+        waiting = run_recovery.explain({"status": "waiting_publication"})
+        self.assertTrue(waiting["automatic"])
+        self.assertIsNone(waiting["action"])
+        permission = run_recovery.explain({"status": "blocked", "error": "Permission denied"})
+        self.assertFalse(permission["automatic"])
+        self.assertEqual(permission["action"], "terminal")
+        timeout = run_recovery.explain({"status": "timed_out"})
+        self.assertEqual(timeout["action"], "recover")
     def test_pending_publication_requires_explicit_commit_and_no_fallback(self):
         report = {"status": "blocked", "commit": "a" * 40,
                   "summary": "Repair pushed; deployment remains in progress."}
@@ -30,7 +54,7 @@ class PublicationTests(unittest.TestCase):
             deployed = {"id": 123, "status": "completed", "conclusion": "success",
                         "head_sha": "b" * 40, "html_url": "https://github.com/run"}
             live = {"run_id": "123", "generated_at": "2026-11-07T13:00:00Z", "findings": []}
-            checked = Mock(side_effect=["a" * 40, "content_brazil.py"])
+            checked = Mock(side_effect=["a" * 40, "a" * 40 + "\n" + "b" * 40, "content_brazil.py"])
             response = Mock(status=200)
             response.read.return_value = b"<html>Verified page</html>"
             response.__enter__ = Mock(return_value=response)
@@ -56,7 +80,7 @@ class PublicationTests(unittest.TestCase):
             for live in (None, {"run_id": 456}, {"run_id": 123}):
                 with patch.object(followup.urllib.request, "urlopen") as fetch:
                     self.assertEqual(followup.reconcile(
-                        state, [deployed], live, [], Mock(return_value="c" * 40),
+                        state, [deployed], live, [], Mock(return_value="a" * 40 if live is None else "c" * 40),
                         dt.datetime.now(dt.timezone.utc)), [])
                     fetch.assert_not_called()
             self.assertEqual(json.loads((path / "status.json").read_text())["status"], "waiting_publication")

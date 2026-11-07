@@ -22,9 +22,11 @@ from urllib.parse import urlsplit
 try:
     from . import agent_queue as queue
     from . import watchdog_console as console
+    from . import run_recovery
 except ImportError:
     import agent_queue as queue
     import watchdog_console as console
+    import run_recovery
 
 CONFIG = Path.home() / ".config/f1-watchdog-web"
 ASSETS = Path(__file__).with_name("web")
@@ -143,7 +145,9 @@ class ControlRoom:
                                 "summary": record.get("summary") or record.get("error"),
                                 "started_at": record.get("started_at"),
                                 "finished_at": record.get("finished_at"),
-                                "task_title": record.get("task_title")})
+                                "task_title": record.get("task_title"),
+                                "recovery": run_recovery.explain(
+                                    dict(record, status=status), console.read_json(path / "report.json"))})
             except (OSError, ValueError) as error:
                 errors.append(f"Run {path.name}: {error}")
         guidance = self.state / "operator-guidance.txt"
@@ -175,7 +179,32 @@ class ControlRoom:
 
     def action(self, action, data):
         with self.mutex:
-            if action == "task":
+            if action == "recover":
+                identity = data.get("run_id")
+                if not isinstance(identity, str):
+                    raise ValueError("Run ID required")
+                directory = self.run_path(identity)
+                record = console.read_json(directory / "status.json")
+                latest = console.read_json(self.state / "latest.json")
+                if not record and latest.get("run_id") == identity:
+                    record = latest
+                recovery = run_recovery.explain(record, console.read_json(directory / "report.json"))
+                if not recovery or recovery.get("action") != "recover":
+                    raise ValueError("This run does not need an agent recovery; inspect its next step")
+                if data.get("confirmed") is not True:
+                    raise ValueError("Confirm recovery before queuing a continuation")
+                existing = next((job for job in queue.jobs(self.state)
+                                 if identity in (job.get("resume_run"), job.get("recovery_run"))
+                                 and job["status"] in ("queued", "running", "waiting_publication")), None)
+                if existing:
+                    return {"task": existing, "message": "A continuation is already queued or running"}
+                job = queue.enqueue(
+                    self.state, run_recovery.prompt(identity),
+                    "read_only" if record.get("mode") == "READ_ONLY" else "publish",
+                    f"Recover {identity}", identity if record.get("session_id") else None)
+                queue.update(self.state, job["id"], recovery_run=identity)
+                result = {"task": job, "message": "Safe recovery queued; completed work will be checked before continuing"}
+            elif action == "task":
                 job = queue.enqueue(self.state, data.get("prompt"), data.get("mode", "publish"),
                                     data.get("title", ""), data.get("resume_run"))
                 result = {"task": job}
@@ -320,8 +349,15 @@ class Handler(BaseHTTPRequestHandler):
                 directory = self.app.run_path(parts[2])
                 if parts[3] == "report":
                     report = directory / "report.json"
-                    return self.send(200, {"report": console.read_json(report) if report.exists()
-                                          else {"status": "pending", "summary": "No final report yet"}})
+                    record = console.read_json(directory / "status.json")
+                    latest = console.read_json(self.app.state / "latest.json")
+                    if not record and latest.get("run_id") == directory.name:
+                        record = latest
+                    value = console.read_json(report) if report.exists() else {
+                        "status": "pending", "summary": "No final report yet"}
+                    return self.send(200, {"report": value, "status": record,
+                                          "publication": console.read_json(directory / "publication.json"),
+                                          "recovery": run_recovery.explain(record, value)})
                 if parts[3] == "log":
                     return self.send(200, {"text": console.read_tail(directory / "agent.log")})
             self.send(404, {"error": "Not found"})

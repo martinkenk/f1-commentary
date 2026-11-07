@@ -100,6 +100,28 @@ class WebTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.app.action("policy", {"audit_only": "false"})
 
+    def test_recovery_requires_confirmation_and_deduplicates_continuations(self):
+        identity = "20261107T120000Z"
+        queue.save(self.state / "runs" / identity / "status.json", {
+            "status": "timed_out", "mode": "PUBLISH",
+            "session_id": "d579ad9e-29fa-4e91-8d48-6a7fd274969b"})
+        with self.assertRaises(ValueError):
+            self.app.action("recover", {"run_id": identity})
+        first = self.app.action("recover", {"run_id": identity, "confirmed": True})
+        second = self.app.action("recover", {"run_id": identity, "confirmed": True})
+        self.assertEqual(first["task"]["id"], second["task"]["id"])
+        self.assertEqual(first["task"]["resume_run"], identity)
+        self.assertEqual(len(queue.jobs(self.state)), 1)
+        self.assertIn("preserve", first["task"]["prompt"].lower())
+
+    def test_permission_block_is_not_retried_via_recovery_endpoint(self):
+        identity = "20261107T120000Z"
+        queue.save(self.state / "runs" / identity / "status.json", {
+            "status": "blocked", "error": "Permission denied: interpreter requires approval"})
+        with self.assertRaises(ValueError):
+            self.app.action("recover", {"run_id": identity, "confirmed": True})
+        self.assertEqual(queue.jobs(self.state), [])
+
     def test_snapshot_surfaces_corrupt_state_and_stale_clock(self):
         self.state.mkdir()
         (self.state / "scheduler.json").write_text("not json")

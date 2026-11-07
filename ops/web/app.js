@@ -15,6 +15,24 @@ function node(tag, text, cls) {
   return element;
 }
 function badge(text) { return node("span", text || "unknown", `tag ${tone(text)}`); }
+function recoveryPanel(recovery, run) {
+  const box = node("div", null, "recovery-panel");
+  box.append(node("strong", recovery.automatic ? "AUTOMATIC RECOVERY" : "ACTION REQUIRED"),
+    node("p", recovery.cause), node("p", recovery.next_step));
+  if (recovery.action === "terminal") {
+    const link = node("a", `${recovery.label} ↗`);
+    link.href = terminal; link.target = "_blank"; link.rel = "noopener"; box.append(link);
+  } else if (recovery.action === "recover") {
+    const button = node("button", recovery.label, "primary");
+    button.onclick = async () => {
+      if (!confirm(recovery.confirmation)) return;
+      button.disabled = true;
+      try { await act("recover", {run_id: run, confirmed: true}); } finally { button.disabled = false; }
+    };
+    box.append(button);
+  }
+  return box;
+}
 function notify(message, error = false) {
   $("notice").textContent = message;
   $("notice").className = error ? "error" : "";
@@ -125,8 +143,10 @@ function render(data) {
     const row = node("tr"), first = node("td"), inspect = node("button", run.run_id);
     inspect.onclick = () => openRun(run.run_id).catch(error => notify(error.message, true));
     first.append(inspect); const state = node("td"); state.append(badge(run.status));
+    const summary = node("td", run.summary || "No final summary yet");
+    if (run.recovery && run.status !== "running") summary.append(recoveryPanel(run.recovery, run.run_id));
     row.append(first, node("td", run.task_title || "Coverage audit"), state, node("td", run.mode),
-      node("td", run.summary || "No final summary yet")); $("history-rows").append(row);
+      summary); $("history-rows").append(row);
   });
   const chosen = $("task-resume").value;
   $("task-resume").replaceChildren(new Option("New agent session", ""));
@@ -155,6 +175,12 @@ async function loadRun() {
   const [report, log] = await Promise.all([api(`/api/runs/${run}/report`), api(`/api/runs/${run}/log`)]);
   if (run !== selectedRun) return;
   $("report").textContent = pretty(report.report);
+  $("run-recovery").replaceChildren();
+  $("run-recovery").hidden = !report.recovery;
+  if (report.recovery) $("run-recovery").append(recoveryPanel(report.recovery, run));
+  $("run-publication").hidden = !report.publication?.verified_at;
+  $("run-publication").textContent = report.publication?.verified_at ?
+    `Publication independently verified ${stamp(report.publication.verified_at)} / deployment ${report.publication.run_id}. Original audit below is preserved unchanged.` : "";
   const box = $("agent-log"), atEnd = box.scrollTop + box.clientHeight >= box.scrollHeight - 40;
   box.textContent = log.text;
   if (atEnd) box.scrollTop = box.scrollHeight;

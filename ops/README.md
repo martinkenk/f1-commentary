@@ -146,6 +146,15 @@ publication mid-task, the task resumes its conversation after five minutes, up
 to three automatic continuations. Credential/permission failures, interrupted
 edits and unrelated blocked findings are not blindly retried or marked successful.
 
+Run history and the run inspector show a recovery card with the cause, next
+step, and whether recovery is automatic or requires operator action. **Resume
+safely** queues a focused continuation after confirmation and deduplicates
+existing queued/running follow-ups. It checks prior publication before finishing
+retained work, instead of repeating a full audit. Login/approval blocks link to
+the existing authenticated browser terminal and explain the required action;
+the UI never clears permission blockers or requests credentials. Verified
+publication evidence appears above the preserved original report.
+
 ### Browser control room
 
 `ops/watchdog_web.py` adds a private, standalone HTTPS application; it is not

@@ -41,7 +41,7 @@ def main():
     environment = config / "environment"
     if environment.exists() and environment.read_text().strip() != f"F1_WEB_ORIGIN={args.origin}":
         parser.error("Existing origin differs; review routing and certificate before changing it")
-    for name in ("agent_queue.py", "watchdog_console.py", "watchdog_web.py"):
+    for name in ("agent_queue.py", "watchdog_console.py", "watchdog_web.py", "run_recovery.py"):
         shutil.copyfile(source / name, destination / name)
         (destination / name).chmod(0o600)
     for asset in (source / "web").iterdir():

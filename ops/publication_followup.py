@@ -51,8 +51,17 @@ def reconcile(state, runs, live, gps, checked, now):
                      and run["status"] == "completed" and run.get("conclusion") == "success"), None)
     outcomes = []
     verified_routes = {}
-    for path, status, report in waiting(state):
+    candidates = waiting(state)
+    if not candidates:
+        return outcomes
+    pushed_commits = set(checked(["git", "rev-list", "origin/main"]).splitlines())
+    deployed_commits = set(checked(["git", "rev-list", deployed["head_sha"]]).splitlines()) if deployed else set()
+    for path, status, report in candidates:
         commit = report["commit"]
+        if commit not in pushed_commits:
+            # A report may name an unpublished local commit, absent in the
+            # scheduler clone. Preserve it for a safe agent continuation.
+            continue
         status.update(status="waiting_publication", publication_commit=commit)
         agent_queue.save(path / "status.json", status)
         latest_path = state / "latest.json"
@@ -61,8 +70,7 @@ def reconcile(state, runs, live, gps, checked, now):
             agent_queue.save(latest_path, status)
         if not deployed:
             continue
-        ancestor = checked(["git", "merge-base", commit, deployed["head_sha"]])
-        if ancestor != commit:
+        if commit not in deployed_commits:
             continue
         changes = checked(["git", "diff-tree", "--no-commit-id", "--name-only", "-r", commit]).splitlines()
         affected = [ctx for ctx in gps if any(
