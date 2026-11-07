@@ -32,6 +32,22 @@ def merge_completed_sessions(existing, refreshed, completed_codes, session_order
     return merged
 
 
+def missing_completed_session_codes(completed_codes, refreshed_sessions):
+    refreshed_codes = {session.get("session") for session in refreshed_sessions}
+    return sorted(set(completed_codes) - refreshed_codes)
+
+
+def missing_completed_practice_tyres(completed_codes, sessions):
+    by_code = {session.get("session"): session for session in sessions}
+    practice_codes = set(completed_codes) & {"FP1", "FP2", "FP3"}
+    return sorted(
+        code for code in practice_codes
+        if not by_code.get(code, {}).get("fastest")
+        or any(row.get("compound") not in TYRE_COMPOUNDS
+               for row in by_code[code]["fastest"])
+    )
+
+
 def matching_session_articles(articles, driver_name, team, label):
     """Return newest-first articles about this driver in this session."""
     session_terms = {

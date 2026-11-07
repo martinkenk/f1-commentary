@@ -1,6 +1,12 @@
 import unittest
 
-from pace_snapshot import fastest_lap_compound, matching_session_articles, merge_completed_sessions
+from pace_snapshot import (
+    fastest_lap_compound,
+    matching_session_articles,
+    merge_completed_sessions,
+    missing_completed_practice_tyres,
+    missing_completed_session_codes,
+)
 
 
 class PaceSnapshotTests(unittest.TestCase):
@@ -38,6 +44,31 @@ class PaceSnapshotTests(unittest.TestCase):
         )
 
         self.assertEqual(merged, [])
+
+    def test_missing_completed_timing_is_reportable_but_not_a_future_session(self):
+        self.assertEqual(
+            missing_completed_session_codes(
+                {"FP1", "FP2"}, [{"session": "FP2", "fastest": []}]
+            ),
+            ["FP1"],
+        )
+        self.assertEqual(missing_completed_session_codes(set(), []), [])
+
+    def test_completed_practice_requires_compounds_for_every_fastest_lap(self):
+        sessions = [
+            {"session": "FP1", "fastest": [
+                {"compound": "SOFT"}, {"compound": "MEDIUM"}
+            ]},
+            {"session": "FP2", "fastest": [
+                {"compound": "HARD"}, {"compound": None}
+            ]},
+            {"session": "Q", "fastest": [{"compound": None}]},
+        ]
+        self.assertEqual(
+            missing_completed_practice_tyres({"FP1", "FP2", "FP3"}, sessions),
+            ["FP2", "FP3"],
+        )
+        self.assertEqual(missing_completed_practice_tyres({"Q"}, sessions), [])
 
     def test_news_context_uses_current_session_not_older_report(self):
         articles = [

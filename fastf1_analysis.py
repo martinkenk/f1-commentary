@@ -73,7 +73,10 @@ import numpy as np  # noqa: E402
 
 import standings  # noqa: E402
 from long_run_analysis import analyse_long_run_samples  # noqa: E402
-from pace_snapshot import fastest_lap_compound, matching_session_articles, merge_completed_sessions  # noqa: E402
+from pace_snapshot import (fastest_lap_compound, matching_session_articles,
+                           merge_completed_sessions,
+                           missing_completed_practice_tyres,
+                           missing_completed_session_codes)  # noqa: E402
 
 ROOT = _HERE
 CACHE_DIR = os.path.join(ROOT, ".fastf1_cache")
@@ -527,6 +530,7 @@ def main():
         active_slugs = {c["dir"] for c in live}
         print(f"Active GP(s) for this run: {sorted(active_slugs) or '(none)'}")
 
+    errors = False
     for event in cal["events"]:
         slug = event["slug"]
         if args.gp and slug != args.gp:
@@ -571,12 +575,23 @@ def main():
             completed_codes,
             [code for code, _label in SESSION_MAP],
         )
+        missing_codes = missing_completed_session_codes(completed_codes, refreshed_sessions)
+        if missing_codes:
+            labels = [label for code, label in SESSION_MAP if code in missing_codes]
+            print(f"  ! No usable FastF1 timing for completed session(s): {', '.join(labels)}")
+            errors = True
+        missing_tyre_codes = missing_completed_practice_tyres(completed_codes, out_sessions)
+        if missing_tyre_codes:
+            labels = [label for code, label in SESSION_MAP if code in missing_tyre_codes]
+            print(f"  ! No best-lap tyre compound for every driver in: {', '.join(labels)}")
+            errors = True
         if not out_sessions:
             print("  (no completed sessions with usable data yet)")
             continue
         json.dump(dict(generated_at=now.isoformat(), sessions=out_sessions),
                    open(out_path, "w"), indent=2)
         print(f"  ✓ wrote {out_path} ({len(out_sessions)} session(s))")
+    return int(errors)
 
 
 if __name__ == "__main__":

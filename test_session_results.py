@@ -237,6 +237,10 @@ class ResultsTests(unittest.TestCase):
                         workflow.index("- name: Persist enrichment data"))
         self.assertLess(workflow.index("- name: Persist enrichment data"),
                         workflow.index("- name: Build site"))
+        self.assertIn(
+            "if: inputs.refresh == '' || inputs.refresh == 'full' || inputs.refresh == 'results'",
+            workflow,
+        )
 
 
 if __name__ == "__main__":

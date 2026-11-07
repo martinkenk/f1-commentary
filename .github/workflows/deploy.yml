@@ -214,13 +214,14 @@ jobs:
 
       - name: FastF1 pace analysis (fastest laps, long runs, speed/delta charts)
         id: pace
-        if: inputs.refresh == '' || inputs.refresh == 'full'
+        if: inputs.refresh == '' || inputs.refresh == 'full' || inputs.refresh == 'results'
         # Pulls real lap-timing + telemetry for completed sessions of the active
         # GP via FastF1 (https://docs.fastf1.dev/) and renders it as a "Pace
         # analysis" section on the Results page: fastest-lap vs. theoretical
         # optimal-lap leaderboard, clean long-run pace by tyre stint, and
         # speed/delta trace charts. --active limits this to the live/just-
         # finished GP so a full-season run doesn't happen every 2 hours.
+        # Results-only refreshes also retry delayed timing/tyre data.
         # continue-on-error because FastF1's upstream (F1 live timing / Ergast)
         # can be slow or briefly unavailable — this must never block the rest
         # of the build.
