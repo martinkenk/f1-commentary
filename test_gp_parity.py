@@ -79,6 +79,32 @@ class GPParityTests(unittest.TestCase):
         self.assertIn('href="news.html">Weekend News</a>', body)
         self.assertNotIn("Session-by-session commentary notes: awaiting", body)
 
+    def test_brazil_revised_power_unit_sheet_and_curfew_are_interpreted(self):
+        pages = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )
+        powerunit = pages["powerunit"]["body"]
+        self.assertIn("240 km/h", powerunit)
+        self.assertIn("2870–2970 m", powerunit)
+        self.assertIn("3250 m on timing loop L17", powerunit)
+        self.assertIn("3411 m on L18", powerunit)
+        self.assertNotIn("3250 m (TBC)", powerunit)
+        self.assertIn(
+            "fia-brazil-8181546ca72d-ac646baaf86f1a4c-p2.png", powerunit
+        )
+        self.assertIn("power_unit_information_v2.pdf#page=2", powerunit)
+        schedule = pages["schedule"]["body"]
+        self.assertIn("Oracle Red Bull Racing and Aston Martin", schedule)
+        self.assertIn(
+            "Oracle Red Bull Racing's second and Aston Martin's third", schedule
+        )
+        self.assertIn("no action should be taken", schedule)
+        self.assertIn("curfew_0.pdf", schedule)
+        self.assertIn(
+            "13:30 UTC contained no later Pirelli prescription",
+            pages["tyres"]["body"],
+        )
+
     def test_brazil_russell_penalty_is_attributed_and_not_mistaken_for_upgrade(self):
         body = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env

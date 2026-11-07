@@ -16,9 +16,9 @@ THE_RACE_FP1 = "https://www.the-race.com/formula-1/what-happened-in-brazil-fp1-f
 STORYLINES = "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
 MCLAREN = "https://www.formula1.com/en/latest/article/want-to-believe-that-we-can-still-make-improvements-norris-wary-of-new-mclaren-upgrades-in-sao-paulo.6NvdXqDIqBz1Mw1xveJv0k"
 MCLAREN_UPDATE = "https://www.formula1.com/en/latest/article/we-seemed-to-gain-performance-norris-offers-update-on-mclarens-upgrades-in-sao-paulo.6fULeVhwADSsEp722opGBk"
-FERRARI = "https://www.formula1.com/en/latest/article/hamilton-wants-ferrari-talks-ahead-of-sao-paulo-grand-prix-after-intra-team-battle-with-leclerc.3JXGpQWTdOA2a9PiH7NL8X"
 RUSSELL_PENALTY = "https://www.the-race.com/formula-1/russell-serving-another-f1-engine-grid-penalty-in-brazil/"
 RUSSELL_F1 = "https://www.formula1.com/en/latest/article/well-try-and-come-back-through-russell-set-for-grid-penalty-at-sao-paulo-grand-prix.6hsUcdvDTFFezGL53SAODZ"
+HAMILTON_PENALTY = "https://www.the-race.com/formula-1/hamilton-set-for-brazil-grid-penalty-after-ferraris-worst-2026-friday/"
 FIA_EVENT = "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
 FIA_FP1_DOUBLE_YELLOW_URL = FIA + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"
 FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
@@ -136,11 +136,13 @@ driving reprimand, Camara's first of the season. It is not a grid drop or a
 revised FP2 classification.
 <a href="{FIA_CAMARA_REPRIMAND_URL}">FIA Document 25</a> ·
 <a href="{FIA_EVENT}">FIA event documents</a>.</p>''', "bi-exclamation-triangle")}
-{card("Ferrari: Hamilton's Thursday comments", f'''<p>On Thursday 5 November,
-Hamilton said face-to-face talks with Leclerc about their Mexico battle had
-not yet taken place. That reports what he said then; it does not establish
-whether they later spoke or whether team rules changed.
-<a href="{FERRARI}">Formula1.com's 5 November report</a>.</p>''', "bi-people")}
+{card("Ferrari: Hamilton penalty expected after Friday component changes", f'''<p>The Race reports Ferrari planned power-unit component changes after FP2
+and that Hamilton is set to take a Brazil grid penalty. The 13:30 UTC FIA
+refresh found no Hamilton-specific parts report or Stewards' ruling among
+the 27 discovered event documents, so this remains an attributed expectation; the
+exact component and sanction are not confirmed in the FIA documents reviewed.
+<a href="{HAMILTON_PENALTY}">The Race's report</a> ·
+<a href="{FIA_EVENT}">FIA event listing</a>.</p>''', "bi-exclamation-triangle")}
 {card("McLaren: four declared changes, early gain reported by Norris", f'''<p>FIA Document 12
 lists four performance-motivated items: front wing, rear wing, beam wing and
 floor furniture. The team's stated aims concern flow conditioning and local
@@ -182,7 +184,7 @@ per driver; post-qualifying availability must be sourced separately.</p>
 <p>Maximum heating: two hours, 70°C slick/intermediate and 40°C wet, measured
 at tread and sidewall rather than the blanket controller. Cold-pressure curves:
 front (T−70)×0.126+Pstart; rear (T−70)×0.125+Pstart. The latest successful FIA
-document discovery at 10:08 UTC contained no later Pirelli prescription.</p>
+document discovery at 13:30 UTC contained no later Pirelli prescription.</p>
 <p>Pirelli's full poster estimates <strong>22.5 seconds pit-stop loss</strong>.
 Traction, braking, stress, abrasion, grip and lateral demand are all 3/5;
 track evolution is 5/5. Resurfacing between Turns 3–5 and 8–9 makes Friday's
@@ -275,12 +277,15 @@ initial reduction is permitted at T6–T10 (2000–2700 m), T11–T12 (2900–31
 and the bracketed exit T12 window (3200–4300 m). Reset windows are exit T11
 (2900–3050 m) and bracketed exit T14 (3700–4300 m). Bracketed entries are
 qualifying-only here: the generic FIA template also names Sprint Qualifying,
-but this is a standard weekend. No higher-speed-threshold sector is listed.</p>
-<p>Overtake detection gap <strong>1.0 s</strong>; detection <strong>3250 m (TBC),
-L17</strong>, activation <strong>3411 m, L18</strong>. Keep the published TBC
-qualification; do not convert it into a confirmed distance.</p>
-{_figure("fia-brazil-70a86f7aabae-b034c0e63a20560d-p2",
-         "Sao Paulo power-unit information and exceptions", "power_unit_information")}
+but this is a standard weekend. The revised sheet lists a higher-speed threshold
+of <strong>240 km/h</strong> at T11 (2870–2970 m).</p>
+<p>Document 28 sets the Overtake detection gap at <strong>1.0 s</strong>, with
+detection at <strong>3250 m on timing loop L17</strong> and activation at
+<strong>3411 m on L18</strong>. The revised sheet removes the earlier TBC on
+the detection distance; metre positions and loop identifiers remain distinct.</p>
+{_figure("fia-brazil-8181546ca72d-ac646baaf86f1a4c-p2",
+         "FIA Document 28, revised Sao Paulo power-unit information, page 2",
+         "power_unit_information_v2")}
 <h2 class="sec">FP1 and FP2 technical checks</h2>
 <p>FIA Technical Delegate Document 26 records checks before, during and after
 Friday's sessions, including fuel-energy flow, energy-store state of charge,
@@ -299,8 +304,10 @@ def _circuit():
 <p>These are separate systems, not two 2026 DRS zones. The FIA map marks normal /
 low-grip Straight Mode activation at <strong>A1: 40 m after T14 / 40 m before T15</strong>;
 <strong>A2: 10 m / 60 m after T3 or pit exit</strong>. Overtake detection is
-20 m after T12; activation 30 m after T13. The energy map's lap-distance
-detection remains TBC.</p>
+20 m after T12; activation 30 m after T13. The revised Power Unit Information
+(Document 28) gives the separate absolute references: detection at 3250 m on
+timing loop L17 and activation at 3411 m on L18. Metres and loop identifiers
+are not interchangeable.</p>
 {_figure("fia-brazil-258e084acaf5-8c3658719ff72419-p2",
          "FIA Interlagos map with normal and low-grip Straight Mode zones",
          "competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone")}
@@ -389,7 +396,13 @@ Saturday FP3 11:30 and Qualifying 15:00; Sunday Race 14:00 (all BRT).
 Add five hours for Tallinn (EET): race <strong>19:00 Sunday 8 November</strong>.
 <a href="{FIA}timetable_v3.pdf">FIA timetable V3</a>. Session results,
 long-run analysis and the race-set inventory cannot be populated before the
-relevant sessions and source publications.</p>"""
+relevant sessions and source publications.</p>
+<p><strong>Curfew report, 7 November:</strong> FIA Technical Delegate
+Document 27 says Oracle Red Bull Racing and Aston Martin personnel were inside
+the circuit during the 11.5-hour pre-FP3 curfew, from 21:00 Friday to 08:30
+Saturday BRT. This was Oracle Red Bull Racing's second and Aston Martin's third
+of four permitted team exceptions; the report says no action should be taken.
+<a href="{FIA}curfew_0.pdf">FIA Document 27</a>.</p>"""
     pages["moments"]["body"] = """
 <h2 class="sec">Local winners and the circuit's evolution</h2>
 <div class="grid cols-2">

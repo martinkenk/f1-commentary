@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-07T12:27:50Z",
-  "expires_at": "2026-11-07T14:15:00Z",
+  "reviewed_at": "2026-11-07T13:36:17Z",
+  "expires_at": "2026-11-07T14:20:00Z",
   "through_session": "Practice 2",
-  "feed_fingerprint": "b74b9c4fd9ccedb4bab847390ab389c8ec240add0183d11f489af54d16ff2b08",
+  "feed_fingerprint": "65e68af37f1d204774f625809efe72f45393342aec90e799fd5bd479b6918627",
   "items": [
     {
       "topic": "Practice",
@@ -105,15 +105,23 @@
       ]
     },
     {
-      "topic": "Red Bull technical update",
-      "title": "Verstappen reports clutch, downshift and steering issues as Red Bull plans changes",
-      "date": "2026-11-06",
-      "summary": "Hannah Schmitz says Red Bull is planning “quite a few changes” to Max Verstappen’s car before qualifying after clutch and steering problems in Friday practice. Verstappen finished third in both sessions, but ended FP2 early.",
-      "why_it_matters": "The pace was competitive despite the problems; Saturday running will show whether the changes address them before qualifying.",
+      "topic": "Ferrari and grid",
+      "title": "The Race reports Hamilton is set for a Brazil grid penalty",
+      "date": "2026-11-07",
+      "summary": "The Race reports Ferrari planned power-unit component changes after FP2 and that Lewis Hamilton is set to take a Brazil grid penalty. The 13:30 UTC FIA refresh found no Hamilton-specific parts report or Stewards' ruling among the 27 discovered event documents.",
+      "why_it_matters": "This is an attributed expectation, not an FIA-confirmed penalty; the exact component and sanction remain unverified. Check the FIA documents before treating a starting position as settled.",
       "sources": [
         {
-          "label": "Formula1.com: Red Bull plans changes after Verstappen’s Friday issues",
-          "url": "https://www.formula1.com/en/latest/article/schmitz-confirms-red-bull-looking-into-quite-a-few-changes-following-verstappens-sao-paulo-issues.mt1q9B8dzsQIDHkp5YFUs"
+          "label": "The Race: Hamilton set for a Brazil grid penalty",
+          "url": "https://www.the-race.com/formula-1/hamilton-set-for-brazil-grid-penalty-after-ferraris-worst-2026-friday/"
+        },
+        {
+          "label": "FIA: current Sao Paulo event documents",
+          "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
+        },
+        {
+          "label": "Formula1.com: official Practice 2 classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/2"
         }
       ]
     }
