@@ -13,6 +13,10 @@ FIA_NEW_PU_REV2_URL = FIA + "new_pu_elements_for_this_competition_0.pdf"
 FIA_NEW_PU_REV2_DOC = "new_pu_elements_for_this_competition_0"
 FIA_NEW_PU_REV2_P2_ASSET = "fia-brazil-af563bed0bcb-46cf930a47e6c2c0-p2"
 FIA_NEW_PU_REV2_P3_ASSET = "fia-brazil-af563bed0bcb-46cf930a47e6c2c0-p3"
+FIA_NEW_PU_REV3_URL = FIA + "new_pu_elements_for_this_competition_2.pdf"
+FIA_NEW_PU_REV3_DOC = "new_pu_elements_for_this_competition_2"
+FIA_NEW_PU_REV3_P2_ASSET = "fia-brazil-a3dc392ee3d3-5c2a48565dbe63dd-p2"
+FIA_NEW_PU_REV3_P3_ASSET = "fia-brazil-a3dc392ee3d3-5c2a48565dbe63dd-p3"
 FIA_PEREZ_SUMMONS_URL = FIA + "summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
 FIA_PEREZ_PU_PENALTY_URL = FIA + "infringement_-_car_11_-_changes_to_pu_elements.pdf"
 FIA_PEREZ_UNSAFE_URL = FIA + "infringement_-_car_11_-_driving_in_an_unsafe_condition.pdf"
@@ -181,7 +185,12 @@ This later FIA filing supersedes the earlier team statement that Hamilton
 would start from the back without specifying component counts. Russell's
 separate five-place drop followed his sixth ICE (sixth against four allowed)
 in Document 15.
+The Technical Delegate's later Document 55 reports Lindblad's seventh ICE and
+sixth turbocharger (four allowed each), plus Bortoleto's sixth energy store and
+sixth PU-CE (three allowed each); it states all four are not compliant. This is
+a component report, not a Stewards' penalty decision.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
+<a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55</a> ·
 <a href="{FIA_NEW_PU_URL}">previous new-elements report, Document 14</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
 <a href="{FIA_PEREZ_PU_PENALTY_URL}">FIA Document 39</a> ·
@@ -398,6 +407,14 @@ def _powerunit():
          "Fourth of three; not compliant", "42"),
         ("44", "Ferrari", "Lewis Hamilton", "PU-ANC", "6", "6",
          "Seventh of six; not compliant", "42"),
+        ("41", "Racing Bulls RB Ford", "Arvid Lindblad", "ICE", "6", "4",
+         "Seventh of four; not compliant", "55"),
+        ("41", "Racing Bulls RB Ford", "Arvid Lindblad", "TC", "5", "4",
+         "Sixth of four; not compliant", "55"),
+        ("05", "Audi", "Gabriel Bortoleto", "ES", "5", "3",
+         "Sixth of three; not compliant", "55"),
+        ("05", "Audi", "Gabriel Bortoleto", "PU-CE", "5", "3",
+         "Sixth of three; not compliant", "55"),
     )
     new_elements_table = "".join(
         "<tr>" + "".join(f"<td>{value}</td>" for value in row) + "</tr>"
@@ -464,7 +481,14 @@ component-by-component FIA report supersedes the earlier team statement that
 Hamilton would start from the back without detailed counts.
 The separate Document 15 imposes a five-place drop for Russell's sixth ICE
 (sixth against four allowed).
+The Technical Delegate's 8 November Document 55 reports Arvid Lindblad's
+seventh ICE and sixth turbocharger (four allowed each), and Gabriel Bortoleto's
+sixth energy store and sixth PU-CE (three allowed each). It states all four
+elements are not compliant, although the replacements were approved by the
+Technical Delegate. It is not a Stewards' penalty decision and does not
+establish a grid penalty.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
+<a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
 <a href="{FIA_PEREZ_PU_PENALTY_URL}">FIA Document 39</a> ·
 <a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
@@ -492,6 +516,12 @@ Its full two-page decision remains available in the Penalties reader.</p>
 {_figure(FIA_NEW_PU_REV2_P3_ASSET,
          "FIA Document 30: new MGU-K and PU-ANC entries, page 3",
          FIA_NEW_PU_REV2_DOC, 3)}
+{_figure(FIA_NEW_PU_REV3_P2_ASSET,
+         "FIA Document 55: Lindblad and Bortoleto new power-unit elements, page 2",
+         FIA_NEW_PU_REV3_DOC, 2)}
+{_figure(FIA_NEW_PU_REV3_P3_ASSET,
+         "FIA Document 55: Bortoleto new control-electronics unit, page 3",
+         FIA_NEW_PU_REV3_DOC, 3)}
 <p>FIA Document 14's earlier report lists Rafael Câmara's fifth PU-ANC within
 the six-element allowance. Document 30 does not add a new element for Car 51;
 this is an earlier declaration, not a separate penalty.
@@ -661,6 +691,15 @@ The official Formula1.com Starting Grid now lists Hamilton 20th.
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying</a> ·
 <a href="{F1_STARTING_GRID}">official Starting Grid</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional order</a>.</p>"""
+    pages["notes"]["body"] += f"""
+<p><strong>Later power-unit report:</strong> FIA Technical Delegate Document 55
+reports Arvid Lindblad's seventh ICE and sixth turbocharger (four allowed each),
+and Gabriel Bortoleto's sixth energy store and sixth PU-CE (three allowed each).
+It states all four elements are not compliant despite approving their
+replacement. This technical report is not a Stewards' penalty decision; no grid
+penalty is inferred.
+<a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55, published 8 November</a> ·
+<a href="powerunit.html">Power Unit analysis</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(

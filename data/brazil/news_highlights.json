@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-08T10:39:35Z",
-  "expires_at": "2026-11-08T16:30:00Z",
+  "reviewed_at": "2026-11-08T14:50:51Z",
+  "expires_at": "2026-11-08T16:50:00Z",
   "through_session": "Qualifying",
   "feed_fingerprint": "16e499af615fde4f3bc71e652b54cf9a61831f2f154292e13c472f7271887d8e",
   "items": [
@@ -56,10 +56,10 @@
     },
     {
       "topic": "Power-unit changes",
-      "title": "Hamilton's cumulative 75-place penalty; Verstappen targets a fun recovery",
-      "date": "2026-11-07",
-      "summary": "FIA Documents 42–43 add 65 places to Hamilton's earlier 10-place drop; he qualified 11th and the official Starting Grid lists him 20th. Verstappen's FIA Document 33 imposes a 30-place drop, and the 22-car official grid lists him 21st.",
-      "why_it_matters": "Keep the component sanctions and qualifying classification distinct from the penalty-adjusted official grid; the grid, rather than the earlier provisional order, confirms Hamilton and Verstappen's starting positions.",
+      "title": "New FIA report lists Lindblad and Bortoleto power-unit elements",
+      "date": "2026-11-08",
+      "summary": "FIA Document 55 reports Arvid Lindblad's seventh ICE and sixth turbocharger (four allowed each), plus Gabriel Bortoleto's sixth energy store and sixth PU-CE (three allowed each); the Technical Delegate states all four are not compliant. It is a component report, not a Stewards' penalty decision. Earlier Stewards' decisions impose Hamilton's cumulative 75-place drop and Verstappen's 30-place drop; the official Starting Grid lists Hamilton 20th and Verstappen 21st.",
+      "why_it_matters": "Distinguish out-of-allowance component reports from Stewards' sanctions and use the official penalty-adjusted grid for starting positions.",
       "sources": [
         {
           "label": "Formula1.com: confirmed power-unit penalties",
@@ -108,27 +108,35 @@
         {
           "label": "FIA: Russell's separate five-place decision, Document 15",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_63_-_changes_to_pu_element.pdf"
+        },
+        {
+          "label": "FIA: Technical Delegate's new-element report, Document 55",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition_2.pdf"
         }
       ]
     },
     {
       "topic": "Tyres and strategy",
-      "title": "Pirelli prefers a dry two-stop; published set chart omits used quantities",
+      "title": "Pirelli's full race-set chart confirms the remaining slick inventory",
       "date": "2026-11-08",
-      "summary": "Using Friday FP2 as the only representative long-run data, Pirelli estimates a Soft–Medium–Soft two-stop about three seconds quicker than using all three slick compounds, while a one-stop is around ten seconds slower. Coffee Corner Motorsport's separate Pirelli-credited chart shows S–M–S laps 17–23/42–48, M–H–S 23–29/50–56, S–H–S 16–22/44–50 and M–H 28–34; those are chart scenarios, not Pirelli-published lap windows. Its 22-row image shows four new Softs for the ten Q3 entrants, five for the others, and one new Medium and Hard per driver. The graphic omits used-set cells, so no complete six-cell inventory is transcribed.",
-      "why_it_matters": "These are simulated dry-race options, not measured outcomes; wet conditions could displace them. The full credited image remains available, but missing used-set quantities must not be inferred.",
+      "summary": "Using Friday FP2 as its only representative long-run data, Pirelli estimates a Soft–Medium–Soft two-stop about three seconds quicker than using all three slick compounds, while a one-stop is around ten seconds slower. Coffee Corner Motorsport's Pirelli-credited strategy chart shows S–M–S laps 17–23/42–48, M–H–S 23–29/50–56, S–H–S 16–22/44–50 and M–H 28–34; those are chart scenarios, not Pirelli-published lap windows. Its separate complete 22-driver RACE SETS graphic shows one new Hard and Medium per driver, four new Softs for the ten Q3 entrants and five for the rest, with no used slick sets remaining for the race. That inventory does not mean slicks were unused in practice.",
+      "why_it_matters": "These are simulated dry-race options, not measured outcomes; wet conditions could displace them. Distinguish the complete remaining race-set chart from the separate new-sets-only graphic, and do not interpret no remaining used sets as no slick use in practice.",
       "sources": [
         {
           "label": "Pirelli: post-qualifying strategy assessment",
           "url": "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/"
         },
         {
-          "label": "Coffee Corner Motorsport: strategy and tyre-set graphics",
+          "label": "Pirelli: Friday FP1 and FP2 tyre use",
+          "url": "https://press.pirelli.com/soft-delivers-at-interlagos-as-antonelli-sets-the-pace/"
+        },
+        {
+          "label": "Coffee Corner Motorsport: strategy and both tyre-set graphics",
           "url": "https://coffeecornermotorsport.com/brazil-grand-prix-2026-tyre-strategy/"
         },
         {
-          "label": "Coffee Corner Motorsport: new-sets-only chart",
-          "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/Brazil_2026_Tyres_Available_CCM_CORRECTED.webp"
+          "label": "Coffee Corner Motorsport: complete 22-driver race-set chart",
+          "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/1920_20-br26-racesets.webp"
         }
       ]
     },

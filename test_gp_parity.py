@@ -437,6 +437,38 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("<td>63</td><td>George Russell</td><td>5</td><td>5</td><td>5</td>"
                       "<td>4</td><td>4</td><td>4</td><td>5</td>", usage.group(1))
         self.assertIn("pu_elements_used_per_driver_up_to_now.pdf#page=2", powerunit)
+        new_elements = re.search(
+            r'<table class="data compact" id="brazil-new-pu-elements">(.*?)</table>',
+            powerunit,
+            re.S,
+        )
+        self.assertIsNotNone(new_elements)
+        for row in (
+            "<td>41</td><td>Racing Bulls RB Ford</td><td>Arvid Lindblad</td>"
+            "<td>ICE</td><td>6</td><td>4</td>"
+            "<td>Seventh of four; not compliant</td><td>55</td>",
+            "<td>41</td><td>Racing Bulls RB Ford</td><td>Arvid Lindblad</td>"
+            "<td>TC</td><td>5</td><td>4</td>"
+            "<td>Sixth of four; not compliant</td><td>55</td>",
+            "<td>05</td><td>Audi</td><td>Gabriel Bortoleto</td>"
+            "<td>ES</td><td>5</td><td>3</td>"
+            "<td>Sixth of three; not compliant</td><td>55</td>",
+            "<td>05</td><td>Audi</td><td>Gabriel Bortoleto</td>"
+            "<td>PU-CE</td><td>5</td><td>3</td>"
+            "<td>Sixth of three; not compliant</td><td>55</td>",
+        ):
+            self.assertIn(row, new_elements.group(1))
+        self.assertIn("not a Stewards' penalty decision", powerunit)
+        self.assertIn("not a Stewards' penalty decision", pages["overview"]["body"])
+        notes = " ".join(pages["notes"]["body"].split())
+        self.assertIn("no grid penalty is inferred", notes)
+        for page, asset in (
+            (2, content_brazil.FIA_NEW_PU_REV3_P2_ASSET),
+            (3, content_brazil.FIA_NEW_PU_REV3_P3_ASSET),
+        ):
+            self.assertIn(f"{asset}.png", powerunit)
+            self.assertTrue((Path(build.ROOT) / "assets_src" / f"{asset}.png").is_file())
+            self.assertIn(content_brazil.FIA_NEW_PU_REV3_URL + f"#page={page}", powerunit)
         for slug in ("tyres", "powerunit", "circuit"):
             body = pages[slug]["body"]
             for asset in re.findall(r'src="\.\./assets/([^"]+)"', body):
