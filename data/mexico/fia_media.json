@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-11-08T21:05:45+00:00",
-  "discovery_retrieved_at": "2026-11-08T21:04:43.020439+00:00",
+  "checked_at": "2026-11-08T21:35:25+00:00",
+  "discovery_retrieved_at": "2026-11-08T21:34:11.300119+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_championship_points.pdf",
@@ -9,7 +9,7 @@
         "standings"
       ],
       "sha256": "89d75e76aa14feadf2a33e0915c315836cb8511504d21ef7f1ae75df264205f7",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -37,7 +37,7 @@
         "results"
       ],
       "sha256": "681fc44eb9dd8e73096dcafb63d18257d344ead5617aab6fc0b1a3f2f4591cd3",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -53,7 +53,7 @@
         "penalties"
       ],
       "sha256": "d50fd320d8a0315d64ba90d4286e5f917047a1f7630d058cb0e98f9a421c4825",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -73,7 +73,7 @@
         "penalties"
       ],
       "sha256": "dd27b429b08da51f564442c8698ff7e3c5c781b402ad1e7f599326c0e8e54884",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -89,7 +89,7 @@
         "penalties"
       ],
       "sha256": "845c47d8ba213bc61f3a644bea55130f2194e7fec46fc8872b830c323a6f0e7e",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -105,7 +105,7 @@
         "stewards"
       ],
       "sha256": "f622d75e49fa374facc41cd859f2a9e7a4a178fa6a8854aa182171afd8a96e7e",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -121,7 +121,7 @@
         "powerunit"
       ],
       "sha256": "3067d86b1cd4da435e33964135e82f1863c4ba6fc8baf11a0d2cc7c54345ad40",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -149,7 +149,7 @@
         "penalties"
       ],
       "sha256": "e653a6061a826e9ba2463a8f255a94e1d4ff16c4ad8287dec6dd548ed87916d7",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -169,7 +169,7 @@
         "penalties"
       ],
       "sha256": "8563eedf1e9345f90f6218de006a9d99cd51e0c1310324c857048a78273e4a42",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -189,7 +189,7 @@
         "stewards"
       ],
       "sha256": "5f647f3485812f15470afda67b2afded854e69f11a68e6fc5d61a84589afad09",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -205,7 +205,7 @@
         "stewards"
       ],
       "sha256": "90e90e61ceb9f160eb69358a94f4b1aa6b9e69b40643786be47cdbbd0b2a2c7f",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -221,7 +221,7 @@
         "penalties"
       ],
       "sha256": "4650ac05c28092df0ac88b3af8c705a3cca73070b8db51de6c1eb44d1b6801fd",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -237,7 +237,7 @@
         "results"
       ],
       "sha256": "4c689ff2b1a0d4827e0fce929ef2e2a0f9edc3a66ac363c15e8f746a20e1e9cb",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 2,
@@ -253,7 +253,7 @@
         "penalties"
       ],
       "sha256": "a8ec6767664cb0ab51e8cff5891538aeb57563eac0cc2d1a92221e371f4e5312",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -269,7 +269,7 @@
         "stewards"
       ],
       "sha256": "2714451bcee92c92cf17596c2463b88bf72840ea1a4e26c2e795704a83acdba1",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -285,7 +285,7 @@
         "stewards"
       ],
       "sha256": "566160aa9243100dba6ec4207fd3892e8b48e7ccf372fbbe0779dcc3782f479e",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -301,7 +301,7 @@
         "penalties"
       ],
       "sha256": "800317da0213a6ec6abb2202fe3e5078c3b23f6951e679770a5740d33de31974",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -317,7 +317,7 @@
         "penalties"
       ],
       "sha256": "52e02a3a27162214e15bc3c4a9a7442405a7664c93b3860204e3ecdfdb6e710b",
-      "fetched_at": "2026-11-08T21:05:45+00:00",
+      "fetched_at": "2026-11-08T21:35:25+00:00",
       "pages": [
         {
           "page": 1,
@@ -1668,5 +1668,274 @@
       "revision": 0
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_16_-_left_the_track_and_gained_a_lasting_advantage.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_55_-_pit_lane_speeding.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_final_starting_grid.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_30_-_changes_made_during_parc_ferme.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_parc_ferme_issues.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_race_directors_competition_notes_v2.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_post-race_procedure.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_pre-race_procedure.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_provisional_starting_grid.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_final_qualifying_classification.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_car_30_-_permission_to_start.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_30_-_technical_nonconformity.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_p3_and_qualifying_scrutineering.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_car_30_-_alleged_mgu-k_infringement.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_communication_from_the_stewards.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_mgu-k_infringement_car_30.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_6_-_crossing_the_white_line_at_pit_entry.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_55_-_failed_to_follow_race_directors_instructions_-_turn_11.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_covers-on_time.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_provisional_qualifying_classification.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_14_-_failed_to_replace_the_steering_wheel_after_leaving_the_car.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_free_practice_3_classification.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringment_-_car_77_-_pit_lane_speeding.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_6_-_misconduct.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_self_scrutineering_after_survival_cell_change.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_post-qualifying_procedure.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_curfew.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_revised_entry_list.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_decision_-_driver_change_tgr_haas_f1_team.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_car_6_-_alleged_misconduct.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_30_-_turn_14_incident_with_car_3_.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_3_-_turn_14_incident_with_car_30_.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_5_-_covering_components.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_fp1_and_fp2_scrutineering.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_audi_-_car_5_covering_of_components.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_covering_of_components_on_car_05_during_fp2.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_free_practice_2_classification.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringment_-_car_14_-_pit_lane_speeding_0.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_car_30_-_turn_14_incident_with_car_3.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_car_3_-_turn_14_incident_with_car_30.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_98_-_released_in_an_unsafe_condition.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_free_practice_1_classification.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringment_-_car_14_-_pit_lane_speeding.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_77_-_pu_elements.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_audi_-_alleged_release_of_car_98_in_an_unsafe_condition.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_car_presentation_submissions.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_entry_list.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_self_scrutineering.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_race_directors_competition_notes.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_and_emergency_exits_map.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_power_unit_information.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_car_display_procedure.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_timetable_v2.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_post-race_inspections_on_car_number_63_2026_united_states_gp.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_competition_visa.pdf",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ]
 }
