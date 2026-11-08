@@ -366,8 +366,11 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("pre-qualifying assessment", tyres)
         self.assertIn(content_brazil.PIRELLI_FP2_STRATEGY, tyres)
         self.assertIn(content_brazil.PIRELLI_POST_QUALI_STRATEGY, tyres)
-        self.assertIn("lists new sets by compound only", tyres)
-        self.assertIn("no driver-by-driver used figures are transcribed", tyres)
+        self.assertIn("one new C3 Hard and one new C4 Medium for", tyres)
+        self.assertIn("four new C5 Softs", tyres)
+        self.assertIn("all six new/used cells for every driver", tyres)
+        self.assertNotIn("lists new sets by compound only", tyres)
+        self.assertNotIn("no driver-by-driver used figures are transcribed", tyres)
         self.assertNotIn("used-slick counts are zero", tyres)
         self.assertNotIn("not a strategy-window", tyres)
 

@@ -288,7 +288,8 @@ def _tyres():
 <p>C3 Hard / C4 Medium / C5 Soft. Mandatory race specifications: <strong>C3/C4</strong>;
 Q3 tyre: <strong>C5</strong>. These are nominations, not remaining race-set counts.
 The initial weekend allocation is two hard, three medium and eight soft sets
-per driver; post-qualifying availability must be sourced separately.</p>
+per driver. The post-qualifying Pirelli race-set chart is now available and
+its driver-by-driver figures are transcribed below.</p>
 <div class="table-wrap"><table class="data" id="brazil-tyre-limits">
 <thead><tr><th>Type</th><th>Axle</th><th>Minimum start (psi)</th>
 <th>Expected stabilized (psi)</th><th>Camber limit</th></tr></thead><tbody>{table}</tbody></table></div>
@@ -322,13 +323,17 @@ illustrative windows, not measured pit stops:</p>
 <thead><tr><th>Option</th><th>Compound route</th><th>Pit window (lap)</th></tr></thead>
 <tbody>{strategy_table}</tbody></table></div>
 {_strategy_figure()}
-<p>The separate race-set graphic below is a secondary reproduction and lists
-new sets by compound only. Pirelli's session reports confirm slicks were used
-during Friday practice and FP3. Coffee Corner Motorsport's claim that no slicks
-were used conflicts with those reports; the graphic omits used-set counts, so
-no driver-by-driver used figures are transcribed.
+<p>The separate race-set graphic is a Pirelli Motorsport chart reproduced by
+Coffee Corner Motorsport. It shows one new C3 Hard and one new C4 Medium for
+each of the 22 entrants; the ten drivers who reached Q3 have four new C5 Softs
+and the other twelve have five. Its used-slick columns are dashes, consistent
+with the article's post-qualifying inventory note and Pirelli's confirmation
+that Qualifying used only wet-weather tyres. This is the remaining race
+inventory, not a claim that slicks were unused in practice. The verified table
+is image-bound and lists all six new/used cells for every driver.
 <a href="{PIRELLI_POST_QUALI_STRATEGY}">Pirelli's post-qualifying assessment</a> ·
 <a href="{PIRELLI_FP2_STRATEGY}">Friday FP2 analysis</a> ·
+<a href="{CCM_BRAZIL_STRATEGY}">Coffee Corner Motorsport's full article and graphic</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying</a> ·
 <a href="{F1_STARTING_GRID}">official Starting Grid</a>.</p>
 {_figure("fia-brazil-8188298e7b47-84d11f15335e159e-p2",
@@ -345,8 +350,10 @@ around ten seconds slower. Pirelli's 60% rain chance was the forecast when
 that report was published, not a live update. A separate chart credited to
 Pirelli Motorsport shows the Soft–Medium–Soft option on laps 17–23 and 42–48;
 the complete four-option graphic and new-set chart are on
-<a href="tyres.html">Tyres &amp; Strategy</a>. Used-set counts are not shown by
-the chart and are not transcribed. <a href="{CCM_BRAZIL_STRATEGY}">Coffee Corner Motorsport's reproduction</a> ·
+<a href="tyres.html">Tyres &amp; Strategy</a>. The race-set chart shows one new
+Hard and Medium for each entrant, four new Softs for the ten Q3 drivers and
+five for the rest; no used slicks remain after wet-only Qualifying.
+<a href="{CCM_BRAZIL_STRATEGY}">Coffee Corner Motorsport's reproduction</a> ·
 <a href="{PIRELLI_POST_QUALI_STRATEGY}">Pirelli's report</a>
 · <a href="tyres.html">Full tyre analysis and race-set status</a>.</p>"""
 
@@ -695,10 +702,11 @@ location diagram, remain available in the expandable readers.</p>""" + _upgrade_
 <p><strong>Standard weekend, not Sprint:</strong> Friday FP1 12:30 and FP2 16:00;
 Saturday FP3 11:30 and Qualifying was scheduled for 15:00; Sunday Race is
 scheduled for 14:00 (all BRT). Add five hours for Tallinn (EET): Race
-<strong>19:00 Sunday 8 November</strong>. FIA Stewards' Document 48, Timetable
-V4, updates Sunday's support/promoter schedule but retains the Grand Prix start
-at 14:00 BRT (formation-lap start; 71 laps or 120 minutes, approximate finish
-16:00). <a href="{FIA}timetable_v4.pdf#page=2">Timetable V4, page 2</a>.
+<strong>19:00 Sunday 8 November</strong>. FIA Timetable V5 supersedes V4 and
+extends the third Brazil Junior Trophy race from 20 to 25 minutes plus one lap
+(08:50–09:20 BRT). The Grand Prix remains at 14:00 BRT (formation-lap start;
+71 laps or 120 minutes, approximate finish 16:00).
+<a href="{FIA}timetable_v5.pdf#page=2">Timetable V5, page 2</a>.
 The Race reports that Qualifying was delayed by 1h25 and red-flagged almost
 immediately in heavy rain. Formula1.com's official
 classification now lists all 22 qualifiers: Lando Norris took pole in 1:27.470,
@@ -716,8 +724,9 @@ FIA document remains provisional. The Race's earlier post-penalty order was prov
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf#page=2">FIA Document 51, provisional Starting Grid p. 2</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional order</a> ·
 <a href="{FIA_EVENT}">live FIA event documents</a>. FP1, FP2 and FP3
-classifications and Qualifying are published; race-set counts still require a
-published inventory chart.</p>
+classifications and Qualifying are published. The post-qualifying Pirelli
+race-set chart covers all 22 drivers; the image-bound transcription is on
+<a href="tyres.html">Tyres &amp; Strategy</a>.</p>
 <p><strong>Curfew report, 7 November:</strong> FIA Technical Delegate
 Document 27 says Oracle Red Bull Racing and Aston Martin personnel were inside
 the circuit during the 11.5-hour pre-FP3 curfew, from 21:00 Friday to 08:30
