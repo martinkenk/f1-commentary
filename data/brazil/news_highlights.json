@@ -1,9 +1,43 @@
 {
-  "reviewed_at": "2026-11-08T16:18:41Z",
-  "expires_at": "2026-11-08T16:55:00Z",
+  "reviewed_at": "2026-11-08T18:19:34Z",
+  "expires_at": "2026-11-08T19:15:00Z",
   "through_session": "Qualifying",
-  "feed_fingerprint": "16e499af615fde4f3bc71e652b54cf9a61831f2f154292e13c472f7271887d8e",
+  "feed_fingerprint": "4dfd545aba976bedb8ee90fea50db17ca14dc699aa247c4603cf561a2e69f8be",
   "items": [
+    {
+      "topic": "Qualifying and final grid",
+      "title": "Norris takes pole as the official grid now matches FIA Document 59",
+      "date": "2026-11-08",
+      "summary": "The current Formula1.com Starting Grid, checked at 18:15 UTC, now matches FIA Document 59: Norris starts first, Antonelli second and Lawson third; Russell is seventh, Leclerc 14th, Stroll 16th and Bottas 17th. Lindblad and Bortoleto start 18th and 19th after their 10-place drops; Hamilton is 20th, Verstappen 21st and Perez 22nd. Norris's qualifying time of 1:27.470 was 0.204s ahead of Russell. Starting positions are separate from qualifying results.",
+      "why_it_matters": "The current official grid resolves the earlier 16:09 UTC Formula1.com snapshot that still listed Lindblad 12th and agrees with the visually reviewed FIA final grid.",
+      "sources": [
+        {
+          "label": "Formula1.com: current official Starting Grid",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
+        },
+        {
+          "label": "FIA: final Starting Grid, Document 59, page 2",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_starting_grid.pdf#page=2"
+        },
+        {
+          "label": "Formula1.com: Qualifying classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
+        }
+      ]
+    },
+    {
+      "topic": "Milestone",
+      "title": "Hamilton reaches 400 Formula 1 starts at São Paulo",
+      "date": "2026-11-08",
+      "summary": "Formula1.com reports that the São Paulo Grand Prix is Lewis Hamilton's 400th Formula 1 race start, after 20 continuous seasons in the championship. Fernando Alonso's São Paulo start is number 445. This is a career milestone, not a claim about the unfinished race result.",
+      "why_it_matters": "It puts Hamilton's longevity in context without conflating a milestone with his current race position or result.",
+      "sources": [
+        {
+          "label": "Formula1.com: Hamilton reaches 400 starts",
+          "url": "https://www.formula1.com/en/latest/article/rivals-pay-tribute-as-lewis-hamilton-reaches-400-formula-1-starts-at-sao-paulo-grand-prix.7ahLqNwTWm8Nze2o9hteZB"
+        }
+      ]
+    },
     {
       "topic": "Wet-race safety",
       "title": "Drivers warn against repeating Saturday's conditions in the Race",
@@ -22,101 +56,11 @@
       ]
     },
     {
-      "topic": "Qualifying",
-      "title": "FIA final grid applies Lindblad and Bortoleto penalties",
-      "date": "2026-11-07",
-      "summary": "FIA Document 59, the final 22-car Starting Grid issued at 13:00 BRT, applies the 10-place drops in Documents 56 and 57: Arvid Lindblad starts 18th and Gabriel Bortoleto 19th. It also confirms Russell seventh, Leclerc 14th, Hamilton 20th, Verstappen 21st and Perez 22nd. Norris remains the qualifying pole-sitter in 1:27.470, 0.204s ahead of Russell; the qualifying classification is separate from the grid.",
-      "why_it_matters": "The earlier Formula1.com Starting Grid snapshot still placed Lindblad 12th at 16:09 UTC. Use the later FIA final grid for starting positions, not the provisional FIA sheet or that stale snapshot.",
-      "sources": [
-        {
-          "label": "FIA: final Starting Grid, Document 59, page 2",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_starting_grid.pdf#page=2"
-        },
-        {
-          "label": "FIA: Lindblad 10-place penalty, Document 56",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_41_-_changes_to_pu_elements.pdf"
-        },
-        {
-          "label": "FIA: Bortoleto 10-place penalty, Document 57",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_5_-_changes_to_pu_elements.pdf"
-        },
-        {
-          "label": "Formula1.com: Qualifying classification",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
-        },
-        {
-          "label": "FIA: live São Paulo event documents",
-          "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix"
-        }
-      ]
-    },
-    {
-      "topic": "Power-unit changes",
-      "title": "New FIA report lists Lindblad and Bortoleto power-unit elements",
-      "date": "2026-11-08",
-      "summary": "FIA Document 55 reports Arvid Lindblad's seventh ICE and sixth turbocharger (four allowed each), plus Gabriel Bortoleto's sixth energy store and sixth PU-CE (three allowed each); the Technical Delegate states all four are not compliant. It is a component report, not a Stewards' penalty decision. Earlier Stewards' decisions impose Hamilton's cumulative 75-place drop and Verstappen's 30-place drop; the official Starting Grid lists Hamilton 20th and Verstappen 21st.",
-      "why_it_matters": "Distinguish out-of-allowance component reports from Stewards' sanctions and use the official penalty-adjusted grid for starting positions.",
-      "sources": [
-        {
-          "label": "Formula1.com: confirmed power-unit penalties",
-          "url": "https://www.formula1.com/en/latest/article/hamilton-leclerc-and-verstappen-set-for-sao-paulo-grand-prix-penalties-after-power-unit-changes.7B5CuFFCN1F6Txc8YwcEhd"
-        },
-        {
-          "label": "Formula1.com: official Starting Grid",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
-        },
-        {
-          "label": "Formula1.com: Hamilton's later full power-unit change",
-          "url": "https://www.formula1.com/en/latest/article/hamilton-set-to-start-at-back-of-the-grid-after-further-penalty-ahead-of-sao-paulo-grand-prix.5SFs44M6cNSDvUBCWE9FWZ"
-        },
-        {
-          "label": "Formula1.com: Verstappen's post-Qualifying penalty outlook",
-          "url": "https://www.formula1.com/en/latest/article/maybe-its-the-best-place-to-take-it-verstappen-sets-out-goal-from-back-of-the-grid-in-sao-paulo.3Q4PjMuHO5GVxoRFTwhggD"
-        },
-        {
-          "label": "FIA: Technical Delegate's new-element report, Document 30",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition_0.pdf"
-        },
-        {
-          "label": "FIA: Verstappen's 30-place penalty, Document 33",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_3_-_changes_to_pu_elements.pdf"
-        },
-        {
-          "label": "FIA: Perez's 30-place penalty, Document 39",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_11_-_changes_to_pu_elements.pdf"
-        },
-        {
-          "label": "FIA: Leclerc's 10-place penalty, Document 35",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_16_-_changes_to_pu_element.pdf"
-        },
-        {
-          "label": "FIA: Hamilton's 10-place penalty, Document 37",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_44_-_changes_to_pu_element.pdf"
-        },
-        {
-          "label": "FIA: Hamilton's additional new elements, Document 42",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition_1.pdf"
-        },
-        {
-          "label": "FIA: Hamilton's additional 65-place penalty, Document 43",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_44_-_additional_changes_to_pu_elements.pdf"
-        },
-        {
-          "label": "FIA: Russell's separate five-place decision, Document 15",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_63_-_changes_to_pu_element.pdf"
-        },
-        {
-          "label": "FIA: Technical Delegate's new-element report, Document 55",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_new_pu_elements_for_this_competition_2.pdf"
-        }
-      ]
-    },
-    {
       "topic": "Tyres and strategy",
-      "title": "Pirelli's full race-set chart confirms the remaining slick inventory",
+      "title": "Pirelli's dry-race projection favors a two-stop strategy",
       "date": "2026-11-08",
-      "summary": "Using Friday FP2 as its only representative long-run data, Pirelli estimates a Soft–Medium–Soft two-stop about three seconds quicker than using all three slick compounds, while a one-stop is around ten seconds slower. Coffee Corner Motorsport's Pirelli-credited strategy chart shows S–M–S laps 17–23/42–48, M–H–S 23–29/50–56, S–H–S 16–22/44–50 and M–H 28–34; those are chart scenarios, not Pirelli-published lap windows. Its separate complete 22-driver RACE SETS graphic shows one new Hard and Medium per driver, four new Softs for the ten Q3 entrants and five for the rest, with no used slick sets remaining for the race. That inventory does not mean slicks were unused in practice.",
-      "why_it_matters": "These are simulated dry-race options, not measured outcomes; wet conditions could displace them. Distinguish the complete remaining race-set chart from the separate new-sets-only graphic, and do not interpret no remaining used sets as no slick use in practice.",
+      "summary": "Using Friday FP2 as its only representative long-run data, Pirelli estimates a Soft–Medium–Soft two-stop about three seconds quicker than using all three slick compounds, while a one-stop is around ten seconds slower. Coffee Corner Motorsport's Pirelli-credited chart lists additional dry-race scenarios; its complete 22-driver RACE SETS graphic shows the remaining race inventory, not all tyres used during practice. These are pre-race projections, not a live forecast or race outcome.",
+      "why_it_matters": "Wet conditions can displace dry-race simulations. Keep Pirelli's estimates separate from the secondary chart's lap windows and from the actual remaining-set inventory.",
       "sources": [
         {
           "label": "Pirelli: post-qualifying strategy assessment",
@@ -133,27 +77,6 @@
         {
           "label": "Coffee Corner Motorsport: complete 22-driver race-set chart",
           "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/1920_20-br26-racesets.webp"
-        }
-      ]
-    },
-    {
-      "topic": "Stewards",
-      "title": "Perez warned; Bearman reprimanded in separate steward decisions",
-      "date": "2026-11-07",
-      "summary": "FIA Document 40 resolves Perez's FP3 summons: after reviewing video, the Stewards found he threw a small plastic cable organiser that had detached from his seat belt; Cadillac received a formal warning. Separately, Document 41 reprimands Bearman for reversing under his own power in the pit lane during Qualifying; it is his second reprimand of the season.",
-      "why_it_matters": "Neither decision changes the official starting grid. Keep Perez's warning and Bearman's reprimand distinct from Perez's 30-place power-unit sanction.",
-      "sources": [
-        {
-          "label": "FIA: decision and formal warning, Document 40",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_11_-_driving_in_an_unsafe_condition.pdf"
-        },
-        {
-          "label": "FIA: resolved Sergio Perez summons, Document 31",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
-        },
-        {
-          "label": "FIA: Bearman's pit-lane reversal decision, Document 41",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_reversing_in_the_pit_lane.pdf"
         }
       ]
     }

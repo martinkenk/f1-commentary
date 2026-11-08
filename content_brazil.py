@@ -504,8 +504,9 @@ replacements; it is a technical report, not a penalty decision. Separate
 Stewards' Documents 56 and 57 each impose a 10-place drop for this Race.
 FIA Document 59's final Starting Grid applies both penalties: Lindblad starts
 18th and Bortoleto 19th. The Formula1.com snapshot retrieved at 16:09 UTC still
-showed Lindblad 12th, so the later FIA final grid is used for the published
-starting order.
+showed Lindblad 12th. Its current Starting Grid page, checked at 18:15 UTC, now
+agrees with Document 59, including Stroll 16th and Bottas 17th; Results uses
+the current order.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55</a> ·
 <a href="{FIA_PARC_FERME_PARTS_URL}">FIA Document 58</a> ·
@@ -728,11 +729,11 @@ and 57 impose 10-place drops for Lindblad (seventh ICE, sixth TC) and Bortoleto
 <a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a> ·
 <a href="powerunit.html">Power Unit analysis</a>.</p>"""
     pages["notes"]["body"] += f"""
-<p><strong>Late grid-penalty check:</strong> The latest stored Formula1.com
-Starting Grid snapshot, retrieved at 16:09 UTC, lists Lindblad 12th and
-Bortoleto 19th. FIA Document 59 is the later final grid and applies Documents
-56 and 57: Lindblad 18th and Bortoleto 19th. The verified FIA order is shown in
-<a href="results.html">Results</a>; qualifying positions remain separate.
+<p><strong>Late grid-penalty check:</strong> A stored Formula1.com Starting Grid
+snapshot retrieved at 16:09 UTC still listed Lindblad 12th. The current official
+grid, checked at 18:15 UTC, now agrees with FIA Document 59: Stroll 16th,
+Bottas 17th, Lindblad 18th and Bortoleto 19th. Results displays this current
+penalty-adjusted order separately from qualifying.
 <a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, page 2</a> ·
 <a href="{F1_STARTING_GRID}">Formula1.com Starting Grid snapshot</a> ·
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
@@ -811,8 +812,10 @@ classification now lists all 22 qualifiers: Lando Norris took pole in 1:27.470,
 the 22-car order. The FIA's later Document 59 is the final Starting Grid,
 issued at 13:00 BRT; it applies the 10-place penalties in Documents 56 and 57,
 placing Lindblad 18th and Bortoleto 19th. The Formula1.com Starting Grid
-snapshot retrieved at 16:09 UTC still listed Lindblad 12th; the verified FIA
-final order is used in <a href="results.html">Results</a>. Do not substitute
+snapshot retrieved at 16:09 UTC still listed Lindblad 12th. A current official
+grid check at 18:15 UTC now matches FIA
+Document 59 (Lindblad 18th, Bortoleto 19th; Stroll 16th, Bottas 17th);
+<a href="results.html">Results</a> displays that order. Do not substitute
 starting positions for qualifying results. Document 51 was provisional and
 predates the final grid. The Race's earlier post-penalty order was provisional
 and is superseded by Document 59. See <a href="notes.html">Notes</a> and
