@@ -1,9 +1,26 @@
 {
-  "reviewed_at": "2026-11-07T23:31:01Z",
-  "expires_at": "2026-11-08T10:00:00Z",
+  "reviewed_at": "2026-11-08T10:39:35Z",
+  "expires_at": "2026-11-08T16:30:00Z",
   "through_session": "Qualifying",
   "feed_fingerprint": "16e499af615fde4f3bc71e652b54cf9a61831f2f154292e13c472f7271887d8e",
   "items": [
+    {
+      "topic": "Wet-race safety",
+      "title": "Drivers warn against repeating Saturday's conditions in the Race",
+      "date": "2026-11-08",
+      "summary": "George Russell warned that repeating Saturday's opening wet conditions in the Race could create a high risk of a serious incident; Carlos Sainz described the first laps as sketchy, and Isack Hadjar said the full wets lacked grip. These are drivers' assessments after Qualifying, not a Race Control decision or a current forecast. Pirelli's 7 November report cited a 60% race-day rain chance when it was published.",
+      "why_it_matters": "Cars must follow more closely in a race than in qualifying, changing the visibility and aquaplaning risks. Keep Pirelli's dated rain probability separate from the live forecast and any decision to run.",
+      "sources": [
+        {
+          "label": "The Race: wet-weather safety concerns after qualifying",
+          "url": "https://www.the-race.com/formula-1/why-f1-risks-horrific-incident-if-brazilian-gp-risks-are-repeated/"
+        },
+        {
+          "label": "Pirelli: post-qualifying report and dated forecast",
+          "url": "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/"
+        }
+      ]
+    },
     {
       "topic": "Qualifying",
       "title": "Norris takes pole; official grid confirms penalty-adjusted order",
@@ -95,11 +112,32 @@
       ]
     },
     {
+      "topic": "Tyres and strategy",
+      "title": "Pirelli prefers a dry two-stop; published set chart omits used quantities",
+      "date": "2026-11-08",
+      "summary": "Using Friday FP2 as the only representative long-run data, Pirelli estimates a Soft–Medium–Soft two-stop about three seconds quicker than using all three slick compounds, while a one-stop is around ten seconds slower. Coffee Corner Motorsport's separate Pirelli-credited chart shows S–M–S laps 17–23/42–48, M–H–S 23–29/50–56, S–H–S 16–22/44–50 and M–H 28–34; those are chart scenarios, not Pirelli-published lap windows. Its 22-row image shows four new Softs for the ten Q3 entrants, five for the others, and one new Medium and Hard per driver. The graphic omits used-set cells, so no complete six-cell inventory is transcribed.",
+      "why_it_matters": "These are simulated dry-race options, not measured outcomes; wet conditions could displace them. The full credited image remains available, but missing used-set quantities must not be inferred.",
+      "sources": [
+        {
+          "label": "Pirelli: post-qualifying strategy assessment",
+          "url": "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/"
+        },
+        {
+          "label": "Coffee Corner Motorsport: strategy and tyre-set graphics",
+          "url": "https://coffeecornermotorsport.com/brazil-grand-prix-2026-tyre-strategy/"
+        },
+        {
+          "label": "Coffee Corner Motorsport: new-sets-only chart",
+          "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/Brazil_2026_Tyres_Available_CCM_CORRECTED.webp"
+        }
+      ]
+    },
+    {
       "topic": "Stewards",
-      "title": "Perez receives a formal warning after discarding a loose cockpit item",
+      "title": "Perez warned; Bearman reprimanded in separate steward decisions",
       "date": "2026-11-07",
-      "summary": "FIA Document 40 resolves the FP3 unsafe-condition summons in Document 31. After reviewing in-car video, the Stewards found that Perez threw a small plastic cable organiser, which had detached from the seat belt, out of the car. Cadillac received a formal warning: throwing material onto the track during a live session was inappropriate even though this small, light item was unlikely to damage another car or injure a driver.",
-      "why_it_matters": "The warning follows a safety-related finding, but is not a grid penalty. Keep it separate from Perez's 30-place power-unit sanction in Document 39.",
+      "summary": "FIA Document 40 resolves Perez's FP3 summons: after reviewing video, the Stewards found he threw a small plastic cable organiser that had detached from his seat belt; Cadillac received a formal warning. Separately, Document 41 reprimands Bearman for reversing under his own power in the pit lane during Qualifying; it is his second reprimand of the season.",
+      "why_it_matters": "Neither decision changes the official starting grid. Keep Perez's warning and Bearman's reprimand distinct from Perez's 30-place power-unit sanction.",
       "sources": [
         {
           "label": "FIA: decision and formal warning, Document 40",
@@ -108,39 +146,9 @@
         {
           "label": "FIA: resolved Sergio Perez summons, Document 31",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
-        }
-      ]
-    },
-    {
-      "topic": "Championship",
-      "title": "Mercedes can clinch the constructors' title with a three-point gain",
-      "date": "2026-11-04",
-      "summary": "The latest official standings show Mercedes on 630 points, 126 ahead of Ferrari on 504. Formula1.com's pre-weekend scenario says Mercedes clinches the constructors' title if it gains three points on Ferrari in Brazil. No Brazil points have been awarded yet.",
-      "why_it_matters": "Kimi Antonelli has clinched the Drivers' title, while the Constructors' Championship remains live; the three-point threshold depends on the Race result.",
-      "sources": [
-        {
-          "label": "Formula1.com: official constructor standings",
-          "url": "https://www.formula1.com/en/results/2026/team"
         },
         {
-          "label": "Formula1.com: official driver standings",
-          "url": "https://www.formula1.com/en/results/2026/drivers"
-        },
-        {
-          "label": "Formula1.com: Sao Paulo title scenario",
-          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-sao-paulo-grand-prix.6Pvk4v10hKccs7IS4X667x"
-        }
-      ]
-    },
-    {
-      "topic": "FIA ruling",
-      "title": "Bearman reprimanded for reversing in the pit lane",
-      "date": "2026-11-07",
-      "summary": "FIA Document 41 identifies Oliver Bearman (Car 87, TGR Haas F1 Team) and says he reversed in the pit lane under his own power during Qualifying, breaching Article B1.6.3b. The Stewards imposed a driving reprimand, his second of the season; the document states no grid drop.",
-      "why_it_matters": "This is a new qualifying ruling, but a reprimand rather than a grid penalty. Keep it separate from the still-unpublished qualifying order.",
-      "sources": [
-        {
-          "label": "FIA: Car 87 pit-lane reversal, Document 41",
+          "label": "FIA: Bearman's pit-lane reversal decision, Document 41",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_reversing_in_the_pit_lane.pdf"
         }
       ]
