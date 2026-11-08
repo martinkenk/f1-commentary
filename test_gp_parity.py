@@ -321,7 +321,10 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_brazil.FIA_HAMILTON_ADDITIONAL_PENALTY_URL, notes)
         self.assertIn("75 places cumulatively", notes)
         self.assertIn("penalty-adjusted official Starting Grid", notes)
-        self.assertIn("FIA Document 59 is the later final grid", notes)
+        self.assertIn(
+            "current official grid, checked at 18:15 UTC, now agrees with FIA Document 59",
+            notes,
+        )
         self.assertIn("Lindblad 18th and Bortoleto 19th", notes)
         self.assertNotIn("still-pending official Starting Grid", notes)
         schedule = content_brazil.build_pages(
@@ -401,7 +404,9 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("used-slick counts are zero", tyres)
         self.assertNotIn("not a strategy-window", tyres)
 
-    def test_brazil_late_pu_penalties_are_hash_reviewed_and_grid_conflict_is_explicit(self):
+    def test_brazil_late_pu_penalties_are_hash_reviewed_and_grid_agreement_is_current(
+        self,
+    ):
         pages = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )
@@ -410,7 +415,10 @@ class GPParityTests(unittest.TestCase):
             self.assertIn(content_brazil.FIA_LINDBLAD_PU_PENALTY_URL, body)
             self.assertIn(content_brazil.FIA_BORTOLETO_PU_PENALTY_URL, body)
         notes = " ".join(pages["notes"]["body"].split())
-        self.assertIn("snapshot, retrieved at 16:09 UTC, lists Lindblad 12th", notes)
+        self.assertIn(
+            "snapshot retrieved at 16:09 UTC still listed Lindblad 12th", notes
+        )
+        self.assertIn("Stroll 16th, Bottas 17th", notes)
         self.assertIn("Lindblad 18th and Bortoleto 19th", notes)
         self.assertNotIn("their application is unresolved", notes)
         schedule = " ".join(pages["schedule"]["body"].split())
@@ -418,6 +426,26 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Lindblad 18th and Bortoleto 19th", schedule)
 
         base = Path(__file__).parent / "data/brazil"
+        results = json.loads((base / "session_results.json").read_text())
+        grid = next(
+            session for session in results["sessions"]
+            if session["label"] == "Starting Grid"
+        )
+        grid_status = next(
+            status for status in results["statuses"]
+            if status["label"] == "Starting Grid"
+        )
+        self.assertEqual(grid_status["state"], "available")
+        self.assertFalse(grid["retained"])
+        grid_rows = {row[0]: row[1:3] for row in grid["rows"]}
+        self.assertEqual(grid_rows["16"], ["18", "Lance Stroll STR"])
+        self.assertEqual(grid_rows["17"], ["77", "Valtteri Bottas BOT"])
+        race_status = next(
+            status for status in results["statuses"] if status["label"] == "Race"
+        )
+        self.assertEqual(race_status["state"], "pending")
+        self.assertIn("Incomplete classification", race_status["error"])
+
         review = json.loads((base / "coverage_review.json").read_text())
         media = json.loads((base / "fia_media.json").read_text())
         media_hashes = {item["url"]: item["sha256"] for item in media["documents"]}
