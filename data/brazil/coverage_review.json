@@ -96,7 +96,7 @@
     "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_12_-_unsafe_release.pdf": "fb1683ed7c1da9b49e48ea7609b0e263e770cc028d1d1f8600d61f21786db7c2"
   },
   "race_strategy": {
-    "reviewed_at": "2026-11-08T20:21:36Z",
+    "reviewed_at": "2026-11-08T23:31:13Z",
     "sources": [
       "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/",
       "https://press.pirelli.com/soft-delivers-at-interlagos-as-antonelli-sets-the-pace/",
@@ -108,9 +108,11 @@
       "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/Brazil_2026_Tyres_Available_CCM_CORRECTED.webp",
       "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI",
       "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix",
-      "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+      "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result",
+      "https://www.pitpass.com/84111/Sao-Paulo-Grand-Prix-Race-team-notes-Pirelli"
     ],
     "strategy_image_sha256": "228d009e33e83de137531ef82ff0a34749a81f783b347f8336771fdcf84dbf98",
+    "follow_up_basis": "Reviewed the same-day article labeled Pirelli race-team notes and carried by Pitpass at 2026-11-08T23:31:13Z. It reports all starters began on Intermediates and all drivers used both Intermediates and Softs; Norris's Soft stints lasted 33 and 13 laps, while Russell and Leclerc each completed a 45-lap Soft stint before a final 10-lap Soft stint. Pirelli's technical comments attribute the strategy variation to changing weather and describe low temperatures limiting degradation while wear and graining needed management. These post-race observations are now represented on Brazil's Tyres page and kept separate from the dry-race projections. Pitpass is a secondary host; no Pirelli-hosted post-race URL was found in the accessible newsroom search.",
     "basis": "Reopened Pirelli's 7 November post-qualifying report and checked its full Saturday Report graphic against the official Qualifying table. The image is a session summary, not a race-set chart or strategy-window graphic. Pirelli says Q1 used Full Wets and Q2/Q3 Intermediates, recommends a dry two-stop with two Soft stints and one Medium, estimates about three seconds over strategies using all three slicks and about ten seconds slower for a one-stop; these are simulations from Friday FP2, not measured outcomes. The 60% rain chance is a dated forecast. Visually reviewed Coffee Corner Motorsport's full 1080x607 strategy graphic (SHA-256 recorded above), a secondary reproduction credited to Pirelli Motorsport: Soft-Medium-Soft 17-23/42-48, Medium-Hard-Soft 23-29/50-56, Soft-Hard-Soft 16-22/44-50 and Medium-Hard one-stop 28-34. The Pirelli report names the preferred route but does not publish those lap windows; the page labels the chart and its scenarios separately. Visually read all 22 rows of the distinct race-set image: its legend says new sets by compound and omits used-set counts. Coffee Corner Motorsport's prose says no used slicks, but its own session summaries and Pirelli's Friday/FP3 reports confirm slick compounds were used, so that assertion is not represented as a count and no used-set values are transcribed. The Pirelli report body says Norris set 1:12.470, but its image and official classification show 1:27.470; the page avoids the discrepant value. Post-race review at 2026-11-08T20:21:36Z: opened Formula1.com's race report and checked its timing narrative against the live FIA event listing and official Race result page. The report describes a wet-dry-wet race: Hamilton first switched to Softs at Lap 14, the leading group stopped on Laps 16-17, Norris made another stop on Lap 49, and the field switched back to Intermediates from Lap 61. The pre-race dry projections and chart remain labeled as forecasts; Overview and Notes now summarize the observed race sequence. Pirelli's newsroom showed its 7 November qualifying report as the latest Brazil-specific strategy release; a post-race tyre analysis was not available at review time."
   }
 }

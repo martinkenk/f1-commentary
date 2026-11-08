@@ -73,6 +73,7 @@ F1_STARTING_GRID = "https://www.formula1.com/en/results/2026/races/1299/brazil/s
 THE_RACE_PROVISIONAL_GRID = "https://www.the-race.com/formula-1/f1-2026-brazilian-grand-prix-starting-grid-with-four-penalties-copy/"
 PIRELLI_FP2_STRATEGY = "https://press.pirelli.com/soft-delivers-at-interlagos-as-antonelli-sets-the-pace/"
 PIRELLI_POST_QUALI_STRATEGY = "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/"
+PIRELLI_RACE_NOTES = "https://www.pitpass.com/84111/Sao-Paulo-Grand-Prix-Race-team-notes-Pirelli"
 CCM_BRAZIL_STRATEGY = "https://coffeecornermotorsport.com/brazil-grand-prix-2026-tyre-strategy/"
 BRAZIL_STRATEGY_IMAGE = (
     "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/"
@@ -350,6 +351,16 @@ followed. FIA Document 81 records the final classification after 71 laps and
 <a href="{FIA_EVENT}">FIA event listing</a> ·
 <a href="{FIA_FINAL_RACE_CLASSIFICATION_URL}">FIA Document 81, final classification</a> ·
 <a href="{F1_RACE_RESULTS}">Formula1.com Race classification</a>.</p>
+<p>A same-day account labeled as Pirelli race-team notes and carried by Pitpass says
+all starters began on Intermediates and all drivers used both Intermediates and
+Softs. The podium trio used one Intermediate set, two Soft sets, then another
+Intermediate set. Norris's Soft stints lasted 33 and 13 laps; Russell and
+Leclerc each kept one Soft set for 45 laps before using a second Soft set for
+the final ten laps. Pirelli attributed the varied choices to the changing
+conditions; low temperatures limited degradation while wear and graining needed
+management. This post-race account is separate from the pre-race projections
+below; Pitpass is its host, not Pirelli's newsroom.
+<a href="{PIRELLI_RACE_NOTES}">Pirelli race-team notes carried by Pitpass</a>.</p>
 <h2 class="sec">Pre-race strategy forecast (for comparison)</h2>
 <p>Pirelli's 7 November report says Qualifying used Full Wets in Q1, then
 Intermediates from Q2 through Q3. This describes qualifying tyre use, not the

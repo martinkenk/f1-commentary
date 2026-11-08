@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-08T17:20:01Z",
-  "expires_at": "2026-11-08T21:00:00Z",
+  "reviewed_at": "2026-11-08T23:31:13Z",
+  "expires_at": "2026-11-09T05:31:13Z",
   "through_session": "Race",
   "feed_fingerprint": "bafc35868da8868c990ecec32a317a0b579271498a0861ba332c196f1869cad6",
   "items": [
@@ -8,20 +8,12 @@
       "topic": "Championship",
       "title": "Antonelli seals the title after a near-retirement run to the Mexico podium",
       "date": "2026-11-05",
-      "summary": "Kimi Antonelli secured his first Drivers' Championship with third place in Mexico and became Formula 1's youngest champion. Mercedes later revealed that the car returned with oil under the floor and a cracked sump; Antonelli said the engine began to struggle about four laps from the end. After the Mexico round, he had 380 points, ahead of Max Verstappen on 261 and Lewis Hamilton on 259.",
-      "why_it_matters": "Entering Brazil, Mercedes led Ferrari 630–504 in the still-live Constructors' Championship.",
+      "summary": "Kimi Antonelli secured his first Drivers' Championship with third place in Mexico and became Formula 1's youngest champion. Mercedes later revealed that the car returned with oil under the floor and a cracked sump; Antonelli said the engine began to struggle about four laps from the end.",
+      "why_it_matters": "Antonelli's title clinch depended on reaching the finish; Mercedes' later account shows how narrowly the result came.",
       "sources": [
         {
           "label": "Formula1.com: Mexico City race report",
           "url": "https://www.formula1.com/en/latest/article/mexico-city-lowdown-all-the-key-moments-as-antonelli-secures-maiden-title-and-verstappen-denies-ferrari-victory.3mPqECWFPlJsdg4jUOZUXz"
-        },
-        {
-          "label": "Formula1.com: official driver standings",
-          "url": "https://www.formula1.com/en/results/2026/drivers"
-        },
-        {
-          "label": "Formula1.com: official constructor standings",
-          "url": "https://www.formula1.com/en/results/2026/team"
         },
         {
           "label": "Formula1.com: Mercedes reveal Antonelli's near-retirement",

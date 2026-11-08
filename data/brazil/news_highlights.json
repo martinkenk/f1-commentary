@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-08T22:23:58Z",
-  "expires_at": "2026-11-09T05:23:58Z",
+  "reviewed_at": "2026-11-08T23:31:13Z",
+  "expires_at": "2026-11-09T05:31:13Z",
   "through_session": "Race",
-  "feed_fingerprint": "9153bb707ef22d1562b15fabd2a0de71325dd3aa5dc1361a12fb568bfb7665f0",
+  "feed_fingerprint": "cc23849e38c20c2a74c878bc698ae5314eb60a054b37cc30c96d7407f1318229",
   "items": [
     {
       "topic": "Race result",
@@ -34,15 +34,15 @@
       ]
     },
     {
-      "topic": "Russell's pit-exit spin",
-      "title": "Russell says he risked too much after costly pit-exit spin",
+      "topic": "Ferrari performance",
+      "title": "Leclerc and Hamilton call São Paulo a disaster after Ferrari’s lowest-scoring weekend since Monza",
       "date": "2026-11-08",
-      "summary": "Formula1.com reports Russell spun at the pit exit after switching to slicks, recovered without damage and finished fourth. Russell said he had no idea what happened and thought he may have taken too much risk while seeing a chance to win; that is his account, not a confirmed mechanical cause.",
-      "why_it_matters": "The spin cost positions before Russell recovered to fourth; his explanation is a driver account, not a technical diagnosis.",
+      "summary": "Formula1.com reports Leclerc and Hamilton described Ferrari’s pace and tyre performance in stark terms. Leclerc finished eighth after a post-race five-second penalty, while Hamilton finished ninth; the report calls it Ferrari’s lowest-scoring weekend since Monza.",
+      "why_it_matters": "The drivers’ comments document frustration with this weekend’s performance; they do not establish a new team-order policy or a technical cause.",
       "sources": [
         {
-          "label": "Formula1.com Russell interview",
-          "url": "https://www.formula1.com/en/latest/article/no-idea-what-happened-on-that-pit-exit-russell-reflects-on-spin-and-mercedes-title-win-in-sao-paulo.1C1TWOL9x9TBOkYyNxid7F"
+          "label": "Formula1.com Ferrari post-race report",
+          "url": "https://www.formula1.com/en/latest/article/a-complete-disaster-leclerc-and-hamilton-lament-horrendous-ferrari-performance-in-sao-paulo.sdZmqEEwBaoAC8OmBxvYh"
         },
         {
           "label": "Formula1.com Race results table",
