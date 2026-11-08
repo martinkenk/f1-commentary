@@ -39,6 +39,18 @@ FIA_POWER_UNIT = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_mexico_city_grand_prix_-_power_unit_information.pdf"
 )
+MOMENT_2019 = (
+    F1 + "/latest/article/mexican-grand-prix-2019-report-and-highlights."
+    "2GCUEuCYRquG0pcZeGZuYz"
+)
+MOMENT_2021 = (
+    F1 + "/latest/article/verstappen-extends-championship-lead-after-jumping-"
+    "both-mercedes-at-the.5MuxQBFZyfPdlnwaJDT0j0"
+)
+MOMENT_2024 = (
+    F1 + "/latest/article/sainz-surges-to-mexico-victory-ahead-of-norris-and-"
+    "leclerc-as-verstappen-hit.3duSNduH2cxC7K91WDSXda"
+)
 
 
 def _is_post_race(ctx):
@@ -138,6 +150,33 @@ in the Grand Prix classification:</p>
 """
 
 
+def _moments():
+    return f"""
+<h2 class="sec">Selected Mexico City Grand Prix moments</h2>
+<p>These are race episodes at the Autódromo Hermanos Rodríguez, sourced to
+Formula1.com's contemporary reports; they are not country-wide Mexican GP
+statistics.</p>
+<div class="grid cols-2">
+{card("2019 — Hamilton's one-stop victory", f'''<p>Lewis Hamilton won from
+third after making a 48-lap hard-tyre stint work, taking his second Mexico
+victory and Mercedes' 100th win as a constructor.</p>
+<p class="src"><a href="{MOMENT_2019}">Formula1.com race report, 27 October
+2019</a>.</p>''', "bi-stopwatch", "accent")}
+{card("2021 — Verstappen's Turn 1 move", f'''<p>Starting third, Max Verstappen
+went around the outside of both Mercedes into Turn 1 and led on the opening
+lap. He won ahead of Lewis Hamilton, with Sergio Pérez becoming the first
+Mexican driver to take a Formula 1 podium at his home race.</p>
+<p class="src"><a href="{MOMENT_2021}">Formula1.com race report, 7 November
+2021</a>.</p>''', "bi-flag-fill")}
+{card("2024 — Sainz retakes the lead", f'''<p>Carlos Sainz lost the lead to
+Max Verstappen at the start, then reclaimed it on lap 9. He went on to win
+by 4.705 seconds over Lando Norris; Verstappen's two time penalties shaped
+the fight behind them.</p>
+<p class="src"><a href="{MOMENT_2024}">Formula1.com race report, 27 October
+2024</a>.</p>''', "bi-trophy")}
+</div>"""
+
+
 def _published_fia_note(document, url, detail):
     return f"""
 <h2 class="sec">{document}</h2>
@@ -153,6 +192,10 @@ def _published_fia_note(document, url, detail):
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
+    pages["moments"]["sub"] = (
+        "Three sourced race episodes from the Mexico City circuit."
+    )
+    pages["moments"]["body"] = _moments()
     if _is_post_race(ctx):
         pages["teams"]["sub"] = (
             "The title outcome, decisive team results and post-race stewarding."

@@ -58,6 +58,15 @@ class GPParityTests(unittest.TestCase):
         pages = content_mexico.build_pages(ctx, self.env)
         for slug in ("teams", "notes"):
             self.assertNotIn("awaiting a verified update", pages[slug]["body"])
+        moments = pages["moments"]["body"]
+        self.assertNotIn("A curated moments list", moments)
+        for year, source in (
+            ("2019", content_mexico.MOMENT_2019),
+            ("2021", content_mexico.MOMENT_2021),
+            ("2024", content_mexico.MOMENT_2024),
+        ):
+            self.assertIn(year, moments)
+            self.assertIn(source, moments)
         self.assertIn("Antonelli", pages["teams"]["body"])
         self.assertIn("630–504", pages["teams"]["body"])
         self.assertIn("Piastri's ten-second", pages["teams"]["body"])
