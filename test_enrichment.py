@@ -111,12 +111,15 @@ class EnrichmentTests(unittest.TestCase):
 
     def test_safety_and_compliance_filings_have_visible_destinations(self):
         for filename in ("heat_hazard_declaration.pdf", "competition_visa.pdf",
-                         "timetable_v3.pdf", "garage_doors.pdf"):
+                         "timetable_v3.pdf", "garage_doors.pdf", "covers-on_time.pdf"):
             self.assertEqual(f1lib.fia_document_categories(filename), ["schedule"])
         self.assertEqual(f1lib.fia_document_categories(
             "post-race_checks_on_car_number_16_2026_azerbaijan_gp.pdf"), ["powerunit"])
         self.assertEqual(f1lib.fia_document_categories(
             "2026_sao_paulo_grand_prix_-_fp1_and_fp2_scrutineering.pdf"),
+            ["powerunit"])
+        self.assertEqual(f1lib.fia_document_categories(
+            "2026_sao_paulo_grand_prix_-_fp3_and_qualifying_scrutineering.pdf"),
             ["powerunit"])
 
     def test_relevant_keeps_cross_event_context_without_other_event_headline(self):

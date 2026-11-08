@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T08:20:47+00:00",
+  "checked_at": "2026-11-08T08:39:54+00:00",
   "discovery_retrieved_at": "2026-11-08T08:20:45.840380+00:00",
   "documents": [
     {
@@ -35,17 +35,65 @@
       "revision": 0
     },
     {
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_fp3_and_qualifying_scrutineering.pdf",
+      "filename": "2026_sao_paulo_grand_prix_-_fp3_and_qualifying_scrutineering.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "a58060ee53da04ed666a6a5b9f56e3d3b0679b8113128fd99b88307f767952ad",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-brazil-2760874f95aa-a58060ee53da04ed-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-brazil-2760874f95aa-a58060ee53da04ed-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-brazil-2760874f95aa-a58060ee53da04ed-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-brazil-2760874f95aa-a58060ee53da04ed-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-brazil-2760874f95aa-a58060ee53da04ed-p5.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_timetable_v4.pdf",
       "filename": "2026_sao_paulo_grand_prix_-_timetable_v4.pdf",
       "categories": [
         "schedule"
       ],
       "sha256": "1aa1e25dc2eb71af65e1900eac478176b31312d49bb5d80e4771da45e5128cc8",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
           "asset": "fia-brazil-77da3a03d2b2-1aa1e25dc2eb71af-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_covers-on_time.pdf",
+      "filename": "2026_sao_paulo_grand_prix_-_covers-on_time.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "fcd1c43beb5acd3d7146044f9ad85c87c153796b9625095a2113ad61824e7710",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-brazil-fdb2a546a545-fcd1c43beb5acd3d-p1.png"
         }
       ],
       "revision": 0
@@ -125,7 +173,7 @@
         "powerunit"
       ],
       "sha256": "2829a7a6b78737f0dbceff5a19c234d5e6da02ddf3965612748eb35052093b06",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -197,7 +245,7 @@
         "schedule"
       ],
       "sha256": "1be6e23fe3fe60c19f2187688170a24a175317dcbd2030c403ca7824b504cc6d",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 1,
@@ -349,7 +397,7 @@
         "powerunit"
       ],
       "sha256": "46cf930a47e6c2c00c72268450a6c273bde80272c374620795f70d132c623f44",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -369,7 +417,7 @@
         "schedule"
       ],
       "sha256": "df3c526b9d1ca2ac698fe4cfaff63a73ba8be79597e0d0a8be692f9630173dfb",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -393,7 +441,7 @@
         "powerunit"
       ],
       "sha256": "ac646baaf86f1a4cd8a8825f7dbdc9afa910967666b52c825a1f1f4087547750",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -409,7 +457,7 @@
         "schedule"
       ],
       "sha256": "e21e3cdf9a8eb3de512f521f9d4257defd170bc1a5028de0b6e61af806f1a183",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 1,
@@ -425,7 +473,7 @@
         "powerunit"
       ],
       "sha256": "ad00784bf09d9a67d618ea711d22ee1164a0c22c5328fe871d1d89aa474b9ef2",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 1,
@@ -641,7 +689,7 @@
         "powerunit"
       ],
       "sha256": "b706ad97554d079c17714087898e94caf4cbe473dbcfc78836c96a505e615fcd",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -657,7 +705,7 @@
         "schedule"
       ],
       "sha256": "91a050ca99e48279c451abc067bd1c681d2a5a0f142e20586206bf091cdeea29",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -733,7 +781,7 @@
         "schedule"
       ],
       "sha256": "97aa07dc0af783292ec1e4038abcd2de00847d7261f25646c758323e0ded23d3",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 1,
@@ -749,7 +797,7 @@
         "schedule"
       ],
       "sha256": "d389fd03f69081a36168f9d3ca8479542c9aeb5ac0bbe9cbea2189a7f58ebdca",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 1,
@@ -765,7 +813,7 @@
         "powerunit"
       ],
       "sha256": "e6a9731048b45159555134cff6402d7ee0afee242e26bc7a0f4fcf91b7a07d74",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -849,7 +897,7 @@
         "schedule"
       ],
       "sha256": "e19f7ebe4f41dd85985d2db37bdb9b753393986f507da686809e535a86bcd020",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -897,7 +945,7 @@
         "powerunit"
       ],
       "sha256": "b034c0e63a20560dd3e02f1f1a38423fe68bb1fdc1599f43e8f3e712eb589104",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,
@@ -929,7 +977,7 @@
         "schedule"
       ],
       "sha256": "a599a4c28c8fc5f85df2e78b8e90e6b13b3ebc5209632e51d97fb4d7e328733b",
-      "fetched_at": "2026-11-08T08:20:47+00:00",
+      "fetched_at": "2026-11-08T08:39:54+00:00",
       "pages": [
         {
           "page": 2,

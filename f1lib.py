@@ -80,7 +80,7 @@ def fia_document_categories(filename):
             and re.search(r"\b(infringement|decision|penalty|reprimand|fine|disqualif\w*|protest)\b", name)):
         categories.append("penalties")
     if re.search(r"\b(power unit information|pu elements used|new pu elements|"
-                 r"fp1 and fp2 scrutineering)\b", name):
+                 r"fp1 and fp2 scrutineering|fp3 and qualifying scrutineering)\b", name):
         categories.append("powerunit")
     if re.search(r"\b(circuit map|track map|race director(?:s| s)? "
                  r"(?:(?:event|competition) )?notes)\b", name):
@@ -90,6 +90,7 @@ def fia_document_categories(filename):
     if re.search(r"\b(car presentation|car display procedure|car component|upgrade submissions|parts and parameters)\b", name):
         categories.append("upgrades")
     if re.search(r"\b(heat hazard declaration|competition visa|timetable|garage doors|"
+                 r"covers on time|"
                  r"entry list|curfew|self scrutineering|post qualifying procedure)\b", name):
         categories.append("schedule")
     if re.search(r"\bpost race checks on car\b", name):

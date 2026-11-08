@@ -535,6 +535,16 @@ car 55 was weighed and rear-brake pressure control was checked on cars 63, 12,
 analysed; the report says they were consistent with approved references and
 that all listed items complied with the 2026 Technical Regulations.
 <a href="{FIA}fp1_and_fp2_scrutineering.pdf#page=1">FIA Document 26, pages 1–4</a>.</p>
+<h2 class="sec">FP3 and qualifying technical checks</h2>
+<p>FIA Technical Delegate Document 49 records checks during FP3 and
+Qualifying, including energy-store and ERS limits, MGU-K limits, engine and
+fuel systems, tyre pressures and use, and aerodynamic components on cars 30
+and 87. Fuel and oil samples were analysed, and the report says all listed
+items complied with the 2026 Technical Regulations. It also lists the FIA
+Standard ECU software versions used by each team; no individual version is
+transcribed here.
+<a href="{FIA}fp3_and_qualifying_scrutineering.pdf">FIA Document 49, all five
+pages</a>.</p>
 """
 
 
@@ -714,6 +724,11 @@ the circuit during the 11.5-hour pre-FP3 curfew, from 21:00 Friday to 08:30
 Saturday BRT. This was Oracle Red Bull Racing's second and Aston Martin's third
 of four permitted team exceptions; the report says no action should be taken.
 <a href="{FIA}curfew_0.pdf">FIA Document 27</a>.</p>"""
+    pages["schedule"]["body"] += f"""
+<p><strong>Qualifying parc-fermé deadline:</strong> FIA Race Director
+Document 47, issued at 18:23 on Saturday, required every car used in Qualifying
+to be covered and ready for FIA seals by 19:27 local time under Regulation
+B3.4.3a. <a href="{FIA}covers-on_time.pdf">FIA Document 47</a>.</p>"""
     pages["schedule"]["body"] += f"""
 <p><strong>FIA Media Delegate's Document 29 — Post-Qualifying Procedure:</strong>
 if the top three take the chequered flag at the end of Q3, they return to the

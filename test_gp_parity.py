@@ -185,11 +185,17 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertIn("no action should be taken", schedule)
         self.assertIn("curfew_0.pdf", schedule)
+        self.assertIn("FIA Document 47", schedule)
+        self.assertIn("19:27 local time", schedule)
+        self.assertIn("covers-on_time.pdf", schedule)
         self.assertIn(
             "FIA Competition Notes, Document 2, version 5 issue A",
             pages["tyres"]["body"],
         )
         self.assertNotIn("00:16 UTC", pages["tyres"]["body"])
+        self.assertIn("FIA Technical Delegate Document 49", powerunit)
+        self.assertIn("all listed items complied", powerunit)
+        self.assertIn("fp3_and_qualifying_scrutineering.pdf", powerunit)
 
     def test_brazil_russell_penalty_is_attributed_and_not_mistaken_for_upgrade(self):
         body = content_brazil.build_pages(
