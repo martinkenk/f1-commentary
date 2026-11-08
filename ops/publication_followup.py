@@ -105,6 +105,8 @@ def reconcile(state, runs, live, gps, checked, now):
                       summary=f"Published repair {commit[:8]}; deployment and live routes verified automatically. "
                               "Original audit and remaining source limitations are preserved in the report.")
         agent_queue.save(path / "status.json", status)
+        if report.get("resolved_runs"):
+            agent_queue.resolve_runs(state, path.name, dict(report, status="fixed"), status.get("mode"))
         latest = json.loads(latest_path.read_text()) if latest_path.exists() else {}
         if latest.get("run_id") == path.name:
             agent_queue.save(latest_path, status)

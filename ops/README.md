@@ -143,6 +143,13 @@ An interactive success, CLI upgrade or timer restart alone is not that proof.
 
 ## Operations
 
+Successful recovery reports may explicitly name `resolved_runs` and a verified
+`resolution_basis`. The wrapper propagates only completed PUBLISH-mode repairs
+to original finished runs/tasks, preserving old reports and process outcomes
+with `resolution.json` and `previous_status`. A pending deployment cannot resolve
+the original task until independent publication verification completes. Queued,
+running and cancelled jobs are never silently overwritten.
+
 Publication waits finish automatically: the calendar reconciles completed
 blocked reports with the actually live successful Pages run, verifies commit
 ancestry and affected rendered routes, then records `publication.json` and updates

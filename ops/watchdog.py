@@ -314,6 +314,13 @@ def run(audit_only=False, timeout=2700):
                     "credentials, web authentication or your own permissions. Do not install "
                     "operator-service updates yourself; report when installation is required.\n"
                     f"Task: {task['title']}\n{task['prompt']}\n")
+                if task.get("resume_run"):
+                    prompt += (
+                        "\nWhen the original task is fully completed and verified live, include "
+                        f'"resolved_runs": ["{task["resume_run"]}"] and a factual '
+                        '"resolution_basis" in the final fixed report. Only resolve the original '
+                        "run if all its requested work is complete; pending publication or "
+                        "partial fixes must not resolve it. Original evidence is preserved.\n")
             prompt += budget_instructions(started, timeout)
             remaining = timeout - (dt.datetime.now(dt.timezone.utc) - started).total_seconds()
             if remaining <= 0:
@@ -360,6 +367,9 @@ def run(audit_only=False, timeout=2700):
             if not writable and status["status"] != "blocked":
                 status["status"] = "read_only"
             status["summary"] = report["summary"]
+            if not publication_followup.pending_report(report):
+                status["resolved_runs"] = agent_queue.resolve_runs(
+                    STATE, run_id, report, status["mode"])
             if writable and publication_followup.pending_report(report):
                 status.update(status="waiting_publication", publication_commit=report["commit"],
                               summary="Repair pushed; automatic calendar verification will finish publication. "

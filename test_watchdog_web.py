@@ -14,6 +14,38 @@ from ops import agent_queue as queue, watchdog, watchdog_web as web
 
 
 class QueueTests(unittest.TestCase):
+    def test_explicit_verified_completion_updates_original_without_erasing_report(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            original = "20261107T120000Z"
+            queue.save(state / "runs" / original / "status.json",
+                       {"status": "timed_out", "finished_at": "earlier"})
+            queue.save(state / "runs" / original / "report.json", {"status": "blocked"})
+            task = queue.enqueue(state, "Complete original task")
+            queue.update(state, task["id"], run_id=original, status="timed_out")
+            report = {"status": "fixed", "resolved_runs": [original],
+                      "resolution_basis": "Original feature deployed and independently checked",
+                      "sources": ["https://example.org/evidence"]}
+            self.assertEqual(queue.resolve_runs(state, "20261108T120000Z", report, "READ_ONLY"), [])
+            self.assertEqual(queue.resolve_runs(state, "20261108T120000Z", report, "PUBLISH"), [original])
+            self.assertEqual(queue.jobs(state)[0]["status"], "fixed")
+            status = json.loads((state / "runs" / original / "status.json").read_text())
+            self.assertEqual(status["previous_status"], "timed_out")
+            self.assertEqual(json.loads((state / "runs" / original / "report.json").read_text()),
+                             {"status": "blocked"})
+
+    def test_resolution_rejects_active_runs_or_missing_evidence(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            original = "20261107T120000Z"
+            queue.save(state / "runs" / original / "status.json", {"status": "running"})
+            report = {"status": "fixed", "resolved_runs": [original]}
+            with self.assertRaises(ValueError):
+                queue.resolve_runs(state, "20261108T120000Z", report, "PUBLISH")
+            with self.assertRaises(ValueError):
+                queue.resolve_runs(state, "20261108T120000Z",
+                                   dict(report, resolution_basis="Checked"), "PUBLISH")
+
     def test_fifo_claim_cancellation_and_interrupted_writer(self):
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory)

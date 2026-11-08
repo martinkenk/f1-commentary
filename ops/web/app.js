@@ -181,6 +181,10 @@ async function loadRun() {
   $("run-publication").hidden = !report.publication?.verified_at;
   $("run-publication").textContent = report.publication?.verified_at ?
     `Publication independently verified ${stamp(report.publication.verified_at)} / deployment ${report.publication.run_id}. Original audit below is preserved unchanged.` : "";
+  if (report.resolution?.resolved_at) {
+    $("run-publication").hidden = false;
+    $("run-publication").textContent = `Resolved ${stamp(report.resolution.resolved_at)} by ${report.resolution.resolved_by}: ${report.resolution.basis}. Original report below is retained as historical evidence.`;
+  }
   const box = $("agent-log"), atEnd = box.scrollTop + box.clientHeight >= box.scrollHeight - 40;
   box.textContent = log.text;
   if (atEnd) box.scrollTop = box.scrollHeight;

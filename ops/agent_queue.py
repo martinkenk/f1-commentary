@@ -130,3 +130,46 @@ def recover(state):
                            error=record.get("error") if finished else
                            "Worker stopped without finalizing; inspect retained edits before retrying")
                 save(state / "tasks" / (job["id"] + ".json"), job)
+
+
+def resolve_runs(state, completed_run, report, mode):
+    """Propagate explicit, verified completion without inferring task success."""
+    if report.get("status") != "fixed" or mode != "PUBLISH":
+        return []
+    identities = report.get("resolved_runs", [])
+    if not isinstance(identities, list) or any(
+            not isinstance(identity, str) or not RUN_ID.fullmatch(identity)
+            for identity in identities):
+        raise ValueError("resolved_runs must list valid run IDs")
+    if identities and (not isinstance(report.get("resolution_basis"), str)
+                       or not report["resolution_basis"].strip()):
+        raise ValueError("resolved_runs requires verified resolution_basis")
+    resolved = []
+    with locked(state):
+        for identity in identities:
+            if identity == completed_run:
+                continue
+            path = state / "runs" / identity
+            status_path = path / "status.json"
+            if not status_path.is_file() or path.is_symlink():
+                raise ValueError(f"Cannot resolve unknown run {identity}")
+            status = json.loads(status_path.read_text())
+            if not status.get("finished_at") or status.get("status") == "running":
+                raise ValueError(f"Cannot resolve active run {identity}")
+            evidence = {"resolved_at": now(), "resolved_by": completed_run,
+                        "basis": report["resolution_basis"],
+                        "sources": report.get("sources", []), "commit": report.get("commit")}
+            save(path / "resolution.json", evidence)
+            status.setdefault("previous_status", status["status"])
+            status.update(status="fixed", resolution=evidence,
+                          summary=f"Resolved by {completed_run}: {report['resolution_basis']}")
+            save(status_path, status)
+            for task in jobs(state):
+                if task.get("run_id") != identity or task["status"] in (
+                        "queued", "running", "cancelled", "fixed"):
+                    continue
+                task.update(status="fixed", resolution=evidence, error=None,
+                            summary=status["summary"], updated_at=now())
+                save(state / "tasks" / (task["id"] + ".json"), task)
+            resolved.append(identity)
+    return resolved

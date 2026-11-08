@@ -357,6 +357,7 @@ class Handler(BaseHTTPRequestHandler):
                         "status": "pending", "summary": "No final report yet"}
                     return self.send(200, {"report": value, "status": record,
                                           "publication": console.read_json(directory / "publication.json"),
+                                          "resolution": console.read_json(directory / "resolution.json"),
                                           "recovery": run_recovery.explain(record, value)})
                 if parts[3] == "log":
                     return self.send(200, {"text": console.read_tail(directory / "agent.log")})
