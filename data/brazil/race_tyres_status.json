@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-11-08T07:22:45+00:00",
-  "state": "not_found",
+  "checked_at": "2026-11-08T07:35:17+00:00",
+  "state": "available",
   "error": "",
   "attempts": [
     {
@@ -10,8 +10,13 @@
     },
     {
       "url": "https://coffeecornermotorsport.com/feed/",
-      "state": "not_found",
-      "message": "Public discovery parsed; 0 candidate article(s)"
+      "state": "available",
+      "message": "Public discovery parsed; 1 candidate article(s)"
+    },
+    {
+      "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/Brazil_2026_Tyres_Available_CCM_CORRECTED.webp",
+      "state": "available",
+      "message": "Full 1080×607 WEBP decoded and hashed; secondary-reproduction; numeric counts not verified"
     }
   ]
 }

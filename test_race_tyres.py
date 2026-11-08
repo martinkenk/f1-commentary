@@ -162,6 +162,29 @@ class RaceTyresTests(unittest.TestCase):
         self.assertEqual(result["status"]["state"], "available")
         self.assertEqual(result["snapshot"]["gp"], "brazil")
 
+    def test_brazilian_race_sets_caption_and_event_alias_are_discovered(self):
+        ctx = {**SPAIN, "dir": "brazil", "name": "São Paulo Grand Prix",
+               "race_date": "2026-11-08", "circuit": "Interlagos",
+               "cal": {"location": "São Paulo", "sessions": [
+                   {"label": "Race", "timezone": "America/Sao_Paulo"}]}}
+        page = "https://coffeecornermotorsport.com/brazil-grand-prix-2026-tyre-strategy/"
+        image = ("https://coffeecornermotorsport.com/wp-content/uploads/2026/11/"
+                 "Brazil_2026_Tyres_Available_CCM_CORRECTED.webp")
+        self.responses[rt.SECONDARY_FEED] = feed("Brazil Grand Prix 2026 Tyre Strategy", page)
+        self.responses[page] = f"""<html><head>
+        <meta property="og:title" content="Brazil Grand Prix 2026 Tyre Strategy">
+        <meta property="article:published_time" content="2026-11-08T07:30:33Z">
+        </head><body><figure><img src="{image}"
+        alt="Brazil Grand Prix 2026 new Soft, Medium and Hard sets at Interlagos">
+        <figcaption>Tyres available for the 2026 São Paulo Grand Prix.
+        © Pirelli Motorsport | Tyre data: Pirelli Motorsport</figcaption></figure></body></html>""".encode()
+        self.responses[image] = png()
+        with patch.object(rt, "SEEDS", {}):
+            result = self.collect(ctx)
+        self.assertEqual(result["status"]["state"], "available")
+        self.assertEqual(result["snapshot"]["source"]["url"], page)
+        self.assertEqual(result["snapshot"]["chart"]["url"], image)
+
     def test_article_metadata_cannot_validate_another_events_chart(self):
         text = article().replace(
             "</head>", '<meta property="og:description" content="Spanish GP at Madrid"></head>')
@@ -417,7 +440,9 @@ class RaceTyresTests(unittest.TestCase):
         # Real public WebP artifacts are checked when present; no network needed.
         for path in (rt.ROOT / "assets_src").glob("race-tyres-2026-*.webp"):
             with self.subTest(path=path.name):
-                self.assertEqual(rt.raster_info(path.read_bytes()), ("webp", 1080, 608))
+                info = rt.raster_info(path.read_bytes())
+                self.assertEqual(info[0:2], ("webp", 1080))
+                self.assertIn(info[2], (607, 608))
 
     def test_no_cache_context_is_readonly_and_unknown_not_zero(self):
         with patch.object(rt, "fetch", side_effect=AssertionError("No network")), \

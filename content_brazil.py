@@ -47,6 +47,12 @@ F1_STARTING_GRID = "https://www.formula1.com/en/results/2026/races/1299/brazil/s
 THE_RACE_PROVISIONAL_GRID = "https://www.the-race.com/formula-1/f1-2026-brazilian-grand-prix-starting-grid-with-four-penalties-copy/"
 PIRELLI_FP2_STRATEGY = "https://press.pirelli.com/soft-delivers-at-interlagos-as-antonelli-sets-the-pace/"
 PIRELLI_POST_QUALI_STRATEGY = "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/"
+CCM_BRAZIL_STRATEGY = "https://coffeecornermotorsport.com/brazil-grand-prix-2026-tyre-strategy/"
+BRAZIL_STRATEGY_IMAGE = (
+    "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/"
+    "Brazil_2026_Expected_Pit_Stop_Strategies_CCM_CORRECTED.webp"
+)
+BRAZIL_STRATEGY_ASSET = "brazil-tyre-strategy-2026.webp"
 FIA_FP1_DOUBLE_YELLOW_URL = FIA + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"
 FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
 FIA_UPGRADES_ASSET = "fia-brazil-d82872895e6d-eaf9202e01277f4e"
@@ -83,6 +89,18 @@ def _figure(asset, title, document, page=2):
 onclick="zoomImg(this)" title="Click to zoom / full screen">
 <figcaption>{title}. <a href="{FIA}{document}.pdf#page={page}" target="_blank"
 rel="noopener">FIA original, page {page}</a>. Click to zoom.</figcaption></figure>"""
+
+
+def _strategy_figure():
+    return f"""<figure class="circuit-fig">
+<img src="../assets/{BRAZIL_STRATEGY_ASSET}"
+alt="Four illustrative 71-lap São Paulo tyre strategies with pit windows: Soft–Medium–Soft on laps 17–23 and 42–48; Medium–Hard–Soft on 23–29 and 50–56; Soft–Hard–Soft on 16–22 and 44–50; Medium–Hard one-stop on 28–34."
+class="circuit-img tyre-preview-img" loading="lazy" role="button" tabindex="0"
+onclick="zoomImg(this)" onkeydown="if(event.key==='Enter'||event.key===' '){{event.preventDefault();zoomImg(this)}}"
+title="Click to zoom / full screen">
+<figcaption>Four pre-race 71-lap strategy options. <a href="{CCM_BRAZIL_STRATEGY}"
+target="_blank" rel="noopener">Coffee Corner Motorsport's full article</a>;
+strategy data credited to Pirelli Motorsport. Secondary reproduction. Click to zoom.</figcaption></figure>"""
 
 
 def _lineup():
@@ -255,6 +273,16 @@ def _tyres():
         ("Wet", "Rear", "25.5", "≥28.5", "−2.25°"),
     )
     table = "".join("<tr>" + "".join(f"<td>{v}</td>" for v in row) + "</tr>" for row in rows)
+    strategy_rows = (
+        ("1 · preferred dry route", "Soft → Medium → Soft", "17–23; 42–48"),
+        ("2", "Medium → Hard → Soft", "23–29; 50–56"),
+        ("3", "Soft → Hard → Soft", "16–22; 44–50"),
+        ("4 · one-stop", "Medium → Hard", "28–34"),
+    )
+    strategy_table = "".join(
+        "<tr>" + "".join(f"<td>{value}</td>" for value in row) + "</tr>"
+        for row in strategy_rows
+    )
     return f"""
 <h2 class="sec">FIA tyre prescriptions</h2>
 <p>C3 Hard / C4 Medium / C5 Soft. Mandatory race specifications: <strong>C3/C4</strong>;
@@ -273,13 +301,12 @@ listing and screenshot gallery for revisions.</p>
 Traction, braking, stress, abrasion, grip and lateral demand are all 3/5;
 track evolution is 5/5. Resurfacing between Turns 3–5 and 8–9 makes Friday's
 long runs important. Last year's effective two-stop race is historical context,
-not a verified 2026 strategy window.</p>
+not the source for 2026 strategy windows.</p>
 <h2 class="sec">Post-qualifying race-strategy assessment</h2>
 <p>Pirelli's 7 November report says Qualifying used Full Wets in Q1, then
 Intermediates from Q2 through Q3. This describes qualifying tyre use, not the
-drivers' remaining race sets. Its accompanying Saturday graphic is a session
-summary, not a race-set chart or lap-window strategy graphic. Pirelli's report
-put the race-day rain chance at 60% when published; that is a dated forecast,
+drivers' remaining race sets; the report's Saturday graphic is a session summary.
+Pirelli's report put the race-day rain chance at 60% when published; that is a dated forecast,
 not a live weather reading. For a dry race, Pirelli revised its pre-weekend
 simulations using Friday FP2 as the only representative long-run data: its
 preferred route is two stops, with two stints on Soft and one on Medium. Pirelli
@@ -288,8 +315,18 @@ available slick compounds; a Hard stint with two Soft stints increases total
 time, while a one-stop is estimated around ten seconds slower than the best
 two-stop. It also says an undercut may be decisive, especially when switching
 to a softer compound. These are Pirelli estimates, not measured outcomes; the
-report gives no lap windows. The shared race-set inventory below reports the
-latest chart-discovery status; no set counts are inferred.
+Pirelli report itself gives no lap windows. Coffee Corner Motorsport's separate
+chart, credited to Pirelli Motorsport, plots four scenarios; these are
+illustrative windows, not measured pit stops:</p>
+<div class="table-wrap"><table class="data" id="brazil-strategy-options">
+<thead><tr><th>Option</th><th>Compound route</th><th>Pit window (lap)</th></tr></thead>
+<tbody>{strategy_table}</tbody></table></div>
+{_strategy_figure()}
+<p>The separate race-set graphic below is a secondary reproduction and lists
+new sets by compound only. Pirelli's session reports confirm slicks were used
+during Friday practice and FP3. Coffee Corner Motorsport's claim that no slicks
+were used conflicts with those reports; the graphic omits used-set counts, so
+no driver-by-driver used figures are transcribed.
 <a href="{PIRELLI_POST_QUALI_STRATEGY}">Pirelli's post-qualifying assessment</a> ·
 <a href="{PIRELLI_FP2_STRATEGY}">Friday FP2 analysis</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying</a> ·
@@ -305,9 +342,12 @@ the only representative long-run data, favors a dry two-stop with two Soft
 stints and one Medium. It estimates this about three seconds quicker than
 strategies using all three available compounds; a one-stop is estimated
 around ten seconds slower. Pirelli's 60% rain chance was the forecast when
-that report was published, not a live update. Its Saturday graphic is a
-qualifying summary, not a strategy-window or remaining-set chart; no race-set
-counts are inferred. <a href="{PIRELLI_POST_QUALI_STRATEGY}">Pirelli's report</a>
+that report was published, not a live update. A separate chart credited to
+Pirelli Motorsport shows the Soft–Medium–Soft option on laps 17–23 and 42–48;
+the complete four-option graphic and new-set chart are on
+<a href="tyres.html">Tyres &amp; Strategy</a>. Used-set counts are not shown by
+the chart and are not transcribed. <a href="{CCM_BRAZIL_STRATEGY}">Coffee Corner Motorsport's reproduction</a> ·
+<a href="{PIRELLI_POST_QUALI_STRATEGY}">Pirelli's report</a>
 · <a href="tyres.html">Full tyre analysis and race-set status</a>.</p>"""
 
 
@@ -617,7 +657,7 @@ The official Formula1.com Starting Grid now lists Hamilton 20th.
             "report found consistent Soft performance, no graining and similar "
             "abrasion across compounds, with rear-right wear a factor over longer "
             "stints. Its post-qualifying strategy assessment is summarized below. "
-            "No driver-by-driver stint table is transcribed here.</p>",
+            "No driver-by-driver practice long-run table is transcribed here.</p>",
         )
     pages["tyres"]["body"] += _tyres()
     pending = content_generic.pending(

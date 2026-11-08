@@ -52,14 +52,18 @@
     "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf": "d88f54485b1df96af850b70516b6da5127529d5179a9124486de9d62533a7948"
   },
   "race_strategy": {
-    "reviewed_at": "2026-11-08T03:37:36Z",
+    "reviewed_at": "2026-11-08T07:43:45Z",
     "sources": [
       "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/",
       "https://press.pirelli.com/soft-delivers-at-interlagos-as-antonelli-sets-the-pace/",
       "https://content.presspage.com/uploads/2363/5f769dac-94db-4a17-a3b6-470194f902cd/1920_20-br26-quali5-en.jpg?10000",
       "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying",
-      "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
+      "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid",
+      "https://coffeecornermotorsport.com/brazil-grand-prix-2026-tyre-strategy/",
+      "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/Brazil_2026_Expected_Pit_Stop_Strategies_CCM_CORRECTED.webp",
+      "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/Brazil_2026_Tyres_Available_CCM_CORRECTED.webp"
     ],
-    "basis": "Reopened Pirelli's 7 November post-qualifying report and visually checked its full Saturday Report graphic against the official Qualifying table. The image is a session summary (FP3 top three, best time by compound and Qualifying top ten), not a remaining race-set chart or lap-window strategy graphic. Pirelli recommends a dry-race two-stop using two Soft stints and one Medium, estimated about three seconds quicker than using all three slick compounds; a one-stop is estimated about ten seconds slower. These are simulations based on Friday FP2 long runs, not measured outcomes, and the 60% rain chance is a forecast at publication. The article body says Norris set 1:12.470, but both its image and the official classification show 1:27.470; the page does not repeat the discrepant prose value. Race-set discovery at 03:30 UTC found no public chart in the checked Formula1.com latest feed or Coffee Corner Motorsport feed; this does not prove no chart was published."
+    "strategy_image_sha256": "228d009e33e83de137531ef82ff0a34749a81f783b347f8336771fdcf84dbf98",
+    "basis": "Reopened Pirelli's 7 November post-qualifying report and checked its full Saturday Report graphic against the official Qualifying table. The image is a session summary, not a race-set chart or strategy-window graphic. Pirelli says Q1 used Full Wets and Q2/Q3 Intermediates, recommends a dry two-stop with two Soft stints and one Medium, estimates about three seconds over strategies using all three slicks and about ten seconds slower for a one-stop; these are simulations from Friday FP2, not measured outcomes. The 60% rain chance is a dated forecast. Visually reviewed Coffee Corner Motorsport's full 1080x607 strategy graphic (SHA-256 recorded above), a secondary reproduction credited to Pirelli Motorsport: Soft-Medium-Soft 17-23/42-48, Medium-Hard-Soft 23-29/50-56, Soft-Hard-Soft 16-22/44-50 and Medium-Hard one-stop 28-34. The Pirelli report names the preferred route but does not publish those lap windows; the page labels the chart and its scenarios separately. Visually read all 22 rows of the distinct race-set image: its legend says new sets by compound and omits used-set counts. Coffee Corner Motorsport's prose says no used slicks, but its own session summaries and Pirelli's Friday/FP3 reports confirm slick compounds were used, so that assertion is not represented as a count and no used-set values are transcribed. The Pirelli report body says Norris set 1:12.470, but its image and official classification show 1:27.470; the page avoids the discrepant value."
   }
 }

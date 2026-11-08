@@ -47,7 +47,8 @@ MAX_PAGE = 6 * 1024 * 1024
 MAX_IMAGE = 12 * 1024 * 1024
 CHART_PATTERN = re.compile(
     r"race[\s_-]*sets|tyres?\s+available\s+for\s+(?:the\s+)?race"
-    r"|tyre\s+sets\s+available\s+for\s+(?:the\s+)?race", re.I)
+    r"|tyre\s+sets\s+available\s+for\s+(?:the\s+)?race"
+    r"|tyres?\s+available\s+for\s+(?:the\s+)?20\d{2}\s+[\w\s'-]{1,60}\b(?:grand\s+prix|gp)\b", re.I)
 
 
 class SourceError(ValueError):
@@ -241,7 +242,10 @@ def _has(text, phrase):
 
 def _event_name(ctx, text):
     name = ctx.get("name") or ctx.get("cal", {}).get("name", "")
-    return bool(name) and (_has(text, name) or _has(text, name.replace("Grand Prix", "GP")))
+    if name and (_has(text, name) or _has(text, name.replace("Grand Prix", "GP"))):
+        return True
+    return (ctx.get("dir") == "brazil"
+            and (_has(text, "Brazil Grand Prix") or _has(text, "Brazilian Grand Prix")))
 
 
 def _venues(ctx):
