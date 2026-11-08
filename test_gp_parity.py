@@ -322,9 +322,10 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("75 places cumulatively", notes)
         self.assertIn("penalty-adjusted official Starting Grid", notes)
         self.assertIn(
-            "current official grid, checked at 18:15 UTC, now agrees with FIA Document 59",
+            "official Starting Grid page checked at 18:40 UTC agrees with FIA Document 59",
             notes,
         )
+        self.assertIn("Race results page still showed no classification at 18:40 UTC", notes)
         self.assertIn("Lindblad 18th and Bortoleto 19th", notes)
         self.assertNotIn("still-pending official Starting Grid", notes)
         schedule = content_brazil.build_pages(
@@ -440,6 +441,8 @@ class GPParityTests(unittest.TestCase):
         grid_rows = {row[0]: row[1:3] for row in grid["rows"]}
         self.assertEqual(grid_rows["16"], ["18", "Lance Stroll STR"])
         self.assertEqual(grid_rows["17"], ["77", "Valtteri Bottas BOT"])
+        self.assertEqual(grid_rows["18"], ["41", "Arvid Lindblad LIN"])
+        self.assertEqual(grid_rows["19"], ["5", "Gabriel Bortoleto BOR"])
         race_status = next(
             status for status in results["statuses"] if status["label"] == "Race"
         )
@@ -453,6 +456,10 @@ class GPParityTests(unittest.TestCase):
             review["fia_sha256"].get(content_brazil.FIA_FINAL_STARTING_GRID_URL),
             media_hashes[content_brazil.FIA_FINAL_STARTING_GRID_URL],
         )
+        self.assertEqual(grid["source_url"], content_brazil.FIA_FINAL_STARTING_GRID_URL)
+        self.assertEqual(
+            grid["source_sha256"], media_hashes[content_brazil.FIA_FINAL_STARTING_GRID_URL]
+        )
         penalties = json.loads((base / "penalties_auto.json").read_text())
         for document, url, driver in (
             ("Doc 56", content_brazil.FIA_LINDBLAD_PU_PENALTY_URL, "Arvid Lindblad"),
@@ -463,6 +470,19 @@ class GPParityTests(unittest.TestCase):
             self.assertEqual(record["source_url"], url)
             self.assertEqual(record["driver"], driver)
             self.assertIn("Drop of 10 grid positions", record["outcome"])
+        for document, url, driver, ordinal in (
+            ("Doc 60", next(u for u in media_hashes if "car_27_" in u), "Nico Hulkenberg", "3rd"),
+            ("Doc 61", next(u for u in media_hashes if "car_11_" in u and "practice_start" in u), "Sergio Perez", "4th"),
+            ("Doc 62", next(u for u in media_hashes if "car_6_" in u), "Isack Hadjar", "2nd"),
+            ("Doc 63", next(u for u in media_hashes if "car_77_" in u), "Valtteri Bottas", "1st"),
+        ):
+            self.assertEqual(review["fia_sha256"].get(url), media_hashes[url])
+            record = next(item for item in penalties if item["doc"] == document)
+            self.assertEqual(record["source_url"], url)
+            self.assertEqual(record["driver"], driver)
+            self.assertEqual(record["kind"], "reprimand")
+            self.assertIn("Reprimand (Driving)", record["outcome"])
+            self.assertIn(ordinal, record["outcome"])
 
     def test_brazil_parc_ferme_report_is_hash_reviewed_and_not_a_penalty(self):
         pages = content_brazil.build_pages(

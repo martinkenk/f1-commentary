@@ -140,6 +140,16 @@ def refresh(ctx, now=None, persist=True):
                             "Formula1.com Starting Grid conflicts with the verified "
                             "FIA Document 59 final Starting Grid"
                         )
+                    # Preserve the hash-bound FIA source across transient F1 cache matches.
+                    blocks.append(dict(old, retained=False))
+                    statuses.append({
+                        "label": label, "state": "available", "source_url": url,
+                    })
+                    print(
+                        f"  {ctx['dir']} {label}: {len(rows)} official entrants; "
+                        "matches verified FIA Document 59"
+                    )
+                    continue
             blocks.append({
                 "label": label, "headers": headers, "rows": rows,
                 "source_url": url, "fetched_at": checked,

@@ -23,6 +23,7 @@ FIA_PEREZ_PU_PENALTY_URL = FIA + "infringement_-_car_11_-_changes_to_pu_elements
 FIA_BORTOLETO_PU_PENALTY_URL = FIA + "infringement_-_car_5_-_changes_to_pu_elements.pdf"
 FIA_LINDBLAD_PU_PENALTY_URL = FIA + "infringement_-_car_41_-_changes_to_pu_elements.pdf"
 FIA_FINAL_STARTING_GRID_URL = FIA + "final_starting_grid.pdf"
+F1_RACE_RESULTS = "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
 FIA_PARC_FERME_PARTS_URL = (
     FIA + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf"
 )
@@ -504,9 +505,11 @@ replacements; it is a technical report, not a penalty decision. Separate
 Stewards' Documents 56 and 57 each impose a 10-place drop for this Race.
 FIA Document 59's final Starting Grid applies both penalties: Lindblad starts
 18th and Bortoleto 19th. The Formula1.com snapshot retrieved at 16:09 UTC still
-showed Lindblad 12th. Its current Starting Grid page, checked at 18:15 UTC, now
-agrees with Document 59, including Stroll 16th and Bottas 17th; Results uses
-the current order.
+showed Lindblad 12th. The official Starting Grid page checked at 18:40 UTC now
+agrees with Document 59, including Stroll 16th, Bottas 17th, Lindblad 18th and
+Bortoleto 19th. A results collector snapshot at 18:36 UTC briefly reverted
+Lindblad to 12th; keep Results bound to the hash-reviewed FIA grid so a
+transient cache response cannot replace it.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55</a> ·
 <a href="{FIA_PARC_FERME_PARTS_URL}">FIA Document 58</a> ·
@@ -730,12 +733,15 @@ and 57 impose 10-place drops for Lindblad (seventh ICE, sixth TC) and Bortoleto
 <a href="powerunit.html">Power Unit analysis</a>.</p>"""
     pages["notes"]["body"] += f"""
 <p><strong>Late grid-penalty check:</strong> A stored Formula1.com Starting Grid
-snapshot retrieved at 16:09 UTC still listed Lindblad 12th. The current official
-grid, checked at 18:15 UTC, now agrees with FIA Document 59: Stroll 16th,
-Bottas 17th, Lindblad 18th and Bortoleto 19th. Results displays this current
-penalty-adjusted order separately from qualifying.
+snapshot retrieved at 16:09 UTC still listed Lindblad 12th. The official
+Starting Grid page checked at 18:40 UTC agrees with FIA Document 59: Stroll
+16th, Bottas 17th, Lindblad 18th and Bortoleto 19th. A collector snapshot at
+18:36 UTC briefly reverted to the earlier order; Results remains bound to the
+hash-reviewed FIA grid. The Race results page still showed no classification at
+18:40 UTC. Starting positions remain separate from qualifying results.
 <a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, page 2</a> ·
 <a href="{F1_STARTING_GRID}">Formula1.com Starting Grid snapshot</a> ·
+<a href="{F1_RACE_RESULTS}">Formula1.com Race results</a> ·
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
 <a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
@@ -813,16 +819,19 @@ the 22-car order. The FIA's later Document 59 is the final Starting Grid,
 issued at 13:00 BRT; it applies the 10-place penalties in Documents 56 and 57,
 placing Lindblad 18th and Bortoleto 19th. The Formula1.com Starting Grid
 snapshot retrieved at 16:09 UTC still listed Lindblad 12th. A current official
-grid check at 18:15 UTC now matches FIA
-Document 59 (Lindblad 18th, Bortoleto 19th; Stroll 16th, Bottas 17th);
-<a href="results.html">Results</a> displays that order. Do not substitute
-starting positions for qualifying results. Document 51 was provisional and
-predates the final grid. The Race's earlier post-penalty order was provisional
-and is superseded by Document 59. See <a href="notes.html">Notes</a> and
-<a href="penalties.html">Penalties</a> for the source comparison.
+Starting Grid check at 18:40 UTC now matches FIA Document 59 (Lindblad 18th,
+Bortoleto 19th; Stroll 16th, Bottas 17th). The collector briefly received a
+stale order at 18:36 UTC, so Results remains pinned to the hash-reviewed final
+grid. The Race results page still reports no classification as of 18:40 UTC.
+Do not substitute starting positions for qualifying results. Document 51 was
+provisional and predates the final grid. The Race's earlier post-penalty order
+was provisional and is superseded by Document 59. See
+<a href="notes.html">Notes</a> and <a href="penalties.html">Penalties</a> for
+the source comparison.
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
 <a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a> ·
-<a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, page 2</a>.
+<a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, page 2</a> ·
+<a href="{F1_RACE_RESULTS}">Formula1.com Race results</a>.
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's earlier provisional order</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·

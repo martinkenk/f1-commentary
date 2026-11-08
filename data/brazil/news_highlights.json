@@ -1,19 +1,23 @@
 {
-  "reviewed_at": "2026-11-08T18:19:34Z",
+  "reviewed_at": "2026-11-08T18:46:03Z",
   "expires_at": "2026-11-08T19:15:00Z",
-  "through_session": "Qualifying",
+  "through_session": "Race",
   "feed_fingerprint": "4dfd545aba976bedb8ee90fea50db17ca14dc699aa247c4603cf561a2e69f8be",
   "items": [
     {
       "topic": "Qualifying and final grid",
-      "title": "Norris takes pole as the official grid now matches FIA Document 59",
+      "title": "Norris takes pole as the official grid matches FIA Document 59",
       "date": "2026-11-08",
-      "summary": "The current Formula1.com Starting Grid, checked at 18:15 UTC, now matches FIA Document 59: Norris starts first, Antonelli second and Lawson third; Russell is seventh, Leclerc 14th, Stroll 16th and Bottas 17th. Lindblad and Bortoleto start 18th and 19th after their 10-place drops; Hamilton is 20th, Verstappen 21st and Perez 22nd. Norris's qualifying time of 1:27.470 was 0.204s ahead of Russell. Starting positions are separate from qualifying results.",
-      "why_it_matters": "The current official grid resolves the earlier 16:09 UTC Formula1.com snapshot that still listed Lindblad 12th and agrees with the visually reviewed FIA final grid.",
+      "summary": "The Formula1.com Starting Grid page checked at 18:40 UTC matches FIA Document 59: Stroll 16th, Bottas 17th, Lindblad 18th and Bortoleto 19th after their respective penalties; Norris starts first, Antonelli second and Lawson third. Norris took pole in 1:27.470, 0.204s ahead of Russell. A collector snapshot at 18:36 UTC briefly reverted Lindblad to 12th. The separate Race results page still showed no classification at 18:40 UTC, so no Race result is inferred.",
+      "why_it_matters": "The hash-reviewed FIA final grid remains the durable source across transient collector/cache regressions; starting positions remain separate from qualifying results.",
       "sources": [
         {
           "label": "Formula1.com: current official Starting Grid",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
+        },
+        {
+          "label": "Formula1.com: Race results (no classification at 18:40 UTC)",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
         },
         {
           "label": "FIA: final Starting Grid, Document 59, page 2",
@@ -22,6 +26,35 @@
         {
           "label": "Formula1.com: Qualifying classification",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
+        }
+      ]
+    },
+    {
+      "topic": "Stewards’ decisions",
+      "title": "Four drivers reprimanded over the reconnaissance-lap pit-exit instruction",
+      "date": "2026-11-08",
+      "summary": "FIA Documents 60–63 record driving reprimands for Nico Hülkenberg (third), Sergio Perez (fourth), Isack Hadjar (second) and Valtteri Bottas (first). Each driver failed to cross the pit-exit white line at the earliest opportunity on reconnaissance laps after not performing a practice start, contrary to Article 12.2.1.i and Race Director Event Note item 5.7. These are reprimands, not grid penalties.",
+      "why_it_matters": "The four decisions clarify the pit-exit instruction immediately before the Race and do not change the final starting order.",
+      "sources": [
+        {
+          "label": "FIA Document 60: Hülkenberg",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_27_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+        },
+        {
+          "label": "FIA Document 61: Perez",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_11_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+        },
+        {
+          "label": "FIA Document 62: Hadjar",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_6_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+        },
+        {
+          "label": "FIA Document 63: Bottas",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_77_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+        },
+        {
+          "label": "FIA Race Director’s Competition Notes, Document 34, item 5.7",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_race_directors_competition_notes.pdf"
         }
       ]
     },

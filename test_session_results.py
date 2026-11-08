@@ -274,12 +274,33 @@ class ResultsTests(unittest.TestCase):
                     results.load(ctx)
 
         def matching_response(request, timeout):
+            response = Response(page(headers, grid["rows"]))
+            response.url = request.full_url
+            return response
+
+        def stale_response(request, timeout):
             response = Response()
             response.url = request.full_url
             return response
 
         with patch.object(results, "load", return_value=old), patch.object(
                 results.urllib.request, "urlopen", side_effect=matching_response):
+            matched = results.refresh(copy.deepcopy(ctx), now=now, persist=False)
+        pinned = next(
+            block for block in matched["sessions"] if block["label"] == "Starting Grid"
+        )
+        matched_status = next(
+            item for item in matched["statuses"] if item["label"] == "Starting Grid"
+        )
+        self.assertEqual(pinned["source_url"], results.FIA_FINAL_GRID_URL)
+        self.assertEqual(pinned["source_sha256"], results.FIA_FINAL_GRID_SHA256)
+        self.assertEqual(pinned["source_label"], "FIA Document 59 final Starting Grid")
+        self.assertFalse(pinned["retained"])
+        self.assertEqual(matched_status["state"], "available")
+        self.assertEqual(matched_status["source_url"], results.source_url(ctx, "starting-grid"))
+
+        with patch.object(results, "load", return_value=old), patch.object(
+                results.urllib.request, "urlopen", side_effect=stale_response):
             record = results.refresh(copy.deepcopy(ctx), now=now, persist=False)
         retained = next(block for block in record["sessions"] if block["label"] == "Starting Grid")
         status = next(item for item in record["statuses"] if item["label"] == "Starting Grid")
