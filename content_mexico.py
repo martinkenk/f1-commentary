@@ -55,6 +55,30 @@ FIA_BOTTAS_PU_PENALTY = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_mexico_city_grand_prix_-_infringement_-_car_77_-_pu_elements.pdf"
 )
+FIA_LAWSON_PU_REPORT = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_parc_ferme_issues.pdf"
+)
+FIA_LAWSON_PARC_FERME_DECISION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_infringement_-_car_30_-_changes_made_during_parc_ferme.pdf"
+)
+FIA_FIRST_LAP_GUIDANCE = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_communication_from_the_stewards.pdf"
+)
+FIA_ALONSO_FP1_SPEED = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_infringment_-_car_14_-_pit_lane_speeding.pdf"
+)
+FIA_ALONSO_FP2_SPEED = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_infringment_-_car_14_-_pit_lane_speeding_0.pdf"
+)
+FIA_BOTTAS_FP3_SPEED = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_infringment_-_car_77_-_pit_lane_speeding.pdf"
+)
 FIA_POWER_UNIT_ASSET = "fia-mexico-0ae7e9fb9e0e-dffe8a06feb5a324"
 FIA_VERSTAPPEN_LAWSON_SUMMONS = (
     "https://www.fia.com/system/files/decision-document/"
@@ -197,6 +221,18 @@ def _notes():
   different incidents; the official final classification reflects them.</li>
   <li><strong>Classification:</strong> Ryo Hirakawa scored the final point in
   tenth for Haas; five entries are listed NC.</li>
+  <li><strong>Pit-lane speeding:</strong> FIA Docs 18 and 25 fined Aston Martin
+  €100 each after Fernando Alonso was measured at 80.2 km/h in FP1 and
+  80.1 km/h in FP2, against the 80 km/h limit. Doc 42 fined Cadillac €100
+  after Valtteri Bottas was measured at 80.9 km/h in FP3.
+  <a href="{FIA_ALONSO_FP1_SPEED}">Doc 18</a> ·
+  <a href="{FIA_ALONSO_FP2_SPEED}">Doc 25</a> ·
+  <a href="{FIA_BOTTAS_FP3_SPEED}">Doc 42</a>.</li>
+  <li><strong>Driving standards:</strong> Stewards' Doc 54 clarified that on
+  Lap 1 and the first lap after a resumption, cars in Turns 1–3 and 4–6 would
+  be considered both attacking and defending; a lasting advantage from leaving
+  the track could be avoided by yielding by Turn 4 or Turn 12, respectively.
+  <a href="{FIA_FIRST_LAP_GUIDANCE}">Official communication</a>.</li>
 </ul>
 <p class="src">Sources: <a href="{ANTONELLI}">Formula1.com Mexico City race
 lowdown</a> · <a href="{RACE_RESULT}">official final classification</a> ·
@@ -337,10 +373,16 @@ a 50-place drop for the next Race
 (<a href="{FIA_BOTTAS_PU_PENALTY}" target="_blank" rel="noopener">original ruling</a>).
 The usage snapshot and penalty are separate records; see the
 <a href="penalties.html">Penalties page</a> for the ruling.</p>
+<p>FIA Document 64 lists Liam Lawson's fifth ICE, turbocharger and exhaust
+against four permitted, and seventh PU-ANC against six. It reports the power
+unit elements were replaced without approval and the suspension changed under
+parc fermé; the separate Document 65 requires a pit-lane start
+(<a href="{FIA_LAWSON_PU_REPORT}" target="_blank" rel="noopener">technical report</a> ·
+<a href="{FIA_LAWSON_PARC_FERME_DECISION}" target="_blank" rel="noopener">Stewards' decision</a>).</p>
 <p class="src">Sources: FIA Power Unit Information, New Power Unit Elements,
-Power Unit Elements Used and Stewards' Document 17. Distances and values above
-are transcribed from the retained FIA screenshots; the complete source pages
-and original PDFs follow.</p>
+Power Unit Elements Used, FIA Document 64, and Stewards' Documents 17 and 65.
+Distances and values above are transcribed from the retained FIA screenshots;
+the complete source pages and original PDFs follow.</p>
 {controls}
 """
 

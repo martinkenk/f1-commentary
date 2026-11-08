@@ -190,6 +190,10 @@ class EnrichmentTests(unittest.TestCase):
             "2026_dutch_grand_prix_-_infringement-_car_55.pdf")))
         self.assertTrue(enrich.is_fia_decision(document(
             "2026_belgian_grand_prix_-_tyre_return_infringement.pdf")))
+        typo_decision = document(
+            "2026_mexico_city_grand_prix_-_infringment_-_car_14_-_pit_lane_speeding.pdf")
+        self.assertEqual(f1lib.fia_document_categories(typo_decision["filename"]), ["penalties"])
+        self.assertTrue(enrich.is_fia_decision(typo_decision))
         self.assertEqual(found[0]["categories"], ["powerunit"])
         self.assertEqual(found[1]["categories"], ["circuit"])
 
@@ -212,8 +216,17 @@ class EnrichmentTests(unittest.TestCase):
             "curfew": ["schedule"],
             "self_scrutineering": ["schedule"],
             "post-qualifying_procedure": ["schedule"],
+            "pre-race_procedure": ["schedule"],
+            "post-race_procedure": ["schedule"],
             "decision_-_permission_to_start": ["penalties"],
-            "race_scrutineering": [],
+            "race_scrutineering": ["powerunit"],
+            "p3_and_qualifying_scrutineering": ["powerunit"],
+            "parc_ferme_issues": ["powerunit"],
+            "post-race_inspections_on_car_number_63_2026_united_states_gp": ["powerunit"],
+            "communication_from_the_stewards": ["circuit"],
+            "covering_of_components_on_car_05_during_fp2": ["upgrades"],
+            "championship_points": ["standings"],
+            "infringment_-_car_77_-_pit_lane_speeding": ["penalties"],
         }
         for subject, expected in subjects.items():
             with self.subTest(subject=subject):

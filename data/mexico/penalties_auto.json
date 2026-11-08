@@ -14,6 +14,20 @@
     "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_77_-_pu_elements.pdf"
   },
   {
+    "doc": "Doc 18",
+    "no": "14",
+    "driver": "Fernando Alonso",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Free Practice 1",
+    "fact": "Pit lane speeding – 80.2 km/h",
+    "outcome": "The competitor (Aston Martin Aramco F1 Team) is fined €100.",
+    "kind": "fine",
+    "source_pdf": "2026_mexico_city_grand_prix_-_infringment_-_car_14_-_pit_lane_speeding.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringment_-_car_14_-_pit_lane_speeding.pdf"
+  },
+  {
     "doc": "Doc 20",
     "no": "",
     "driver": "Nico Hulkenberg; Oliver Bearman; Kimi Antonelli; Nikola Tsolov; Colton Herta; Isack Hadjar; Arvid Lindblad; Leonardo Fornaroli; Oscar Piastri; Carlos Sainz; Jak Crawford; Ryo Hirakawa; Freddie Slater; Gabriele Mini; Luke Browning",
@@ -54,6 +68,20 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_98_-_released_in_an_unsafe_condition.pdf"
+  },
+  {
+    "doc": "Doc 25",
+    "no": "14",
+    "driver": "Fernando Alonso",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Free Practice 2",
+    "fact": "Pit lane speeding – 80.1 km/h",
+    "outcome": "The competitor (Aston Martin Aramco F1 Team) is fined €100.",
+    "kind": "fine",
+    "source_pdf": "2026_mexico_city_grand_prix_-_infringment_-_car_14_-_pit_lane_speeding_0.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringment_-_car_14_-_pit_lane_speeding_0.pdf"
   },
   {
     "doc": "Doc 27",
@@ -138,6 +166,20 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_6_-_misconduct.pdf"
+  },
+  {
+    "doc": "Doc 42",
+    "no": "77",
+    "driver": "Valtteri Bottas",
+    "team": "Cadillac Formula 1 Team",
+    "session": "Free Practice 3",
+    "fact": "Pit lane speeding – 80.9 km/h",
+    "outcome": "The competitor (Cadillac Formula 1 Team) is fined €100.",
+    "kind": "fine",
+    "source_pdf": "2026_mexico_city_grand_prix_-_infringment_-_car_77_-_pit_lane_speeding.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringment_-_car_77_-_pit_lane_speeding.pdf"
   },
   {
     "doc": "Doc 44",

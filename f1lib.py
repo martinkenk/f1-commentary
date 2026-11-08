@@ -77,21 +77,28 @@ def fia_document_categories(filename):
         categories.append("stewards")
     if (not re.search(r"\b(summons|classification|scrutineering|entry list|"
                       r"provisional starting grid|car presentation|self scrut)\b", name)
-            and re.search(r"\b(infringement|decision|penalty|reprimand|fine|disqualif\w*|protest)\b", name)):
+            and re.search(r"\b(infringement|infringment|decision|penalty|"
+                          r"reprimand|fine|disqualif\w*|protest)\b", name)):
         categories.append("penalties")
     if re.search(r"\b(power unit information|pu elements used|new pu elements|"
-                 r"fp1 and fp2 scrutineering|fp3 and qualifying scrutineering)\b", name):
+                 r"fp1 and fp2 scrutineering|fp3 and qualifying scrutineering|"
+                 r"p3 and qualifying scrutineering|race scrutineering|"
+                 r"parc ferme issues|post race inspections on car)\b", name):
         categories.append("powerunit")
     if re.search(r"\b(circuit map|track map|race director(?:s| s)? "
-                 r"(?:(?:event|competition) )?notes)\b", name):
+                 r"(?:(?:event|competition) )?notes|communication from the stewards)\b", name):
         categories.append("circuit")
+    if re.search(r"\bchampionship points\b", name):
+        categories.append("standings")
     if re.search(r"\b(tyres?|tires?|pirelli preview)\b", name):
         categories.append("tyres")
-    if re.search(r"\b(car presentation|car display procedure|car component|upgrade submissions|parts and parameters)\b", name):
+    if re.search(r"\b(car presentation|car display procedure|car component|"
+                 r"covering of components|upgrade submissions|parts and parameters)\b", name):
         categories.append("upgrades")
     if re.search(r"\b(heat hazard declaration|competition visa|timetable|garage doors|"
                  r"covers on time|"
-                 r"entry list|curfew|self scrutineering|post qualifying procedure)\b", name):
+                 r"entry list|curfew|self scrutineering|post qualifying procedure|"
+                 r"pre race procedure|post race procedure)\b", name):
         categories.append("schedule")
     if re.search(r"\bpost race checks on car\b", name):
         categories.append("powerunit")
@@ -122,6 +129,7 @@ def render_fia_documents(ctx, category):
               "upgrades": "car-presentation, upgrade & parts-change documents",
               "schedule": "entry lists, curfew, self-scrutineering, heat declarations, visa & timetable",
               "results": "session classifications",
+              "standings": "championship points",
               "penalties": "stewards' decisions and summons"}
     if category not in labels:
         return ""
@@ -173,7 +181,7 @@ def render_fia_documents(ctx, category):
 def render_fia_media(ctx, category, curated_html=""):
     """Show verified-download PDF pages, not invented technical summaries."""
     if category not in ("powerunit", "circuit", "tyres", "upgrades", "schedule",
-                        "results", "penalties"):
+                        "results", "standings", "penalties"):
         return ""
     media_categories = ({"penalties", "stewards"} if category == "penalties"
                         else {category})

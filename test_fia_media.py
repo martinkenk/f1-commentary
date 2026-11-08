@@ -100,10 +100,12 @@ class FiaMediaTests(unittest.TestCase):
     def test_summons_and_classifications_have_distinct_page_destinations(self):
         summons_url = "https://www.fia.com/system/files/decision-document/summons_car_51.pdf"
         result_url = "https://www.fia.com/system/files/decision-document/free_practice_2_classification.pdf"
+        standings_url = "https://www.fia.com/system/files/decision-document/championship_points.pdf"
         penalty_url = "https://www.fia.com/system/files/decision-document/infringement_car_63.pdf"
         documents = [
             {"url": summons_url, "filename": "summons_car_51.pdf"},
             {"url": result_url, "filename": "free_practice_2_classification.pdf"},
+            {"url": standings_url, "filename": "championship_points.pdf"},
             {"url": penalty_url, "filename": "infringement_car_63.pdf"},
         ]
         self.manifest.write_text(json.dumps({"documents": documents}), encoding="utf-8")
@@ -113,18 +115,21 @@ class FiaMediaTests(unittest.TestCase):
             self.assertTrue(fia_media.refresh_gp(CTX))
         record = self.record()["documents"]
         self.assertEqual([doc["categories"] for doc in record],
-                         [["stewards"], ["results"], ["penalties"]])
+                         [["stewards"], ["results"], ["standings"], ["penalties"]])
         self.assertIn(summons_url, f1lib.render_fia_documents(CTX, "penalties"))
         self.assertIn(penalty_url, f1lib.render_fia_documents(CTX, "penalties"))
         self.assertIn("not findings or penalties",
                       f1lib.render_fia_documents(CTX, "penalties"))
         self.assertIn(result_url, f1lib.render_fia_documents(CTX, "results"))
+        self.assertIn(standings_url, f1lib.render_fia_documents(CTX, "standings"))
         self.assertIn(summons_url + "#page=2",
                       f1lib.render_fia_media(CTX, "penalties"))
         self.assertIn(penalty_url + "#page=2",
                       f1lib.render_fia_media(CTX, "penalties"))
         self.assertIn(result_url + "#page=2",
                       f1lib.render_fia_media(CTX, "results"))
+        self.assertIn(standings_url + "#page=2",
+                      f1lib.render_fia_media(CTX, "standings"))
         self.assertEqual(f1lib.render_fia_media(CTX, "penalties").count("<img"), 2)
 
     def test_parc_ferme_parts_report_is_collected_with_upgrade_media(self):
