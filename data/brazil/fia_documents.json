@@ -1,7 +1,14 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/S%C3%A3o%20Paulo%20Grand%20Prix",
-  "retrieved_at": "2026-11-08T11:21:53.872253+00:00",
+  "retrieved_at": "2026-11-08T11:55:03.546787+00:00",
   "documents": [
+    {
+      "filename": "2026_sao_paulo_grand_prix_-_timetable_v5.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_timetable_v5.pdf",
+      "categories": [
+        "schedule"
+      ]
+    },
     {
       "filename": "2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf",
