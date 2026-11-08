@@ -801,12 +801,12 @@ def render_race_tyres(ctx):
             out.append('<p class="callout watch">Showing the last successfully collected chart; '
                        'the latest source refresh is incomplete.</p>')
         out.append(
-            f'<p>Pre-race new/used sets for {race_name} on '
+            f'<p>Pre-race tyre-set chart for {race_name} on '
             f'{html.escape(snapshot["race_date"])} &mdash; not tyres remaining after the finish. '
-            'This published inventory is independent of optional FastF1 analysis.</p>'
+            'This published source is independent of optional FastF1 analysis.</p>'
             f'<figure class="circuit-fig"><img class="circuit-img" src="../assets/{asset}" '
             f'alt="Complete {html.escape(chart["credit"], quote=True)} race-set chart for '
-            f'{html.escape(ctx.get("name", ctx["dir"]), quote=True)}: new and used tyres for every driver" '
+            f'{html.escape(ctx.get("name", ctx["dir"]), quote=True)}: published tyre-set information for every driver" '
             'loading="lazy" role="button" tabindex="0" onclick="zoomImg(this)" '
             'onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();zoomImg(this)}">'
             f'<figcaption>{html.escape(chart["credit"])} race-set graphic, {provenance} '

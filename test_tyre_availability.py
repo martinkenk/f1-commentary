@@ -98,6 +98,8 @@ class PublishedRaceTyreTests(unittest.TestCase):
         body = self.render()
         self.assertIn("Full-resolution chart", body)
         self.assertIn("not yet been visually verified", body)
+        self.assertIn("Pre-race tyre-set chart", body)
+        self.assertNotIn("new and used tyres for every driver", body)
         self.assertNotIn("tyre-avail filterable", body)
 
     def test_changed_image_or_weekend_never_reuses_old_numeric_rows(self):
