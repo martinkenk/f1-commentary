@@ -231,6 +231,69 @@ class ResultsTests(unittest.TestCase):
         self.assertIn('id="res-starting-grid-tab"', rendered)
         self.assertNotIn('nav-link active" id="res-starting-grid-tab"', rendered)
 
+    def test_verified_fia_final_grid_survives_stale_formula1_snapshot(self):
+        now = NOW.replace(hour=17, minute=30)
+        ctx = dict(CTX, dir="brazil")
+        old, _ = self.collect()
+        old["event"] = results.identity(ctx)
+        headers, rows = table()
+        start = results.session_start(ctx, "Starting Grid")
+        grid = {
+            "label": "Starting Grid",
+            "headers": headers,
+            "rows": rows,
+            "source_url": results.FIA_FINAL_GRID_URL,
+            "source_sha256": results.FIA_FINAL_GRID_SHA256,
+            "source_label": "FIA Document 59 final Starting Grid",
+            "fetched_at": NOW.isoformat(timespec="seconds"),
+            "session_start": start.isoformat(),
+            "retained": False,
+        }
+        old["sessions"].append(grid)
+        grid["source_url"] = results.FIA_FINAL_GRID_URL
+        grid["source_sha256"] = results.FIA_FINAL_GRID_SHA256
+        grid["source_label"] = "FIA Document 59 final Starting Grid"
+        grid["rows"][0][1:4], grid["rows"][1][1:4] = (
+            grid["rows"][1][1:4], grid["rows"][0][1:4]
+        )
+        old["statuses"].append({
+            "label": "Starting Grid", "state": "available",
+            "source_url": results.FIA_FINAL_GRID_URL,
+        })
+
+        with patch.object(Path, "exists", return_value=True), patch.object(
+                Path, "read_text", return_value=json.dumps(old)):
+            self.assertEqual(len(results.load(ctx)["sessions"]), len(old["sessions"]))
+            invalid = copy.deepcopy(old)
+            invalid_grid = next(
+                block for block in invalid["sessions"] if block["label"] == "Starting Grid"
+            )
+            invalid_grid["source_sha256"] = "0" * 64
+            with patch.object(Path, "read_text", return_value=json.dumps(invalid)):
+                with self.assertRaises(ValueError):
+                    results.load(ctx)
+
+        def matching_response(request, timeout):
+            response = Response()
+            response.url = request.full_url
+            return response
+
+        with patch.object(results, "load", return_value=old), patch.object(
+                results.urllib.request, "urlopen", side_effect=matching_response):
+            record = results.refresh(copy.deepcopy(ctx), now=now, persist=False)
+        retained = next(block for block in record["sessions"] if block["label"] == "Starting Grid")
+        status = next(item for item in record["statuses"] if item["label"] == "Starting Grid")
+        self.assertEqual(retained["rows"], grid["rows"])
+        self.assertTrue(retained["retained"])
+        self.assertEqual(status["state"], "conflict")
+        self.assertIn("verified FIA Document 59", status["error"])
+        rendered = f1lib.render_results({
+            "results": [retained], "results_status": [status],
+        })
+        self.assertIn("conflicts with the verified FIA Document 59", rendered)
+        self.assertIn(results.FIA_FINAL_GRID_URL, rendered)
+        self.assertNotIn("A missing table does not mean the session has not run", rendered)
+
     def test_collector_precedes_persistence_and_build_in_deployment(self):
         workflow = Path(__file__).with_name(".github").joinpath("workflows/deploy.yml").read_text()
         self.assertLess(workflow.index("python3 session_results.py"),

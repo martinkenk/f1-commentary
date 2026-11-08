@@ -13,6 +13,11 @@ import urllib.request
 import f1lib
 
 UTC = datetime.timezone.utc
+FIA_FINAL_GRID_URL = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_sao_paulo_grand_prix_-_final_starting_grid.pdf"
+)
+FIA_FINAL_GRID_SHA256 = "daabad4b35602f1a82251d490254d6cca849f092664656b9a087bde5b0e0897e"
 
 
 def identity(ctx):
@@ -86,7 +91,15 @@ def load(ctx):
     for block in record.get("sessions", []):
         endpoint = dict(f1lib.RESULT_SESSIONS).get(block["label"])
         start = session_start(ctx, block["label"])
-        if (not endpoint or block["source_url"] != source_url(ctx, endpoint)
+        fia_final_grid = (
+            ctx.get("dir") == "brazil" and str(ctx.get("year")) == "2026"
+            and block["label"] == "Starting Grid"
+            and block.get("source_url") == FIA_FINAL_GRID_URL
+            and block.get("source_sha256") == FIA_FINAL_GRID_SHA256
+            and block.get("source_label") == "FIA Document 59 final Starting Grid"
+        )
+        if (not endpoint or (
+                block["source_url"] != source_url(ctx, endpoint) and not fia_final_grid)
                 or start is None or block["session_start"] != start.isoformat()):
             raise ValueError("Session-results snapshot source/session mismatch")
         validate_table(block["headers"], block["rows"])
@@ -117,6 +130,16 @@ def refresh(ctx, now=None, persist=True):
                         - validate_table(headers, rows))
                 if lost:
                     raise ValueError(f"Classification lost recorded entrants: {sorted(lost)}")
+                if (ctx.get("dir") == "brazil" and str(ctx.get("year")) == "2026"
+                        and label == "Starting Grid"
+                        and old.get("source_url") == FIA_FINAL_GRID_URL):
+                    old_order = [(row[0], row[1], row[2]) for row in old["rows"]]
+                    new_order = [(row[0], row[1], row[2]) for row in rows]
+                    if new_order != old_order:
+                        raise ValueError(
+                            "Formula1.com Starting Grid conflicts with the verified "
+                            "FIA Document 59 final Starting Grid"
+                        )
             blocks.append({
                 "label": label, "headers": headers, "rows": rows,
                 "source_url": url, "fetched_at": checked,
@@ -126,8 +149,15 @@ def refresh(ctx, now=None, persist=True):
             print(f"  {ctx['dir']} {label}: {len(rows)} official entrants")
         except (OSError, ValueError) as error:
             # A missing table during running is pending, not a failed classification.
+            conflict = bool(
+                ctx.get("dir") == "brazil" and str(ctx.get("year")) == "2026"
+                and old and label == "Starting Grid"
+                and old.get("source_url") == FIA_FINAL_GRID_URL
+                and "conflicts with the verified FIA Document 59" in str(error)
+            )
             hours = 2 if label == "Race" else 0.5 if label == "Sprint" else 1
-            state = "unavailable" if old or now >= start + datetime.timedelta(hours=hours) else "pending"
+            state = ("conflict" if conflict else "unavailable"
+                     if old or now >= start + datetime.timedelta(hours=hours) else "pending")
             statuses.append({"label": label, "state": state, "source_url": url,
                              "error": str(error), "retained": bool(old)})
             if old:

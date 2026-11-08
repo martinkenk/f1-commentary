@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-08T14:50:51Z",
-  "expires_at": "2026-11-08T16:50:00Z",
+  "reviewed_at": "2026-11-08T16:18:41Z",
+  "expires_at": "2026-11-08T16:55:00Z",
   "through_session": "Qualifying",
   "feed_fingerprint": "16e499af615fde4f3bc71e652b54cf9a61831f2f154292e13c472f7271887d8e",
   "items": [
@@ -23,30 +23,26 @@
     },
     {
       "topic": "Qualifying",
-      "title": "Norris takes pole; official grid confirms penalty-adjusted order",
+      "title": "FIA final grid applies Lindblad and Bortoleto penalties",
       "date": "2026-11-07",
-      "summary": "Formula1.com's official 22-car Qualifying result and FIA Document 50's final classification agree: Lando Norris took pole in 1:27.470, 0.204s ahead of George Russell, with Kimi Antonelli third. The official Starting Grid now lists all 22 entrants after penalties, including Russell seventh, Leclerc 14th, Hamilton 20th, Verstappen 21st and Perez 22nd.",
-      "why_it_matters": "Keep the FIA/Formula1.com qualifying classification distinct from the penalty-adjusted official grid. The Race's earlier post-penalty order was provisional and is no longer needed to fill an unavailable-results gap.",
+      "summary": "FIA Document 59, the final 22-car Starting Grid issued at 13:00 BRT, applies the 10-place drops in Documents 56 and 57: Arvid Lindblad starts 18th and Gabriel Bortoleto 19th. It also confirms Russell seventh, Leclerc 14th, Hamilton 20th, Verstappen 21st and Perez 22nd. Norris remains the qualifying pole-sitter in 1:27.470, 0.204s ahead of Russell; the qualifying classification is separate from the grid.",
+      "why_it_matters": "The earlier Formula1.com Starting Grid snapshot still placed Lindblad 12th at 16:09 UTC. Use the later FIA final grid for starting positions, not the provisional FIA sheet or that stale snapshot.",
       "sources": [
         {
-          "label": "Formula1.com: official 22-car Qualifying classification",
+          "label": "FIA: final Starting Grid, Document 59, page 2",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_starting_grid.pdf#page=2"
+        },
+        {
+          "label": "FIA: Lindblad 10-place penalty, Document 56",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_41_-_changes_to_pu_elements.pdf"
+        },
+        {
+          "label": "FIA: Bortoleto 10-place penalty, Document 57",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_5_-_changes_to_pu_elements.pdf"
+        },
+        {
+          "label": "Formula1.com: Qualifying classification",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
-        },
-        {
-          "label": "FIA: final qualifying classification, Document 50",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf"
-        },
-        {
-          "label": "Formula1.com: official Starting Grid",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
-        },
-        {
-          "label": "The Race: qualifying red-flagged by rain",
-          "url": "https://www.the-race.com/formula-1/brazilian-gp-qualifying-red-flagged-almost-immediately-due-to-rain/"
-        },
-        {
-          "label": "The Race: provisional post-penalty grid",
-          "url": "https://www.the-race.com/formula-1/f1-2026-brazilian-grand-prix-starting-grid-with-four-penalties-copy/"
         },
         {
           "label": "FIA: live São Paulo event documents",

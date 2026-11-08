@@ -21,6 +21,7 @@ FIA_PEREZ_SUMMONS_URL = FIA + "summons_-_car_11_-_alleged_driving_in_an_unsafe_c
 FIA_PEREZ_PU_PENALTY_URL = FIA + "infringement_-_car_11_-_changes_to_pu_elements.pdf"
 FIA_BORTOLETO_PU_PENALTY_URL = FIA + "infringement_-_car_5_-_changes_to_pu_elements.pdf"
 FIA_LINDBLAD_PU_PENALTY_URL = FIA + "infringement_-_car_41_-_changes_to_pu_elements.pdf"
+FIA_FINAL_STARTING_GRID_URL = FIA + "final_starting_grid.pdf"
 FIA_PARC_FERME_PARTS_URL = (
     FIA + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf"
 )
@@ -499,15 +500,17 @@ Technical Delegate. It is not a Stewards' penalty decision and does not
 establish a grid penalty. FIA Technical Delegate Document 58 also lists the
 new Car 41 ICE and TC and Car 5 ES and PU-CE among approved parc-fermé
 replacements; it is a technical report, not a penalty decision. Separate
-Stewards' Documents 56 and 57 each impose a 10-place drop for the next Race.
-The latest stored official grid lists
-Lindblad 12th and Bortoleto 19th but does not mention these rulings; their
-application is unresolved, so no adjusted order is inferred.
+Stewards' Documents 56 and 57 each impose a 10-place drop for this Race.
+FIA Document 59's final Starting Grid applies both penalties: Lindblad starts
+18th and Bortoleto 19th. The Formula1.com snapshot retrieved at 16:09 UTC still
+showed Lindblad 12th, so the later FIA final grid is used for the published
+starting order.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55</a> ·
 <a href="{FIA_PARC_FERME_PARTS_URL}">FIA Document 58</a> ·
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
 <a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a> ·
+<a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, final Starting Grid</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
 <a href="{FIA_PEREZ_PU_PENALTY_URL}">FIA Document 39</a> ·
 <a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
@@ -725,12 +728,12 @@ and 57 impose 10-place drops for Lindblad (seventh ICE, sixth TC) and Bortoleto
 <a href="powerunit.html">Power Unit analysis</a>.</p>"""
     pages["notes"]["body"] += f"""
 <p><strong>Late grid-penalty check:</strong> The latest stored Formula1.com
-Starting Grid lists Lindblad 12th and Bortoleto 19th,
-while FIA Documents 56 and 57 each order a 10-place drop for the next Race.
-The grid page's displayed note does not mention these rulings, so their
-application is unresolved; do not infer a revised order from either source.
-Recheck the official grid before the start.
-<a href="{F1_STARTING_GRID}">Formula1.com Starting Grid</a> ·
+Starting Grid snapshot, retrieved at 16:09 UTC, lists Lindblad 12th and
+Bortoleto 19th. FIA Document 59 is the later final grid and applies Documents
+56 and 57: Lindblad 18th and Bortoleto 19th. The verified FIA order is shown in
+<a href="results.html">Results</a>; qualifying positions remain separate.
+<a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, page 2</a> ·
+<a href="{F1_STARTING_GRID}">Formula1.com Starting Grid snapshot</a> ·
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
 <a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
@@ -804,21 +807,20 @@ The Race reports that Qualifying was delayed by 1h25 and red-flagged almost
 immediately in heavy rain. Formula1.com's official
 classification now lists all 22 qualifiers: Lando Norris took pole in 1:27.470,
 0.204s ahead of George Russell. FIA Document 50's final classification confirms
-the 22-car order, and the official Starting Grid now lists all 22 entrants
-with Russell seventh, Leclerc 14th, Hamilton 20th, Verstappen 21st and Perez
-22nd. Do not substitute starting positions for
-qualifying results. FIA Document 51's provisional grid agrees row by row with
-the Formula1.com order; its footnote identifies the related grid drops. The
-FIA document remains provisional. The Race's earlier post-penalty order was
-provisional. The latest stored official grid lists Lindblad 12th and Bortoleto
-19th, but FIA Documents 56 and 57 each impose a 10-place drop for the next Race;
-the current grid note does not mention these rulings. Their application to this
-Race is unresolved, so no additional starting positions are inferred. See
-<a href="notes.html">Notes</a> and <a href="penalties.html">Penalties</a> for
-the current source comparison.
+the 22-car order. The FIA's later Document 59 is the final Starting Grid,
+issued at 13:00 BRT; it applies the 10-place penalties in Documents 56 and 57,
+placing Lindblad 18th and Bortoleto 19th. The Formula1.com Starting Grid
+snapshot retrieved at 16:09 UTC still listed Lindblad 12th; the verified FIA
+final order is used in <a href="results.html">Results</a>. Do not substitute
+starting positions for qualifying results. Document 51 was provisional and
+predates the final grid. The Race's earlier post-penalty order was provisional
+and is superseded by Document 59. See <a href="notes.html">Notes</a> and
+<a href="penalties.html">Penalties</a> for the source comparison.
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
-<a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a>.
+<a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a> ·
+<a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, page 2</a>.
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
+<a href="{THE_RACE_PROVISIONAL_GRID}">The Race's earlier provisional order</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf#page=2">FIA Document 50, final classification p. 2</a> ·
 <a href="{F1_STARTING_GRID}">official Starting Grid</a> ·

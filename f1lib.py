@@ -640,11 +640,19 @@ def render_results(ctx):
     warning = ""
     if issues:
         details = "; ".join(
-            f'{html.escape(status["label"])}: '
-            f'{"last-good classification retained" if status.get("retained") else "official table pending or unavailable"}'
+            (f'{html.escape(status["label"])}: {html.escape(status["error"])}'
+             if status["state"] == "conflict" and status.get("error")
+             else f'{html.escape(status["label"])}: '
+             f'{"last-good classification retained" if status.get("retained") else "official table pending or unavailable"}')
             for status in issues)
-        warning = (f'<div class="callout watch"><strong>Results source status:</strong> {details}. '
-                   'A missing table does not mean the session has not run.</div>')
+        missing_note = (
+            " A missing table does not mean the session has not run."
+            if any(status["state"] != "conflict" for status in issues) else ""
+        )
+        warning = (
+            f'<div class="callout watch"><strong>Results source status:</strong> '
+            f'{details}.{missing_note}</div>'
+        )
     if not results:
         return (
             warning + '<div class="callout watch"><strong>No official classifications available here yet.</strong> '
@@ -652,7 +660,7 @@ def render_results(ctx):
         )
     done = ", ".join(b["label"] for b in results)
     intro = (warning + f'<div class="callout"><strong>Classifications available:</strong> {done}. '
-             "Official Formula1.com snapshots are refreshed before publication. "
+             "Official FIA and Formula1.com source snapshots are refreshed before publication. "
              "Pick a session below; source links and retrieval times accompany each table.</div>")
 
     # A published starting grid is not a completed session.
@@ -676,9 +684,9 @@ def render_results(ctx):
         provenance = ""
         if b.get("source_url"):
             provenance = (f'<p class="src"><a href="{html.escape(b["source_url"], quote=True)}">'
-                          f'Official Formula1.com classification</a> · retrieved '
+                          f'{html.escape(b.get("source_label", "Official Formula1.com classification"))}</a> · retrieved '
                           f'{html.escape(b["fetched_at"])}'
-                          f'{" · last-good snapshot retained after source failure" if b.get("retained") else ""}</p>')
+                          f'{" · last-good snapshot retained after source check" if b.get("retained") else ""}</p>')
         if b["label"] in ("Practice 1", "Practice 2", "Practice 3", "Qualifying", "Sprint Qualifying"):
             provenance += ('<p class="src">Tyres: FastF1 compound for the matching best lap '
                            '(per knockout segment in qualifying). Unknown means timing or '
@@ -2594,7 +2602,7 @@ def build_all(gps):
             pages["results"] = dict(
                 kicker="Live timing",
                 title="Session Results",
-                sub=("Official Formula1.com classifications — "
+                sub=("Official FIA and Formula1.com classifications — "
                      f"{done} session(s) available."),
                 body=render_results(ctx),
             )

@@ -298,6 +298,7 @@ class GPParityTests(unittest.TestCase):
         powerunit = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )["powerunit"]["body"]
+        powerunit = " ".join(powerunit.split())
         self.assertIn("brazil-new-pu-elements", powerunit)
         self.assertIn(content_brazil.FIA_NEW_PU_ASSET, powerunit)
         self.assertIn("Rafael Câmara", powerunit)
@@ -309,6 +310,9 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Seventh of six; not compliant", powerunit)
         self.assertIn("FIA document</th>", powerunit)
         self.assertIn("additional 65-place penalty", powerunit)
+        self.assertIn("FIA Document 59's final Starting Grid applies both penalties", powerunit)
+        self.assertIn("Lindblad starts 18th and Bortoleto 19th", powerunit)
+        self.assertNotIn("application is unresolved", powerunit)
         self.assertNotIn("check the FIA event page", powerunit)
         notes = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
@@ -317,16 +321,19 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_brazil.FIA_HAMILTON_ADDITIONAL_PENALTY_URL, notes)
         self.assertIn("75 places cumulatively", notes)
         self.assertIn("penalty-adjusted official Starting Grid", notes)
+        self.assertIn("FIA Document 59 is the later final grid", notes)
+        self.assertIn("Lindblad 18th and Bortoleto 19th", notes)
         self.assertNotIn("still-pending official Starting Grid", notes)
         schedule = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )["schedule"]["body"]
         self.assertIn("lists all 22 qualifiers", schedule)
-        self.assertIn("official Starting Grid now lists all 22 entrants", schedule)
-        self.assertIn("provisional grid agrees row by row", schedule)
+        self.assertIn("Document 59 is the final Starting Grid", schedule)
+        self.assertIn("Document 59 is the final Starting Grid", schedule)
         self.assertIn("FIA Document 50, final classification p. 2", schedule)
         self.assertIn("FIA Document 51, provisional Starting Grid p. 2", schedule)
-        self.assertNotIn("Starting Grid page still says", schedule)
+        self.assertIn("Lindblad 18th and Bortoleto 19th", schedule)
+        self.assertNotIn("application to this Race is unresolved", schedule)
         self.assertNotIn("No replacement start time", schedule)
         self.assertIn(content_brazil.F1_STARTING_GRID, schedule)
         self.assertIn(content_brazil.THE_RACE_PROVISIONAL_GRID, schedule)
@@ -352,7 +359,7 @@ class GPParityTests(unittest.TestCase):
         )
         schedule = " ".join(pages["schedule"]["body"].split())
         self.assertIn("Lando Norris took pole in 1:27.470", schedule)
-        self.assertIn("earlier post-penalty order was provisional", schedule)
+        self.assertIn("Document 51 was provisional and predates the final grid", schedule)
         self.assertIn("Do not substitute starting positions for qualifying results", schedule)
         self.assertNotIn("Qualifying and Starting Grid pages both returned", schedule)
 
@@ -403,15 +410,21 @@ class GPParityTests(unittest.TestCase):
             self.assertIn(content_brazil.FIA_LINDBLAD_PU_PENALTY_URL, body)
             self.assertIn(content_brazil.FIA_BORTOLETO_PU_PENALTY_URL, body)
         notes = " ".join(pages["notes"]["body"].split())
-        self.assertIn("lists Lindblad 12th and Bortoleto 19th", notes)
-        self.assertIn("their application is unresolved", notes)
+        self.assertIn("snapshot, retrieved at 16:09 UTC, lists Lindblad 12th", notes)
+        self.assertIn("Lindblad 18th and Bortoleto 19th", notes)
+        self.assertNotIn("their application is unresolved", notes)
         schedule = " ".join(pages["schedule"]["body"].split())
-        self.assertIn("no additional starting positions are inferred", schedule)
+        self.assertIn("Document 59 is the final Starting Grid", schedule)
+        self.assertIn("Lindblad 18th and Bortoleto 19th", schedule)
 
         base = Path(__file__).parent / "data/brazil"
         review = json.loads((base / "coverage_review.json").read_text())
         media = json.loads((base / "fia_media.json").read_text())
         media_hashes = {item["url"]: item["sha256"] for item in media["documents"]}
+        self.assertEqual(
+            review["fia_sha256"].get(content_brazil.FIA_FINAL_STARTING_GRID_URL),
+            media_hashes[content_brazil.FIA_FINAL_STARTING_GRID_URL],
+        )
         penalties = json.loads((base / "penalties_auto.json").read_text())
         for document, url, driver in (
             ("Doc 56", content_brazil.FIA_LINDBLAD_PU_PENALTY_URL, "Arvid Lindblad"),
