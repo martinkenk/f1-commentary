@@ -51,11 +51,12 @@
     "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf": "bcee017315239a87fc53b369f44289ab16380465ce4999047d64b5c45d9cdd41"
   },
   "race_strategy": {
-    "reviewed_at": "2026-11-07T21:37:49Z",
+    "reviewed_at": "2026-11-08T01:34:53Z",
     "sources": [
+      "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/",
       "https://press.pirelli.com/soft-delivers-at-interlagos-as-antonelli-sets-the-pace/",
       "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying",
-      "https://www.the-race.com/formula-1/brazilian-gp-qualifying-red-flagged-almost-immediately-due-to-rain/"
+      "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
     ]
   }
 }

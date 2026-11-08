@@ -46,6 +46,7 @@ F1_QUALIFYING_RESULTS = "https://www.formula1.com/en/results/2026/races/1299/bra
 F1_STARTING_GRID = "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
 THE_RACE_PROVISIONAL_GRID = "https://www.the-race.com/formula-1/f1-2026-brazilian-grand-prix-starting-grid-with-four-penalties-copy/"
 PIRELLI_FP2_STRATEGY = "https://press.pirelli.com/soft-delivers-at-interlagos-as-antonelli-sets-the-pace/"
+PIRELLI_POST_QUALI_STRATEGY = "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/"
 FIA_FP1_DOUBLE_YELLOW_URL = FIA + "infringement_-_free_practice_1_deleted_lap_times_-_double_yellow.pdf"
 FIA_UPGRADES_URL = FIA + "car_presentation_submissions.pdf"
 FIA_UPGRADES_ASSET = "fia-brazil-d82872895e6d-eaf9202e01277f4e"
@@ -265,26 +266,34 @@ per driver; post-qualifying availability must be sourced separately.</p>
 <th>Expected stabilized (psi)</th><th>Camber limit</th></tr></thead><tbody>{table}</tbody></table></div>
 <p>Maximum heating: two hours, 70°C slick/intermediate and 40°C wet, measured
 at tread and sidewall rather than the blanket controller. Cold-pressure curves:
-front (T−70)×0.126+Pstart; rear (T−70)×0.125+Pstart. The latest successful FIA
-document discovery at 00:16 UTC contained no later Pirelli prescription.</p>
+front (T−70)×0.126+Pstart; rear (T−70)×0.125+Pstart. These figures are from
+FIA Competition Notes, Document 2, version 5 issue A; check the current event
+listing and screenshot gallery for revisions.</p>
 <p>Pirelli's full poster estimates <strong>22.5 seconds pit-stop loss</strong>.
 Traction, braking, stress, abrasion, grip and lateral demand are all 3/5;
 track evolution is 5/5. Resurfacing between Turns 3–5 and 8–9 makes Friday's
 long runs important. Last year's effective two-stop race is historical context,
 not a verified 2026 strategy window.</p>
-<h2 class="sec">Latest published race-strategy assessment</h2>
-<p>Pirelli's latest public analysis, published after FP2 on 6 November, found
-more thermal degradation in the warmer FP1, particularly on C3. The cooler,
-changeable FP2 showed lower overheating and degradation, with consistent Soft
-performance; Pirelli flagged rear-right wear over longer stints. Its then-current
-forecast left wet options open and said two stops could be viable in dry
-conditions, but explicitly deferred a firm conclusion until later sessions.
-This is a pre-qualifying assessment, not a current Sunday forecast or final
-strategy recommendation. Qualifying was subsequently rain-affected. Public
-race-set feeds checked at 00:29 UTC still found no Brazil inventory chart; no
-set counts are inferred, and Formula1.com's access-restricted strategy guide
-was not bypassed. <a href="{PIRELLI_FP2_STRATEGY}">Pirelli's FP2 analysis</a> ·
-<a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a>.</p>
+<h2 class="sec">Post-qualifying race-strategy assessment</h2>
+<p>Pirelli's 7 November report says Qualifying used Full Wets in Q1, then
+Intermediates from Q2 through Q3. This describes qualifying tyre use, not the
+drivers' remaining race sets. Its accompanying Saturday graphic is a session
+summary, not a race-set chart or lap-window strategy graphic. Pirelli's report
+put the race-day rain chance at 60% when published; that is a dated forecast,
+not a live weather reading. For a dry race, Pirelli revised its pre-weekend
+simulations using Friday FP2 as the only representative long-run data: its
+preferred route is two stops, with two stints on Soft and one on Medium. Pirelli
+estimates this about three seconds quicker than strategies using all three
+available slick compounds; a Hard stint with two Soft stints increases total
+time, while a one-stop is estimated around ten seconds slower than the best
+two-stop. It also says an undercut may be decisive, especially when switching
+to a softer compound. These are Pirelli estimates, not measured outcomes; the
+report gives no lap windows. The shared race-set inventory below reports the
+latest chart-discovery status; no set counts are inferred.
+<a href="{PIRELLI_POST_QUALI_STRATEGY}">Pirelli's post-qualifying assessment</a> ·
+<a href="{PIRELLI_FP2_STRATEGY}">Friday FP2 analysis</a> ·
+<a href="{F1_QUALIFYING_RESULTS}">official Qualifying</a> ·
+<a href="{F1_STARTING_GRID}">official Starting Grid</a>.</p>
 {_figure("fia-brazil-8188298e7b47-84d11f15335e159e-p2",
          "Sao Paulo tyre prescriptions, version 5 issue A", "competition_notes_-_pirelli_preview")}
 """

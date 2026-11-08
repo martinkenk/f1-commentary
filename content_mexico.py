@@ -3,6 +3,7 @@ import content_generic
 from f1lib import card
 
 F1 = "https://www.formula1.com/en"
+FP1_RESULT = F1 + "/results/2026/races/1298/mexico/practice/1"
 RACE_RESULT = F1 + "/results/2026/races/1298/mexico/race-result"
 DRIVER_STANDINGS = F1 + "/results/2026/drivers"
 TEAM_STANDINGS = F1 + "/results/2026/team"
@@ -29,6 +30,14 @@ ALPINE = (
 PIRELLI = (
     "https://press.pirelli.com/the-champions-podium-verstappen-wins-in-mexico-"
     "as-kimi-secures-the-title/"
+)
+FIA_CAR_PRESENTATION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_car_presentation_submissions.pdf"
+)
+FIA_POWER_UNIT = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_power_unit_information.pdf"
 )
 
 
@@ -104,6 +113,44 @@ for all sessions and <a href="penalties.html">Penalties</a> for the FIA rulings.
 """
 
 
+def _rookies():
+    return f"""
+<h2 class="sec">Mexico City FP1 substitutions</h2>
+<p>Comparing the official FP1 and Race classifications by team identifies nine
+temporary substitutions in first practice. The FP1 drivers below did not appear
+in the Grand Prix classification:</p>
+<div class="table-wrap"><table class="data">
+<thead><tr><th>Team</th><th>FP1 driver</th><th>Race driver replaced</th></tr></thead>
+<tbody>
+<tr><td>Mercedes</td><td>Frederik Vesti</td><td>George Russell</td></tr>
+<tr><td>Red Bull Racing</td><td>Ayumu Iwasa</td><td>Max Verstappen</td></tr>
+<tr><td>Racing Bulls</td><td>Nikola Tsolov</td><td>Liam Lawson</td></tr>
+<tr><td>Alpine</td><td>Gabriele Mini</td><td>Franco Colapinto</td></tr>
+<tr><td>McLaren</td><td>Leonardo Fornaroli</td><td>Lando Norris</td></tr>
+<tr><td>Aston Martin</td><td>Jak Crawford</td><td>Lance Stroll</td></tr>
+<tr><td>Williams</td><td>Luke Browning</td><td>Alexander Albon</td></tr>
+<tr><td>Audi</td><td>Freddie Slater</td><td>Gabriel Bortoleto</td></tr>
+<tr><td>Cadillac</td><td>Colton Herta</td><td>Valtteri Bottas</td></tr>
+</tbody></table></div>
+<p class="src">Compared from the official Formula1.com
+<a href="{FP1_RESULT}">FP1 classification</a> and
+<a href="{RACE_RESULT}">Race classification</a>.</p>
+"""
+
+
+def _published_fia_note(document, url, detail):
+    return f"""
+<h2 class="sec">{document}</h2>
+<div class="callout watch">
+  <strong>Published source; event-specific interpretation pending.</strong>
+  The FIA event files include {detail}. This page has not yet transcribed or
+  independently verified the document's event-specific details; the absence
+  of a summary here does not mean that no changes or data were published.
+  <a href="{url}">Open the original FIA PDF</a>.
+</div>
+"""
+
+
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
     if _is_post_race(ctx):
@@ -115,4 +162,54 @@ def build_pages(ctx, env):
             "Final classification, championship outcome, tyre context and stewarding."
         )
         pages["notes"]["body"] = _notes()
+        pages["rookies"]["sub"] = (
+            "The nine FP1 substitutions confirmed by the official session classifications."
+        )
+        pages["rookies"]["body"] = (
+            pages["rookies"]["body"]
+            .replace(
+                content_generic.pending(
+                    "Rookie FP1 line-ups for this round",
+                    "in the week before the event",
+                ),
+                "",
+            )
+            .replace(
+                content_generic.pending(
+                    "Reserve or replacement driver changes",
+                    "as teams confirm them",
+                    "bi-people",
+                ),
+                "",
+            )
+            + _rookies()
+        )
+        pages["upgrades"]["sub"] = (
+            "The FIA submission is published; its team-by-team details still need review."
+        )
+        pages["upgrades"]["body"] = pages["upgrades"]["body"].replace(
+            content_generic.pending(
+                "FIA car presentation submissions for this round",
+                "on the Friday of the race week",
+            ),
+            _published_fia_note(
+                "Mexico City car presentation submissions",
+                FIA_CAR_PRESENTATION,
+                "the Car Presentation Submissions PDF",
+            ),
+        )
+        pages["powerunit"]["sub"] = (
+            "The FIA event document is published; its event-specific values are not transcribed."
+        )
+        pages["powerunit"]["body"] = pages["powerunit"]["body"].replace(
+            content_generic.pending(
+                "The FIA power-unit and energy-map document for this event",
+                "with the event documents in the race week",
+            ),
+            _published_fia_note(
+                "Mexico City power-unit information",
+                FIA_POWER_UNIT,
+                "the Power Unit Information PDF",
+            ),
+        )
     return pages

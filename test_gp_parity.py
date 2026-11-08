@@ -48,7 +48,7 @@ class GPParityTests(unittest.TestCase):
         ctx["status"] = "live"
         return content_singapore.build_pages(ctx, self.env)
 
-    def test_mexico_post_race_replaces_pre_race_team_and_notes_placeholders(self):
+    def test_mexico_post_race_replaces_stale_event_page_placeholders(self):
         self.assertIs(build.BESPOKE["mexico"], content_mexico.build_pages)
         ctx = dict(
             self.contexts["mexico"],
@@ -66,11 +66,37 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("final classification", pages["notes"]["body"])
         self.assertIn(content_mexico.RACE_RESULT, pages["notes"]["body"])
 
+        rookies = pages["rookies"]["body"]
+        self.assertNotIn("awaiting a verified update", rookies)
+        for driver in (
+            "Frederik Vesti", "Ayumu Iwasa", "Nikola Tsolov",
+            "Gabriele Mini", "Leonardo Fornaroli", "Jak Crawford",
+            "Luke Browning", "Freddie Slater", "Colton Herta",
+        ):
+            self.assertIn(driver, rookies)
+        self.assertIn("George Russell", rookies)
+        self.assertIn("Valtteri Bottas", rookies)
+        self.assertIn(content_mexico.FP1_RESULT, rookies)
+        self.assertIn(content_mexico.RACE_RESULT, rookies)
+
+        upgrades = pages["upgrades"]["body"]
+        self.assertIn("Published source; event-specific interpretation pending", upgrades)
+        self.assertIn(content_mexico.FIA_CAR_PRESENTATION, upgrades)
+        self.assertNotIn("FIA car presentation submissions for this round: awaiting", upgrades)
+
+        powerunit = pages["powerunit"]["body"]
+        self.assertIn("Published source; event-specific interpretation pending", powerunit)
+        self.assertIn(content_mexico.FIA_POWER_UNIT, powerunit)
+        self.assertNotIn("power-unit and energy-map document for this event: awaiting", powerunit)
+
         future = content_mexico.build_pages(
             dict(ctx, status="future", results=[]), self.env
         )
         self.assertIn("awaiting a verified update", future["teams"]["body"])
         self.assertIn("awaiting a verified update", future["notes"]["body"])
+        self.assertIn("awaiting a verified update", future["rookies"]["body"])
+        self.assertIn("awaiting a verified update", future["upgrades"]["body"])
+        self.assertIn("awaiting a verified update", future["powerunit"]["body"])
 
     def test_brazil_published_lineup_replaces_pending_placeholders(self):
         ctx = dict(self.contexts["brazil"], status="live")
@@ -126,9 +152,10 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("no action should be taken", schedule)
         self.assertIn("curfew_0.pdf", schedule)
         self.assertIn(
-            "00:16 UTC contained no later Pirelli prescription",
+            "FIA Competition Notes, Document 2, version 5 issue A",
             pages["tyres"]["body"],
         )
+        self.assertNotIn("00:16 UTC", pages["tyres"]["body"])
 
     def test_brazil_russell_penalty_is_attributed_and_not_mistaken_for_upgrade(self):
         body = content_brazil.build_pages(
@@ -220,11 +247,17 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_brazil.FIA_STROLL_DOUBLE_YELLOW_URL, notes)
 
         tyres = " ".join(pages["tyres"]["body"].split())
-        self.assertIn("pre-qualifying assessment", tyres)
-        self.assertIn("found no Brazil inventory chart", tyres)
-        self.assertIn("00:29 UTC", tyres)
-        self.assertNotIn("22:30 UTC", tyres)
+        self.assertIn("Post-qualifying race-strategy assessment", tyres)
+        self.assertIn("two stints on Soft and one on Medium", tyres)
+        self.assertIn("about three seconds quicker", tyres)
+        self.assertIn("around ten seconds slower", tyres)
+        self.assertIn("report gives no lap windows", tyres)
+        self.assertIn("60% when published", tyres)
+        self.assertNotIn("00:29 UTC", tyres)
+        self.assertNotIn("00:16 UTC", tyres)
+        self.assertNotIn("pre-qualifying assessment", tyres)
         self.assertIn(content_brazil.PIRELLI_FP2_STRATEGY, tyres)
+        self.assertIn(content_brazil.PIRELLI_POST_QUALI_STRATEGY, tyres)
         self.assertIn("no set counts are inferred", tyres)
 
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
