@@ -1,7 +1,23 @@
 {
-  "checked_at": "2026-11-08T02:17:55+00:00",
+  "checked_at": "2026-11-08T02:33:17+00:00",
   "discovery_retrieved_at": "2026-11-08T02:17:53.216010+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf",
+      "filename": "2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf",
+      "categories": [
+        "results"
+      ],
+      "sha256": "d88f54485b1df96af850b70516b6da5127529d5179a9124486de9d62533a7948",
+      "fetched_at": "2026-11-08T02:33:17+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-brazil-d48e99f0c16b-d88f54485b1df96a-p2.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf",
       "filename": "2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf",
@@ -9,7 +25,7 @@
         "results"
       ],
       "sha256": "bcee017315239a87fc53b369f44289ab16380465ce4999047d64b5c45d9cdd41",
-      "fetched_at": "2026-11-08T02:17:55+00:00",
+      "fetched_at": "2026-11-08T02:33:17+00:00",
       "pages": [
         {
           "page": 2,
@@ -57,7 +73,7 @@
         "results"
       ],
       "sha256": "bd52117a88af41a57d31a29d46a05ff7c4dcc8e7166908466115589d709d0f19",
-      "fetched_at": "2026-11-08T02:17:55+00:00",
+      "fetched_at": "2026-11-08T02:33:17+00:00",
       "pages": [
         {
           "page": 2,
@@ -301,7 +317,7 @@
         "results"
       ],
       "sha256": "6e43359e6064ad1ea0d5f9f614992a8105a26d6d79c0c4a8364cc229b110205f",
-      "fetched_at": "2026-11-08T02:17:55+00:00",
+      "fetched_at": "2026-11-08T02:33:17+00:00",
       "pages": [
         {
           "page": 2,
@@ -493,7 +509,7 @@
         "results"
       ],
       "sha256": "a9cfaad61135b93b72c2edf5ccca44d6815ae988a263ba33501469825475ccc1",
-      "fetched_at": "2026-11-08T02:17:55+00:00",
+      "fetched_at": "2026-11-08T02:33:17+00:00",
       "pages": [
         {
           "page": 2,
@@ -577,7 +593,7 @@
         "results"
       ],
       "sha256": "c302024c13744a75bb90f70cf3a9a056bd08afd6c2dd31a96fa718f062a62f42",
-      "fetched_at": "2026-11-08T02:17:55+00:00",
+      "fetched_at": "2026-11-08T02:33:17+00:00",
       "pages": [
         {
           "page": 2,

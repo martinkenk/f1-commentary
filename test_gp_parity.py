@@ -209,7 +209,9 @@ class GPParityTests(unittest.TestCase):
         )["schedule"]["body"]
         self.assertIn("lists all 22 qualifiers", schedule)
         self.assertIn("official Starting Grid now lists all 22 entrants", schedule)
+        self.assertIn("provisional grid agrees row by row", schedule)
         self.assertIn("FIA Document 50, final classification p. 2", schedule)
+        self.assertIn("FIA Document 51, provisional Starting Grid p. 2", schedule)
         self.assertNotIn("Starting Grid page still says", schedule)
         self.assertNotIn("No replacement start time", schedule)
         self.assertIn(content_brazil.F1_STARTING_GRID, schedule)
@@ -251,6 +253,9 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("two stints on Soft and one on Medium", tyres)
         self.assertIn("about three seconds quicker", tyres)
         self.assertIn("around ten seconds slower", tyres)
+        self.assertNotIn("Long-run degradation data: awaiting a verified update.", tyres)
+        self.assertIn("no graining and similar abrasion", tyres)
+        self.assertIn("No driver-by-driver stint table is transcribed here.", tyres)
         self.assertIn("report gives no lap windows", tyres)
         self.assertIn("60% when published", tyres)
         self.assertNotIn("00:29 UTC", tyres)
@@ -823,6 +828,19 @@ class AzerbaijanParityTests(unittest.TestCase):
             source_url=content_azerbaijan.STRATEGY_URL)
         table_body = re.search(r"<tbody>(.*?)</tbody>", rendered, re.S).group(1)
         self.assertEqual(table_body.count("<tr>"), 22)
+
+    def test_mexico_inventory_review_matches_chart_and_race_entrants(self):
+        root = Path(__file__).parent
+        snapshot = json.loads((root / "data/mexico/race_tyres.json").read_text())
+        verified = f1lib.reviewed_race_tyres({"dir": "mexico"}, snapshot)
+        self.assertEqual(verified["state"], "verified")
+        image = root / "assets_src" / snapshot["chart"]["asset"]
+        self.assertEqual(verified["source_sha256"], hashlib.sha256(image.read_bytes()).hexdigest())
+        race = json.loads((root / "data/mexico/session_results.json").read_text())
+        race_rows = next(s["rows"] for s in race["sessions"] if s["label"] == "Race")
+        self.assertEqual(set(verified["drivers"]), {row[2].split()[-1] for row in race_rows})
+        self.assertEqual(verified["drivers"]["STR"][:2], [3, 2])
+        self.assertEqual(verified["drivers"]["ALO"][:2], [4, 1])
 
     def test_complete_energy_sheet_and_qualifying_only_exceptions(self):
         body = self.pages["powerunit"]["body"]

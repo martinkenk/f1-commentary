@@ -71,7 +71,7 @@ def fia_document_categories(filename):
     """Route explicit filename subjects, not inferred PDF contents or numbers."""
     name = re.sub(r"[^a-z0-9]+", " ", filename.lower()).strip()
     categories = []
-    if "classification" in name:
+    if "classification" in name or re.search(r"\bstarting grid\b", name):
         categories.append("results")
     if re.search(r"\bsummons\b", name):
         categories.append("stewards")

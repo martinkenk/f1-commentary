@@ -204,6 +204,7 @@ class EnrichmentTests(unittest.TestCase):
             "infringement_-_car_30_-_change_to_pu_elements": ["penalties"],
             "summons_-_car_30_-_alleged_infringement": ["stewards"],
             "free_practice_2_classification": ["results"],
+            "provisional_starting_grid": ["results"],
             "entry_list": ["schedule"],
             "curfew": ["schedule"],
             "self_scrutineering": ["schedule"],

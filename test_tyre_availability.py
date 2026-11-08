@@ -188,7 +188,8 @@ class PublishedRaceTyreTests(unittest.TestCase):
         self.assertEqual(review["compounds"], ["C3", "C4", "C5"])
         self.assertEqual(review["drivers"]["PIA"], [3, 2, 1, 0, 1, 0])
         self.assertEqual(review["drivers"]["RUS"], [0, 4, 1, 0, 1, 0])
-        self.assertEqual(review["drivers"]["ALO"], [0, 1, 1, 0, 1, 0])
+        self.assertEqual(review["drivers"]["STR"], [3, 2, 1, 0, 1, 0])
+        self.assertEqual(review["drivers"]["ALO"], [4, 1, 1, 0, 1, 0])
 
 
 if __name__ == "__main__":

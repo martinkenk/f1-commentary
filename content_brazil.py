@@ -595,6 +595,18 @@ The official Formula1.com Starting Grid now lists Hamilton 20th.
     ).replace(content_generic.pending(
         "Reserve or replacement driver changes", "as teams confirm them", "bi-people"), "")
     pages["teams"]["body"] = _lineup() + _teams()
+    long_run_pending = content_generic.pending(
+        "Long-run degradation data", "after Friday practice", "bi-graph-down"
+    )
+    if long_run_pending in pages["tyres"]["body"]:
+        pages["tyres"]["body"] = pages["tyres"]["body"].replace(
+            long_run_pending,
+            "<p><strong>Published tyre analysis:</strong> Pirelli's Friday FP2 "
+            "report found consistent Soft performance, no graining and similar "
+            "abrasion across compounds, with rear-right wear a factor over longer "
+            "stints. Its post-qualifying strategy assessment is summarized below. "
+            "No driver-by-driver stint table is transcribed here.</p>",
+        )
     pages["tyres"]["body"] += _tyres()
     pending = content_generic.pending(
         "The FIA power-unit and energy-map document for this event",
@@ -632,11 +644,14 @@ classification now lists all 22 qualifiers: Lando Norris took pole in 1:27.470,
 the 22-car order, and the official Starting Grid now lists all 22 entrants
 separately after penalties: Russell seventh, Leclerc 14th, Hamilton 20th,
 Verstappen 21st and Perez 22nd. Do not substitute starting positions for
-qualifying results. The Race's earlier post-penalty order was provisional.
+qualifying results. FIA Document 51's provisional grid agrees row by row with
+the Formula1.com order; its footnote identifies the related grid drops. The
+FIA document remains provisional. The Race's earlier post-penalty order was provisional.
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf#page=2">FIA Document 50, final classification p. 2</a> ·
 <a href="{F1_STARTING_GRID}">official Starting Grid</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf#page=2">FIA Document 51, provisional Starting Grid p. 2</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional order</a> ·
 <a href="{FIA_EVENT}">live FIA event documents</a>. FP1, FP2 and FP3
 classifications and Qualifying are published; race-set counts still require a
