@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Mexico%20City%20Grand%20Prix",
-  "retrieved_at": "2026-11-08T08:20:46.280853+00:00",
+  "retrieved_at": "2026-11-08T08:47:28.776887+00:00",
   "documents": [
     {
       "filename": "2026_mexico_city_grand_prix_-_championship_points.pdf",
@@ -271,7 +271,9 @@
     {
       "filename": "2026_mexico_city_grand_prix_-_covers-on_time.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_covers-on_time.pdf",
-      "categories": []
+      "categories": [
+        "schedule"
+      ]
     },
     {
       "filename": "2026_mexico_city_grand_prix_-_provisional_qualifying_classification.pdf",
