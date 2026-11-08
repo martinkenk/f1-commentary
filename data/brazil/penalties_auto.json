@@ -222,5 +222,33 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf"
+  },
+  {
+    "doc": "Doc 56",
+    "no": "41",
+    "driver": "Arvid Lindblad",
+    "team": "Visa Cash App Racing Bulls F1 Team",
+    "session": "Qualifying",
+    "fact": "The following Power Unit elements have been used: 7th Engine (ICE) 6th Turbocharger (TC) All Power Unit elements were replaced with the approval of the FIA Technical Delegate during parc fermé.",
+    "outcome": "Drop of 10 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_41_-_changes_to_pu_elements.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_41_-_changes_to_pu_elements.pdf"
+  },
+  {
+    "doc": "Doc 57",
+    "no": "5",
+    "driver": "Gabriel Bortoleto",
+    "team": "Audi Revolut F1 Team",
+    "session": "Qualifying",
+    "fact": "The following Power Unit elements have been used: 6th Energy Store (ES) 6th Control Electronics Unit (PU-CE) All Power Unit elements were replaced with the approval of the FIA Technical Delegate durin",
+    "outcome": "Drop of 10 grid positions for the next Race in which the driver participates.",
+    "kind": "penalty",
+    "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_5_-_changes_to_pu_elements.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_5_-_changes_to_pu_elements.pdf"
   }
 ]
