@@ -394,6 +394,35 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("used-slick counts are zero", tyres)
         self.assertNotIn("not a strategy-window", tyres)
 
+    def test_brazil_late_pu_penalties_are_hash_reviewed_and_grid_conflict_is_explicit(self):
+        pages = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )
+        for slug in ("overview", "powerunit", "notes", "schedule"):
+            body = " ".join(pages[slug]["body"].split())
+            self.assertIn(content_brazil.FIA_LINDBLAD_PU_PENALTY_URL, body)
+            self.assertIn(content_brazil.FIA_BORTOLETO_PU_PENALTY_URL, body)
+        notes = " ".join(pages["notes"]["body"].split())
+        self.assertIn("lists Lindblad 12th and Bortoleto 19th", notes)
+        self.assertIn("their application is unresolved", notes)
+        schedule = " ".join(pages["schedule"]["body"].split())
+        self.assertIn("no additional starting positions are inferred", schedule)
+
+        base = Path(__file__).parent / "data/brazil"
+        review = json.loads((base / "coverage_review.json").read_text())
+        media = json.loads((base / "fia_media.json").read_text())
+        media_hashes = {item["url"]: item["sha256"] for item in media["documents"]}
+        penalties = json.loads((base / "penalties_auto.json").read_text())
+        for document, url, driver in (
+            ("Doc 56", content_brazil.FIA_LINDBLAD_PU_PENALTY_URL, "Arvid Lindblad"),
+            ("Doc 57", content_brazil.FIA_BORTOLETO_PU_PENALTY_URL, "Gabriel Bortoleto"),
+        ):
+            self.assertEqual(review["fia_sha256"].get(url), media_hashes[url])
+            record = next(item for item in penalties if item["doc"] == document)
+            self.assertEqual(record["source_url"], url)
+            self.assertEqual(record["driver"], driver)
+            self.assertIn("Drop of 10 grid positions", record["outcome"])
+
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
         ctx = dict(self.contexts["brazil"], status="live")
         pages = content_brazil.build_pages(ctx, self.env)

@@ -19,6 +19,8 @@ FIA_NEW_PU_REV3_P2_ASSET = "fia-brazil-a3dc392ee3d3-5c2a48565dbe63dd-p2"
 FIA_NEW_PU_REV3_P3_ASSET = "fia-brazil-a3dc392ee3d3-5c2a48565dbe63dd-p3"
 FIA_PEREZ_SUMMONS_URL = FIA + "summons_-_car_11_-_alleged_driving_in_an_unsafe_condition.pdf"
 FIA_PEREZ_PU_PENALTY_URL = FIA + "infringement_-_car_11_-_changes_to_pu_elements.pdf"
+FIA_BORTOLETO_PU_PENALTY_URL = FIA + "infringement_-_car_5_-_changes_to_pu_elements.pdf"
+FIA_LINDBLAD_PU_PENALTY_URL = FIA + "infringement_-_car_41_-_changes_to_pu_elements.pdf"
 FIA_PEREZ_UNSAFE_URL = FIA + "infringement_-_car_11_-_driving_in_an_unsafe_condition.pdf"
 FIA_VERSTAPPEN_PENALTY_URL = FIA + "infringement_-_car_3_-_changes_to_pu_elements.pdf"
 FIA_LECLERC_PENALTY_URL = FIA + "infringement_-_car_16_-_changes_to_pu_element.pdf"
@@ -188,9 +190,13 @@ in Document 15.
 The Technical Delegate's later Document 55 reports Lindblad's seventh ICE and
 sixth turbocharger (four allowed each), plus Bortoleto's sixth energy store and
 sixth PU-CE (three allowed each); it states all four are not compliant. This is
-a component report, not a Stewards' penalty decision.
+a component report, not a Stewards' penalty decision. Separate Stewards'
+Documents 56 and 57 impose 10-place drops for Lindblad (seventh ICE, sixth TC)
+and Bortoleto (sixth ES, sixth PU-CE).
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55</a> ·
+<a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
+<a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a> ·
 <a href="{FIA_NEW_PU_URL}">previous new-elements report, Document 14</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
 <a href="{FIA_PEREZ_PU_PENALTY_URL}">FIA Document 39</a> ·
@@ -486,9 +492,14 @@ seventh ICE and sixth turbocharger (four allowed each), and Gabriel Bortoleto's
 sixth energy store and sixth PU-CE (three allowed each). It states all four
 elements are not compliant, although the replacements were approved by the
 Technical Delegate. It is not a Stewards' penalty decision and does not
-establish a grid penalty.
+establish a grid penalty. Separate Stewards' Documents 56 and 57 each impose
+a 10-place drop for the next Race. The latest stored official grid lists
+Lindblad 12th and Bortoleto 19th but does not mention these rulings; their
+application is unresolved, so no adjusted order is inferred.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55</a> ·
+<a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
+<a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
 <a href="{FIA_PEREZ_PU_PENALTY_URL}">FIA Document 39</a> ·
 <a href="{FIA_LECLERC_PENALTY_URL}">FIA Document 35</a> ·
@@ -697,9 +708,23 @@ reports Arvid Lindblad's seventh ICE and sixth turbocharger (four allowed each),
 and Gabriel Bortoleto's sixth energy store and sixth PU-CE (three allowed each).
 It states all four elements are not compliant despite approving their
 replacement. This technical report is not a Stewards' penalty decision; no grid
-penalty is inferred.
+penalty is inferred from Document 55 itself. Separate Stewards' Documents 56
+and 57 impose 10-place drops for Lindblad (seventh ICE, sixth TC) and Bortoleto
+(sixth ES, sixth PU-CE).
 <a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55, published 8 November</a> ·
+<a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
+<a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a> ·
 <a href="powerunit.html">Power Unit analysis</a>.</p>"""
+    pages["notes"]["body"] += f"""
+<p><strong>Late grid-penalty check:</strong> The latest stored Formula1.com
+Starting Grid (retrieved 15:25 UTC) lists Lindblad 12th and Bortoleto 19th,
+while FIA Documents 56 and 57 each order a 10-place drop for the next Race.
+The grid page's displayed note does not mention these rulings, so their
+application is unresolved; do not infer a revised order from either source.
+Recheck the official grid before the start.
+<a href="{F1_STARTING_GRID}">Formula1.com Starting Grid</a> ·
+<a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
+<a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(
@@ -753,11 +778,19 @@ immediately in heavy rain. Formula1.com's official
 classification now lists all 22 qualifiers: Lando Norris took pole in 1:27.470,
 0.204s ahead of George Russell. FIA Document 50's final classification confirms
 the 22-car order, and the official Starting Grid now lists all 22 entrants
-separately after penalties: Russell seventh, Leclerc 14th, Hamilton 20th,
-Verstappen 21st and Perez 22nd. Do not substitute starting positions for
+with Russell seventh, Leclerc 14th, Hamilton 20th, Verstappen 21st and Perez
+22nd. Do not substitute starting positions for
 qualifying results. FIA Document 51's provisional grid agrees row by row with
 the Formula1.com order; its footnote identifies the related grid drops. The
-FIA document remains provisional. The Race's earlier post-penalty order was provisional.
+FIA document remains provisional. The Race's earlier post-penalty order was
+provisional. The latest stored official grid lists Lindblad 12th and Bortoleto
+19th, but FIA Documents 56 and 57 each impose a 10-place drop for the next Race;
+the current grid note does not mention these rulings. Their application to this
+Race is unresolved, so no additional starting positions are inferred. See
+<a href="notes.html">Notes</a> and <a href="penalties.html">Penalties</a> for
+the current source comparison.
+<a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
+<a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a>.
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf#page=2">FIA Document 50, final classification p. 2</a> ·
