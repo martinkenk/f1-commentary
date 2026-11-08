@@ -9,6 +9,8 @@ FIA_ENTRY_LIST_URL = FIA + "entry_list.pdf"
 FIA_FP2_DELETIONS_URL = FIA + "infringement_-_free_practice_2_deleted_lap_times.pdf"
 FIA_FP3_DELETIONS_URL = FIA + "infringement_-_free_practice_3_deleted_lap_times.pdf"
 FIA_BEARMAN_UNSAFE_RELEASE_URL = FIA + "infringement_-_car_87_-_unsafe_release.pdf"
+FIA_LECLERC_COLLISION_URL = FIA + "infringement_-_car_16_-_causing_a_collision.pdf"
+FIA_ANTONELLI_UNSAFE_RELEASE_URL = FIA + "infringement_-_car_12_-_unsafe_release.pdf"
 FIA_RACE_SCRUTINEERING_URL = FIA + "race_scrutineering.pdf"
 FIA_CAMARA_REPRIMAND_URL = FIA + "infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"
 FIA_SC2_SC1_URL = FIA + "race_director_notes_-_sc2_-_sc1_times.pdf"
@@ -788,19 +790,26 @@ FIA reader.
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_11_-_alleged_failure_to_slow_under_yellow_flags.pdf">Document 66</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_27_-_leaving_the_track_and_gaining_an_advantage.pdf">Document 71</a>.</p>"""
     pages["notes"]["body"] += f"""
-<p><strong>Latest post-race FIA updates (discovery checked 21:19 UTC):</strong>
-Document 78 resolves the unsafe-release summons in Documents 74 and 75:
-Oliver Bearman received a five-second time penalty, added to elapsed Race time,
-after Car 87 was released into Charles Leclerc's path and forced Car 16 to brake
-and take evasive action. Document 76 lists 22 deleted Race lap-time entries
-across ten drivers for not using the track at Turns 1, 2, 3, 4, 7 and 8; these
-are lap deletions, not additional time penalties. Technical Delegate Document
-77 reports that the checked cars and items, including the additional post-race
-inspection of Car 23's throttle-pedal assembly, complied with the 2026 Technical
-Regulations. The latest Formula1.com Race table fetched at 21:20 UTC still
-contains 22 entrants and is marked provisional; it lists Bearman 17th, so do
-not present the classification or penalty's final effect as settled. Documents
-68-69 and 72-73 remain summons, not findings.
+<p><strong>Latest post-race FIA updates (discovery checked 21:34 UTC):</strong>
+Document 80 resolves Documents 68 and 69: Kimi Antonelli received five seconds
+added to Race time after Car 12 was released into Franco Colapinto's path. The
+Stewards noted the slippery surface and that Antonelli had to take steps to avoid
+a collision. Document 79 resolves Documents 72 and 73: Charles Leclerc received
+five seconds added to Race time for contact with Liam Lawson's Car 30 at Turn 12.
+The Stewards found the contact disrupted Car 30 and helped Car 16 overtake it
+five corners later; wet conditions and the minor contact mitigated the penalty
+from ten seconds. Document 78 resolves Documents 74 and 75: Oliver Bearman
+received five seconds added to Race time after Car 87 was released into
+Leclerc's path and forced Car 16 to brake and take evasive action. Document 76
+lists 22 deleted Race lap-time entries across ten drivers for not using the
+track at Turns 1, 2, 3, 4, 7 and 8; these are lap deletions, not additional time
+penalties. Technical Delegate Document 77 reports that the checked cars and
+items, including Car 23's additional post-race throttle-pedal assembly
+inspection, complied with the 2026 Technical Regulations. Formula1.com's 21:36
+UTC Race table contains 22 entrants but remains provisional; do not present the
+classification or the penalties' final effects as settled.
+<a href="{FIA_ANTONELLI_UNSAFE_RELEASE_URL}">Document 80</a> ·
+<a href="{FIA_LECLERC_COLLISION_URL}">Document 79</a> ·
 <a href="{FIA_BEARMAN_UNSAFE_RELEASE_URL}">Document 78</a> ·
 <a href="{FIA + 'infringement_-_race_deleted_lap_times.pdf'}">Document 76</a> ·
 <a href="{FIA_RACE_SCRUTINEERING_URL}">Document 77</a> ·
@@ -1017,17 +1026,43 @@ document gallery below.
         "kicker": "Stewards",
         "title": "Penalties & Stewards",
         "sub": "Every stewards' decision, infringement, fine and penalty from the FIA event documents.",
-        "body": render_penalties(ctx, [{
-            "doc": "Doc 78",
-            "no": "87",
-            "driver": "Oliver Bearman",
-            "team": "TGR Haas F1 Team",
-            "session": "Race",
-            "fact": "Car 87 was released in an unsafe manner into the path of Car 16, forcing Charles Leclerc to brake and take evasive action.",
-            "outcome": "5 second time penalty (5 seconds added to elapsed Race time).",
-            "kind": "penalty",
-            "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_unsafe_release.pdf",
-            "source_url": FIA_BEARMAN_UNSAFE_RELEASE_URL,
-        }], fia_url=FIA_EVENT),
+        "body": render_penalties(ctx, [
+            {
+                "doc": "Doc 78",
+                "no": "87",
+                "driver": "Oliver Bearman",
+                "team": "TGR Haas F1 Team",
+                "session": "Race",
+                "fact": "Car 87 was released in an unsafe manner into the path of Car 16, forcing Charles Leclerc to brake and take evasive action.",
+                "outcome": "5 second time penalty (5 seconds added to elapsed Race time).",
+                "kind": "penalty",
+                "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_unsafe_release.pdf",
+                "source_url": FIA_BEARMAN_UNSAFE_RELEASE_URL,
+            },
+            {
+                "doc": "Doc 79",
+                "no": "16",
+                "driver": "Charles Leclerc",
+                "team": "Scuderia Ferrari HP",
+                "session": "Race",
+                "fact": "Car 16 made contact with Liam Lawson's Car 30 at Turn 12; the Stewards found the contact disrupted Car 30 and helped Car 16 overtake it five corners later.",
+                "outcome": "5 second time penalty (5 seconds added to elapsed Race time); wet conditions and the minor contact mitigated the penalty from ten seconds.",
+                "kind": "penalty",
+                "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_16_-_causing_a_collision.pdf",
+                "source_url": FIA_LECLERC_COLLISION_URL,
+            },
+            {
+                "doc": "Doc 80",
+                "no": "12",
+                "driver": "Kimi Antonelli",
+                "team": "Mercedes-AMG PETRONAS F1 Team",
+                "session": "Race",
+                "fact": "Car 12 was released in an unsafe manner into Franco Colapinto's Car 43 path; Antonelli had to take steps to avoid a collision on the slippery surface.",
+                "outcome": "5 second time penalty (5 seconds added to elapsed Race time).",
+                "kind": "penalty",
+                "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_12_-_unsafe_release.pdf",
+                "source_url": FIA_ANTONELLI_UNSAFE_RELEASE_URL,
+            },
+        ], fia_url=FIA_EVENT),
     }
     return pages

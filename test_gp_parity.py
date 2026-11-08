@@ -534,6 +534,14 @@ class GPParityTests(unittest.TestCase):
                 "2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_unsafe_release.pdf",
                 content_brazil.FIA_BEARMAN_UNSAFE_RELEASE_URL,
             ),
+            (
+                "2026_sao_paulo_grand_prix_-_infringement_-_car_16_-_causing_a_collision.pdf",
+                content_brazil.FIA_LECLERC_COLLISION_URL,
+            ),
+            (
+                "2026_sao_paulo_grand_prix_-_infringement_-_car_12_-_unsafe_release.pdf",
+                content_brazil.FIA_ANTONELLI_UNSAFE_RELEASE_URL,
+            ),
         ):
             document = media_by_name[filename]
             self.assertEqual(document["url"], url)
@@ -544,23 +552,37 @@ class GPParityTests(unittest.TestCase):
                 )
 
         penalties = pages["penalties"]["body"]
-        row = next(
-            match.group(1)
-            for match in re.finditer(r"<tr>(.*?)</tr>", penalties, re.S)
-            if ">Doc 78</a>" in match.group(1)
-        )
-        self.assertIn("Oliver Bearman", row)
-        self.assertIn("Charles Leclerc", row)
-        self.assertIn("5 second time penalty", row)
-        self.assertIn(content_brazil.FIA_BEARMAN_UNSAFE_RELEASE_URL, row)
-        self.assertIn('<details class="penalty-document"', row)
-        self.assertIn("data-document-reader", row)
+        rows = re.findall(r"<tr>(.*?)</tr>", penalties, re.S)
+        for document, driver, source in (
+            (
+                "Doc 78",
+                "Oliver Bearman",
+                content_brazil.FIA_BEARMAN_UNSAFE_RELEASE_URL,
+            ),
+            (
+                "Doc 79",
+                "Charles Leclerc",
+                content_brazil.FIA_LECLERC_COLLISION_URL,
+            ),
+            (
+                "Doc 80",
+                "Kimi Antonelli",
+                content_brazil.FIA_ANTONELLI_UNSAFE_RELEASE_URL,
+            ),
+        ):
+            row = next(match for match in rows if f">{document}</a>" in match)
+            self.assertIn(driver, row)
+            self.assertIn(source, row)
+            self.assertIn("5 second time penalty", row)
+            self.assertIn('<details class="penalty-document"', row)
+            self.assertIn("data-document-reader", row)
 
         notes = " ".join(pages["notes"]["body"].split())
         self.assertIn("22 deleted Race lap-time entries", notes)
-        self.assertIn("Documents 74 and 75", notes)
-        self.assertIn("Bearman 17th", notes)
-        self.assertNotIn("six post-race summons await rulings", notes)
+        self.assertIn("Document 80 resolves Documents 68 and 69", notes)
+        self.assertIn("Document 79 resolves Documents 72 and 73", notes)
+        self.assertIn("Document 78 resolves Documents 74 and 75", notes)
+        self.assertNotIn("remain summons, not findings", notes)
         powerunit = " ".join(pages["powerunit"]["body"].split())
         self.assertIn("Race scrutineering — FIA Document 77", powerunit)
         self.assertIn("all checked items and car weights complied", powerunit)

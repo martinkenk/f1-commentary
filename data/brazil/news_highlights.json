@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-08T21:23:19Z",
-  "expires_at": "2026-11-09T05:23:00Z",
+  "reviewed_at": "2026-11-08T21:42:01Z",
+  "expires_at": "2026-11-09T05:42:00Z",
   "through_session": "Race",
   "feed_fingerprint": "dc5e69a0c0fb942cee1abe44bd7d650ab2c9fb5b8d9fac3d4e7e77e2d9fd571e",
   "items": [
@@ -27,10 +27,10 @@
     },
     {
       "topic": "Stewards’ decisions",
-      "title": "Bearman penalised; race-lap deletions and provisional result remain under review",
+      "title": "Antonelli, Leclerc and Bearman penalised as Race classification remains provisional",
       "date": "2026-11-08",
-      "summary": "FIA Document 78 gives Oliver Bearman five seconds added to Race time for Car 87's unsafe release into Charles Leclerc's path, resolving Documents 74-75. Document 76 lists 22 Race lap-time deletions across ten drivers for track use at Turns 1, 2, 3, 4, 7 and 8; these are not additional time penalties. Technical Delegate Document 77 says all checked items and car weights complied with the 2026 Technical Regulations. Documents 68-69 and 72-73 remain summons, not findings. Formula1.com's 21:20 UTC 22-car Race table still marks the classification provisional and lists Bearman 17th.",
-      "why_it_matters": "The latest race-time penalty must be tracked separately from deleted lap times and routine scrutineering; do not treat the provisional classification or Bearman's final position as settled.",
+      "summary": "FIA Document 80 gives Kimi Antonelli five seconds added to Race time for Car 12's unsafe release into Franco Colapinto's path, resolving Documents 68-69. Document 79 gives Charles Leclerc five seconds for contact with Liam Lawson at Turn 12, resolving Documents 72-73; the Stewards found the contact helped Leclerc pass five corners later and cited wet conditions and minor contact in reducing the penalty from ten seconds. Document 78 gives Oliver Bearman five seconds for an unsafe release into Leclerc's path, resolving Documents 74-75. Document 76 lists 22 Race lap-time deletions across ten drivers; Document 77 reports all inspected items and weights complied. Formula1.com's 21:36 UTC Race table still contains 22 entrants and marks the classification provisional.",
+      "why_it_matters": "Three five-second penalties, separate lap-time deletions and a routine scrutineering report must not be conflated; the latest published classification remains provisional.",
       "sources": [
         {
           "label": "FIA Document 67: Albon unsafe rejoin penalty",
@@ -71,6 +71,14 @@
         {
           "label": "FIA Document 78: Bearman unsafe-release penalty",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_unsafe_release.pdf"
+        },
+        {
+          "label": "FIA Document 79: Leclerc collision penalty",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_16_-_causing_a_collision.pdf"
+        },
+        {
+          "label": "FIA Document 80: Antonelli unsafe-release penalty",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_12_-_unsafe_release.pdf"
         },
         {
           "label": "FIA Document 76: Race lap-time deletions",
