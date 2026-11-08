@@ -3,7 +3,7 @@
   "gp": "brazil",
   "race_date": "2026-11-08",
   "source_sha256": "4fa0c4973d2b83cdad026696bf9fa066e9d27fd89ed1844175c64cb38ccb8714",
-  "reviewed_at": "2026-11-08T12:52:00Z",
+  "reviewed_at": "2026-11-08T12:45:00Z",
   "review_method": "All 22 rows and six new/used cells visually checked against the complete Pirelli Motorsport race-set graphic reproduced by Coffee Corner Motorsport on 8 November, then matched to the official 22-car Starting Grid. The article confirms one new Hard and Medium per driver, four new Softs for the ten Q3 drivers and five for the rest; Pirelli confirms qualifying used only wet-weather tyres. Dashes mean zero remaining used slicks. Counts ordered soft new/used, medium new/used, hard new/used.",
   "entrants": 22,
   "compounds": ["C3", "C4", "C5"],
