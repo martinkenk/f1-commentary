@@ -19,7 +19,7 @@ class QueueTests(unittest.TestCase):
             state = Path(directory)
             original = "20261107T120000Z"
             queue.save(state / "runs" / original / "status.json",
-                       {"status": "timed_out", "finished_at": "earlier"})
+                       {"status": "timed_out", "finished_at": "earlier", "error": "Worker timeout"})
             queue.save(state / "runs" / original / "report.json", {"status": "blocked"})
             task = queue.enqueue(state, "Complete original task")
             queue.update(state, task["id"], run_id=original, status="timed_out")
@@ -31,6 +31,8 @@ class QueueTests(unittest.TestCase):
             self.assertEqual(queue.jobs(state)[0]["status"], "fixed")
             status = json.loads((state / "runs" / original / "status.json").read_text())
             self.assertEqual(status["previous_status"], "timed_out")
+            self.assertIsNone(status["error"])
+            self.assertEqual(status["previous_error"], "Worker timeout")
             self.assertEqual(json.loads((state / "runs" / original / "report.json").read_text()),
                              {"status": "blocked"})
 

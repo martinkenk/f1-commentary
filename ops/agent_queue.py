@@ -164,7 +164,9 @@ def resolve_runs(state, completed_run, report, mode):
                         "sources": report.get("sources", []), "commit": report.get("commit")}
             save(path / "resolution.json", evidence)
             status.setdefault("previous_status", status["status"])
-            status.update(status="fixed", resolution=evidence,
+            if status.get("error"):
+                status.setdefault("previous_error", status["error"])
+            status.update(status="fixed", resolution=evidence, error=None,
                           summary=f"Resolved by {completed_run}: {report['resolution_basis']}")
             save(status_path, status)
             for task in jobs(state):
