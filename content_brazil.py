@@ -23,6 +23,8 @@ FIA_HAMILTON_NEW_PU_URL = FIA + "new_pu_elements_for_this_competition_1.pdf"
 FIA_HAMILTON_ADDITIONAL_PENALTY_URL = FIA + "infringement_-_car_44_-_additional_changes_to_pu_elements.pdf"
 FIA_GARAGE_DOORS_URL = FIA + "garage_doors.pdf"
 FIA_POST_QUALIFYING_URL = FIA + "post-qualifying_procedure.pdf"
+FIA_PRE_RACE_URL = FIA + "pre-race_procedure.pdf"
+FIA_POST_RACE_URL = FIA + "post-race_procedure.pdf"
 FIA_BEARMAN_REVERSAL_URL = FIA + "infringement_-_car_87_-_reversing_in_the_pit_lane.pdf"
 FIA_QUALIFYING_DELETIONS_URL = FIA + "infringement_-_qualifying_deleted_lap_times.pdf"
 FIA_STROLL_DOUBLE_YELLOW_URL = FIA + "infringement_-_qualifying_deleted_lap_times_-_double_yellow.pdf"
@@ -755,6 +757,27 @@ The parc-fermé layout is on page 4.
 <a href="{FIA_POST_QUALIFYING_URL}#page=2">FIA Document 29, procedure</a> ·
 <a href="{FIA_POST_QUALIFYING_URL}#page=4">parc-fermé diagram</a> ·
 <a href="{FIA_EVENT}">complete FIA event listing</a>.</p>"""
+    pages["schedule"]["body"] += f"""
+<p><strong>Race-day anthem procedure:</strong> The FIA Media Delegate's
+8 November pre-race procedure said drivers should move to the anthem position
+at 13:40 BRT and be in place by 13:42; the national anthem was scheduled for
+13:44, with drivers in race suits. It reiterates that all drivers must be at
+the front of the grid no less than 16 minutes before the scheduled formation
+lap. The accompanying diagram shows the anthem setup; these are instructions,
+not a report of compliance.
+<a href="{FIA_PRE_RACE_URL}#page=2">FIA pre-race procedure, page 2</a> ·
+<a href="{FIA_PRE_RACE_URL}#page=3">anthem-position diagram, page 3</a>.</p>
+<p><strong>Post-race procedure:</strong> The FIA Media Delegate's 8 November
+procedure directs the top three to return to the Pit Lane after the chequered
+flag, where the 1–3 boards are at the entrance, then be weighed by the FIA in
+full race attire; water is available after weighing. Their post-race interviews
+take place in Parc Fermé before the cooldown-room and podium sequence. Drivers
+classified fourth or lower proceed to the TV pen after weighing; the document
+also covers media commitments for retirees. Its final page diagrams the
+Parc Fermé and race podium layout. This is procedure, not a penalty or
+confirmation that any individual complied.
+<a href="{FIA_POST_RACE_URL}#page=2">FIA post-race procedure, pages 2–3</a> ·
+<a href="{FIA_POST_RACE_URL}#page=4">Parc Fermé diagram, page 4</a>.</p>"""
     pages["moments"]["body"] = """
 <h2 class="sec">Local winners and the circuit's evolution</h2>
 <div class="grid cols-2">
@@ -775,5 +798,13 @@ and Records</a> for the source-backed pre-weekend driver, winner and constructor
 {card("Pirelli's dry-race assessment", _strategy_brief(), "bi-compass", "accent")}"""
     pages["notes"]["body"] += f"""
 <h2 class="sec">Tyres and dry-race strategy</h2>
-{_strategy_brief()}"""
+{_strategy_brief()}
+<p><strong>FIA race-day procedure:</strong> Drivers were instructed to move
+to the national-anthem position at 13:40 BRT, be in place by 13:42, and remain
+in race suits for the 13:44 anthem. After the race, the top three were to return
+to the Pit Lane for weighing before Parc Fermé interviews and the podium;
+fourth and lower finishers were to go to the TV pen after weighing. These are
+the Media Delegate's instructions, not penalty findings or a compliance report.
+<a href="{FIA_PRE_RACE_URL}#page=2">Pre-race procedure</a> ·
+<a href="{FIA_POST_RACE_URL}#page=2">Post-race procedure</a>.</p>"""
     return pages

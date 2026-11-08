@@ -203,6 +203,26 @@ class GPParityTests(unittest.TestCase):
         self.assertIn('href="news.html">Weekend News</a>', body)
         self.assertNotIn("Session-by-session commentary notes: awaiting", body)
 
+    def test_brazil_pre_and_post_race_procedures_are_interpreted(self):
+        pages = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )
+        schedule = " ".join(pages["schedule"]["body"].split())
+        self.assertIn("move to the anthem position at 13:40 BRT", schedule)
+        self.assertIn("in place by 13:42", schedule)
+        self.assertIn("national anthem was scheduled for 13:44", schedule)
+        self.assertIn(content_brazil.FIA_PRE_RACE_URL + "#page=2", schedule)
+        self.assertIn(content_brazil.FIA_PRE_RACE_URL + "#page=3", schedule)
+        self.assertIn("1–3 boards are at the entrance", schedule)
+        self.assertIn("full race attire", schedule)
+        self.assertIn("classified fourth or lower proceed to the TV pen", schedule)
+        self.assertIn("not a penalty or confirmation that any individual complied", schedule)
+        self.assertIn(content_brazil.FIA_POST_RACE_URL + "#page=4", schedule)
+        notes = " ".join(pages["notes"]["body"].split())
+        self.assertIn("FIA race-day procedure", notes)
+        self.assertIn(content_brazil.FIA_PRE_RACE_URL + "#page=2", notes)
+        self.assertIn(content_brazil.FIA_POST_RACE_URL + "#page=2", notes)
+
     def test_brazil_post_qualifying_strategy_is_surfaced_on_overview_and_notes(self):
         pages = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
