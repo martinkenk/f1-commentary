@@ -5,7 +5,7 @@
     "results_slug": "mexico",
     "gp": "mexico"
   },
-  "checked_at": "2026-11-08T18:03:59+00:00",
+  "checked_at": "2026-11-08T18:36:39+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/1",
-      "fetched_at": "2026-11-08T18:03:59+00:00",
+      "fetched_at": "2026-11-08T18:36:39+00:00",
       "session_start": "2026-10-30T12:30:00-06:00",
       "retained": false
     },
@@ -389,7 +389,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/2",
-      "fetched_at": "2026-11-08T18:03:59+00:00",
+      "fetched_at": "2026-11-08T18:36:39+00:00",
       "session_start": "2026-10-30T16:00:00-06:00",
       "retained": false
     },
@@ -582,7 +582,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/practice/3",
-      "fetched_at": "2026-11-08T18:03:59+00:00",
+      "fetched_at": "2026-11-08T18:36:39+00:00",
       "session_start": "2026-10-31T11:30:00-06:00",
       "retained": false
     },
@@ -821,7 +821,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/qualifying",
-      "fetched_at": "2026-11-08T18:03:59+00:00",
+      "fetched_at": "2026-11-08T18:36:39+00:00",
       "session_start": "2026-10-31T15:00:00-06:00",
       "retained": false
     },
@@ -991,7 +991,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/starting-grid",
-      "fetched_at": "2026-11-08T18:03:59+00:00",
+      "fetched_at": "2026-11-08T18:36:39+00:00",
       "session_start": "2026-10-31T16:00:00-06:00",
       "retained": false
     },
@@ -1207,7 +1207,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result",
-      "fetched_at": "2026-11-08T18:03:59+00:00",
+      "fetched_at": "2026-11-08T18:36:39+00:00",
       "session_start": "2026-11-01T14:00:00-06:00",
       "retained": false
     }
