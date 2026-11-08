@@ -717,7 +717,7 @@ and 57 impose 10-place drops for Lindblad (seventh ICE, sixth TC) and Bortoleto
 <a href="powerunit.html">Power Unit analysis</a>.</p>"""
     pages["notes"]["body"] += f"""
 <p><strong>Late grid-penalty check:</strong> The latest stored Formula1.com
-Starting Grid (retrieved 15:25 UTC) lists Lindblad 12th and Bortoleto 19th,
+Starting Grid lists Lindblad 12th and Bortoleto 19th,
 while FIA Documents 56 and 57 each order a 10-place drop for the next Race.
 The grid page's displayed note does not mention these rulings, so their
 application is unresolved; do not infer a revised order from either source.
