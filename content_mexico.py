@@ -39,6 +39,22 @@ FIA_POWER_UNIT = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_mexico_city_grand_prix_-_power_unit_information.pdf"
 )
+FIA_VERSTAPPEN_LAWSON_SUMMONS = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_summons_-_car_3_-_turn_14_incident_with_car_30.pdf"
+)
+FIA_LAWSON_VERSTAPPEN_SUMMONS = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_summons_-_car_30_-_turn_14_incident_with_car_3.pdf"
+)
+FIA_VERSTAPPEN_LAWSON_DECISION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_infringement_-_car_3_-_turn_14_incident_with_car_30_.pdf"
+)
+FIA_LAWSON_VERSTAPPEN_DECISION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_infringement_-_car_30_-_turn_14_incident_with_car_3_.pdf"
+)
 MOMENT_2019 = (
     F1 + "/latest/article/mexican-grand-prix-2019-report-and-highlights."
     "2GCUEuCYRquG0pcZeGZuYz"
@@ -112,6 +128,15 @@ def _notes():
   <li><strong>Tyres:</strong> Pirelli says the red flag changed the actual
   stints. Do not describe the pre-race one-stop forecast as the strategy every
   driver followed.</li>
+  <li><strong>FP2 stewards:</strong> Docs 33–34 found that Max Verstappen and
+  Liam Lawson made unnecessary, “clumsy” moves from the Turn 12 entry to the
+  Turn 14 apex. Each received a one-place drop for the next race and one
+  penalty point; their respective 12-month totals were one and four.
+  Docs 23–24 were the summonses, not the penalties.
+  <a href="{FIA_VERSTAPPEN_LAWSON_DECISION}">Doc 33</a> ·
+  <a href="{FIA_LAWSON_VERSTAPPEN_DECISION}">Doc 34</a> ·
+  <a href="{FIA_VERSTAPPEN_LAWSON_SUMMONS}">Doc 23</a> ·
+  <a href="{FIA_LAWSON_VERSTAPPEN_SUMMONS}">Doc 24</a>.</li>
   <li><strong>Stewards:</strong> Leclerc's five seconds, Piastri's ten seconds,
   Gasly's stop-and-go and Colapinto's ten seconds are separate decisions with
   different incidents; the official final classification reflects them.</li>

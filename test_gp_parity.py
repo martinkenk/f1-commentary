@@ -74,6 +74,16 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("0.799 seconds", pages["notes"]["body"])
         self.assertIn("final classification", pages["notes"]["body"])
         self.assertIn(content_mexico.RACE_RESULT, pages["notes"]["body"])
+        self.assertIn("Turn 12 entry to the", pages["notes"]["body"])
+        self.assertIn("Turn 14 apex", pages["notes"]["body"])
+        self.assertIn("one and four", pages["notes"]["body"])
+        for source in (
+            content_mexico.FIA_VERSTAPPEN_LAWSON_DECISION,
+            content_mexico.FIA_LAWSON_VERSTAPPEN_DECISION,
+            content_mexico.FIA_VERSTAPPEN_LAWSON_SUMMONS,
+            content_mexico.FIA_LAWSON_VERSTAPPEN_SUMMONS,
+        ):
+            self.assertIn(source, pages["notes"]["body"])
 
         rookies = pages["rookies"]["body"]
         self.assertNotIn("awaiting a verified update", rookies)
