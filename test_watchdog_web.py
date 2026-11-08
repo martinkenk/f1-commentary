@@ -46,6 +46,20 @@ class QueueTests(unittest.TestCase):
                 queue.resolve_runs(state, "20261108T120000Z",
                                    dict(report, resolution_basis="Checked"), "PUBLISH")
 
+    def test_resolution_validates_all_runs_before_updating_any(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            original = "20261107T120000Z"
+            path = state / "runs" / original
+            record = {"status": "blocked", "finished_at": "earlier"}
+            queue.save(path / "status.json", record)
+            report = {"status": "fixed", "resolved_runs": [original, "20261107T130000Z"],
+                      "resolution_basis": "Checked publication"}
+            with self.assertRaises(ValueError):
+                queue.resolve_runs(state, "20261108T120000Z", report, "PUBLISH")
+            self.assertEqual(json.loads((path / "status.json").read_text()), record)
+            self.assertFalse((path / "resolution.json").exists())
+
     def test_fifo_claim_cancellation_and_interrupted_writer(self):
         with tempfile.TemporaryDirectory() as directory:
             state = Path(directory)

@@ -146,7 +146,8 @@ def resolve_runs(state, completed_run, report, mode):
         raise ValueError("resolved_runs requires verified resolution_basis")
     resolved = []
     with locked(state):
-        for identity in identities:
+        records = []
+        for identity in dict.fromkeys(identities):
             if identity == completed_run:
                 continue
             path = state / "runs" / identity
@@ -156,6 +157,8 @@ def resolve_runs(state, completed_run, report, mode):
             status = json.loads(status_path.read_text())
             if not status.get("finished_at") or status.get("status") == "running":
                 raise ValueError(f"Cannot resolve active run {identity}")
+            records.append((identity, path, status_path, status))
+        for identity, path, status_path, status in records:
             evidence = {"resolved_at": now(), "resolved_by": completed_run,
                         "basis": report["resolution_basis"],
                         "sources": report.get("sources", []), "commit": report.get("commit")}
