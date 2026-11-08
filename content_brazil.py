@@ -21,6 +21,10 @@ FIA_PEREZ_SUMMONS_URL = FIA + "summons_-_car_11_-_alleged_driving_in_an_unsafe_c
 FIA_PEREZ_PU_PENALTY_URL = FIA + "infringement_-_car_11_-_changes_to_pu_elements.pdf"
 FIA_BORTOLETO_PU_PENALTY_URL = FIA + "infringement_-_car_5_-_changes_to_pu_elements.pdf"
 FIA_LINDBLAD_PU_PENALTY_URL = FIA + "infringement_-_car_41_-_changes_to_pu_elements.pdf"
+FIA_PARC_FERME_PARTS_URL = (
+    FIA + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf"
+)
+FIA_PARC_FERME_PARTS_DOC = "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme"
 FIA_PEREZ_UNSAFE_URL = FIA + "infringement_-_car_11_-_driving_in_an_unsafe_condition.pdf"
 FIA_VERSTAPPEN_PENALTY_URL = FIA + "infringement_-_car_3_-_changes_to_pu_elements.pdf"
 FIA_LECLERC_PENALTY_URL = FIA + "infringement_-_car_16_-_changes_to_pu_element.pdf"
@@ -492,12 +496,16 @@ seventh ICE and sixth turbocharger (four allowed each), and Gabriel Bortoleto's
 sixth energy store and sixth PU-CE (three allowed each). It states all four
 elements are not compliant, although the replacements were approved by the
 Technical Delegate. It is not a Stewards' penalty decision and does not
-establish a grid penalty. Separate Stewards' Documents 56 and 57 each impose
-a 10-place drop for the next Race. The latest stored official grid lists
+establish a grid penalty. FIA Technical Delegate Document 58 also lists the
+new Car 41 ICE and TC and Car 5 ES and PU-CE among approved parc-fermé
+replacements; it is a technical report, not a penalty decision. Separate
+Stewards' Documents 56 and 57 each impose a 10-place drop for the next Race.
+The latest stored official grid lists
 Lindblad 12th and Bortoleto 19th but does not mention these rulings; their
 application is unresolved, so no adjusted order is inferred.
 <a href="{FIA_NEW_PU_REV2_URL}">FIA Document 30</a> ·
 <a href="{FIA_NEW_PU_REV3_URL}">FIA Document 55</a> ·
+<a href="{FIA_PARC_FERME_PARTS_URL}">FIA Document 58</a> ·
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
 <a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a> ·
 <a href="{FIA_VERSTAPPEN_PENALTY_URL}">FIA Document 33</a> ·
@@ -764,6 +772,25 @@ published at 15:32 CET on 6 November, after the earlier 14:00 and 14:29 UTC
 listing checks. Its team-by-team declarations and explicit nil returns are
 transcribed below; the full substantive PDF pages, including McLaren's
 location diagram, remain available in the expandable readers.</p>""" + _upgrade_filing()
+    pages["upgrades"]["body"] += f"""
+<h2 class="sec">Parc-fermé replacement report</h2>
+<p>FIA Technical Delegate Document 58, dated 8 November, lists approved
+replacements for 12 cars across Mercedes, Red Bull Racing, Ferrari, Williams,
+Racing Bulls, Aston Martin, Haas, Audi and Cadillac. These are parts changed
+during parc fermé after written team requests under Article B3.5.4, not
+performance-upgrade claims. The report lists new ICE and TC for Car 41 and new
+ES and PU-CE for Car 5; it is not a Stewards' penalty decision. The separate
+10-place drops are in Documents 56 and 57.
+<a href="{FIA_PARC_FERME_PARTS_URL}">Original FIA Document 58</a>.</p>
+{_figure("fia-brazil-6b37cfed4f17-d33f7f0159074489-p1",
+         "FIA Technical Delegate Document 58: parc-fermé replacements, page 1",
+         FIA_PARC_FERME_PARTS_DOC, 1)}
+{_figure("fia-brazil-6b37cfed4f17-d33f7f0159074489-p2",
+         "FIA Technical Delegate Document 58: parc-fermé replacements, page 2",
+         FIA_PARC_FERME_PARTS_DOC, 2)}
+{_figure("fia-brazil-6b37cfed4f17-d33f7f0159074489-p3",
+         "FIA Technical Delegate Document 58: parc-fermé replacements, page 3",
+         FIA_PARC_FERME_PARTS_DOC, 3)}"""
     pages["schedule"]["body"] += f"""
 <p><strong>Standard weekend, not Sprint:</strong> Friday FP1 12:30 and FP2 16:00;
 Saturday FP3 11:30 and Qualifying was scheduled for 15:00; Sunday Race is

@@ -423,6 +423,40 @@ class GPParityTests(unittest.TestCase):
             self.assertEqual(record["driver"], driver)
             self.assertIn("Drop of 10 grid positions", record["outcome"])
 
+    def test_brazil_parc_ferme_report_is_hash_reviewed_and_not_a_penalty(self):
+        pages = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )
+        upgrades = " ".join(pages["upgrades"]["body"].split())
+        powerunit = " ".join(pages["powerunit"]["body"].split())
+        self.assertIn(content_brazil.FIA_PARC_FERME_PARTS_URL, upgrades)
+        self.assertIn(content_brazil.FIA_PARC_FERME_PARTS_URL, powerunit)
+        self.assertIn("performance-upgrade claims", upgrades)
+        self.assertIn("not a Stewards' penalty decision", upgrades)
+        self.assertIn("new Car 41 ICE and TC and Car 5 ES and PU-CE", powerunit)
+
+        review = json.loads(
+            (Path(__file__).parent / "data/brazil/coverage_review.json").read_text()
+        )
+        media = json.loads(
+            (Path(__file__).parent / "data/brazil/fia_media.json").read_text()
+        )
+        document = next(
+            item for item in media["documents"]
+            if item["url"] == content_brazil.FIA_PARC_FERME_PARTS_URL
+        )
+        self.assertEqual(
+            review["fia_sha256"][content_brazil.FIA_PARC_FERME_PARTS_URL],
+            document["sha256"],
+        )
+        for page in (1, 2, 3):
+            asset = f"fia-brazil-6b37cfed4f17-d33f7f0159074489-p{page}"
+            self.assertIn(asset, upgrades)
+            self.assertTrue((Path(__file__).parent / "assets_src" / f"{asset}.png").is_file())
+            self.assertIn(
+                f"{content_brazil.FIA_PARC_FERME_PARTS_URL}#page={page}", upgrades
+            )
+
     def test_brazil_published_technical_sources_replace_generic_pending_copy(self):
         ctx = dict(self.contexts["brazil"], status="live")
         pages = content_brazil.build_pages(ctx, self.env)
