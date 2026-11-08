@@ -306,5 +306,47 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_77_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+  },
+  {
+    "doc": "Doc 64",
+    "no": "18",
+    "driver": "Lance Stroll",
+    "team": "Aston Martin Aramco F1 Team",
+    "session": "Reconnaissance Laps",
+    "fact": "Car 18 did not cross the pit exit white line at the earliest opportunity.",
+    "outcome": "Driver: Reprimand (Driving). This is the driver’s 1st reprimand of the season.",
+    "kind": "reprimand",
+    "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+  },
+  {
+    "doc": "Doc 65",
+    "no": "44",
+    "driver": "Lewis Hamilton",
+    "team": "Scuderia Ferrari HP",
+    "session": "Race",
+    "fact": "Car 44 allegedly left the track at turn 5 and gained a lasting advantage.",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_sao_paulo_grand_prix_-_decision_-_car_44_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_44_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf"
+  },
+  {
+    "doc": "Doc 66",
+    "no": "11",
+    "driver": "Sergio Perez",
+    "team": "Cadillac Formula 1 Team",
+    "session": "Race",
+    "fact": "Car 11 alleged failure to slow for double yellow flags.",
+    "outcome": "No further action.",
+    "kind": "noaction",
+    "source_pdf": "2026_sao_paulo_grand_prix_-_decision_-_car_11_-_alleged_failure_to_slow_under_yellow_flags.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_11_-_alleged_failure_to_slow_under_yellow_flags.pdf"
   }
 ]
