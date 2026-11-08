@@ -139,6 +139,20 @@ class GPParityTests(unittest.TestCase):
         self.assertIn('href="news.html">Weekend News</a>', body)
         self.assertNotIn("Session-by-session commentary notes: awaiting", body)
 
+    def test_brazil_post_qualifying_strategy_is_surfaced_on_overview_and_notes(self):
+        pages = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )
+        for slug in ("overview", "notes"):
+            body = " ".join(pages[slug]["body"].split())
+            self.assertIn("two Soft", body)
+            self.assertIn("one Medium", body)
+            self.assertIn("three seconds", body)
+            self.assertIn("ten seconds slower", body)
+            self.assertIn("not a live update", body)
+            self.assertIn("no race-set counts are inferred", body)
+            self.assertIn(content_brazil.PIRELLI_POST_QUALI_STRATEGY, body)
+
     def test_brazil_revised_power_unit_sheet_and_curfew_are_interpreted(self):
         pages = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env

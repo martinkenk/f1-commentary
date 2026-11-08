@@ -299,6 +299,18 @@ latest chart-discovery status; no set counts are inferred.
 """
 
 
+def _strategy_brief():
+    return f"""<p>Pirelli's 7 November post-qualifying report, based on Friday FP2 as
+the only representative long-run data, favors a dry two-stop with two Soft
+stints and one Medium. It estimates this about three seconds quicker than
+strategies using all three available compounds; a one-stop is estimated
+around ten seconds slower. Pirelli's 60% rain chance was the forecast when
+that report was published, not a live update. Its Saturday graphic is a
+qualifying summary, not a strategy-window or remaining-set chart; no race-set
+counts are inferred. <a href="{PIRELLI_POST_QUALI_STRATEGY}">Pirelli's report</a>
+· <a href="tyres.html">Full tyre analysis and race-set status</a>.</p>"""
+
+
 def _powerunit():
     new_elements = (
         ("03", "Red Bull Racing RB Ford", "Max Verstappen", "ICE", "4", "4",
@@ -694,4 +706,10 @@ The parc-fermé layout is on page 4.
 <p class="src">Source: <a href="https://www.formula1.com/en/latest/article/circuit-guide-everything-you-need-to-know-about-the-autodromo-jose-carlos-pace.409YTahcP9tBxfYEkjAeoD">
 Formula1.com circuit guide, 5 November 2026</a>. See <a href="facts.html">Facts
 and Records</a> for the source-backed pre-weekend driver, winner and constructor tables.</p>"""
+    pages["overview"]["body"] += f"""
+<h2 class="sec">Post-qualifying tyre strategy</h2>
+{card("Pirelli's dry-race assessment", _strategy_brief(), "bi-compass", "accent")}"""
+    pages["notes"]["body"] += f"""
+<h2 class="sec">Tyres and dry-race strategy</h2>
+{_strategy_brief()}"""
     return pages
