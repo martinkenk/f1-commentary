@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-08T10:39:35Z",
-  "expires_at": "2026-11-08T16:30:00Z",
+  "reviewed_at": "2026-11-08T17:20:01Z",
+  "expires_at": "2026-11-08T21:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "bafc35868da8868c990ecec32a317a0b579271498a0861ba332c196f1869cad6",
   "items": [
@@ -8,8 +8,8 @@
       "topic": "Championship",
       "title": "Antonelli seals the title after a near-retirement run to the Mexico podium",
       "date": "2026-11-05",
-      "summary": "Kimi Antonelli secured his first Drivers' Championship with third place in Mexico and became Formula 1's youngest champion. Mercedes later revealed that the car returned with oil under the floor and a cracked sump; Antonelli said the engine began to struggle about four laps from the end. He finished on 380 points, ahead of Max Verstappen on 261 and Lewis Hamilton on 259.",
-      "why_it_matters": "The Drivers' title is settled, but the constructors' championship remains live: Mercedes leads Ferrari 630–504.",
+      "summary": "Kimi Antonelli secured his first Drivers' Championship with third place in Mexico and became Formula 1's youngest champion. Mercedes later revealed that the car returned with oil under the floor and a cracked sump; Antonelli said the engine began to struggle about four laps from the end. After the Mexico round, he had 380 points, ahead of Max Verstappen on 261 and Lewis Hamilton on 259.",
+      "why_it_matters": "Entering Brazil, Mercedes led Ferrari 630–504 in the still-live Constructors' Championship.",
       "sources": [
         {
           "label": "Formula1.com: Mexico City race report",
@@ -48,10 +48,10 @@
     },
     {
       "topic": "Stewards",
-      "title": "Post-race penalties reshaped the points-paying order",
-      "date": "2026-11-02",
-      "summary": "Piastri received a ten-second penalty for his collision with Lindblad. Gasly was given a stop-and-go for failing to slow in a double-yellow sector, while Colapinto received ten seconds for not slowing sufficiently under a single yellow. The latest official classification places Piastri 13th and scoreless; the initial report had him 15th before the later Alpine decisions.",
-      "why_it_matters": "Keep the updated final classification distinct from the intermediate post-race report; the Alpine rulings also removed both drivers from the points.",
+      "title": "Post-race sanctions changed the order, then Mercedes was fined",
+      "date": "2026-11-01",
+      "summary": "Piastri's ten-second collision penalty dropped him to 13th; Gasly received a stop-and-go and Colapinto ten seconds, leaving both scoreless in the final classification. In separate Document 83, the Stewards fined Mercedes €5,000 after George Russell missed the required post-race media commitments; his team representative gave evidence by phone after Russell had left the circuit.",
+      "why_it_matters": "Distinguish driver time penalties from the fine imposed on Mercedes, and Document 83's decision from Document 82's summons.",
       "sources": [
         {
           "label": "Formula1.com: Piastri penalty",
@@ -72,6 +72,14 @@
         {
           "label": "FIA: Colapinto decision, Doc 85",
           "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_43_-_failing_to_slow_under_yellow_flags.pdf"
+        },
+        {
+          "label": "FIA: Mercedes fine for Russell's missed media commitments, Doc 83",
+          "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_infringement_-_car_63_-_failure_to_attend_mandatory_post-race_commitments.pdf"
+        },
+        {
+          "label": "FIA: Russell summons, Doc 82",
+          "url": "https://www.fia.com/system/files/decision-document/2026_mexico_city_grand_prix_-_summons_-_car_63_-_alleged_failure_to_attend_mandatory_post-race_commitments.pdf"
         },
         {
           "label": "Formula1.com: official Mexico City race result",
