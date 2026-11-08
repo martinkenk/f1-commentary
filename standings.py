@@ -243,6 +243,22 @@ def _race_points_mismatches(previous, current, races):
     return mismatches
 
 
+def _standings_regressions(previous, current):
+    regressions = []
+    for label, old_rows, new_rows, key in (
+            ("driver", previous["drivers"], current["drivers"], 2),
+            ("constructor", previous["constructors"], current["constructors"], 1)):
+        new_points = {row[key]: row[-1] for row in new_rows}
+        for row in old_rows:
+            identity, old_points = row[key], row[-1]
+            latest = new_points.get(identity)
+            if latest is None or latest < old_points:
+                regressions.append(
+                    f"{label.title()} {identity}: official standings fell from "
+                    f"{old_points} to {latest if latest is not None else 'no row'} points")
+    return regressions
+
+
 def _write_snapshot(path, snapshot):
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(".json.tmp")
@@ -278,6 +294,21 @@ def refresh(year=SEASON):
                     "Cannot checkpoint changed standings without official Race classifications "
                     f"for {', '.join(missing)}; retaining the previous snapshot. "
                     "Refresh session_results.py before standings.py.")
+        regressions = _standings_regressions(previous, snapshot)
+        if regressions:
+            now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+            previous["checked_at"] = now
+            previous["refresh_status"] = {
+                "state": "source_regression",
+                "checked_at": now,
+                "mismatches": regressions,
+            }
+            _write_snapshot(path, previous)
+            print("! Official standings source regressed; retaining the last coherent "
+                  "driver/constructor snapshot.")
+            for regression in regressions:
+                print(f"  ! {regression}")
+            return previous
         mismatches = _race_points_mismatches(previous, snapshot, races)
         if mismatches:
             now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
@@ -409,6 +440,14 @@ def context(year=SEASON, now=None):
             f'it is not a post-race points table. {html.escape(details)} '
             f'<a href="{html.escape(refresh_status.get("results_url", ""), quote=True)}" '
             'target="_blank" rel="noopener">Official Race classification</a>.</div>'
+        )
+    elif refresh_status.get("state") == "source_regression":
+        details = "; ".join(refresh_status.get("mismatches", []))
+        notice += (
+            '<div class="callout"><strong>Latest standings refresh rejected.</strong> '
+            'The official tables returned totals below the last coherent snapshot, '
+            'so the previous driver and constructor standings are retained pending '
+            f'review. {html.escape(details)}</div>'
         )
     notice += (f'<p class="src">Official season standings retrieved {label}; '
                'these are current-season totals, not a frozen pre-race table. '

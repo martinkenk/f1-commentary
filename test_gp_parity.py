@@ -446,12 +446,26 @@ class GPParityTests(unittest.TestCase):
         race_status = next(
             status for status in results["statuses"] if status["label"] == "Race"
         )
-        self.assertEqual(race_status["state"], "pending")
-        self.assertIn("Incomplete classification", race_status["error"])
+        self.assertEqual(race_status["state"], "available")
+        race = next(
+            session for session in results["sessions"] if session["label"] == "Race"
+        )
+        self.assertEqual(len(race["rows"]), 22)
+        self.assertEqual(race["source_url"], content_brazil.F1_RACE_RESULTS)
+        self.assertFalse(race["retained"])
 
         review = json.loads((base / "coverage_review.json").read_text())
         media = json.loads((base / "fia_media.json").read_text())
         media_hashes = {item["url"]: item["sha256"] for item in media["documents"]}
+        for filename in (
+            "2026_sao_paulo_grand_prix_-_infringement_-_car_27_-_leaving_the_track_and_gaining_an_advantage.pdf",
+            "2026_sao_paulo_grand_prix_-_summons_-_car_87_-_alleged_unsafe_release.pdf",
+            "2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_unsafe_release_by_car_87.pdf",
+        ):
+            document = next(item for item in media["documents"]
+                            if item["filename"] == filename)
+            self.assertEqual(review["fia_sha256"].get(document["url"]),
+                             document["sha256"])
         self.assertEqual(
             review["fia_sha256"].get(content_brazil.FIA_FINAL_STARTING_GRID_URL),
             media_hashes[content_brazil.FIA_FINAL_STARTING_GRID_URL],
@@ -461,6 +475,10 @@ class GPParityTests(unittest.TestCase):
             grid["source_sha256"], media_hashes[content_brazil.FIA_FINAL_STARTING_GRID_URL]
         )
         penalties = json.loads((base / "penalties_auto.json").read_text())
+        hulkenberg = next(item for item in penalties if item["doc"] == "Doc 71")
+        self.assertEqual(hulkenberg["driver"], "Nico Hulkenberg")
+        self.assertEqual(hulkenberg["kind"], "penalty")
+        self.assertIn("10 second time penalty", hulkenberg["outcome"])
         for document, url, driver in (
             ("Doc 56", content_brazil.FIA_LINDBLAD_PU_PENALTY_URL, "Arvid Lindblad"),
             ("Doc 57", content_brazil.FIA_BORTOLETO_PU_PENALTY_URL, "Gabriel Bortoleto"),
@@ -471,7 +489,7 @@ class GPParityTests(unittest.TestCase):
             self.assertEqual(record["driver"], driver)
             self.assertIn("Drop of 10 grid positions", record["outcome"])
         for document, url, driver, ordinal in (
-            ("Doc 60", next(u for u in media_hashes if "car_27_" in u), "Nico Hulkenberg", "3rd"),
+            ("Doc 60", next(u for u in media_hashes if "car_27_" in u and "practice_start" in u), "Nico Hulkenberg", "3rd"),
             ("Doc 61", next(u for u in media_hashes if "car_11_" in u and "practice_start" in u), "Sergio Perez", "4th"),
             ("Doc 62", next(u for u in media_hashes if "car_6_" in u), "Isack Hadjar", "2nd"),
             ("Doc 63", next(u for u in media_hashes if "car_77_" in u), "Valtteri Bottas", "1st"),

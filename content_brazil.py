@@ -741,9 +741,49 @@ hash-reviewed FIA grid. The Race results page still showed no classification at
 18:40 UTC. Starting positions remain separate from qualifying results.
 <a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, page 2</a> ·
 <a href="{F1_STARTING_GRID}">Formula1.com Starting Grid snapshot</a> ·
-<a href="{F1_RACE_RESULTS}">Formula1.com Race results</a> ·
+<a href="{F1_RACE_RESULTS}">Formula1.com Race results</a>. At 18:40 UTC the
+Race page still had no classification; the snapshot fetched at 19:16 UTC now
+lists a provisional 22-entrant result: Norris first, Verstappen second and
+Hadjar third, with Stroll DNF and Bottas DNS. The source still labels it
+provisional, so it remains subject to revision. Related PU-penalty decisions:
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
 <a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a>.</p>"""
+    pages["notes"]["body"] += f"""
+<p><strong>Post-race Stewards' decisions:</strong> FIA Document 67 gives
+Alexander Albon a five-second time penalty and two penalty points (three for
+the preceding 12 months) for rejoining at Turn 3 in front of Car 10, which had
+to brake. Document 64 reprimands Lance Stroll for not crossing the pit-exit
+white line at the earliest opportunity on reconnaissance laps. Documents 65
+and 66 take no further action against Lewis Hamilton and Sergio Perez: the
+Stewards found Hamilton returned the position after leaving the track while
+avoiding Car 87, and Perez slowed appropriately for the double-yellow flags.
+Document 71 gives Nico Hulkenberg a 10-second time penalty for leaving the
+track and gaining a lasting advantage while overtaking Car 43 at Turn 1. At
+19:36 UTC, the Formula1.com table still listed Hulkenberg 10th. The
+classification remains provisional, so do not treat his displayed position or
+points as final after this ruling. The Penalties page retains each same-row
+FIA reader.
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_23_-_rejoining_the_track_unsafely.pdf">Document 67</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf">Document 64</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_44_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf">Document 65</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_11_-_alleged_failure_to_slow_under_yellow_flags.pdf">Document 66</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_27_-_leaving_the_track_and_gaining_an_advantage.pdf">Document 71</a>.</p>"""
+    pages["notes"]["body"] += """
+<p><strong>Post-race summons still listed at 19:34 UTC:</strong> FIA Documents
+68 and 69 summon Kimi Antonelli and Franco Colapinto over an alleged unsafe
+release by Car 12 at 15:36 BRT; the reporting time was 16:30. Documents 72 and
+73 summon Charles Leclerc and Liam Lawson over an alleged collision at Turn 12
+at 15:36 BRT; the reporting time was 16:45. No later ruling on either matter
+appeared in that discovery snapshot. Documents 74 and 75 summon Oliver Bearman
+and Charles Leclerc over an alleged unsafe release by Car 87 at 15:25 BRT; the
+reporting time was 17:15. No ruling on this third incident appeared in the
+same listing. These summons are not findings or penalties.
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_12_-_alleged_unsafe_release.pdf">Document 68</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_43_-_alleged_unsafe_release_by_car_12.pdf">Document 69</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_causing_a_collision.pdf">Document 72</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_30_-_alleged_causing_a_collision.pdf">Document 73</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_87_-_alleged_unsafe_release.pdf">Document 74</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_unsafe_release_by_car_87.pdf">Document 75</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(
@@ -822,7 +862,9 @@ snapshot retrieved at 16:09 UTC still listed Lindblad 12th. A current official
 Starting Grid check at 18:40 UTC now matches FIA Document 59 (Lindblad 18th,
 Bortoleto 19th; Stroll 16th, Bottas 17th). The collector briefly received a
 stale order at 18:36 UTC, so Results remains pinned to the hash-reviewed final
-grid. The Race results page still reports no classification as of 18:40 UTC.
+grid. The Race results page still had no classification at 18:40 UTC; the
+snapshot checked at 19:16 UTC now lists a provisional 22-car Race result, which
+remains subject to revision.
 Do not substitute starting positions for qualifying results. Document 51 was
 provisional and predates the final grid. The Race's earlier post-penalty order
 was provisional and is superseded by Document 59. See
@@ -840,9 +882,10 @@ the source comparison.
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf#page=2">FIA Document 51, provisional Starting Grid p. 2</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional order</a> ·
 <a href="{FIA_EVENT}">live FIA event documents</a>. FP1, FP2 and FP3
-classifications and Qualifying are published. The post-qualifying Pirelli
-race-set chart covers all 22 drivers; the image-bound transcription is on
-<a href="tyres.html">Tyres &amp; Strategy</a>.</p>
+classifications and Qualifying are published, and the provisional Race
+classification is now available. The pre-race Pirelli race-set chart covers
+all 22 drivers; its image-bound transcription records the allocation before
+the start on <a href="tyres.html">Tyres &amp; Strategy</a>.</p>
 <p><strong>Curfew report, 7 November:</strong> FIA Technical Delegate
 Document 27 says Oracle Red Bull Racing and Aston Martin personnel were inside
 the circuit during the 11.5-hour pre-FP3 curfew, from 21:00 Friday to 08:30

@@ -157,6 +157,42 @@ class StandingsTests(unittest.TestCase):
             self.assertIn("Official post-race standings update pending", context["notice"])
             self.assertIn("not a post-race points table", context["notice"])
 
+    def test_refresh_rejects_stale_lower_totals_after_checkpoint(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "standings.json"
+            previous = {
+                "year": 2026,
+                "fetched_at": "2026-11-08T19:04:07+00:00",
+                "results_round": 20,
+                "drivers": standings.parse_table(table("drivers", 100), "drivers"),
+                "constructors": standings.parse_table(table("team", 100), "team"),
+                "sources": {
+                    "drivers": "https://www.formula1.com/en/results/2026/drivers",
+                    "constructors": "https://www.formula1.com/en/results/2026/team",
+                },
+            }
+            path.write_text(json.dumps(previous), encoding="utf-8")
+            stale_constructors = standings.parse_table(table("team", 90), "team")
+            with patch.object(standings, "snapshot_path", return_value=path), \
+                    patch.object(standings, "_new_race_results", return_value=[]), \
+                    patch.object(standings, "_missing_race_checkpoints", return_value=[]), \
+                    patch("urllib.request.urlopen", side_effect=[
+                        io.BytesIO(table("drivers", 100).encode()),
+                        io.BytesIO(source_table(stale_constructors, "team").encode()),
+                    ]):
+                saved = standings.refresh()
+
+            self.assertEqual(saved["drivers"], previous["drivers"])
+            self.assertEqual(saved["constructors"], previous["constructors"])
+            self.assertEqual(saved["results_round"], 20)
+            self.assertEqual(saved["refresh_status"]["state"], "source_regression")
+            self.assertIn("Team 1", " ".join(saved["refresh_status"]["mismatches"]))
+            with patch.object(standings, "snapshot_path", return_value=path):
+                context = standings.context(
+                    now=datetime.datetime(2026, 11, 8, 20, tzinfo=datetime.timezone.utc))
+            self.assertIn("Latest standings refresh rejected", context["notice"])
+            self.assertIn("below the last coherent snapshot", context["notice"])
+
     def test_freshness_and_summary_follow_data(self):
         snapshot = {
             "fetched_at": "2026-09-10T12:00:00+00:00",

@@ -1,115 +1,93 @@
 {
-  "reviewed_at": "2026-11-08T18:46:03Z",
-  "expires_at": "2026-11-08T19:15:00Z",
+  "reviewed_at": "2026-11-08T19:38:07Z",
+  "expires_at": "2026-11-08T21:38:07Z",
   "through_session": "Race",
-  "feed_fingerprint": "4dfd545aba976bedb8ee90fea50db17ca14dc699aa247c4603cf561a2e69f8be",
+  "feed_fingerprint": "194cbd2dcb6b3d53af5581491594d8b924dc6faa7d98625eafaa3498def4e40a",
   "items": [
     {
-      "topic": "Qualifying and final grid",
-      "title": "Norris takes pole as the official grid matches FIA Document 59",
+      "topic": "Race result",
+      "title": "Norris wins wet São Paulo race as Mercedes clinches Constructors’ title",
       "date": "2026-11-08",
-      "summary": "The Formula1.com Starting Grid page checked at 18:40 UTC matches FIA Document 59: Stroll 16th, Bottas 17th, Lindblad 18th and Bortoleto 19th after their respective penalties; Norris starts first, Antonelli second and Lawson third. Norris took pole in 1:27.470, 0.204s ahead of Russell. A collector snapshot at 18:36 UTC briefly reverted Lindblad to 12th. The separate Race results page still showed no classification at 18:40 UTC, so no Race result is inferred.",
-      "why_it_matters": "The hash-reviewed FIA final grid remains the durable source across transient collector/cache regressions; starting positions remain separate from qualifying results.",
+      "summary": "Formula1.com reports Norris won the 71-lap wet-dry-wet race in 1:35:23.504, 14.602 seconds ahead of Verstappen; Hadjar completed the podium. Mercedes clinched the 2026 Constructors’ title. The published 22-entrant Race classification is still marked provisional.",
+      "why_it_matters": "Norris converted pole while Verstappen climbed from P21; the Constructors’ title is decided, but the live classification remains subject to revision.",
       "sources": [
         {
-          "label": "Formula1.com: current official Starting Grid",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/starting-grid"
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
         },
         {
-          "label": "Formula1.com: Race results (no classification at 18:40 UTC)",
+          "label": "Formula1.com provisional Race classification",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
-        },
-        {
-          "label": "FIA: final Starting Grid, Document 59, page 2",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_starting_grid.pdf#page=2"
-        },
-        {
-          "label": "Formula1.com: Qualifying classification",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying"
         }
       ]
     },
     {
       "topic": "Stewards’ decisions",
-      "title": "Four drivers reprimanded over the reconnaissance-lap pit-exit instruction",
+      "title": "Albon and Hulkenberg penalised; six post-race summons await rulings",
       "date": "2026-11-08",
-      "summary": "FIA Documents 60–63 record driving reprimands for Nico Hülkenberg (third), Sergio Perez (fourth), Isack Hadjar (second) and Valtteri Bottas (first). Each driver failed to cross the pit-exit white line at the earliest opportunity on reconnaissance laps after not performing a practice start, contrary to Article 12.2.1.i and Race Director Event Note item 5.7. These are reprimands, not grid penalties.",
-      "why_it_matters": "The four decisions clarify the pit-exit instruction immediately before the Race and do not change the final starting order.",
+      "summary": "FIA Document 67 gives Albon five seconds and two penalty points (three in the prior 12 months) for an unsafe rejoin at Turn 3; Document 71 gives Hulkenberg ten seconds for leaving the track and gaining a lasting advantage while overtaking Car 43 at Turn 1. Documents 64-66 reprimand Stroll and take no further action on Hamilton and Perez, respectively. Documents 68-69, 72-73 and 74-75 summon six drivers over three alleged incidents; summons are not findings, and no later rulings appeared in the 19:34 UTC FIA listing. The 19:36 Formula1.com table still places Hulkenberg 10th; the classification remains provisional.",
+      "why_it_matters": "Keep the two time penalties distinct from Stroll’s reprimand and the no-action decisions; do not present six summons as findings or treat the provisional classification as final.",
       "sources": [
         {
-          "label": "FIA Document 60: Hülkenberg",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_27_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+          "label": "FIA Document 67: Albon unsafe rejoin penalty",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_23_-_rejoining_the_track_unsafely.pdf"
         },
         {
-          "label": "FIA Document 61: Perez",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_11_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+          "label": "FIA Document 71: Hulkenberg leaving-track penalty",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_27_-_leaving_the_track_and_gaining_an_advantage.pdf"
         },
         {
-          "label": "FIA Document 62: Hadjar",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_6_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+          "label": "FIA Document 64: Stroll reprimand",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
         },
         {
-          "label": "FIA Document 63: Bottas",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_77_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
+          "label": "FIA Document 65: Hamilton no further action",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_44_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf"
         },
         {
-          "label": "FIA Race Director’s Competition Notes, Document 34, item 5.7",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_race_directors_competition_notes.pdf"
+          "label": "FIA Document 66: Perez no further action",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_11_-_alleged_failure_to_slow_under_yellow_flags.pdf"
+        },
+        {
+          "label": "FIA Documents 68-69: Antonelli and Colapinto summons",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_12_-_alleged_unsafe_release.pdf"
+        },
+        {
+          "label": "FIA Document 69: Colapinto summons",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_43_-_alleged_unsafe_release_by_car_12.pdf"
+        },
+        {
+          "label": "FIA Documents 72-73: Leclerc and Lawson summons",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_causing_a_collision.pdf"
+        },
+        {
+          "label": "FIA Document 73: Lawson summons",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_30_-_alleged_causing_a_collision.pdf"
+        },
+        {
+          "label": "FIA Document 74: Bearman unsafe-release summons",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_87_-_alleged_unsafe_release.pdf"
+        },
+        {
+          "label": "FIA Document 75: Leclerc unsafe-release summons",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_unsafe_release_by_car_87.pdf"
         }
       ]
     },
     {
       "topic": "Milestone",
-      "title": "Hamilton reaches 400 Formula 1 starts at São Paulo",
+      "title": "Hamilton reaches 400 starts and scores in São Paulo",
       "date": "2026-11-08",
-      "summary": "Formula1.com reports that the São Paulo Grand Prix is Lewis Hamilton's 400th Formula 1 race start, after 20 continuous seasons in the championship. Fernando Alonso's São Paulo start is number 445. This is a career milestone, not a claim about the unfinished race result.",
-      "why_it_matters": "It puts Hamilton's longevity in context without conflating a milestone with his current race position or result.",
+      "summary": "Formula1.com identifies the São Paulo Grand Prix as Hamilton’s 400th F1 start; the provisional classification places him ninth, one lap down, with two points.",
+      "why_it_matters": "A career milestone sits alongside a points finish after starting 20th; both remain tied to the current provisional classification.",
       "sources": [
         {
-          "label": "Formula1.com: Hamilton reaches 400 starts",
-          "url": "https://www.formula1.com/en/latest/article/rivals-pay-tribute-as-lewis-hamilton-reaches-400-formula-1-starts-at-sao-paulo-grand-prix.7ahLqNwTWm8Nze2o9hteZB"
-        }
-      ]
-    },
-    {
-      "topic": "Wet-race safety",
-      "title": "Drivers warn against repeating Saturday's conditions in the Race",
-      "date": "2026-11-08",
-      "summary": "George Russell warned that repeating Saturday's opening wet conditions in the Race could create a high risk of a serious incident; Carlos Sainz described the first laps as sketchy, and Isack Hadjar said the full wets lacked grip. These are drivers' assessments after Qualifying, not a Race Control decision or a current forecast. Pirelli's 7 November report cited a 60% race-day rain chance when it was published.",
-      "why_it_matters": "Cars must follow more closely in a race than in qualifying, changing the visibility and aquaplaning risks. Keep Pirelli's dated rain probability separate from the live forecast and any decision to run.",
-      "sources": [
-        {
-          "label": "The Race: wet-weather safety concerns after qualifying",
-          "url": "https://www.the-race.com/formula-1/why-f1-risks-horrific-incident-if-brazilian-gp-risks-are-repeated/"
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
         },
         {
-          "label": "Pirelli: post-qualifying report and dated forecast",
-          "url": "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/"
-        }
-      ]
-    },
-    {
-      "topic": "Tyres and strategy",
-      "title": "Pirelli's dry-race projection favors a two-stop strategy",
-      "date": "2026-11-08",
-      "summary": "Using Friday FP2 as its only representative long-run data, Pirelli estimates a Soft–Medium–Soft two-stop about three seconds quicker than using all three slick compounds, while a one-stop is around ten seconds slower. Coffee Corner Motorsport's Pirelli-credited chart lists additional dry-race scenarios; its complete 22-driver RACE SETS graphic shows the remaining race inventory, not all tyres used during practice. These are pre-race projections, not a live forecast or race outcome.",
-      "why_it_matters": "Wet conditions can displace dry-race simulations. Keep Pirelli's estimates separate from the secondary chart's lap windows and from the actual remaining-set inventory.",
-      "sources": [
-        {
-          "label": "Pirelli: post-qualifying strategy assessment",
-          "url": "https://press.pirelli.com/from-full-wets-to-inters-in-qualifying-norris-takes-pole-in-so-paulo/"
-        },
-        {
-          "label": "Pirelli: Friday FP1 and FP2 tyre use",
-          "url": "https://press.pirelli.com/soft-delivers-at-interlagos-as-antonelli-sets-the-pace/"
-        },
-        {
-          "label": "Coffee Corner Motorsport: strategy and both tyre-set graphics",
-          "url": "https://coffeecornermotorsport.com/brazil-grand-prix-2026-tyre-strategy/"
-        },
-        {
-          "label": "Coffee Corner Motorsport: complete 22-driver race-set chart",
-          "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/1920_20-br26-racesets.webp"
+          "label": "Formula1.com provisional Race classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
         }
       ]
     }
