@@ -99,14 +99,68 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_mexico.RACE_RESULT, rookies)
 
         upgrades = pages["upgrades"]["body"]
-        self.assertIn("Published source; event-specific interpretation pending", upgrades)
+        self.assertIn("9", upgrades)
+        self.assertIn("6", upgrades)
+        self.assertIn("5", upgrades)
         self.assertIn(content_mexico.FIA_CAR_PRESENTATION, upgrades)
+        self.assertNotIn("Published source; event-specific interpretation pending", upgrades)
         self.assertNotIn("FIA car presentation submissions for this round: awaiting", upgrades)
+        for team in ("McLaren", "Mercedes", "Red Bull", "Ferrari", "Williams",
+                     "Racing Bulls", "Aston Martin", "Haas", "Audi", "Alpine", "Cadillac"):
+            self.assertIn(team, upgrades)
+        self.assertIn("No updates submitted", upgrades)
+        self.assertIn("Larger cooling-exit louvres", upgrades)
+        self.assertIn("rear brake-duct deflector", upgrades)
+        for team, page, updates in content_mexico.UPGRADE_SUBMISSIONS:
+            pages_to_show = (page, page + 1) if updates else (page,)
+            self.assertIn(f'href="#upgrade-submission-{page}" data-document-reader', upgrades)
+            for source_page in pages_to_show:
+                asset = (
+                    f"{content_mexico.FIA_CAR_PRESENTATION_ASSET}"
+                    f"-p{source_page}.png"
+                )
+                self.assertIn(f"../assets/{asset}", upgrades)
+                self.assertTrue((Path(__file__).parent / "assets_src" / asset).is_file())
 
         powerunit = pages["powerunit"]["body"]
-        self.assertIn("Published source; event-specific interpretation pending", powerunit)
+        self.assertNotIn("Published source; event-specific interpretation pending", powerunit)
         self.assertIn(content_mexico.FIA_POWER_UNIT, powerunit)
-        self.assertNotIn("power-unit and energy-map document for this event: awaiting", powerunit)
+        self.assertIn(content_mexico.FIA_PU_NEW_ELEMENTS, powerunit)
+        self.assertIn(content_mexico.FIA_PU_USAGE, powerunit)
+        self.assertIn(content_mexico.FIA_BOTTAS_PU_PENALTY, powerunit)
+        self.assertIn("8.5 / 9.0 MJ", powerunit)
+        self.assertIn("2,101 m", powerunit)
+        self.assertIn("100 kW/s", powerunit)
+        self.assertIn("3,871 m", powerunit)
+        self.assertIn("4,051 m", powerunit)
+        self.assertIn("250 km/h", powerunit)
+        self.assertIn("fifth ICE and turbocharger", powerunit)
+        self.assertIn("fourth MGU-K, energy store and control electronics", powerunit)
+        self.assertIn("50-place drop", powerunit)
+        self.assertIn("Straight Mode markings are active-aero zones", powerunit)
+        for asset in (
+            f"{content_mexico.FIA_POWER_UNIT_ASSET}-p2.png",
+            f"{content_mexico.FIA_PU_NEW_ELEMENTS_ASSET}-p2.png",
+            f"{content_mexico.FIA_PU_NEW_ELEMENTS_ASSET}-p3.png",
+            f"{content_mexico.FIA_PU_USAGE_ASSET}-p2.png",
+        ):
+            self.assertIn(f"../assets/{asset}", powerunit)
+            self.assertTrue((Path(__file__).parent / "assets_src" / asset).is_file())
+        review = json.loads(
+            (Path(__file__).parent / "data/mexico/coverage_review.json").read_text()
+        )
+        media = json.loads(
+            (Path(__file__).parent / "data/mexico/fia_media.json").read_text()
+        )
+        media_hashes = {doc["url"]: doc["sha256"] for doc in media["documents"]}
+        for source in (
+            content_mexico.FIA_CAR_PRESENTATION,
+            content_mexico.FIA_POWER_UNIT,
+            content_mexico.FIA_PU_NEW_ELEMENTS,
+            content_mexico.FIA_PU_USAGE,
+            content_mexico.FIA_BOTTAS_PU_PENALTY,
+        ):
+            self.assertEqual(review["fia_sha256"].get(source), media_hashes[source])
 
         future = content_mexico.build_pages(
             dict(ctx, status="future", results=[]), self.env

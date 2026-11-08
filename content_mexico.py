@@ -1,6 +1,7 @@
 """Source-reviewed Mexico City post-race team and commentary notes."""
 import content_generic
 from f1lib import card
+from upgrade_render import render_submissions
 
 F1 = "https://www.formula1.com/en"
 FP1_RESULT = F1 + "/results/2026/races/1298/mexico/practice/1"
@@ -35,10 +36,26 @@ FIA_CAR_PRESENTATION = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_mexico_city_grand_prix_-_car_presentation_submissions.pdf"
 )
+FIA_CAR_PRESENTATION_ASSET = "fia-mexico-d1520eedea5a-b0abaa12d28b6685"
 FIA_POWER_UNIT = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_mexico_city_grand_prix_-_power_unit_information.pdf"
 )
+FIA_PU_NEW_ELEMENTS = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_new_pu_elements_for_this_competition.pdf"
+)
+FIA_PU_NEW_ELEMENTS_ASSET = "fia-mexico-3f0fbf619a75-f196acf88eb5435b"
+FIA_PU_USAGE = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf"
+)
+FIA_PU_USAGE_ASSET = "fia-mexico-c5ff79ffe336-b9eec32c5df1ef25"
+FIA_BOTTAS_PU_PENALTY = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_mexico_city_grand_prix_-_infringement_-_car_77_-_pu_elements.pdf"
+)
+FIA_POWER_UNIT_ASSET = "fia-mexico-0ae7e9fb9e0e-dffe8a06feb5a324"
 FIA_VERSTAPPEN_LAWSON_SUMMONS = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_mexico_city_grand_prix_-_summons_-_car_3_-_turn_14_incident_with_car_30.pdf"
@@ -66,6 +83,44 @@ MOMENT_2021 = (
 MOMENT_2024 = (
     F1 + "/latest/article/sainz-surges-to-mexico-victory-ahead-of-norris-and-"
     "leclerc-as-verstappen-hit.3duSNduH2cxC7K91WDSXda"
+)
+
+UPGRADE_SUBMISSIONS = (
+    ("McLaren", 2, (
+        ("Cooling Louvres", "Circuit specific - Cooling Range",
+         "Extended forwards and reshaped to address Mexico's power-unit cooling challenges."),
+    )),
+    ("Mercedes", 4, ()),
+    ("Red Bull", 5, (
+        ("Engine Cover", "Reliability",
+         "Larger cooling-exit louvres."),
+        ("Sidepod", "Performance - Local Load",
+         "Revised the sidepod and floor split line."),
+    )),
+    ("Ferrari", 7, (
+        ("Engine Cover", "Circuit specific - Cooling Range",
+         "Circuit-specific engine-cover cooling change."),
+        ("Cooling Louvres", "Circuit specific - Cooling Range",
+         "Circuit-specific cooling-louvre change."),
+    )),
+    ("Williams", 9, ()),
+    ("Racing Bulls", 10, (
+        ("Coke/Engine Cover", "Circuit specific - Cooling Range",
+         "Circuit-specific coke/engine-cover cooling change."),
+        ("Cooling Louvres", "Circuit specific - Cooling Range",
+         "Circuit-specific cooling-louvre change."),
+    )),
+    ("Aston Martin", 12, ()),
+    ("Haas", 13, ()),
+    ("Audi", 14, (
+        ("Rear Corner", "Performance - Local Load",
+         "Updated rear brake-duct deflector."),
+    )),
+    ("Alpine", 16, (
+        ("Exhaust Tailpipe", "Reliability",
+         "Reprofiled tailpipe vane."),
+    )),
+    ("Cadillac", 18, ()),
 )
 
 
@@ -202,16 +257,91 @@ the fight behind them.</p>
 </div>"""
 
 
-def _published_fia_note(document, url, detail):
+def _fia_figure(asset, alt, source, page):
+    return f"""<figure class="circuit-fig">
+  <img src="../assets/{asset}.png" alt="{alt}" class="circuit-img"
+       loading="lazy" onclick="zoomImg(this)" title="Click to zoom / full screen">
+  <figcaption>{alt}. <a href="{source}#page={page}" target="_blank"
+       rel="noopener">Original FIA PDF, page {page}</a>. Click to zoom.</figcaption>
+</figure>"""
+
+
+def _power_unit_summary():
+    readers = (
+        ("mexico-power-unit-map", "Mexico City power-unit information", (
+            _fia_figure(
+                FIA_POWER_UNIT_ASSET + "-p2",
+                "FIA Mexico City power and energy limits, sectors and Overtake lines",
+                FIA_POWER_UNIT,
+                2,
+            ),
+        )),
+        ("mexico-new-pu-elements", "Mexico City new power-unit elements", (
+            _fia_figure(
+                FIA_PU_NEW_ELEMENTS_ASSET + "-p2",
+                "Bottas new ICE, turbocharger and MGU-K report",
+                FIA_PU_NEW_ELEMENTS,
+                2,
+            ),
+            _fia_figure(
+                FIA_PU_NEW_ELEMENTS_ASSET + "-p3",
+                "Mexico City new energy-store and control-electronics report",
+                FIA_PU_NEW_ELEMENTS,
+                3,
+            ),
+        )),
+        ("mexico-pu-usage", "Mexico City season-to-date power-unit usage", (
+            _fia_figure(
+                FIA_PU_USAGE_ASSET + "-p2",
+                "FIA season-to-date power-unit element counts by driver",
+                FIA_PU_USAGE,
+                2,
+            ),
+        )),
+    )
+    controls = "".join(
+        f'<p class="src"><a href="#{target}" data-document-reader '
+        f'data-reader-title="{title}">Read {title}</a> · '
+        f'<a href="{source}" target="_blank" rel="noopener">Original FIA PDF</a></p>'
+        f'<details id="{target}"><summary>{title}</summary>{"".join(figures)}</details>'
+        for target, title, figures, source in (
+            (readers[0][0], readers[0][1], readers[0][2], FIA_POWER_UNIT),
+            (readers[1][0], readers[1][1], readers[1][2], FIA_PU_NEW_ELEMENTS),
+            (readers[2][0], readers[2][1], readers[2][2], FIA_PU_USAGE),
+        )
+    )
     return f"""
-<h2 class="sec">{document}</h2>
-<div class="callout watch">
-  <strong>Published source; event-specific interpretation pending.</strong>
-  The FIA event files include {detail}. This page has not yet transcribed or
-  independently verified the document's event-specific details; the absence
-  of a summary here does not mean that no changes or data were published.
-  <a href="{url}">Open the original FIA PDF</a>.
-</div>
+<h2 class="sec">Mexico City power and energy limits</h2>
+<p>The FIA power-unit information sheet describes a <strong>4.304 km</strong> circuit. Maximum
+recharge is <strong>8.5 MJ/lap</strong> in qualifying, <strong>9.0 MJ</strong>
+in free practice and non-race out-laps, and <strong>8.5 / 9.0 MJ</strong> in
+the race with Overtake inactive / active. The power-limited distance is
+<strong>2,101 m</strong> at a <strong>100 kW/s</strong> reduction rate.</p>
+<p>For Sprint and Race, the FIA labels the main Overtaking Zones
+Base-Standard with Overtake inactive and Base-Overtake when active; other lap
+sections use Alt 1. In practice, including qualifying, the sheet specifies
+Base-Overtake. The separate Straight Mode markings are active-aero zones, not
+electrical Overtake lines.</p>
+<p>The alternative power curve applies at T4–T10 (2,000–2,900 m) and
+T12–T16 (3,600–3,950 m). The 350 kW reduction exceptions cover T5–T6
+(2,100–2,200 m), T7–T10 (2,550–2,900 m), and T12–T16 / Exit T16
+(3,550–3,940 m and 3,950–4,300 m). A reset is permitted at Exit T17
+(4,050–4,300 m); the T8–T9 higher-speed threshold is 250 km/h over
+2,600–2,800 m. Overtake uses a 1.0 s detection gap, detection at 3,871 m
+(L20), and activation at 4,051 m (L21 / SC1).</p>
+<h2 class="sec">Power-unit elements and separate sanction</h2>
+<p>The new-elements report lists Valtteri Bottas's fifth ICE and turbocharger,
+and fourth MGU-K, energy store and control electronics; each exceeds its
+season allowance in the FIA report. Stewards' Document 17 separately imposed
+a 50-place drop for the next Race
+(<a href="{FIA_BOTTAS_PU_PENALTY}" target="_blank" rel="noopener">original ruling</a>).
+The usage snapshot and penalty are separate records; see the
+<a href="penalties.html">Penalties page</a> for the ruling.</p>
+<p class="src">Sources: FIA Power Unit Information, New Power Unit Elements,
+Power Unit Elements Used and Stewards' Document 17. Distances and values above
+are transcribed from the retained FIA screenshots; the complete source pages
+and original PDFs follow.</p>
+{controls}
 """
 
 
@@ -253,31 +383,18 @@ def build_pages(ctx, env):
             + _rookies()
         )
         pages["upgrades"]["sub"] = (
-            "The FIA submission is published; its team-by-team details still need review."
+            "All eleven FIA team declarations, stated rationales and explicit nil returns."
         )
-        pages["upgrades"]["body"] = pages["upgrades"]["body"].replace(
-            content_generic.pending(
-                "FIA car presentation submissions for this round",
-                "on the Friday of the race week",
-            ),
-            _published_fia_note(
-                "Mexico City car presentation submissions",
-                FIA_CAR_PRESENTATION,
-                "the Car Presentation Submissions PDF",
-            ),
+        pages["upgrades"]["body"] = render_submissions(
+            UPGRADE_SUBMISSIONS,
+            source_url=FIA_CAR_PRESENTATION,
+            asset_prefix=FIA_CAR_PRESENTATION_ASSET,
+            document="Mexico City Grand Prix",
+            event="Mexico City Grand Prix",
+            issued="issue date not stated on the retained pages",
         )
         pages["powerunit"]["sub"] = (
-            "The FIA event document is published; its event-specific values are not transcribed."
+            "FIA event energy limits, Overtake points and driver power-unit changes."
         )
-        pages["powerunit"]["body"] = pages["powerunit"]["body"].replace(
-            content_generic.pending(
-                "The FIA power-unit and energy-map document for this event",
-                "with the event documents in the race week",
-            ),
-            _published_fia_note(
-                "Mexico City power-unit information",
-                FIA_POWER_UNIT,
-                "the Power Unit Information PDF",
-            ),
-        )
+        pages["powerunit"]["body"] = _power_unit_summary()
     return pages
