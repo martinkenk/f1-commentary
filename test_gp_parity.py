@@ -232,7 +232,12 @@ class GPParityTests(unittest.TestCase):
             self.assertIn("wet-dry-wet 71-lap race", body)
             self.assertIn("Norris made another stop on Lap 49", body)
             self.assertIn("Rain returned at Lap 61", body)
-            self.assertIn("Race classification remains provisional", body)
+            self.assertIn(
+                "FIA Document 81 confirms the final classification after 71 laps and 305.879 km",
+                body,
+            )
+            self.assertNotIn("Race classification remains provisional", body)
+            self.assertIn(content_brazil.FIA_FINAL_RACE_CLASSIFICATION_URL, body)
             self.assertIn(content_brazil.FIA_EVENT, body)
             self.assertNotIn("two Soft stints and one Medium", body)
             self.assertNotIn("Post-qualifying tyre strategy", body)
@@ -246,6 +251,15 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Pre-race strategy forecast (for comparison)", tyres)
         self.assertIn("These dry-race projections did not describe the wet-dry-wet race", tyres)
         self.assertIn(content_brazil.F1_RACE_REPORT, tyres)
+
+    def test_brazil_final_points_review_is_linked_from_notes_and_schedule(self):
+        pages = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )
+        for slug in ("notes", "schedule"):
+            self.assertIn("FIA Document 81", pages[slug]["body"])
+            self.assertIn("FIA Document 82", pages[slug]["body"])
+        self.assertIn(content_brazil.FIA_CHAMPIONSHIP_POINTS_URL, pages["notes"]["body"])
 
     def test_brazil_revised_power_unit_sheet_and_curfew_are_interpreted(self):
         pages = content_brazil.build_pages(
@@ -334,7 +348,11 @@ class GPParityTests(unittest.TestCase):
             "official Starting Grid page checked at 18:40 UTC agrees with FIA Document 59",
             notes,
         )
-        self.assertIn("Race results page still showed no classification at 18:40 UTC", notes)
+        self.assertIn(
+            "FIA Document 81 later records the final Race classification after",
+            notes,
+        )
+        self.assertIn(content_brazil.FIA_FINAL_RACE_CLASSIFICATION_URL, notes)
         self.assertIn("Lindblad 18th and Bortoleto 19th", notes)
         self.assertNotIn("still-pending official Starting Grid", notes)
         schedule = content_brazil.build_pages(
@@ -542,6 +560,14 @@ class GPParityTests(unittest.TestCase):
                 "2026_sao_paulo_grand_prix_-_infringement_-_car_12_-_unsafe_release.pdf",
                 content_brazil.FIA_ANTONELLI_UNSAFE_RELEASE_URL,
             ),
+            (
+                "2026_sao_paulo_grand_prix_-_final_race_classification.pdf",
+                content_brazil.FIA_FINAL_RACE_CLASSIFICATION_URL,
+            ),
+            (
+                "2026_sao_paulo_grand_prix_-_championship_points.pdf",
+                content_brazil.FIA_CHAMPIONSHIP_POINTS_URL,
+            ),
         ):
             document = media_by_name[filename]
             self.assertEqual(document["url"], url)
@@ -550,6 +576,15 @@ class GPParityTests(unittest.TestCase):
                 self.assertTrue(
                     (Path(__file__).parent / "assets_src" / page["asset"]).is_file()
                 )
+
+        latest_review = review["latest_fia_review"]
+        self.assertEqual(latest_review["reviewed_at"], review["reviewed_at"])
+        self.assertIn("Visually reviewed FIA Document 81", latest_review["basis"])
+        self.assertIn("Visually reviewed FIA Document 82", latest_review["basis"])
+        self.assertIn(content_brazil.FIA_FINAL_RACE_CLASSIFICATION_URL,
+                      latest_review["sources"])
+        self.assertIn(content_brazil.FIA_CHAMPIONSHIP_POINTS_URL,
+                      latest_review["sources"])
 
         penalties = pages["penalties"]["body"]
         rows = re.findall(r"<tr>(.*?)</tr>", penalties, re.S)

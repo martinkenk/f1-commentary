@@ -1,23 +1,31 @@
 {
-  "reviewed_at": "2026-11-08T21:42:01Z",
-  "expires_at": "2026-11-09T05:42:00Z",
+  "reviewed_at": "2026-11-08T22:23:58Z",
+  "expires_at": "2026-11-09T05:23:58Z",
   "through_session": "Race",
-  "feed_fingerprint": "dc5e69a0c0fb942cee1abe44bd7d650ab2c9fb5b8d9fac3d4e7e77e2d9fd571e",
+  "feed_fingerprint": "9153bb707ef22d1562b15fabd2a0de71325dd3aa5dc1361a12fb568bfb7665f0",
   "items": [
     {
       "topic": "Race result",
-      "title": "Norris wins wet São Paulo race as Mercedes clinches Constructors’ title",
+      "title": "Norris wins wet São Paulo race as Mercedes seals Constructors’ title",
       "date": "2026-11-08",
-      "summary": "Formula1.com reports Norris won the 71-lap wet-dry-wet race in 1:35:23.504, 14.602 seconds ahead of Verstappen; Hadjar completed the podium. Mercedes clinched the 2026 Constructors’ title. Verstappen also received the official fan-voted Driver of the Day award with 31.3% of votes. The published 22-entrant Race classification is still marked provisional.",
-      "why_it_matters": "Norris converted pole while Verstappen climbed from P21 and won the fan vote; Mercedes' Constructors’ title is decided, but the live classification remains subject to revision.",
+      "summary": "FIA Document 81 confirms Norris won the 71-lap wet-dry-wet race in 1:35:23.504, 14.602 seconds ahead of Verstappen; Hadjar completed the podium. The final classification matches Formula1.com. FIA Document 82 records Mercedes on 652 points after Brazil; Formula1.com reports that the team clinched the 2026 Constructors’ title.",
+      "why_it_matters": "Norris converted pole, Verstappen climbed from P21, and Mercedes secured the teams' championship. The result is now final rather than provisional.",
       "sources": [
         {
           "label": "Formula1.com race report",
           "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
         },
         {
-          "label": "Formula1.com provisional Race classification",
+          "label": "Formula1.com Race results table",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+        },
+        {
+          "label": "FIA Document 81: final Race classification",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_race_classification.pdf"
+        },
+        {
+          "label": "FIA Document 82: championship points",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_championship_points.pdf"
         },
         {
           "label": "Formula1.com Driver of the Day",
@@ -26,11 +34,28 @@
       ]
     },
     {
-      "topic": "Stewards’ decisions",
-      "title": "Antonelli, Leclerc and Bearman penalised as Race classification remains provisional",
+      "topic": "Russell's pit-exit spin",
+      "title": "Russell says he risked too much after costly pit-exit spin",
       "date": "2026-11-08",
-      "summary": "FIA Document 80 gives Kimi Antonelli five seconds added to Race time for Car 12's unsafe release into Franco Colapinto's path, resolving Documents 68-69. Document 79 gives Charles Leclerc five seconds for contact with Liam Lawson at Turn 12, resolving Documents 72-73; the Stewards found the contact helped Leclerc pass five corners later and cited wet conditions and minor contact in reducing the penalty from ten seconds. Document 78 gives Oliver Bearman five seconds for an unsafe release into Leclerc's path, resolving Documents 74-75. Document 76 lists 22 Race lap-time deletions across ten drivers; Document 77 reports all inspected items and weights complied. Formula1.com's 21:36 UTC Race table still contains 22 entrants and marks the classification provisional.",
-      "why_it_matters": "Three five-second penalties, separate lap-time deletions and a routine scrutineering report must not be conflated; the latest published classification remains provisional.",
+      "summary": "Formula1.com reports Russell spun at the pit exit after switching to slicks, recovered without damage and finished fourth. Russell said he had no idea what happened and thought he may have taken too much risk while seeing a chance to win; that is his account, not a confirmed mechanical cause.",
+      "why_it_matters": "The spin cost positions before Russell recovered to fourth; his explanation is a driver account, not a technical diagnosis.",
+      "sources": [
+        {
+          "label": "Formula1.com Russell interview",
+          "url": "https://www.formula1.com/en/latest/article/no-idea-what-happened-on-that-pit-exit-russell-reflects-on-spin-and-mercedes-title-win-in-sao-paulo.1C1TWOL9x9TBOkYyNxid7F"
+        },
+        {
+          "label": "Formula1.com Race results table",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+        }
+      ]
+    },
+    {
+      "topic": "Stewards’ decisions",
+      "title": "Final FIA classification applies three five-second penalties",
+      "date": "2026-11-08",
+      "summary": "FIA Documents 78, 79 and 80 impose five seconds on Oliver Bearman for an unsafe release, Charles Leclerc for contact with Liam Lawson, and Kimi Antonelli for an unsafe release. Formula1.com also reports Leclerc's post-race penalty. Document 81's final order places Lawson seventh, Leclerc eighth, Antonelli fifth and Bearman 17th; its current result table agrees. Document 76 lists lap-time deletions separately, while Document 77 reports the inspected cars complied.",
+      "why_it_matters": "The penalties changed the final order and points; deleted laps and the earlier summons are separate from the three timed sanctions.",
       "sources": [
         {
           "label": "FIA Document 67: Albon unsafe rejoin penalty",
@@ -81,6 +106,10 @@
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_12_-_unsafe_release.pdf"
         },
         {
+          "label": "Formula1.com Leclerc post-race penalty report",
+          "url": "https://www.formula1.com/en/latest/article/leclerc-hit-with-post-race-penalty-for-sao-paulo-collision-with-lawson.scK3PbeAxR70InNjz1ph3"
+        },
+        {
           "label": "FIA Document 76: Race lap-time deletions",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_race_deleted_lap_times.pdf"
         },
@@ -89,7 +118,11 @@
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_race_scrutineering.pdf"
         },
         {
-          "label": "Formula1.com provisional Race classification",
+          "label": "FIA Document 81: final Race classification",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_race_classification.pdf"
+        },
+        {
+          "label": "Formula1.com Race results table",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
         }
       ]
@@ -98,15 +131,15 @@
       "topic": "Milestone",
       "title": "Hamilton reaches 400 starts and scores in São Paulo",
       "date": "2026-11-08",
-      "summary": "Formula1.com identifies the São Paulo Grand Prix as Hamilton’s 400th F1 start; the provisional classification places him ninth, one lap down, with two points.",
-      "why_it_matters": "A career milestone sits alongside a points finish after starting 20th; both remain tied to the current provisional classification.",
+      "summary": "Formula1.com identifies the São Paulo Grand Prix as Hamilton’s 400th F1 start. The final classification places him ninth, one lap down, with two points after starting 20th.",
+      "why_it_matters": "A career milestone also ended in a points finish; the final result confirms his ninth place.",
       "sources": [
         {
           "label": "Formula1.com race report",
           "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
         },
         {
-          "label": "Formula1.com provisional Race classification",
+          "label": "Formula1.com Race results table",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
         }
       ]
@@ -123,7 +156,7 @@
           "url": "https://www.formula1.com/en/latest/article/verstappen-reflects-on-challenging-sao-paulo-gp-as-he-charges-from-p21-to-the-podium.4g4jMP9fsJQwWOCfDLitK9"
         },
         {
-          "label": "Formula1.com provisional Race classification",
+          "label": "Formula1.com Race results table",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
         }
       ]

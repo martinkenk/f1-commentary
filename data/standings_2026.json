@@ -38,7 +38,7 @@
       "Charles Leclerc",
       "LEC",
       "Ferrari",
-      251
+      249
     ],
     [
       6,
@@ -66,7 +66,7 @@
       "Liam Lawson",
       "LAW",
       "Racing Bulls",
-      87
+      89
     ],
     [
       10,
@@ -190,7 +190,7 @@
     [
       2,
       "Ferrari",
-      512
+      510
     ],
     [
       3,
@@ -205,7 +205,7 @@
     [
       5,
       "Racing Bulls",
-      112
+      114
     ],
     [
       6,
@@ -238,14 +238,6 @@
       0
     ]
   ],
-  "fetched_at": "2026-11-08T21:48:12+00:00",
-  "results_round": 20,
-  "checked_at": "2026-11-08T22:07:21+00:00",
-  "refresh_status": {
-    "state": "source_regression",
-    "checked_at": "2026-11-08T22:07:21+00:00",
-    "mismatches": [
-      "Driver LEC: official standings fell from 251 to 249 points"
-    ]
-  }
+  "fetched_at": "2026-11-08T22:26:34+00:00",
+  "results_round": 20
 }

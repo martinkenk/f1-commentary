@@ -27,6 +27,8 @@ FIA_PEREZ_PU_PENALTY_URL = FIA + "infringement_-_car_11_-_changes_to_pu_elements
 FIA_BORTOLETO_PU_PENALTY_URL = FIA + "infringement_-_car_5_-_changes_to_pu_elements.pdf"
 FIA_LINDBLAD_PU_PENALTY_URL = FIA + "infringement_-_car_41_-_changes_to_pu_elements.pdf"
 FIA_FINAL_STARTING_GRID_URL = FIA + "final_starting_grid.pdf"
+FIA_FINAL_RACE_CLASSIFICATION_URL = FIA + "final_race_classification.pdf"
+FIA_CHAMPIONSHIP_POINTS_URL = FIA + "championship_points.pdf"
 F1_RACE_RESULTS = "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
 F1_RACE_REPORT = (
     "https://www.formula1.com/en/latest/article/"
@@ -342,10 +344,11 @@ Hamilton was first to switch to Softs at the end of Lap 14; Norris, Russell
 and Hadjar stopped at the end of Lap 16, followed by Antonelli and Verstappen
 on Lap 17. Norris made another stop on Lap 49. When rain returned, Russell
 and Alonso were first to switch to Intermediates at Lap 61, then the field
-followed. The FIA event listing still identifies the published Race
-classification as provisional.
+followed. FIA Document 81 records the final classification after 71 laps and
+305.879 km, matching the current Formula1.com result table.
 <a href="{F1_RACE_REPORT}">Formula1.com race report and pit-stop chronology</a> ·
 <a href="{FIA_EVENT}">FIA event listing</a> ·
+<a href="{FIA_FINAL_RACE_CLASSIFICATION_URL}">FIA Document 81, final classification</a> ·
 <a href="{F1_RACE_RESULTS}">Formula1.com Race classification</a>.</p>
 <h2 class="sec">Pre-race strategy forecast (for comparison)</h2>
 <p>Pirelli's 7 November report says Qualifying used Full Wets in Q1, then
@@ -395,9 +398,10 @@ on Lap 17. Norris made another stop on Lap 49. Rain returned at Lap 61, when
 Russell and Alonso first changed to Intermediates and the field followed.
 The pre-race dry strategy projections are retained on
 <a href="tyres.html">Tyres &amp; Strategy</a> as historical estimates, not
-the race's actual route. The published FIA Race classification remains
-provisional.
+the race's actual route. FIA Document 81 confirms the final classification
+after 71 laps and 305.879 km, in agreement with Formula1.com.
 <a href="{F1_RACE_REPORT}">Formula1.com race report</a> ·
+<a href="{FIA_FINAL_RACE_CLASSIFICATION_URL}">FIA Document 81, final classification</a> ·
 <a href="{F1_RACE_RESULTS}">Race classification</a> ·
 <a href="{FIA_EVENT}">FIA event listing</a> ·
 <a href="tyres.html">Pre-race forecast and image-bound tyre-set record</a>.</p>"""
@@ -758,15 +762,15 @@ snapshot retrieved at 16:09 UTC still listed Lindblad 12th. The official
 Starting Grid page checked at 18:40 UTC agrees with FIA Document 59: Stroll
 16th, Bottas 17th, Lindblad 18th and Bortoleto 19th. A collector snapshot at
 18:36 UTC briefly reverted to the earlier order; Results remains bound to the
-hash-reviewed FIA grid. The Race results page still showed no classification at
-18:40 UTC. Starting positions remain separate from qualifying results.
+hash-reviewed FIA grid. Starting positions remain separate from qualifying
+results. FIA Document 81 later records the final Race classification after
+71 laps and 305.879 km; it confirms Norris, Verstappen and Hadjar in the top
+three, Stroll as DNF and Bottas as DNS, with the post-race penalties applied.
+The current Formula1.com table agrees.
 <a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, page 2</a> ·
+<a href="{FIA_FINAL_RACE_CLASSIFICATION_URL}">FIA Document 81</a> ·
 <a href="{F1_STARTING_GRID}">Formula1.com Starting Grid snapshot</a> ·
-<a href="{F1_RACE_RESULTS}">Formula1.com Race results</a>. At 18:40 UTC the
-Race page still had no classification; the snapshot fetched at 19:16 UTC now
-lists a provisional 22-entrant result: Norris first, Verstappen second and
-Hadjar third, with Stroll DNF and Bottas DNS. The source still labels it
-provisional, so it remains subject to revision. Related PU-penalty decisions:
+<a href="{F1_RACE_RESULTS}">Formula1.com Race results</a>. Related PU-penalty decisions:
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
 <a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a>.</p>"""
     pages["notes"]["body"] += f"""
@@ -779,11 +783,9 @@ and 66 take no further action against Lewis Hamilton and Sergio Perez: the
 Stewards found Hamilton returned the position after leaving the track while
 avoiding Car 87, and Perez slowed appropriately for the double-yellow flags.
 Document 71 gives Nico Hulkenberg a 10-second time penalty for leaving the
-track and gaining a lasting advantage while overtaking Car 43 at Turn 1. At
-19:36 UTC, the Formula1.com table still listed Hulkenberg 10th. The
-classification remains provisional, so do not treat his displayed position or
-points as final after this ruling. The Penalties page retains each same-row
-FIA reader.
+track and gaining a lasting advantage while overtaking Car 43 at Turn 1. FIA
+Document 81 later confirms Hulkenberg 10th in the final classification after
+that penalty. The Penalties page retains each same-row FIA reader.
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_23_-_rejoining_the_track_unsafely.pdf">Document 67</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf">Document 64</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_44_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf">Document 65</a> ·
@@ -805,12 +807,16 @@ lists 22 deleted Race lap-time entries across ten drivers for not using the
 track at Turns 1, 2, 3, 4, 7 and 8; these are lap deletions, not additional time
 penalties. Technical Delegate Document 77 reports that the checked cars and
 items, including Car 23's additional post-race throttle-pedal assembly
-inspection, complied with the 2026 Technical Regulations. Formula1.com's 21:36
-UTC Race table contains 22 entrants but remains provisional; do not present the
-classification or the penalties' final effects as settled.
+inspection, complied with the 2026 Technical Regulations. FIA Document 81 is
+the final classification after 71 laps and 305.879 km; it applies the three
+five-second penalties and matches Formula1.com's current 22-entrant result.
+FIA Document 82 records the championship points after Brazil, including 390
+for Antonelli and 652 for Mercedes.
 <a href="{FIA_ANTONELLI_UNSAFE_RELEASE_URL}">Document 80</a> ·
 <a href="{FIA_LECLERC_COLLISION_URL}">Document 79</a> ·
 <a href="{FIA_BEARMAN_UNSAFE_RELEASE_URL}">Document 78</a> ·
+<a href="{FIA_FINAL_RACE_CLASSIFICATION_URL}">Document 81, final classification</a> ·
+<a href="{FIA_CHAMPIONSHIP_POINTS_URL}">Document 82, championship points</a> ·
 <a href="{FIA + 'infringement_-_race_deleted_lap_times.pdf'}">Document 76</a> ·
 <a href="{FIA_RACE_SCRUTINEERING_URL}">Document 77</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_12_-_alleged_unsafe_release.pdf">Document 68</a> ·
@@ -819,7 +825,7 @@ classification or the penalties' final effects as settled.
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_30_-_alleged_causing_a_collision.pdf">Document 73</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_87_-_alleged_unsafe_release.pdf">Document 74</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_unsafe_release_by_car_87.pdf">Document 75</a> ·
-<a href="{F1_RACE_RESULTS}">Formula1.com provisional Race classification</a>.</p>"""
+<a href="{F1_RACE_RESULTS}">Formula1.com Race results table</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(
@@ -898,9 +904,10 @@ snapshot retrieved at 16:09 UTC still listed Lindblad 12th. A current official
 Starting Grid check at 18:40 UTC now matches FIA Document 59 (Lindblad 18th,
 Bortoleto 19th; Stroll 16th, Bottas 17th). The collector briefly received a
 stale order at 18:36 UTC, so Results remains pinned to the hash-reviewed final
-grid. The Race results page still had no classification at 18:40 UTC; the
-snapshot checked at 19:16 UTC now lists a provisional 22-car Race result, which
-remains subject to revision.
+grid. FIA Document 81 now records the final 22-car Race classification after
+71 laps and 305.879 km; it confirms Norris, Verstappen and Hadjar in the top
+three, with Stroll DNF and Bottas DNS. The current Formula1.com result table
+matches this final order.
 Do not substitute starting positions for qualifying results. Document 51 was
 provisional and predates the final grid. The Race's earlier post-penalty order
 was provisional and is superseded by Document 59. See
@@ -909,6 +916,8 @@ the source comparison.
 <a href="{FIA_LINDBLAD_PU_PENALTY_URL}">FIA Document 56</a> ·
 <a href="{FIA_BORTOLETO_PU_PENALTY_URL}">FIA Document 57</a> ·
 <a href="{FIA_FINAL_STARTING_GRID_URL}#page=2">FIA Document 59, page 2</a> ·
+<a href="{FIA_FINAL_RACE_CLASSIFICATION_URL}">FIA Document 81, final Race classification</a> ·
+<a href="{FIA_CHAMPIONSHIP_POINTS_URL}">FIA Document 82, championship points</a> ·
 <a href="{F1_RACE_RESULTS}">Formula1.com Race results</a>.
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's earlier provisional order</a> ·
@@ -918,8 +927,9 @@ the source comparison.
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf#page=2">FIA Document 51, provisional Starting Grid p. 2</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional order</a> ·
 <a href="{FIA_EVENT}">live FIA event documents</a>. FP1, FP2 and FP3
-classifications and Qualifying are published, and the provisional Race
-classification is now available. The pre-race Pirelli race-set chart covers
+classifications and Qualifying are published, and the final Race
+classification is now available. FIA Document 82 records the updated
+championship points. The pre-race Pirelli race-set chart covers
 all 22 drivers; its image-bound transcription records the allocation before
 the start on <a href="tyres.html">Tyres &amp; Strategy</a>.</p>
 <p><strong>Curfew report, 7 November:</strong> FIA Technical Delegate
