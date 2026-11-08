@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-08T20:20:18Z",
-  "expires_at": "2026-11-08T21:00:00Z",
+  "reviewed_at": "2026-11-08T21:23:19Z",
+  "expires_at": "2026-11-09T05:23:00Z",
   "through_session": "Race",
   "feed_fingerprint": "dc5e69a0c0fb942cee1abe44bd7d650ab2c9fb5b8d9fac3d4e7e77e2d9fd571e",
   "items": [
@@ -27,10 +27,10 @@
     },
     {
       "topic": "Stewards’ decisions",
-      "title": "Albon and Hulkenberg penalised; six post-race summons await rulings",
+      "title": "Bearman penalised; race-lap deletions and provisional result remain under review",
       "date": "2026-11-08",
-      "summary": "FIA Document 67 gives Albon five seconds and two penalty points (three in the prior 12 months) for an unsafe rejoin at Turn 3; Document 71 gives Hulkenberg ten seconds for leaving the track and gaining a lasting advantage while overtaking Car 43 at Turn 1. Documents 64-66 reprimand Stroll and take no further action on Hamilton and Perez, respectively. Documents 68-69, 72-73 and 74-75 summon six drivers over three alleged incidents; summons are not findings, and no later rulings appeared in the 19:34 UTC FIA listing. The 19:36 Formula1.com table still places Hulkenberg 10th; the classification remains provisional.",
-      "why_it_matters": "Keep the two time penalties distinct from Stroll’s reprimand and the no-action decisions; do not present six summons as findings or treat the provisional classification as final.",
+      "summary": "FIA Document 78 gives Oliver Bearman five seconds added to Race time for Car 87's unsafe release into Charles Leclerc's path, resolving Documents 74-75. Document 76 lists 22 Race lap-time deletions across ten drivers for track use at Turns 1, 2, 3, 4, 7 and 8; these are not additional time penalties. Technical Delegate Document 77 says all checked items and car weights complied with the 2026 Technical Regulations. Documents 68-69 and 72-73 remain summons, not findings. Formula1.com's 21:20 UTC 22-car Race table still marks the classification provisional and lists Bearman 17th.",
+      "why_it_matters": "The latest race-time penalty must be tracked separately from deleted lap times and routine scrutineering; do not treat the provisional classification or Bearman's final position as settled.",
       "sources": [
         {
           "label": "FIA Document 67: Albon unsafe rejoin penalty",
@@ -69,12 +69,20 @@
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_30_-_alleged_causing_a_collision.pdf"
         },
         {
-          "label": "FIA Document 74: Bearman unsafe-release summons",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_87_-_alleged_unsafe_release.pdf"
+          "label": "FIA Document 78: Bearman unsafe-release penalty",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_unsafe_release.pdf"
         },
         {
-          "label": "FIA Document 75: Leclerc unsafe-release summons",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_unsafe_release_by_car_87.pdf"
+          "label": "FIA Document 76: Race lap-time deletions",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_race_deleted_lap_times.pdf"
+        },
+        {
+          "label": "FIA Document 77: Race scrutineering",
+          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_race_scrutineering.pdf"
+        },
+        {
+          "label": "Formula1.com provisional Race classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
         }
       ]
     },
@@ -88,6 +96,23 @@
         {
           "label": "Formula1.com race report",
           "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+        },
+        {
+          "label": "Formula1.com provisional Race classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+        }
+      ]
+    },
+    {
+      "topic": "Verstappen recovery",
+      "title": "Verstappen describes his P21-to-podium drive as a challenging race",
+      "date": "2026-11-08",
+      "summary": "Formula1.com reports Verstappen started P21, reached second after a strong opening intermediate stint and finished 14.602 seconds behind Norris. He said the car later had a \"weird balance\"; Hadjar completed a Red Bull double podium in third.",
+      "why_it_matters": "The comeback and changing conditions shaped the podium battle, but Verstappen's account of the balance issue is his description, not a confirmed technical diagnosis.",
+      "sources": [
+        {
+          "label": "Formula1.com post-race interview",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-reflects-on-challenging-sao-paulo-gp-as-he-charges-from-p21-to-the-podium.4g4jMP9fsJQwWOCfDLitK9"
         },
         {
           "label": "Formula1.com provisional Race classification",

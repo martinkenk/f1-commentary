@@ -1,13 +1,15 @@
 """Source-reviewed Sao Paulo Grand Prix content, refreshed during the weekend."""
 import content_generic
 import career_starts
-from f1lib import card
+from f1lib import card, render_penalties
 from upgrade_render import render_submissions
 
 FIA = "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_"
 FIA_ENTRY_LIST_URL = FIA + "entry_list.pdf"
 FIA_FP2_DELETIONS_URL = FIA + "infringement_-_free_practice_2_deleted_lap_times.pdf"
 FIA_FP3_DELETIONS_URL = FIA + "infringement_-_free_practice_3_deleted_lap_times.pdf"
+FIA_BEARMAN_UNSAFE_RELEASE_URL = FIA + "infringement_-_car_87_-_unsafe_release.pdf"
+FIA_RACE_SCRUTINEERING_URL = FIA + "race_scrutineering.pdf"
 FIA_CAMARA_REPRIMAND_URL = FIA + "infringement_-_car_51_-_unnecessarily_impeding_of_car_16.pdf"
 FIA_SC2_SC1_URL = FIA + "race_director_notes_-_sc2_-_sc1_times.pdf"
 FIA_NEW_PU_REV2_URL = FIA + "new_pu_elements_for_this_competition_0.pdf"
@@ -785,22 +787,30 @@ FIA reader.
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_44_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf">Document 65</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_11_-_alleged_failure_to_slow_under_yellow_flags.pdf">Document 66</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_27_-_leaving_the_track_and_gaining_an_advantage.pdf">Document 71</a>.</p>"""
-    pages["notes"]["body"] += """
-<p><strong>Post-race summons still listed at 19:34 UTC:</strong> FIA Documents
-68 and 69 summon Kimi Antonelli and Franco Colapinto over an alleged unsafe
-release by Car 12 at 15:36 BRT; the reporting time was 16:30. Documents 72 and
-73 summon Charles Leclerc and Liam Lawson over an alleged collision at Turn 12
-at 15:36 BRT; the reporting time was 16:45. No later ruling on either matter
-appeared in that discovery snapshot. Documents 74 and 75 summon Oliver Bearman
-and Charles Leclerc over an alleged unsafe release by Car 87 at 15:25 BRT; the
-reporting time was 17:15. No ruling on this third incident appeared in the
-same listing. These summons are not findings or penalties.
+    pages["notes"]["body"] += f"""
+<p><strong>Latest post-race FIA updates (discovery checked 21:19 UTC):</strong>
+Document 78 resolves the unsafe-release summons in Documents 74 and 75:
+Oliver Bearman received a five-second time penalty, added to elapsed Race time,
+after Car 87 was released into Charles Leclerc's path and forced Car 16 to brake
+and take evasive action. Document 76 lists 22 deleted Race lap-time entries
+across ten drivers for not using the track at Turns 1, 2, 3, 4, 7 and 8; these
+are lap deletions, not additional time penalties. Technical Delegate Document
+77 reports that the checked cars and items, including the additional post-race
+inspection of Car 23's throttle-pedal assembly, complied with the 2026 Technical
+Regulations. The latest Formula1.com Race table fetched at 21:20 UTC still
+contains 22 entrants and is marked provisional; it lists Bearman 17th, so do
+not present the classification or penalty's final effect as settled. Documents
+68-69 and 72-73 remain summons, not findings.
+<a href="{FIA_BEARMAN_UNSAFE_RELEASE_URL}">Document 78</a> ·
+<a href="{FIA + 'infringement_-_race_deleted_lap_times.pdf'}">Document 76</a> ·
+<a href="{FIA_RACE_SCRUTINEERING_URL}">Document 77</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_12_-_alleged_unsafe_release.pdf">Document 68</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_43_-_alleged_unsafe_release_by_car_12.pdf">Document 69</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_causing_a_collision.pdf">Document 72</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_30_-_alleged_causing_a_collision.pdf">Document 73</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_87_-_alleged_unsafe_release.pdf">Document 74</a> ·
-<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_unsafe_release_by_car_87.pdf">Document 75</a>.</p>"""
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_unsafe_release_by_car_87.pdf">Document 75</a> ·
+<a href="{F1_RACE_RESULTS}">Formula1.com provisional Race classification</a>.</p>"""
     pages["rookies"]["body"] = _lineup() + pages["rookies"]["body"].replace(
         content_generic.pending("Rookie FP1 line-ups for this round", "in the week before the event"), ""
     ).replace(content_generic.pending(
@@ -993,4 +1003,31 @@ Formula1.com identifies Brazil as his 400th start after 20 consecutive seasons.
 Use the <a href="facts.html#career-starts">dated career-start ranking</a> for
 on-air comparisons; entries and sprints are not Grand Prix starts, and active
 rivals continue accumulating starts.</p>"""
+    pages["powerunit"]["body"] += f"""
+<h2 class="sec">Race scrutineering — FIA Document 77</h2>
+<p>The Technical Delegate's report records race-weekend checks of the cars,
+power-unit systems, fuel and oil, followed by post-race weight and component
+inspections. Car 23 was selected for an additional throttle-pedal assembly
+inspection; the report states that all checked items and car weights complied
+with the 2026 Technical Regulations. This is a technical inspection report,
+not a Stewards' ruling. The five substantive pages are available in the FIA
+document gallery below.
+<a href="{FIA_RACE_SCRUTINEERING_URL}">FIA Document 77</a>.</p>"""
+    pages["penalties"] = {
+        "kicker": "Stewards",
+        "title": "Penalties & Stewards",
+        "sub": "Every stewards' decision, infringement, fine and penalty from the FIA event documents.",
+        "body": render_penalties(ctx, [{
+            "doc": "Doc 78",
+            "no": "87",
+            "driver": "Oliver Bearman",
+            "team": "TGR Haas F1 Team",
+            "session": "Race",
+            "fact": "Car 87 was released in an unsafe manner into the path of Car 16, forcing Charles Leclerc to brake and take evasive action.",
+            "outcome": "5 second time penalty (5 seconds added to elapsed Race time).",
+            "kind": "penalty",
+            "source_pdf": "2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_unsafe_release.pdf",
+            "source_url": FIA_BEARMAN_UNSAFE_RELEASE_URL,
+        }], fia_url=FIA_EVENT),
+    }
     return pages

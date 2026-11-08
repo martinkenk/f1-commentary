@@ -513,6 +513,58 @@ class GPParityTests(unittest.TestCase):
             self.assertIn("Reprimand (Driving)", record["outcome"])
             self.assertIn(ordinal, record["outcome"])
 
+    def test_brazil_latest_post_race_fia_documents_are_reviewed(self):
+        pages = content_brazil.build_pages(
+            dict(self.contexts["brazil"], status="live"), self.env
+        )
+        base = Path(__file__).parent / "data/brazil"
+        review = json.loads((base / "coverage_review.json").read_text())
+        media = json.loads((base / "fia_media.json").read_text())
+        media_by_name = {item["filename"]: item for item in media["documents"]}
+        for filename, url in (
+            (
+                "2026_sao_paulo_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+                "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+            ),
+            (
+                "2026_sao_paulo_grand_prix_-_race_scrutineering.pdf",
+                content_brazil.FIA_RACE_SCRUTINEERING_URL,
+            ),
+            (
+                "2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_unsafe_release.pdf",
+                content_brazil.FIA_BEARMAN_UNSAFE_RELEASE_URL,
+            ),
+        ):
+            document = media_by_name[filename]
+            self.assertEqual(document["url"], url)
+            self.assertEqual(review["fia_sha256"].get(url), document["sha256"])
+            for page in document["pages"]:
+                self.assertTrue(
+                    (Path(__file__).parent / "assets_src" / page["asset"]).is_file()
+                )
+
+        penalties = pages["penalties"]["body"]
+        row = next(
+            match.group(1)
+            for match in re.finditer(r"<tr>(.*?)</tr>", penalties, re.S)
+            if ">Doc 78</a>" in match.group(1)
+        )
+        self.assertIn("Oliver Bearman", row)
+        self.assertIn("Charles Leclerc", row)
+        self.assertIn("5 second time penalty", row)
+        self.assertIn(content_brazil.FIA_BEARMAN_UNSAFE_RELEASE_URL, row)
+        self.assertIn('<details class="penalty-document"', row)
+        self.assertIn("data-document-reader", row)
+
+        notes = " ".join(pages["notes"]["body"].split())
+        self.assertIn("22 deleted Race lap-time entries", notes)
+        self.assertIn("Documents 74 and 75", notes)
+        self.assertIn("Bearman 17th", notes)
+        self.assertNotIn("six post-race summons await rulings", notes)
+        powerunit = " ".join(pages["powerunit"]["body"].split())
+        self.assertIn("Race scrutineering — FIA Document 77", powerunit)
+        self.assertIn("all checked items and car weights complied", powerunit)
+
     def test_brazil_parc_ferme_report_is_hash_reviewed_and_not_a_penalty(self):
         pages = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
