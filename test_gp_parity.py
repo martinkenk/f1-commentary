@@ -126,7 +126,7 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("no action should be taken", schedule)
         self.assertIn("curfew_0.pdf", schedule)
         self.assertIn(
-            "13:30 UTC contained no later Pirelli prescription",
+            "00:16 UTC contained no later Pirelli prescription",
             pages["tyres"]["body"],
         )
 
@@ -172,8 +172,11 @@ class GPParityTests(unittest.TestCase):
         notes = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )["notes"]["body"]
+        notes = " ".join(notes.split())
         self.assertIn(content_brazil.FIA_HAMILTON_ADDITIONAL_PENALTY_URL, notes)
         self.assertIn("75 places cumulatively", notes)
+        self.assertIn("penalty-adjusted official Starting Grid", notes)
+        self.assertNotIn("still-pending official Starting Grid", notes)
         schedule = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )["schedule"]["body"]
@@ -219,6 +222,8 @@ class GPParityTests(unittest.TestCase):
         tyres = " ".join(pages["tyres"]["body"].split())
         self.assertIn("pre-qualifying assessment", tyres)
         self.assertIn("found no Brazil inventory chart", tyres)
+        self.assertIn("00:29 UTC", tyres)
+        self.assertNotIn("22:30 UTC", tyres)
         self.assertIn(content_brazil.PIRELLI_FP2_STRATEGY, tyres)
         self.assertIn("no set counts are inferred", tyres)
 

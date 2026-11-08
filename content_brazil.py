@@ -266,7 +266,7 @@ per driver; post-qualifying availability must be sourced separately.</p>
 <p>Maximum heating: two hours, 70°C slick/intermediate and 40°C wet, measured
 at tread and sidewall rather than the blanket controller. Cold-pressure curves:
 front (T−70)×0.126+Pstart; rear (T−70)×0.125+Pstart. The latest successful FIA
-document discovery at 13:30 UTC contained no later Pirelli prescription.</p>
+document discovery at 00:16 UTC contained no later Pirelli prescription.</p>
 <p>Pirelli's full poster estimates <strong>22.5 seconds pit-stop loss</strong>.
 Traction, braking, stress, abrasion, grip and lateral demand are all 3/5;
 track evolution is 5/5. Resurfacing between Turns 3–5 and 8–9 makes Friday's
@@ -281,7 +281,7 @@ forecast left wet options open and said two stops could be viable in dry
 conditions, but explicitly deferred a firm conclusion until later sessions.
 This is a pre-qualifying assessment, not a current Sunday forecast or final
 strategy recommendation. Qualifying was subsequently rain-affected. Public
-race-set feeds checked at 22:30 UTC still found no Brazil inventory chart; no
+race-set feeds checked at 00:29 UTC still found no Brazil inventory chart; no
 set counts are inferred, and Formula1.com's access-restricted strategy guide
 was not bypassed. <a href="{PIRELLI_FP2_STRATEGY}">Pirelli's FP2 analysis</a> ·
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a>.</p>
@@ -559,7 +559,7 @@ def build_pages(ctx, env):
 Bearman (Car 87) reversed in the pit lane under its own power. The Stewards
 imposed a driving reprimand, his second of the season; this ruling is not a
 grid penalty. <a href="{FIA_BEARMAN_REVERSAL_URL}">Read the FIA decision</a>.
-See the published Qualifying result and the still-pending official Starting
+See the published Qualifying result and penalty-adjusted official Starting
 Grid under <a href="results.html">Results</a>.</p>
 <p><strong>Qualifying lap deletions:</strong> FIA Document 44 lists eight
 deleted lap-time entries affecting Rafael Câmara, Gabriel Bortoleto, Lance
