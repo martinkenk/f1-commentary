@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-08T11:56:39+00:00",
+  "checked_at": "2026-11-08T12:24:35+00:00",
   "state": "available",
   "error": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-sao-paulo-gp.1VKxBiV7J8p5OfDdK0NShA: Published article is access-restricted; no login or protected API attempted",
   "attempts": [
@@ -19,9 +19,9 @@
       "message": "Published article is access-restricted; no login or protected API attempted"
     },
     {
-      "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/Brazil_2026_Tyres_Available_CCM_CORRECTED.webp",
+      "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/1920_20-br26-racesets.webp",
       "state": "available",
-      "message": "Full 1080×607 WEBP decoded and hashed; secondary-reproduction; numeric counts not verified"
+      "message": "Full 1080×608 WEBP decoded and hashed; secondary-reproduction; numeric counts not verified"
     }
   ]
 }
