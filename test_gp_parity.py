@@ -223,20 +223,29 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_brazil.FIA_PRE_RACE_URL + "#page=2", notes)
         self.assertIn(content_brazil.FIA_POST_RACE_URL + "#page=2", notes)
 
-    def test_brazil_post_qualifying_strategy_is_surfaced_on_overview_and_notes(self):
+    def test_brazil_race_recap_replaces_expired_pre_race_briefing(self):
         pages = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )
         for slug in ("overview", "notes"):
             body = " ".join(pages[slug]["body"].split())
-            self.assertIn("two Soft", body)
-            self.assertIn("one Medium", body)
-            self.assertIn("three seconds", body)
-            self.assertIn("ten seconds slower", body)
-            self.assertIn("not a live update", body)
-            self.assertIn("laps 17–23 and 42–48", body)
-            self.assertIn(content_brazil.CCM_BRAZIL_STRATEGY, body)
-            self.assertIn(content_brazil.PIRELLI_POST_QUALI_STRATEGY, body)
+            self.assertIn("wet-dry-wet 71-lap race", body)
+            self.assertIn("Norris made another stop on Lap 49", body)
+            self.assertIn("Rain returned at Lap 61", body)
+            self.assertIn("Race classification remains provisional", body)
+            self.assertIn(content_brazil.FIA_EVENT, body)
+            self.assertNotIn("two Soft stints and one Medium", body)
+            self.assertNotIn("Post-qualifying tyre strategy", body)
+        for slug in ("overview", "teams", "upgrades"):
+            body = pages[slug]["body"]
+            self.assertIn("Mercedes clinches constructors' title in Sao Paulo", body)
+            self.assertIn("secured the 2026 Constructors' Championship in Brazil", body)
+            self.assertNotIn("constructors' title still in play", body)
+        tyres = " ".join(pages["tyres"]["body"].split())
+        self.assertIn("Race strategy in the wet-dry-wet race", tyres)
+        self.assertIn("Pre-race strategy forecast (for comparison)", tyres)
+        self.assertIn("These dry-race projections did not describe the wet-dry-wet race", tyres)
+        self.assertIn(content_brazil.F1_RACE_REPORT, tyres)
 
     def test_brazil_revised_power_unit_sheet_and_curfew_are_interpreted(self):
         pages = content_brazil.build_pages(
@@ -374,7 +383,9 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_brazil.FIA_STROLL_DOUBLE_YELLOW_URL, notes)
 
         tyres = " ".join(pages["tyres"]["body"].split())
-        self.assertIn("Post-qualifying race-strategy assessment", tyres)
+        self.assertIn("Pre-race strategy forecast (for comparison)", tyres)
+        self.assertIn("Race strategy in the wet-dry-wet race", tyres)
+        self.assertIn("Hamilton was first to switch to Softs at the end of Lap 14", tyres)
         self.assertIn("two stints on Soft and one on Medium", tyres)
         self.assertIn("about three seconds quicker", tyres)
         self.assertIn("around ten seconds slower", tyres)

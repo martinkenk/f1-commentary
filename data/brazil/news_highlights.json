@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-11-08T19:38:07Z",
-  "expires_at": "2026-11-08T21:38:07Z",
+  "reviewed_at": "2026-11-08T20:20:18Z",
+  "expires_at": "2026-11-08T21:00:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "194cbd2dcb6b3d53af5581491594d8b924dc6faa7d98625eafaa3498def4e40a",
+  "feed_fingerprint": "dc5e69a0c0fb942cee1abe44bd7d650ab2c9fb5b8d9fac3d4e7e77e2d9fd571e",
   "items": [
     {
       "topic": "Race result",
       "title": "Norris wins wet São Paulo race as Mercedes clinches Constructors’ title",
       "date": "2026-11-08",
-      "summary": "Formula1.com reports Norris won the 71-lap wet-dry-wet race in 1:35:23.504, 14.602 seconds ahead of Verstappen; Hadjar completed the podium. Mercedes clinched the 2026 Constructors’ title. The published 22-entrant Race classification is still marked provisional.",
-      "why_it_matters": "Norris converted pole while Verstappen climbed from P21; the Constructors’ title is decided, but the live classification remains subject to revision.",
+      "summary": "Formula1.com reports Norris won the 71-lap wet-dry-wet race in 1:35:23.504, 14.602 seconds ahead of Verstappen; Hadjar completed the podium. Mercedes clinched the 2026 Constructors’ title. Verstappen also received the official fan-voted Driver of the Day award with 31.3% of votes. The published 22-entrant Race classification is still marked provisional.",
+      "why_it_matters": "Norris converted pole while Verstappen climbed from P21 and won the fan vote; Mercedes' Constructors’ title is decided, but the live classification remains subject to revision.",
       "sources": [
         {
           "label": "Formula1.com race report",
@@ -18,6 +18,10 @@
         {
           "label": "Formula1.com provisional Race classification",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+        },
+        {
+          "label": "Formula1.com Driver of the Day",
+          "url": "https://www.formula1.com/en/latest/article/driver-of-the-day-verstappen-gets-fan-vote-for-p21-to-podium-performance-in-sao-paulo.6lAa8RxSlJMqHxsNM0rAKF"
         }
       ]
     },

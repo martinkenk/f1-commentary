@@ -24,6 +24,11 @@ FIA_BORTOLETO_PU_PENALTY_URL = FIA + "infringement_-_car_5_-_changes_to_pu_eleme
 FIA_LINDBLAD_PU_PENALTY_URL = FIA + "infringement_-_car_41_-_changes_to_pu_elements.pdf"
 FIA_FINAL_STARTING_GRID_URL = FIA + "final_starting_grid.pdf"
 F1_RACE_RESULTS = "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+F1_RACE_REPORT = (
+    "https://www.formula1.com/en/latest/article/"
+    "norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-"
+    "constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+)
 FIA_PARC_FERME_PARTS_URL = (
     FIA + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf"
 )
@@ -154,13 +159,14 @@ def _teams():
     return f"""
 <h2 class="sec">Team and grid storylines</h2>
 <div class="grid cols-2">
-{card("Mercedes: constructors' title still in play", f'''<p>Antonelli clinched
-the Drivers' Championship in Mexico. The latest official standings still show
-Mercedes leading Ferrari <strong>630–504 (126 points)</strong>. Formula1.com's
-pre-weekend scenario says gaining three points on Ferrari in Brazil clinches
-the constructors' title; practice awards no points, and the title is not yet
-settled.
-<a href="{STORYLINES}">Official title scenario</a>.</p>''', "bi-trophy", "accent")}
+{card("Mercedes clinches constructors' title in Sao Paulo", f'''<p>Formula1.com
+reports Mercedes secured the 2026 Constructors' Championship in Brazil.
+Antonelli had already clinched the Drivers' title in Mexico. The linked
+standings page carries the current official championship totals; the
+pre-race three-point scenario is now settled.
+<a href="{F1_RACE_REPORT}">Formula1.com race report</a> ·
+<a href="https://www.formula1.com/en/results/2026/team">official
+Constructors' standings</a>.</p>''', "bi-trophy", "accent")}
 {card("Power-unit changes reshape the grid", f'''<p>FIA Document 30 reports
 new elements for Verstappen, both Ferraris, Perez and Russell. It records
 Verstappen's fifth ICE, turbocharger and exhaust against four allowed, and a
@@ -311,9 +317,8 @@ def _tyres():
 <h2 class="sec">FIA tyre prescriptions</h2>
 <p>C3 Hard / C4 Medium / C5 Soft. Mandatory race specifications: <strong>C3/C4</strong>;
 Q3 tyre: <strong>C5</strong>. These are nominations, not remaining race-set counts.
-The initial weekend allocation is two hard, three medium and eight soft sets
-per driver. The post-qualifying Pirelli race-set chart is now available and
-its driver-by-driver figures are transcribed below.</p>
+The reviewed chart below is the pre-race remaining-set snapshot, taken after
+Qualifying; it is not a live post-race inventory.</p>
 <div class="table-wrap"><table class="data" id="brazil-tyre-limits">
 <thead><tr><th>Type</th><th>Axle</th><th>Minimum start (psi)</th>
 <th>Expected stabilized (psi)</th><th>Camber limit</th></tr></thead><tbody>{table}</tbody></table></div>
@@ -327,12 +332,24 @@ Traction, braking, stress, abrasion, grip and lateral demand are all 3/5;
 track evolution is 5/5. Resurfacing between Turns 3–5 and 8–9 makes Friday's
 long runs important. Last year's effective two-stop race is historical context,
 not the source for 2026 strategy windows.</p>
-<h2 class="sec">Post-qualifying race-strategy assessment</h2>
+<h2 class="sec">Race strategy in the wet-dry-wet race</h2>
+<p>Formula1.com's race report describes a wet-dry-wet 71-lap Grand Prix.
+Hamilton was first to switch to Softs at the end of Lap 14; Norris, Russell
+and Hadjar stopped at the end of Lap 16, followed by Antonelli and Verstappen
+on Lap 17. Norris made another stop on Lap 49. When rain returned, Russell
+and Alonso were first to switch to Intermediates at Lap 61, then the field
+followed. The FIA event listing still identifies the published Race
+classification as provisional.
+<a href="{F1_RACE_REPORT}">Formula1.com race report and pit-stop chronology</a> ·
+<a href="{FIA_EVENT}">FIA event listing</a> ·
+<a href="{F1_RACE_RESULTS}">Formula1.com Race classification</a>.</p>
+<h2 class="sec">Pre-race strategy forecast (for comparison)</h2>
 <p>Pirelli's 7 November report says Qualifying used Full Wets in Q1, then
 Intermediates from Q2 through Q3. This describes qualifying tyre use, not the
 drivers' remaining race sets; the report's Saturday graphic is a session summary.
 Pirelli's report put the race-day rain chance at 60% when published; that is a dated forecast,
-not a live weather reading. For a dry race, Pirelli revised its pre-weekend
+not a live weather reading. These dry-race projections did not describe the
+wet-dry-wet race. For a dry race, Pirelli revised its pre-weekend
 simulations using Friday FP2 as the only representative long-run data: its
 preferred route is two stops, with two stints on Soft and one on Medium. Pirelli
 estimates this about three seconds quicker than strategies using all three
@@ -347,13 +364,14 @@ illustrative windows, not measured pit stops:</p>
 <thead><tr><th>Option</th><th>Compound route</th><th>Pit window (lap)</th></tr></thead>
 <tbody>{strategy_table}</tbody></table></div>
 {_strategy_figure()}
-<p>The separate race-set graphic is a Pirelli Motorsport chart reproduced by
+<p>The separate pre-race remaining-set graphic is a Pirelli Motorsport chart reproduced by
 Coffee Corner Motorsport. It shows one new C3 Hard and one new C4 Medium for
 each of the 22 entrants; the ten drivers who reached Q3 have four new C5 Softs
 and the other twelve have five. Its used-slick columns are dashes, consistent
 with the article's post-qualifying inventory note and Pirelli's confirmation
 that Qualifying used only wet-weather tyres. This is the remaining race
-inventory, not a claim that slicks were unused in practice. The verified table
+inventory before the Race, not a claim that slicks were unused in practice.
+The verified table
 is image-bound and lists all six new/used cells for every driver.
 <a href="{PIRELLI_POST_QUALI_STRATEGY}">Pirelli's post-qualifying assessment</a> ·
 <a href="{PIRELLI_FP2_STRATEGY}">Friday FP2 analysis</a> ·
@@ -366,20 +384,19 @@ is image-bound and lists all six new/used cells for every driver.
 
 
 def _strategy_brief():
-    return f"""<p>Pirelli's 7 November post-qualifying report, based on Friday FP2 as
-the only representative long-run data, favors a dry two-stop with two Soft
-stints and one Medium. It estimates this about three seconds quicker than
-strategies using all three available compounds; a one-stop is estimated
-around ten seconds slower. Pirelli's 60% rain chance was the forecast when
-that report was published, not a live update. A separate chart credited to
-Pirelli Motorsport shows the Soft–Medium–Soft option on laps 17–23 and 42–48;
-the complete four-option graphic and new-set chart are on
-<a href="tyres.html">Tyres &amp; Strategy</a>. The race-set chart shows one new
-Hard and Medium for each entrant, four new Softs for the ten Q3 drivers and
-five for the rest; no used slicks remain after wet-only Qualifying.
-<a href="{CCM_BRAZIL_STRATEGY}">Coffee Corner Motorsport's reproduction</a> ·
-<a href="{PIRELLI_POST_QUALI_STRATEGY}">Pirelli's report</a>
-· <a href="tyres.html">Full tyre analysis and race-set status</a>.</p>"""
+    return f"""<p>Formula1.com's report describes a wet-dry-wet 71-lap race:
+Hamilton was first to switch to Softs at the end of Lap 14; Norris, Russell
+and Hadjar stopped at the end of Lap 16, followed by Antonelli and Verstappen
+on Lap 17. Norris made another stop on Lap 49. Rain returned at Lap 61, when
+Russell and Alonso first changed to Intermediates and the field followed.
+The pre-race dry strategy projections are retained on
+<a href="tyres.html">Tyres &amp; Strategy</a> as historical estimates, not
+the race's actual route. The published FIA Race classification remains
+provisional.
+<a href="{F1_RACE_REPORT}">Formula1.com race report</a> ·
+<a href="{F1_RACE_RESULTS}">Race classification</a> ·
+<a href="{FIA_EVENT}">FIA event listing</a> ·
+<a href="tyres.html">Pre-race forecast and image-bound tyre-set record</a>.</p>"""
 
 
 def _powerunit():
@@ -951,10 +968,10 @@ confirmation that any individual complied.
 Formula1.com circuit guide, 5 November 2026</a>. See <a href="facts.html">Facts
 and Records</a> for the source-backed pre-weekend driver, winner and constructor tables.</p>"""
     pages["overview"]["body"] += f"""
-<h2 class="sec">Post-qualifying tyre strategy</h2>
-{card("Pirelli's dry-race assessment", _strategy_brief(), "bi-compass", "accent")}"""
+<h2 class="sec">Race strategy recap</h2>
+{card("Observed wet-dry-wet strategy", _strategy_brief(), "bi-compass", "accent")}"""
     pages["notes"]["body"] += f"""
-<h2 class="sec">Tyres and dry-race strategy</h2>
+<h2 class="sec">Race strategy recap</h2>
 {_strategy_brief()}
 <p><strong>FIA race-day procedure:</strong> Drivers were instructed to move
 to the national-anthem position at 13:40 BRT, be in place by 13:42, and remain
