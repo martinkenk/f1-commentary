@@ -1,5 +1,6 @@
 """Source-reviewed Sao Paulo Grand Prix content, refreshed during the weekend."""
 import content_generic
+import career_starts
 from f1lib import card
 from upgrade_render import render_submissions
 
@@ -908,4 +909,16 @@ fourth and lower finishers were to go to the TV pen after weighing. These are
 the Media Delegate's instructions, not penalty findings or a compliance report.
 <a href="{FIA_PRE_RACE_URL}#page=2">Pre-race procedure</a> ·
 <a href="{FIA_POST_RACE_URL}#page=2">Post-race procedure</a>.</p>"""
+    pages["facts"]["body"] += career_starts.render(ctx)
+    pages["overview"]["body"] += f"""<h2 class="sec">Hamilton's 400th start</h2>
+<p>Twenty consecutive seasons, seven titles, and still taking poles:
+Formula1.com marks Hamilton's 400th Grand Prix at Sao Paulo.
+<a href="facts.html#career-starts">Career-start ranking, current drivers and
+conditional milestones</a> &middot;
+<a href="{career_starts.ARTICLE}">Official milestone feature</a>.</p>"""
+    pages["notes"]["body"] += """<p><strong>Hamilton milestone:</strong>
+Formula1.com identifies Brazil as his 400th start after 20 consecutive seasons.
+Use the <a href="facts.html#career-starts">dated career-start ranking</a> for
+on-air comparisons; entries and sprints are not Grand Prix starts, and active
+rivals continue accumulating starts.</p>"""
     return pages

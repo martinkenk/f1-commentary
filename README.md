@@ -99,6 +99,11 @@ that a session has not run. Uncached local builds still try the official source.
 - `circuit_history.py`, `history_render.py` – checksum-verified F1DB venue/GP
   history, recent winners and historical teammate comparisons with current-grid
   participation. Records stop before the selected weekend.
+- `career_starts.py` – Brazil's Hamilton-400 feature and dated all-time start
+  ranking, with all current entrants highlighted and conditional passing estimates.
+  `data/career_starts_2026.json` preserves the through-Mexico F1DB snapshot; newer
+  totals must not rewrite this pre-Brazil comparison. Missing entrants and the
+  F1/F1DB Alonso discrepancy stay explicit; sprints and entries are not starts.
 - `passing_history.py` – historical on-track passing figures, with RacingPass
   archives, reviewed 2025 statistics and current F1 Fantasy scoring kept separate.
   A recent fetch is not evidence that the latest race is covered.
