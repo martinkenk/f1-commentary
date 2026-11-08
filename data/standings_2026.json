@@ -10,63 +10,63 @@
       "Kimi Antonelli",
       "ANT",
       "Mercedes",
-      380
+      390
     ],
     [
       2,
       "Max Verstappen",
       "VER",
       "Red Bull Racing",
-      261
+      279
     ],
     [
       3,
-      "Lewis Hamilton",
-      "HAM",
-      "Ferrari",
-      259
-    ],
-    [
-      4,
       "George Russell",
       "RUS",
       "Mercedes",
-      250
+      262
+    ],
+    [
+      4,
+      "Lewis Hamilton",
+      "HAM",
+      "Ferrari",
+      261
     ],
     [
       5,
       "Charles Leclerc",
       "LEC",
       "Ferrari",
-      245
+      251
     ],
     [
       6,
       "Lando Norris",
       "NOR",
       "McLaren",
-      221
+      246
     ],
     [
       7,
       "Oscar Piastri",
       "PIA",
       "McLaren",
-      144
+      152
     ],
     [
       8,
       "Isack Hadjar",
       "HAD",
       "Red Bull Racing",
-      107
+      122
     ],
     [
       9,
       "Liam Lawson",
       "LAW",
       "Racing Bulls",
-      83
+      87
     ],
     [
       10,
@@ -108,7 +108,7 @@
       "Nico Hulkenberg",
       "HUL",
       "Audi",
-      13
+      14
     ],
     [
       16,
@@ -172,33 +172,40 @@
       "PER",
       "Cadillac",
       0
+    ],
+    [
+      25,
+      "Rafael Câmara",
+      "CAM",
+      "Haas F1 Team",
+      0
     ]
   ],
   "constructors": [
     [
       1,
       "Mercedes",
-      630
+      652
     ],
     [
       2,
       "Ferrari",
-      504
+      512
     ],
     [
       3,
       "Red Bull Racing",
-      382
+      415
     ],
     [
       4,
       "McLaren",
-      365
+      398
     ],
     [
       5,
       "Racing Bulls",
-      108
+      112
     ],
     [
       6,
@@ -213,7 +220,7 @@
     [
       8,
       "Audi",
-      27
+      28
     ],
     [
       9,
@@ -231,6 +238,6 @@
       0
     ]
   ],
-  "fetched_at": "2026-11-08T18:55:07+00:00",
-  "results_round": 19
+  "fetched_at": "2026-11-08T19:04:07+00:00",
+  "results_round": 20
 }

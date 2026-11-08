@@ -5,7 +5,7 @@
     "results_slug": "brazil",
     "gp": "brazil"
   },
-  "checked_at": "2026-11-08T18:55:03+00:00",
+  "checked_at": "2026-11-08T19:04:07+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/1",
-      "fetched_at": "2026-11-08T18:55:03+00:00",
+      "fetched_at": "2026-11-08T19:04:07+00:00",
       "session_start": "2026-11-06T12:30:00-03:00",
       "retained": false
     },
@@ -381,7 +381,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/2",
-      "fetched_at": "2026-11-08T18:55:03+00:00",
+      "fetched_at": "2026-11-08T19:04:07+00:00",
       "session_start": "2026-11-06T16:00:00-03:00",
       "retained": false
     },
@@ -574,7 +574,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/practice/3",
-      "fetched_at": "2026-11-08T18:55:03+00:00",
+      "fetched_at": "2026-11-08T19:04:07+00:00",
       "session_start": "2026-11-07T11:30:00-03:00",
       "retained": false
     },
@@ -813,7 +813,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying",
-      "fetched_at": "2026-11-08T18:55:03+00:00",
+      "fetched_at": "2026-11-08T19:04:07+00:00",
       "session_start": "2026-11-07T15:00:00-03:00",
       "retained": false
     },
@@ -988,6 +988,222 @@
       "retained": false,
       "source_sha256": "daabad4b35602f1a82251d490254d6cca849f092664656b9a087bde5b0e0897e",
       "source_label": "FIA Document 59 final Starting Grid"
+    },
+    {
+      "label": "Race",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Laps",
+        "Time / Retired",
+        "Pts."
+      ],
+      "rows": [
+        [
+          "1",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "71",
+          "1:35:23.504",
+          "25"
+        ],
+        [
+          "2",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "71",
+          "+14.602s",
+          "18"
+        ],
+        [
+          "3",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "71",
+          "+24.485s",
+          "15"
+        ],
+        [
+          "4",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "71",
+          "+33.991s",
+          "12"
+        ],
+        [
+          "5",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "71",
+          "+36.017s",
+          "10"
+        ],
+        [
+          "6",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "71",
+          "+56.475s",
+          "8"
+        ],
+        [
+          "7",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "71",
+          "+73.586s",
+          "6"
+        ],
+        [
+          "8",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "71",
+          "+75.402s",
+          "4"
+        ],
+        [
+          "9",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "70",
+          "+1 lap",
+          "2"
+        ],
+        [
+          "10",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "70",
+          "+1 lap",
+          "1"
+        ],
+        [
+          "11",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "70",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "12",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "70",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "13",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "70",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "14",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "70",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "15",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "70",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "16",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "70",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "17",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "70",
+          "+1 lap",
+          "0"
+        ],
+        [
+          "18",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "69",
+          "+2 laps",
+          "0"
+        ],
+        [
+          "19",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "69",
+          "+2 laps",
+          "0"
+        ],
+        [
+          "20",
+          "51",
+          "Rafael Câmara CAM",
+          "Haas F1 Team",
+          "69",
+          "+2 laps",
+          "0"
+        ],
+        [
+          "NC",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "30",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "0",
+          "DNS",
+          "0"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result",
+      "fetched_at": "2026-11-08T19:04:07+00:00",
+      "session_start": "2026-11-08T14:00:00-03:00",
+      "retained": false
     }
   ],
   "statuses": [
@@ -1018,10 +1234,8 @@
     },
     {
       "label": "Race",
-      "state": "pending",
-      "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result",
-      "error": "Incomplete classification: 1 entrants",
-      "retained": false
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
     }
   ]
 }
