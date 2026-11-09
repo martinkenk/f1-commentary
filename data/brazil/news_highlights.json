@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-09T15:33:00Z",
-  "expires_at": "2026-11-09T16:45:00Z",
+  "reviewed_at": "2026-11-09T18:38:37Z",
+  "expires_at": "2026-11-09T19:10:00Z",
   "through_session": "Race",
   "feed_fingerprint": "889192bf73e65a4d0077695a91e8c5e6f3a8bb5129103f0af5c9c234373aacb1",
   "items": [
@@ -27,26 +27,18 @@
     },
     {
       "topic": "Red Bull recovery",
-      "title": "Mekies says Verstappen’s P21-to-P2 recovery exceeded Red Bull’s simulations",
+      "title": "Verstappen suspects an unexplained performance loss after pit stops",
       "date": "2026-11-09",
-      "summary": "Mekies said no simulation predicted Verstappen's recovery from 21st to second and that a small Friday issue forced the power-unit change behind the grid penalty. The Race's post-race analysis reports Verstappen suspected an aerodynamic-performance loss after switching to slicks; Red Bull has not established a cause. It also found Hadjar faster on 22 of 38 directly comparable laps on the same tyre and strategy.",
-      "why_it_matters": "Verstappen finished second, 14.6 seconds behind Norris; a possible win remains hypothetical. Attribute the suspected performance loss to Verstappen, not a confirmed defect, and keep Hadjar's lap comparison within the stated sample.",
+      "summary": "At the FIA press conference, Verstappen said the car's balance felt completely different after the tyre switch and that he did not know whether it had damage. The Race reports he suspected an aerodynamic-performance loss, but no cause has been established; Hadjar was quicker on 22 of 38 directly comparable laps on the same tyre and strategy.",
+      "why_it_matters": "A possible win remains hypothetical. Attribute the suspected loss to Verstappen and keep Hadjar's lap comparison within its 38-lap sample.",
       "sources": [
-        {
-          "label": "Formula1.com on Mekies and Verstappen",
-          "url": "https://www.formula1.com/en/latest/article/mekies-explains-how-verstappen-outperformed-red-bulls-own-simulations-in-brazil.1ps87tyvjdEf23vDCaDXOZ"
-        },
-        {
-          "label": "FIA post-race press conference transcript",
-          "url": "https://www.fia.com/news/f1-2026-sao-paulo-grand-prix-post-race-press-conference-transcript"
-        },
         {
           "label": "The Race post-race analysis",
           "url": "https://www.the-race.com/formula-1/everything-we-learned-from-f1s-2026-brazilian-grand-prix/"
         },
         {
-          "label": "Official Formula1.com Race report",
-          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+          "label": "FIA post-race press conference transcript",
+          "url": "https://www.fia.com/news/f1-2026-sao-paulo-grand-prix-post-race-press-conference-transcript"
         }
       ]
     },
@@ -85,15 +77,23 @@
       ]
     },
     {
-      "topic": "McLaren development",
-      "title": "Stella credits cooler conditions for McLaren’s win and says more parts are planned for Las Vegas",
+      "topic": "Haas debut",
+      "title": "Camara showed flashes of pace during a difficult wet-weather F1 debut",
       "date": "2026-11-09",
-      "summary": "Stella said cooler-than-practice Sunday conditions helped McLaren control tyre temperatures and that the Interlagos updates worked as intended. He said additional parts are planned for Las Vegas as part of the 2027 foundation, without identifying components or quantifying their gains; he also noted continuing hot-condition long-run work.",
-      "why_it_matters": "This is a team plan, not confirmation of an FIA filing or a measured upgrade effect. Las Vegas component coverage remains pending while FIA discovery is unavailable.",
+      "summary": "The Race reports Camara was called up at the start of the week and had not driven a 2026 F1 car before Brazil. He finished 20th, two laps down, after two qualifying offs; his soft-tyre pace averaged about a tenth per lap behind Bearman across two stints, although Bearman spent time in traffic with a compromised race. Formula1.com confirms Camara is signed to Haas for 2027.",
+      "why_it_matters": "The soft-tyre comparison is a small, event-specific sample, not a measure of season-long pace.",
       "sources": [
         {
-          "label": "Formula1.com on Stella and McLaren’s race",
-          "url": "https://www.formula1.com/en/latest/article/technically-a-very-interesting-race-stella-reveals-how-norris-and-mclaren-triumphed-at-interlagos.SRa4ORrmm9CcPqhwssoum"
+          "label": "The Race's Brazil race review",
+          "url": "https://www.the-race.com/formula-1/everything-we-learned-from-f1s-2026-brazilian-grand-prix/"
+        },
+        {
+          "label": "Formula1.com on Camara's Haas promotion",
+          "url": "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
+        },
+        {
+          "label": "Formula1.com Brazil race report",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
         }
       ]
     }

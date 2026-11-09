@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-11-09T15:33:00Z",
-  "expires_at": "2026-11-09T16:45:00Z",
+  "reviewed_at": "2026-11-09T18:38:37Z",
+  "expires_at": "2026-11-09T19:10:00Z",
   "through_session": null,
   "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
   "items": [
     {
       "topic": "McLaren development",
-      "title": "Stella says more McLaren parts are planned for Las Vegas",
+      "title": "Stella says more McLaren parts are planned for Las Vegas, without naming components",
       "date": "2026-11-09",
-      "summary": "After the São Paulo Grand Prix, McLaren Team Principal Andrea Stella said more parts would arrive at Las Vegas to complement the Interlagos package and form a foundation for the 2027 car. He did not identify specific components or their intended effect.",
-      "why_it_matters": "This is an early team statement, not an FIA declaration. The public event-document listing could not be verified today, so no component, geometry or performance claim should be inferred before a source filing is reviewed.",
+      "summary": "After Brazil, McLaren Team Principal Andrea Stella said additional parts would come at Las Vegas to complement the Interlagos package and form a foundation for the 2027 car. He named no components or measured gains; he also said cooler conditions helped McLaren in Brazil while hot-weather long-run consistency remains a work in progress.",
+      "why_it_matters": "This is a team development plan, not an FIA submission. The FIA event-page retry at 18:19 UTC returned HTTP 500 and the season index omitted Las Vegas, so no component or filing claim is supported yet.",
       "sources": [
         {
           "label": "Formula1.com Andrea Stella on McLaren's next package",
