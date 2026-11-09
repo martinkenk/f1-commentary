@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-09T09:27:04Z",
+  "reviewed_at": "2026-11-09T10:26:00Z",
   "expires_at": "2026-11-09T10:55:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "b98cf88786afc6401ac57b0bbc82e4c7d955f3c3cdd4c6bf38b04e90ad36b985",
+  "feed_fingerprint": "4ca2701ec25f6b78cecabebbd8f7fac6a8b8c44b9321879e4d117cfca11b3d4c",
   "items": [
     {
       "topic": "Race result",
@@ -39,10 +39,10 @@
     },
     {
       "topic": "Ferrari performance",
-      "title": "Leclerc and Hamilton call São Paulo a disaster after Ferrari’s lowest-scoring weekend since Monza",
-      "date": "2026-11-08",
-      "summary": "Formula1.com reports Leclerc and Hamilton described Ferrari’s pace and tyre performance in stark terms. Leclerc finished eighth after a post-race five-second penalty, while Hamilton finished ninth; the report calls it Ferrari’s lowest-scoring weekend since Monza.",
-      "why_it_matters": "The drivers’ comments document frustration with this weekend’s performance; they do not establish a new team-order policy or a technical cause.",
+      "title": "Vasseur says tyre temperature was central to Ferrari’s difficult São Paulo weekend",
+      "date": "2026-11-09",
+      "summary": "Formula1.com reports Leclerc and Hamilton called Ferrari’s performance a disaster, with Leclerc eighth after a five-second penalty and Hamilton ninth. Vasseur said Ferrari struggled to put both intermediate and soft tyres in the right temperature window; he estimated the effect could be around half a second, larger than the tenths gained from upgrades.",
+      "why_it_matters": "Vasseur's explanation adds a specific team diagnosis to the poor result, but remains his account rather than an independent measurement of the car's pace deficit.",
       "sources": [
         {
           "label": "Formula1.com Ferrari post-race report",
@@ -51,6 +51,10 @@
         {
           "label": "Formula1.com Race results table",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+        },
+        {
+          "label": "Formula1.com Fred Vasseur on Ferrari's tyre struggles",
+          "url": "https://www.formula1.com/en/latest/article/if-youre-not-in-the-right-spot-youre-nowhere-vasseur-explains-ferraris-brazil-tyre-struggles.4BJ7k41PfxDI31jhSg9RU"
         }
       ]
     },
