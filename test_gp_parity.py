@@ -11,6 +11,7 @@ import content_azerbaijan
 import content_bahrain
 import content_brazil
 import content_generic
+import content_las_vegas
 import content_italy
 import content_mexico
 import content_singapore
@@ -22,7 +23,10 @@ class GPParityTests(unittest.TestCase):
     def setUp(self):
         self.contexts = {
             ctx["dir"]: ctx for ctx in build.season_gps()
-            if ctx["dir"] in ("italy", "spain", "bahrain", "singapore", "brazil", "mexico")
+            if ctx["dir"] in (
+                "italy", "spain", "bahrain", "singapore", "brazil", "mexico",
+                "las-vegas",
+            )
         }
         for slug, ctx in self.contexts.items():
             ctx.update(status="past", results=[], extra={}, weather={}, weather_ok=False)
@@ -31,6 +35,30 @@ class GPParityTests(unittest.TestCase):
             "weather_cards": lambda: "WEATHER_CARDS",
             "weather": {}, "weather_ok": False,
         }
+
+    def test_las_vegas_mclaren_update_is_not_mislabeled_as_an_fia_filing(self):
+        ctx = dict(self.contexts["las-vegas"], status="future")
+        self.assertIs(build.BESPOKE["las-vegas"], content_las_vegas.build_pages)
+        pages = content_las_vegas.build_pages(ctx, self.env)
+        for slug in ("teams", "upgrades", "notes"):
+            self.assertIn(content_las_vegas.MCLAREN_VEGAS_URL, pages[slug]["body"])
+        self.assertNotIn(
+            "Team-by-team weekend storylines: awaiting", pages["teams"]["body"]
+        )
+        self.assertIn(
+            "FIA car presentation submissions for this round: awaiting",
+            pages["upgrades"]["body"],
+        )
+        self.assertIn("not an FIA filing", pages["upgrades"]["body"])
+        briefing = json.loads(
+            (Path(__file__).parent / "data/las-vegas/news_highlights.json").read_text()
+        )
+        self.assertIsNone(briefing["through_session"])
+        self.assertEqual(len(briefing["items"]), 1)
+        self.assertEqual(
+            briefing["items"][0]["sources"][0]["url"],
+            content_las_vegas.MCLAREN_VEGAS_URL,
+        )
 
     def italy(self):
         return content_italy.build_pages(self.contexts["italy"], self.env)
