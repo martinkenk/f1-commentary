@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-09T00:22:04Z",
-  "expires_at": "2026-11-09T05:20:00Z",
+  "reviewed_at": "2026-11-09T06:25:54Z",
+  "expires_at": "2026-11-09T10:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "de723f7a1a8411712c890c3aae34c454d4c1429d1948834c0e4376d6afbb3015",
   "items": [
@@ -132,19 +132,23 @@
       ]
     },
     {
-      "topic": "Milestone",
-      "title": "Hamilton reaches 400 starts and scores in São Paulo",
+      "topic": "Tyre strategy",
+      "title": "Pirelli records 58 pit stops in wet-to-dry São Paulo race",
       "date": "2026-11-08",
-      "summary": "Formula1.com identifies the São Paulo Grand Prix as Hamilton’s 400th F1 start. The final classification places him ninth, one lap down, with two points after starting 20th.",
-      "why_it_matters": "A career milestone also ended in a points finish; the final result confirms his ninth place.",
+      "summary": "Pirelli says all starters began on Intermediates and every driver used both Intermediates and Softs. Its race graphic records 914 Soft laps (64%) and 521 Intermediate laps (36%), with 45-lap Soft stints for Russell and Leclerc and a 17-lap longest Intermediate stint for five drivers. A separate pit-stop graphic counts 58 stops.",
+      "why_it_matters": "These are observed race outcomes from the wet-to-dry-to-wet transition, distinct from the pre-race strategy projections.",
       "sources": [
         {
-          "label": "Formula1.com race report",
-          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+          "label": "Pirelli's official São Paulo race report",
+          "url": "https://press.pirelli.com/from-pole-to-victory-norris-triumphs-in-so-paulo-on-intermediates/"
         },
         {
-          "label": "Formula1.com Race results table",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+          "label": "Pirelli race tyre-use graphic",
+          "url": "https://content.presspage.com/uploads/2363/af8b70c7-f963-4389-889f-011824967ebd/1920_20-br26-race2-en.jpg?10000"
+        },
+        {
+          "label": "Pirelli pit-stop graphic",
+          "url": "https://content.presspage.com/uploads/2363/5305ca7b-8ad4-404c-939a-8c2123fc0990/1920_20-br26-pitstop-en.jpg?10000"
         }
       ]
     },
