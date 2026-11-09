@@ -1,23 +1,19 @@
 {
-  "reviewed_at": "2026-11-09T12:31:25Z",
-  "expires_at": "2026-11-09T13:55:00Z",
+  "reviewed_at": "2026-11-09T14:33:25Z",
+  "expires_at": "2026-11-09T16:30:00Z",
   "through_session": "Race",
   "feed_fingerprint": "4ca2701ec25f6b78cecabebbd8f7fac6a8b8c44b9321879e4d117cfca11b3d4c",
   "items": [
     {
       "topic": "Race result",
-      "title": "Norris wins wet São Paulo race as Mercedes seals Constructors’ title",
+      "title": "Norris wins wet São Paulo race as Mercedes clinches the Constructors’ title",
       "date": "2026-11-08",
-      "summary": "FIA Document 81 confirms Norris won the 71-lap wet-dry-wet race in 1:35:23.504, 14.602 seconds ahead of Verstappen; Hadjar completed the podium. Russell spun on the slick-tyre pit exit after moving up to fourth, lost places and recovered to finish fourth; he said he did not know what caused the spin and suggested he may have taken too much risk. The final classification matches Formula1.com. FIA Document 82 records Mercedes on 652 points after Brazil; Formula1.com reports that the team clinched the 2026 Constructors’ title.",
-      "why_it_matters": "Norris converted pole, Verstappen climbed from P21, and Mercedes secured the teams' championship. Russell's pit-exit mistake shaped his race, but he recovered to fourth; the title was sealed regardless.",
+      "summary": "Formula1.com reports Norris won the 71-lap wet-dry-wet race by 14.602 seconds over Verstappen, with Hadjar third. FIA Document 82 lists Mercedes on 652 points after Brazil; the result secured the team's ninth Constructors' title. The final classification places Lawson seventh after Leclerc received a five-second collision penalty.",
+      "why_it_matters": "The title and race order are settled, not a pre-race scenario. Use the final FIA classification for points and positions after the post-race sanctions.",
       "sources": [
         {
           "label": "Formula1.com race report",
           "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
-        },
-        {
-          "label": "Formula1.com Race results table",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
         },
         {
           "label": "FIA Document 81: final Race classification",
@@ -26,14 +22,44 @@
         {
           "label": "FIA Document 82: championship points",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_championship_points.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Red Bull recovery",
+      "title": "Mekies says Verstappen’s P21-to-P2 recovery exceeded Red Bull’s simulations",
+      "date": "2026-11-09",
+      "summary": "Mekies said no simulation predicted Verstappen's recovery from 21st to second and that a small Friday issue forced the power-unit change behind the grid penalty. He also said McLaren was generally faster in the race. Verstappen described a markedly different balance after his strong opening Intermediate stint; Red Bull said it still needed to analyse the loss.",
+      "why_it_matters": "Treat the drive as a standout recovery, not proof Red Bull had the fastest car or that a front-row start would have guaranteed victory; no race-time failure has been diagnosed.",
+      "sources": [
+        {
+          "label": "Formula1.com on Mekies and Verstappen",
+          "url": "https://www.formula1.com/en/latest/article/mekies-explains-how-verstappen-outperformed-red-bulls-own-simulations-in-brazil.1ps87tyvjdEf23vDCaDXOZ"
         },
         {
-          "label": "Formula1.com George Russell post-race report",
-          "url": "https://www.formula1.com/en/latest/article/no-idea-what-happened-on-that-pit-exit-russell-reflects-on-spin-and-mercedes-title-win-in-sao-paulo.1C1TWOL9x9TBOkYyNxid7F"
+          "label": "FIA post-race press conference transcript",
+          "url": "https://www.fia.com/news/f1-2026-sao-paulo-grand-prix-post-race-press-conference-transcript"
         },
         {
-          "label": "Formula1.com Driver of the Day",
-          "url": "https://www.formula1.com/en/latest/article/driver-of-the-day-verstappen-gets-fan-vote-for-p21-to-podium-performance-in-sao-paulo.6lAa8RxSlJMqHxsNM0rAKF"
+          "label": "Official Formula1.com Race report",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+        }
+      ]
+    },
+    {
+      "topic": "Tyre strategy",
+      "title": "Intermediates bracketed the soft-tyre phase as rain returned at Interlagos",
+      "date": "2026-11-08",
+      "summary": "Pirelli reports all starters began on Intermediates and every driver used both Intermediates and Softs. Norris completed a 33-lap Soft stint, then 13 laps on a second set before returning to Intermediates as rain came back. Pirelli observed mainly thermal degradation with some graining on the drying surface.",
+      "why_it_matters": "This is observed race use, not the pre-race set snapshot or forecast; the crossover and renewed rain reshaped the strategy.",
+      "sources": [
+        {
+          "label": "Pirelli’s official São Paulo race report",
+          "url": "https://press.pirelli.com/from-pole-to-victory-norris-triumphs-in-so-paulo-on-intermediates/"
+        },
+        {
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
         }
       ]
     },
@@ -41,147 +67,29 @@
       "topic": "Ferrari performance",
       "title": "Vasseur says tyre temperature was central to Ferrari’s difficult São Paulo weekend",
       "date": "2026-11-09",
-      "summary": "Formula1.com reports Leclerc and Hamilton called Ferrari’s performance a disaster, with Leclerc eighth after a five-second penalty and Hamilton ninth. Vasseur said Ferrari struggled to put both intermediate and soft tyres in the right temperature window; he estimated the effect could be around half a second, larger than the tenths gained from upgrades.",
-      "why_it_matters": "Vasseur put tyre-window losses at about half a second and said Ferrari may have pitted Hamilton a little too aggressively for slicks; both are his post-race assessment, not an independent telemetry analysis.",
+      "summary": "Vasseur said Ferrari struggled to put both Intermediate and Soft tyres in the right temperature window; he estimated the effect could reach roughly half a second and said Hamilton's early slick switch may have been too aggressive. Leclerc finished eighth after a penalty, with Hamilton ninth.",
+      "why_it_matters": "This is the team principal’s diagnosis, not an independent telemetry measurement or proof that one factor explains the whole result.",
       "sources": [
         {
-          "label": "Formula1.com Ferrari post-race report",
-          "url": "https://www.formula1.com/en/latest/article/a-complete-disaster-leclerc-and-hamilton-lament-horrendous-ferrari-performance-in-sao-paulo.sdZmqEEwBaoAC8OmBxvYh"
-        },
-        {
-          "label": "Formula1.com Race results table",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
-        },
-        {
-          "label": "Formula1.com Fred Vasseur on Ferrari's tyre struggles",
+          "label": "Formula1.com on Vasseur and Ferrari’s tyre struggles",
           "url": "https://www.formula1.com/en/latest/article/if-youre-not-in-the-right-spot-youre-nowhere-vasseur-explains-ferraris-brazil-tyre-struggles.4BJ7k41PfxDI31jhSg9RU"
+        },
+        {
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
         }
       ]
     },
     {
-      "topic": "Stewards’ decisions",
-      "title": "Final FIA classification applies three five-second penalties",
-      "date": "2026-11-08",
-      "summary": "FIA Documents 78, 79 and 80 impose five seconds on Oliver Bearman for an unsafe release, Charles Leclerc for contact with Liam Lawson, and Kimi Antonelli for an unsafe release. Formula1.com also reports Leclerc's post-race penalty. Document 81's final order places Lawson seventh, Leclerc eighth, Antonelli fifth and Bearman 17th; its current result table agrees. Document 76 lists lap-time deletions separately, while Document 77 reports the inspected cars complied.",
-      "why_it_matters": "The penalties changed the final order and points; deleted laps and the earlier summons are separate from the three timed sanctions.",
+      "topic": "McLaren development",
+      "title": "Stella credits cooler conditions for McLaren’s win and says more parts are planned for Las Vegas",
+      "date": "2026-11-09",
+      "summary": "Stella said cooler-than-practice Sunday conditions helped McLaren control tyre temperatures and that the Interlagos updates worked as intended. He said additional parts are planned for Las Vegas as part of the 2027 foundation, without identifying components or quantifying their gains; he also noted continuing hot-condition long-run work.",
+      "why_it_matters": "This is a team plan, not confirmation of an FIA filing or a measured upgrade effect. Las Vegas component coverage remains pending while FIA discovery is unavailable.",
       "sources": [
         {
-          "label": "FIA Document 67: Albon unsafe rejoin penalty",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_23_-_rejoining_the_track_unsafely.pdf"
-        },
-        {
-          "label": "FIA Document 71: Hulkenberg leaving-track penalty",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_27_-_leaving_the_track_and_gaining_an_advantage.pdf"
-        },
-        {
-          "label": "FIA Document 64: Stroll reprimand",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_18_-_failure_to_follow_race_directors_instruction_-_practice_start.pdf"
-        },
-        {
-          "label": "FIA Document 65: Hamilton no further action",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_44_-_alleged_leaving_the_track_and_gaining_an_advantage.pdf"
-        },
-        {
-          "label": "FIA Document 66: Perez no further action",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_decision_-_car_11_-_alleged_failure_to_slow_under_yellow_flags.pdf"
-        },
-        {
-          "label": "FIA Documents 68-69: Antonelli and Colapinto summons",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_12_-_alleged_unsafe_release.pdf"
-        },
-        {
-          "label": "FIA Document 69: Colapinto summons",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_43_-_alleged_unsafe_release_by_car_12.pdf"
-        },
-        {
-          "label": "FIA Documents 72-73: Leclerc and Lawson summons",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_16_-_alleged_causing_a_collision.pdf"
-        },
-        {
-          "label": "FIA Document 73: Lawson summons",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_summons_-_car_30_-_alleged_causing_a_collision.pdf"
-        },
-        {
-          "label": "FIA Document 78: Bearman unsafe-release penalty",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_87_-_unsafe_release.pdf"
-        },
-        {
-          "label": "FIA Document 79: Leclerc collision penalty",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_16_-_causing_a_collision.pdf"
-        },
-        {
-          "label": "FIA Document 80: Antonelli unsafe-release penalty",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_car_12_-_unsafe_release.pdf"
-        },
-        {
-          "label": "Formula1.com Leclerc post-race penalty report",
-          "url": "https://www.formula1.com/en/latest/article/leclerc-hit-with-post-race-penalty-for-sao-paulo-collision-with-lawson.scK3PbeAxR70InNjz1ph3"
-        },
-        {
-          "label": "FIA Document 76: Race lap-time deletions",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_infringement_-_race_deleted_lap_times.pdf"
-        },
-        {
-          "label": "FIA Document 77: Race scrutineering",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_race_scrutineering.pdf"
-        },
-        {
-          "label": "FIA Document 81: final Race classification",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_race_classification.pdf"
-        },
-        {
-          "label": "Formula1.com Race results table",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
-        }
-      ]
-    },
-    {
-      "topic": "Tyre strategy",
-      "title": "Pirelli records 58 pit stops in wet-to-dry São Paulo race",
-      "date": "2026-11-08",
-      "summary": "Pirelli says all starters began on Intermediates and every driver used both Intermediates and Softs. Its race graphic records 914 Soft laps (64%) and 521 Intermediate laps (36%), with 45-lap Soft stints for Russell and Leclerc and a 17-lap longest Intermediate stint for five drivers. A separate pit-stop graphic counts 58 stops. McLaren Team Principal Andrea Stella said cooler-than-practice conditions helped the team control tyre temperatures; he said McLaren chose another slick set rather than risk stretching the stint to the finish while rain remained uncertain.",
-      "why_it_matters": "Pirelli's graphics record race outcomes; Stella's explanation of McLaren's tyre-temperature advantage and stop choice is the team's assessment, not an independent telemetry finding.",
-      "sources": [
-        {
-          "label": "Pirelli's official São Paulo race report",
-          "url": "https://press.pirelli.com/from-pole-to-victory-norris-triumphs-in-so-paulo-on-intermediates/"
-        },
-        {
-          "label": "Pirelli race tyre-use graphic",
-          "url": "https://content.presspage.com/uploads/2363/af8b70c7-f963-4389-889f-011824967ebd/1920_20-br26-race2-en.jpg?10000"
-        },
-        {
-          "label": "Pirelli pit-stop graphic",
-          "url": "https://content.presspage.com/uploads/2363/5305ca7b-8ad4-404c-939a-8c2123fc0990/1920_20-br26-pitstop-en.jpg?10000"
-        },
-        {
-          "label": "Formula1.com Andrea Stella on McLaren's race and upgrades",
+          "label": "Formula1.com on Stella and McLaren’s race",
           "url": "https://www.formula1.com/en/latest/article/technically-a-very-interesting-race-stella-reveals-how-norris-and-mclaren-triumphed-at-interlagos.SRa4ORrmm9CcPqhwssoum"
-        }
-      ]
-    },
-    {
-      "topic": "Verstappen recovery",
-      "title": "Verstappen describes his P21-to-podium drive as a challenging race",
-      "date": "2026-11-08",
-      "summary": "Formula1.com reports Verstappen started P21, reached second after a strong opening intermediate stint and finished 14.602 seconds behind Norris. He said the car later had a \"weird balance\"; Hadjar completed a Red Bull double podium in third. On 9 November, Team Principal Laurent Mekies said no simulation predicted the P21-to-P2 recovery, a small Friday issue forced the power-unit penalty, and McLaren were generally faster on race pace. Red Bull still needed to assess how much the balance cost on slicks and Intermediates; Mekies did not identify a race-time mechanical failure.",
-      "why_it_matters": "Mekies' account puts the recovery beyond Red Bull's simulations while crediting McLaren's pace; the source does not establish that Verstappen would have beaten Norris from the front or diagnose a race failure.",
-      "sources": [
-        {
-          "label": "Formula1.com post-race interview",
-          "url": "https://www.formula1.com/en/latest/article/verstappen-reflects-on-challenging-sao-paulo-gp-as-he-charges-from-p21-to-the-podium.4g4jMP9fsJQwWOCfDLitK9"
-        },
-        {
-          "label": "Formula1.com Race results table",
-          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
-        },
-        {
-          "label": "The Race post-race podcast discussion",
-          "url": "https://www.the-race.com/formula-1/f1-podcast-did-red-bull-issues-cost-verstappen-brazilian-gp-win-shot/"
-        },
-        {
-          "label": "Formula1.com Laurent Mekies on Verstappen's recovery",
-          "url": "https://www.formula1.com/en/latest/article/mekies-explains-how-verstappen-outperformed-red-bulls-own-simulations-in-brazil.1ps87tyvjdEf23vDCaDXOZ"
         }
       ]
     }
