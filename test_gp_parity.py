@@ -262,6 +262,10 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Pre-race strategy forecast (for comparison)", tyres)
         self.assertIn("These dry-race projections did not describe the wet-dry-wet race", tyres)
         self.assertIn(content_brazil.F1_RACE_REPORT, tyres)
+        self.assertIn(content_brazil.PIRELLI_RACE_REPORT, tyres)
+        self.assertIn(content_brazil.PIRELLI_RACE_STINTS_IMAGE, tyres)
+        self.assertIn("914 Soft laps (64%) and 521 Intermediate laps (36%)", tyres)
+        self.assertIn("The separate pit-stop graphic records 58 stops", tyres)
 
     def test_brazil_final_points_review_is_linked_from_notes_and_schedule(self):
         pages = content_brazil.build_pages(
@@ -416,8 +420,11 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Race strategy in the wet-dry-wet race", tyres)
         self.assertIn("Hamilton was first to switch to Softs at the end of Lap 14", tyres)
         self.assertIn("Norris's Soft stints lasted 33 and 13 laps", tyres)
-        self.assertIn("Pirelli race-team notes carried by Pitpass", tyres)
-        self.assertIn(content_brazil.PIRELLI_RACE_NOTES, tyres)
+        self.assertIn("Pirelli's 8 November race report confirms", tyres)
+        self.assertIn(content_brazil.PIRELLI_RACE_REPORT, tyres)
+        self.assertIn(content_brazil.PIRELLI_RACE_PIT_STOPS_IMAGE, tyres)
+        self.assertIn("914 Soft laps (64%) and 521 Intermediate laps (36%)", tyres)
+        self.assertIn("The separate pit-stop graphic records 58 stops", tyres)
         self.assertIn("two stints on Soft and one on Medium", tyres)
         self.assertIn("about three seconds quicker", tyres)
         self.assertIn("around ten seconds slower", tyres)
