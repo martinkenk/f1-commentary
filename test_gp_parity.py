@@ -194,6 +194,17 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_brazil.THE_RACE_FP1, pages["rookies"]["body"])
         self.assertIn("100 km", pages["rookies"]["body"])
 
+    def test_live_overview_marks_race_complete_when_classification_is_published(self):
+        ctx = dict(
+            self.contexts["brazil"],
+            status="live",
+            results=[{"label": "Race", "rows": [["1", "1", "Lando Norris"]]}],
+        )
+        overview = content_brazil.build_pages(ctx, self.env)["overview"]
+        self.assertEqual(overview["kicker"], "Race complete · post-race")
+        self.assertIn("official Race classification is published", overview["sub"])
+        self.assertNotIn("weekend is under way", overview["sub"])
+
     def test_brazil_notes_link_to_published_session_coverage(self):
         body = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env

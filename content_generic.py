@@ -86,9 +86,18 @@ def build_pages(ctx, env):
             "The weekend is done — full session results are on the Results page and "
             "the reports on Weekend News.")
     elif status == "live":
-        ov_kicker, ov_sub = "Race weekend · live", (
-            "The weekend is under way. Results, news and stewards' decisions refresh "
-            "every time the site rebuilds.")
+        race_complete = any(
+            session.get("label") == "Race" and session.get("rows")
+            for session in ctx.get("results", [])
+        )
+        if race_complete:
+            ov_kicker, ov_sub = "Race complete · post-race", (
+                "The official Race classification is published. Full session results "
+                "are on the Results page; post-race reports and decisions are on Weekend News.")
+        else:
+            ov_kicker, ov_sub = "Race weekend · live", (
+                "The weekend is under way. Results, news and stewards' decisions refresh "
+                "every time the site rebuilds.")
     else:
         ov_kicker, ov_sub = "Upcoming round", (
             "Everything known about this round so far. Weekend-specific material fills "

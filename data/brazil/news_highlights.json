@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-11-08T23:31:13Z",
-  "expires_at": "2026-11-09T05:31:13Z",
+  "reviewed_at": "2026-11-09T00:22:04Z",
+  "expires_at": "2026-11-09T05:20:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "cc23849e38c20c2a74c878bc698ae5314eb60a054b37cc30c96d7407f1318229",
+  "feed_fingerprint": "de723f7a1a8411712c890c3aae34c454d4c1429d1948834c0e4376d6afbb3015",
   "items": [
     {
       "topic": "Race result",
       "title": "Norris wins wet São Paulo race as Mercedes seals Constructors’ title",
       "date": "2026-11-08",
-      "summary": "FIA Document 81 confirms Norris won the 71-lap wet-dry-wet race in 1:35:23.504, 14.602 seconds ahead of Verstappen; Hadjar completed the podium. The final classification matches Formula1.com. FIA Document 82 records Mercedes on 652 points after Brazil; Formula1.com reports that the team clinched the 2026 Constructors’ title.",
-      "why_it_matters": "Norris converted pole, Verstappen climbed from P21, and Mercedes secured the teams' championship. The result is now final rather than provisional.",
+      "summary": "FIA Document 81 confirms Norris won the 71-lap wet-dry-wet race in 1:35:23.504, 14.602 seconds ahead of Verstappen; Hadjar completed the podium. Russell spun on the slick-tyre pit exit after moving up to fourth, lost places and recovered to finish fourth; he said he did not know what caused the spin and suggested he may have taken too much risk. The final classification matches Formula1.com. FIA Document 82 records Mercedes on 652 points after Brazil; Formula1.com reports that the team clinched the 2026 Constructors’ title.",
+      "why_it_matters": "Norris converted pole, Verstappen climbed from P21, and Mercedes secured the teams' championship. Russell's pit-exit mistake shaped his race, but he recovered to fourth; the title was sealed regardless.",
       "sources": [
         {
           "label": "Formula1.com race report",
@@ -26,6 +26,10 @@
         {
           "label": "FIA Document 82: championship points",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_championship_points.pdf"
+        },
+        {
+          "label": "Formula1.com George Russell post-race report",
+          "url": "https://www.formula1.com/en/latest/article/no-idea-what-happened-on-that-pit-exit-russell-reflects-on-spin-and-mercedes-title-win-in-sao-paulo.1C1TWOL9x9TBOkYyNxid7F"
         },
         {
           "label": "Formula1.com Driver of the Day",
