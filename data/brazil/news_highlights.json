@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-09T06:25:54Z",
-  "expires_at": "2026-11-09T10:00:00Z",
+  "reviewed_at": "2026-11-09T09:27:04Z",
+  "expires_at": "2026-11-09T10:55:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "de723f7a1a8411712c890c3aae34c454d4c1429d1948834c0e4376d6afbb3015",
+  "feed_fingerprint": "b98cf88786afc6401ac57b0bbc82e4c7d955f3c3cdd4c6bf38b04e90ad36b985",
   "items": [
     {
       "topic": "Race result",
@@ -156,8 +156,8 @@
       "topic": "Verstappen recovery",
       "title": "Verstappen describes his P21-to-podium drive as a challenging race",
       "date": "2026-11-08",
-      "summary": "Formula1.com reports Verstappen started P21, reached second after a strong opening intermediate stint and finished 14.602 seconds behind Norris. He said the car later had a \"weird balance\"; Hadjar completed a Red Bull double podium in third.",
-      "why_it_matters": "The comeback and changing conditions shaped the podium battle, but Verstappen's account of the balance issue is his description, not a confirmed technical diagnosis.",
+      "summary": "Formula1.com reports Verstappen started P21, reached second after a strong opening intermediate stint and finished 14.602 seconds behind Norris. He said the car later had a \"weird balance\"; Hadjar completed a Red Bull double podium in third. A 9 November The Race podcast description asks whether possible damage limited the recovery, but does not establish a mechanical cause.",
+      "why_it_matters": "The comeback and changing conditions shaped the podium battle; neither Verstappen's balance comment nor The Race's question confirms a technical diagnosis.",
       "sources": [
         {
           "label": "Formula1.com post-race interview",
@@ -166,6 +166,10 @@
         {
           "label": "Formula1.com Race results table",
           "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+        },
+        {
+          "label": "The Race post-race podcast discussion",
+          "url": "https://www.the-race.com/formula-1/f1-podcast-did-red-bull-issues-cost-verstappen-brazilian-gp-win-shot/"
         }
       ]
     }
