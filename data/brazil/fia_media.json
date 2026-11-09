@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-11-09T04:31:36+00:00",
-  "discovery_retrieved_at": "2026-11-09T04:31:35.670454+00:00",
+  "checked_at": "2026-11-09T05:08:49+00:00",
+  "discovery_retrieved_at": "2026-11-09T05:08:47.806336+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_championship_points.pdf",
@@ -9,7 +9,7 @@
         "standings"
       ],
       "sha256": "12e53191e8c593adb7952442e73e26315c00a031a9ee01fd94bf54156b16b5a2",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -37,7 +37,7 @@
         "results"
       ],
       "sha256": "6c7481c9453212f81f8654832edb951da1e4f4e135191e3e9e56290b022a4b1e",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -53,7 +53,7 @@
         "penalties"
       ],
       "sha256": "fb1683ed7c1da9b49e48ea7609b0e263e770cc028d1d1f8600d61f21786db7c2",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -73,7 +73,7 @@
         "penalties"
       ],
       "sha256": "41e7c67375aca7139bb3595d3c2e6ae0388297532d3fe11ff1469657e8c5433a",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -93,7 +93,7 @@
         "penalties"
       ],
       "sha256": "6b7e89e8815a8f2ac22de9b672824ea9bf264409c5653167244712ba64b03fa0",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -113,7 +113,7 @@
         "powerunit"
       ],
       "sha256": "c068566c1993ca725d48d693899bfc584dee41424290d63e146dc3193314d2c5",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -145,7 +145,7 @@
         "penalties"
       ],
       "sha256": "31f65981415ecbfd98861f345c2164b78ca0e8adc650e2526329c132a42720f8",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -165,7 +165,7 @@
         "stewards"
       ],
       "sha256": "94ab0b79bfb4c8137ab0cbf737f20840f9b5ab43cf9a60e2f7189293cd8de10a",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -181,7 +181,7 @@
         "stewards"
       ],
       "sha256": "5ddcbc42ea4c391a9ae1060ccf98edd0827e2372487c2421d5e400d01652835d",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -197,7 +197,7 @@
         "stewards"
       ],
       "sha256": "ea61f8a5fe958e5cca4f19907563fdf03a0c0090e13850b565e8be743e34d02f",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -213,7 +213,7 @@
         "stewards"
       ],
       "sha256": "78921995f32feda79d5db26764cac54b346761a886095061515f30f7d88bfc24",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -229,7 +229,7 @@
         "penalties"
       ],
       "sha256": "fb7020e0e49f620036f47a679b1716f9c569665b583df58ef87277d2071a8aea",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -245,7 +245,7 @@
         "results"
       ],
       "sha256": "de8c7d3c867f1edb2cd233a7cabbfc19d709d25663d890910cbb08798aac31cc",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -261,7 +261,7 @@
         "stewards"
       ],
       "sha256": "411c3606a6eb8dfa0cc04684a597b6c3e428a1a0c863d7e7d1bf03138e1aa99b",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -277,7 +277,7 @@
         "stewards"
       ],
       "sha256": "105d707ae2a6757553fcdb1c722b0c29d198db84c6f7cf28298d3f7a7b922440",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -293,7 +293,7 @@
         "penalties"
       ],
       "sha256": "ef49448b1aabed50383ad012740cc87d77e060357433174beecd6bfd95873a25",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -309,7 +309,7 @@
         "penalties"
       ],
       "sha256": "403de52f9e81430c6fc6d3d3bc99066a516aae396f89cff37f4d51c3235d3841",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -329,7 +329,7 @@
         "penalties"
       ],
       "sha256": "32681959bdc960f2bb938c6d36e9e4bea57f4a3abae9ed1a1376352ae580bee8",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -345,7 +345,7 @@
         "penalties"
       ],
       "sha256": "4a4b2577cf9ee2a1996fd6ba2487625fb0008360a3f24ca4c2a3febbb034303a",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -361,7 +361,7 @@
         "penalties"
       ],
       "sha256": "9468a95784b8011384c770f265888bd588a0d3721f8b3c1672d44ca801a08304",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -377,7 +377,7 @@
         "penalties"
       ],
       "sha256": "ccfd825e6aa29adefeff6811b05b5a38735df2bed6d70db4ac3cec6e0bd4fe0b",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -393,7 +393,7 @@
         "penalties"
       ],
       "sha256": "e59269c8e5fdd7eb721e10a9a617b7d2b0ed12eecdd77652c7c460995ddcc3ca",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -409,7 +409,7 @@
         "penalties"
       ],
       "sha256": "3a66fe84ee37fa6928dbf68545d55ac5c6ea9433ff260b2e33dd8a6c3cd2015d",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -425,7 +425,7 @@
         "results"
       ],
       "sha256": "daabad4b35602f1a82251d490254d6cca849f092664656b9a087bde5b0e0897e",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -441,7 +441,7 @@
         "upgrades"
       ],
       "sha256": "d33f7f015907448938419693d14f5c2a0c72b5111244875d25da449258cc97c5",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -465,7 +465,7 @@
         "penalties"
       ],
       "sha256": "4a35d80e650e097a9fdfdfd3c1d5551b07f2b66bf40622a0acb83093a968d5d6",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -481,7 +481,7 @@
         "penalties"
       ],
       "sha256": "7311366cd413c0d5b3968cee45f76413b79f48c4f014a9f23a1e20ecf428c9dd",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -497,7 +497,7 @@
         "powerunit"
       ],
       "sha256": "5c2a48565dbe63dd044620d867bae07187b42a65910b09c50970618c569bc807",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -517,7 +517,7 @@
         "schedule"
       ],
       "sha256": "b0e7ace0578b97e01ba9a335b39280267cbc24839706afa6c2164d44f2964c91",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -541,7 +541,7 @@
         "schedule"
       ],
       "sha256": "b5e7a60b9b0ff194d45756848acb6bba0951d061da9e2cb3a9c9197128cac2e2",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -561,7 +561,7 @@
         "schedule"
       ],
       "sha256": "d42d7d7d3892c300adee7e00f27478af4add4f6ee64977d73c41e8d4fb727aeb",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -577,7 +577,7 @@
         "results"
       ],
       "sha256": "d88f54485b1df96af850b70516b6da5127529d5179a9124486de9d62533a7948",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -593,7 +593,7 @@
         "results"
       ],
       "sha256": "bcee017315239a87fc53b369f44289ab16380465ce4999047d64b5c45d9cdd41",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -609,7 +609,7 @@
         "powerunit"
       ],
       "sha256": "a58060ee53da04ed666a6a5b9f56e3d3b0679b8113128fd99b88307f767952ad",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -641,7 +641,7 @@
         "schedule"
       ],
       "sha256": "1aa1e25dc2eb71af65e1900eac478176b31312d49bb5d80e4771da45e5128cc8",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -657,7 +657,7 @@
         "schedule"
       ],
       "sha256": "fcd1c43beb5acd3d7146044f9ad85c87c153796b9625095a2113ad61824e7710",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -673,7 +673,7 @@
         "penalties"
       ],
       "sha256": "65f71f86c2686e92e6f607cc4bb95758dc325f89f36455b97f57cdacf1dd9a86",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -689,7 +689,7 @@
         "results"
       ],
       "sha256": "bd52117a88af41a57d31a29d46a05ff7c4dcc8e7166908466115589d709d0f19",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -705,7 +705,7 @@
         "penalties"
       ],
       "sha256": "54400bba777be3abc9bbaaa6a1894385248a690a69ed0527780bf82c07a0d9d3",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -721,7 +721,7 @@
         "penalties"
       ],
       "sha256": "d1256386595d7966c576845f60396381ec549427190157810331a5e92613b35f",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -741,7 +741,7 @@
         "powerunit"
       ],
       "sha256": "2829a7a6b78737f0dbceff5a19c234d5e6da02ddf3965612748eb35052093b06",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -761,7 +761,7 @@
         "penalties"
       ],
       "sha256": "b48ff7a14fe8e5d6285344138aba71c0e5dfbe642da00b6b35946bbdc0f1ee5a",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -777,7 +777,7 @@
         "penalties"
       ],
       "sha256": "2092a003604f54443c592893a003303a68f6b188e696900bab7674e834e713c7",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -797,7 +797,7 @@
         "penalties"
       ],
       "sha256": "a0aeb23765c2a4a371931feaadd7d02aca38811262b1f09b31ed180c25d575f7",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -813,7 +813,7 @@
         "schedule"
       ],
       "sha256": "1be6e23fe3fe60c19f2187688170a24a175317dcbd2030c403ca7824b504cc6d",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -829,7 +829,7 @@
         "penalties"
       ],
       "sha256": "af80e4af5785d3d10fbadf4e09b049974534c4adfaa1697e2015116bd88e6317",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -845,7 +845,7 @@
         "penalties"
       ],
       "sha256": "5d1f9483169c25f98a2a9284fc3adce20150a75e3439647054550701c2d656de",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -861,7 +861,7 @@
         "penalties"
       ],
       "sha256": "815208f484d75897819a7f83bd1f4f65afe94a862b8097749e35e6383ebcbcf8",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -877,7 +877,7 @@
         "circuit"
       ],
       "sha256": "74845b23b57e43bc61fc7110d0d955fcfe4b6d9333c2ef7beba3df2870c1fc34",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -917,7 +917,7 @@
         "penalties"
       ],
       "sha256": "bd691401ff5f907ceccd81f1169d4eda09669697f5abe64ee6aeb46ce17342db",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -933,7 +933,7 @@
         "results"
       ],
       "sha256": "6e43359e6064ad1ea0d5f9f614992a8105a26d6d79c0c4a8364cc229b110205f",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -949,7 +949,7 @@
         "stewards"
       ],
       "sha256": "e3a5c05fad1363db54cacad709941dc72908e0a6522b9afc911b2eb01208e572",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -965,7 +965,7 @@
         "powerunit"
       ],
       "sha256": "46cf930a47e6c2c00c72268450a6c273bde80272c374620795f70d132c623f44",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -985,7 +985,7 @@
         "schedule"
       ],
       "sha256": "df3c526b9d1ca2ac698fe4cfaff63a73ba8be79597e0d0a8be692f9630173dfb",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1009,7 +1009,7 @@
         "powerunit"
       ],
       "sha256": "ac646baaf86f1a4cd8a8825f7dbdc9afa910967666b52c825a1f1f4087547750",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1025,7 +1025,7 @@
         "schedule"
       ],
       "sha256": "e21e3cdf9a8eb3de512f521f9d4257defd170bc1a5028de0b6e61af806f1a183",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1041,7 +1041,7 @@
         "powerunit"
       ],
       "sha256": "ad00784bf09d9a67d618ea711d22ee1164a0c22c5328fe871d1d89aa474b9ef2",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1069,7 +1069,7 @@
         "penalties"
       ],
       "sha256": "7c471fd8eac915b0c513152084dcacbf17606bd4eaac9dae091f09e900a4a28f",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1089,7 +1089,7 @@
         "circuit"
       ],
       "sha256": "34a072877816643866986820208f88f80850d9b9f00a941970a0e660a3c7d9a5",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1105,7 +1105,7 @@
         "penalties"
       ],
       "sha256": "0313cdbc84207a47d4a637818aeb4ea93f43e391c9c62640062a9ef2454ad2bb",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1125,7 +1125,7 @@
         "results"
       ],
       "sha256": "a9cfaad61135b93b72c2edf5ccca44d6815ae988a263ba33501469825475ccc1",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1141,7 +1141,7 @@
         "stewards"
       ],
       "sha256": "7c88568aeac6e6a58e0b3301ddcd621d36f0b8a94324f15b32a3196b3ec26ec4",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1157,7 +1157,7 @@
         "stewards"
       ],
       "sha256": "cb81b10fa4ba967048568590df482f1335fa6be4c7cd6b13331be3f1f9a9f831",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1173,7 +1173,7 @@
         "penalties"
       ],
       "sha256": "c8f01e744776847356a9e88b5aabd5f0759418e13ac5642db311933ab8b72534",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1189,7 +1189,7 @@
         "penalties"
       ],
       "sha256": "af41738249566107ea775ff80bbd664c93ae5e9e220727c324a5b680a2f16acc",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1209,7 +1209,7 @@
         "results"
       ],
       "sha256": "c302024c13744a75bb90f70cf3a9a056bd08afd6c2dd31a96fa718f062a62f42",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1225,7 +1225,7 @@
         "penalties"
       ],
       "sha256": "cd081e655f5f757efc69263b61de55303d092b2c629b2a75e8133c670e78c1ac",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1241,7 +1241,7 @@
         "penalties"
       ],
       "sha256": "7489f1b1ebe8e81485f09633aa3a49994cc53f34b187bc0e554f59f928fd9600",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1257,7 +1257,7 @@
         "powerunit"
       ],
       "sha256": "b706ad97554d079c17714087898e94caf4cbe473dbcfc78836c96a505e615fcd",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1273,7 +1273,7 @@
         "schedule"
       ],
       "sha256": "91a050ca99e48279c451abc067bd1c681d2a5a0f142e20586206bf091cdeea29",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1289,7 +1289,7 @@
         "upgrades"
       ],
       "sha256": "eaf9202e01277f4e051bc97165164078a72505f73d9472a71c69b84412809f56",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1349,7 +1349,7 @@
         "schedule"
       ],
       "sha256": "97aa07dc0af783292ec1e4038abcd2de00847d7261f25646c758323e0ded23d3",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1365,7 +1365,7 @@
         "schedule"
       ],
       "sha256": "d389fd03f69081a36168f9d3ca8479542c9aeb5ac0bbe9cbea2189a7f58ebdca",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 1,
@@ -1381,7 +1381,7 @@
         "powerunit"
       ],
       "sha256": "e6a9731048b45159555134cff6402d7ee0afee242e26bc7a0f4fcf91b7a07d74",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1397,7 +1397,7 @@
         "circuit"
       ],
       "sha256": "8c3658719ff724191a2a3665c760345e348a24108d2f5ff0184705d491079d29",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1425,7 +1425,7 @@
         "circuit"
       ],
       "sha256": "9ff6ac5312d5fd2fd91a98ac0554b6d9d2bb48b6c0de025b2e564c9a37f0a311",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1465,7 +1465,7 @@
         "schedule"
       ],
       "sha256": "e19f7ebe4f41dd85985d2db37bdb9b753393986f507da686809e535a86bcd020",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1497,7 +1497,7 @@
         "upgrades"
       ],
       "sha256": "2a89a0a215ed1559de0dbd301ed184097cfe30ceec0fef661e662592a6033a89",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1513,7 +1513,7 @@
         "powerunit"
       ],
       "sha256": "b034c0e63a20560dd3e02f1f1a38423fe68bb1fdc1599f43e8f3e712eb589104",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1529,7 +1529,7 @@
         "tyres"
       ],
       "sha256": "84d11f15335e159edbfc72e1239da1a702bf861b51224461ae4792f7dd4e4c0d",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
@@ -1545,7 +1545,7 @@
         "schedule"
       ],
       "sha256": "a599a4c28c8fc5f85df2e78b8e90e6b13b3ebc5209632e51d97fb4d7e328733b",
-      "fetched_at": "2026-11-09T04:31:36+00:00",
+      "fetched_at": "2026-11-09T05:08:49+00:00",
       "pages": [
         {
           "page": 2,
