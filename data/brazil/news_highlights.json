@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-11-09T18:38:37Z",
-  "expires_at": "2026-11-09T19:10:00Z",
+  "reviewed_at": "2026-11-09T19:39:29Z",
+  "expires_at": "2026-11-10T00:00:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "889192bf73e65a4d0077695a91e8c5e6f3a8bb5129103f0af5c9c234373aacb1",
+  "feed_fingerprint": "aa36184d79f817690dccaf5197f2925fcfd40d4829df445a1f522d40831f8567",
   "items": [
     {
       "topic": "Race result",
-      "title": "Norris wins wet São Paulo race as Mercedes clinches the Constructors’ title",
+      "title": "Norris wins wet São Paulo race; final order reflects post-race penalties",
       "date": "2026-11-08",
-      "summary": "Formula1.com reports Norris won the 71-lap wet-dry-wet race by 14.602 seconds over Verstappen, with Hadjar third. FIA Document 82 lists Mercedes on 652 points after Brazil; the result secured the team's ninth Constructors' title. The final classification places Lawson seventh after Leclerc received a five-second collision penalty.",
-      "why_it_matters": "The title and race order are settled, not a pre-race scenario. Use the final FIA classification for points and positions after the post-race sanctions.",
+      "summary": "Formula1.com reports Norris won the 71-lap wet-dry-wet race by 14.602 seconds over Verstappen, with Hadjar third. FIA Document 81 confirms the final order after three five-second penalties: Lawson seventh, Leclerc eighth, Antonelli fifth and Bearman 17th.",
+      "why_it_matters": "Use the final FIA classification, not the provisional order, when discussing the result and points.",
       "sources": [
         {
           "label": "Formula1.com race report",
@@ -27,10 +27,10 @@
     },
     {
       "topic": "Red Bull recovery",
-      "title": "Verstappen suspects an unexplained performance loss after pit stops",
+      "title": "Verstappen reports a balance change; Red Bull will analyse the cause",
       "date": "2026-11-09",
-      "summary": "At the FIA press conference, Verstappen said the car's balance felt completely different after the tyre switch and that he did not know whether it had damage. The Race reports he suspected an aerodynamic-performance loss, but no cause has been established; Hadjar was quicker on 22 of 38 directly comparable laps on the same tyre and strategy.",
-      "why_it_matters": "A possible win remains hypothetical. Attribute the suspected loss to Verstappen and keep Hadjar's lap comparison within its 38-lap sample.",
+      "summary": "At the FIA press conference, Verstappen said the RB22 felt like the complete opposite after the first tyre stop and he did not know whether it had damage. Team Principal Laurent Mekies said Verstappen outperformed Red Bull's simulations by finishing second from P21, but McLaren likely had the stronger race pace; the team will analyse the balance change. The Race found Hadjar quicker on 22 of 38 directly comparable laps on the same tyre and strategy.",
+      "why_it_matters": "The cause remains unconfirmed and a possible win is hypothetical; Mekies said Norris and McLaren were likely faster on race pace.",
       "sources": [
         {
           "label": "The Race post-race analysis",
@@ -39,6 +39,10 @@
         {
           "label": "FIA post-race press conference transcript",
           "url": "https://www.fia.com/news/f1-2026-sao-paulo-grand-prix-post-race-press-conference-transcript"
+        },
+        {
+          "label": "Formula1.com on Mekies and Verstappen's recovery",
+          "url": "https://www.formula1.com/en/latest/article/mekies-explains-how-verstappen-outperformed-red-bulls-own-simulations-in-brazil.1ps87tyvjdEf23vDCaDXOZ"
         }
       ]
     },
@@ -46,8 +50,8 @@
       "topic": "Tyre strategy",
       "title": "Intermediates bracketed the soft-tyre phase as rain returned at Interlagos",
       "date": "2026-11-08",
-      "summary": "Pirelli reports all starters began on Intermediates and every driver used both Intermediates and Softs. Norris completed a 33-lap Soft stint, then 13 laps on a second set before returning to Intermediates as rain came back. Pirelli observed mainly thermal degradation with some graining on the drying surface.",
-      "why_it_matters": "This is observed race use, not the pre-race set snapshot or forecast; the crossover and renewed rain reshaped the strategy.",
+      "summary": "Pirelli reports all starters began on Intermediates and every driver used both Intermediates and Softs. Norris completed Soft stints of 33 and 13 laps before returning to Intermediates as rain came back; Russell and Leclerc each ran 45 laps on one Soft set and another 10 on a second. Pirelli observed mainly thermal degradation with some graining on the drying surface.",
+      "why_it_matters": "These are observed race stints, separate from the pre-race remaining-set inventory and strategy forecasts.",
       "sources": [
         {
           "label": "Pirelli’s official São Paulo race report",
@@ -77,23 +81,19 @@
       ]
     },
     {
-      "topic": "Haas debut",
-      "title": "Camara showed flashes of pace during a difficult wet-weather F1 debut",
+      "topic": "Constructors' title",
+      "title": "Mercedes seal ninth Constructors' title as rivals congratulate the team",
       "date": "2026-11-09",
-      "summary": "The Race reports Camara was called up at the start of the week and had not driven a 2026 F1 car before Brazil. He finished 20th, two laps down, after two qualifying offs; his soft-tyre pace averaged about a tenth per lap behind Bearman across two stints, although Bearman spent time in traffic with a compromised race. Formula1.com confirms Camara is signed to Haas for 2027.",
-      "why_it_matters": "The soft-tyre comparison is a small, event-specific sample, not a measure of season-long pace.",
+      "summary": "George Russell and Kimi Antonelli finished fourth and fifth, securing Mercedes' ninth Constructors' title. Formula1.com reports this ties the team with Williams for third on the all-time list; McLaren, Ferrari, Red Bull and Formula 1 CEO Stefano Domenicali congratulated Mercedes. Toto Wolff said he was already focused on what went wrong in the race and on Las Vegas and 2027.",
+      "why_it_matters": "The title is settled; keep the congratulations distinct from Wolff's post-race performance review.",
       "sources": [
         {
-          "label": "The Race's Brazil race review",
-          "url": "https://www.the-race.com/formula-1/everything-we-learned-from-f1s-2026-brazilian-grand-prix/"
+          "label": "Formula1.com: rivals congratulate Mercedes",
+          "url": "https://www.formula1.com/en/latest/article/rivals-congratulate-mercedes-on-2026-constructors-championship-after-sao-paulo-gp.5mQ3BkVs5HLP8LE8PduoWY"
         },
         {
-          "label": "Formula1.com on Camara's Haas promotion",
-          "url": "https://www.formula1.com/en/latest/article/f2-racer-camara-to-make-f1-debut-at-sao-paulo-grand-prix-as-haas-confirm-ocon-will-not-return.12Qa0tpaMZ9kgnEuGJBKFp"
-        },
-        {
-          "label": "Formula1.com Brazil race report",
-          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+          "label": "Formula1.com: Wolff looks to 2027 after the title",
+          "url": "https://www.formula1.com/en/latest/article/wolff-already-thinking-about-2027-despite-constructors-championship-win-in-brazil.21aGFbwHKbhjkcmpeYVrZV"
         }
       ]
     }
