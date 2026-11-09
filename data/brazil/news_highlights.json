@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-09T14:33:25Z",
-  "expires_at": "2026-11-09T16:30:00Z",
+  "reviewed_at": "2026-11-09T15:33:00Z",
+  "expires_at": "2026-11-09T16:45:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "4ca2701ec25f6b78cecabebbd8f7fac6a8b8c44b9321879e4d117cfca11b3d4c",
+  "feed_fingerprint": "889192bf73e65a4d0077695a91e8c5e6f3a8bb5129103f0af5c9c234373aacb1",
   "items": [
     {
       "topic": "Race result",
@@ -29,8 +29,8 @@
       "topic": "Red Bull recovery",
       "title": "Mekies says Verstappen’s P21-to-P2 recovery exceeded Red Bull’s simulations",
       "date": "2026-11-09",
-      "summary": "Mekies said no simulation predicted Verstappen's recovery from 21st to second and that a small Friday issue forced the power-unit change behind the grid penalty. He also said McLaren was generally faster in the race. Verstappen described a markedly different balance after his strong opening Intermediate stint; Red Bull said it still needed to analyse the loss.",
-      "why_it_matters": "Treat the drive as a standout recovery, not proof Red Bull had the fastest car or that a front-row start would have guaranteed victory; no race-time failure has been diagnosed.",
+      "summary": "Mekies said no simulation predicted Verstappen's recovery from 21st to second and that a small Friday issue forced the power-unit change behind the grid penalty. The Race's post-race analysis reports Verstappen suspected an aerodynamic-performance loss after switching to slicks; Red Bull has not established a cause. It also found Hadjar faster on 22 of 38 directly comparable laps on the same tyre and strategy.",
+      "why_it_matters": "Verstappen finished second, 14.6 seconds behind Norris; a possible win remains hypothetical. Attribute the suspected performance loss to Verstappen, not a confirmed defect, and keep Hadjar's lap comparison within the stated sample.",
       "sources": [
         {
           "label": "Formula1.com on Mekies and Verstappen",
@@ -39,6 +39,10 @@
         {
           "label": "FIA post-race press conference transcript",
           "url": "https://www.fia.com/news/f1-2026-sao-paulo-grand-prix-post-race-press-conference-transcript"
+        },
+        {
+          "label": "The Race post-race analysis",
+          "url": "https://www.the-race.com/formula-1/everything-we-learned-from-f1s-2026-brazilian-grand-prix/"
         },
         {
           "label": "Official Formula1.com Race report",
