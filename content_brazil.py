@@ -176,7 +176,7 @@ pre-race three-point scenario is now settled.
 <a href="{F1_RACE_REPORT}">Formula1.com race report</a> ·
 <a href="https://www.formula1.com/en/results/2026/team">official
 Constructors' standings</a>.</p>''', "bi-trophy", "accent")}
-{card("Power-unit changes reshape the grid", f'''<p>FIA Document 30 reports
+{card("Power-unit penalties shaped Brazil's starting order", f'''<p>FIA Document 30 reports
 new elements for Verstappen, both Ferraris, Perez and Russell. It records
 Verstappen's fifth ICE, turbocharger and exhaust against four allowed, and a
 sixth PU-ANC within the six-part allowance; both Ferrari drivers receive a
@@ -189,19 +189,18 @@ parts declaration. The FIA filings do not establish whether the planned ADUO
 specification is arriving. Formula1.com
 reported 10-place drops for Hamilton and Leclerc; the Stewards' later Document
 33 imposed a 30-place drop on Verstappen for the fifth ICE, turbocharger and
-exhaust. If Car 3 is classified in Qualifying, the decision specifies its
-Race-grid allocation under Article B2.5.4.b.iv, superseding the earlier
-back-of-grid report. A separate Document 39 imposes a 30-place drop on Perez
-for his fifth ICE, fifth turbocharger and fourth MGU-K; if Car 11 is classified
-in Qualifying, its Race-grid position is allocated under the same article.
+exhaust. Verstappen qualified 16th and the official Starting Grid placed him
+21st. A separate Document 39 imposes a 30-place drop on Perez for his fifth
+ICE, fifth turbocharger and fourth MGU-K; Perez qualified 21st and the official
+Starting Grid placed him 22nd.
 Document 30's fifth PU-ANC for Perez is within that element's allowance.
 Stewards' Documents 35 and 37 impose 10-place drops for Leclerc (Car 16) and
 Hamilton (Car 44), respectively, for their fifth ICEs. FIA Document 42 then
 lists Hamilton's sixth ICE, fifth turbocharger and exhaust, fourth energy store,
 fourth control electronics unit and MGU-K, and seventh PU-ANC. Document 43
 imposes a further 65-place drop for those changes, in addition to Document
-37's 10 places, a cumulative 75-place penalty. Car 44 qualified 11th, so the
-decision's conditional Race-grid allocation under Article B2.5.4.b.iv applies.
+37's 10 places, a cumulative 75-place penalty. Car 44 qualified 11th and the
+official Starting Grid placed Hamilton 20th.
 The Race's provisional order lists
 Hamilton 20th; the official Formula1.com Starting Grid now also lists him 20th.
 Use that published classification rather than the earlier provisional order.
@@ -230,6 +229,7 @@ and Bortoleto (sixth ES, sixth PU-CE).
 <a href="{HAMILTON_F1_UPDATE}">Formula1.com on Hamilton's later replacement</a> ·
 <a href="{HAMILTON_PENALTY}">The Race on Hamilton's penalty</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional post-penalty order</a> ·
+<a href="{F1_STARTING_GRID}">Formula1.com final Starting Grid</a> ·
 <a href="{RUSSELL_FIA_PENALTY}">FIA Document 15</a> ·
 <a href="{RUSSELL_PENALTY}">The Race report on Russell</a>.</p>''',
      "bi-exclamation-triangle")}
@@ -515,21 +515,18 @@ Stewards' penalty decisions or a qualifying classification. Formula1.com
 Stewards' Documents 35 and 37 impose 10-place drops for Leclerc (Car 16) and
 Hamilton (Car 44), respectively, for their fifth ICEs. The Stewards' later Document
 33 imposes a 30-place drop on Verstappen for the fifth ICE, turbocharger and
-exhaust. If Car 3 is classified in Qualifying, it specifies Race-grid
-allocation under Article B2.5.4.b.iv; this supersedes the earlier
-back-of-grid report. The Technical Delegate's Document 30 did not determine
-Perez's exact position; the later Stewards' Document 39 imposes a 30-place
-drop for Perez's fifth ICE, fifth turbocharger and fourth MGU-K. If Car 11 is
-classified in Qualifying,
-the decision allocates its Race-grid position under Article B2.5.4.b.iv.
+exhaust. Verstappen qualified 16th and the official Starting Grid placed him
+21st. The Technical Delegate's Document 30 did not determine Perez's exact
+position; the later Stewards' Document 39 imposes a 30-place drop for Perez's
+fifth ICE, fifth turbocharger and fourth MGU-K. Perez qualified 21st and the
+official Starting Grid placed him 22nd.
 Document 30's fifth PU-ANC for Perez remains within that element's allowance.
 The later FIA Technical Delegate's Document 42 reports Hamilton's sixth ICE,
 fifth TC and EXH, fourth ES, PU-CE and MGU-K, and seventh PU-ANC. The source
 states each is beyond its season allowance. The Stewards' Document 43 imposes
 a further 65-place drop for these parts, in addition to Document 37's 10-place
-drop for the fifth ICE. Car 44 qualified 11th, so the conditional Race-grid
-allocation under Article B2.5.4.b.iv applies. The official Formula1.com
-Starting Grid now lists Hamilton 20th. The Race's earlier post-penalty order
+drop for the fifth ICE. Car 44 qualified 11th; the official Formula1.com
+Starting Grid places Hamilton 20th. The Race's earlier post-penalty order
 was provisional; use the official table for starting positions. This
 component-by-component FIA report supersedes the earlier team statement that
 Hamilton would start from the back without detailed counts.
@@ -576,8 +573,9 @@ transient cache response cannot replace it.
          "FIA Document 42: Hamilton's additional new energy store, control electronics, MGU-K and PU-ANC, page 3",
          "new_pu_elements_for_this_competition_1", 3)}
 <p><a href="{FIA_HAMILTON_ADDITIONAL_PENALTY_URL}">FIA Document 43</a>
-records the additional 65-place penalty and conditional Race-grid allocation.
-Its full two-page decision remains available in the Penalties reader.</p>
+records the additional 65-place penalty and the rule for allocating a Race-grid
+position. The official Starting Grid places Hamilton 20th; the full two-page
+decision remains available in the Penalties reader.</p>
 {_figure(FIA_NEW_PU_REV2_P2_ASSET,
          "FIA Document 30: new ICE, turbocharger and exhaust entries, page 2",
          FIA_NEW_PU_REV2_DOC, 2)}
@@ -726,11 +724,11 @@ def build_pages(ctx, env):
     pages["notes"]["body"] = pages["notes"]["body"].replace(
         notes_pending,
         "<p><strong>Session-by-session status:</strong> Official classifications "
-        "are published for FP1, FP2, FP3 and Qualifying. "
+        "are published for FP1, FP2, FP3, Qualifying and Race. "
         "The latest official result appears "
         "in <a href=\"results.html\">Results</a>; <a href=\"news.html\">Weekend "
-        "News</a> carries session reports and official updates. Recheck after "
-        "each session for new material.</p>",
+        "News</a> carries session reports and official updates. Check those "
+        "pages for any subsequent official corrections.</p>",
     )
     pages["notes"]["body"] += f"""
 <p><strong>Qualifying steward decision:</strong> FIA Document 41 says Oliver
@@ -751,9 +749,8 @@ official qualifying classification.
 <p><strong>Hamilton's revised power-unit penalty:</strong> FIA Document 42
 lists Car 44's sixth ICE, fifth TC and EXH, fourth ES, PU-CE and MGU-K, and
 seventh PU-ANC. Document 43 adds a 65-place drop to Document 37's earlier
-10-place penalty (75 places cumulatively). Car 44 qualified 11th, so the
-decision's conditional Race-grid allocation under Article B2.5.4.b.iv applies.
-The official Formula1.com Starting Grid now lists Hamilton 20th.
+10-place penalty (75 places cumulatively). Car 44 qualified 11th and the
+official Formula1.com Starting Grid places Hamilton 20th.
 <a href="{FIA_HAMILTON_NEW_PU_URL}">Document 42</a> ·
 <a href="{FIA_HAMILTON_ADDITIONAL_PENALTY_URL}">Document 43</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying</a> ·
@@ -902,18 +899,18 @@ ES and PU-CE for Car 5; it is not a Stewards' penalty decision. The separate
          FIA_PARC_FERME_PARTS_DOC, 3)}"""
     pages["schedule"]["body"] += f"""
 <p><strong>Standard weekend, not Sprint:</strong> Friday FP1 12:30 and FP2 16:00;
-Saturday FP3 11:30 and Qualifying was scheduled for 15:00; Sunday Race is
-scheduled for 14:00 (all BRT). Add five hours for Tallinn (EET): Race
+Saturday FP3 11:30 and Qualifying was scheduled for 15:00; the Race started
+Sunday at 14:00 (all BRT). Add five hours for Tallinn (EET): Race
 <strong>19:00 Sunday 8 November</strong>. FIA Timetable V5 supersedes V4 and
 extends the third Brazil Junior Trophy race from 20 to 25 minutes plus one lap
-(08:50–09:20 BRT). The Grand Prix remains at 14:00 BRT (formation-lap start;
-71 laps or 120 minutes, approximate finish 16:00).
+(08:50–09:20 BRT). The Grand Prix started at 14:00 BRT; the official
+classification records 71 laps and 305.879 km in 1:35:23.504.
 <a href="{FIA}timetable_v5.pdf#page=2">Timetable V5, page 2</a>.
 The Race reports that Qualifying was delayed by 1h25 and red-flagged almost
 immediately in heavy rain. Formula1.com's official
 classification now lists all 22 qualifiers: Lando Norris took pole in 1:27.470,
-0.204s ahead of George Russell. FIA Document 50's final classification confirms
-the 22-car order. The FIA's later Document 59 is the final Starting Grid,
+0.204s ahead of George Russell. FIA Document 50's final Qualifying
+classification confirms the 22-car order. The FIA's later Document 59 is the final Starting Grid,
 issued at 13:00 BRT; it applies the 10-place penalties in Documents 56 and 57,
 placing Lindblad 18th and Bortoleto 19th. The Formula1.com Starting Grid
 snapshot retrieved at 16:09 UTC still listed Lindblad 12th. A current official
@@ -938,13 +935,13 @@ the source comparison.
 <a href="{THE_RACE_QUALIFYING}">The Race's qualifying report</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's earlier provisional order</a> ·
 <a href="{F1_QUALIFYING_RESULTS}">official Qualifying results</a> ·
-<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf#page=2">FIA Document 50, final classification p. 2</a> ·
+<a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_qualifying_classification.pdf#page=2">FIA Document 50, final Qualifying classification p. 2</a> ·
 <a href="{F1_STARTING_GRID}">official Starting Grid</a> ·
 <a href="https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_provisional_starting_grid.pdf#page=2">FIA Document 51, provisional Starting Grid p. 2</a> ·
 <a href="{THE_RACE_PROVISIONAL_GRID}">The Race's provisional order</a> ·
 <a href="{FIA_EVENT}">live FIA event documents</a>. FP1, FP2 and FP3
 classifications and Qualifying are published, and the final Race
-classification is now available. FIA Document 82 records the updated
+classification is published. FIA Document 82 records the updated
 championship points. The pre-race Pirelli race-set chart covers
 all 22 drivers; its image-bound transcription records the allocation before
 the start on <a href="tyres.html">Tyres &amp; Strategy</a>.</p>

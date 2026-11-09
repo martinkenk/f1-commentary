@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-09T10:26:00Z",
-  "expires_at": "2026-11-09T10:55:00Z",
+  "reviewed_at": "2026-11-09T11:35:22Z",
+  "expires_at": "2026-11-09T16:55:00Z",
   "through_session": "Race",
   "feed_fingerprint": "4ca2701ec25f6b78cecabebbd8f7fac6a8b8c44b9321879e4d117cfca11b3d4c",
   "items": [
@@ -42,7 +42,7 @@
       "title": "Vasseur says tyre temperature was central to Ferrari’s difficult São Paulo weekend",
       "date": "2026-11-09",
       "summary": "Formula1.com reports Leclerc and Hamilton called Ferrari’s performance a disaster, with Leclerc eighth after a five-second penalty and Hamilton ninth. Vasseur said Ferrari struggled to put both intermediate and soft tyres in the right temperature window; he estimated the effect could be around half a second, larger than the tenths gained from upgrades.",
-      "why_it_matters": "Vasseur's explanation adds a specific team diagnosis to the poor result, but remains his account rather than an independent measurement of the car's pace deficit.",
+      "why_it_matters": "Vasseur put tyre-window losses at about half a second and said Ferrari may have pitted Hamilton a little too aggressively for slicks; both are his post-race assessment, not an independent telemetry analysis.",
       "sources": [
         {
           "label": "Formula1.com Ferrari post-race report",

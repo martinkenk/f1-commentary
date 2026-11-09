@@ -209,9 +209,10 @@ class GPParityTests(unittest.TestCase):
         body = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
         )["notes"]["body"]
-        self.assertIn("Official classifications are published for FP1, FP2, FP3 and Qualifying", body)
+        self.assertIn("Official classifications are published for FP1, FP2, FP3, Qualifying and Race", body)
         self.assertIn('href="results.html">Results</a>', body)
         self.assertIn('href="news.html">Weekend News</a>', body)
+        self.assertNotIn("Recheck after each session", body)
         self.assertNotIn("Session-by-session commentary notes: awaiting", body)
 
     def test_brazil_pre_and_post_race_procedures_are_interpreted(self):
@@ -329,7 +330,12 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("75-place penalty", body)
         self.assertIn("Car 44 qualified 11th", body)
         self.assertIn("official Formula1.com Starting Grid now also lists him 20th", body)
+        self.assertIn("Verstappen qualified 16th and the official Starting Grid placed him 21st", body)
+        self.assertIn("Perez qualified 21st and the official Starting Grid placed him 22nd", body)
+        self.assertIn(content_brazil.F1_STARTING_GRID, body)
         self.assertNotIn("that position is not confirmed", body)
+        self.assertNotIn("If Car 3 is classified in Qualifying", body)
+        self.assertNotIn("If Car 11 is classified in Qualifying", body)
         self.assertNotIn("check the FIA event page", body)
         self.assertNotIn("14:00 UTC targeted FIA check", body)
         self.assertNotIn("12:46 UTC", body)
@@ -348,6 +354,10 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Seventh of six; not compliant", powerunit)
         self.assertIn("FIA document</th>", powerunit)
         self.assertIn("additional 65-place penalty", powerunit)
+        self.assertIn("official Starting Grid placed him 21st", powerunit)
+        self.assertIn("official Starting Grid placed him 22nd", powerunit)
+        self.assertIn("Starting Grid places Hamilton 20th", powerunit)
+        self.assertNotIn("conditional Race-grid allocation", powerunit)
         self.assertIn("FIA Document 59's final Starting Grid applies both penalties", powerunit)
         self.assertIn("Lindblad starts 18th and Bortoleto 19th", powerunit)
         self.assertNotIn("application is unresolved", powerunit)
@@ -376,11 +386,13 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("lists all 22 qualifiers", schedule)
         self.assertIn("Document 59 is the final Starting Grid", schedule)
         self.assertIn("Document 59 is the final Starting Grid", schedule)
-        self.assertIn("FIA Document 50, final classification p. 2", schedule)
+        self.assertIn("FIA Document 50, final Qualifying classification p. 2", schedule)
         self.assertIn("FIA Document 51, provisional Starting Grid p. 2", schedule)
         self.assertIn("Lindblad 18th and Bortoleto 19th", schedule)
         self.assertNotIn("application to this Race is unresolved", schedule)
         self.assertNotIn("No replacement start time", schedule)
+        self.assertNotIn("Race is scheduled for 14:00", schedule)
+        self.assertNotIn("approximate finish 16:00", schedule)
         self.assertIn(content_brazil.F1_STARTING_GRID, schedule)
         self.assertIn(content_brazil.THE_RACE_PROVISIONAL_GRID, schedule)
 
