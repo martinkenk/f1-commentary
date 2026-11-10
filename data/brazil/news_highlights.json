@@ -1,91 +1,74 @@
 {
-  "reviewed_at": "2026-11-10T06:57:39Z",
-  "expires_at": "2026-11-10T08:00:00Z",
+  "reviewed_at": "2026-11-10T09:58:00Z",
+  "expires_at": "2026-11-10T10:25:00Z",
   "through_session": "Race",
   "feed_fingerprint": "aa36184d79f817690dccaf5197f2925fcfd40d4829df445a1f522d40831f8567",
   "items": [
     {
       "topic": "Race result",
-      "title": "Norris wins wet São Paulo race; final order reflects post-race penalties",
+      "title": "Norris wins wet-dry-wet São Paulo race; final order reflects penalties",
       "date": "2026-11-08",
-      "summary": "Formula1.com reports Norris won the 71-lap wet-dry-wet race by 14.602 seconds over Verstappen, with Hadjar third. FIA Document 81 confirms the final order after three five-second penalties: Lawson seventh, Leclerc eighth, Antonelli fifth and Bearman 17th.",
-      "why_it_matters": "Use the final FIA classification, not the provisional order, when discussing the result and points.",
+      "summary": "Formula1.com reports Norris won the 71-lap race in 1:35:23.504, 14.602 seconds ahead of Verstappen, with Hadjar third. The final classification places Lawson seventh and Leclerc eighth after Leclerc's post-race penalty.",
+      "why_it_matters": "The provisional track order changed after the stewards' decisions; use the final classification for results and points.",
       "sources": [
         {
           "label": "Formula1.com race report",
           "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+        },
+        {
+          "label": "Formula1.com final race result",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
         },
         {
           "label": "FIA Document 81: final Race classification",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_race_classification.pdf"
-        },
-        {
-          "label": "FIA Document 82: championship points",
-          "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_championship_points.pdf"
-        }
-      ]
-    },
-    {
-      "topic": "Red Bull recovery",
-      "title": "Verstappen reports a balance change; Red Bull will analyse the cause",
-      "date": "2026-11-09",
-      "summary": "Team Principal Laurent Mekies said Verstappen exceeded Red Bull's pre-race simulations with his P21-to-P2 recovery. He considered McLaren generally faster on race pace and said the team would analyse Verstappen's balance complaints after the dry-tyre phase. Mekies also said a small Friday issue forced the unexpected power-unit penalty; it is not a confirmed explanation for the race-pace gap.",
-      "why_it_matters": "The recovery is clear, but whether balance or tyre degradation limited a possible fight remains under analysis.",
-      "sources": [
-        {
-          "label": "Formula1.com on Mekies and Verstappen's recovery",
-          "url": "https://www.formula1.com/en/latest/article/mekies-explains-how-verstappen-outperformed-red-bulls-own-simulations-in-brazil.1ps87tyvjdEf23vDCaDXOZ"
-        }
-      ]
-    },
-    {
-      "topic": "Tyre strategy",
-      "title": "Intermediates bracketed the soft-tyre phase as rain returned at Interlagos",
-      "date": "2026-11-08",
-      "summary": "Pirelli reports all starters began on Intermediates and every driver used both Intermediates and Softs. Norris completed Soft stints of 33 and 13 laps before returning to Intermediates as rain came back; Russell and Leclerc each ran 45 laps on one Soft set and another 10 on a second. Pirelli observed mainly thermal degradation with some graining on the drying surface.",
-      "why_it_matters": "These are observed race stints, separate from the pre-race remaining-set inventory and strategy forecasts.",
-      "sources": [
-        {
-          "label": "Pirelli’s official São Paulo race report",
-          "url": "https://press.pirelli.com/from-pole-to-victory-norris-triumphs-in-so-paulo-on-intermediates/"
-        },
-        {
-          "label": "Formula1.com race report",
-          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
-        }
-      ]
-    },
-    {
-      "topic": "Ferrari performance",
-      "title": "Vasseur says tyre temperature was central to Ferrari’s difficult São Paulo weekend",
-      "date": "2026-11-09",
-      "summary": "Vasseur said Ferrari struggled to put both Intermediate and Soft tyres in the right temperature window; he estimated the effect could reach roughly half a second and said Hamilton's early slick switch may have been too aggressive. Leclerc finished eighth after a penalty, with Hamilton ninth.",
-      "why_it_matters": "This is the team principal’s diagnosis, not an independent telemetry measurement or proof that one factor explains the whole result.",
-      "sources": [
-        {
-          "label": "Formula1.com on Vasseur and Ferrari’s tyre struggles",
-          "url": "https://www.formula1.com/en/latest/article/if-youre-not-in-the-right-spot-youre-nowhere-vasseur-explains-ferraris-brazil-tyre-struggles.4BJ7k41PfxDI31jhSg9RU"
-        },
-        {
-          "label": "Formula1.com race report",
-          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
         }
       ]
     },
     {
       "topic": "Constructors' title",
-      "title": "Mercedes seal ninth Constructors' title as rivals congratulate the team",
+      "title": "Mercedes clinch a ninth Constructors' title at Interlagos",
       "date": "2026-11-09",
-      "summary": "George Russell and Kimi Antonelli finished fourth and fifth, securing Mercedes' ninth Constructors' title. Formula1.com reports this ties the team with Williams for third on the all-time list; McLaren, Ferrari, Red Bull and Formula 1 CEO Stefano Domenicali congratulated Mercedes. Toto Wolff said he was already focused on what went wrong in the race and on Las Vegas and 2027.",
-      "why_it_matters": "The title is settled; keep the congratulations distinct from Wolff's post-race performance review.",
+      "summary": "Russell finished fourth and Antonelli fifth, enough to secure Mercedes' ninth Constructors' Championship. Formula1.com reports this is the team's first title since 2021 and leaves it joint with Williams on nine, behind McLaren and Ferrari.",
+      "why_it_matters": "Both championships are settled: Antonelli had already secured the Drivers' title at Mexico, so focus on the confirmed result rather than live title permutations.",
       "sources": [
         {
-          "label": "Formula1.com: rivals congratulate Mercedes",
+          "label": "Formula1.com on Mercedes' title and rivals' reactions",
           "url": "https://www.formula1.com/en/latest/article/rivals-congratulate-mercedes-on-2026-constructors-championship-after-sao-paulo-gp.5mQ3BkVs5HLP8LE8PduoWY"
         },
         {
-          "label": "Formula1.com: Wolff looks to 2027 after the title",
-          "url": "https://www.formula1.com/en/latest/article/wolff-already-thinking-about-2027-despite-constructors-championship-win-in-brazil.21aGFbwHKbhjkcmpeYVrZV"
+          "label": "Formula1.com final race result",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+        }
+      ]
+    },
+    {
+      "topic": "Race tyre behaviour",
+      "title": "Intermediates bracketed the soft-tyre phase as rain returned",
+      "date": "2026-11-08",
+      "summary": "Pirelli reports every starter began on Intermediates and all drivers used both Intermediates and Softs. Norris completed Soft stints of 33 and 13 laps before changing back to Intermediates as rain returned; Russell and Leclerc each ran 45 laps on one Soft set and ten on a second. Pirelli observed mainly thermal degradation with some graining on the drying track.",
+      "why_it_matters": "These are observed race stints, distinct from the pre-race remaining-set inventory and strategy forecasts.",
+      "sources": [
+        {
+          "label": "Pirelli's official São Paulo race report",
+          "url": "https://press.pirelli.com/from-pole-to-victory-norris-triumphs-in-so-paulo-on-intermediates/"
+        }
+      ]
+    },
+    {
+      "topic": "Ferrari performance",
+      "title": "Vasseur attributes Ferrari's difficult weekend to tyre-temperature struggles",
+      "date": "2026-11-09",
+      "summary": "Ferrari Team Principal Fred Vasseur said the team struggled to keep both Intermediate and Soft tyres in the right temperature window. He estimated that effect could reach roughly half a second; Leclerc and Hamilton finished eighth and ninth.",
+      "why_it_matters": "The half-second figure is Vasseur's assessment, not an independent telemetry measurement or a complete explanation of the result.",
+      "sources": [
+        {
+          "label": "Formula1.com on Vasseur and Ferrari's tyre struggles",
+          "url": "https://www.formula1.com/en/latest/article/if-youre-not-in-the-right-spot-youre-nowhere-vasseur-explains-ferraris-brazil-tyre-struggles.4BJ7k41PfxDI31jhSg9RU"
+        },
+        {
+          "label": "Formula1.com final race result",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
         }
       ]
     }
