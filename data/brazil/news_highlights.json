@@ -1,14 +1,14 @@
 {
-  "reviewed_at": "2026-11-10T13:00:00Z",
-  "expires_at": "2026-11-10T17:00:00Z",
+  "reviewed_at": "2026-11-10T18:12:56Z",
+  "expires_at": "2026-11-11T08:00:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "9f3e8e05ab31775ed63cfd871d1cc5ce05b6187d34f5732d5319e6138fd43b29",
+  "feed_fingerprint": "3eba9e475c0d16145ce257c2534f1d0c809912f1e608887eeee65f1a12b6cc4f",
   "items": [
     {
       "topic": "Race result",
       "title": "Norris wins wet-dry-wet São Paulo race; final order reflects penalties",
       "date": "2026-11-08",
-      "summary": "Formula1.com reports Norris won the 71-lap race in 1:35:23.504, 14.602 seconds ahead of Verstappen, with Hadjar third. The final classification places Lawson seventh and Leclerc eighth after Leclerc's post-race penalty.",
+      "summary": "Formula1.com reports Norris won the 71-lap race in 1:35:23.504, 14.602 seconds ahead of Verstappen, with Hadjar third. The final classification places Lawson seventh and Leclerc eighth after Leclerc's post-race penalty. Later, analyst Jolyon Palmer called it one of Norris's best wins, citing McLaren's performance across the weekend; that is commentary, separate from the official result.",
       "why_it_matters": "The provisional track order changed after the stewards' decisions; use the final classification for results and points.",
       "sources": [
         {
@@ -22,6 +22,10 @@
         {
           "label": "FIA Document 81: final Race classification",
           "url": "https://www.fia.com/system/files/decision-document/2026_sao_paulo_grand_prix_-_final_race_classification.pdf"
+        },
+        {
+          "label": "Formula1.com: Palmer on Norris's São Paulo win",
+          "url": "https://www.formula1.com/en/latest/article/why-norris-sao-paulo-victory-was-one-of-his-best-ever-wins.3hyiRlbfztlQekIw1WuvWd"
         }
       ]
     },
