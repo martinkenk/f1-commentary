@@ -1420,20 +1420,27 @@ def render_reliability(ctx, intro_html=""):
     if race:
         drivers = _classified(race)
         h = race["headers"]
+        ni = _col(h, "no")
         ri = _col(h, "time", "retired")
         li = _col(h, "laps")
+        status_by_no = {
+            row[ni]: row[ri].strip().upper()
+            for row in race["rows"]
+            if ni is not None and ri is not None and ni < len(row) and ri < len(row)
+        }
         finishers = [d for d in drivers if not d["dnf"]]
-        dnfs = [d for d in drivers if d["dnf"]]
+        dnfs = [d for d in drivers if status_by_no.get(d["no"]) in ("DNF", "RT")]
+        dns = [d for d in drivers if status_by_no.get(d["no"]) == "DNS"]
         out.append('<h2 class="sec">Race reliability</h2>')
         out.append('<div class="stat-row">'
                    + stat(str(len(finishers)), "Classified finishers")
                    + stat(str(len(dnfs)), "Retirements (DNF)")
-                   + stat(str(len(drivers)), "Started") + '</div>')
+                   + stat(str(len(drivers) - len(dns)), "Started") + '</div>')
         if dnfs:
             rws = []
             for d in dnfs:
                 idx = next((i for i, r in enumerate(race["rows"])
-                            if (r[_col(h, "no")] if _col(h, "no") is not None else "") == d["no"]), None)
+                            if ni is not None and ni < len(r) and r[ni] == d["no"]), None)
                 laps = race["rows"][idx][li] if (idx is not None and li is not None and li < len(race["rows"][idx])) else ""
                 why = race["rows"][idx][ri] if (idx is not None and ri is not None and ri < len(race["rows"][idx])) else "DNF"
                 rws.append(f"<tr><td class='tm'>{d['name']} <span class='drv-code'>{d['code']}</span></td>"
@@ -1442,7 +1449,17 @@ def render_reliability(ctx, intro_html=""):
                        '<th>Driver</th><th>Team</th><th>Lap</th><th>Retired</th></tr></thead>'
                        f'<tbody>{"".join(rws)}</tbody></table></div>')
         else:
-            out.append('<div class="callout watch">Every starter was classified — a clean, full-distance race.</div>')
+            out.append('<div class="callout watch">No DNF retirement is recorded in the official classification.</div>')
+        if dns:
+            rws = "".join(
+                f"<tr><td class='tm'>{d['name']} <span class='drv-code'>{d['code']}</span></td>"
+                f"<td>{d['team']}</td><td>DNS</td></tr>"
+                for d in dns
+            )
+            out.append('<h3>Did not start</h3>'
+                       '<div class="table-wrap"><table class="data compact"><thead><tr>'
+                       '<th>Driver</th><th>Team</th><th>Status</th></tr></thead>'
+                       f'<tbody>{rws}</tbody></table></div>')
     else:
         status = ctx.get("status") or event_status(ctx)
         if status == "future":
