@@ -234,13 +234,15 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("weekend is under way", overview["sub"])
 
     def test_past_overview_uses_non_predictive_storyline_copy(self):
-        body = content_brazil.build_pages(
+        pages = content_brazil.build_pages(
             self.contexts["brazil"], self.env
-        )["overview"]["body"]
-        self.assertIn("Weekend takeaways", body)
-        self.assertNotIn("Storylines to prepare", body)
-        self.assertNotIn("Rain probability is high enough", body)
-        self.assertNotIn("Late-season championship maths often becomes live", body)
+        )
+        overview = pages["overview"]["body"]
+        self.assertIn("Weekend takeaways", overview)
+        for body in (overview, pages["notes"]["body"]):
+            self.assertNotIn("Storylines to prepare", body)
+            self.assertNotIn("Rain probability is high enough", body)
+            self.assertNotIn("Late-season championship maths often becomes live", body)
 
     def test_brazil_notes_link_to_published_session_coverage(self):
         body = content_brazil.build_pages(

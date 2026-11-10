@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-09T19:39:29Z",
-  "expires_at": "2026-11-10T00:00:00Z",
+  "reviewed_at": "2026-11-10T06:57:39Z",
+  "expires_at": "2026-11-10T08:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "aa36184d79f817690dccaf5197f2925fcfd40d4829df445a1f522d40831f8567",
   "items": [
@@ -29,17 +29,9 @@
       "topic": "Red Bull recovery",
       "title": "Verstappen reports a balance change; Red Bull will analyse the cause",
       "date": "2026-11-09",
-      "summary": "At the FIA press conference, Verstappen said the RB22 felt like the complete opposite after the first tyre stop and he did not know whether it had damage. Team Principal Laurent Mekies said Verstappen outperformed Red Bull's simulations by finishing second from P21, but McLaren likely had the stronger race pace; the team will analyse the balance change. The Race found Hadjar quicker on 22 of 38 directly comparable laps on the same tyre and strategy.",
-      "why_it_matters": "The cause remains unconfirmed and a possible win is hypothetical; Mekies said Norris and McLaren were likely faster on race pace.",
+      "summary": "Team Principal Laurent Mekies said Verstappen exceeded Red Bull's pre-race simulations with his P21-to-P2 recovery. He considered McLaren generally faster on race pace and said the team would analyse Verstappen's balance complaints after the dry-tyre phase. Mekies also said a small Friday issue forced the unexpected power-unit penalty; it is not a confirmed explanation for the race-pace gap.",
+      "why_it_matters": "The recovery is clear, but whether balance or tyre degradation limited a possible fight remains under analysis.",
       "sources": [
-        {
-          "label": "The Race post-race analysis",
-          "url": "https://www.the-race.com/formula-1/everything-we-learned-from-f1s-2026-brazilian-grand-prix/"
-        },
-        {
-          "label": "FIA post-race press conference transcript",
-          "url": "https://www.fia.com/news/f1-2026-sao-paulo-grand-prix-post-race-press-conference-transcript"
-        },
         {
           "label": "Formula1.com on Mekies and Verstappen's recovery",
           "url": "https://www.formula1.com/en/latest/article/mekies-explains-how-verstappen-outperformed-red-bulls-own-simulations-in-brazil.1ps87tyvjdEf23vDCaDXOZ"
