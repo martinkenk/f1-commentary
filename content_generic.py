@@ -74,6 +74,7 @@ def build_pages(ctx, env):
     sprint = bool(cal.get("is_sprint"))
     gp = ctx["name"]
     circuit = ctx["circuit"]
+    circuit_title = circuit if circuit.casefold().endswith(" circuit") else f"{circuit} Circuit"
     tz_local = ctx["tz_local"]
     tz_east = ctx["tz_east"]
     laps = cal.get("laps") or ""
@@ -186,7 +187,7 @@ def build_pages(ctx, env):
 
     P["circuit"] = dict(
         kicker=f"{_fmt(length, 'Length TBC')} · {_fmt(laps + ' laps' if laps else '', 'laps TBC')}",
-        title=f"{circuit} Circuit Guide",
+        title=f"{circuit_title} Guide",
         sub=ref.get("character", "Circuit guide."),
         body=f"""
 <h2 class="sec">Circuit map</h2>

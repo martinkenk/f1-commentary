@@ -244,6 +244,14 @@ class GPParityTests(unittest.TestCase):
             self.assertNotIn("Rain probability is high enough", body)
             self.assertNotIn("Late-season championship maths often becomes live", body)
 
+    def test_generic_circuit_guide_title_does_not_repeat_circuit(self):
+        ctx = next(
+            event for event in build.season_gps()
+            if event["dir"] == "las-vegas"
+        )
+        pages = content_generic.build_pages(ctx, self.env)
+        self.assertEqual(pages["circuit"]["title"], "Las Vegas Strip Circuit Guide")
+
     def test_brazil_notes_link_to_published_session_coverage(self):
         body = content_brazil.build_pages(
             dict(self.contexts["brazil"], status="live"), self.env
