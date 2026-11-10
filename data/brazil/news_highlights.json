@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-10T09:58:00Z",
-  "expires_at": "2026-11-10T10:25:00Z",
+  "reviewed_at": "2026-11-10T11:57:00Z",
+  "expires_at": "2026-11-10T12:25:00Z",
   "through_session": "Race",
   "feed_fingerprint": "aa36184d79f817690dccaf5197f2925fcfd40d4829df445a1f522d40831f8567",
   "items": [
@@ -35,6 +35,27 @@
         {
           "label": "Formula1.com on Mercedes' title and rivals' reactions",
           "url": "https://www.formula1.com/en/latest/article/rivals-congratulate-mercedes-on-2026-constructors-championship-after-sao-paulo-gp.5mQ3BkVs5HLP8LE8PduoWY"
+        },
+        {
+          "label": "Formula1.com final race result",
+          "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result"
+        }
+      ]
+    },
+    {
+      "topic": "Audi's fight for P7",
+      "title": "Hulkenberg recovers from penalty to score a point as Audi close on Haas",
+      "date": "2026-11-10",
+      "summary": "Formula1.com reports Nico Hulkenberg started fourth, served a 10-second penalty for cutting the track while passing Franco Colapinto, then passed Arvid Lindblad late to finish P10 and score the final point. The current official standings put Audi on 28 points, three behind Haas on 31.",
+      "why_it_matters": "A three-point deficit keeps the Constructors' P7 fight live; Hulkenberg called P10 the maximum available given the team's pace.",
+      "sources": [
+        {
+          "label": "Formula1.com on Hulkenberg and Audi's P7 fight",
+          "url": "https://www.formula1.com/en/latest/article/the-maximum-possible-hulkenberg-on-audis-fight-for-points-in-sao-paulo-grand-prix.1KO1iL7LzQm3Cfl0CGspws"
+        },
+        {
+          "label": "Official 2026 teams' standings",
+          "url": "https://www.formula1.com/en/results/2026/team"
         },
         {
           "label": "Formula1.com final race result",
