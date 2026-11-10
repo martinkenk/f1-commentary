@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-10T11:57:00Z",
-  "expires_at": "2026-11-10T12:25:00Z",
+  "reviewed_at": "2026-11-10T13:00:00Z",
+  "expires_at": "2026-11-10T17:00:00Z",
   "through_session": "Race",
-  "feed_fingerprint": "aa36184d79f817690dccaf5197f2925fcfd40d4829df445a1f522d40831f8567",
+  "feed_fingerprint": "9f3e8e05ab31775ed63cfd871d1cc5ce05b6187d34f5732d5319e6138fd43b29",
   "items": [
     {
       "topic": "Race result",
