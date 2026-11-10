@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-10T13:01:00Z",
-  "expires_at": "2026-11-10T17:00:00Z",
+  "reviewed_at": "2026-11-10T19:09:15Z",
+  "expires_at": "2026-11-11T08:15:00Z",
   "through_session": null,
   "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
   "items": [
@@ -8,8 +8,8 @@
       "topic": "McLaren development",
       "title": "Stella says further McLaren parts are planned for Las Vegas",
       "date": "2026-11-09",
-      "summary": "McLaren Team Principal Andrea Stella said parts from the Interlagos package will be complemented by further parts in Las Vegas, forming a foundation for the 2027 car. He named no components; Stella also said cooler conditions helped McLaren in Brazil while hot-weather long-run consistency remains a work in progress.",
-      "why_it_matters": "This is a team development plan, not an FIA submission or a measured performance gain. Las Vegas' FIA event listing remains unavailable, so filing status is unverified.",
+      "summary": "Stella said cooler track and ambient temperatures helped the MCL40 control tyre temperatures in Brazil, while hot-condition long-run consistency remains work in progress. He said the Interlagos upgrades will be complemented by further parts in Las Vegas as a foundation for 2027; he named no components.",
+      "why_it_matters": "This is a team development plan, not a published FIA submission or a measured performance gain. The Las Vegas FIA listing remains inaccessible, so the component filing status is unverified.",
       "sources": [
         {
           "label": "Formula1.com on Stella's McLaren development plan",
