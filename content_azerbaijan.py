@@ -386,7 +386,7 @@ def build_pages(ctx, env):
                      "Formula1.com Bahrain penalty report")
         )
         old_overview = content_generic.card(
-            "Storylines to prepare",
+            content_generic.storyline_heading(ctx.get("status", "future")),
             content_generic.ul_or(
                 ref.get("storylines"),
                 "<p>Storylines will be added as the round approaches.</p>",

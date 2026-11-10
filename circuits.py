@@ -421,8 +421,8 @@ CIRCUITS = {
             "The circuit has decided multiple World Championships and the crowd knows it.",
         ],
         "storylines": [
-            "Rain probability is high enough that a wet-weather plan is essential preparation.",
-            "Late-season championship maths often becomes live here.",
+            "Use the current forecast and observed session conditions when discussing Interlagos weather.",
+            "Check the latest official standings before describing any live championship permutations.",
         ],
     },
     "las-vegas": {

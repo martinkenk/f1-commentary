@@ -49,6 +49,14 @@ def ul_or(items, fallback="<p>To be added.</p>"):
     return ul(items) if items else fallback
 
 
+def storyline_heading(status):
+    return {
+        "future": "Storylines to prepare",
+        "live": "Weekend storylines",
+        "past": "Weekend takeaways",
+    }.get(status, "Weekend storylines")
+
+
 def _corner_cards(ref):
     return "".join(
         card(name, f"<p>{desc}</p>", "bi-signpost-split")
@@ -62,6 +70,7 @@ def build_pages(ctx, env):
     ref = ctx.get("ref") or {}
     cal = ctx.get("cal") or {}
     status = ctx.get("status", "future")
+    storylines_title = storyline_heading(status)
     sprint = bool(cal.get("is_sprint"))
     gp = ctx["name"]
     circuit = ctx["circuit"]
@@ -136,7 +145,7 @@ def build_pages(ctx, env):
 </div>
 
 <div class="grid cols-2">
-  {card("Storylines to prepare", ul_or(ref.get("storylines"), "<p>Storylines will be added as the round approaches.</p>"),
+  {card(storylines_title, ul_or(ref.get("storylines"), "<p>Storylines will be added as the round approaches.</p>"),
         "bi-broadcast")}
   {card("Overtaking picture", f"<p>{ref.get('overtaking', 'To be confirmed.')}</p>",
         "bi-arrow-left-right")}
