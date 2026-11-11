@@ -1,8 +1,15 @@
 import unittest
-from career_starts import milestone, rank, snapshot
+from career_starts import milestone, rank, render, snapshot
 
 
 class CareerTests(unittest.TestCase):
+    def test_completed_brazil_page_keeps_the_career_table_explicitly_pre_weekend(self):
+        body = render({})
+        self.assertIn("deliberately frozen", body)
+        self.assertIn("completed Brazil classification", body)
+        self.assertNotIn("before a classification", body)
+        self.assertNotIn("not a forecast of his Brazil result", body)
+
     def test_shared_rank_and_passing_requires_one_more_start(self):
         rows = [{"id": "a", "name": "A", "starts": 10},
                 {"id": "b", "name": "B", "starts": 10},

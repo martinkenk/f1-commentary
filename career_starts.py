@@ -92,16 +92,18 @@ def render(ctx, root=ROOT):
 <p>Formula1.com's 8 November feature identifies Sao Paulo as Lewis Hamilton's
 <strong>400th F1 start</strong>: 20 uninterrupted seasons since his 2007 McLaren
 debut, seven world titles, and competitive pace still demonstrated by his Mexico
-pole the previous weekend. Those achievements describe longevity and performance,
-not a forecast of his Brazil result. Former teammate Fernando Alonso welcomes
-him to the 400-start club; Antonelli and Russell point to his sustained motivation.
+pole the previous weekend. Those achievements describe longevity and performance;
+Brazil's completed race result is listed separately on Results. Former teammate
+Fernando Alonso welcomes him to the 400-start club; Antonelli and Russell point
+to his sustained motivation.
 <a href="{ARTICLE}">Official F1 milestone feature and rivals' tributes</a>.</p>
-<p><strong>Source-date caveat:</strong> the ranking below is F1DB {escape(value['source']['release'])},
-through {escape(value['through_date'])}, <strong>before Brazil</strong>. Hamilton
-has 399 starts in that snapshot; Brazil is the reported 400th, not added to the
-historical table before a classification. F1 calls Brazil Alonso's 445th start,
-while this F1DB snapshot already records 445 through Mexico: a one-start
-source disagreement remains explicit, not silently adjusted.</p>
+<p><strong>Source-date caveat:</strong> this ranking is deliberately frozen to
+F1DB {escape(value['source']['release'])}, through {escape(value['through_date'])},
+before Brazil. Hamilton entered the weekend on 399 starts and made his 400th at
+Sao Paulo, as reported by Formula1.com. The completed Brazil classification
+remains on Results; it does not change this pre-weekend snapshot. F1 calls Brazil
+Alonso's 445th start, while this F1DB snapshot already records 445 through Mexico:
+a one-start source disagreement remains explicit, not silently adjusted.</p>
 <h3>Most Grand Prix starts: top 30 ranks plus every Brazil entrant</h3>
 <p>Race starts, not entries, qualifying appearances or sprints. Drivers on the
 current Brazil race grid are highlighted, including replacements. Ties share
