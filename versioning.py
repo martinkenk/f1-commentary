@@ -294,9 +294,10 @@ def inject_widgets(public_dir, versions):
 # --------------------------------------------------------------------------
 # Main
 # --------------------------------------------------------------------------
-def _now_ids():
-    now = datetime.datetime.now(_TALLINN) if _TALLINN else datetime.datetime.utcnow()
-    return now.strftime("%Y%m%d-%H%M%S"), now.strftime("%d %b %Y, %H:%M EEST"), now.isoformat()
+def _now_ids(now=None):
+    if now is None:
+        now = datetime.datetime.now(_TALLINN or datetime.timezone.utc)
+    return now.strftime("%Y%m%d-%H%M%S"), now.strftime("%d %b %Y, %H:%M %Z"), now.isoformat()
 
 
 def main():
