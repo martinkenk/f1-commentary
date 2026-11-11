@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-11-11T15:56:57+00:00",
+  "checked_at": "2026-11-11T16:48:13+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -6781,7 +6781,7 @@
       "label": "Qualifying",
       "date": "2026-10-31",
       "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/qualifying",
-      "fetched_at": "2026-11-11T15:56:57+00:00",
+      "fetched_at": "2026-11-11T16:48:13+00:00",
       "drivers": [
         {
           "code": "HAM",
@@ -6969,7 +6969,7 @@
       "label": "Race",
       "date": "2026-11-01",
       "url": "https://www.formula1.com/en/results/2026/races/1298/mexico/race-result",
-      "fetched_at": "2026-11-11T15:56:57+00:00",
+      "fetched_at": "2026-11-11T16:48:13+00:00",
       "drivers": [
         {
           "code": "VER",
@@ -7157,7 +7157,7 @@
       "label": "Qualifying",
       "date": "2026-11-07",
       "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying",
-      "fetched_at": "2026-11-11T15:56:57+00:00",
+      "fetched_at": "2026-11-11T16:48:13+00:00",
       "drivers": [
         {
           "code": "NOR",
@@ -7345,7 +7345,7 @@
       "label": "Race",
       "date": "2026-11-08",
       "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result",
-      "fetched_at": "2026-11-11T15:56:57+00:00",
+      "fetched_at": "2026-11-11T16:48:13+00:00",
       "drivers": [
         {
           "code": "NOR",
