@@ -50,13 +50,22 @@ class GPParityTests(unittest.TestCase):
             pages["upgrades"]["body"],
         )
         self.assertIn("not an FIA filing", pages["upgrades"]["body"])
+        for source in (
+            content_las_vegas.ANTONELLI_TITLE_URL,
+            content_las_vegas.MERCEDES_TITLE_URL,
+        ):
+            self.assertIn(source, pages["notes"]["body"])
         briefing = json.loads(
             (Path(__file__).parent / "data/las-vegas/news_highlights.json").read_text()
         )
         self.assertIsNone(briefing["through_session"])
-        self.assertEqual(len(briefing["items"]), 1)
+        self.assertEqual(len(briefing["items"]), 3)
         self.assertEqual(
-            briefing["items"][0]["sources"][0]["url"],
+            {item["topic"] for item in briefing["items"]},
+            {"Drivers' Championship", "Constructors' Championship", "McLaren development"},
+        )
+        self.assertEqual(
+            briefing["items"][2]["sources"][0]["url"],
             content_las_vegas.MCLAREN_VEGAS_URL,
         )
 

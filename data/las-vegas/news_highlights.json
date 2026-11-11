@@ -1,9 +1,35 @@
 {
-  "reviewed_at": "2026-11-10T19:09:15Z",
+  "reviewed_at": "2026-11-11T07:17:53Z",
   "expires_at": "2026-11-11T08:15:00Z",
   "through_session": null,
   "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
   "items": [
+    {
+      "topic": "Drivers' Championship",
+      "title": "Antonelli clinched the 2026 Drivers' Championship in Mexico City",
+      "date": "2026-11-01",
+      "summary": "Third place in the Mexico City Grand Prix was enough for Kimi Antonelli to secure his maiden Drivers' title, regardless of where his rivals finished.",
+      "why_it_matters": "The title is already decided before Las Vegas; do not present the current standings gap as an active championship fight.",
+      "sources": [
+        {
+          "label": "Formula1.com on Antonelli's title",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-mexico-git-grand-prix.xpMMeef0KmRURs9IDs3LH"
+        }
+      ]
+    },
+    {
+      "topic": "Constructors' Championship",
+      "title": "Mercedes clinched the 2026 Constructors' title in São Paulo",
+      "date": "2026-11-08",
+      "summary": "George Russell finished fourth and Kimi Antonelli fifth in the São Paulo Grand Prix, enough for Mercedes to secure its ninth Constructors' Championship.",
+      "why_it_matters": "Both championship titles are settled. Las Vegas is about race wins and the remaining finishing positions, not title permutations.",
+      "sources": [
+        {
+          "label": "Formula1.com on the São Paulo race and Mercedes' title",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+        }
+      ]
+    },
     {
       "topic": "McLaren development",
       "title": "Stella says further McLaren parts are planned for Las Vegas",
