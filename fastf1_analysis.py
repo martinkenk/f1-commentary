@@ -73,6 +73,7 @@ import numpy as np  # noqa: E402
 
 import standings  # noqa: E402
 from long_run_analysis import analyse_long_run_samples  # noqa: E402
+from fastf1_selection import active_analysis_slugs  # noqa: E402
 from pace_snapshot import (fastest_lap_compound, matching_session_articles,
                            merge_completed_sessions,
                            missing_completed_practice_tyres,
@@ -501,7 +502,8 @@ def main():
     ap.add_argument("--gp", help="Only analyse this event slug (e.g. italy)")
     ap.add_argument("--year", type=int, default=2026)
     ap.add_argument("--active", action="store_true",
-                     help="Only analyse the live/just-finished GP (for scheduled CI runs, "
+                     help="Analyse the live GP and most recent race within seven days "
+                          "(for scheduled CI runs, "
                           "to avoid re-processing the whole season every run)")
     args = ap.parse_args()
 
@@ -516,18 +518,11 @@ def main():
     if args.active:
         import build  # noqa: E402  (repo-local import, safe post sys.path fix-up)
         import f1lib  # noqa: E402
-        today = datetime.date.today()
+        today = now.date()
         gps = list(build.season_gps())
         for c in gps:
-            c.setdefault("status", f1lib.event_status(c, today))
-        live = [c for c in gps if c["status"] == "live"]
-        # Only the currently-live GP: unlike enrich.py's news/decision sweep,
-        # there is nothing new to compute for a GP once its weekend is over
-        # (every session is already analysed), and re-fetching an old event's
-        # data from FastF1 is exactly what triggered the crash below (live
-        # timing fallback data becomes unavailable once the weekend is well
-        # past, and FastF1 doesn't always raise a clean exception for that).
-        active_slugs = {c["dir"] for c in live}
+            c["status"] = f1lib.event_status(c, today)
+        active_slugs = active_analysis_slugs(gps, today)
         print(f"Active GP(s) for this run: {sorted(active_slugs) or '(none)'}")
 
     errors = False
