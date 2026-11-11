@@ -69,6 +69,26 @@ class GPParityTests(unittest.TestCase):
             content_las_vegas.MCLAREN_VEGAS_URL,
         )
 
+    def test_las_vegas_moments_cite_a_historic_race(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "las-vegas")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+
+        moments = content_generic.build_pages(ctx, self.env)["moments"]["body"]
+
+        self.assertIn("2023 — final-lap fight for second", moments)
+        self.assertIn("Leclerc passed Sergio Perez on the final lap", moments)
+        self.assertIn(
+            "https://www.formula1.com/en/latest/article/"
+            "verstappen-beats-leclerc-and-perez-to-victory-in-action-packed-las-vegas."
+            "czJOEppYohzdjCwIugjwN",
+            moments,
+        )
+        self.assertIn(
+            "https://www.formula1.com/en/results/2023/races/1225/las-vegas/race-result",
+            moments,
+        )
+        self.assertNotIn("A curated moments list", moments)
+
     def italy(self):
         return content_italy.build_pages(self.contexts["italy"], self.env)
 

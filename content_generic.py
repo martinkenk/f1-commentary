@@ -18,6 +18,18 @@ from f1lib import card, stat, ul
 import datetime
 import circuit_history
 
+LAS_VEGAS_2023_MOMENT = (
+    '<strong>2023 — final-lap fight for second:</strong> After receiving a '
+    'five-second penalty for forcing Charles Leclerc wide at Turn 1, Max '
+    'Verstappen recovered to win; Leclerc passed Sergio Perez on the final lap '
+    'for second, 2.070 seconds behind. '
+    '<a href="https://www.formula1.com/en/latest/article/'
+    'verstappen-beats-leclerc-and-perez-to-victory-in-action-packed-las-vegas.'
+    'czJOEppYohzdjCwIugjwN">Formula1.com race report</a> · '
+    '<a href="https://www.formula1.com/en/results/2023/races/1225/las-vegas/'
+    'race-result">official classification</a>.'
+)
+
 
 def pending(what, when="", icon="bi-hourglass-split"):
     """Mark missing coverage without asserting that its source is unpublished.
@@ -447,17 +459,24 @@ def build_pages(ctx, env):
 """)
 
     # ---- MOMENTS -----------------------------------------------------------
+    moments = ([f"First Grand Prix at this venue: <strong>{first_gp}</strong>."]
+               if first_gp else []) + ref.get("notes", [])
+    if ctx.get("dir") == "las-vegas":
+        moments.append(LAS_VEGAS_2023_MOMENT)
+    moments_pending = (
+        pending("A curated moments list for this venue",
+                "in the official preview material for the round", "bi-stars")
+        if ctx.get("dir") != "las-vegas" else ""
+    )
     P["moments"] = dict(
         kicker="History",
         title="Great Moments",
         sub=f"Memorable races and moments at {circuit}.",
         body=f"""
 {card("History in brief", ul_or(
-   ([f"First Grand Prix at this venue: <strong>{first_gp}</strong>."] if first_gp else [])
-   + ref.get("notes", [])), "bi-stars", "accent")}
+   moments), "bi-stars", "accent")}
 
-{pending("A curated moments list for this venue",
-         "in the official preview material for the round", "bi-stars")}
+{moments_pending}
 """)
 
     # ---- SCHEDULE ----------------------------------------------------------
