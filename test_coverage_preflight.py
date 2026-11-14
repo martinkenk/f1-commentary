@@ -9,6 +9,16 @@ import coverage_preflight as preflight
 
 
 class CoveragePreflightTests(unittest.TestCase):
+    def test_unavailable_existing_pr_branch_does_not_block_coverage_audit(self):
+        source = (preflight.ROOT / ".github/workflows/critical-race-coverage.md").read_text()
+        for text in (
+                "do not treat that local limitation as a task blocker",
+                "continue the audit from latest `origin/main`",
+                "submit only the new,",
+                "`push_to_pull_request_branch` using its PR"):
+            with self.subTest(text=text):
+                self.assertIn(text, source)
+
     def test_editor_serializes_data_writers_and_reports_failed_pushes(self):
         lock = preflight.LOCK.read_text()
         concurrency = re.search(r"^concurrency:\n((?:  .*\n)+)", lock, re.M)[1]

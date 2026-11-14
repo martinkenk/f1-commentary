@@ -198,6 +198,14 @@ commit them there (no integration merge commits). Preserve its existing edits.
 Use
 `push_to_pull_request_branch` with its PR number, then `update_pull_request` to
 refresh the evidence/pending-items summary. Do not push directly or force-push.
+If the existing PR's head branch cannot be fetched or checked out because the
+sandbox blocks Git access, do not treat that local limitation as a task blocker
+or report the task incomplete. Inspect the PR's diff and changed files through
+GitHub, continue the audit from latest `origin/main`, and submit only the new,
+allowed edits to that same PR with `push_to_pull_request_branch` using its PR
+number; this does not require checking out its branch and must preserve its
+existing edits. Report a blocker only if that safe-output update is actually
+rejected or the source information needed for the audit remains unavailable.
 If there is no matching PR, start from main and create one.
 If the integration merge conflicts, report the concrete blocker rather than claiming coverage
 is complete. Only emit `noop` after actually auditing and finding no new gaps;
