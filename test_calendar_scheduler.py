@@ -69,6 +69,26 @@ class CalendarTests(unittest.TestCase):
             self.assertEqual(record["health_status"], "error")
             self.assertEqual(record["execution_errors"], ["Repository fetch failed"])
 
+    def test_heartbeat_publishes_failure_classification_and_updates_when_it_changes(self):
+        now = at("2026-11-06T12:00")
+        state = {"errors": ["Source unavailable"], "execution_errors": [],
+                 "health_status": "attention", "heartbeat_at": now.isoformat(),
+                 "alert_signature": ["Source unavailable"]}
+        with patch.object(scheduler, "api") as api:
+            scheduler.heartbeat(state, {"health_issue": 115}, now)
+            payload = json.loads(api.call_args.args[-1].split("```json\n")[1].split("\n```")[0])
+            self.assertEqual(payload["health_status"], "attention")
+            self.assertEqual(payload["execution_errors"], [])
+            self.assertEqual(payload["errors"], ["Source unavailable"])
+            api.reset_mock()
+            scheduler.heartbeat(state, {"health_issue": 115}, now + dt.timedelta(minutes=1))
+            api.assert_not_called()
+            state.update(execution_errors=["Source unavailable"], health_status="error")
+            scheduler.heartbeat(state, {"health_issue": 115}, now + dt.timedelta(minutes=2))
+            payload = json.loads(api.call_args.args[-1].split("```json\n")[1].split("\n```")[0])
+            self.assertEqual(payload["health_status"], "error")
+            self.assertEqual(payload["execution_errors"], ["Source unavailable"])
+
     def test_heartbeat_failure_is_not_hidden_as_successful_check(self):
         now = at("2026-11-06T12:00")
         with tempfile.TemporaryDirectory() as directory:
@@ -357,6 +377,26 @@ class HealthTests(unittest.TestCase):
         self.assertIn("stale", check_heartbeat.assess(body("2026-11-06T06:30:00+00:00"), now))
         self.assertIn("Invalid", check_heartbeat.assess(body("2026-11-06T09:30:00+00:00"), now))
         self.assertIn("unresolved", check_heartbeat.assess(body("2026-11-06T08:30:00+00:00", ["blocked"]), now))
+
+    def test_independent_monitor_distinguishes_findings_from_execution_failures(self):
+        now = at("2026-11-06T09:00")
+        record = {"heartbeat_at": "2026-11-06T08:30:00+00:00", "health_status": "attention",
+                  "errors": ["6 live coverage findings need retry/review"], "execution_errors": []}
+        def assess():
+            return check_heartbeat.assess("```json\n" + json.dumps(record) + "\n```", now)
+        self.assertEqual(assess(), "")
+        with patch.object(check_heartbeat, "api", return_value={"body":
+                "```json\n" + json.dumps({**record, "heartbeat_at": dt.datetime.now(UTC).isoformat()})
+                + "\n```"}), \
+             patch("sys.argv", ["check_heartbeat.py", "--issue", "115"]), \
+             patch("builtins.print") as output:
+            self.assertEqual(check_heartbeat.main(), 0)
+            self.assertIn("see the health issue for coverage findings", output.call_args.args[0])
+        record.update(health_status="error", execution_errors=["Repository fetch failed"])
+        self.assertIn("execution failures", assess())
+        record.update(health_status="attention", execution_errors=[],
+                      heartbeat_at="2026-11-06T06:30:00+00:00")
+        self.assertIn("stale", assess())
 
 
 if __name__ == "__main__":

@@ -16,7 +16,9 @@ def assess(body, now):
         return "Invalid scheduler heartbeat timestamp."
     if now - stamp > dt.timedelta(minutes=90):
         return f"Scheduler heartbeat is stale: {stamp.isoformat()}. Check f1-calendar.timer and host availability."
-    if record.get("errors"):
+    if record.get("execution_errors"):
+        return "Scheduler reports execution failures; see the health issue."
+    if "execution_errors" not in record and record.get("errors"):
         return "Scheduler reports unresolved failures; see the health issue."
     return ""
 
@@ -38,7 +40,8 @@ def main():
         message = "External watchdog alert: " + problem
         if not any(comment["body"] == message for comment in comments):
             api(endpoint + "/comments", "--method", "POST", "-f", f"body={message}")
-    print(problem or "Scheduler heartbeat is fresh and has no unresolved failures.")
+    print(problem or "Scheduler heartbeat is fresh and has no reported execution failures; "
+          "see the health issue for coverage findings.")
     return int(bool(problem))
 
 

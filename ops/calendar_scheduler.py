@@ -190,9 +190,11 @@ def heartbeat(state, preferences, now):
     if not number:
         raise ValueError("preferences.json must name the operator's health_issue")
     if (state.get("heartbeat_at") and now - health.timestamp(state["heartbeat_at"])
-            < dt.timedelta(minutes=30) and state.get("alert_signature") == state["errors"]):
+            < dt.timedelta(minutes=30) and state.get("alert_signature") == state["errors"]
+            and state.get("heartbeat_execution_errors") == state["execution_errors"]):
         return
     payload = {"heartbeat_at": now.isoformat(), "errors": state["errors"],
+               "execution_errors": state["execution_errors"], "health_status": state["health_status"],
                "pending": state.get("pending", []), "request": state.get("request"),
                "next": state.get("next", []),
                "agent": state.get("agent"), "live_generated_at": state.get("live_generated_at")}
@@ -204,6 +206,7 @@ def heartbeat(state, preferences, now):
         api(endpoint + "/comments", "--method", "POST", "-f",
             "body=Automation needs attention:\n\n" + "\n".join(f"- {e}" for e in state["errors"]))
     state["alert_signature"] = list(state["errors"])
+    state["heartbeat_execution_errors"] = list(state["execution_errors"])
     state["heartbeat_at"] = now.isoformat()
 
 
@@ -346,14 +349,15 @@ def tick(now=None):
         state["errors"].append(str(error))
         state["execution_errors"].append(str(error))
     finally:
+        state["health_status"] = ("error" if state["execution_errors"] else
+                                  "attention" if state["errors"] else "healthy")
         try:
             heartbeat(state, preferences, now)
         except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as error:
             message = f"Health issue update failed: {error}"
             state["errors"].append(message)
             state["execution_errors"].append(message)
-        state["health_status"] = ("error" if state["execution_errors"] else
-                                  "attention" if state["errors"] else "healthy")
+            state["health_status"] = "error"
         watchdog.write_json(STATE / "scheduler.json", state)
     print(json.dumps({key: state.get(key) for key in (
         "checked_at", "health_status", "errors", "execution_errors", "pending", "request")}, indent=2))

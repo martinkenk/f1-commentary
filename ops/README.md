@@ -83,6 +83,11 @@ drive retries/health-issue alerts, and set `health_status` to `attention`; servi
 success is not a claim of complete coverage. Actual execution failures (repository,
 API, live-evidence access or heartbeat errors) also populate `execution_errors`,
 set `health_status` to `error`, and exit nonzero. A clean check is `healthy`.
+The issue heartbeat publishes this classification and `execution_errors` for
+the independent GitHub monitor. Fresh coverage findings remain visible in the
+issue without failing Actions; execution failures and stale/invalid heartbeats
+still fail it. Legacy heartbeats without `execution_errors` retain the conservative
+behavior of failing on any reported error.
 
 `preferences.json` retains `audit_only` and adds `health_issue` (the issue number).
 `agent_blocked_reason`, when present, prevents repeated paid agent attempts and
