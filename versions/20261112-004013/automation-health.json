@@ -1,0 +1,458 @@
+{
+  "generated_at": "2026-11-11T22:40:02.355202+00:00",
+  "run_id": "43113005581",
+  "refresh_key": "",
+  "refresh_mode": "",
+  "collection_gp": "",
+  "collection": {
+    "calendar": "success",
+    "enrichment": "failure",
+    "fia_media": "failure",
+    "race_tyres": "success",
+    "session_results": "success",
+    "standings": "success"
+  },
+  "last_collection_checks": {
+    "calendar": {
+      "outcome": "success",
+      "gp": "",
+      "checked_at": "2026-11-11T22:38:15.682962+00:00"
+    },
+    "enrichment": {
+      "outcome": "failure",
+      "gp": "",
+      "checked_at": "2026-11-11T22:38:15.682962+00:00"
+    },
+    "fia_media": {
+      "outcome": "failure",
+      "gp": "",
+      "checked_at": "2026-11-11T22:38:15.682962+00:00"
+    },
+    "race_tyres": {
+      "outcome": "success",
+      "gp": "",
+      "checked_at": "2026-11-11T22:38:15.682962+00:00"
+    },
+    "session_results": {
+      "outcome": "success",
+      "gp": "",
+      "checked_at": "2026-11-11T22:38:15.682962+00:00"
+    },
+    "standings": {
+      "outcome": "success",
+      "gp": "",
+      "checked_at": "2026-11-11T22:38:15.682962+00:00"
+    }
+  },
+  "events": {
+    "belgium": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "548485e9608cd4ae104babaebe8deb165f60986644f6d9f09c42829c6368941b",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "2caea02877a7291d9cec840cf89b4c72128e1da756a73c400b23fb3c71fed7ed",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 3": {
+          "digest": "8352c8e60539fdcbe665bf3b88148d82ac781a082a8f899755240743d7f735f0",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "b6d3ab79cbf025bd62252ffcde58e5121cbb9f7fbee0eb46c1e583280f4f8ae8",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "873ef2ca2fd6121c1b2e2b1500b09f323609306f7f2e248faa65fd25d1d5b6d1",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "d861ce6fea3e7791f2c59c0c45027da1c7f1352d3a5108080d3ebacf8eeba970",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "hungary": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "88c3d39b4ab312bbd46d3fb56780d3934179ea1ff0445a94f44e122fc272b7a8",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "911641ac09b8b5c835e0f83350f9622817bf57ac89ac7edd26f6b6127cd4627e",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 3": {
+          "digest": "4eacb764a078cda302d0e528e15837a00f64790ac2a291a6fe5994a5bd62c6a4",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "f474ada84ff32964432591c2faddf4fdc0faf3cae11916fc3423a2b3a0f0e396",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "6deabd1d4ca8ccfd0589a033567f2ac718027f0e4658819bbae5ece9a475952a",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "a79568a059451a589a9978d7c31e8327a6c6ac6ebf0936638dc0b3ee5807fcda",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "netherlands": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "1b5e71cbe8b344041361b79bbb6d5c3d6e64cdfebe6520abac4afcea58296bbb",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Sprint Qualifying": {
+          "digest": "12cb6bac1316caced3c0ff66a385de8036fd023753c90ad72fa66812de3a0deb",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Sprint": {
+          "digest": "094f007639e8f05a7b79cdceda09c2f1f9eb819da69f6fe54679cc11ec90ac83",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "dfabecc3f9e7390bc1223f6b8f918a92053157ee2dd83eeacbbe2e9f449c2328",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "16fc008df654b0bb73438b1145b0ffa890b2cffef4e794760664a9a47213d68b",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "6e9c8e98a00562500e05365afa83c35fa831c7dd47c700e8eba49f0c52a59698",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "italy": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "c9e5dc7e853bff8dd1e95ba0733df6bda26a6ed21b7c6ee441249d7a06d63508",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "f44c0c4d1c7492ffdd772815e003e2b79bc0c4ed81cd03110a047e232aacea51",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 3": {
+          "digest": "3c0c0890d26197ea815b5ce7bc3b05542ab3841d47d6f24aeac532db4b2cdc95",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "428b8e3c64372b6c53c166d1272374ad72f54b03b210f7a83346a5463faa7d33",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "b464b51a8197d8b0b5d6bc3233311d49f416ed3471ea470411b9b2df458855bd",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "92fa41aa97d128506213696c9c6bf3aa1b9d58789e6e904b292e45652038b584",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "spain": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "e910c2af107d2aa4d9f8882168bce2a0b63ff9de2141e19adf0d56a557eaf0f7",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "4048a9c3b773f49362d525b706ee1b3d7ec58c8fc363ae1e944158aa4558128a",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 3": {
+          "digest": "8e866ad3100820c74d392423f635dac5d0fb0b3a62232a4780cf52cbcfe368f3",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "8a13a90eb4fcede32b815b564d5cde04f5c56aeb6c1ca4023f8a81b786b02eab",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "5437a267ce9368b23a117c5783fa475eb500a4ce8a0598293d4aef0bfa6a146e",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "593eba9b745bb995fd56a910be577e8478282df5c0508398014bc971921c6a3d",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "azerbaijan": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "5409a0d7e9a806b0e81b3808213a7924a6d2280c57eb8cdec917c2f4771efbc9",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "2a1ec833276e81510ad6dc841fb83534398025d8ba88398d13420cbb1141ec12",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 3": {
+          "digest": "fc67ff328fb9c69a586787acd6825a98dac8b65d9119aeaea06b7dc0fb64a6f5",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "5befc6e7fe02b069b2bac7a0f9dfb4a5a53266e8b67b8ecbdf0f12869244a408",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "ed6b97479cfb83b4702bf269825cb3d8924e9f032692ac1cd9971de99c4766e3",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "cd65c29d1b2405d906afed5478f8952bda0a0ee36c048658b143e0a1c8b4a25d",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "bahrain": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "1c42161ec8abbf6f1a2ee659752cfabe92997dbc09b971db11e50007610c11a4",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "9356d086a55b7f4514fc2e8a9efe96a5bc4d162cf25a9a09cbdf1ff3eb987aec",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 3": {
+          "digest": "d7097862e7ba906abaea1e34583c6b59004601dd234b17c2fc75710f41cf62f4",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "96df341072074a83824657cd66ec1f9252135ffd6024a117b5a70715c6937a95",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "b7a53ad1071bb8c89f6c5ecd93304aaa2056e1699b9c329ac0259753aecefccb",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "bdf564903a2d4afcb9d37345e172a2eba82fb6dac0c09c421d5dccf0e1154a87",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "singapore": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "0ce1de0d1b9cdc292eec65def17bb24f1cbf8ab64dc189abe96ad70502a99751",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Sprint Qualifying": {
+          "digest": "d5480a3e2a21996707302cc29bbf0557841f8f6468e97539cc5189c438195f51",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Sprint": {
+          "digest": "b53a0f78ee4cbe58fc2a467d16f30b654d909be41c0bfb13aa1bb7ff3f659638",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "97cd96fe0d79f1533265d535259161194e43a7aa4089d83cd94a3287f729a243",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "54b91ef2beae426ac63cfbf178cb9b33a037f0431e60e413001c6c4bf2012f54",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "913dcf15edb377eb03ecd3745416757d7e740ae225a882e011ffaab22eacbe36",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "united-states": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "f4bf27268ee0e43bea8ae05e4d1c71f97542760fef9f3d29fd39c4ba52617648",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "924033a8fbe6dd2eb9468d3b0b93ce31f3770349bd70fe6fc102e06a0fee2794",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 3": {
+          "digest": "ad490709763a80757f10115011944d0723b9e2f14c3324f65cc3a5289f6fbf09",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "655f3f49192dd073470b201479b81cd3d81f0e93adc536f35b172ba037376d2d",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "343e72218f0010b5f23eb7289d4117680cc5beff25dc2df26bcbe3c63a78f195",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "6ff3017925e75ac578fa2d36372f34cd36f2dc33801f54cc50fa1169da06498a",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "mexico": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "1fb9f2d3ca9a6df5265d987f2f6bc1ec6fbc017c4a207639f7bca485bc31c9d3",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "c31a9890ed081963132139fe5677b2093cbca28be16c81f5d7cdbf2d49fcdb37",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 3": {
+          "digest": "d1b7056f8077cc95e96849aefefffa50374998731aa5c3ad07e164a6ddf811f9",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "766767f29eee69d31b470b3e863608e41941039b5bd60f82dfa8866abd41d00d",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "83da8e7f3efab86c0d96610573d5c5b37809f9047fd1642c43d80a5928b19f96",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "97b13ff5ae12b79e055a1041a802a4d91c45372a5741fb9ba198801341847a53",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "brazil": {
+      "sessions": {
+        "Practice 1": {
+          "digest": "ec5fc0410e083b60bd34e2cdc31f629494594b6af35bd38238fa7fdb497cbe4d",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "dc1fa4f9cd7b1642c784adeee652b11fa19a8a90187574a3fba46a7c0cf311b3",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Practice 3": {
+          "digest": "b409abde7730c56f1942bb69e0acf1aaee3083648485550dd288f12a293951e4",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Qualifying": {
+          "digest": "01d4af1818f56c3c3c239d1ace198c660dcaed3959b74285ef9afa8cb868c71d",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        },
+        "Starting Grid": {
+          "digest": "800913ae0b3a8c3b6dd0b5bbe829695389be9be0e1797ea0d9f55ece775a51e0",
+          "fetched_at": "2026-11-08T18:34:24+00:00",
+          "retained": false
+        },
+        "Race": {
+          "digest": "8257cb9b4bfd30f53180db52c1a4863ee386dfd46d572471dc495be94bcfec83",
+          "fetched_at": "2026-11-11T22:38:14+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-11T22:38:14+00:00"
+    },
+    "las-vegas": {
+      "sessions": {},
+      "results_checked_at": null
+    },
+    "qatar": {
+      "sessions": {},
+      "results_checked_at": null
+    },
+    "united-arab-emirates": {
+      "sessions": {},
+      "results_checked_at": null
+    }
+  },
+  "findings": [
+    {
+      "gp": "collection",
+      "kind": "source_error",
+      "message": "enrichment collector failed; retained data is not fresh"
+    },
+    {
+      "gp": "collection",
+      "kind": "source_error",
+      "message": "fia_media collector failed; retained data is not fresh"
+    }
+  ]
+}
