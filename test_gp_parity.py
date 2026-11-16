@@ -59,13 +59,18 @@ class GPParityTests(unittest.TestCase):
             (Path(__file__).parent / "data/las-vegas/news_highlights.json").read_text()
         )
         self.assertIsNone(briefing["through_session"])
-        self.assertEqual(len(briefing["items"]), 3)
+        self.assertEqual(len(briefing["items"]), 4)
         self.assertEqual(
             {item["topic"] for item in briefing["items"]},
-            {"Drivers' Championship", "Constructors' Championship", "McLaren development"},
+            {
+                "Drivers' Championship",
+                "Constructors' Championship",
+                "Haas line-up",
+                "McLaren development",
+            },
         )
         self.assertEqual(
-            briefing["items"][2]["sources"][0]["url"],
+            briefing["items"][3]["sources"][0]["url"],
             content_las_vegas.MCLAREN_VEGAS_URL,
         )
 
