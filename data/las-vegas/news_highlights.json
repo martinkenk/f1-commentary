@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-11T20:26:26Z",
-  "expires_at": "2026-11-12T08:26:26Z",
+  "reviewed_at": "2026-11-16T13:55:36Z",
+  "expires_at": "2026-11-17T09:55:36Z",
   "through_session": null,
-  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "feed_fingerprint": "56ce0d6409cb66c0be56b3f278ec0e1c2584fea902f48ad1e79dea6e344891e4",
   "items": [
     {
       "topic": "Drivers' Championship",
@@ -27,6 +27,23 @@
         {
           "label": "Formula1.com on the São Paulo race and Mercedes' title",
           "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+        }
+      ]
+    },
+    {
+      "topic": "Haas line-up",
+      "title": "Camara keeps Haas seat for Las Vegas; Hirakawa to drive FP1",
+      "date": "2026-11-16",
+      "summary": "Haas confirmed Rafael Camara will race again after his São Paulo debut, partnering Oliver Bearman, while reserve Ryo Hirakawa returns for Free Practice 1.",
+      "why_it_matters": "Camara's earlier commitment covered Brazil only; Las Vegas is new to him, and Hirakawa's FP1 run takes track time from the race car.",
+      "sources": [
+        {
+          "label": "Formula1.com on Haas line-up",
+          "url": "https://www.formula1.com/en/latest/article/haas-confirm-camara-to-race-for-the-team-in-las-vegas-as-hirakawa-returns-for-fp1-appearance.2as7TuSF4UHgXczZlu4245"
+        },
+        {
+          "label": "The Race on Camara",
+          "url": "https://www.the-race.com/formula-1/vegas-gives-camara-chance-to-put-messy-debut-behind-him/"
         }
       ]
     },

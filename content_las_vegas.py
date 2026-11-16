@@ -19,6 +19,12 @@ MERCEDES_TITLE_URL = (
     "constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
 )
 
+HAAS_URL = (
+    "https://www.formula1.com/en/latest/article/"
+    "haas-confirm-camara-to-race-for-the-team-in-las-vegas-as-hirakawa-"
+    "returns-for-fp1-appearance.2as7TuSF4UHgXczZlu4245"
+)
+
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
@@ -45,16 +51,27 @@ Mercedes' title</a>.</p>""",
         "bi-trophy",
         "accent",
     )
+    haas = card(
+        "Haas: Camara races again; Hirakawa returns for FP1",
+        f"""<p>Haas confirmed on 16 November that Rafael Camara, who made his F1
+debut in São Paulo, will again race alongside Oliver Bearman at Las Vegas, a
+circuit new to him. Reserve Ryo Hirakawa, who finished tenth in Mexico City after
+Esteban Ocon's departure, is set to drive in Free Practice 1. <a href="{HAAS_URL}"
+target="_blank" rel="noopener">Formula1.com, 16 November</a>.</p>""",
+        "bi-person-plus",
+        "accent",
+    )
     pending = content_generic.pending(
         "Team-by-team weekend storylines", "in the week before the race"
     )
     pages["teams"]["body"] = pages["teams"]["body"].replace(
         pending,
-        update + content_generic.pending(
+        haas + update + content_generic.pending(
             "Further team-specific weekend details",
             "as event statements and filings are reviewed",
         ),
     )
+    pages["rookies"]["body"] = haas + pages["rookies"]["body"]
     pages["upgrades"]["body"] = update + pages["upgrades"]["body"]
     pages["notes"]["body"] = championships + update + pages["notes"]["body"]
     return pages
