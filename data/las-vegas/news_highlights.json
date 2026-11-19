@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-11T20:26:26Z",
-  "expires_at": "2026-11-12T08:26:26Z",
+  "reviewed_at": "2026-11-19T14:50:00Z",
+  "expires_at": "2026-11-20T08:50:00Z",
   "through_session": null,
-  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "feed_fingerprint": "1bec7a7b015d4fdf6a40ac8a973a064d2dc3980d1c4bd306f6fb055d224d30dc",
   "items": [
     {
       "topic": "Drivers' Championship",
@@ -27,6 +27,36 @@
         {
           "label": "Formula1.com on the São Paulo race and Mercedes' title",
           "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+        }
+      ]
+    },
+    {
+      "topic": "Haas line-up",
+      "title": "Camara stays at Haas for Las Vegas; Hirakawa returns for FP1",
+      "date": "2026-11-16",
+      "summary": "Haas confirmed Rafael Camara will race again after his Sao Paulo debut, following Esteban Ocon's departure during the Mexico City weekend. Reserve Ryo Hirakawa drives in Free Practice 1.",
+      "why_it_matters": "Camara's second start comes on a street circuit he has not raced; The Race frames it as a chance to move on from a messy debut. The FP1 driver swap shares running with the race driver.",
+      "sources": [
+        {
+          "label": "Formula1.com on Haas confirming Camara",
+          "url": "https://www.formula1.com/en/latest/article/haas-confirm-camara-to-race-for-the-team-in-las-vegas-as-hirakawa-returns-for-fp1-appearance.2as7TuSF4UHgXczZlu4245"
+        },
+        {
+          "label": "The Race on Camara's second start",
+          "url": "https://www.the-race.com/formula-1/vegas-gives-camara-chance-to-put-messy-debut-behind-him/"
+        }
+      ]
+    },
+    {
+      "topic": "Mercedes power unit",
+      "title": "Russell declines new turbo to avoid a grid penalty; Antonelli offers team support in P2 fight",
+      "date": "2026-11-19",
+      "summary": "Russell says Mercedes let him choose and he skipped the new turbo because it would mean a back-of-grid penalty; he says five or six of Mercedes' eight PU users are taking it. He is third, 17 points behind Verstappen for P2. Antonelli said the turbo brings little performance but helps reliability and driveability, and that he would help Russell if needed.",
+      "why_it_matters": "It shapes the fight for second in the drivers' standings and Mercedes' team-order stance now that both titles are settled. Russell's quoted view is that the benefit is small, not a measured gain.",
+      "sources": [
+        {
+          "label": "Formula1.com on Russell and the turbo",
+          "url": "https://www.formula1.com/en/latest/article/i-want-to-fight-for-the-victory-russell-confident-in-his-las-vegas-chances-as-he-opens-up-on-call-not-to-take-new-turbo.7umaum2qrpemrxRVZhHfEN"
         }
       ]
     },

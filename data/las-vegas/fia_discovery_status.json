@@ -1,6 +1,5 @@
 {
-  "checked_at": "2026-11-17T17:28:38.321516+00:00",
+  "checked_at": "2026-11-19T14:35:27.287736+00:00",
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Las%20Vegas%20Grand%20Prix",
-  "ok": false,
-  "error": "FIA documents page unavailable: HTTP Error 500: Internal Server Error; season fallback failed: Las Vegas Grand Prix is not listed in the FIA season index"
+  "ok": true
 }
