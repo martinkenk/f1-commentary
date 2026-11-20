@@ -1,32 +1,57 @@
 {
-  "reviewed_at": "2026-11-11T20:26:26Z",
-  "expires_at": "2026-11-12T08:26:26Z",
-  "through_session": null,
-  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "reviewed_at": "2026-11-20T14:20:39Z",
+  "expires_at": "2026-11-21T10:20:39Z",
+  "through_session": "Practice 2",
+  "feed_fingerprint": "8e1383e2a9061c799d894f3dc18baf1a3bd9364185fae93b5dd90f77c1610828",
   "items": [
     {
-      "topic": "Drivers' Championship",
-      "title": "Antonelli clinched the 2026 Drivers' Championship in Mexico City",
-      "date": "2026-11-01",
-      "summary": "Third place in the Mexico City Grand Prix was enough for Kimi Antonelli to secure his maiden Drivers' title, regardless of where his rivals finished.",
-      "why_it_matters": "The title is already decided before Las Vegas; do not present the current standings gap as an active championship fight.",
+      "topic": "Wet Thursday practice",
+      "title": "FP1 washout, then Russell tops a drying FP2 ahead of Gasly",
+      "date": "2026-11-20",
+      "summary": "No flying lap was set in FP1. In FP2 George Russell posted 1m 47.272s on intermediates at the very end, 0.071s ahead of Pierre Gasly and about three tenths clear of Charles Leclerc, after a short debris red flag. Hadjar was fourth and Piastri fifth.",
+      "why_it_matters": "The order is not representative: Russell and Gasly set their times as the track was driest, and Mercedes themselves said they were not the fastest. Dry-weather tyre and long-run data is still missing, so FP3 carries unusual weight.",
       "sources": [
         {
-          "label": "Formula1.com on Antonelli's title",
-          "url": "https://www.formula1.com/en/latest/article/antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-mexico-git-grand-prix.xpMMeef0KmRURs9IDs3LH"
+          "label": "Formula1.com FP2 report",
+          "url": "https://www.formula1.com/en/latest/article/fp2-russell-beats-gasly-and-leclerc-to-top-spot-in-wet-las-vegas-gp-practice.62NwXdkf1krQs0esgViJtc"
+        },
+        {
+          "label": "Formula1.com: What the teams said - Thursday",
+          "url": "https://www.formula1.com/en/latest/article/what-the-teams-said-thursday-in-las-vegas-2026.4jnMZFzCSpX9y63f0rmnQW"
         }
       ]
     },
     {
-      "topic": "Constructors' Championship",
-      "title": "Mercedes clinched the 2026 Constructors' title in São Paulo",
-      "date": "2026-11-08",
-      "summary": "George Russell finished fourth and Kimi Antonelli fifth in the São Paulo Grand Prix, enough for Mercedes to secure its ninth Constructors' Championship.",
-      "why_it_matters": "Both championship titles are settled. Las Vegas is about race wins and the remaining finishing positions, not title permutations.",
+      "topic": "Grid penalties",
+      "title": "Power-unit penalties: Antonelli, Piastri, Sainz and Stroll; Bearman to the back",
+      "date": "2026-11-20",
+      "summary": "Formula1.com reports Piastri and Sainz will drop 10 places, Antonelli five (sixth ICE, after Monza), Stroll 10, while Bearman's fifth ICE, turbocharger, exhaust and MGU-K plus a new PU-ANC push him beyond 15 places, so he starts from the back. The FIA infringement notice for Piastri confirms a 10-place drop for a fifth ICE.",
+      "why_it_matters": "Several cars will start away from their qualifying position, which changes strategy and overtaking expectations. Check the FIA documents for final confirmation of each driver.",
       "sources": [
         {
-          "label": "Formula1.com on the São Paulo race and Mercedes' title",
-          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+          "label": "Formula1.com on Antonelli, Bearman and Stroll",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-bearman-and-stroll-set-for-grid-penalties-at-las-vegas-grand-prix.37Vixk6Mt1gvZlVXDsO8S"
+        },
+        {
+          "label": "FIA: Car 81 PU element infringement",
+          "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_81_-_changes_to_pu_element.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Mercedes upgrade",
+      "title": "Mercedes brings upgraded turbocharger; Antonelli only",
+      "date": "2026-11-20",
+      "summary": "Antonelli is running the upgraded turbocharger and a new ICE; Russell is not on the turbocharger. Russell and the team both said the FP2 headline flattered them, with tyre consistency in the cold a worry.",
+      "why_it_matters": "A split specification between team-mates gives an unusual read on the upgrade in FP3 and qualifying, and cold-weather graining may matter on Saturday.",
+      "sources": [
+        {
+          "label": "Formula1.com: What the teams said - Thursday",
+          "url": "https://www.formula1.com/en/latest/article/what-the-teams-said-thursday-in-las-vegas-2026.4jnMZFzCSpX9y63f0rmnQW"
+        },
+        {
+          "label": "Formula1.com: Russell admits Mercedes lacking pace",
+          "url": "https://www.formula1.com/en/latest/article/we-probably-were-not-the-fastest-russell-admits-mercedes-lacking-pace-despite-topping-fp2-in-las-vegas.6t2XX2vWPRCohJvtJ5PLeu"
         }
       ]
     },
@@ -40,6 +65,23 @@
         {
           "label": "Formula1.com on Stella's McLaren development plan",
           "url": "https://www.formula1.com/en/latest/article/technically-a-very-interesting-race-stella-reveals-how-norris-and-mclaren-triumphed-at-interlagos.SRa4ORrmm9CcPqhwssoum"
+        }
+      ]
+    },
+    {
+      "topic": "Championships settled",
+      "title": "Antonelli (Drivers') and Mercedes (Constructors') already champions",
+      "date": "2026-11-08",
+      "summary": "Kimi Antonelli clinched the Drivers' title in Mexico City; Mercedes secured the Constructors' title in São Paulo.",
+      "why_it_matters": "Both titles are decided. Las Vegas is about race wins and remaining positions, not title permutations.",
+      "sources": [
+        {
+          "label": "Formula1.com on Antonelli's title",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-mexico-git-grand-prix.xpMMeef0KmRURs9IDs3LH"
+        },
+        {
+          "label": "Formula1.com on the São Paulo race and Mercedes' title",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
         }
       ]
     }
