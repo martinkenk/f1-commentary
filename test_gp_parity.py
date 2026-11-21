@@ -58,12 +58,12 @@ class GPParityTests(unittest.TestCase):
         briefing = json.loads(
             (Path(__file__).parent / "data/las-vegas/news_highlights.json").read_text()
         )
-        self.assertEqual(briefing["through_session"], "Practice 2")
+        self.assertEqual(briefing["through_session"], "Qualifying")
         self.assertEqual(len(briefing["items"]), 5)
         topics = {item["topic"] for item in briefing["items"]}
-        self.assertIn("McLaren development", topics)
-        mclaren = next(i for i in briefing["items"] if i["topic"] == "McLaren development")
-        self.assertEqual(mclaren["sources"][0]["url"], content_las_vegas.MCLAREN_VEGAS_URL)
+        self.assertEqual(len(topics), 5)
+        self.assertIn("Qualifying", topics)
+        self.assertTrue(all(item["sources"] for item in briefing["items"]))
 
     def test_las_vegas_moments_cite_a_historic_race(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "las-vegas")
