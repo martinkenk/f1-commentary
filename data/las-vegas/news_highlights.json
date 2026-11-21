@@ -1,45 +1,115 @@
 {
-  "reviewed_at": "2026-11-11T20:26:26Z",
-  "expires_at": "2026-11-12T08:26:26Z",
-  "through_session": null,
-  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "reviewed_at": "2026-11-21T13:40:14Z",
+  "expires_at": "2026-11-22T09:40:14Z",
+  "through_session": "Qualifying",
+  "feed_fingerprint": "e42e99bf587c0d46ecc7719f423440dd8977f7f31e0659299bd9eb2858cb72de",
   "items": [
     {
-      "topic": "Drivers' Championship",
-      "title": "Antonelli clinched the 2026 Drivers' Championship in Mexico City",
-      "date": "2026-11-01",
-      "summary": "Third place in the Mexico City Grand Prix was enough for Kimi Antonelli to secure his maiden Drivers' title, regardless of where his rivals finished.",
-      "why_it_matters": "The title is already decided before Las Vegas; do not present the current standings gap as an active championship fight.",
+      "topic": "Qualifying",
+      "title": "Antonelli fastest, but Verstappen inherits Las Vegas pole",
+      "date": "2026-11-21",
+      "summary": "Kimi Antonelli set 1m 33.893s on his final Q3 effort, 0.258s clear of Max Verstappen, but serves a five-place grid drop for power-unit changes. Verstappen therefore inherits pole, George Russell is on the front row and Antonelli starts sixth.",
+      "why_it_matters": "The fastest car on Friday is not on pole, so the grid order overstates Red Bull's and understates Mercedes' race pace. Antonelli's recovery from sixth is a key storyline.",
       "sources": [
         {
-          "label": "Formula1.com on Antonelli's title",
-          "url": "https://www.formula1.com/en/latest/article/antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-mexico-git-grand-prix.xpMMeef0KmRURs9IDs3LH"
+          "label": "Formula1.com qualifying report",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-quickest-in-las-vegas-gp-qualifying-as-verstappen-inherits-pole-position.6R7udh8iYMHunSOGI6zStK"
+        },
+        {
+          "label": "Formula1.com: Verstappen reacts to inheriting pole",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-reacts-to-inheriting-las-vegas-pole-position-as-he-explains-earlier-practice-struggles.6y0zcnlPP6Lf9zoPv89j3W"
+        },
+        {
+          "label": "Formula1.com: Antonelli on his big risk",
+          "url": "https://www.formula1.com/en/latest/article/i-took-a-big-risk-antonelli-reflects-on-las-vegas-gp-qualifying-after-finishing-fastest.6q1eKT6GSaau0L9WFiTq9M"
+        },
+        {
+          "label": "The Race: qualifying results",
+          "url": "https://www.the-race.com/formula-1/f1-2026-las-vegas-grand-prix-qualifying-results/"
         }
       ]
     },
     {
-      "topic": "Constructors' Championship",
-      "title": "Mercedes clinched the 2026 Constructors' title in São Paulo",
-      "date": "2026-11-08",
-      "summary": "George Russell finished fourth and Kimi Antonelli fifth in the São Paulo Grand Prix, enough for Mercedes to secure its ninth Constructors' Championship.",
-      "why_it_matters": "Both championship titles are settled. Las Vegas is about race wins and the remaining finishing positions, not title permutations.",
+      "topic": "Slipstream and straight-line speed",
+      "title": "The tow decided qualifying; Red Bull and McLaren may pay for it in the race",
+      "date": "2026-11-21",
+      "summary": "Russell called the tow 'insane' and Toto Wolff said he had no idea how the lap times came together; The Race describes the gain as 'crazy'. Formula1.com's strategy guide says FP3, the only dry practice, showed Red Bull and McLaren quicker through the twisty middle sector but losing almost a second to Mercedes on the straights.",
+      "why_it_matters": "Qualifying hid that straight-line deficit; in the race it could reshuffle the order quickly, with Norris already wary of McLaren's speed deficit.",
       "sources": [
         {
-          "label": "Formula1.com on the São Paulo race and Mercedes' title",
-          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+          "label": "The Race: what the tow was worth",
+          "url": "https://www.the-race.com/formula-1/what-crazy-tow-was-actually-worth-in-vegas-qualifying/"
+        },
+        {
+          "label": "Formula1.com: Russell on tow power",
+          "url": "https://www.formula1.com/en/latest/article/i-still-cant-wrap-my-head-around-it-russell-stunned-by-insane-tow-power-in-las-vegas-as-he-assesses-qualifying.52i0msrzwiBfGBpbuoNIwx"
+        },
+        {
+          "label": "Formula1.com: Wolff on slipstream impact",
+          "url": "https://www.formula1.com/en/latest/article/i-have-no-idea-how-these-lap-times-came-together-wolff-reflects-on-slipstream-impact-in-las-vegas-qualifying.5hGMtgEZODMntPSadcUJbO"
+        },
+        {
+          "label": "Formula1.com strategy guide",
+          "url": "https://www.formula1.com/en/latest/article/strategy-guide-what-are-the-tactical-options-for-the-las-vegas-gp.4k41CN1CbogRoqk1kkOb9C"
         }
       ]
     },
     {
-      "topic": "McLaren development",
-      "title": "Stella says further McLaren parts are planned for Las Vegas",
-      "date": "2026-11-09",
-      "summary": "Stella said cooler track and ambient temperatures helped the MCL40 control tyre temperatures in Brazil, while hot-condition long-run consistency remains work in progress. He said the Interlagos upgrades will be complemented by further parts in Las Vegas as a foundation for 2027; he named no components.",
-      "why_it_matters": "This is a team development plan, not a published FIA submission or a measured performance gain. The Las Vegas FIA listing remains inaccessible, so the component filing status is unverified.",
+      "topic": "Grid penalties",
+      "title": "Power-unit drops reshape the grid, including Antonelli, Piastri, Sainz and Stroll",
+      "date": "2026-11-21",
+      "summary": "Antonelli drops five places, Piastri, Sainz and Stroll ten each, and Bearman, whose penalty exceeds 15 places, goes to the back. Leclerc's 11th on the road becomes 10th on the grid because of Piastri's drop.",
+      "why_it_matters": "Check the final starting grid rather than the qualifying classification when quoting positions on air.",
       "sources": [
         {
-          "label": "Formula1.com on Stella's McLaren development plan",
-          "url": "https://www.formula1.com/en/latest/article/technically-a-very-interesting-race-stella-reveals-how-norris-and-mclaren-triumphed-at-interlagos.SRa4ORrmm9CcPqhwssoum"
+          "label": "Formula1.com on Antonelli, Bearman and Stroll",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-bearman-and-stroll-set-for-grid-penalties-at-las-vegas-grand-prix.37Vixk6Mt1gvZlVXDsO8S"
+        },
+        {
+          "label": "The Race: Ferrari's qualifying",
+          "url": "https://www.the-race.com/formula-1/what-explains-ferrari-worst-f1-2026-qualifying/"
+        }
+      ]
+    },
+    {
+      "topic": "Ferrari",
+      "title": "Ferrari's worst qualifying of 2026: both cars out in Q2",
+      "date": "2026-11-21",
+      "summary": "Leclerc was 11th, just over a tenth short of Q3 after aborting his second Q2 run with a Turn 7 mistake; Hamilton was 12th, about half a second off. Leclerc calls it 'a very poor Qualifying'.",
+      "why_it_matters": "Ferrari braced for a tough time on the long straights but a double Q2 exit is their worst result of the season, leaving them to recover through the field.",
+      "sources": [
+        {
+          "label": "Formula1.com: Leclerc and Hamilton lament performance",
+          "url": "https://www.formula1.com/en/latest/article/a-very-poor-qualifying-leclerc-and-hamilton-lament-ferraris-performance-in-las-vegas.5NIhyjb93o9jPrK39GLuRe"
+        },
+        {
+          "label": "The Race: what explains Ferrari's worst qualifying",
+          "url": "https://www.the-race.com/formula-1/what-explains-ferrari-worst-f1-2026-qualifying/"
+        },
+        {
+          "label": "The Race: winners and losers",
+          "url": "https://www.the-race.com/formula-1/winners-and-losers-from-f1-2026-las-vegas-grand-prix-qualifying/"
+        }
+      ]
+    },
+    {
+      "topic": "Practice",
+      "title": "Russell tops FP3 and touches Verstappen at Turn 14",
+      "date": "2026-11-21",
+      "summary": "Russell led the only dry practice with 1m 34.041s from Antonelli and Norris. Late on, Verstappen passed Russell before Turn 14, Russell tried to re-pass and there was light contact; the stewards were to investigate after the session.",
+      "why_it_matters": "Verstappen and Russell now share the front row, so their rivalry into Turn 1 and the first stint is the obvious flashpoint.",
+      "sources": [
+        {
+          "label": "Formula1.com FP3 report",
+          "url": "https://www.formula1.com/en/latest/article/fp3-russell-goes-fastest-from-antonelli-and-norris-during-final-practice-in-las-vegas.3qwe57vQf1Qjrm2tdp7Vfy"
+        },
+        {
+          "label": "The Race: Russell and Verstappen make contact",
+          "url": "https://www.the-race.com/formula-1/russell-and-verstappen-make-contact-in-final-vegas-f1-practice/"
+        },
+        {
+          "label": "Formula1.com: What to watch for",
+          "url": "https://www.formula1.com/en/latest/article/what-to-watch-for-in-the-las-vegas-grand-prix.3k1glJW46dgLm2gZkIsSYo"
         }
       ]
     }
