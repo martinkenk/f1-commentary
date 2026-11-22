@@ -210,31 +210,17 @@
     ]
   },
   {
-    "id": "5c908ca9fbb9",
-    "url": "https://www.the-race.com/formula-1/what-explains-ferrari-worst-f1-2026-qualifying/",
-    "title": "What explains Ferrari’s worst F1 2026 qualifying",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "21 Nov",
-    "date": "2026-11-21",
-    "kind": "session",
-    "session": "Qualifying",
+    "id": "1b33e548b55f",
+    "url": "https://www.formula1.com/en/latest/article/massive-lost-opportunity-racing-bulls-drivers-reflect-on-no-points-in-las-vegas-gp.1iWZ2ywDpgkLb1FyxW9mcX",
+    "title": "'Massive lost opportunity' – Racing Bulls drivers reflect on no points in Las Vegas Grand Prix",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "22 Nov",
+    "date": "2026-11-22",
+    "kind": "general",
+    "session": "",
     "paragraphs": [
-      "Ferrari braced for a tough time on the long straights of Las Vegas, but neither driver making it into Q3 marked its worst qualifying showing of the Formula 1 season so far. Charles Leclerc had wrecked his chances when he was forced to abort his second Q2 run after a mistake at Turn 7. He ended up 11th fastest (he starts 10th thanks to Oscar Piastri's penalty), while right behind him Lewis Hamilton"
-    ]
-  },
-  {
-    "id": "2219cd7be0ba",
-    "url": "https://www.the-race.com/formula-1/winners-and-losers-from-f1-2026-las-vegas-grand-prix-qualifying/",
-    "title": "Winners and losers from F1 2026 Las Vegas Grand Prix qualifying",
-    "source": "The Race",
-    "src_kind": "race",
-    "when": "21 Nov",
-    "date": "2026-11-21",
-    "kind": "session",
-    "session": "Qualifying",
-    "paragraphs": [
-      "The rain-affected Formula 1 practice sessions meant there was added emphasis on hitting the ground running in FP3 and carrying that through into Las Vegas Grand Prix qualifying. Who nailed it when it mattered most, and who failed to deliver on their earlier promise? Here's our pick of winners and losers: Loser: Ferrari (11th and 12th) It's been a rollercoaster year for Ferrari, but a double-Q2 exi"
+      "Arvid Lindblad admits that Racing Bulls failing to score a single point in the Las Vegas Grand Prix was \"a massive lost opportunity\", with the Formula 1 rookie spinning out of the race behind the Safety Car. Lindblad started from his best-ever grid position of fifth for Saturday's 50-lap race on the streets of Las Vegas , and circulated in the leading group as the racing turned into an energetic s"
     ]
   },
   {
@@ -252,23 +238,9 @@
     ]
   },
   {
-    "id": "76cd24d9e190",
-    "url": "https://www.formula1.com/en/latest/article/something-that-ive-never-seen-before-in-f1-verstappen-reflects-on-las-vegas-gp-win-after-slipstream-thriller.11R5Iz64C6PLpqrGDJU5OK",
-    "title": "'Something that I've never seen before in F1' – Max Verstappen reflects on 2026 Las Vegas Grand Prix win after thriller",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "22 Nov",
-    "date": "2026-11-22",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Max Verstappen believes his victory in the Las Vegas Grand Prix was \"something that I've never seen before in Formula 1\", with the race featuring more than 30 lead changes after a slipstream thriller. The Red Bull driver led the majority of the 50-lap race from pole position, but was forced to re-pass for the position on multiple occasions as the slipstream and energy deployment meant breaking awa"
-    ]
-  },
-  {
-    "id": "01654833956e",
-    "url": "https://www.formula1.com/en/latest/article/verstappen-wins-exhilarating-las-vegas-grand-prix-from-norris-and-piastri.2eeBWqekZdir9mdDVK9YVX",
-    "title": "2026 Las Vegas Grand Prix race report and highlights: Max Verstappen wins exhilarating Las Vegas Grand Prix from Lando N",
+    "id": "80ed89a986b3",
+    "url": "https://www.formula1.com/en/latest/article/the-most-chaotic-race-ever-norris-reflects-on-remarkable-recovery-to-p2-in-las-vegas.Nl1w9QpG0Wy5pHzttLCHw",
+    "title": "'The most chaotic race ever' – McLaren's Lando Norris reflects on remarkable recovery to P2 in Las Vegas Grand Prix",
     "source": "Formula1.com",
     "src_kind": "f1",
     "when": "22 Nov",
@@ -276,7 +248,35 @@
     "kind": "session",
     "session": "Race",
     "paragraphs": [
-      "Max Verstappen has taken victory in a thrilling and frenetic Las Vegas Grand Prix, the four-time World Champion managing to hold off a race-long challenge from the Mercedes pair – who both dramatically fell back from the podium positions in the final laps – to seal his third win on the streets of Nevada ahead of the McLaren duo. Verstappen had made a good start to lead from pole position when the"
+      "Lando Norris has described the Las Vegas Grand Prix as potentially the \"most chaotic race ever in the history of Formula 1\" after recovering from outside the points to claim second place and help secure a double podium for McLaren. The Briton started third but endured a difficult opening stint, slipping as far back as P11 as he struggled with straight-line speed and battery deployment in an eventf"
+    ]
+  },
+  {
+    "id": "7b40877abe32",
+    "url": "https://www.the-race.com/formula-1/this-is-not-f1-verstappen-criticises-las-vegas-overtaking-frenzy/",
+    "title": "'Very artificial' - F1 drivers divided over Las Vegas overtaking frenzy",
+    "source": "The Race",
+    "src_kind": "race",
+    "when": "22 Nov",
+    "date": "2026-11-22",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "The racing in Formula 1’s overtake-filled Las Vegas Grand Prix has split opinion among drivers, with some criticising it as “very artificial” and “not F1”. According to F1’s figures, there were 352 overtakes, including 35 changes for the lead in Las Vegas. But quantity doesn’t always equal quality, and there were mixed verdicts from the grid."
+    ]
+  },
+  {
+    "id": "0d5848f2092c",
+    "url": "https://www.formula1.com/en/latest/article/las-vegas-lowdown-all-the-key-moments-as-verstappen-wins-remarkable-race-and-ferraris-drivers-collide-again.62D9SeuQXSboAspMm7N0pN",
+    "title": "All the key moments from the 2026 Las Vegas Grand Prix as Max Verstappen wins remarkable race and Ferrari's drivers coll",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "22 Nov",
+    "date": "2026-11-22",
+    "kind": "session",
+    "session": "Race",
+    "paragraphs": [
+      "Max Verstappen claimed his fourth win of the season in Las Vegas, having withstood immense pressure throughout in a thrilling race which featured 35 changes of lead. The frenetic pack racing produced several flashpoints, including George Russell finding the barrier late on, while Ferrari drivers Lewis Hamilton and Charles Leclerc once again made contact. Here are all the key moments from the 2026"
     ]
   },
   {
@@ -308,17 +308,17 @@
     ]
   },
   {
-    "id": "7d987d4c72b6",
-    "url": "https://www.formula1.com/en/latest/article/gallery-celebrities-go-head-to-head-in-las-vegas-as-the-lego-race-makes-its-debut.1CEzupcRQcT0ZW9lyxFSLH",
-    "title": "GALLERY: Celebrities go head-to-head in Las Vegas as the LEGO race makes its debut",
-    "source": "Formula1.com",
-    "src_kind": "f1",
+    "id": "85e16d2a3dd0",
+    "url": "https://www.the-race.com/business/f1-pitwall-data-delivery-has-doubled-in-speed-since-2024/",
+    "title": "F1 pitwall data delivery has doubled in speed since 2024",
+    "source": "The Race",
+    "src_kind": "race",
     "when": "22 Nov",
     "date": "2026-11-22",
-    "kind": "session",
-    "session": "Race",
+    "kind": "general",
+    "session": "",
     "paragraphs": [
-      "0/10 Next image There was action even before the start of the 2026 Las Vegas Grand Prix, as 11 celebrities took part in the inaugural LEGO race. The event took place as F1 and the LEGO Group announced the next phase of their successful licensing partnership, including the unveiling of the new Speed Champions collection, which features a minifigure of every F1 driver for the first time. Following t"
+      "Formula 1 teams receive data and video feeds within four seconds of recording - at least twice as fast as they would have in 2024. That’s according to Nicolas Avila, Globant Media Sports and Entertainment CEO, who spoke to The Race CEO Fabricio Drumond at The Race x Axios's Beyond the Race: Investments in Innovation and Leadership event in Las Vegas. He said: “The team content delivery system help"
     ]
   },
   {
@@ -333,20 +333,6 @@
     "session": "Race",
     "paragraphs": [
       "Isack Hadjar conceded he was still \"waiting for the team to tell me what happened\" after his front wing broke during the Las Vegas Grand Prix, denying the Red Bull driver a chance of a podium. The Frenchman featured in the lead battle during the early stages of the 50-lap race on the streets of Las Vegas , moving up from his starting position of P4 to challenge Red Bull team mate Max Verstappen fo"
-    ]
-  },
-  {
-    "id": "b50fa9ebd267",
-    "url": "https://www.formula1.com/en/latest/article/antonelli-explains-annoying-last-lap-issue-in-las-vegas-as-he-admits-having-a-lot-to-learn-in-these-conditions.1i0fzBGmJSWZAK4wNaYMO9",
-    "title": "Kimi Antonelli explains ‘annoying’ last-lap issue in Las Vegas as he admits having ‘a lot to learn in these conditions’",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "22 Nov",
-    "date": "2026-11-22",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Kimi Antonelli has explained the issue that led him to drop out of the fight for the lead on the last lap of the Las Vegas Grand Prix, with the Italian feeling that he still has “a lot to learn in these conditions” after having to settle for P4. Antonelli had started the race from P6 on the grid – having gone fastest in Qualifying before serving a five-place engine penalty – but managed to work hi"
     ]
   },
   {
@@ -420,6 +406,20 @@
     ]
   },
   {
+    "id": "81f394831f96",
+    "url": "https://www.formula1.com/en/latest/article/wolff-explains-how-the-mercedes-challenge-fell-apart-in-the-closing-laps-in-las-vegas.4Zf0W1yuHxigFi72cspCj",
+    "title": "Toto Wolff explains how the Mercedes challenge fell apart in the closing laps in Las Vegas",
+    "source": "Formula1.com",
+    "src_kind": "f1",
+    "when": "22 Nov",
+    "date": "2026-11-22",
+    "kind": "general",
+    "session": "",
+    "paragraphs": [
+      "George Russell and Kimi Antonelli both took turns to lead the Las Vegas Grand Prix, and in the closing stages both drivers were shaping up to steal victory from Max Verstappen. However, the Mercedes challenge fell apart. With three laps to go Russell had the misfortune to lock up and slide into the barrier while, on the penultimate lap, Antonelli suffered a self-inflicted loss of battery power tha"
+    ]
+  },
+  {
     "id": "32375584590a",
     "url": "https://www.the-race.com/formula-1/f1-las-vegas-gp-max-verstappen-wins-ferrari-drivers-collide/",
     "title": "Verstappen wins breathless Las Vegas GP as Ferraris collide",
@@ -459,20 +459,6 @@
     "session": "",
     "paragraphs": [
       "A relentless lead battle was the defining feature of the Las Vegas Grand Prix, but the way the drivers involved in it dealt with it varied drastically. Here's our pick of winners and losers from Formula 1's most entertaining Vegas race yet: Loser: Ferrari (7th and 10th) On a day of frantic wheel-to-wheel racing there seemed almost an inevitability that the drivers most likely to hit trouble would"
-    ]
-  },
-  {
-    "id": "fd2d4636158b",
-    "url": "https://www.formula1.com/en/latest/article/ill-accept-the-blame-leclerc-embarrassed-for-ferrari-as-he-assesses-latest-hamilton-clash-in-las-vegas.7hVueR5bwYsCGdIaYph3mK",
-    "title": "‘I'll accept the blame’ – Charles Leclerc ‘embarrassed’ for Ferrari as he assesses latest Hamilton clash in Las Vegas",
-    "source": "Formula1.com",
-    "src_kind": "f1",
-    "when": "22 Nov",
-    "date": "2026-11-22",
-    "kind": "general",
-    "session": "",
-    "paragraphs": [
-      "Charles Leclerc has admitted he felt \"embarrassed\" for Ferrari after his collision with team mate Lewis Hamilton at the Las Vegas Grand Prix, with the Monegasque accepting the 10-second time penalty he received for the incident. The Ferrari pair came together at Turn 7 on Lap 38 as Leclerc attempted to make a move up the inside of Hamilton , who was battling a McLaren ahead. The stewards deemed Le"
     ]
   },
   {
