@@ -1,0 +1,38 @@
+{
+  "reviewed_at": "2026-11-22T13:32:59Z",
+  "expires_at": "2026-11-23T12:32:59Z",
+  "through_session": null,
+  "feed_fingerprint": "8643667c73694090bc530c59fbea9f3a6728387dff1ac096ce352569e6a31710",
+  "items": [
+    {
+      "topic": "Qatar grid sanction",
+      "title": "Perez carries a five-place grid penalty to Lusail",
+      "date": "2026-11-22",
+      "summary": "Formula1.com reports Perez will take a five-place grid penalty in Qatar for the Turn 14 collision with Rafael Camara in Las Vegas.",
+      "why_it_matters": "It affects the Cadillac's qualifying-to-race plan; confirm the final grid after Saturday.",
+      "sources": [
+        {
+          "label": "Formula1.com on Perez's penalty",
+          "url": "https://www.formula1.com/en/latest/article/perez-hit-with-five-place-penalty-in-qatar-after-camara-clash-during-las-vegas-grand-prix.30GG7oJuJ1As0MrkavmStN"
+        }
+      ]
+    },
+    {
+      "topic": "Qatar form guide",
+      "title": "Qatar follows a Las Vegas race of Ferrari, Mercedes and Red Bull storylines",
+      "date": "2026-11-22",
+      "summary": "Verstappen won in Las Vegas ahead of Norris and Piastri, Mercedes lost podium positions late, and Ferrari's drivers collided again.",
+      "why_it_matters": "These are the open questions entering Lusail; Qatar practice has not run, so there is no on-track Qatar evidence yet.",
+      "sources": [
+        {
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-wins-exhilarating-las-vegas-grand-prix-from-norris-and-piastri.2eeBWqekZdir9mdDVK9YVX"
+        },
+        {
+          "label": "The Race race report",
+          "url": "https://www.the-race.com/formula-1/f1-las-vegas-gp-max-verstappen-wins-ferrari-drivers-collide/"
+        }
+      ]
+    }
+  ]
+}

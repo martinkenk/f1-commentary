@@ -1,45 +1,86 @@
 {
-  "reviewed_at": "2026-11-11T20:26:26Z",
-  "expires_at": "2026-11-12T08:26:26Z",
-  "through_session": null,
-  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "reviewed_at": "2026-11-22T13:32:59Z",
+  "expires_at": "2026-11-23T12:32:59Z",
+  "through_session": "Race",
+  "feed_fingerprint": "d55d03f6291dfd50578fa5916615546673ae6452bc5fd22ee1bff23a6b342d33",
   "items": [
     {
-      "topic": "Drivers' Championship",
-      "title": "Antonelli clinched the 2026 Drivers' Championship in Mexico City",
-      "date": "2026-11-01",
-      "summary": "Third place in the Mexico City Grand Prix was enough for Kimi Antonelli to secure his maiden Drivers' title, regardless of where his rivals finished.",
-      "why_it_matters": "The title is already decided before Las Vegas; do not present the current standings gap as an active championship fight.",
+      "topic": "Las Vegas race result",
+      "title": "Verstappen wins a slipstream thriller from Norris and Piastri",
+      "date": "2026-11-22",
+      "summary": "Verstappen led from pole and held off a race-long Mercedes challenge to win ahead of the McLaren pair (Norris +0.639s, Piastri +1.529s on The Race's result). Mercedes dropped back late: Russell made a mistake and crashed, and Antonelli finished fourth after a last-lap issue.",
+      "why_it_matters": "The slipstream produced more than 20 lead changes (The Race) and the winner was decided in the final laps, so treat this as a venue-specific race, not a template for Qatar.",
       "sources": [
         {
-          "label": "Formula1.com on Antonelli's title",
-          "url": "https://www.formula1.com/en/latest/article/antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-mexico-git-grand-prix.xpMMeef0KmRURs9IDs3LH"
+          "label": "Formula1.com race report",
+          "url": "https://www.formula1.com/en/latest/article/verstappen-wins-exhilarating-las-vegas-grand-prix-from-norris-and-piastri.2eeBWqekZdir9mdDVK9YVX"
+        },
+        {
+          "label": "The Race race report",
+          "url": "https://www.the-race.com/formula-1/f1-las-vegas-gp-max-verstappen-wins-ferrari-drivers-collide/"
+        },
+        {
+          "label": "Russell: 'I paid the price'",
+          "url": "https://www.formula1.com/en/latest/article/i-paid-the-price-russell-laments-error-in-closing-stages-of-las-vegas-gp.546DMDVRArhwgf1nEXHR1v"
+        },
+        {
+          "label": "Antonelli on his last-lap issue",
+          "url": "https://www.formula1.com/en/latest/article/antonelli-explains-annoying-last-lap-issue-in-las-vegas-as-he-admits-having-a-lot-to-learn-in-these-conditions.1i0fzBGmJSWZAK4wNaYMO9"
+        },
+        {
+          "label": "The Race verdict",
+          "url": "https://www.the-race.com/formula-1/our-verdict-f1-crazy-las-vegas-gp-with-20-plus-lead-changes/"
         }
       ]
     },
     {
-      "topic": "Constructors' Championship",
-      "title": "Mercedes clinched the 2026 Constructors' title in São Paulo",
-      "date": "2026-11-08",
-      "summary": "George Russell finished fourth and Kimi Antonelli fifth in the São Paulo Grand Prix, enough for Mercedes to secure its ninth Constructors' Championship.",
-      "why_it_matters": "Both championship titles are settled. Las Vegas is about race wins and the remaining finishing positions, not title permutations.",
+      "topic": "Ferrari clash",
+      "title": "Hamilton and Leclerc collide again; Vasseur calls it unacceptable",
+      "date": "2026-11-22",
+      "summary": "The Ferrari drivers tangled in Las Vegas, two races after their first-lap clash in Mexico. Vasseur called it 'a lack of respect' and 'unacceptable'; Leclerc said he would accept the blame and was embarrassed; Hamilton called his penalty 'really harsh'. The Race lists Ferrari as 7th and 10th.",
+      "why_it_matters": "It is a repeat management problem for Ferrari going into the final two rounds and a question to put to both drivers in Qatar.",
       "sources": [
         {
-          "label": "Formula1.com on the São Paulo race and Mercedes' title",
-          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+          "label": "Vasseur on the clash",
+          "url": "https://www.formula1.com/en/latest/article/its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-unacceptable.5NGehhmEEtLqzDKxm7bi4z"
+        },
+        {
+          "label": "Leclerc accepts blame",
+          "url": "https://www.formula1.com/en/latest/article/ill-accept-the-blame-leclerc-embarrassed-for-ferrari-as-he-assesses-latest-hamilton-clash-in-las-vegas.7hVueR5bwYsCGdIaYph3mK"
+        },
+        {
+          "label": "Hamilton on the penalty",
+          "url": "https://www.formula1.com/en/latest/article/hamilton-frustrated-by-really-harsh-las-vegas-penalty-as-hes-quizzed-on-leclerc-clash.5ASq9S5FeEJNdNi6Igej0Z"
+        },
+        {
+          "label": "The Race on Ferrari's reaction",
+          "url": "https://www.the-race.com/formula-1/ferrari-reaction-unacceptable-f1-driver-clash-las-vegas/"
         }
       ]
     },
     {
-      "topic": "McLaren development",
-      "title": "Stella says further McLaren parts are planned for Las Vegas",
-      "date": "2026-11-09",
-      "summary": "Stella said cooler track and ambient temperatures helped the MCL40 control tyre temperatures in Brazil, while hot-condition long-run consistency remains work in progress. He said the Interlagos upgrades will be complemented by further parts in Las Vegas as a foundation for 2027; he named no components.",
-      "why_it_matters": "This is a team development plan, not a published FIA submission or a measured performance gain. The Las Vegas FIA listing remains inaccessible, so the component filing status is unverified.",
+      "topic": "Sanctions carried to Qatar",
+      "title": "Perez takes a five-place grid penalty in Qatar after the Camara collision",
+      "date": "2026-11-22",
+      "summary": "Perez attempted to pass Haas' Rafael Camara approaching Turn 14; the Cadillac's front right touched Camara's rear left and both ended up in trouble. Formula1.com reports a five-place grid penalty for the next race, Qatar.",
+      "why_it_matters": "It is the first confirmed Qatar grid sanction; check the final classification and any further stewards' documents before quoting the starting order.",
       "sources": [
         {
-          "label": "Formula1.com on Stella's McLaren development plan",
-          "url": "https://www.formula1.com/en/latest/article/technically-a-very-interesting-race-stella-reveals-how-norris-and-mclaren-triumphed-at-interlagos.SRa4ORrmm9CcPqhwssoum"
+          "label": "Formula1.com on Perez's penalty",
+          "url": "https://www.formula1.com/en/latest/article/perez-hit-with-five-place-penalty-in-qatar-after-camara-clash-during-las-vegas-grand-prix.30GG7oJuJ1As0MrkavmStN"
+        }
+      ]
+    },
+    {
+      "topic": "Red Bull",
+      "title": "Hadjar's front wing failure and post-race demotion",
+      "date": "2026-11-22",
+      "summary": "Hadjar, who started fourth and featured in the early lead battle, lost his front wing and said he was still waiting for the team to explain it. A post-race penalty also demoted him one place.",
+      "why_it_matters": "The cause is unconfirmed; do not describe it as a design or reliability fault until Red Bull says so.",
+      "sources": [
+        {
+          "label": "Formula1.com on Hadjar",
+          "url": "https://www.formula1.com/en/latest/article/hadjar-clueless-on-reason-for-front-wing-failure-as-post-race-penalty-demotes-him-a-place-in-las-vegas-gp.2tF9g5VLiq5P6MtIpiaZ1J"
         }
       ]
     }
