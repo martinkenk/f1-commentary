@@ -90,6 +90,14 @@ class GPParityTests(unittest.TestCase):
         pages = content_qatar.build_pages(ctx, self.env)
         self.assertIn("C1 Hard / C2 Medium / C3 Soft", pages["tyres"]["body"])
         self.assertIn(content_qatar.PIRELLI_NOMINATION, pages["tyres"]["body"])
+        self.assertIn(
+            f'src="../assets/{content_qatar.QATAR_TYRE_PREVIEW}"',
+            pages["tyres"]["body"],
+        )
+        self.assertTrue(
+            (Path(__file__).parent / "assets_src" / content_qatar.QATAR_TYRE_PREVIEW).is_file()
+        )
+        self.assertIn("Full, uncropped Pirelli Qatar 2026", pages["tyres"]["body"])
         self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
         self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["rookies"]["body"])

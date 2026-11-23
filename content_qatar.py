@@ -5,6 +5,7 @@ from f1lib import card
 
 
 PIRELLI_NOMINATION = "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
+QATAR_TYRE_PREVIEW = "pirelli-qatar-2026-preview.jpg"
 QATAR_2025_RACE = (
     "https://www.formula1.com/en/latest/article/"
     "verstappen-wins-qatar-gp-as-title-battle-goes-to-abu-dhabi-with-piastri."
@@ -52,7 +53,18 @@ and C1 and C2 as the race mandatory sets. This nomination is not a
 driver-by-driver remaining-set inventory; event prescriptions and any 2026
 stint limit still require Qatar's own FIA documents.
 <a href="{PIRELLI_NOMINATION}">Pirelli compound selection and graphic</a>.</p>"""
-    pages["tyres"]["body"] += card("Qatar nomination and mandatory sets", nomination, "bi-record-circle", "accent")
+    tyre_preview = f"""<figure class="circuit-fig">
+<img class="circuit-img tyre-preview-img" src="../assets/{QATAR_TYRE_PREVIEW}"
+alt="Pirelli's 2026 Qatar tyre selection: C1 Hard, C2 Medium and C3 Soft; C3 is mandatory for qualifying and C1 and C2 are mandatory for the race."
+loading="lazy" onclick="zoomImg(this)">
+<figcaption>Full, uncropped Pirelli Qatar 2026 compound and mandatory-set graphic.
+This is not a driver-by-driver remaining-set inventory.
+<a href="../assets/{QATAR_TYRE_PREVIEW}">Full-resolution image</a> ·
+<a href="{PIRELLI_NOMINATION}">Pirelli source, 13 November 2026</a>.</figcaption>
+</figure>"""
+    pages["tyres"]["body"] += tyre_preview + card(
+        "Qatar nomination and mandatory sets", nomination, "bi-record-circle", "accent"
+    )
     pages["notes"]["body"] = nomination + pages["notes"]["body"]
     pages["moments"]["body"] = pages["moments"]["body"].replace(
         content_generic.pending(
