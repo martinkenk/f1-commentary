@@ -92,9 +92,32 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_qatar.PIRELLI_NOMINATION, pages["tyres"]["body"])
         self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
         self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
+        self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["rookies"]["body"])
+        self.assertIn("not a complete FIA", pages["rookies"]["body"])
+        self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["teams"]["body"])
         self.assertIn(content_qatar.QATAR_2025_RACE, pages["moments"]["body"])
         self.assertIn("not confirmation of a 2026 limit", pages["moments"]["body"])
         self.assertNotIn("A curated moments list", pages["moments"]["body"])
+
+    def test_las_vegas_collision_summons_are_distinguished_from_final_ruling(self):
+        pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
+        review_path = Path(__file__).parent / "data/las-vegas/coverage_review.json"
+        review = json.loads(review_path.read_text())
+        expected = {
+            content_las_vegas.PEREZ_SUMMONS:
+                "beaf14b9b7a2ec9692cdc7bd783fa5a90b864ce035e6d92a61b0c589c95e7aae",
+            content_las_vegas.CAMARA_SUMMONS:
+                "5976b6f50175a874ae853a23aaf11294d0ead80ab55e867fe7b5b4d4c1d0d26e",
+        }
+        for slug in ("overview", "notes"):
+            body = pages[slug]["body"]
+            self.assertIn("summonses are allegations, not rulings", body)
+            for url in expected:
+                self.assertIn(url, body)
+        self.assertEqual(
+            {url: review["fia_sha256"].get(url) for url in expected},
+            expected,
+        )
 
     def test_las_vegas_parc_ferme_report_is_not_a_penalty(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)

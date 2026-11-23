@@ -20,6 +20,8 @@ FINAL_CLASSIFICATION = FIA_ROOT + "final_race_classification.pdf"
 HAMILTON_TRACK_LIMITS = FIA_ROOT + "infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf"
 PIRELLI_RACE = "https://press.pirelli.com/verstappen-wins-overtaking-spectacle-on-the-strip/"
 FIA_PARC_FERME = FIA_ROOT + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf"
+PEREZ_SUMMONS = FIA_ROOT + "summons_-_car_11_-_alleged_causing_a_collision_with_car_51.pdf"
+CAMARA_SUMMONS = FIA_ROOT + "summons_-_car_51_-_alleged_causing_a_collision_with_car_11.pdf"
 
 UPGRADE_SUBMISSIONS = [
     ("McLaren", 2, [
@@ -302,10 +304,15 @@ the discrepancy, so no corrected order is inferred.
 <a href="{FINAL_CLASSIFICATION}">Document 65</a>.</p>
 <p>FP1 finished with <strong>no timed laps</strong> in wet conditions: installation
 running is not a classification. <a href="{FP1_REPORT}">Official FP1 report</a>.</p>
-<p><strong>Qatar watch:</strong> FIA Document 61 gives Sergio Perez a five-place
-drop at his next race after contact with Rafael Câmara at Turn 14. He retired,
-so the unserved time penalty became a grid sanction.
-<a href="{PEREZ_PENALTY}">Stewards' ruling</a> · <a href="../qatar/notes.html">Qatar briefing</a>.</p>"""
+<p><strong>Qatar watch:</strong> Stewards' Documents 55 and 56 summoned Sergio
+Perez (Car 11) and Rafael Câmara (Car 51), respectively, over the alleged Turn 14
+incident at 20:33; summonses are allegations, not rulings. The later Document 61
+decision found Perez wholly responsible. Because he retired and could not serve
+the 10-second time penalty, it became a five-place drop at his next race.
+<a href="{PEREZ_SUMMONS}">Doc 55: Perez summons</a> ·
+<a href="{CAMARA_SUMMONS}">Doc 56: Câmara summons</a> ·
+<a href="{PEREZ_PENALTY}">Doc 61: Stewards' ruling</a> ·
+<a href="../qatar/notes.html">Qatar briefing</a>.</p>"""
     for slug in ("overview", "notes"):
         pages[slug]["body"] = recap + pages[slug]["body"]
     pages["notes"]["body"] = pages["notes"]["body"].replace(

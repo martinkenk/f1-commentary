@@ -10,6 +10,11 @@ QATAR_2025_RACE = (
     "verstappen-wins-qatar-gp-as-title-battle-goes-to-abu-dhabi-with-piastri."
     "5KlYT7q8OcrJ7AnMALjkxJ"
 )
+CAMARA_QATAR_ANNOUNCEMENT = (
+    "https://www.formula1.com/en/latest/article/"
+    "haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026."
+    "2wYY9ymhyqr7rXcuK6S7bj"
+)
 
 
 def build_pages(ctx, env):
@@ -29,6 +34,18 @@ Qatar publications, not copied Las Vegas figures. Published source readers
 appear on the relevant pages as collection succeeds; discovery failures stay visible.</p>"""
     for slug in ("overview", "notes", "schedule"):
         pages[slug]["body"] = carryover + pages[slug]["body"]
+    lineup = card(
+        "Haas confirms Rafael Câmara for Qatar and Abu Dhabi",
+        f"""<p>Haas confirmed on 22 November that Câmara will drive for the team
+at both remaining 2026 Grands Prix, after his race outings in Brazil and Las
+Vegas. The announcement also identifies him as a full-time Haas driver for
+2027. This confirms Câmara's Qatar participation; it is not a complete FIA
+entry list or confirmation of FP1 substitutions.
+<a href="{CAMARA_QATAR_ANNOUNCEMENT}">Formula1.com, 22 November</a>.</p>""",
+        "bi-person-badge", "accent",
+    )
+    for slug in ("overview", "rookies", "teams", "notes"):
+        pages[slug]["body"] = lineup + pages[slug]["body"]
     nomination = f"""<p>Pirelli nominated <strong>C1 Hard, C2 Medium and C3 Soft</strong>
 for Qatar. Its 13 November graphic marks C3 as the qualifying mandatory set
 and C1 and C2 as the race mandatory sets. This nomination is not a
