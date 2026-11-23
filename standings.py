@@ -17,6 +17,7 @@ import json
 from pathlib import Path
 import re
 import urllib.request
+import unicodedata
 from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parent
@@ -283,7 +284,14 @@ def refresh(year=SEASON):
     if path.exists():
         previous = load_snapshot(year)
         for key in ("drivers", "constructors"):
-            missing = {row[1] for row in previous[key]} - {row[1] for row in snapshot[key]}
+            def identity(row):
+                if key == "constructors":
+                    return row[1]
+                name = "".join(char for char in unicodedata.normalize("NFKD", row[1])
+                               if not unicodedata.combining(char)).casefold()
+                return row[2], " ".join(name.split())
+            current = {identity(row) for row in snapshot[key]}
+            missing = [row[1] for row in previous[key] if identity(row) not in current]
             if missing:
                 raise ValueError(f"Official {key} table lost recorded entries: {sorted(missing)}")
         races = _new_race_results(previous, year)

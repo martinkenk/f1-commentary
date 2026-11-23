@@ -1,0 +1,17 @@
+{
+  "reviewed_at": "2026-11-23T12:36:00Z",
+  "basis": "Visually read the complete PU map and exception windows, the 22-driver usage baseline, all three new-elements pages, five distinct PU-sanction decisions, all 18 substantive upgrade pages and Pirelli V3. Read Perez's collision ruling and the complete official FP1 and post-race reports. Prescriptions are not remaining sets; pre-addition usage is not a post-race total.",
+  "fia_sha256": {
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_power_unit_information.pdf": "06d0a2b4c9220ec2dcb483ffc0a8e0dc5347b12b392619beba4a6c93722039a7",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf": "0de7b2288d26e13d41af06c5b94750b4a6c8ecffdbf2e8dedd3d38c1f71eea5d",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_new_pu_elements_for_this_competition.pdf": "64fd82ee490939fc12abc4177adab7a9548833f391801d73422ed4316a891f7c",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_car_presentation_submissions.pdf": "90bbeb5438e3a5c15c6002d06aa7000e6df792d7091388cd238c61701257eb76",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_competition_notes_-_pirelli_preview_v3.pdf": "e5af5f2c22303676fb4c3d9b6669be870301a0df09b5e14f595d86e6be28302a",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_81_-_changes_to_pu_element.pdf": "969cf1a2cf025530d7f82a8748cba65d3810dd2f956efb479b17f82a9771130a",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_12_-_changes_to_pu_element.pdf": "764f62371a0a2673aace09314e976cf5016e4116da3cfa64294ac4ad851ed0e5",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_55_-_changes_to_pu_element.pdf": "574272f051b3fb9d00e690eefa75c3dc02434db2f6e23ca235d7bfc165f048ba",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_18_-_changes_to_pu_elements.pdf": "2f64ff485da21a4db96b7b9affc03d050c58999bea1de3f74a42538ae057cd20",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_87_-_changes_to_pu_elements.pdf": "d05c85d9e7bfe7b21f9f5b7bc76af9ef8414521dfcc713b81f7a2673a5e02d6e",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_11_-_causing_a_collision_with_car_51.pdf": "8555a89b68a9be625b42dad4dff219893e63f61957eaf2fecf9a858ccbe52f12"
+  }
+}

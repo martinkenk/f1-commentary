@@ -4,12 +4,28 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
-from unittest.mock import call, patch
+from unittest.mock import Mock, call, patch
 
 from ops import watchdog
 
 
 class WatchdogTests(unittest.TestCase):
+    def test_only_old_queued_runs_with_zero_jobs_stop_blocking_recovery(self):
+        now = dt.datetime(2026, 11, 23, tzinfo=dt.timezone.utc)
+        runs = [{"id": i, "name": "Build & deploy to GitHub Pages",
+                 "status": state, "created_at": created}
+                for i, state, created in [
+                    (1, "queued", "2026-11-11T20:27:54Z"),
+                    (2, "queued", "2026-11-22T23:30:00Z"),
+                    (3, "in_progress", "2026-11-11T20:27:54Z"),
+                    (4, "waiting", "2026-11-11T20:27:54Z"),
+                    (5, "queued", "2026-11-11T20:27:54Z")]]
+        fetch = Mock(side_effect=[{"total_count": 0, "jobs": []},
+                                  {"total_count": 1, "jobs": [{"status": "in_progress"}]}])
+        watchdog.check_stalled_queues(runs, now, fetch)
+        self.assertEqual(fetch.call_count, 2)
+        self.assertEqual(watchdog.active_runs(runs), runs[1:])
+
     def test_both_github_writers_prevent_remote_publication(self):
         runs = [{"name": name, "status": status} for name, status in [
             ("Build & deploy to GitHub Pages", "in_progress"),

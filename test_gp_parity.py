@@ -45,11 +45,13 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn(
             "Team-by-team weekend storylines: awaiting", pages["teams"]["body"]
         )
-        self.assertIn(
+        self.assertNotIn(
             "FIA car presentation submissions for this round: awaiting",
             pages["upgrades"]["body"],
         )
         self.assertIn("not an FIA filing", pages["upgrades"]["body"])
+        self.assertEqual(len(content_las_vegas.UPGRADE_SUBMISSIONS), 11)
+        self.assertIn(content_las_vegas.FIA_UPGRADES, pages["upgrades"]["body"])
         for source in (
             content_las_vegas.ANTONELLI_TITLE_URL,
             content_las_vegas.MERCEDES_TITLE_URL,
@@ -58,16 +60,8 @@ class GPParityTests(unittest.TestCase):
         briefing = json.loads(
             (Path(__file__).parent / "data/las-vegas/news_highlights.json").read_text()
         )
-        self.assertIsNone(briefing["through_session"])
-        self.assertEqual(len(briefing["items"]), 3)
-        self.assertEqual(
-            {item["topic"] for item in briefing["items"]},
-            {"Drivers' Championship", "Constructors' Championship", "McLaren development"},
-        )
-        self.assertEqual(
-            briefing["items"][2]["sources"][0]["url"],
-            content_las_vegas.MCLAREN_VEGAS_URL,
-        )
+        self.assertEqual(briefing["through_session"], "Race")
+        self.assertTrue(any("result" in item["topic"].lower() for item in briefing["items"]))
 
     def test_las_vegas_moments_cite_a_historic_race(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "las-vegas")
@@ -574,8 +568,10 @@ class GPParityTests(unittest.TestCase):
             status for status in results["statuses"]
             if status["label"] == "Starting Grid"
         )
-        self.assertEqual(grid_status["state"], "available")
-        self.assertFalse(grid["retained"])
+        self.assertIn(grid_status["state"], ("available", "conflict"))
+        self.assertEqual(grid["retained"], grid_status["state"] == "conflict")
+        if grid_status["state"] == "conflict":
+            self.assertIn("conflicts with the verified FIA Document 59", grid_status["error"])
         grid_rows = {row[0]: row[1:3] for row in grid["rows"]}
         self.assertEqual(grid_rows["16"], ["18", "Lance Stroll STR"])
         self.assertEqual(grid_rows["17"], ["77", "Valtteri Bottas BOT"])

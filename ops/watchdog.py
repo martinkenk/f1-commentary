@@ -39,7 +39,22 @@ def command(args, cwd=ROOT, timeout=60):
 
 def active_runs(runs):
     return [run for run in runs if (run.get("name") in WORKFLOWS or run.get("path") in WORKFLOW_PATHS)
-            and run.get("status") in ACTIVE]
+            and run.get("status") in ACTIVE and not run.get("stalled_unstarted")]
+
+
+def check_stalled_queues(runs, now, fetch_jobs):
+    """A stranded, never-started queue entry must not suppress all future work."""
+    for run in runs:
+        if run.get("status") != "queued" or not run.get("created_at"):
+            continue
+        created = dt.datetime.fromisoformat(run["created_at"].replace("Z", "+00:00"))
+        if now - created < dt.timedelta(hours=6):
+            continue
+        evidence = fetch_jobs(f"repos/{REPOSITORY}/actions/runs/{run['id']}/jobs?per_page=100")
+        # Never ignore a started job, an incomplete response, or waiting approvals.
+        if evidence.get("total_count") == 0 and evidence.get("jobs") == []:
+            run["stalled_unstarted"] = True
+    return runs
 
 
 def recent_runs(authenticated):
@@ -55,9 +70,17 @@ def recent_runs(authenticated):
             headers={"Accept": "application/vnd.github+json", "User-Agent": "f1-commentary-watchdog"})
         with urllib.request.urlopen(request, timeout=30) as response:
             payload = json.load(response)
-    return [{key: run.get(key) for key in (
+    runs = [{key: run.get(key) for key in (
         "id", "name", "path", "status", "conclusion", "created_at", "html_url", "head_sha")}
         for run in payload["workflow_runs"]]
+    if authenticated:
+        def fetch_jobs(endpoint):
+            result = command(["gh", "api", endpoint])
+            if result.returncode:
+                raise RuntimeError(f"GitHub jobs query failed: {result.stderr.strip()}")
+            return json.loads(result.stdout)
+        check_stalled_queues(runs, dt.datetime.now(dt.timezone.utc), fetch_jobs)
+    return runs
 
 
 def agent_arguments(prompt, report_dir, session_id=None, resume=False):

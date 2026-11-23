@@ -1,11 +1,1347 @@
 {
-  "checked_at": "2026-11-17T17:28:44+00:00",
-  "discovery_retrieved_at": "",
-  "documents": [],
-  "errors": [
+  "checked_at": "2026-11-23T12:28:23+00:00",
+  "discovery_retrieved_at": "2026-11-23T12:28:22.630958+00:00",
+  "documents": [
     {
-      "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Las%20Vegas%20Grand%20Prix",
-      "error": "No saved FIA discovery manifest"
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_championship_points.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_championship_points.pdf",
+      "categories": [
+        "standings"
+      ],
+      "sha256": "661b91cd5995c3b7044237e95685d537a0443839205ab7038ecbe28288f763c6",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-91ea94df95f9-661b91cd5995c3b7-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-91ea94df95f9-661b91cd5995c3b7-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-91ea94df95f9-661b91cd5995c3b7-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-las-vegas-91ea94df95f9-661b91cd5995c3b7-p5.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_race_classification.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_final_race_classification.pdf",
+      "categories": [
+        "results"
+      ],
+      "sha256": "ce0eda13e406e49f8e3ee3401addcd8bd4cb715d3c5f0503d3c70057f7491e60",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-9c418ffbb5da-ce0eda13e406e49f-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_6_-_driving_unnecessarily_slowly.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_6_-_driving_unnecessarily_slowly.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "c0002d1b41f3b09a6ffddbd70ebd2be52500b95544bd59b03995f368b1c8ab29",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-588f7d3acc09-c0002d1b41f3b09a-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-588f7d3acc09-c0002d1b41f3b09a-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_race_scrutineering.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_race_scrutineering.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "5059ed3442d70731efd47604402beffbdd3b191bfa2bb3150ff8c7531bb54f15",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-6776f851b0f6-5059ed3442d70731-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-6776f851b0f6-5059ed3442d70731-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-6776f851b0f6-5059ed3442d70731-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-6776f851b0f6-5059ed3442d70731-p4.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_race_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "25ed32c74194a46f46180445bd0acba65fc5fa6adbd35c354db6a09de23c33d0",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-d0ea6389bccf-25ed32c74194a46f-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-d0ea6389bccf-25ed32c74194a46f-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_11_-_causing_a_collision_with_car_51.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_11_-_causing_a_collision_with_car_51.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "8555a89b68a9be625b42dad4dff219893e63f61957eaf2fecf9a858ccbe52f12",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-132895e7c355-8555a89b68a9be62-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-132895e7c355-8555a89b68a9be62-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_16_-_causing_a_collision_with_car_44.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_16_-_causing_a_collision_with_car_44.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "857166aa8a053d22ce12e2806539ef8abdb3fc70e045621e67b51ea7f301d81c",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-c81910417e28-857166aa8a053d22-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-c81910417e28-857166aa8a053d22-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_provisional_race_classification.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_provisional_race_classification.pdf",
+      "categories": [
+        "results"
+      ],
+      "sha256": "2fa7c48440c64594cc375fcfead4c05c9553d8b36d8a6ce98b832f3986b502f8",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-17ac4f8cb876-2fa7c48440c64594-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_summons_-_incident_between_car_63_and_car_6.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_summons_-_incident_between_car_63_and_car_6.pdf",
+      "categories": [
+        "stewards"
+      ],
+      "sha256": "677c4f65d512ac5c484d2e4f36e48c5790515b3cdfaa4cf0099b6f6a508efb0c",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-a197057b7ca8-677c4f65d512ac5c-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_summons_-_incident_between_car_6_and_car_63.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_summons_-_incident_between_car_6_and_car_63.pdf",
+      "categories": [
+        "stewards"
+      ],
+      "sha256": "21e33ae586a7f7d8f0c6180cf16bba561f2feaebf530cb14950527e68b777b1a",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-c9ee0df12bd7-21e33ae586a7f7d8-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_summons_-_car_51_-_alleged_causing_a_collision_with_car_11.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_summons_-_car_51_-_alleged_causing_a_collision_with_car_11.pdf",
+      "categories": [
+        "stewards"
+      ],
+      "sha256": "5976b6f50175a874ae853a23aaf11294d0ead80ab55e867fe7b5b4d4c1d0d26e",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-22289f8f8ad5-5976b6f50175a874-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_summons_-_car_11_-_alleged_causing_a_collision_with_car_51.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_summons_-_car_11_-_alleged_causing_a_collision_with_car_51.pdf",
+      "categories": [
+        "stewards"
+      ],
+      "sha256": "beaf14b9b7a2ec9692cdc7bd783fa5a90b864ce035e6d92a61b0c589c95e7aae",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-ac435bc0523b-beaf14b9b7a2ec96-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "88bc77a3c8b4f5c2cb2dcf0cb2d3887574eb894e00e99ff2ba0c34b9b69313bc",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-6e557d7ac749-88bc77a3c8b4f5c2-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-6e557d7ac749-88bc77a3c8b4f5c2-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_starting_grid.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_final_starting_grid.pdf",
+      "categories": [
+        "results"
+      ],
+      "sha256": "a3e1d32f5ff648ed2b5b4d1505d3e87f7e622ae0d61a487441f60b9e02c15467",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-b593a302e4cc-a3e1d32f5ff648ed-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf",
+      "categories": [
+        "upgrades"
+      ],
+      "sha256": "6e4ee69d172968f6f946f71c6bb3681bf613713390929fdb155040517e478e57",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-d34f3aec30e7-6e4ee69d172968f6-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-d34f3aec30e7-6e4ee69d172968f6-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-d34f3aec30e7-6e4ee69d172968f6-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_post-race_procedure.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_post-race_procedure.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "e52e4472a44dd4b1923cd2263e4b280986c4b3db2f6b946b9a4decab0c16d59a",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-b1fb2de8dd2a-e52e4472a44dd4b1-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-b1fb2de8dd2a-e52e4472a44dd4b1-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-b1fb2de8dd2a-e52e4472a44dd4b1-p4.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_pre-race_procedure.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_pre-race_procedure.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "cf2a5802379c7f3e091f430e389486ba35c95b646e273f5febf04c08dc584012",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-427e628bfd79-cf2a5802379c7f3e-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-427e628bfd79-cf2a5802379c7f3e-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_provisional_starting_grid.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_provisional_starting_grid.pdf",
+      "categories": [
+        "results"
+      ],
+      "sha256": "36d9289694f7edf73245b31ed405303681d35f0cd83f67e076a0ec9a20133239",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-f75f19889728-36d9289694f7edf7-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_qualifying_classification.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_final_qualifying_classification.pdf",
+      "categories": [
+        "results"
+      ],
+      "sha256": "c677dd06fbaba8bcb35d76ddd8326a55c3b727ac459431ea412a4fe7a33f1940",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-a71df32c2dd0-c677dd06fbaba8bc-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_fp3_and_qualifying_scrutineering.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_fp3_and_qualifying_scrutineering.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "7f365e664687a31458cc507aba6002fa0ede01c36bbb41c458e116e26054df30",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-ce1a2c320d32-7f365e664687a314-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-ce1a2c320d32-7f365e664687a314-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-ce1a2c320d32-7f365e664687a314-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-ce1a2c320d32-7f365e664687a314-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-las-vegas-ce1a2c320d32-7f365e664687a314-p5.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_decision_-_car_87_-_permission_to_start.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_decision_-_car_87_-_permission_to_start.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "cc72a0f7e4dccaf96bfb110a6420f446c208eb2b09f33fab0b466edcb3ae6ea9",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-f88f49ce7ed0-cc72a0f7e4dccaf9-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_41_unsafe_release.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_41_unsafe_release.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "bfff144523f9e974d2c09bdceb77134a9c516e3d52cc3eb4758fc0688e38b413",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-83460e223680-bfff144523f9e974-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-83460e223680-bfff144523f9e974-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_decision_-_qualifying_sc2-sc1_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "104e3a5fbe92466c9f94cd26710a75ebecc55d948ff3c13d5bdc27c8febc88b8",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-bb2df9de700a-104e3a5fbe92466c-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-bb2df9de700a-104e3a5fbe92466c-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_covers-on_time_-_corrected.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_covers-on_time_-_corrected.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "be4fa6d85e2a6ab7e6ad32343dbb71cd5beeff2c37ba60ae16504df5bd76bdb2",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-4e1622435560-be4fa6d85e2a6ab7-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_qualifying_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "3792bab93b3abd5a545bcafc867cb02f34282ee0eadbe6c68070cb8d376b87ba",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-064a39543b82-3792bab93b3abd5a-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-064a39543b82-3792bab93b3abd5a-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_provisional_qualifying_classification.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_provisional_qualifying_classification.pdf",
+      "categories": [
+        "results"
+      ],
+      "sha256": "e8ecc326ba01e60a6aa1f2ac2fb1faa6e5fad8823c3532ff9136ab62ef94646e",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-2b12239ff36a-e8ecc326ba01e60a-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_summons_-_car_41_-_alleged_unsafe_release.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_summons_-_car_41_-_alleged_unsafe_release.pdf",
+      "categories": [
+        "stewards"
+      ],
+      "sha256": "5d047fba1071d2963f978e8af7a82d0e05e9bd1cbbc79d0762db16c8ad6c18b0",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-f85721c23c21-5d047fba1071d296-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_decision_-_alleged_driving_erratically.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_decision_-_alleged_driving_erratically.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "7255ea3b8534d447018449a94d20c057ad168583449051fdd0bb5e0e2f0862d2",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-49a61fd1d1a2-7255ea3b8534d447-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-49a61fd1d1a2-7255ea3b8534d447-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_3_-_erratic_driving_in_turn_14.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_3_-_erratic_driving_in_turn_14.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "b92a8b1ba0716c483c0f6b4a06ec5b3bfae36cb308bcfb4ecb59767ddc3a79d5",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-1e64443141b9-b92a8b1ba0716c48-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-1e64443141b9-b92a8b1ba0716c48-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_23_-_erratic_driving_in_turn_17.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_23_-_erratic_driving_in_turn_17.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "4c020c56ac97660f6090601b7001ce340409a035f689cc7e111b03ba60f74817",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-8b7995b5e390-4c020c56ac97660f-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-8b7995b5e390-4c020c56ac97660f-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_double_yellow_flags.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_double_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "f6c1b2ce478c1e550929b0cd7d160c33dcceed0dda40094562b251edc7a18cea",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-87519027c513-f6c1b2ce478c1e55-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "c329907bd6ba36e8cd0afce9e29e92dc0d5fae3ab9777bd5296cf0a527caad5f",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-1d4478f315d2-c329907bd6ba36e8-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-1d4478f315d2-c329907bd6ba36e8-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_free_practice_3_classification.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_free_practice_3_classification.pdf",
+      "categories": [
+        "results"
+      ],
+      "sha256": "e89ccc0764b5c6f3b11195beeab8cbc30614172b5e24acdec0d89f4014801684",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-dcdd2be9f890-e89ccc0764b5c6f3-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_summons_-_car_63_-_alleged_incident_with_car_3.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_summons_-_car_63_-_alleged_incident_with_car_3.pdf",
+      "categories": [
+        "stewards"
+      ],
+      "sha256": "aa21bd77968e2c1f1612af42185002b9b25be338b0b2db73fafa45b7c1fd2c46",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-fe1179442bee-aa21bd77968e2c1f-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_summons_-_car_3_-_alleged_incident_with_car_63.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_summons_-_car_3_-_alleged_incident_with_car_63.pdf",
+      "categories": [
+        "stewards"
+      ],
+      "sha256": "4ffa398e6e14dad3b0a3bb630bbc5e2246d13b38dd1891aac4272dd0dbc10643",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-f277ae2cb510-4ffa398e6e14dad3-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_summons_-_car_23_-_alleged_erratic_driving_in_turn_17.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_summons_-_car_23_-_alleged_erratic_driving_in_turn_17.pdf",
+      "categories": [
+        "stewards"
+      ],
+      "sha256": "cc8da02e9ef6549da264a418a78b24f0b11c7586c2107249f5aa8494cdd3199b",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-6fab15e07842-cc8da02e9ef6549d-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_summons_-_car_3_-_alleged_erratic_driving_in_turn_16.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_summons_-_car_3_-_alleged_erratic_driving_in_turn_16.pdf",
+      "categories": [
+        "stewards"
+      ],
+      "sha256": "df42227eaed78d570ef370fc32f8e1d905f8be29ddbfcece7c110f9d1c7cae11",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-89a015faa7a6-df42227eaed78d57-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_post-qualifying_procedure.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_post-qualifying_procedure.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "eae6e08ae29cd27fd703bb55afc42c1a0e8d7b364f3c55a4e59439fc18224816",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-e7568396e43d-eae6e08ae29cd27f-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-e7568396e43d-eae6e08ae29cd27f-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-e7568396e43d-eae6e08ae29cd27f-p4.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_competition_notes_-_pirelli_preview_v3.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_competition_notes_-_pirelli_preview_v3.pdf",
+      "categories": [
+        "tyres"
+      ],
+      "sha256": "e5af5f2c22303676fb4c3d9b6669be870301a0df09b5e14f595d86e6be28302a",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-d7c138a1cb75-e5af5f2c22303676-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_curfew.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_curfew.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "bd753fc092dd2e544b171d27387535afa53f0fcd7fba49b6a38626eb471c70fc",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-6f658a7e8393-bd753fc092dd2e54-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_timetable_v3.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_timetable_v3.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "709d759c1ec6c8236571d1b7e79efb287e54e7a52ac89e4bdedd02cc38e1cb20",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-01c72ce8dd81-709d759c1ec6c823-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-01c72ce8dd81-709d759c1ec6c823-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_fp1_and_fp2_scrutineering.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_fp1_and_fp2_scrutineering.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "63e3cc201f32c04f3ccacddc7467d76cb699c0105b8e8c365c864babf767a8dc",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-a48a4edf0c45-63e3cc201f32c04f-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-a48a4edf0c45-63e3cc201f32c04f-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-a48a4edf0c45-63e3cc201f32c04f-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-a48a4edf0c45-63e3cc201f32c04f-p4.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times_-_double_yellow_flags.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times_-_double_yellow_flags.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "f5accb60cdc954d79366257bcac13de8ae713a81dcbf93bf4e04339307dc183d",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-f6db7a113660-f5accb60cdc954d7-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_free_practice_2_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "c26cf3daf0f26db5e9afa5c05a5b209d0e6b329ea197961a611c0d7b9c593522",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-64ab88be317e-c26cf3daf0f26db5-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-64ab88be317e-c26cf3daf0f26db5-p3.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "5d9947774fca4d0afa35b79a944a97a18b6d3bbe4797fbda76e8a03fd075a773",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-4591ab418def-5d9947774fca4d0a-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_87_-_changes_to_pu_elements.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_87_-_changes_to_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "d05c85d9e7bfe7b21f9f5b7bc76af9ef8414521dfcc713b81f7a2673a5e02d6e",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-acdab07766ab-d05c85d9e7bfe7b2-p1.png"
+        },
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-acdab07766ab-d05c85d9e7bfe7b2-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_18_-_changes_to_pu_elements.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_18_-_changes_to_pu_elements.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "2f64ff485da21a4db96b7b9affc03d050c58999bea1de3f74a42538ae057cd20",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-9f55b6f6c5bc-2f64ff485da21a4d-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_55_-_changes_to_pu_element.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_55_-_changes_to_pu_element.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "574272f051b3fb9d00e690eefa75c3dc02434db2f6e23ca235d7bfc165f048ba",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-c45a9b56bb18-574272f051b3fb9d-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_12_-_changes_to_pu_element.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_12_-_changes_to_pu_element.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "764f62371a0a2673aace09314e976cf5016e4116da3cfa64294ac4ad851ed0e5",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-b58b6572a4ca-764f62371a0a2673-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_81_-_changes_to_pu_element.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_car_81_-_changes_to_pu_element.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "969cf1a2cf025530d7f82a8748cba65d3810dd2f956efb479b17f82a9771130a",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-32868486889c-969cf1a2cf025530-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_free_practice_2_classification.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_free_practice_2_classification.pdf",
+      "categories": [
+        "results"
+      ],
+      "sha256": "d6ef93fa76fc923bde00b1dfcf239c44e68d7e7bc57f082ff27aa933bb0f7eca",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-981c5b26aca4-d6ef93fa76fc923b-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_new_pu_elements_for_this_competition.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "64fd82ee490939fc12abc4177adab7a9548833f391801d73422ed4316a891f7c",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-4306f3b83583-64fd82ee490939fc-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-4306f3b83583-64fd82ee490939fc-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-4306f3b83583-64fd82ee490939fc-p4.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_competition_notes_-_pirelli_preview_v2.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_competition_notes_-_pirelli_preview_v2.pdf",
+      "categories": [
+        "tyres"
+      ],
+      "sha256": "47e7ffb006c02063f590b234a419281f296e269691a61e46acaa78b6e80b8ee4",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-dff94fe49e31-47e7ffb006c02063-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_race_directors_competition_notes_v2.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_race_directors_competition_notes_v2.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "9c21bb223d596dd1a68f9a8fb3040a26661d4d7dbbbc86152cd99f5530a82ec0",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-ca7304622246-9c21bb223d596dd1-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-ca7304622246-9c21bb223d596dd1-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-ca7304622246-9c21bb223d596dd1-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-las-vegas-ca7304622246-9c21bb223d596dd1-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-las-vegas-ca7304622246-9c21bb223d596dd1-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-las-vegas-ca7304622246-9c21bb223d596dd1-p7.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf",
+      "categories": [
+        "penalties"
+      ],
+      "sha256": "71f92a074af54541a43cc6e6f2181ac891acf41b6ce48932ebf1f66f988d1e60",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-a367930bcc9e-71f92a074af54541-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_entry_list.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_entry_list.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "d20dd9957f539a500ff87cef632edd9aca62b4e65fa7147469dd2f8a3be8b3a5",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-f3a8e1ae01ff-d20dd9957f539a50-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_car_presentation_submissions.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_car_presentation_submissions.pdf",
+      "categories": [
+        "upgrades"
+      ],
+      "sha256": "90bbeb5438e3a5c15c6002d06aa7000e6df792d7091388cd238c61701257eb76",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p8.png"
+        },
+        {
+          "page": 9,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p9.png"
+        },
+        {
+          "page": 10,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p10.png"
+        },
+        {
+          "page": 11,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p11.png"
+        },
+        {
+          "page": 12,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p12.png"
+        },
+        {
+          "page": 13,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p13.png"
+        },
+        {
+          "page": 14,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p14.png"
+        },
+        {
+          "page": 15,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p15.png"
+        },
+        {
+          "page": 16,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p16.png"
+        },
+        {
+          "page": 17,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p17.png"
+        },
+        {
+          "page": 18,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p18.png"
+        },
+        {
+          "page": 19,
+          "asset": "fia-las-vegas-2033bd1bf5b6-90bbeb5438e3a5c1-p19.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_self_scrutineering.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_self_scrutineering.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "ec2c50d06309e3d153ac90d96f304cf79bdc6bfc384293e628b5ffad40279977",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-las-vegas-98b044549849-ec2c50d06309e3d1-p1.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "0de7b2288d26e13d41af06c5b94750b4a6c8ecffdbf2e8dedd3d38c1f71eea5d",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-2ff6e2a73f1d-0de7b2288d26e13d-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "0541c9259419e97740c69478d06c777284508a4377496842526da2bf95124e67",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-f7a696e2bf75-0541c9259419e977-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-f7a696e2bf75-0541c9259419e977-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-f7a696e2bf75-0541c9259419e977-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-las-vegas-f7a696e2bf75-0541c9259419e977-p5.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_race_directors_competition_notes.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_race_directors_competition_notes.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "6783830cb591b34165927de34c4eda7f5b786f51b829b22168a0d87c9aa42647",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-d42e5b4b52ea-6783830cb591b341-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-d42e5b4b52ea-6783830cb591b341-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-d42e5b4b52ea-6783830cb591b341-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-las-vegas-d42e5b4b52ea-6783830cb591b341-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-las-vegas-d42e5b4b52ea-6783830cb591b341-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-las-vegas-d42e5b4b52ea-6783830cb591b341-p7.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_car_display_procedure.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_car_display_procedure.pdf",
+      "categories": [
+        "upgrades"
+      ],
+      "sha256": "1749c4461e0acab0d3799106925f446fa6e3f2cccb27bc135367cdc0e2e3f2ae",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-453e822361c3-1749c4461e0acab0-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_power_unit_information.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_power_unit_information.pdf",
+      "categories": [
+        "powerunit"
+      ],
+      "sha256": "06d0a2b4c9220ec2dcb483ffc0a8e0dc5347b12b392619beba4a6c93722039a7",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-a1e5fd5704ed-06d0a2b4c9220ec2-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_competition_notes_-_pirelli_preview.pdf",
+      "categories": [
+        "tyres"
+      ],
+      "sha256": "bdccfb3c039389f4c007f3ea678ee0506e882f1bac8adfe82f608672cc8706b3",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-14124b7bf7fd-bdccfb3c039389f4-p2.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_competition_visa.pdf",
+      "filename": "2026_las_vegas_grand_prix_-_competition_visa.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "015f4d86a20d7b99bee579ffc5faa0f073e27dc1fdd0320befe382daf68be656",
+      "fetched_at": "2026-11-23T12:28:23+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-las-vegas-1a516b43bbde-015f4d86a20d7b99-p2.png"
+        },
+        {
+          "page": 3,
+          "asset": "fia-las-vegas-1a516b43bbde-015f4d86a20d7b99-p3.png"
+        },
+        {
+          "page": 4,
+          "asset": "fia-las-vegas-1a516b43bbde-015f4d86a20d7b99-p4.png"
+        },
+        {
+          "page": 5,
+          "asset": "fia-las-vegas-1a516b43bbde-015f4d86a20d7b99-p5.png"
+        },
+        {
+          "page": 6,
+          "asset": "fia-las-vegas-1a516b43bbde-015f4d86a20d7b99-p6.png"
+        },
+        {
+          "page": 7,
+          "asset": "fia-las-vegas-1a516b43bbde-015f4d86a20d7b99-p7.png"
+        },
+        {
+          "page": 8,
+          "asset": "fia-las-vegas-1a516b43bbde-015f4d86a20d7b99-p8.png"
+        },
+        {
+          "page": 9,
+          "asset": "fia-las-vegas-1a516b43bbde-015f4d86a20d7b99-p9.png"
+        },
+        {
+          "page": 10,
+          "asset": "fia-las-vegas-1a516b43bbde-015f4d86a20d7b99-p10.png"
+        }
+      ],
+      "revision": 0
     }
-  ]
+  ],
+  "errors": []
 }

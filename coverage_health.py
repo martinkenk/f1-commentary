@@ -80,6 +80,14 @@ def report(gps, root, now=None):
             evidence[block["label"]] = {
                 "digest": digest(block["headers"], block["rows"]),
                 "fetched_at": block["fetched_at"], "retained": block.get("retained", False)}
+        for status in record.get("statuses", []):
+            if status["state"] == "no_times":
+                outcome = session_results.reviewed_no_times(
+                    ctx, status["label"], data_dir=root / "data")
+                if outcome and outcome["digest"] == status["digest"]:
+                    evidence[status["label"]] = {
+                        "digest": outcome["digest"], "outcome": "no_times",
+                        "fetched_at": status["checked_at"], "retained": False}
         events[gp] = {"sessions": evidence, "results_checked_at": record.get("checked_at")}
         if not active:
             continue

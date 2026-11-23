@@ -5,6 +5,7 @@ The build consumes the same timestamped snapshot, including its source status.
 """
 import argparse
 import datetime
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -81,6 +82,30 @@ def parse_table(page):
     return parsed
 
 
+def reviewed_no_times(ctx, label, page=None, data_dir=None):
+    """Only an explicitly reviewed practice outcome can explain an empty table."""
+    path = Path(data_dir or f1lib.DATA_DIR) / ctx["dir"] / "session_outcomes.json"
+    if not path.exists() or not label.startswith("Practice "):
+        return None
+    record = json.loads(path.read_text())
+    if record.get("event") != identity(ctx):
+        raise ValueError("Reviewed session outcome event mismatch")
+    outcome = record.get("sessions", {}).get(label)
+    if not outcome:
+        return None
+    if (outcome.get("state") != "no_times" or not outcome.get("basis")
+            or not outcome.get("reviewed_at")
+            or not outcome.get("source_url", "").startswith("https://www.formula1.com/en/latest/article/")):
+        raise ValueError("Incomplete reviewed no-time session evidence")
+    if page is not None:
+        tables = re.findall(r"<table\b[^>]*>.*?</table>", page, re.S)
+        if len(tables) != 1 or f1lib._parse_result_table(tables[0]) != (
+                outcome["headers"], outcome["rows"]):
+            return None
+    return dict(outcome, digest=hashlib.sha256(
+        json.dumps(outcome, sort_keys=True, ensure_ascii=False).encode()).hexdigest())
+
+
 def load(ctx):
     path = Path(f1lib.DATA_DIR) / ctx["dir"] / "session_results.json"
     if not path.exists():
@@ -124,6 +149,11 @@ def refresh(ctx, now=None, persist=True):
                 if response.url != url:
                     raise ValueError(f"Unexpected results redirect: {response.url}")
                 page = response.read().decode("utf-8")
+            outcome = reviewed_no_times(ctx, label, page)
+            if outcome:
+                statuses.append(dict(outcome, label=label, checked_at=checked))
+                print(f"  {ctx['dir']} {label}: reviewed session with no timed laps")
+                continue
             headers, rows = parse_table(page)
             if old:
                 lost = (validate_table(old["headers"], old["rows"])

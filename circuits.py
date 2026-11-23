@@ -448,6 +448,10 @@ CIRCUITS = {
             "keeps falling through the night. Getting temperature into the fronts on an out-lap "
             "is genuinely difficult."
         ),
+        "tyre_compounds": ("C3 Hard", "C4 Medium", "C5 Soft"),
+        "tyre_compounds_source": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-las-vegas-grand-prix.1HEaoIW48MVZs9cAT7rP2w",
+        "tyre_preview_asset": "pirelli-las-vegas-2026-full-preview.webp",
+        "tyre_preview_source": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-las-vegas-grand-prix.1HEaoIW48MVZs9cAT7rP2w",
         "drs": 2,
         "lap_record": "1:34.876 — Oscar Piastri, 2024",
         "notes": [

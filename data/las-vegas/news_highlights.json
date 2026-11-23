@@ -1,46 +1,39 @@
 {
-  "reviewed_at": "2026-11-11T20:26:26Z",
-  "expires_at": "2026-11-12T08:26:26Z",
-  "through_session": null,
-  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "reviewed_at": "2026-11-23T12:36:00Z",
+  "expires_at": "2026-11-24T12:36:00Z",
+  "through_session": "Race",
+  "feed_fingerprint": "5873896f79a53cffa6eb93f3747253a66ab6b5d4ca30bb3209274a9e62327b79",
   "items": [
     {
-      "topic": "Drivers' Championship",
-      "title": "Antonelli clinched the 2026 Drivers' Championship in Mexico City",
-      "date": "2026-11-01",
-      "summary": "Third place in the Mexico City Grand Prix was enough for Kimi Antonelli to secure his maiden Drivers' title, regardless of where his rivals finished.",
-      "why_it_matters": "The title is already decided before Las Vegas; do not present the current standings gap as an active championship fight.",
+      "topic": "Race result",
+      "title": "Verstappen wins; McLaren secure a double podium",
+      "date": "2026-11-22",
+      "summary": "Verstappen beat Norris by 0.639 seconds and Piastri by 1.529. Antonelli qualified first but started sixth after a PU penalty; a late power issue left him fourth. Russell hit the barrier while fighting back and finished ninth.",
+      "why_it_matters": "Separate qualifying order from the penalty-adjusted grid and final classification. The full official session tables are now available; FP1 had no timed laps.",
       "sources": [
-        {
-          "label": "Formula1.com on Antonelli's title",
-          "url": "https://www.formula1.com/en/latest/article/antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-mexico-git-grand-prix.xpMMeef0KmRURs9IDs3LH"
-        }
+        {"label": "Official final race result", "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"},
+        {"label": "Formula1.com post-race review, full article checked", "url": "https://www.formula1.com/en/latest/article/las-vegas-lowdown-all-the-key-moments-as-verstappen-wins-remarkable-race-and-ferraris-drivers-collide-again.62D9SeuQXSboAspMm7N0pN"}
       ]
     },
     {
-      "topic": "Constructors' Championship",
-      "title": "Mercedes clinched the 2026 Constructors' title in São Paulo",
-      "date": "2026-11-08",
-      "summary": "George Russell finished fourth and Kimi Antonelli fifth in the São Paulo Grand Prix, enough for Mercedes to secure its ninth Constructors' Championship.",
-      "why_it_matters": "Both championship titles are settled. Las Vegas is about race wins and the remaining finishing positions, not title permutations.",
+      "topic": "Ferrari collision",
+      "title": "Leclerc penalised after further contact with Hamilton",
+      "date": "2026-11-22",
+      "summary": "Leclerc received a 10-second penalty for the Turn 7 collision with Hamilton. Hamilton finished seventh and Leclerc tenth. Vasseur criticised the clash after the team's previous discussions following Mexico.",
+      "why_it_matters": "A continuing team-relations storyline for Qatar, not evidence that new team orders have been announced.",
       "sources": [
-        {
-          "label": "Formula1.com on the São Paulo race and Mercedes' title",
-          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paulo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
-        }
+        {"label": "Formula1.com post-race review", "url": "https://www.formula1.com/en/latest/article/las-vegas-lowdown-all-the-key-moments-as-verstappen-wins-remarkable-race-and-ferraris-drivers-collide-again.62D9SeuQXSboAspMm7N0pN"}
       ]
     },
     {
-      "topic": "McLaren development",
-      "title": "Stella says further McLaren parts are planned for Las Vegas",
-      "date": "2026-11-09",
-      "summary": "Stella said cooler track and ambient temperatures helped the MCL40 control tyre temperatures in Brazil, while hot-condition long-run consistency remains work in progress. He said the Interlagos upgrades will be complemented by further parts in Las Vegas as a foundation for 2027; he named no components.",
-      "why_it_matters": "This is a team development plan, not a published FIA submission or a measured performance gain. The Las Vegas FIA listing remains inaccessible, so the component filing status is unverified.",
+      "topic": "Qatar grid carry-over",
+      "title": "Perez has a five-place drop at his next race",
+      "date": "2026-11-22",
+      "summary": "The stewards found Perez wholly responsible for contact with Câmara at Turn 14. Because Perez retired, the unserved time penalty was converted to a five-place drop at his next race.",
+      "why_it_matters": "Qatar is the expected next application. This is a grid penalty, not a five-second race penalty, and the Vegas PU sanctions must not be carried over a second time.",
       "sources": [
-        {
-          "label": "Formula1.com on Stella's McLaren development plan",
-          "url": "https://www.formula1.com/en/latest/article/technically-a-very-interesting-race-stella-reveals-how-norris-and-mclaren-triumphed-at-interlagos.SRa4ORrmm9CcPqhwssoum"
-        }
+        {"label": "FIA Document 61, visually reviewed", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_11_-_causing_a_collision_with_car_51.pdf"},
+        {"label": "Formula1.com penalty report", "url": "https://www.formula1.com/en/latest/article/perez-hit-with-five-place-penalty-in-qatar-after-camara-clash-during-las-vegas-grand-prix.30GG7oJuJ1As0MrkavmStN"}
       ]
     }
   ]

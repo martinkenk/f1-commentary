@@ -315,6 +315,35 @@ class CalendarTests(unittest.TestCase):
 
 
 class HealthTests(unittest.TestCase):
+    def test_no_times_evidence_requires_the_current_review_digest(self):
+        ctx = context()
+        outcome = {"state": "no_times", "reviewed_at": "2026-11-06T15:00:00+00:00",
+                   "basis": "Official report confirms no timed laps.",
+                   "source_url": "https://www.formula1.com/en/latest/article/report",
+                   "headers": [], "rows": []}
+        with tempfile.TemporaryDirectory() as directory, \
+             patch.object(health.news_briefing, "select", return_value={"mode": "Editor-collated"}):
+            root = Path(directory)
+            path = root / "data/brazil"
+            path.mkdir(parents=True)
+            (path / "session_outcomes.json").write_text(json.dumps({
+                "event": health.session_results.identity(ctx),
+                "sessions": {"Practice 1": outcome}}))
+            receipt = health.session_results.reviewed_no_times(
+                ctx, "Practice 1", data_dir=root / "data")
+            snapshot = {"statuses": [{"label": "Practice 1", "state": "no_times",
+                                     "digest": receipt["digest"],
+                                     "checked_at": outcome["reviewed_at"]}]}
+            target = path / "session_results.json"
+            target.write_text(json.dumps(snapshot))
+            report = health.report([ctx], root, at("2026-11-06T17:00"))
+            self.assertEqual(report["events"]["brazil"]["sessions"]["Practice 1"]["outcome"], "no_times")
+            self.assertFalse(any(f["kind"] == "results" for f in report["findings"]))
+            snapshot["statuses"][0]["digest"] = "stale"
+            target.write_text(json.dumps(snapshot))
+            report = health.report([ctx], root, at("2026-11-06T17:00"))
+            self.assertTrue(any(f["kind"] == "results" for f in report["findings"]))
+
     def test_frozen_standings_are_detected_even_outside_previous_weekend_window(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -377,6 +406,26 @@ class HealthTests(unittest.TestCase):
         self.assertIn("stale", check_heartbeat.assess(body("2026-11-06T06:30:00+00:00"), now))
         self.assertIn("Invalid", check_heartbeat.assess(body("2026-11-06T09:30:00+00:00"), now))
         self.assertIn("unresolved", check_heartbeat.assess(body("2026-11-06T08:30:00+00:00", ["blocked"]), now))
+
+    def test_independent_monitor_flags_overdue_publication_even_with_fresh_clock(self):
+        now = at("2026-11-23T12:00")
+        record = {"heartbeat_at": now.isoformat(), "execution_errors": [], "errors": [],
+                  "pending": [{"deadline": "2026-11-22T12:00:00+00:00", "kind": "results"}]}
+        self.assertIn("overdue publication", check_heartbeat.assess(
+            "```json\n" + json.dumps(record) + "\n```", now))
+        record["pending"][0]["deadline"] = now.isoformat()
+        self.assertEqual(check_heartbeat.assess(
+            "```json\n" + json.dumps(record) + "\n```", now), "")
+
+    def test_stranded_request_does_not_hold_dispatch_forever(self):
+        now = at("2026-11-23T12:00")
+        state = {"errors": [], "request": {"at": "2026-11-11T20:27:54+00:00",
+                                         "title": "Old refresh"}}
+        run = {"id": 123, "display_title": "Old refresh", "status": "queued",
+               "html_url": "https://github.com/run", "stalled_unstarted": True}
+        self.assertFalse(scheduler.reconcile_request(state, [run], live(now), now))
+        self.assertNotIn("request", state)
+        self.assertIn("stranded", state["errors"][0])
 
     def test_independent_monitor_distinguishes_findings_from_execution_failures(self):
         now = at("2026-11-06T09:00")

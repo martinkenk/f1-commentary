@@ -102,6 +102,26 @@ class StandingsTests(unittest.TestCase):
                     standings.refresh()
             self.assertEqual(json.loads(path.read_text()), previous)
 
+    def test_accent_change_with_same_driver_code_is_not_a_lost_reserve(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / "standings.json"
+            (root / "data").mkdir()
+            (root / "data/calendar_2026.json").write_text('{"year":2026,"events":[]}')
+            drivers = standings.parse_table(table("drivers"), "drivers")
+            drivers[-1][1:3] = ["Rafael Câmara", "CAM"]
+            constructors = standings.parse_table(table("team"), "team")
+            path.write_text(json.dumps({"year": 2026, "fetched_at": "2026-11-17T12:00:00+00:00",
+                                        "drivers": drivers, "constructors": constructors}))
+            drivers[-1][1] = "Rafael Camara"
+            with patch.object(standings, "ROOT", root), \
+                 patch.object(standings, "snapshot_path", return_value=path), \
+                 patch("urllib.request.urlopen", side_effect=[
+                     io.BytesIO(source_table(drivers, "drivers").encode()),
+                     io.BytesIO(source_table(constructors, "team").encode())]):
+                current = standings.refresh()
+            self.assertEqual(current["drivers"][-1][1:3], ["Rafael Camara", "CAM"])
+
     def test_refresh_keeps_coherent_snapshot_when_driver_standings_lag_race(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "standings.json"

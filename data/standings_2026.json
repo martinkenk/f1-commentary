@@ -10,49 +10,49 @@
       "Kimi Antonelli",
       "ANT",
       "Mercedes",
-      390
+      402
     ],
     [
       2,
       "Max Verstappen",
       "VER",
       "Red Bull Racing",
-      279
+      304
     ],
     [
       3,
-      "George Russell",
-      "RUS",
-      "Mercedes",
-      262
-    ],
-    [
-      4,
       "Lewis Hamilton",
       "HAM",
       "Ferrari",
-      261
+      267
+    ],
+    [
+      4,
+      "George Russell",
+      "RUS",
+      "Mercedes",
+      264
     ],
     [
       5,
-      "Charles Leclerc",
-      "LEC",
-      "Ferrari",
-      249
-    ],
-    [
-      6,
       "Lando Norris",
       "NOR",
       "McLaren",
-      246
+      264
+    ],
+    [
+      6,
+      "Charles Leclerc",
+      "LEC",
+      "Ferrari",
+      250
     ],
     [
       7,
       "Oscar Piastri",
       "PIA",
       "McLaren",
-      152
+      167
     ],
     [
       8,
@@ -73,7 +73,7 @@
       "Pierre Gasly",
       "GAS",
       "Alpine",
-      42
+      52
     ],
     [
       11,
@@ -87,7 +87,7 @@
       "Franco Colapinto",
       "COL",
       "Alpine",
-      27
+      35
     ],
     [
       13,
@@ -112,23 +112,23 @@
     ],
     [
       16,
+      "Carlos Sainz",
+      "SAI",
+      "Williams",
+      11
+    ],
+    [
+      17,
       "Esteban Ocon",
       "OCO",
       "Haas F1 Team",
       7
     ],
     [
-      17,
+      18,
       "Fernando Alonso",
       "ALO",
       "Aston Martin",
-      7
-    ],
-    [
-      18,
-      "Carlos Sainz",
-      "SAI",
-      "Williams",
       7
     ],
     [
@@ -175,7 +175,7 @@
     ],
     [
       25,
-      "Rafael Câmara",
+      "Rafael Camara",
       "CAM",
       "Haas F1 Team",
       0
@@ -185,22 +185,22 @@
     [
       1,
       "Mercedes",
-      652
+      666
     ],
     [
       2,
       "Ferrari",
-      510
+      517
     ],
     [
       3,
       "Red Bull Racing",
-      415
+      440
     ],
     [
       4,
       "McLaren",
-      398
+      431
     ],
     [
       5,
@@ -210,7 +210,7 @@
     [
       6,
       "Alpine",
-      69
+      87
     ],
     [
       7,
@@ -225,7 +225,7 @@
     [
       9,
       "Williams",
-      12
+      16
     ],
     [
       10,
@@ -238,6 +238,6 @@
       0
     ]
   ],
-  "fetched_at": "2026-11-16T23:57:49+00:00",
-  "results_round": 20
+  "fetched_at": "2026-11-23T12:35:21+00:00",
+  "results_round": 21
 }

@@ -1,6 +1,7 @@
 import copy
 import datetime
 import json
+import tempfile
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -53,6 +54,29 @@ class Response:
 
 
 class ResultsTests(unittest.TestCase):
+    def test_reviewed_no_times_never_accepts_truncated_or_changed_classifications(self):
+        outcome = {"state": "no_times", "basis": "Official report confirms no timed laps",
+                   "source_url": "https://www.formula1.com/en/latest/article/example.id",
+                   "reviewed_at": NOW.isoformat(), "headers": ["Driver"],
+                   "rows": [["Error No results available"]]}
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "test"
+            path.mkdir()
+            (path / "session_outcomes.json").write_text(json.dumps({
+                "event": results.identity(CTX), "sessions": {"Practice 3": outcome}}))
+            with patch.object(f1lib, "DATA_DIR", directory):
+                empty = page(outcome["headers"], outcome["rows"])
+                self.assertEqual(results.reviewed_no_times(CTX, "Practice 3", empty)["state"], "no_times")
+                self.assertIsNone(results.reviewed_no_times(CTX, "Practice 3", page()))
+                self.assertIsNone(results.reviewed_no_times(CTX, "Qualifying", empty))
+                self.assertIsNone(results.reviewed_no_times(CTX, "Practice 2", empty))
+                with self.assertRaises(ValueError):
+                    results.parse_table(empty)
+                rendered = f1lib.render_results({"results_status": [dict(outcome, label="Practice 3")]})
+                self.assertIn("no timed laps", rendered)
+                self.assertNotIn("official table pending or unavailable", rendered)
+                self.assertNotIn("No official classifications available here yet", rendered)
+
     def test_practice_tyres_match_driver_and_time_including_relative_gaps(self):
         headers, rows = table()
         block = {"label": "Practice 1", "headers": headers, "rows": rows}

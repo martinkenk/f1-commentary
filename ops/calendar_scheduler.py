@@ -119,7 +119,11 @@ def poll_result(job):
     with urllib.request.urlopen(request, timeout=25) as response:
         if response.url != job["url"]:
             raise ValueError(f"Unexpected classification redirect: {response.url}")
-        headers, rows = session_results.parse_table(response.read().decode("utf-8"))
+        page = response.read().decode("utf-8")
+        outcome = session_results.reviewed_no_times(job["ctx"], job["label"], page)
+        if outcome:
+            return outcome["digest"]
+        headers, rows = session_results.parse_table(page)
     return health.digest(headers, rows)
 
 
@@ -132,6 +136,11 @@ def reconcile_request(state, runs, live, now):
         run = max(matching, key=lambda row: row["id"])
         request["run_id"] = run["id"]
         request["url"] = run["html_url"]
+        if run.get("stalled_unstarted"):
+            state["errors"].append(f"Publication stranded without jobs: {run['html_url']}")
+            state["last_request"] = state.pop("request")
+            state["retry_after"] = (now + dt.timedelta(minutes=2)).isoformat()
+            return False
         if run["status"] != "completed":
             if now - health.timestamp(request["at"]) > dt.timedelta(minutes=20):
                 state["errors"].append(f"Publication queue/run overdue: {run['html_url']}")
@@ -232,11 +241,17 @@ def tick(now=None):
             state["execution_errors"].append(message)
         state["live_generated_at"] = live["generated_at"] if live else None
         runs = api(f"repos/{watchdog.REPOSITORY}/actions/workflows/deploy.yml/runs?per_page=30")["workflow_runs"]
+        watchdog.check_stalled_queues(runs, now, api)
+        for run in runs:
+            if run.get("stalled_unstarted"):
+                state["errors"].append(
+                    f"Stalled publication queue has no jobs; allowing recovery: {run['html_url']}")
         from ops import publication_followup
         state["publication_verifications"] = publication_followup.reconcile(
             STATE, runs, live, gps, checked, now)
         busy = reconcile_request(state, runs, live, now)
-        busy |= any(run["status"] in watchdog.ACTIVE for run in runs)
+        busy |= any(run["status"] in watchdog.ACTIVE and not run.get("stalled_unstarted")
+                    for run in runs)
         due, pending = [], []
         records = state.setdefault("jobs", {})
         planned = list(jobs(gps, now, records))

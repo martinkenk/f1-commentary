@@ -1,0 +1,13 @@
+{
+  "event": {"year": "2026", "race_id": "1300", "results_slug": "las-vegas", "gp": "las-vegas"},
+  "sessions": {
+    "Practice 1": {
+      "state": "no_times",
+      "reviewed_at": "2026-11-23T12:36:00+00:00",
+      "source_url": "https://www.formula1.com/en/latest/article/fp1-wet-conditions-limit-running-in-first-practice-at-las-vegas-grand-prix.7H085JgIW1k8jM3ysejVqJ",
+      "basis": "Rain limited the session to installation laps. Formula1.com's complete session report confirms no official timed laps at the chequered flag; there is no ranked classification to populate.",
+      "headers": ["Pos.", "No.", "Driver", "Team", "Time / Gap"],
+      "rows": [["Error No results available"]]
+    }
+  }
+}

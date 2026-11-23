@@ -1,0 +1,1070 @@
+{
+  "event": {
+    "year": "2026",
+    "race_id": "1300",
+    "results_slug": "las-vegas",
+    "gp": "las-vegas"
+  },
+  "checked_at": "2026-11-23T12:45:44+00:00",
+  "sessions": [
+    {
+      "label": "Practice 2",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:47.272",
+          "23"
+        ],
+        [
+          "2",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+0.071s",
+          "16"
+        ],
+        [
+          "3",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "+0.333s",
+          "28"
+        ],
+        [
+          "4",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+1.135s",
+          "20"
+        ],
+        [
+          "5",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+1.181s",
+          "24"
+        ],
+        [
+          "6",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+1.211s",
+          "26"
+        ],
+        [
+          "7",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "+1.565s",
+          "22"
+        ],
+        [
+          "8",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "+1.771s",
+          "23"
+        ],
+        [
+          "9",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+1.957s",
+          "15"
+        ],
+        [
+          "10",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+1.959s",
+          "21"
+        ],
+        [
+          "11",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+2.510s",
+          "23"
+        ],
+        [
+          "12",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+2.557s",
+          "23"
+        ],
+        [
+          "13",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "+2.869s",
+          "9"
+        ],
+        [
+          "14",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "+3.159s",
+          "17"
+        ],
+        [
+          "15",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+3.427s",
+          "22"
+        ],
+        [
+          "16",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "+3.737s",
+          "12"
+        ],
+        [
+          "17",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+3.876s",
+          "13"
+        ],
+        [
+          "18",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+4.299s",
+          "11"
+        ],
+        [
+          "19",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+4.535s",
+          "16"
+        ],
+        [
+          "20",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+5.053s",
+          "15"
+        ],
+        [
+          "21",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+5.522s",
+          "14"
+        ],
+        [
+          "22",
+          "51",
+          "Rafael Camara CAM",
+          "Haas F1 Team",
+          "+6.317s",
+          "20"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/practice/2",
+      "fetched_at": "2026-11-23T12:45:44+00:00",
+      "session_start": "2026-11-19T20:00:00-08:00",
+      "retained": false
+    },
+    {
+      "label": "Practice 3",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:34.041",
+          "30"
+        ],
+        [
+          "2",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "+0.911s",
+          "29"
+        ],
+        [
+          "3",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "+0.974s",
+          "28"
+        ],
+        [
+          "4",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "+1.150s",
+          "31"
+        ],
+        [
+          "5",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "+1.157s",
+          "29"
+        ],
+        [
+          "6",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "+1.309s",
+          "24"
+        ],
+        [
+          "7",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "+1.361s",
+          "31"
+        ],
+        [
+          "8",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "+1.393s",
+          "30"
+        ],
+        [
+          "9",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "+1.402s",
+          "30"
+        ],
+        [
+          "10",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "+1.409s",
+          "32"
+        ],
+        [
+          "11",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "+1.452s",
+          "29"
+        ],
+        [
+          "12",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "+1.763s",
+          "29"
+        ],
+        [
+          "13",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "+1.945s",
+          "29"
+        ],
+        [
+          "14",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "+2.350s",
+          "22"
+        ],
+        [
+          "15",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "+2.405s",
+          "29"
+        ],
+        [
+          "16",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "+2.706s",
+          "29"
+        ],
+        [
+          "17",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "+2.897s",
+          "30"
+        ],
+        [
+          "18",
+          "51",
+          "Rafael Camara CAM",
+          "Haas F1 Team",
+          "+2.971s",
+          "30"
+        ],
+        [
+          "19",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "+3.091s",
+          "28"
+        ],
+        [
+          "20",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "+3.208s",
+          "29"
+        ],
+        [
+          "21",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "+3.640s",
+          "28"
+        ],
+        [
+          "22",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "+3.655s",
+          "27"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/practice/3",
+      "fetched_at": "2026-11-23T12:45:44+00:00",
+      "session_start": "2026-11-20T16:30:00-08:00",
+      "retained": false
+    },
+    {
+      "label": "Qualifying",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Q1",
+        "Q2",
+        "Q3",
+        "Laps"
+      ],
+      "rows": [
+        [
+          "1",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "1:34.684",
+          "1:35.086",
+          "1:33.893",
+          "26"
+        ],
+        [
+          "2",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "1:35.264",
+          "1:34.394",
+          "1:34.151",
+          "21"
+        ],
+        [
+          "3",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:34.664",
+          "1:34.617",
+          "1:34.224",
+          "26"
+        ],
+        [
+          "4",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "1:35.109",
+          "1:34.766",
+          "1:34.244",
+          "21"
+        ],
+        [
+          "5",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "1:35.413",
+          "1:35.064",
+          "1:34.592",
+          "22"
+        ],
+        [
+          "6",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "1:35.456",
+          "1:34.963",
+          "1:34.668",
+          "25"
+        ],
+        [
+          "7",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "1:35.491",
+          "1:34.763",
+          "1:34.899",
+          "24"
+        ],
+        [
+          "8",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "1:35.489",
+          "1:35.048",
+          "1:35.090",
+          "25"
+        ],
+        [
+          "9",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "1:35.718",
+          "1:34.559",
+          "1:35.105",
+          "24"
+        ],
+        [
+          "10",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "1:35.930",
+          "1:34.982",
+          "1:35.314",
+          "23"
+        ],
+        [
+          "11",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "1:35.040",
+          "1:35.197",
+          "",
+          "17"
+        ],
+        [
+          "12",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "1:35.743",
+          "1:35.253",
+          "",
+          "18"
+        ],
+        [
+          "13",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "1:35.710",
+          "1:35.460",
+          "",
+          "16"
+        ],
+        [
+          "14",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "1:35.588",
+          "1:35.641",
+          "",
+          "18"
+        ],
+        [
+          "15",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "1:36.149",
+          "1:35.993",
+          "",
+          "12"
+        ],
+        [
+          "16",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "1:35.856",
+          "1:36.125",
+          "",
+          "18"
+        ],
+        [
+          "17",
+          "51",
+          "Rafael Camara CAM",
+          "Haas F1 Team",
+          "1:36.220",
+          "",
+          "",
+          "9"
+        ],
+        [
+          "18",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "1:37.383",
+          "",
+          "",
+          "11"
+        ],
+        [
+          "19",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "1:37.400",
+          "",
+          "",
+          "10"
+        ],
+        [
+          "20",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "1:37.550",
+          "",
+          "",
+          "10"
+        ],
+        [
+          "21",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "1:37.601",
+          "",
+          "",
+          "11"
+        ],
+        [
+          "NC",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "1:48.005",
+          "",
+          "",
+          "8"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/qualifying",
+      "fetched_at": "2026-11-23T12:45:44+00:00",
+      "session_start": "2026-11-20T20:00:00-08:00",
+      "retained": false
+    },
+    {
+      "label": "Starting Grid",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time"
+      ],
+      "rows": [
+        [
+          "1",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "1:34.151"
+        ],
+        [
+          "2",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "1:34.224"
+        ],
+        [
+          "3",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "1:34.244"
+        ],
+        [
+          "4",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "1:34.592"
+        ],
+        [
+          "5",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "1:34.668"
+        ],
+        [
+          "6",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "1:33.893"
+        ],
+        [
+          "7",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "1:35.090"
+        ],
+        [
+          "8",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "1:35.105"
+        ],
+        [
+          "9",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "1:35.314"
+        ],
+        [
+          "10",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "1:35.197"
+        ],
+        [
+          "11",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "1:35.253"
+        ],
+        [
+          "12",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "1:35.460"
+        ],
+        [
+          "13",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "1:35.993"
+        ],
+        [
+          "14",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "1:36.125"
+        ],
+        [
+          "15",
+          "51",
+          "Rafael Camara CAM",
+          "Haas F1 Team",
+          "1:36.220"
+        ],
+        [
+          "16",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "1:37.383"
+        ],
+        [
+          "17",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "1:34.899"
+        ],
+        [
+          "18",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "1:37.400"
+        ],
+        [
+          "19",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "1:37.601"
+        ],
+        [
+          "20",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "1:35.641"
+        ],
+        [
+          "21",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "1:37.550"
+        ],
+        [
+          "22",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "1:48.005"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/starting-grid",
+      "fetched_at": "2026-11-23T12:45:44+00:00",
+      "session_start": "2026-11-20T21:00:00-08:00",
+      "retained": false
+    },
+    {
+      "label": "Race",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Laps",
+        "Time / Retired",
+        "Pts."
+      ],
+      "rows": [
+        [
+          "1",
+          "3",
+          "Max Verstappen VER",
+          "Red Bull Racing",
+          "50",
+          "1:27:39.624",
+          "25"
+        ],
+        [
+          "2",
+          "1",
+          "Lando Norris NOR",
+          "McLaren",
+          "50",
+          "+0.639s",
+          "18"
+        ],
+        [
+          "3",
+          "81",
+          "Oscar Piastri PIA",
+          "McLaren",
+          "50",
+          "+1.529s",
+          "15"
+        ],
+        [
+          "4",
+          "12",
+          "Kimi Antonelli ANT",
+          "Mercedes",
+          "50",
+          "+2.574s",
+          "12"
+        ],
+        [
+          "5",
+          "10",
+          "Pierre Gasly GAS",
+          "Alpine",
+          "50",
+          "+2.927s",
+          "10"
+        ],
+        [
+          "6",
+          "43",
+          "Franco Colapinto COL",
+          "Alpine",
+          "50",
+          "+7.955s",
+          "8"
+        ],
+        [
+          "7",
+          "44",
+          "Lewis Hamilton HAM",
+          "Ferrari",
+          "50",
+          "+12.795s",
+          "6"
+        ],
+        [
+          "8",
+          "55",
+          "Carlos Sainz SAI",
+          "Williams",
+          "50",
+          "+12.938s",
+          "4"
+        ],
+        [
+          "9",
+          "63",
+          "George Russell RUS",
+          "Mercedes",
+          "50",
+          "+13.192s",
+          "2"
+        ],
+        [
+          "10",
+          "16",
+          "Charles Leclerc LEC",
+          "Ferrari",
+          "50",
+          "+17.554s",
+          "1"
+        ],
+        [
+          "11",
+          "27",
+          "Nico Hulkenberg HUL",
+          "Audi",
+          "50",
+          "+22.720s",
+          "0"
+        ],
+        [
+          "12",
+          "5",
+          "Gabriel Bortoleto BOR",
+          "Audi",
+          "50",
+          "+28.602s",
+          "0"
+        ],
+        [
+          "13",
+          "87",
+          "Oliver Bearman BEA",
+          "Haas F1 Team",
+          "50",
+          "+28.843s",
+          "0"
+        ],
+        [
+          "14",
+          "30",
+          "Liam Lawson LAW",
+          "Racing Bulls",
+          "50",
+          "+36.588s",
+          "0"
+        ],
+        [
+          "15",
+          "6",
+          "Isack Hadjar HAD",
+          "Red Bull Racing",
+          "50",
+          "+46.488s",
+          "0"
+        ],
+        [
+          "16",
+          "51",
+          "Rafael Camara CAM",
+          "Haas F1 Team",
+          "50",
+          "+47.814s",
+          "0"
+        ],
+        [
+          "17",
+          "18",
+          "Lance Stroll STR",
+          "Aston Martin",
+          "50",
+          "+68.353s",
+          "0"
+        ],
+        [
+          "18",
+          "77",
+          "Valtteri Bottas BOT",
+          "Cadillac",
+          "50",
+          "+71.673s",
+          "0"
+        ],
+        [
+          "19",
+          "14",
+          "Fernando Alonso ALO",
+          "Aston Martin",
+          "49",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "41",
+          "Arvid Lindblad LIN",
+          "Racing Bulls",
+          "19",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "11",
+          "Sergio Perez PER",
+          "Cadillac",
+          "17",
+          "DNF",
+          "0"
+        ],
+        [
+          "NC",
+          "23",
+          "Alexander Albon ALB",
+          "Williams",
+          "0",
+          "DNS",
+          "0"
+        ]
+      ],
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result",
+      "fetched_at": "2026-11-23T12:45:44+00:00",
+      "session_start": "2026-11-21T20:00:00-08:00",
+      "retained": false
+    }
+  ],
+  "statuses": [
+    {
+      "state": "no_times",
+      "reviewed_at": "2026-11-23T12:36:00+00:00",
+      "source_url": "https://www.formula1.com/en/latest/article/fp1-wet-conditions-limit-running-in-first-practice-at-las-vegas-grand-prix.7H085JgIW1k8jM3ysejVqJ",
+      "basis": "Rain limited the session to installation laps. Formula1.com's complete session report confirms no official timed laps at the chequered flag; there is no ranked classification to populate.",
+      "headers": [
+        "Pos.",
+        "No.",
+        "Driver",
+        "Team",
+        "Time / Gap"
+      ],
+      "rows": [
+        [
+          "Error No results available"
+        ]
+      ],
+      "digest": "b744e8cadac1adf09fca1d0b693aa02f49577beb5ae965545444c3dba3baa7dc",
+      "label": "Practice 1",
+      "checked_at": "2026-11-23T12:45:44+00:00"
+    },
+    {
+      "label": "Practice 2",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/practice/2"
+    },
+    {
+      "label": "Practice 3",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/practice/3"
+    },
+    {
+      "label": "Qualifying",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/qualifying"
+    },
+    {
+      "label": "Starting Grid",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/starting-grid"
+    },
+    {
+      "label": "Race",
+      "state": "available",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"
+    }
+  ]
+}

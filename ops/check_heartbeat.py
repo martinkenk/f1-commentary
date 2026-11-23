@@ -18,6 +18,12 @@ def assess(body, now):
         return f"Scheduler heartbeat is stale: {stamp.isoformat()}. Check f1-calendar.timer and host availability."
     if record.get("execution_errors"):
         return "Scheduler reports execution failures; see the health issue."
+    for item in record.get("pending", []):
+        deadline = dt.datetime.fromisoformat(item["deadline"])
+        if now > deadline + dt.timedelta(minutes=30):
+            return "Scheduler reports overdue publication; see the health issue."
+    if any("Stalled publication queue" in error for error in record.get("errors", [])):
+        return "Scheduler reports a stranded publication queue; see the health issue."
     if "execution_errors" not in record and record.get("errors"):
         return "Scheduler reports unresolved failures; see the health issue."
     return ""

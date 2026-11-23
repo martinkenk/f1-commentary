@@ -635,9 +635,14 @@ def _slugify(label):
 
 def render_results(ctx):
     results = ctx.get("results") or []
+    outcomes = "".join(
+        f'<div class="callout"><strong>{html.escape(status["label"])}: no timed laps.</strong> '
+        f'{html.escape(status["basis"])} '
+        f'<a href="{html.escape(status["source_url"], quote=True)}">Official session report</a>.</div>'
+        for status in ctx.get("results_status", []) if status["state"] == "no_times")
     issues = [status for status in ctx.get("results_status", [])
-              if status["state"] != "available"]
-    warning = ""
+              if status["state"] not in ("available", "no_times")]
+    warning = outcomes
     if issues:
         details = "; ".join(
             (f'{html.escape(status["label"])}: {html.escape(status["error"])}'
@@ -649,11 +654,13 @@ def render_results(ctx):
             " A missing table does not mean the session has not run."
             if any(status["state"] != "conflict" for status in issues) else ""
         )
-        warning = (
+        warning += (
             f'<div class="callout watch"><strong>Results source status:</strong> '
             f'{details}.{missing_note}</div>'
         )
     if not results:
+        if outcomes and not issues:
+            return warning
         return (
             warning + '<div class="callout watch"><strong>No official classifications available here yet.</strong> '
             "Tables appear after the official source publishes and the next results refresh completes.</div>"
