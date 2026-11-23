@@ -5,7 +5,7 @@
     "results_slug": "las-vegas",
     "gp": "las-vegas"
   },
-  "checked_at": "2026-11-23T21:28:09+00:00",
+  "checked_at": "2026-11-23T21:44:16+00:00",
   "sessions": [
     {
       "label": "Practice 2",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/practice/2",
-      "fetched_at": "2026-11-23T21:28:09+00:00",
+      "fetched_at": "2026-11-23T21:44:16+00:00",
       "session_start": "2026-11-19T20:00:00-08:00",
       "retained": false
     },
@@ -389,7 +389,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/practice/3",
-      "fetched_at": "2026-11-23T21:28:09+00:00",
+      "fetched_at": "2026-11-23T21:44:16+00:00",
       "session_start": "2026-11-20T16:30:00-08:00",
       "retained": false
     },
@@ -628,7 +628,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/qualifying",
-      "fetched_at": "2026-11-23T21:28:09+00:00",
+      "fetched_at": "2026-11-23T21:44:16+00:00",
       "session_start": "2026-11-20T20:00:00-08:00",
       "retained": false
     },
@@ -798,7 +798,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/starting-grid",
-      "fetched_at": "2026-11-23T21:28:09+00:00",
+      "fetched_at": "2026-11-23T21:44:16+00:00",
       "session_start": "2026-11-20T21:00:00-08:00",
       "retained": false
     },
@@ -1014,7 +1014,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result",
-      "fetched_at": "2026-11-23T21:28:09+00:00",
+      "fetched_at": "2026-11-23T21:44:16+00:00",
       "session_start": "2026-11-21T20:00:00-08:00",
       "retained": false
     }
@@ -1039,7 +1039,7 @@
       ],
       "digest": "b744e8cadac1adf09fca1d0b693aa02f49577beb5ae965545444c3dba3baa7dc",
       "label": "Practice 1",
-      "checked_at": "2026-11-23T21:28:09+00:00"
+      "checked_at": "2026-11-23T21:44:16+00:00"
     },
     {
       "label": "Practice 2",
