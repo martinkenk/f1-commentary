@@ -9,7 +9,9 @@ FIA_ROOT = "https://www.fia.com/system/files/decision-document/2026_las_vegas_gr
 FIA_POWER_UNIT = FIA_ROOT + "power_unit_information.pdf"
 FIA_USAGE = FIA_ROOT + "pu_elements_used_per_driver_up_to_now.pdf"
 FIA_NEW = FIA_ROOT + "new_pu_elements_for_this_competition.pdf"
+FIA_FP1_FP2_SCRUTINEERING = FIA_ROOT + "fp1_and_fp2_scrutineering.pdf"
 FIA_SCRUTINEERING = FIA_ROOT + "fp3_and_qualifying_scrutineering.pdf"
+FIA_SC2_SC1_LIMIT = FIA_ROOT + "race_director_notes_-_sc2_-_sc1_times.pdf"
 FIA_UPGRADES = FIA_ROOT + "car_presentation_submissions.pdf"
 FIA_PIRELLI = FIA_ROOT + "competition_notes_-_pirelli_preview_v3.pdf"
 PEREZ_PENALTY = FIA_ROOT + "infringement_-_car_11_-_causing_a_collision_with_car_51.pdf"
@@ -20,6 +22,10 @@ RACE_RESULT = "https://www.formula1.com/en/results/2026/races/1300/las-vegas/rac
 FINAL_CLASSIFICATION = FIA_ROOT + "final_race_classification.pdf"
 HAMILTON_TRACK_LIMITS = FIA_ROOT + "infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf"
 PIRELLI_RACE = "https://press.pirelli.com/verstappen-wins-overtaking-spectacle-on-the-strip/"
+PIRELLI_INFOGRAPHICS = (
+    "https://www.pirelli.com/global/en-ww/emotions-and-numbers/"
+    "formula-1-heineken-las-vegas-grand-prix-2026-202000/"
+)
 FIA_PARC_FERME = FIA_ROOT + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf"
 PEREZ_SUMMONS = FIA_ROOT + "summons_-_car_11_-_alleged_causing_a_collision_with_car_51.pdf"
 CAMARA_SUMMONS = FIA_ROOT + "summons_-_car_51_-_alleged_causing_a_collision_with_car_11.pdf"
@@ -157,6 +163,12 @@ software and aerodynamic components. <strong>All listed items were found
 compliant</strong> with the 2026 Technical Regulations. This is a compliance
 report, not a component-use update or penalty.
 <a href="{FIA_SCRUTINEERING}">Complete FIA report</a>.</p>
+<h2 class="sec">FP1 and FP2 scrutineering — FIA Document 24</h2>
+<p>The four-page Technical Delegate report records checks of exhaust
+declarations, tyre pressures, fuel-flow and engine limits, ERS recharge, MGU-K,
+software and control systems across both practice sessions. <strong>All listed
+items were found compliant</strong>; the report is not a component-use update
+or penalty. <a href="{FIA_FP1_FP2_SCRUTINEERING}">Complete FIA report</a>.</p>
 <h2 class="sec">Approved parc fermé replacements</h2>
 <p>In <a href="{FIA_PARC_FERME}">Document 52, 21 November</a>, the Technical
 Delegate lists approved replacements and parameter changes across several cars.
@@ -249,7 +261,14 @@ drawing specifies an 80 km/h limit and marks Safety Car lines separately
 from the pit-lane speed-limit lines. The complete source also marks marshal
 posts, emergency exits and the medical/helicopter red zone.
 <a href="{circuit_source}">FIA circuit and operational maps</a>.</p>
-{_figure("fia-las-vegas-f7a696e2bf75-0541c9259419e977", circuit_source, 2, "FIA circuit map: normal and low-grip Straight Mode, Overtake and timing lines")}"""
+{_figure("fia-las-vegas-f7a696e2bf75-0541c9259419e977", circuit_source, 2, "FIA circuit map: normal and low-grip Straight Mode, Overtake and timing lines")}
+<h2 class="sec">Safety Car line time — FIA Document 21</h2>
+<p>Race Director's Note 21 (19 November, 22:02) requires cars to stay
+<strong>below 2:00.0 between the Safety Car lines</strong> on any lap during
+and after qualifying, and on reconnaissance laps while the pit exit is open
+for the race. This is a maximum-time instruction between the marked lines,
+not a sector or full-lap target.
+<a href="{FIA_SC2_SC1_LIMIT}">Original FIA note</a>.</p>"""
     race_tyres = f"""
 <h2 class="sec">Actual race strategy: Soft to Medium for the podium</h2>
 <p>Pirelli's post-race report confirms Verstappen, Norris and Piastri all started
@@ -260,7 +279,8 @@ stationary stop durations or pitlane elapsed times</strong>.</p>
 <p>Pirelli reports a longest Medium stint of 30 tyre laps and Lawson's Soft
 stint of 33. Those are reported tyre ages, not an inferred remaining-set
 inventory. Track temperature was around 12°C. These are actual race findings,
-not the earlier one-stop forecast. <a href="{PIRELLI_RACE}">Pirelli, 22 November</a>.</p>"""
+not the earlier one-stop forecast. <a href="{PIRELLI_RACE}">Pirelli, 22 November</a> ·
+<a href="{PIRELLI_INFOGRAPHICS}">Official Pirelli race infographics</a>.</p>"""
     for asset, caption in (
         ("pirelli-las-vegas-2026-pitstops.jpg", "Actual driver-by-driver stints and stop laps; used/new key retained"),
         ("pirelli-las-vegas-2026-race-stints.jpg", "Actual longest stints, compound use and fastest laps"),
@@ -298,6 +318,10 @@ Maximum tyre heating: slick/intermediate 70°C, wet 60°C, at most two hours.
 These are prescriptions, not the driver-by-driver remaining race-set inventory.</p>
 {_figure("fia-las-vegas-d7c138a1cb75-e5af5f2c22303676", FIA_PIRELLI, 2, "Pirelli prescriptions V3, document version 5 Issue C")}"""
     pages["notes"]["body"] = championships + update + pages["notes"]["body"]
+    pages["notes"]["body"] += f"""
+<p><strong>Race control:</strong> keep below 2:00.0 between the Safety Car
+lines during and after qualifying and on race-reconnaissance laps with the pit
+exit open. <a href="{FIA_SC2_SC1_LIMIT}">FIA Document 21</a>.</p>"""
     recap = f"""<h2 class="sec">Las Vegas result and Qatar carry-over</h2>
 <p>Max Verstappen won from Lando Norris (+0.639s) and Oscar Piastri (+1.529s).
 Antonelli qualified first but did not start on pole after his PU sanction.
@@ -344,13 +368,26 @@ separate Turn 17 no-further-action finding.
         "bi-hourglass-split",
         "accent",
     )
+    lindblad_unsafe_release = card(
+        "Arvid Lindblad summons followed by ruling",
+        f"""<p>FIA Document 39 summoned the Racing Bulls team representative over
+an alleged unsafe release of Car 41 at 20:29. Document 45 later found that
+Lindblad's car was released into the path of Alex Albon's Car 23 and fined the
+team €5,000. The summons was an allegation, not the finding; the ruling and
+full report appear in the table below.
+<a href="{FIA_ROOT}summons_-_car_41_-_alleged_unsafe_release.pdf">Document 39
+summons</a> · <a href="{FIA_ROOT}infringement_-_car_41_unsafe_release.pdf">
+Document 45 ruling</a>.</p>""",
+        "bi-exclamation-triangle",
+        "accent",
+    )
     pages["penalties"] = dict(
         kicker="FIA race control",
         title="Penalties & Stewards",
         sub="FIA rulings, fine, warnings, summonses and the unresolved Document 29 outcome.",
         body=render_penalties(
             ctx,
-            intro_html=fp3_summons,
+            intro_html=fp3_summons + lindblad_unsafe_release,
             fia_url=ctx.get("fia_url", ""),
         ),
     )

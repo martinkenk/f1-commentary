@@ -174,12 +174,60 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("previously used energy-store and control-electronics", body)
         self.assertIn("not itself a penalty decision", body)
 
+    def test_las_vegas_fp1_fp2_scrutineering_is_summarized_and_hash_reviewed(self):
+        pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
+        body = pages["powerunit"]["body"]
+        review = json.loads(
+            (Path(__file__).parent / "data/las-vegas/coverage_review.json").read_text()
+        )
+        self.assertIn(content_las_vegas.FIA_FP1_FP2_SCRUTINEERING, body)
+        self.assertIn("FIA Document 24", body)
+        self.assertIn("All listed items were found compliant", " ".join(body.split()))
+        self.assertEqual(
+            review["fia_sha256"].get(content_las_vegas.FIA_FP1_FP2_SCRUTINEERING),
+            "63e3cc201f32c04f3ccacddc7467d76cb699c0105b8e8c365c864babf767a8dc",
+        )
+
     def test_las_vegas_scrutineering_report_states_checked_items_complied(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
         body = pages["powerunit"]["body"]
         self.assertIn(content_las_vegas.FIA_SCRUTINEERING, body)
         self.assertIn("All listed items were found compliant", " ".join(body.split()))
         self.assertIn("not a component-use update or penalty", body)
+
+    def test_las_vegas_lindblad_summons_is_linked_to_the_later_fine(self):
+        pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
+        body = " ".join(pages["penalties"]["body"].split())
+        review = json.loads(
+            (Path(__file__).parent / "data/las-vegas/coverage_review.json").read_text()
+        )
+        summons = (
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_las_vegas_grand_prix_-_summons_-_car_41_-_alleged_unsafe_release.pdf"
+        )
+        self.assertIn(summons, body)
+        self.assertIn("Document 45 later found", body)
+        self.assertIn("summons was an allegation, not the finding", body)
+        self.assertEqual(
+            review["fia_sha256"].get(summons),
+            "5d047fba1071d2963f978e8af7a82d0e05e9bd1cbbc79d0762db16c8ad6c18b0",
+        )
+
+    def test_las_vegas_sc2_sc1_limit_is_in_circuit_and_notes(self):
+        pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
+        review = json.loads(
+            (Path(__file__).parent / "data/las-vegas/coverage_review.json").read_text()
+        )
+        for slug in ("circuit", "notes"):
+            self.assertIn(content_las_vegas.FIA_SC2_SC1_LIMIT, pages[slug]["body"])
+            self.assertRegex(
+                pages[slug]["body"],
+                r"below 2:00\.0 between the Safety Car\s+lines",
+            )
+        self.assertEqual(
+            review["fia_sha256"].get(content_las_vegas.FIA_SC2_SC1_LIMIT),
+            "5d9947774fca4d0afa35b79a944a97a18b6d3bbe4797fbda76e8a03fd075a773",
+        )
 
     def test_las_vegas_postrace_replaces_team_preview_and_flags_classification_conflict(self):
         ctx = dict(
@@ -202,6 +250,10 @@ class GPParityTests(unittest.TestCase):
             self.assertIn("seventh at +12.795s", body)
             self.assertIn(content_las_vegas.HAMILTON_TRACK_LIMITS, body)
             self.assertIn(content_las_vegas.FINAL_CLASSIFICATION, body)
+        self.assertIn(
+            content_las_vegas.PIRELLI_INFOGRAPHICS,
+            pages["tyres"]["body"],
+        )
         self.assertNotIn("awaiting a verified update", pages["notes"]["body"])
 
     def italy(self):
