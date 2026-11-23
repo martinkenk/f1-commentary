@@ -452,7 +452,8 @@ CIRCUITS = {
         "tyre_compounds_source": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-las-vegas-grand-prix.1HEaoIW48MVZs9cAT7rP2w",
         "tyre_preview_asset": "pirelli-las-vegas-2026-full-preview.webp",
         "tyre_preview_source": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-las-vegas-grand-prix.1HEaoIW48MVZs9cAT7rP2w",
-        "drs": 2,
+        "straight_mode_zones": 3,
+        "overtake_zones": 1,
         "lap_record": "1:34.876 — Oscar Piastri, 2024",
         "notes": [
             "First Grand Prix: 2023 (the modern Strip circuit).",

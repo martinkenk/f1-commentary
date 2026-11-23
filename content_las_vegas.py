@@ -212,6 +212,23 @@ Mercedes' title</a>.</p>""",
         document="FIA Car Presentation Submissions", event="Las Vegas",
         issued="19 November 2026") + update
     pages["powerunit"]["body"] = _powerunit()
+    circuit_source = FIA_ROOT + "competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf"
+    pages["circuit"]["body"] += f"""
+<h2 class="sec">2026 active-aero and circuit operations</h2>
+<p>The FIA circuit map marks three Straight Mode zones, distinct from the
+single electrical Overtake zone. Normal/low-grip activation points are:
+zone 1, 40/90 metres after Turn 4; zone 2, 110/150 metres after Turn 12;
+zone 3, 45/95 metres after Turn 16. The map labels Overtake detection at
+the Turn 16 exit and activation 40 metres after Turn 16.
+<a href="powerunit.html">The separate PU sheet</a> provides its centreline
+metre references, gap threshold and energy curves.</p>
+<p>Sector 1 timing is 90 metres after Turn 5; Sector 2 timing is 170 metres
+after Turn 12. The speed trap is 140 metres before Turn 14. The pit-lane
+drawing specifies an 80 km/h limit and marks Safety Car lines separately
+from the pit-lane speed-limit lines. The complete source also marks marshal
+posts, emergency exits and the medical/helicopter red zone.
+<a href="{circuit_source}">FIA circuit and operational maps</a>.</p>
+{_figure("fia-las-vegas-f7a696e2bf75-0541c9259419e977", circuit_source, 2, "FIA circuit map: normal and low-grip Straight Mode, Overtake and timing lines")}"""
     race_tyres = f"""
 <h2 class="sec">Actual race strategy: Soft to Medium for the podium</h2>
 <p>Pirelli's post-race report confirms Verstappen, Norris and Piastri all started
