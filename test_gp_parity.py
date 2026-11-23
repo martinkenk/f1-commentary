@@ -126,6 +126,13 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("previously used energy-store and control-electronics", body)
         self.assertIn("not itself a penalty decision", body)
 
+    def test_las_vegas_scrutineering_report_states_checked_items_complied(self):
+        pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
+        body = pages["powerunit"]["body"]
+        self.assertIn(content_las_vegas.FIA_SCRUTINEERING, body)
+        self.assertIn("All listed items were found compliant", " ".join(body.split()))
+        self.assertIn("not a component-use update or penalty", body)
+
     def test_las_vegas_postrace_replaces_team_preview_and_flags_classification_conflict(self):
         ctx = dict(
             self.contexts["las-vegas"],

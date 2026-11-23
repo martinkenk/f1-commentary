@@ -9,6 +9,7 @@ FIA_ROOT = "https://www.fia.com/system/files/decision-document/2026_las_vegas_gr
 FIA_POWER_UNIT = FIA_ROOT + "power_unit_information.pdf"
 FIA_USAGE = FIA_ROOT + "pu_elements_used_per_driver_up_to_now.pdf"
 FIA_NEW = FIA_ROOT + "new_pu_elements_for_this_competition.pdf"
+FIA_SCRUTINEERING = FIA_ROOT + "fp3_and_qualifying_scrutineering.pdf"
 FIA_UPGRADES = FIA_ROOT + "car_presentation_submissions.pdf"
 FIA_PIRELLI = FIA_ROOT + "competition_notes_-_pirelli_preview_v3.pdf"
 PEREZ_PENALTY = FIA_ROOT + "infringement_-_car_11_-_causing_a_collision_with_car_51.pdf"
@@ -148,6 +149,13 @@ Parentheses mean <em>previously used</em>, not the new ordinal.</p>
 participated, not new Qatar penalties. Use the actual <a href="results.html">
 starting grid</a>, not arithmetic subtraction from qualifying.</p>
 {''.join(_figure("fia-las-vegas-4306f3b83583-64fd82ee490939fc", FIA_NEW, page, "FIA Document 14 new PU elements") for page in (2, 3, 4))}
+<h2 class="sec">FP3 and qualifying scrutineering — FIA Document 47</h2>
+<p>The Technical Delegate's five-page report records checks across both
+sessions, including fuel flow, ERS recharge, engine and MGU-K limits, car
+software and aerodynamic components. <strong>All listed items were found
+compliant</strong> with the 2026 Technical Regulations. This is a compliance
+report, not a component-use update or penalty.
+<a href="{FIA_SCRUTINEERING}">Complete FIA report</a>.</p>
 <h2 class="sec">Approved parc fermé replacements</h2>
 <p>In <a href="{FIA_PARC_FERME}">Document 52, 21 November</a>, the Technical
 Delegate lists approved replacements and parameter changes across several cars.
