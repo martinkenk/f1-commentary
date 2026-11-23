@@ -1,7 +1,7 @@
 """Source-reviewed Las Vegas technical information and post-race briefing."""
 from html import escape
 import content_generic
-from f1lib import card
+from f1lib import card, render_reliability
 from upgrade_render import render_submissions
 
 
@@ -16,6 +16,7 @@ FP1_REPORT = ("https://www.formula1.com/en/latest/article/"
               "fp1-wet-conditions-limit-running-in-first-practice-at-las-vegas-grand-prix."
               "7H085JgIW1k8jM3ysejVqJ")
 RACE_RESULT = "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"
+PIRELLI_RACE = "https://press.pirelli.com/verstappen-wins-overtaking-spectacle-on-the-strip/"
 
 UPGRADE_SUBMISSIONS = [
     ("McLaren", 2, [
@@ -211,6 +212,33 @@ Mercedes' title</a>.</p>""",
         document="FIA Car Presentation Submissions", event="Las Vegas",
         issued="19 November 2026") + update
     pages["powerunit"]["body"] = _powerunit()
+    race_tyres = f"""
+<h2 class="sec">Actual race strategy: Soft to Medium for the podium</h2>
+<p>Pirelli's post-race report confirms Verstappen, Norris and Piastri all started
+on Softs and switched to Mediums during the lap-19 Safety Car period. Antonelli,
+Lawson and Bearman started on Mediums. The complete chart records 23 pit stops;
+its bars show stint compounds, used/new status and stop laps, <strong>not
+stationary stop durations or pitlane elapsed times</strong>.</p>
+<p>Pirelli reports a longest Medium stint of 30 tyre laps and Lawson's Soft
+stint of 33. Those are reported tyre ages, not an inferred remaining-set
+inventory. Track temperature was around 12°C. These are actual race findings,
+not the earlier one-stop forecast. <a href="{PIRELLI_RACE}">Pirelli, 22 November</a>.</p>"""
+    for asset, caption in (
+        ("pirelli-las-vegas-2026-pitstops.jpg", "Actual driver-by-driver stints and stop laps; used/new key retained"),
+        ("pirelli-las-vegas-2026-race-stints.jpg", "Actual longest stints, compound use and fastest laps"),
+    ):
+        race_tyres += f"""
+<figure class="circuit-fig">
+<img src="../assets/{asset}" class="circuit-img" loading="lazy"
+alt="{caption}" role="button" tabindex="0" onclick="zoomImg(this)"
+onkeydown="if(event.key==='Enter'||event.key===' '){{event.preventDefault();zoomImg(this)}}">
+<figcaption>{caption}. <a href="{PIRELLI_RACE}">Pirelli race report</a> ·
+<a href="../assets/{asset}">Full-resolution original</a>.</figcaption></figure>"""
+    pages["tyres"]["body"] = race_tyres + pages["tyres"]["body"]
+    pages["reliability"] = dict(
+        kicker="Post-race", title="Reliability & Pit Stops",
+        sub="Official classifications and Pirelli's actual race-stint chart.",
+        body=render_reliability(ctx) + race_tyres)
     pages["tyres"]["body"] += f"""
 <h2 class="sec">Pre-race strategy context, not a race-set inventory</h2>
 <p>Pirelli's 16 November preview favoured one stop on paper, with all three

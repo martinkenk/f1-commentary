@@ -1,7 +1,11 @@
 {
-  "reviewed_at": "2026-11-23T12:36:00Z",
+  "reviewed_at": "2026-11-23T13:02:39Z",
   "basis": "Visually read the complete PU map and exception windows, the 22-driver usage baseline, all three new-elements pages, five distinct PU-sanction decisions, all 18 substantive upgrade pages and Pirelli V3. Read Perez's collision ruling and the complete official FP1 and post-race reports. Prescriptions are not remaining sets; pre-addition usage is not a post-race total.",
   "fia_sha256": {
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_race_classification.pdf": "ce0eda13e406e49f8e3ee3401addcd8bd4cb715d3c5f0503d3c70057f7491e60",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_starting_grid.pdf": "a3e1d32f5ff648ed2b5b4d1505d3e87f7e622ae0d61a487441f60b9e02c15467",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_qualifying_classification.pdf": "c677dd06fbaba8bcb35d76ddd8326a55c3b727ac459431ea412a4fe7a33f1940",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_entry_list.pdf": "d20dd9957f539a500ff87cef632edd9aca62b4e65fa7147469dd2f8a3be8b3a5",
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_power_unit_information.pdf": "06d0a2b4c9220ec2dcb483ffc0a8e0dc5347b12b392619beba4a6c93722039a7",
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf": "0de7b2288d26e13d41af06c5b94750b4a6c8ecffdbf2e8dedd3d38c1f71eea5d",
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_new_pu_elements_for_this_competition.pdf": "64fd82ee490939fc12abc4177adab7a9548833f391801d73422ed4316a891f7c",
@@ -13,5 +17,10 @@
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_18_-_changes_to_pu_elements.pdf": "2f64ff485da21a4db96b7b9affc03d050c58999bea1de3f74a42538ae057cd20",
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_87_-_changes_to_pu_elements.pdf": "d05c85d9e7bfe7b21f9f5b7bc76af9ef8414521dfcc713b81f7a2673a5e02d6e",
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_11_-_causing_a_collision_with_car_51.pdf": "8555a89b68a9be625b42dad4dff219893e63f61957eaf2fecf9a858ccbe52f12"
+  },
+  "race_strategy": {
+    "reviewed_at": "2026-11-23T13:02:39Z",
+    "sources": ["https://press.pirelli.com/verstappen-wins-overtaking-spectacle-on-the-strip/"],
+    "basis": "Read the complete post-race report and visually reviewed both complete Pirelli race graphics. Added actual stints, stop laps and tyre-age context to Tyres and Reliability; no remaining-set counts or stationary stop durations inferred."
   }
 }
