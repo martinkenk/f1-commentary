@@ -19,6 +19,7 @@ RACE_RESULT = "https://www.formula1.com/en/results/2026/races/1300/las-vegas/rac
 FINAL_CLASSIFICATION = FIA_ROOT + "final_race_classification.pdf"
 HAMILTON_TRACK_LIMITS = FIA_ROOT + "infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf"
 PIRELLI_RACE = "https://press.pirelli.com/verstappen-wins-overtaking-spectacle-on-the-strip/"
+FIA_PARC_FERME = FIA_ROOT + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf"
 
 UPGRADE_SUBMISSIONS = [
     ("McLaren", 2, [
@@ -145,6 +146,13 @@ Parentheses mean <em>previously used</em>, not the new ordinal.</p>
 participated, not new Qatar penalties. Use the actual <a href="results.html">
 starting grid</a>, not arithmetic subtraction from qualifying.</p>
 {''.join(_figure("fia-las-vegas-4306f3b83583-64fd82ee490939fc", FIA_NEW, page, "FIA Document 14 new PU elements") for page in (2, 3, 4))}
+<h2 class="sec">Approved parc fermé replacements</h2>
+<p>In <a href="{FIA_PARC_FERME}">Document 52, 21 November</a>, the Technical
+Delegate lists approved replacements and parameter changes across several cars.
+Leclerc's Car 16 received previously used energy-store and control-electronics
+elements and a new intercooler water pump, with associated parameter changes.
+The report says the listed work was approved after written team requests; it
+is not itself a penalty decision or an updated season-wide usage table.</p>
 """
 
 

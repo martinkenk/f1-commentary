@@ -488,6 +488,8 @@ CIRCUITS = {
             "maximum stint lengths. Expect tyre-life limits to be a central strategic story, "
             "and check the FIA event notes for any imposed stint cap."
         ),
+        "tyre_compounds": ("C1 Hard", "C2 Medium", "C3 Soft"),
+        "tyre_compounds_source": "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/",
         "drs": 1,
         "lap_record": "1:22.384 — Lando Norris, 2024",
         "notes": [

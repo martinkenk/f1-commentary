@@ -14,6 +14,7 @@ import content_generic
 import content_las_vegas
 import content_italy
 import content_mexico
+import content_qatar
 import content_singapore
 import content_spain
 import f1lib
@@ -82,6 +83,25 @@ class GPParityTests(unittest.TestCase):
             moments,
         )
         self.assertNotIn("A curated moments list", moments)
+
+    def test_qatar_nomination_and_history_are_source_scoped(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_qatar.build_pages(ctx, self.env)
+        self.assertIn("C1 Hard / C2 Medium / C3 Soft", pages["tyres"]["body"])
+        self.assertIn(content_qatar.PIRELLI_NOMINATION, pages["tyres"]["body"])
+        self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
+        self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
+        self.assertIn(content_qatar.QATAR_2025_RACE, pages["moments"]["body"])
+        self.assertIn("not confirmation of a 2026 limit", pages["moments"]["body"])
+        self.assertNotIn("A curated moments list", pages["moments"]["body"])
+
+    def test_las_vegas_parc_ferme_report_is_not_a_penalty(self):
+        pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
+        body = pages["powerunit"]["body"]
+        self.assertIn(content_las_vegas.FIA_PARC_FERME, body)
+        self.assertIn("previously used energy-store and control-electronics", body)
+        self.assertIn("not itself a penalty decision", body)
 
     def test_las_vegas_postrace_replaces_team_preview_and_flags_classification_conflict(self):
         ctx = dict(
