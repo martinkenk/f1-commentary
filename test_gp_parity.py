@@ -127,6 +127,46 @@ class GPParityTests(unittest.TestCase):
             expected,
         )
 
+    def test_las_vegas_fp3_turn16_summons_has_no_inferred_outcome(self):
+        pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
+        body = " ".join(pages["penalties"]["body"].split())
+        review_path = Path(__file__).parent / "data/las-vegas/coverage_review.json"
+        review = json.loads(review_path.read_text())
+        expected = {
+            content_las_vegas.VERSTAPPEN_FP3_SUMMONS:
+                "df42227eaed78d570ef370fc32f8e1d905f8be29ddbfcece7c110f9d1c7cae11",
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_las_vegas_grand_prix_-_summons_-_car_63_-_alleged_incident_with_car_3.pdf":
+                "aa21bd77968e2c1f1612af42185002b9b25be338b0b2db73fafa45b7c1fd2c46",
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_las_vegas_grand_prix_-_summons_-_car_3_-_alleged_incident_with_car_63.pdf":
+                "4ffa398e6e14dad3b0a3bb630bbc5e2246d13b38dd1891aac4272dd0dbc10643",
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_las_vegas_grand_prix_-_summons_-_car_23_-_alleged_erratic_driving_in_turn_17.pdf":
+                "cc8da02e9ef6549da264a418a78b24f0b11c7586c2107249f5aa8494cdd3199b",
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_las_vegas_grand_prix_-_infringement_-_car_3_-_erratic_driving_in_turn_14.pdf":
+                "b92a8b1ba0716c483c0f6b4a06ec5b3bfae36cb308bcfb4ecb59767ddc3a79d5",
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_las_vegas_grand_prix_-_infringement_-_car_23_-_erratic_driving_in_turn_17.pdf":
+                "4c020c56ac97660f6090601b7001ce340409a035f689cc7e111b03ba60f74817",
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_las_vegas_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times.pdf":
+                "c329907bd6ba36e8cd0afce9e29e92dc0d5fae3ab9777bd5296cf0a527caad5f",
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_las_vegas_grand_prix_-_infringement_-_free_practice_3_deleted_lap_times_-_double_yellow_flags.pdf":
+                "f6c1b2ce478c1e550929b0cd7d160c33dcceed0dda40094562b251edc7a18cea",
+        }
+
+        self.assertIn(content_las_vegas.VERSTAPPEN_FP3_SUMMONS, body)
+        self.assertIn("outcome remains unresolved", body)
+        self.assertIn("Document 37's Turn 14 warning", body)
+        self.assertIn("Document 38's separate Turn 17", body)
+        self.assertEqual(
+            {url: review["fia_sha256"].get(url) for url in expected},
+            expected,
+        )
+
     def test_las_vegas_parc_ferme_report_is_not_a_penalty(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
         body = pages["powerunit"]["body"]

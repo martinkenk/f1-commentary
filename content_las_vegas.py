@@ -1,7 +1,7 @@
 """Source-reviewed Las Vegas technical information and post-race briefing."""
 from html import escape
 import content_generic
-from f1lib import card, render_reliability
+from f1lib import card, render_penalties, render_reliability
 from upgrade_render import render_submissions
 
 
@@ -23,6 +23,7 @@ PIRELLI_RACE = "https://press.pirelli.com/verstappen-wins-overtaking-spectacle-o
 FIA_PARC_FERME = FIA_ROOT + "parts_and_parameters_been_replaced_and_or_changed_during_parc_ferme.pdf"
 PEREZ_SUMMONS = FIA_ROOT + "summons_-_car_11_-_alleged_causing_a_collision_with_car_51.pdf"
 CAMARA_SUMMONS = FIA_ROOT + "summons_-_car_51_-_alleged_causing_a_collision_with_car_11.pdf"
+VERSTAPPEN_FP3_SUMMONS = FIA_ROOT + "summons_-_car_3_-_alleged_erratic_driving_in_turn_16.pdf"
 
 UPGRADE_SUBMISSIONS = [
     ("McLaren", 2, [
@@ -330,5 +331,27 @@ the 10-second time penalty, it became a five-place drop at his next race.
         '<p>The weekend is complete. <a href="results.html">Official session '
         'classifications</a> and <a href="news.html">session reports</a> retain '
         "the full event record.</p>",
+    )
+    fp3_summons = card(
+        "FP3 Turn 16 summons: no matching ruling listed",
+        f"""<p>FIA Document 29 summoned Max Verstappen over alleged erratic driving
+at 16:33. The current 65-document event listing contains no separate matching
+ruling, so the outcome remains unresolved; a summons is not a finding or
+penalty. This is distinct from Document 37's Turn 14 warning and Document 38's
+separate Turn 17 no-further-action finding.
+<a href="{VERSTAPPEN_FP3_SUMMONS}">Document 29 summons</a> ·
+<a href="{ctx['fia_url']}">FIA event document listing</a>.</p>""",
+        "bi-hourglass-split",
+        "accent",
+    )
+    pages["penalties"] = dict(
+        kicker="FIA race control",
+        title="Penalties & Stewards",
+        sub="FIA rulings, fine, warnings, summonses and the unresolved Document 29 outcome.",
+        body=render_penalties(
+            ctx,
+            intro_html=fp3_summons,
+            fia_url=ctx.get("fia_url", ""),
+        ),
     )
     return pages
