@@ -115,6 +115,7 @@ class PublishedRaceTyreTests(unittest.TestCase):
 
     def test_missing_or_restricted_chart_does_not_become_zero_counts(self):
         self.save()
+        self.ctx["status"] = "future"
         for state, error in (("not_found", ""), ("access_restricted", "Source requires login"),
                              ("error", "Missing chart asset")):
             with self.subTest(state=state):
@@ -125,6 +126,14 @@ class PublishedRaceTyreTests(unittest.TestCase):
                 self.assertNotIn("0 new", body)
                 if error:
                     self.assertIn(error, body)
+
+    def test_completed_weekend_missing_chart_avoids_prequalifying_copy(self):
+        self.ctx["status"] = "past"
+        body = self.render(snapshot={}, state="not_found")
+        self.assertIn("for this completed weekend", body)
+        self.assertIn("does not prove that none was published", body)
+        self.assertNotIn("normally appear after qualifying", body)
+        self.assertIn("no post-race counts are inferred", body)
 
     def test_retained_chart_and_table_have_explicit_refresh_warning(self):
         self.save()

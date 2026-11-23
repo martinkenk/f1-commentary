@@ -811,10 +811,17 @@ def render_race_tyres(ctx):
             out.append('<div class="callout watch" style="overflow-wrap:anywhere">'
                        f'<strong>Race-tyre source notice.</strong> {message}</div>')
     if not snapshot:
-        out.append('<p>No verified pre-race set inventory has been collected for this weekend. '
-                   'These charts normally appear after qualifying, not with the earlier compound '
-                   'nomination. A missing chart is not proof of non-publication, and no zero '
-                   'counts or FastF1-derived inventory are substituted.</p>')
+        if ctx.get("status") == "past":
+            out.append('<p>No verified chart of pre-race tyre sets was found for this completed '
+                       'weekend. The latest source search did not return a supported chart; this '
+                       'does not prove that none was published. Pre-race allocations do not '
+                       'describe sets remaining after the finish, so no post-race counts are '
+                       'inferred.</p>')
+        else:
+            out.append('<p>No verified pre-race set inventory has been collected for this weekend. '
+                       'These charts normally appear after qualifying, not with the earlier compound '
+                       'nomination. A missing chart is not proof of non-publication, and no zero '
+                       'counts or FastF1-derived inventory are substituted.</p>')
     else:
         chart, source = snapshot["chart"], snapshot["source"]
         asset = html.escape(chart["asset"], quote=True)
