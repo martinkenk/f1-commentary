@@ -83,6 +83,29 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertNotIn("A curated moments list", moments)
 
+    def test_las_vegas_postrace_replaces_team_preview_and_flags_classification_conflict(self):
+        ctx = dict(
+            self.contexts["las-vegas"],
+            status="past",
+            results=[],
+        )
+        pages = content_las_vegas.build_pages(ctx, self.env)
+
+        teams = pages["teams"]["body"]
+        self.assertIn("two McLaren floor-furniture", teams)
+        self.assertIn(content_las_vegas.FIA_UPGRADES, teams)
+        self.assertNotIn("more parts are planned for Las Vegas", teams)
+        self.assertNotIn("Further team-specific weekend details", teams)
+        self.assertNotIn("awaiting a verified update", teams)
+
+        for slug in ("overview", "notes"):
+            body = pages[slug]["body"]
+            self.assertIn("Unresolved FIA classification conflict", body)
+            self.assertIn("seventh at +12.795s", body)
+            self.assertIn(content_las_vegas.HAMILTON_TRACK_LIMITS, body)
+            self.assertIn(content_las_vegas.FINAL_CLASSIFICATION, body)
+        self.assertNotIn("awaiting a verified update", pages["notes"]["body"])
+
     def italy(self):
         return content_italy.build_pages(self.contexts["italy"], self.env)
 

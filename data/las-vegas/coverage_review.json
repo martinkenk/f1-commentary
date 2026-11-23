@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-23T13:02:39Z",
-  "basis": "Visually read the complete PU map and exception windows, the 22-driver usage baseline, all three new-elements pages, five distinct PU-sanction decisions, all 18 substantive upgrade pages and Pirelli V3. Read Perez's collision ruling and the complete official FP1 and post-race reports. Prescriptions are not remaining sets; pre-addition usage is not a post-race total.",
+  "reviewed_at": "2026-11-23T13:33:48Z",
+  "basis": "Visually read the complete PU map and exception windows, the 22-driver usage baseline, all three new-elements pages, five distinct PU-sanction decisions, all 18 substantive upgrade pages and Pirelli V3. Read Perez's collision ruling and the complete official FP1 and post-race reports. On 23 November, visually checked championship points Doc 66, the provisional and final race classifications (Docs 59 and 65), and race decisions 54, 60 and 64 against the official result and current standings. Added the McLaren filing and explicitly recorded the unresolved Hamilton Doc 54 versus Doc 65/F1 result conflict. Prescriptions are not remaining sets; pre-addition usage is not a post-race total.",
   "fia_sha256": {
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf": "0541c9259419e97740c69478d06c777284508a4377496842526da2bf95124e67",
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_race_classification.pdf": "ce0eda13e406e49f8e3ee3401addcd8bd4cb715d3c5f0503d3c70057f7491e60",
@@ -17,7 +17,13 @@
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_55_-_changes_to_pu_element.pdf": "574272f051b3fb9d00e690eefa75c3dc02434db2f6e23ca235d7bfc165f048ba",
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_18_-_changes_to_pu_elements.pdf": "2f64ff485da21a4db96b7b9affc03d050c58999bea1de3f74a42538ae057cd20",
     "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_87_-_changes_to_pu_elements.pdf": "d05c85d9e7bfe7b21f9f5b7bc76af9ef8414521dfcc713b81f7a2673a5e02d6e",
-    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_11_-_causing_a_collision_with_car_51.pdf": "8555a89b68a9be625b42dad4dff219893e63f61957eaf2fecf9a858ccbe52f12"
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_11_-_causing_a_collision_with_car_51.pdf": "8555a89b68a9be625b42dad4dff219893e63f61957eaf2fecf9a858ccbe52f12",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_championship_points.pdf": "661b91cd5995c3b7044237e95685d537a0443839205ab7038ecbe28288f763c6",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_provisional_race_classification.pdf": "2fa7c48440c64594cc375fcfead4c05c9553d8b36d8a6ce98b832f3986b502f8",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_race_classification.pdf": "ce0eda13e406e49f8e3ee3401addcd8bd4cb715d3c5f0503d3c70057f7491e60",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_6_-_driving_unnecessarily_slowly.pdf": "c0002d1b41f3b09a6ffddbd70ebd2be52500b95544bd59b03995f368b1c8ab29",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_16_-_causing_a_collision_with_car_44.pdf": "857166aa8a053d22ce12e2806539ef8abdb3fc70e045621e67b51ea7f301d81c",
+    "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf": "88bc77a3c8b4f5c2cb2dcf0cb2d3887574eb894e00e99ff2ba0c34b9b69313bc"
   },
   "race_strategy": {
     "reviewed_at": "2026-11-23T13:02:39Z",

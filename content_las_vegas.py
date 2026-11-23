@@ -16,6 +16,8 @@ FP1_REPORT = ("https://www.formula1.com/en/latest/article/"
               "fp1-wet-conditions-limit-running-in-first-practice-at-las-vegas-grand-prix."
               "7H085JgIW1k8jM3ysejVqJ")
 RACE_RESULT = "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"
+FINAL_CLASSIFICATION = FIA_ROOT + "final_race_classification.pdf"
+HAMILTON_TRACK_LIMITS = FIA_ROOT + "infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf"
 PIRELLI_RACE = "https://press.pirelli.com/verstappen-wins-overtaking-spectacle-on-the-strip/"
 
 UPGRADE_SUBMISSIONS = [
@@ -174,12 +176,15 @@ the hour to installation running with no official timed laps.
 <a href="{FP1_REPORT}">Official completed-session report</a>.</p>""",
         "bi-person-badge", "accent")
     update = card(
-        "McLaren says more parts are planned for Las Vegas",
-        f"""<p>Team Principal Andrea Stella said the Interlagos package will be
-complemented by more parts at Las Vegas, forming a foundation for McLaren's
-2027 car. His interview did not identify the components or their intended
-effect. This is a team statement, not an FIA filing. <a href="{MCLAREN_VEGAS_URL}"
-target="_blank" rel="noopener">Formula1.com, 9 November</a>.</p>""",
+        "McLaren's Las Vegas package is now documented",
+        f"""<p>The FIA car-presentation filing lists two McLaren floor-furniture
+items: a new floor board and a floor-edge change, both described as performance
+flow-conditioning work. Andrea Stella's earlier interview previewed more parts
+for Las Vegas but did not identify them. That interview is a team statement and
+was not an FIA filing. The event filing is evidence of declared parts, not proof
+of a measured lap-time gain. <a href="{FIA_UPGRADES}">
+FIA team submissions</a> · <a href="{MCLAREN_VEGAS_URL}" target="_blank"
+rel="noopener">Formula1.com, 9 November</a>.</p>""",
         "bi-tools",
         "accent",
     )
@@ -201,10 +206,7 @@ Mercedes' title</a>.</p>""",
     )
     pages["teams"]["body"] = pages["teams"]["body"].replace(
         pending,
-        update + content_generic.pending(
-            "Further team-specific weekend details",
-            "as event statements and filings are reviewed",
-        ),
+        update,
     )
     pages["upgrades"]["body"] = render_submissions(
         UPGRADE_SUBMISSIONS, source_url=FIA_UPGRADES,
@@ -282,6 +284,14 @@ These are prescriptions, not the driver-by-driver remaining race-set inventory.<
 Antonelli qualified first but did not start on pole after his PU sanction.
 <a href="{RACE_RESULT}">Official race classification</a> ·
 <a href="results.html">All session tables and actual starting grid</a>.</p>
+<p><strong>Unresolved FIA classification conflict:</strong> Stewards' Document 54
+orders a 10-second penalty for Lewis Hamilton after leaving the track at Turn 8
+and retaining an advantage. The later Document 65 final classification lists
+Hamilton seventh at +12.795s and names only the Leclerc and Hadjar penalties;
+Formula1.com's result page also places him seventh. The sources do not explain
+the discrepancy, so no corrected order is inferred.
+<a href="{HAMILTON_TRACK_LIMITS}">Document 54</a> ·
+<a href="{FINAL_CLASSIFICATION}">Document 65</a>.</p>
 <p>FP1 finished with <strong>no timed laps</strong> in wet conditions: installation
 running is not a classification. <a href="{FP1_REPORT}">Official FP1 report</a>.</p>
 <p><strong>Qatar watch:</strong> FIA Document 61 gives Sergio Perez a five-place
@@ -290,4 +300,12 @@ so the unserved time penalty became a grid sanction.
 <a href="{PEREZ_PENALTY}">Stewards' ruling</a> · <a href="../qatar/notes.html">Qatar briefing</a>.</p>"""
     for slug in ("overview", "notes"):
         pages[slug]["body"] = recap + pages[slug]["body"]
+    pages["notes"]["body"] = pages["notes"]["body"].replace(
+        content_generic.pending(
+            "Session-by-session commentary notes", "as the weekend runs", "bi-mic"
+        ),
+        '<p>The weekend is complete. <a href="results.html">Official session '
+        'classifications</a> and <a href="news.html">session reports</a> retain '
+        "the full event record.</p>",
+    )
     return pages
