@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-11-24T16:35:36+00:00",
+  "checked_at": "2026-11-24T17:35:34+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -7159,7 +7159,7 @@
       "label": "Qualifying",
       "date": "2026-11-07",
       "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/qualifying",
-      "fetched_at": "2026-11-17T17:28:06+00:00",
+      "fetched_at": "2026-11-24T17:35:34+00:00",
       "drivers": [
         {
           "code": "NOR",
@@ -7259,7 +7259,7 @@
         },
         {
           "code": "CAM",
-          "name": "Rafael Câmara",
+          "name": "Rafael Camara",
           "team": "Haas F1 Team",
           "position": 13,
           "status": "classified",
@@ -7347,7 +7347,7 @@
       "label": "Race",
       "date": "2026-11-08",
       "url": "https://www.formula1.com/en/results/2026/races/1299/brazil/race-result",
-      "fetched_at": "2026-11-17T17:28:06+00:00",
+      "fetched_at": "2026-11-24T17:35:34+00:00",
       "drivers": [
         {
           "code": "NOR",
@@ -7535,7 +7535,7 @@
       "label": "Qualifying",
       "date": "2026-11-20",
       "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/qualifying",
-      "fetched_at": "2026-11-24T16:35:36+00:00",
+      "fetched_at": "2026-11-24T17:35:34+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -7723,7 +7723,7 @@
       "label": "Race",
       "date": "2026-11-21",
       "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result",
-      "fetched_at": "2026-11-24T16:35:36+00:00",
+      "fetched_at": "2026-11-24T17:35:34+00:00",
       "drivers": [
         {
           "code": "VER",
