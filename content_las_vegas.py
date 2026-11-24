@@ -14,6 +14,20 @@ FIA_SCRUTINEERING = FIA_ROOT + "fp3_and_qualifying_scrutineering.pdf"
 FIA_SC2_SC1_LIMIT = FIA_ROOT + "race_director_notes_-_sc2_-_sc1_times.pdf"
 FIA_UPGRADES = FIA_ROOT + "car_presentation_submissions.pdf"
 FIA_PIRELLI = FIA_ROOT + "competition_notes_-_pirelli_preview_v3.pdf"
+FIA_PRE_QUALIFYING = FIA_ROOT + "post-qualifying_procedure.pdf"
+FIA_PRE_RACE = FIA_ROOT + "pre-race_procedure.pdf"
+FIA_POST_RACE = FIA_ROOT + "post-race_procedure.pdf"
+FIA_CURFEW = FIA_ROOT + "curfew.pdf"
+FIA_TIMETABLE = FIA_ROOT + "timetable_v3.pdf"
+FIA_CAR_DISPLAY = FIA_ROOT + "car_display_procedure.pdf"
+FIA_SELF_SCRUTINEERING = FIA_ROOT + "self_scrutineering.pdf"
+FIA_COMPETITION_VISA = FIA_ROOT + "competition_visa.pdf"
+FIA_RACE_NOTES_V2 = FIA_ROOT + "race_directors_competition_notes_v2.pdf"
+FIA_RACE_NOTES = FIA_ROOT + "race_directors_competition_notes.pdf"
+FIA_COVERS_ON_TIME = FIA_ROOT + "covers-on_time_-_corrected.pdf"
+FIA_FP1_DELETED_LAPS = FIA_ROOT + "infringement_-_free_practice_1_deleted_lap_times.pdf"
+FIA_FP2_DELETED_LAPS = FIA_ROOT + "infringement_-_free_practice_2_deleted_lap_times.pdf"
+FIA_FP2_DOUBLE_YELLOW = FIA_ROOT + "infringement_-_free_practice_2_deleted_lap_times_-_double_yellow_flags.pdf"
 PEREZ_PENALTY = FIA_ROOT + "infringement_-_car_11_-_causing_a_collision_with_car_51.pdf"
 FP1_REPORT = ("https://www.formula1.com/en/latest/article/"
               "fp1-wet-conditions-limit-running-in-first-practice-at-las-vegas-grand-prix."
@@ -322,6 +336,43 @@ These are prescriptions, not the driver-by-driver remaining race-set inventory.<
 <p><strong>Race control:</strong> keep below 2:00.0 between the Safety Car
 lines during and after qualifying and on race-reconnaissance laps with the pit
 exit open. <a href="{FIA_SC2_SC1_LIMIT}">FIA Document 21</a>.</p>"""
+    pages["schedule"]["body"] += f"""
+<h2 class="sec">FIA procedure and compliance documents</h2>
+<p><strong>Post-qualifying procedure:</strong> the top three drivers had to
+weigh immediately after the session, remain fully attired and attend the FIA
+interviews and podium media commitments in the prescribed order. Cars that stop
+during qualifying must proceed through the FIA scales through the pit lane.
+<a href="{FIA_PRE_QUALIFYING}#page=2">FIA post-qualifying procedure</a>.</p>
+<p><strong>Pre-race procedure:</strong> all drivers moved to the national-anthem
+position no later than 19:42 and remained attired in the pit lane until 19:42.
+The procedure is an instruction, not a report of compliance.
+<a href="{FIA_PRE_RACE}#page=2">FIA pre-race procedure</a>.</p>
+<p><strong>Post-race procedure:</strong> the top three weighed after the chequered
+flag, took the podium in 1st/2nd/3rd order and were escorted back to the pit lane
+and press conference. The procedure is not evidence of compliance or an individual
+ruling. <a href="{FIA_POST_RACE}#page=2">FIA post-race procedure</a>.</p>
+<p><strong>Curfew and weekend forms:</strong> the official timetable, corrected
+covers-on-time report, curfew report, self-scrutineering declaration, competition
+visa and car-display procedure remain linked source records. The Friday display
+ran 15:00–16:00 local at one team's pit-stop position, with only that car shown
+and major aerodynamic/bodywork components unrun before display.
+<a href="{FIA_TIMETABLE}#page=2">Timetable</a> ·
+<a href="{FIA_CURFEW}">Curfew</a> ·
+<a href="{FIA_COVERS_ON_TIME}">Corrected covers-on-time report</a> ·
+<a href="{FIA_CAR_DISPLAY}#page=2">Car display</a> ·
+<a href="{FIA_SELF_SCRUTINEERING}">Self-scrutineering</a> ·
+<a href="{FIA_COMPETITION_VISA}#page=2">Competition visa</a>.</p>
+<p><strong>Race-control V2:</strong> the revised competition notes retain 23:02
+as the Qualifying lap-time car-line deadline and confirm the race lapping,
+blue-cockpit-light and marshalling-system rules.
+<a href="{FIA_RACE_NOTES}#page=2">FIA competition notes</a> ·
+<a href="{FIA_RACE_NOTES_V2}#page=2">FIA competition notes V2</a>.</p>
+<p><strong>Practice deleted laps:</strong> separate FP1 and FP2 documents record
+lap deletions and the double-waved-yellow-sector FP2 ruling; they are not
+classified race penalties or grid consequences.
+<a href="{FIA_FP1_DELETED_LAPS}#page=2">FP1 deleted laps</a> ·
+<a href="{FIA_FP2_DELETED_LAPS}#page=2">FP2 deleted laps</a> ·
+<a href="{FIA_FP2_DOUBLE_YELLOW}#page=2">FP2 double yellow</a>.</p>"""
     recap = f"""<h2 class="sec">Las Vegas result and Qatar carry-over</h2>
 <p>Max Verstappen won from Lando Norris (+0.639s) and Oscar Piastri (+1.529s).
 Antonelli qualified first but did not start on pole after his PU sanction.

@@ -188,6 +188,34 @@ class GPParityTests(unittest.TestCase):
             "63e3cc201f32c04f3ccacddc7467d76cb699c0105b8e8c365c864babf767a8dc",
         )
 
+    def test_las_vegas_procedure_documents_are_reviewed_and_linked(self):
+        pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
+        body = " ".join(pages["schedule"]["body"].split())
+        review = json.loads(
+            (Path(__file__).parent / "data/las-vegas/coverage_review.json").read_text()
+        )
+        urls = (
+            content_las_vegas.FIA_PRE_QUALIFYING,
+            content_las_vegas.FIA_PRE_RACE,
+            content_las_vegas.FIA_POST_RACE,
+            content_las_vegas.FIA_CURFEW,
+            content_las_vegas.FIA_TIMETABLE,
+            content_las_vegas.FIA_COVERS_ON_TIME,
+            content_las_vegas.FIA_CAR_DISPLAY,
+            content_las_vegas.FIA_SELF_SCRUTINEERING,
+            content_las_vegas.FIA_COMPETITION_VISA,
+            content_las_vegas.FIA_RACE_NOTES,
+            content_las_vegas.FIA_RACE_NOTES_V2,
+            content_las_vegas.FIA_FP1_DELETED_LAPS,
+            content_las_vegas.FIA_FP2_DELETED_LAPS,
+            content_las_vegas.FIA_FP2_DOUBLE_YELLOW,
+        )
+        for url in urls:
+            self.assertIn(url, body)
+            self.assertIn(url, review["fia_sha256"])
+        self.assertIn("not evidence of compliance", body)
+        self.assertIn("not classified race penalties", body)
+
     def test_las_vegas_scrutineering_report_states_checked_items_complied(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
         body = pages["powerunit"]["body"]
