@@ -8,6 +8,7 @@ PIRELLI_NOMINATION = "https://press.pirelli.com/tyre-compounds-selected-for-the-
 QATAR_TYRE_LIMIT = (
     "https://www.motorsport.com/f1/news/pirelli-introduces-stint-limit-for-f1-qatar-gp-but-increases-total-from-2025/10875950/"
 )
+QATAR_TYRE_STRATEGY = "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
 QATAR_TYRE_PREVIEW = "pirelli-qatar-2026-preview.jpg"
 QATAR_2025_RACE = (
     "https://www.formula1.com/en/latest/article/"
@@ -63,7 +64,12 @@ three sets and two stops.
 This is Pirelli's announced limit; Qatar's FIA event-prescription document
 remains unverified while the official event listing returns HTTP 500.
 <a href="{QATAR_TYRE_LIMIT}">Motorsport.com report and Berra interview, 20 November</a> ·
-<a href="{PIRELLI_NOMINATION}">Pirelli compound selection and graphic, 13 November</a>.</p>"""
+<a href="{PIRELLI_NOMINATION}">Pirelli compound selection and graphic, 13 November</a>.</p>
+<p>Coffee Corner Motorsport's independent 24 November tyre preview reports a
+26.5-second average pit-loss estimate and discusses the two-stop minimum at
+the full scheduled distance. Treat this as secondary strategy analysis, not an
+FIA-issued Qatar prescription. <a href="{QATAR_TYRE_STRATEGY}">Coffee Corner
+Motorsport, Qatar tyre preview</a>.</p>"""
     tyre_preview = f"""<figure class="circuit-fig">
 <img class="circuit-img tyre-preview-img" src="../assets/{QATAR_TYRE_PREVIEW}"
 alt="Pirelli's 2026 Qatar tyre selection: C1 Hard, C2 Medium and C3 Soft; C3 is mandatory for qualifying and C1 and C2 are mandatory for the race."

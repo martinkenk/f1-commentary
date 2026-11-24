@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-24T08:47:00Z",
+  "reviewed_at": "2026-11-24T14:49:21Z",
   "expires_at": "2026-11-24T16:00:00Z",
   "through_session": null,
   "feed_fingerprint": "b09196e36ac1973d782258a6a496ebf90ebc484a10322b8a2ba9662cad02e5f1",
@@ -22,15 +22,19 @@
       ]
     },
     {
-      "topic": "Tyre stint limit",
-      "title": "Berra says Qatar tyre sets are limited to 27 laps",
-      "date": "2026-11-20",
-      "summary": "Pirelli F1 chief engineer Simone Berra told Motorsport.com at Las Vegas that each Qatar tyre set is limited to 27 laps, two more than in 2025. Lap use is counted session by session; race laps behind the Safety Car count, and remaining per-set allowances are due after Saturday running. Pirelli's official 13 November announcement confirms the C1/C2/C3 selection and mandatory-set graphic.",
-      "why_it_matters": "At the scheduled full 57-lap distance, the cap requires at least three sets and two stops; weekend running consumes the per-set allowance, so Saturday's remaining-lap allocation matters. The official Qatar FIA event-prescription document remains unverified while its listing is unavailable.",
+      "topic": "Tyre strategy and stint limit",
+      "title": "Qatar's 27-lap cap makes two stops the minimum",
+      "date": "2026-11-24",
+      "summary": "Pirelli F1 chief engineer Simone Berra told Motorsport.com that each Qatar set is limited to 27 laps, two more than in 2025; laps are counted by session, race laps behind the Safety Car count, and remaining per-set allowances follow Saturday running. Coffee Corner Motorsport's 24 November preview says all event running counts against each set and reports a 26.5-second average pit-loss estimate. On the scheduled 57-lap distance, the cap requires at least three sets and two stops. Pirelli's official 13 November release confirms the C1/C2/C3 compound selection, not the event prescription.",
+      "why_it_matters": "Practice and qualifying consume each set's 27-lap allowance, constraining race flexibility. The 26.5-second pit-loss figure is Coffee Corner's published strategy estimate, not an FIA-issued prescription; the official Qatar FIA event document remains unverified while its listing is unavailable.",
       "sources": [
         {
           "label": "Motorsport.com report and Berra interview, 20 November",
           "url": "https://www.motorsport.com/f1/news/pirelli-introduces-stint-limit-for-f1-qatar-gp-but-increases-total-from-2025/10875950/"
+        },
+        {
+          "label": "Coffee Corner Motorsport, independent Qatar tyre preview, 24 November",
+          "url": "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
         },
         {
           "label": "Pirelli, compound selection and graphic, 13 November",
