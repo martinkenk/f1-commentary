@@ -11,6 +11,7 @@ QATAR_TYRE_LIMIT = (
 )
 QATAR_TYRE_STRATEGY = "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
 QATAR_TYRE_PREVIEW = "pirelli-qatar-2026-preview.jpg"
+QATAR_TYRE_INFOGRAPHIC = "pirelli-qatar-2026-technical-preview.jpg"
 QATAR_2025_RACE = (
     "https://www.formula1.com/en/latest/article/"
     "verstappen-wins-qatar-gp-as-title-battle-goes-to-abu-dhabi-with-piastri."
@@ -62,14 +63,20 @@ scheduled 57-lap distance, two sets cover only 54 laps. The official event
 document listing remains unavailable, so its Qatar-specific prescriptions
 have not been independently reviewed.
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
+<p>Pirelli's linked event infographic lists slick minimum starting / expected
+stabilized running pressures of 29.0 / &gt;=30.0 psi* at the front and
+27.5 / &gt;=28.5 psi* at the rear, with EOS camber limits of -2.75 degrees
+front and -1.50 degrees rear. The asterisk says these pressure values are
+subject to change after FP2. These are Pirelli preview figures, not a
+transcription from the unavailable FIA event listing. The same graphic lists
+an average pit-stop loss of 26.5 seconds; do not present it as a stationary
+wheel-change duration.</p>
 <p>Pirelli F1 chief engineer Simone Berra's earlier Motorsport.com interview
 adds that use is counted session by session, race laps behind the Safety Car
 count, and remaining allowances follow Saturday running.
 <a href="{QATAR_TYRE_LIMIT}">Motorsport.com report and Berra interview, 20 November</a>.
-Coffee Corner Motorsport's independent 24 November preview reports a
-26.5-second average pit-loss estimate and says practice and qualifying laps
-consume each set's allowance. Treat that figure as secondary strategy
-analysis, not an FIA-issued prescription. <a href="{QATAR_TYRE_STRATEGY}">Coffee
+Coffee Corner Motorsport's independent 24 November preview says practice and
+qualifying laps consume each set's allowance. <a href="{QATAR_TYRE_STRATEGY}">Coffee
 Corner Motorsport, Qatar tyre preview</a> ·
 <a href="{PIRELLI_NOMINATION}">Pirelli compound selection and graphic, 13 November</a>.</p>"""
     tyre_preview = f"""<figure class="circuit-fig">
@@ -81,7 +88,17 @@ This is not a driver-by-driver remaining-set inventory.
 <a href="../assets/{QATAR_TYRE_PREVIEW}">Full-resolution image</a> ·
 <a href="{PIRELLI_NOMINATION}">Pirelli source, 13 November 2026</a>.</figcaption>
 </figure>"""
-    pages["tyres"]["body"] += tyre_preview + card(
+    tyre_infographic = f"""<figure class="circuit-fig">
+<img class="circuit-img tyre-preview-img" src="../assets/{QATAR_TYRE_INFOGRAPHIC}"
+alt="Full Pirelli 2026 Qatar preview infographic: Lusail circuit data, pit-stop loss, slick pressure and camber figures, and C1 Hard, C2 Medium and C3 Soft compounds."
+loading="lazy" onclick="zoomImg(this)">
+<figcaption>Full, uncropped Pirelli Qatar event infographic, published 24 November.
+Pressure figures are marked subject to change after FP2; this is not a
+driver-by-driver race-set inventory.
+<a href="../assets/{QATAR_TYRE_INFOGRAPHIC}">Full-resolution image</a> ·
+<a href="{PIRELLI_TYRE_LIMIT}">Pirelli source, 24 November 2026</a>.</figcaption>
+</figure>"""
+    pages["tyres"]["body"] += tyre_preview + tyre_infographic + card(
         "Qatar compounds and 27-lap tyre-set limit",
         nomination,
         "bi-record-circle",

@@ -106,11 +106,22 @@ class GPParityTests(unittest.TestCase):
         self.assertTrue(
             (Path(__file__).parent / "assets_src" / content_qatar.QATAR_TYRE_PREVIEW).is_file()
         )
+        self.assertIn(
+            f'src="../assets/{content_qatar.QATAR_TYRE_INFOGRAPHIC}"',
+            pages["tyres"]["body"],
+        )
+        self.assertTrue(
+            (Path(__file__).parent / "assets_src" / content_qatar.QATAR_TYRE_INFOGRAPHIC).is_file()
+        )
         self.assertIn("Full, uncropped Pirelli Qatar 2026", pages["tyres"]["body"])
+        self.assertIn("&gt;=30.0 psi", pages["tyres"]["body"])
+        self.assertIn("-2.75 degrees\nfront", pages["tyres"]["body"])
+        self.assertIn("-1.50 degrees rear", pages["tyres"]["body"])
+        self.assertIn("subject to change after FP2", pages["tyres"]["body"])
+        self.assertIn("average pit-stop loss of 26.5 seconds", pages["tyres"]["body"])
         self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
         self.assertIn("27-lap maximum stint per set", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_STRATEGY, pages["tyres"]["body"])
-        self.assertIn("26.5-second average pit-loss estimate", pages["tyres"]["body"])
         self.assertNotIn("Virtual Safety Car", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["tyres"]["body"])
         self.assertIn("remains unverified", pages["tyres"]["body"])

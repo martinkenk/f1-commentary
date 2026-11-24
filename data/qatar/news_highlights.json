@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-24T19:51:57Z",
+  "reviewed_at": "2026-11-24T21:58:29Z",
   "expires_at": "2026-11-25T07:00:00Z",
   "through_session": null,
   "feed_fingerprint": "b09196e36ac1973d782258a6a496ebf90ebc484a10322b8a2ba9662cad02e5f1",
@@ -25,11 +25,11 @@
       "topic": "Tyre strategy and stint limit",
       "title": "Qatar's 27-lap cap makes two stops the minimum",
       "date": "2026-11-24",
-      "summary": "Pirelli's 24 November Qatar briefing says it introduced, in agreement with the FIA, a 27-lap maximum stint per set and that the race will require at least two stops. The 20 November Motorsport.com interview adds that running is counted session by session, race laps behind the Safety Car count, and remaining allowances follow Saturday. Coffee Corner Motorsport's 24 November preview reports a 26.5-second average pit-loss estimate and says practice and qualifying laps consume each set's allowance. At the scheduled 57-lap distance, two 27-lap sets cover only 54 laps.",
-      "why_it_matters": "Treat the 27-lap cap as Pirelli's announced event limit, not a transcription from an FIA PDF: Qatar's event document listing remains unavailable. Practice and qualifying consume tyre life; the 26.5-second pit-loss figure is Coffee Corner's secondary estimate.",
+      "summary": "Pirelli's 24 November Qatar briefing sets a 27-lap maximum stint per set and says the race will require at least two stops. Its linked infographic lists a 26.5-second average pit-stop loss and slick minimum starting / expected stabilized running pressures of 29.0 / >=30.0 psi front and 27.5 / >=28.5 psi rear; starred pressure values may change after FP2. The 20 November Motorsport.com interview says race laps behind the Safety Car count toward stint limits, while Coffee Corner Motorsport reports that practice and qualifying laps consume each set's allowance. At the scheduled 57 laps, two 27-lap sets cover only 54.",
+      "why_it_matters": "Keep Pirelli's published limit and preview pressures separate from FIA event-document transcription: Qatar's listing remains unavailable. The infographic flags pressure values as subject to change after FP2; do not present its 26.5-second pit-loss figure as a stationary wheel-change duration.",
       "sources": [
         {
-          "label": "Pirelli, official Qatar tyre briefing and 27-lap limit, 24 November",
+          "label": "Pirelli, official Qatar tyre briefing and infographic, 24 November (graphic visually reviewed)",
           "url": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
         },
         {
