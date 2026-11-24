@@ -284,6 +284,19 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertNotIn("awaiting a verified update", pages["notes"]["body"])
 
+    def test_las_vegas_team_page_replaces_pre_race_watch_with_result(self):
+        future_ctx = dict(self.contexts["las-vegas"], status="future")
+        future = content_las_vegas.build_pages(future_ctx, self.env)["teams"]["body"]
+        self.assertIn("What to watch for here", future)
+
+        past_ctx = dict(self.contexts["las-vegas"], status="past")
+        past = content_las_vegas.build_pages(past_ctx, self.env)["teams"]["body"]
+        self.assertNotIn("What to watch for here", past)
+        self.assertNotIn("Track temperature falling through the session changes", past)
+        self.assertNotIn("Low-downforce trim exaggerates", past)
+        self.assertIn("Las Vegas race result", past)
+        self.assertIn(content_las_vegas.RACE_RESULT, past)
+
     def italy(self):
         return content_italy.build_pages(self.contexts["italy"], self.env)
 

@@ -212,6 +212,22 @@ MERCEDES_TITLE_URL = (
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
+    if ctx.get("status") == "past":
+        preview = content_generic.card(
+            "What to watch for here",
+            content_generic.ul_or(ctx["ref"].get("storylines")),
+            "bi-people",
+            "accent",
+        )
+        result = card(
+            "Las Vegas race result",
+            f"""<p>Max Verstappen won, with Lando Norris second and Oscar Piastri
+third. These are the completed Las Vegas results, not a forecast for the next
+round. <a href="{RACE_RESULT}">Official race classification</a>.</p>""",
+            "bi-flag-checkered",
+            "accent",
+        )
+        pages["teams"]["body"] = pages["teams"]["body"].replace(preview, result, 1)
     pages["rookies"]["body"] = card(
         "Actual Las Vegas FP1 substitutions",
         f"""<p>Dino Beganovic drove Lewis Hamilton's Ferrari, Ryo Hirakawa replaced
