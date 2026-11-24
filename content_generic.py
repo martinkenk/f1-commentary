@@ -93,6 +93,16 @@ def build_pages(ctx, env):
     length = cal.get("circuit_length") or ""
     distance = cal.get("race_distance") or ""
     first_gp = cal.get("first_gp") or ""
+    standings = ctx.get("standings") or {}
+    championship = ""
+    if standings.get("summary"):
+        championship = (
+            '<div class="callout"><strong>Official championship snapshot '
+            f'as of {standings.get("as_of", "the latest update")}:</strong> '
+            f'{standings["summary"]} <a href="standings.html">Full drivers and '
+            "constructors standings</a>.</div>\n"
+            f'{standings.get("notice", "")}'
+        )
     history_ready = bool(circuit_history.context(ctx).get("profile"))
     fia_url = ctx.get("fia_url", "")
     P = {}
@@ -146,6 +156,8 @@ def build_pages(ctx, env):
 </div>
 
 {countdown}
+
+{championship}
 
 <div class="grid cols-2">
   {card("What the circuit demands", f"<p>{ref.get('character', 'Circuit character notes to be added.')}</p>",
@@ -315,7 +327,7 @@ def build_pages(ctx, env):
 """)
 
     # ---- STANDINGS ---------------------------------------------------------
-    st = ctx.get("standings") or {}
+    st = standings
     if st.get("drivers"):
         standings_body = f"""
 <div class="callout"><strong>Standings as of {st.get('as_of', 'the most recent completed round')}.</strong>

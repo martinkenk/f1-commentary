@@ -1092,6 +1092,21 @@ class GPParityTests(unittest.TestCase):
         live = content_generic.build_pages(live_ctx, self.env)
         self.assertIn("ahead of this round", future["standings"]["sub"])
         self.assertIn(
+            self.contexts["bahrain"]["standings"]["summary"],
+            future["overview"]["body"],
+        )
+        self.assertIn(
+            self.contexts["bahrain"]["standings"]["as_of"],
+            future["overview"]["body"],
+        )
+        self.assertIn("Full drivers and constructors standings",
+                      future["overview"]["body"])
+        without_standings = content_generic.build_pages(
+            dict(future_ctx, standings={}), self.env
+        )
+        self.assertNotIn("Official championship snapshot",
+                         without_standings["overview"]["body"])
+        self.assertIn(
             "before this Grand Prix's Race classification",
             live["standings"]["sub"],
         )
