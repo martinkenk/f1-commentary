@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-23T12:36:00Z",
-  "expires_at": "2026-11-24T12:36:00Z",
+  "reviewed_at": "2026-11-24T17:56:22Z",
+  "expires_at": "2026-11-25T07:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "5873896f79a53cffa6eb93f3747253a66ab6b5d4ca30bb3209274a9e62327b79",
   "items": [
@@ -8,21 +8,24 @@
       "topic": "Race result",
       "title": "Verstappen wins; McLaren secure a double podium",
       "date": "2026-11-22",
-      "summary": "Verstappen beat Norris by 0.639 seconds and Piastri by 1.529. Antonelli qualified first but started sixth after a PU penalty; a late power issue left him fourth. Russell hit the barrier while fighting back and finished ninth.",
-      "why_it_matters": "Separate qualifying order from the penalty-adjusted grid and final classification. The full official session tables are now available; FP1 had no timed laps.",
+      "summary": "Verstappen beat Norris by 0.639 seconds and Piastri by 1.529. Mercedes had contested the lead, but Russell fell to ninth late and Antonelli to fourth.",
+      "why_it_matters": "Use the official result and keep the late Mercedes drop specific to Las Vegas rather than treating it as a Qatar forecast.",
       "sources": [
         {"label": "Official final race result", "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"},
-        {"label": "Formula1.com post-race review, full article checked", "url": "https://www.formula1.com/en/latest/article/las-vegas-lowdown-all-the-key-moments-as-verstappen-wins-remarkable-race-and-ferraris-drivers-collide-again.62D9SeuQXSboAspMm7N0pN"}
+        {"label": "Formula1.com race report, full article checked", "url": "https://www.formula1.com/en/latest/article/verstappen-wins-exhilarating-las-vegas-grand-prix-from-norris-and-piastri.2eeBWqekZdir9mdDVK9YVX"}
       ]
     },
     {
       "topic": "Ferrari collision",
-      "title": "Leclerc penalised after further contact with Hamilton",
+      "title": "Vasseur calls Leclerc–Hamilton clash 'unacceptable'",
       "date": "2026-11-22",
-      "summary": "Leclerc received a 10-second penalty for the Turn 7 collision with Hamilton. Hamilton finished seventh and Leclerc tenth. Vasseur criticised the clash after the team's previous discussions following Mexico.",
-      "why_it_matters": "A continuing team-relations storyline for Qatar, not evidence that new team orders have been announced.",
+      "summary": "After the lap-38 Turn 7 collision, Leclerc accepted blame; team principal Fred Vasseur called it 'unacceptable' and 'a lack of respect', two races after another clash in Mexico. The FIA Doc 54 versus final Doc 65 sanction-footnote mismatch remains unresolved on the Penalties and Notes pages.",
+      "why_it_matters": "This is a continuing team-relations story for Qatar; keep the FIA record discrepancy visible and do not imply that Ferrari has announced new team orders.",
       "sources": [
-        {"label": "Formula1.com post-race review", "url": "https://www.formula1.com/en/latest/article/las-vegas-lowdown-all-the-key-moments-as-verstappen-wins-remarkable-race-and-ferraris-drivers-collide-again.62D9SeuQXSboAspMm7N0pN"}
+        {"label": "Formula1.com, Vasseur on the clash", "url": "https://www.formula1.com/en/latest/article/its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-unacceptable.5NGehhmEEtLqzDKxm7bi4z"},
+        {"label": "Formula1.com, Leclerc accepts blame", "url": "https://www.formula1.com/en/latest/article/ill-accept-the-blame-leclerc-embarrassed-for-ferrari-as-he-assesses-latest-hamilton-clash-in-las-vegas.7hVueR5bwYsCGdIaYph3mK"},
+        {"label": "FIA Document 54, Hamilton ruling", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf"},
+        {"label": "FIA Document 65, final classification", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_race_classification.pdf"}
       ]
     },
     {
@@ -33,7 +36,18 @@
       "why_it_matters": "Qatar is the expected next application. This is a grid penalty, not a five-second race penalty, and the Vegas PU sanctions must not be carried over a second time.",
       "sources": [
         {"label": "FIA Document 61, visually reviewed", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_11_-_causing_a_collision_with_car_51.pdf"},
-        {"label": "Formula1.com penalty report", "url": "https://www.formula1.com/en/latest/article/perez-hit-with-five-place-penalty-in-qatar-after-camara-clash-during-las-vegas-grand-prix.30GG7oJuJ1As0MrkavmStN"}
+        {"label": "Formula1.com report and driver reactions", "url": "https://www.formula1.com/en/latest/article/perez-and-camara-react-to-las-vegas-grand-prix-clash-as-perez-receives-penalty-for-qatar.2WhxfuDIpCN5yN35Zupw8M"}
+      ]
+    },
+    {
+      "topic": "Hadjar's race",
+      "title": "Hadjar's front wing fails; a separate Safety Car penalty demotes him",
+      "date": "2026-11-22",
+      "summary": "Hadjar reached the lead battle before his front wing collapsed; he said he did not know the cause. A separate 10-second penalty for driving unnecessarily slowly behind the Safety Car dropped him to 15th.",
+      "why_it_matters": "Keep the wing-failure cause unconfirmed and distinguish it from the Safety Car infringement.",
+      "sources": [
+        {"label": "Formula1.com report, 22 November", "url": "https://www.formula1.com/en/latest/article/hadjar-clueless-on-reason-for-front-wing-failure-as-post-race-penalty-demotes-him-a-place-in-las-vegas-gp.2tF9g5VLiq5P6MtIpiaZ1J"},
+        {"label": "FIA Document 64, Safety Car infringement", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_6_-_driving_unnecessarily_slowly.pdf"}
       ]
     }
   ]
