@@ -56,8 +56,8 @@ and C1 and C2 as the race mandatory sets. This nomination is not a
 driver-by-driver remaining-set inventory.</p>
 <p>Pirelli F1 chief engineer Simone Berra told Motorsport.com at Las Vegas
 that each Qatar tyre set is limited to 27 laps, two more than in 2025. Lap
-use is counted session by session; race laps behind the Safety Car or Virtual
-Safety Car count, and remaining per-set allowances are due after Saturday
+use is counted session by session; race laps behind the Safety Car count,
+and remaining per-set allowances are due after Saturday
 running. At the scheduled full 57-lap distance, the cap requires at least
 three sets and two stops.
 This is Pirelli's announced limit; Qatar's FIA event-prescription document

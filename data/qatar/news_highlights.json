@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-24T07:47:02Z",
-  "expires_at": "2026-11-24T08:20:00Z",
+  "reviewed_at": "2026-11-24T08:47:00Z",
+  "expires_at": "2026-11-24T16:00:00Z",
   "through_session": null,
   "feed_fingerprint": "b09196e36ac1973d782258a6a496ebf90ebc484a10322b8a2ba9662cad02e5f1",
   "items": [
@@ -23,9 +23,9 @@
     },
     {
       "topic": "Tyre stint limit",
-      "title": "Pirelli caps Qatar tyre sets at 27 laps",
+      "title": "Berra says Qatar tyre sets are limited to 27 laps",
       "date": "2026-11-20",
-      "summary": "Pirelli F1 chief engineer Simone Berra told Motorsport.com at Las Vegas that each Qatar tyre set is limited to 27 laps, two more than in 2025. Lap use is counted session by session; race laps behind the Safety Car or Virtual Safety Car count, and remaining per-set allowances are due after Saturday running. Pirelli's official 13 November announcement confirms the C1/C2/C3 selection and mandatory-set graphic.",
+      "summary": "Pirelli F1 chief engineer Simone Berra told Motorsport.com at Las Vegas that each Qatar tyre set is limited to 27 laps, two more than in 2025. Lap use is counted session by session; race laps behind the Safety Car count, and remaining per-set allowances are due after Saturday running. Pirelli's official 13 November announcement confirms the C1/C2/C3 selection and mandatory-set graphic.",
       "why_it_matters": "At the scheduled full 57-lap distance, the cap requires at least three sets and two stops; weekend running consumes the per-set allowance, so Saturday's remaining-lap allocation matters. The official Qatar FIA event-prescription document remains unverified while its listing is unavailable.",
       "sources": [
         {

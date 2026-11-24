@@ -100,6 +100,7 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Full, uncropped Pirelli Qatar 2026", pages["tyres"]["body"])
         self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
         self.assertIn("27 laps", pages["tyres"]["body"])
+        self.assertNotIn("Virtual Safety Car", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["tyres"]["body"])
         self.assertIn("remains unverified", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["notes"]["body"])
@@ -112,6 +113,10 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("A curated moments list", pages["moments"]["body"])
         briefing = json.loads(
             (Path(__file__).parent / "data/qatar/news_highlights.json").read_text()
+        )
+        self.assertNotIn(
+            "Virtual Safety Car",
+            " ".join(item["summary"] for item in briefing["items"]),
         )
         self.assertTrue(any(
             "27" in item["title"]
