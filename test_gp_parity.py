@@ -99,13 +99,25 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertIn("Full, uncropped Pirelli Qatar 2026", pages["tyres"]["body"])
         self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
+        self.assertIn("27 laps", pages["tyres"]["body"])
+        self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["tyres"]["body"])
+        self.assertIn("remains unverified", pages["tyres"]["body"])
+        self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["notes"]["body"])
         self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["rookies"]["body"])
         self.assertIn("not a complete FIA", pages["rookies"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["teams"]["body"])
         self.assertIn(content_qatar.QATAR_2025_RACE, pages["moments"]["body"])
-        self.assertIn("not confirmation of a 2026 limit", pages["moments"]["body"])
+        self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["moments"]["body"])
         self.assertNotIn("A curated moments list", pages["moments"]["body"])
+        briefing = json.loads(
+            (Path(__file__).parent / "data/qatar/news_highlights.json").read_text()
+        )
+        self.assertTrue(any(
+            "27" in item["title"]
+            and any(s["url"] == content_qatar.QATAR_TYRE_LIMIT for s in item["sources"])
+            for item in briefing["items"]
+        ))
 
     def test_las_vegas_collision_summons_are_distinguished_from_final_ruling(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)

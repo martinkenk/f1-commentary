@@ -5,6 +5,9 @@ from f1lib import card
 
 
 PIRELLI_NOMINATION = "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
+QATAR_TYRE_LIMIT = (
+    "https://www.motorsport.com/f1/news/pirelli-introduces-stint-limit-for-f1-qatar-gp-but-increases-total-from-2025/10875950/"
+)
 QATAR_TYRE_PREVIEW = "pirelli-qatar-2026-preview.jpg"
 QATAR_2025_RACE = (
     "https://www.formula1.com/en/latest/article/"
@@ -50,9 +53,17 @@ entry list or confirmation of FP1 substitutions.
     nomination = f"""<p>Pirelli nominated <strong>C1 Hard, C2 Medium and C3 Soft</strong>
 for Qatar. Its 13 November graphic marks C3 as the qualifying mandatory set
 and C1 and C2 as the race mandatory sets. This nomination is not a
-driver-by-driver remaining-set inventory; event prescriptions and any 2026
-stint limit still require Qatar's own FIA documents.
-<a href="{PIRELLI_NOMINATION}">Pirelli compound selection and graphic</a>.</p>"""
+driver-by-driver remaining-set inventory.</p>
+<p>Pirelli F1 chief engineer Simone Berra told Motorsport.com at Las Vegas
+that each Qatar tyre set is limited to 27 laps, two more than in 2025. Lap
+use is counted session by session; race laps behind the Safety Car or Virtual
+Safety Car count, and remaining per-set allowances are due after Saturday
+running. At the scheduled full 57-lap distance, the cap requires at least
+three sets and two stops.
+This is Pirelli's announced limit; Qatar's FIA event-prescription document
+remains unverified while the official event listing returns HTTP 500.
+<a href="{QATAR_TYRE_LIMIT}">Motorsport.com report and Berra interview, 20 November</a> ·
+<a href="{PIRELLI_NOMINATION}">Pirelli compound selection and graphic, 13 November</a>.</p>"""
     tyre_preview = f"""<figure class="circuit-fig">
 <img class="circuit-img tyre-preview-img" src="../assets/{QATAR_TYRE_PREVIEW}"
 alt="Pirelli's 2026 Qatar tyre selection: C1 Hard, C2 Medium and C3 Soft; C3 is mandatory for qualifying and C1 and C2 are mandatory for the race."
@@ -63,7 +74,10 @@ This is not a driver-by-driver remaining-set inventory.
 <a href="{PIRELLI_NOMINATION}">Pirelli source, 13 November 2026</a>.</figcaption>
 </figure>"""
     pages["tyres"]["body"] += tyre_preview + card(
-        "Qatar nomination and mandatory sets", nomination, "bi-record-circle", "accent"
+        "Qatar compounds and 27-lap tyre-set limit",
+        nomination,
+        "bi-record-circle",
+        "accent",
     )
     pages["notes"]["body"] = nomination + pages["notes"]["body"]
     pages["moments"]["body"] = pages["moments"]["body"].replace(
@@ -76,9 +90,10 @@ This is not a driver-by-driver remaining-set inventory.
             f"""<p>With a 25-lap maximum tyre stint imposed for the 2025 race,
 Verstappen pitted under the early Safety Car while both McLarens stayed out.
 He won ahead of Piastri and Sainz; Norris finished fourth, taking a 12-point
-lead over Verstappen into the finale. The 2025 restriction is historical,
-not confirmation of a 2026 limit.
-<a href="{QATAR_2025_RACE}">Formula1.com race report</a>.</p>""",
+lead over Verstappen into the finale. That 25-lap cap was specific to 2025;
+Pirelli announced a separate 27-lap limit for each set in 2026.
+<a href="{QATAR_2025_RACE}">Formula1.com race report</a> ·
+<a href="{QATAR_TYRE_LIMIT}">2026 Pirelli limit report</a>.</p>""",
             "bi-stars", "accent",
         ),
     )
