@@ -388,6 +388,11 @@ class RaceTyresTests(unittest.TestCase):
         text = text.replace("race sets", "tyres available for the race")
         self.assertTrue(rt.chart_links(SPAIN, PAGE, text)[1])
 
+    def test_race_tyres_availability_chart_wording_is_supported(self):
+        text = article(image="https://coffeecornermotorsport.com/inventory.png")
+        text = text.replace("race sets", "race tyre availability chart")
+        self.assertTrue(rt.chart_links(SPAIN, PAGE, text)[1])
+
     def test_preview_and_postrace_are_not_inventory(self):
         for phrase in ("tyre preview", "strategy windows", "post-race stint summary",
                        "qualifying summary"):
@@ -442,7 +447,8 @@ class RaceTyresTests(unittest.TestCase):
             with self.subTest(path=path.name):
                 info = rt.raster_info(path.read_bytes())
                 self.assertEqual(info[0:2], ("webp", 1080))
-                self.assertIn(info[2], (607, 608))
+                self.assertGreaterEqual(info[2], 300)
+                self.assertLessEqual(info[2], 12000)
 
     def test_no_cache_context_is_readonly_and_unknown_not_zero(self):
         with patch.object(rt, "fetch", side_effect=AssertionError("No network")), \

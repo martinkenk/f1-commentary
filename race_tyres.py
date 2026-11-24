@@ -48,6 +48,7 @@ MAX_IMAGE = 12 * 1024 * 1024
 CHART_PATTERN = re.compile(
     r"race[\s_-]*sets|tyres?\s+available\s+for\s+(?:the\s+)?race"
     r"|tyre\s+sets\s+available\s+for\s+(?:the\s+)?race"
+    r"|race\s+tyres?\s+availability(?:\s+chart)?"
     r"|tyres?\s+available\s+for\s+(?:the\s+)?20\d{2}\s+[\w\s'-]{1,60}\b(?:grand\s+prix|gp)\b", re.I)
 
 

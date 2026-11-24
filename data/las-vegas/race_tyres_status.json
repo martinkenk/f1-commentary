@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-11-24T01:30:54+00:00",
-  "state": "not_found",
+  "checked_at": "2026-11-24T01:39:56+00:00",
+  "state": "available",
   "error": "",
   "attempts": [
     {
@@ -14,9 +14,9 @@
       "message": "Public discovery parsed; 1 candidate article(s)"
     },
     {
-      "url": "https://coffeecornermotorsport.com/las-vegas-grand-prix-2026-tyre-strategy/",
-      "state": "not_found",
-      "message": "Public article exposes no supported race-sets graphic; not proof of non-publication"
+      "url": "https://coffeecornermotorsport.com/wp-content/uploads/2026/11/Screenshot-2026-11-21-at-22.13.47.webp",
+      "state": "available",
+      "message": "Full 1080×1306 WEBP decoded and hashed; secondary-reproduction; numeric counts not verified"
     }
   ]
 }
