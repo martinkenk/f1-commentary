@@ -5,6 +5,7 @@ from f1lib import card
 
 
 PIRELLI_NOMINATION = "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
+PIRELLI_TYRE_LIMIT = "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
 QATAR_TYRE_LIMIT = (
     "https://www.motorsport.com/f1/news/pirelli-introduces-stint-limit-for-f1-qatar-gp-but-increases-total-from-2025/10875950/"
 )
@@ -55,21 +56,22 @@ entry list or confirmation of FP1 substitutions.
 for Qatar. Its 13 November graphic marks C3 as the qualifying mandatory set
 and C1 and C2 as the race mandatory sets. This nomination is not a
 driver-by-driver remaining-set inventory.</p>
-<p>Pirelli F1 chief engineer Simone Berra told Motorsport.com at Las Vegas
-that each Qatar tyre set is limited to 27 laps, two more than in 2025. Lap
-use is counted session by session; race laps behind the Safety Car count,
-and remaining per-set allowances are due after Saturday
-running. At the scheduled full 57-lap distance, the cap requires at least
-three sets and two stops.
-This is Pirelli's announced limit; Qatar's FIA event-prescription document
-remains unverified while the official event listing returns HTTP 500.
-<a href="{QATAR_TYRE_LIMIT}">Motorsport.com report and Berra interview, 20 November</a> ·
-<a href="{PIRELLI_NOMINATION}">Pirelli compound selection and graphic, 13 November</a>.</p>
-<p>Coffee Corner Motorsport's independent 24 November tyre preview reports a
-26.5-second average pit-loss estimate and discusses the two-stop minimum at
-the full scheduled distance. Treat this as secondary strategy analysis, not an
-FIA-issued Qatar prescription. <a href="{QATAR_TYRE_STRATEGY}">Coffee Corner
-Motorsport, Qatar tyre preview</a>.</p>"""
+<p>On 24 November, Pirelli announced a maximum 27-lap stint per set, agreed
+with the FIA, and said the race will require at least two stops. At the full
+scheduled 57-lap distance, two sets cover only 54 laps. The official event
+document listing remains unavailable, so its Qatar-specific prescriptions
+have not been independently reviewed.
+<a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
+<p>Pirelli F1 chief engineer Simone Berra's earlier Motorsport.com interview
+adds that use is counted session by session, race laps behind the Safety Car
+count, and remaining allowances follow Saturday running.
+<a href="{QATAR_TYRE_LIMIT}">Motorsport.com report and Berra interview, 20 November</a>.
+Coffee Corner Motorsport's independent 24 November preview reports a
+26.5-second average pit-loss estimate and says practice and qualifying laps
+consume each set's allowance. Treat that figure as secondary strategy
+analysis, not an FIA-issued prescription. <a href="{QATAR_TYRE_STRATEGY}">Coffee
+Corner Motorsport, Qatar tyre preview</a> ·
+<a href="{PIRELLI_NOMINATION}">Pirelli compound selection and graphic, 13 November</a>.</p>"""
     tyre_preview = f"""<figure class="circuit-fig">
 <img class="circuit-img tyre-preview-img" src="../assets/{QATAR_TYRE_PREVIEW}"
 alt="Pirelli's 2026 Qatar tyre selection: C1 Hard, C2 Medium and C3 Soft; C3 is mandatory for qualifying and C1 and C2 are mandatory for the race."
@@ -99,7 +101,7 @@ He won ahead of Piastri and Sainz; Norris finished fourth, taking a 12-point
 lead over Verstappen into the finale. That 25-lap cap was specific to 2025;
 Pirelli announced a separate 27-lap limit for each set in 2026.
 <a href="{QATAR_2025_RACE}">Formula1.com race report</a> ·
-<a href="{QATAR_TYRE_LIMIT}">2026 Pirelli limit report</a>.</p>""",
+<a href="{PIRELLI_TYRE_LIMIT}">2026 Pirelli limit announcement</a>.</p>""",
             "bi-stars", "accent",
         ),
     )

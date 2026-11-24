@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-24T17:56:22Z",
+  "reviewed_at": "2026-11-24T19:51:57Z",
   "expires_at": "2026-11-25T07:00:00Z",
   "through_session": null,
   "feed_fingerprint": "b09196e36ac1973d782258a6a496ebf90ebc484a10322b8a2ba9662cad02e5f1",
@@ -25,9 +25,13 @@
       "topic": "Tyre strategy and stint limit",
       "title": "Qatar's 27-lap cap makes two stops the minimum",
       "date": "2026-11-24",
-      "summary": "Pirelli F1 chief engineer Simone Berra told Motorsport.com that each Qatar set is limited to 27 laps, two more than in 2025; laps are counted by session, race laps behind the Safety Car count, and remaining per-set allowances follow Saturday running. Coffee Corner Motorsport's 24 November preview says all event running counts against each set and reports a 26.5-second average pit-loss estimate. On the scheduled 57-lap distance, the cap requires at least three sets and two stops. Pirelli's official 13 November release confirms the C1/C2/C3 compound selection, not the event prescription.",
-      "why_it_matters": "Practice and qualifying consume each set's 27-lap allowance, constraining race flexibility. The 26.5-second pit-loss figure is Coffee Corner's published strategy estimate, not an FIA-issued prescription; the official Qatar FIA event document remains unverified while its listing is unavailable.",
+      "summary": "Pirelli's 24 November Qatar briefing says it introduced, in agreement with the FIA, a 27-lap maximum stint per set and that the race will require at least two stops. The 20 November Motorsport.com interview adds that running is counted session by session, race laps behind the Safety Car count, and remaining allowances follow Saturday. Coffee Corner Motorsport's 24 November preview reports a 26.5-second average pit-loss estimate and says practice and qualifying laps consume each set's allowance. At the scheduled 57-lap distance, two 27-lap sets cover only 54 laps.",
+      "why_it_matters": "Treat the 27-lap cap as Pirelli's announced event limit, not a transcription from an FIA PDF: Qatar's event document listing remains unavailable. Practice and qualifying consume tyre life; the 26.5-second pit-loss figure is Coffee Corner's secondary estimate.",
       "sources": [
+        {
+          "label": "Pirelli, official Qatar tyre briefing and 27-lap limit, 24 November",
+          "url": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
+        },
         {
           "label": "Motorsport.com report and Berra interview, 20 November",
           "url": "https://www.motorsport.com/f1/news/pirelli-introduces-stint-limit-for-f1-qatar-gp-but-increases-total-from-2025/10875950/"

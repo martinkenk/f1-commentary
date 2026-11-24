@@ -484,9 +484,11 @@ CIRCUITS = {
             "sector makes following closely difficult and rewards clean air."
         ),
         "tyre_notes": (
-            "The headline issue: sustained high-speed loading has previously forced mandatory "
-            "maximum stint lengths. Expect tyre-life limits to be a central strategic story, "
-            "and check the FIA event notes for any imposed stint cap."
+            "Sustained high-speed loading puts the front-left under particular stress. "
+            "For 2026, Pirelli announced a 27-lap maximum stint per set in agreement with "
+            "the FIA, making the scheduled 57-lap race a minimum two-stop event. The "
+            "event-specific FIA prescription remains unverified while its document listing "
+            "is unavailable."
         ),
         "tyre_compounds": ("C1 Hard", "C2 Medium", "C3 Soft"),
         "tyre_compounds_source": "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/",
@@ -498,8 +500,8 @@ CIRCUITS = {
             "Previous editions have required enforced maximum stint lengths on tyre-safety grounds.",
         ],
         "storylines": [
-            "Any FIA-mandated stint limit turns the race into a fixed-stop sprint — check the documents.",
-            "Late-season championship permutations are often decided in this closing triple-header.",
+            "Pirelli's 27-lap maximum per set makes at least two stops necessary at the full race distance; the FIA event document remains unverified.",
+            "Sergio Perez carries a five-place grid drop from Las Vegas; keep that separate from Qatar's own event sanctions.",
         ],
     },
     "united-arab-emirates": {

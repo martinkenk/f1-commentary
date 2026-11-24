@@ -90,6 +90,15 @@ class GPParityTests(unittest.TestCase):
         pages = content_qatar.build_pages(ctx, self.env)
         self.assertIn("C1 Hard / C2 Medium / C3 Soft", pages["tyres"]["body"])
         self.assertIn(content_qatar.PIRELLI_NOMINATION, pages["tyres"]["body"])
+        self.assertIn(content_qatar.PIRELLI_TYRE_LIMIT, pages["tyres"]["body"])
+        self.assertIn(
+            "Pirelli's 27-lap maximum per set makes at least two stops necessary",
+            pages["overview"]["body"],
+        )
+        self.assertNotIn(
+            "Any FIA-mandated stint limit turns the race into a fixed-stop sprint",
+            pages["overview"]["body"],
+        )
         self.assertIn(
             f'src="../assets/{content_qatar.QATAR_TYRE_PREVIEW}"',
             pages["tyres"]["body"],
@@ -99,7 +108,7 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertIn("Full, uncropped Pirelli Qatar 2026", pages["tyres"]["body"])
         self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
-        self.assertIn("27 laps", pages["tyres"]["body"])
+        self.assertIn("27-lap maximum stint per set", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_STRATEGY, pages["tyres"]["body"])
         self.assertIn("26.5-second average pit-loss estimate", pages["tyres"]["body"])
         self.assertNotIn("Virtual Safety Car", pages["tyres"]["body"])
@@ -111,7 +120,7 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("not a complete FIA", pages["rookies"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["teams"]["body"])
         self.assertIn(content_qatar.QATAR_2025_RACE, pages["moments"]["body"])
-        self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["moments"]["body"])
+        self.assertIn(content_qatar.PIRELLI_TYRE_LIMIT, pages["moments"]["body"])
         self.assertNotIn("A curated moments list", pages["moments"]["body"])
         briefing = json.loads(
             (Path(__file__).parent / "data/qatar/news_highlights.json").read_text()
@@ -122,9 +131,13 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertTrue(any(
             "27" in item["title"]
-            and any(s["url"] == content_qatar.QATAR_TYRE_LIMIT for s in item["sources"])
+            and any(s["url"] == content_qatar.PIRELLI_TYRE_LIMIT for s in item["sources"])
             for item in briefing["items"]
         ))
+        self.assertNotIn(
+            "not the event prescription",
+            " ".join(item["summary"] for item in briefing["items"]),
+        )
         self.assertTrue(any(
             item["date"] == "2026-11-24"
             and any(s["url"] == content_qatar.QATAR_TYRE_STRATEGY for s in item["sources"])
