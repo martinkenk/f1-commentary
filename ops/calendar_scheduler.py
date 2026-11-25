@@ -80,6 +80,7 @@ def editorial_audit(state, gps, now, audit_only, runs=()):
               "task_id": latest.get("id") if latest else None,
               "run_id": latest.get("run_id") if latest else None,
               "not_before": latest.get("not_before") if latest else None,
+              "retry_at": retry_at.isoformat() if retry_at else None,
               "summary": (latest.get("summary") or latest.get("error")) if latest else None}
     if targets and (not last_good or now >= deadline or
                     (latest and latest.get("status") in ("blocked", "failed", "agent_failed",

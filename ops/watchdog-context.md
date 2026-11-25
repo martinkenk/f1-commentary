@@ -209,3 +209,28 @@ Use one actual status value. Record concrete source URLs, run/PR IDs, relevant
 dates and any access failures. Put durable new operational lessons in
 `<state-directory>/memory.md`, not a transcript or credentials. Read that file
 on later runs, but revalidate dated claims. Do not silently renew stale data.
+
+For a scheduled editorial review, include an `editorial_review` array in this
+same report, with one entry for each requested GP:
+
+```json
+{
+  "editorial_review": [
+    {
+      "gp": "event-slug",
+      "pages": ["overview", "news", "circuit", "results", "tyres", "rookies",
+                "standings", "h2h", "teams", "upgrades", "powerunit", "penalties",
+                "reliability", "facts", "moments", "schedule", "notes"],
+      "sources": ["https://example.com/actual-source-reviewed"]
+    }
+  ]
+}
+```
+
+List only pages and sources actually reviewed. A missing page, a source outage,
+or an unresolved material conflict must be reported as `blocked` and described
+in `remaining`; partial changes may still be committed and their exact deployment
+recorded. A source that is not yet due or published is not a failure if its
+availability was checked and the page accurately labels it as pending. Do not
+list expected future data as an unresolved defect merely to fill the report.
+The wrapper independently verifies publication of a reported fix.

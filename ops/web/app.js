@@ -78,7 +78,7 @@ function render(data) {
     metric("REPAIR WORKER", active ? "Agent running" : "Standby", active ? `Started ${stamp(latest.started_at)}` : `Last run ${stamp(last?.finished_at)}`,
       active ? "warn" : ""),
     metric("EDITORIAL REVIEW", audit.status || "Not scheduled",
-      `Last reviewed ${stamp(audit.last_reviewed_at)} / due ${stamp(audit.next_due)}`,
+      `Last reviewed ${stamp(audit.last_reviewed_at)} / ${audit.retry_at ? `retry ${stamp(audit.retry_at)}` : `due ${stamp(audit.next_due)}`}`,
       !audit.last_reviewed_at || (clock.errors || []).length ? "warn" : "good"),
     metric("AGENT QUEUE", String(queued), `${data.preferences?.audit_only ? "Read-only" : "Publish when safe"} / serialized writers`, queued ? "warn" : "")
   );
