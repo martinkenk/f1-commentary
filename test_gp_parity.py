@@ -155,6 +155,26 @@ class GPParityTests(unittest.TestCase):
             for item in briefing["items"]
         ))
 
+    def test_qatar_penalties_include_las_vegas_carryover_in_its_source_reader(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        page = content_qatar.build_pages(ctx, self.env)["penalties"]["body"]
+        row = next(
+            match.group(1)
+            for match in re.finditer(r"<tr>(.*?)</tr>", page, re.S)
+            if ">Las Vegas Doc 61</a>" in match.group(1)
+        )
+        self.assertIn("Sergio Perez", row)
+        self.assertIn("Rafael Câmara", row)
+        self.assertIn("five grid places", row)
+        self.assertIn(content_qatar.PEREZ_PENALTY, row)
+        self.assertIn('<details class="penalty-document"', row)
+        self.assertIn("data-document-reader", row)
+        self.assertIn("fia-las-vegas-132895e7c355-8555a89b68a9be62-p1.png", row)
+        self.assertIn("fia-las-vegas-132895e7c355-8555a89b68a9be62-p2.png", row)
+        self.assertIn(content_qatar.PEREZ_PENALTY_ARTICLE, page)
+        self.assertIn("This is not a Qatar ruling", page)
+
     def test_las_vegas_collision_summons_are_distinguished_from_final_ruling(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
         review_path = Path(__file__).parent / "data/las-vegas/coverage_review.json"

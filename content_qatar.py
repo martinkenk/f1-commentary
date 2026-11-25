@@ -1,7 +1,7 @@
 """Verified carry-over information; local Qatar documents remain source-dependent."""
 import content_generic
 from content_las_vegas import PEREZ_PENALTY
-from f1lib import card
+from f1lib import card, render_penalties
 
 
 PIRELLI_NOMINATION = "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
@@ -22,6 +22,11 @@ CAMARA_QATAR_ANNOUNCEMENT = (
     "haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026."
     "2wYY9ymhyqr7rXcuK6S7bj"
 )
+PEREZ_PENALTY_ARTICLE = (
+    "https://www.formula1.com/en/latest/article/"
+    "perez-hit-with-five-place-penalty-in-qatar-after-camara-clash-during-las-vegas-grand-prix."
+    "30GG7oJuJ1As0MrkavmStN"
+)
 
 
 def build_pages(ctx, env):
@@ -41,6 +46,42 @@ Qatar publications, not copied Las Vegas figures. Published source readers
 appear on the relevant pages as collection succeeds; discovery failures stay visible.</p>"""
     for slug in ("overview", "notes", "schedule"):
         pages[slug]["body"] = carryover + pages[slug]["body"]
+    pages["penalties"] = dict(
+        kicker="Confirmed carry-over sanction",
+        title="Penalties & Stewards",
+        sub=("Las Vegas Document 61 applies a five-place grid drop to Sergio Perez "
+             "at this event; it is not a Qatar stewards' decision."),
+        body=render_penalties(
+            ctx,
+            decisions=[
+                dict(
+                    doc="Las Vegas Doc 61",
+                    source_event="las-vegas",
+                    no="11",
+                    driver="Sergio Perez",
+                    team="Cadillac Formula 1 Team",
+                    session="Las Vegas Grand Prix — Race",
+                    fact=("Turn 14 collision with Rafael Câmara; the stewards found "
+                          "Perez wholly responsible."),
+                    outcome=(
+                        "The 10-second time penalty was converted after his retirement "
+                        "into five grid places at the next race in which he participates "
+                        "(Qatar)."
+                    ),
+                    kind="penalty",
+                    source_url=PEREZ_PENALTY,
+                )
+            ],
+            intro_html=(
+                '<div class="callout accent"><strong>Confirmed carry-over:</strong> '
+                'Las Vegas Document 61 is the source of this Qatar grid sanction; '
+                'Formula1.com confirms it applies here. This is not a Qatar ruling; '
+                'Qatar-specific decisions remain separate and source-dependent. '
+                f'<a href="{PEREZ_PENALTY_ARTICLE}">Official Formula1.com report</a>.</div>'
+            ),
+            fia_url=ctx.get("fia_url", ""),
+        ),
+    )
     lineup = card(
         "Haas confirms Rafael Câmara for Qatar and Abu Dhabi",
         f"""<p>Haas confirmed on 22 November that Câmara will drive for the team
