@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-24T17:56:22Z",
-  "expires_at": "2026-11-25T07:00:00Z",
+  "reviewed_at": "2026-11-25T07:03:29Z",
+  "expires_at": "2026-11-26T07:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "5873896f79a53cffa6eb93f3747253a66ab6b5d4ca30bb3209274a9e62327b79",
   "items": [
@@ -24,6 +24,7 @@
       "sources": [
         {"label": "Formula1.com, Vasseur on the clash", "url": "https://www.formula1.com/en/latest/article/its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-unacceptable.5NGehhmEEtLqzDKxm7bi4z"},
         {"label": "Formula1.com, Leclerc accepts blame", "url": "https://www.formula1.com/en/latest/article/ill-accept-the-blame-leclerc-embarrassed-for-ferrari-as-he-assesses-latest-hamilton-clash-in-las-vegas.7hVueR5bwYsCGdIaYph3mK"},
+        {"label": "FIA Document 60, visually checked; Turn 7 collision ruling", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_16_-_causing_a_collision_with_car_44.pdf"},
         {"label": "FIA Document 54, Hamilton ruling", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf"},
         {"label": "FIA Document 65, final classification", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_race_classification.pdf"}
       ]
@@ -48,6 +49,16 @@
       "sources": [
         {"label": "Formula1.com report, 22 November", "url": "https://www.formula1.com/en/latest/article/hadjar-clueless-on-reason-for-front-wing-failure-as-post-race-penalty-demotes-him-a-place-in-las-vegas-gp.2tF9g5VLiq5P6MtIpiaZ1J"},
         {"label": "FIA Document 64, Safety Car infringement", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_6_-_driving_unnecessarily_slowly.pdf"}
+      ]
+    },
+    {
+      "topic": "Mercedes late-race energy",
+      "title": "Wolff says Antonelli lost battery power in the closing laps",
+      "date": "2026-11-22",
+      "summary": "Mercedes team principal Toto Wolff said Antonelli lifted behind Verstappen before reapplying, leaving him with no battery on the back straight; both McLarens passed and Antonelli finished fourth. Wolff said Mercedes had planned an energy deployment for the final 400 metres that could have offered a chance to win.",
+      "why_it_matters": "Keep this attributed to Wolff's post-race account, not independent telemetry or Qatar's published FIA limits; it is Las Vegas context, not a Qatar prediction.",
+      "sources": [
+        {"label": "Formula1.com, Wolff's post-race account", "url": "https://www.formula1.com/en/latest/article/wolff-explains-how-the-mercedes-challenge-fell-apart-in-the-closing-laps-in-las-vegas.4Zf0W1yuHxigFi72cspCj"}
       ]
     }
   ]

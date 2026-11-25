@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-24T21:58:29Z",
-  "expires_at": "2026-11-25T07:00:00Z",
+  "reviewed_at": "2026-11-25T07:03:29Z",
+  "expires_at": "2026-11-26T07:00:00Z",
   "through_session": null,
   "feed_fingerprint": "b09196e36ac1973d782258a6a496ebf90ebc484a10322b8a2ba9662cad02e5f1",
   "items": [
@@ -25,7 +25,7 @@
       "topic": "Tyre strategy and stint limit",
       "title": "Qatar's 27-lap cap makes two stops the minimum",
       "date": "2026-11-24",
-      "summary": "Pirelli's 24 November Qatar briefing sets a 27-lap maximum stint per set and says the race will require at least two stops. Its linked infographic lists a 26.5-second average pit-stop loss and slick minimum starting / expected stabilized running pressures of 29.0 / >=30.0 psi front and 27.5 / >=28.5 psi rear; starred pressure values may change after FP2. The 20 November Motorsport.com interview says race laps behind the Safety Car count toward stint limits, while Coffee Corner Motorsport reports that practice and qualifying laps consume each set's allowance. At the scheduled 57 laps, two 27-lap sets cover only 54.",
+      "summary": "Pirelli's 24 November Qatar briefing sets a 27-lap maximum stint per set and requires at least two stops. Its complete official preview shows a 57-lap race, 26.5-second average pit-stop loss and slick minimum starting / expected stabilized running pressures of 29.0 / >=30.0 psi front and 27.5 / >=28.5 psi rear; starred pressure values may change after FP2.",
       "why_it_matters": "Keep Pirelli's published limit and preview pressures separate from FIA event-document transcription: Qatar's listing remains unavailable. The infographic flags pressure values as subject to change after FP2; do not present its 26.5-second pit-loss figure as a stationary wheel-change duration.",
       "sources": [
         {
@@ -33,16 +33,12 @@
           "url": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
         },
         {
-          "label": "Motorsport.com report and Berra interview, 20 November",
-          "url": "https://www.motorsport.com/f1/news/pirelli-introduces-stint-limit-for-f1-qatar-gp-but-increases-total-from-2025/10875950/"
+          "label": "Pirelli official 2026 Qatar preview infographic (full image visually checked)",
+          "url": "https://content.presspage.com/uploads/2363/652889f6-81b1-4924-89a0-c571c083d7c0/1920_09-qt26-preview-en.jpg?10000"
         },
         {
-          "label": "Coffee Corner Motorsport, independent Qatar tyre preview, 24 November",
+          "label": "Coffee Corner Motorsport, 24 November secondary preview (context only; no FIA counting rule inferred)",
           "url": "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
-        },
-        {
-          "label": "Pirelli, compound selection and graphic, 13 November",
-          "url": "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
         }
       ]
     },
