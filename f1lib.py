@@ -1442,7 +1442,10 @@ def render_reliability(ctx, intro_html=""):
             for row in race["rows"]
             if ni is not None and ri is not None and ni < len(row) and ri < len(row)
         }
-        finishers = [d for d in drivers if not d["dnf"]]
+        finishers = [
+            d for d in drivers
+            if not d["dnf"] and status_by_no.get(d["no"]) not in ("DNF", "RT", "DNS", "DSQ")
+        ]
         dnfs = [d for d in drivers if status_by_no.get(d["no"]) in ("DNF", "RT")]
         dns = [d for d in drivers if status_by_no.get(d["no"]) == "DNS"]
         out.append('<h2 class="sec">Race reliability</h2>')
@@ -1450,6 +1453,9 @@ def render_reliability(ctx, intro_html=""):
                    + stat(str(len(finishers)), "Classified finishers")
                    + stat(str(len(dnfs)), "Retirements (DNF)")
                    + stat(str(len(drivers) - len(dns)), "Started") + '</div>')
+        if any(not d["dnf"] for d in dnfs):
+            out.append('<p class="src">A retired driver may still receive an official classified position; '
+                       'such drivers remain in the DNF count and are excluded from finishers.</p>')
         if dnfs:
             rws = []
             for d in dnfs:

@@ -37,6 +37,35 @@ class ReliabilityTests(unittest.TestCase):
         self.assertIn("<h3>Did not start</h3>", body)
         self.assertIn("Nonstarter Driver", body)
 
+    def test_classified_retirement_is_not_counted_as_a_finisher(self):
+        ctx = {"results": [{
+            "label": "Race",
+            "headers": ["Pos.", "No.", "Driver", "Team", "Laps", "Time / Retired", "Pts."],
+            "rows": [
+                ["1", "1", "Winner Driver WIN", "Team A", "50", "1:30:00", "25"],
+                ["19", "2", "Classified Retiree RET", "Team B", "49", "DNF", "0"],
+                ["NC", "3", "Unclassified Retiree OUT", "Team C", "10", "DNF", "0"],
+                ["NC", "4", "Nonstarter Driver DNS", "Team D", "0", "DNS", "0"],
+                ["NC", "5", "Disqualified Driver DSQ", "Team E", "40", "DSQ", "0"],
+            ],
+        }]}
+
+        body = f1lib.render_reliability(ctx)
+        stats = {
+            label: value
+            for value, label in re.findall(
+                r'<div class="stat"><div class="stat-val">([^<]+)</div>'
+                r'<div class="stat-lbl">([^<]+)</div>',
+                body,
+            )
+        }
+
+        self.assertEqual(stats["Classified finishers"], "1")
+        self.assertEqual(stats["Retirements (DNF)"], "2")
+        self.assertEqual(stats["Started"], "4")
+        self.assertIn("Classified Retiree", body)
+        self.assertIn("official classified position", body)
+
     def test_future_event_does_not_describe_unrun_race_as_build_failure(self):
         ctx = {
             "status": "future",
