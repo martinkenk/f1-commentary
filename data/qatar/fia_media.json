@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-11-25T17:37:11+00:00",
-  "discovery_retrieved_at": "2026-11-25T17:37:08.990699+00:00",
+  "checked_at": "2026-11-25T18:21:27+00:00",
+  "discovery_retrieved_at": "2026-11-25T18:21:25.250246+00:00",
   "documents": [
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_power_unit_information.pdf",
@@ -9,7 +9,7 @@
         "powerunit"
       ],
       "sha256": "fa7a2c31f1e2632e34df82551eb3b6fda7a7f0250be5a4a38824063c3855ce46",
-      "fetched_at": "2026-11-25T17:37:11+00:00",
+      "fetched_at": "2026-11-25T18:21:27+00:00",
       "pages": [
         {
           "page": 2,
@@ -25,7 +25,7 @@
         "tyres"
       ],
       "sha256": "f21987bcdb1bbcbfc007c06a5b7cbd17a2efb40f82821cae5ad0a1eb0ad79751",
-      "fetched_at": "2026-11-25T17:37:11+00:00",
+      "fetched_at": "2026-11-25T18:21:27+00:00",
       "pages": [
         {
           "page": 2,
@@ -41,7 +41,7 @@
         "schedule"
       ],
       "sha256": "f2f0cba8043496bdd3ded69014782ca854c9ee8930f4ce34dc1b1a13909134af",
-      "fetched_at": "2026-11-25T17:37:11+00:00",
+      "fetched_at": "2026-11-25T18:21:27+00:00",
       "pages": [
         {
           "page": 2,
