@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-25T07:03:29Z",
+  "reviewed_at": "2026-11-25T11:03:12Z",
   "expires_at": "2026-11-26T07:00:00Z",
   "through_session": null,
-  "feed_fingerprint": "b09196e36ac1973d782258a6a496ebf90ebc484a10322b8a2ba9662cad02e5f1",
+  "feed_fingerprint": "3cd32f5c5f75a4e51d46f5d59ab5df27f38c3cb47d71d60758b17a4dd1e3ac0a",
   "items": [
     {
       "topic": "Grid carry-over",
@@ -23,10 +23,10 @@
     },
     {
       "topic": "Tyre strategy and stint limit",
-      "title": "Qatar's 27-lap cap makes two stops the minimum",
-      "date": "2026-11-24",
-      "summary": "Pirelli's 24 November Qatar briefing sets a 27-lap maximum stint per set and requires at least two stops. Its complete official preview shows a 57-lap race, 26.5-second average pit-stop loss and slick minimum starting / expected stabilized running pressures of 29.0 / >=30.0 psi front and 27.5 / >=28.5 psi rear; starred pressure values may change after FP2.",
-      "why_it_matters": "Keep Pirelli's published limit and preview pressures separate from FIA event-document transcription: Qatar's listing remains unavailable. The infographic flags pressure values as subject to change after FP2; do not present its 26.5-second pit-loss figure as a stationary wheel-change duration.",
+      "title": "Qatar's 27-lap cap counts Safety Car and VSC laps",
+      "date": "2026-11-25",
+      "summary": "Formula1.com's 25 November report says each driver has two Hard, three Medium and eight Soft sets available, with an extra Soft reserved for Q3 qualifiers. The 27-lap maximum counts cumulatively across sessions, including Safety Car and Virtual Safety Car laps; at 57 laps, at least two stops are required, and a dry race requires two different slick compounds.",
+      "why_it_matters": "Track the per-set limit across sessions, including Safety Car and Virtual Safety Car running. These are reported Pirelli allocations and rules, not remaining-set counts or an independent transcription of Qatar's unavailable FIA event listing.",
       "sources": [
         {
           "label": "Pirelli, official Qatar tyre briefing and infographic, 24 November (graphic visually reviewed)",
@@ -35,6 +35,10 @@
         {
           "label": "Pirelli official 2026 Qatar preview infographic (full image visually checked)",
           "url": "https://content.presspage.com/uploads/2363/652889f6-81b1-4924-89a0-c571c083d7c0/1920_09-qt26-preview-en.jpg?10000"
+        },
+        {
+          "label": "Formula1.com, Qatar tyre allocation and rules, 25 November",
+          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-formula-1-teams-and-drivers-have-for-the-2026-qatar-grand-prix.7JllCRweDY5sW1N9LzdkLm"
         },
         {
           "label": "Coffee Corner Motorsport, 24 November secondary preview (context only; no FIA counting rule inferred)",

@@ -9,6 +9,11 @@ PIRELLI_TYRE_LIMIT = "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-c
 QATAR_TYRE_LIMIT = (
     "https://www.motorsport.com/f1/news/pirelli-introduces-stint-limit-for-f1-qatar-gp-but-increases-total-from-2025/10875950/"
 )
+QATAR_TYRE_ALLOCATION = (
+    "https://www.formula1.com/en/latest/article/"
+    "what-tyres-will-the-formula-1-teams-and-drivers-have-for-the-2026-qatar-grand-prix."
+    "7JllCRweDY5sW1N9LzdkLm"
+)
 QATAR_TYRE_STRATEGY = "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
 QATAR_TYRE_COUNTING = "https://coffeecornermotorsport.com/qatar-grand-prix-tyre-limit-2026/"
 QATAR_TRACK_MAP = "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632421/common/f1/2026/track/2026tracklusaildetailed.png"
@@ -111,12 +116,23 @@ entry list or confirmation of FP1 substitutions.
 for Qatar. Its 13 November graphic marks C3 as the qualifying mandatory set
 and C1 and C2 as the race mandatory sets. This nomination is not a
 driver-by-driver remaining-set inventory.</p>
+<p>Formula1.com's 25 November report says each driver has two Hard, three
+Medium and eight Soft sets available, plus Intermediates and full wets if
+needed. An additional Soft is reserved for Q3 qualifiers, and a dry race
+requires two different slick compounds. These are event allocations, not
+post-qualifying remaining-set counts.
+<a href="{QATAR_TYRE_ALLOCATION}">Formula1.com, Qatar tyre allocation and rules</a>.</p>
 <p>On 24 November, Pirelli announced a maximum 27-lap stint per set, agreed
 with the FIA, and said the race will require at least two stops. At the full
 scheduled 57-lap distance, two sets cover only 54 laps. The official event
 document listing remains unavailable, so its Qatar-specific prescriptions
 have not been independently reviewed.
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
+<p>Formula1.com's 25 November report says the 27-lap limit counts cumulatively
+across sessions, including race laps behind the Safety Car or Virtual Safety
+Car. This is a current report of Pirelli's rule, not an independent
+transcription from the unavailable Qatar FIA event listing.
+<a href="{QATAR_TYRE_ALLOCATION}">Formula1.com, Qatar tyre allocation and rules</a>.</p>
 <p>Pirelli's linked event infographic lists slick minimum starting / expected
 stabilized running pressures of 29.0 / &gt;=30.0 psi* at the front and
 27.5 / &gt;=28.5 psi* at the rear, with EOS camber limits of -2.75 degrees
@@ -126,8 +142,8 @@ transcription from the unavailable FIA event listing. The same graphic lists
 an average pit-stop loss of 26.5 seconds; do not present it as a stationary
 wheel-change duration.</p>
 <p>Pirelli F1 chief engineer Simone Berra's earlier Motorsport.com interview
-adds that use is counted session by session, race laps behind the Safety Car
-count, and remaining allowances follow Saturday running.
+adds details about session-by-session tyre use and remaining allowances after
+Saturday running.
 <a href="{QATAR_TYRE_LIMIT}">Motorsport.com report and Berra interview, 20 November</a>.
 Coffee Corner Motorsport's independent 24 November preview says practice and
 qualifying laps consume each set's allowance. <a href="{QATAR_TYRE_STRATEGY}">Coffee

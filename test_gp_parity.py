@@ -127,10 +127,13 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
         self.assertIn("27-lap maximum stint per set", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_STRATEGY, pages["tyres"]["body"])
-        self.assertNotIn("Virtual Safety Car", pages["tyres"]["body"])
+        self.assertIn("two Hard, three", pages["tyres"]["body"])
+        self.assertIn("Virtual Safety Car", pages["tyres"]["body"].replace("\n", " "))
+        self.assertIn(content_qatar.QATAR_TYRE_ALLOCATION, pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["tyres"]["body"])
         self.assertIn("remains unverified", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["notes"]["body"])
+        self.assertIn("Virtual Safety Car", pages["notes"]["body"].replace("\n", " "))
         self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["rookies"]["body"])
         self.assertIn("not a complete FIA", pages["rookies"]["body"])
@@ -141,10 +144,15 @@ class GPParityTests(unittest.TestCase):
         briefing = json.loads(
             (Path(__file__).parent / "data/qatar/news_highlights.json").read_text()
         )
-        self.assertNotIn(
+        self.assertIn(
             "Virtual Safety Car",
             " ".join(item["summary"] for item in briefing["items"]),
         )
+        self.assertTrue(any(
+            item["date"] == "2026-11-25"
+            and any(s["url"] == content_qatar.QATAR_TYRE_ALLOCATION for s in item["sources"])
+            for item in briefing["items"]
+        ))
         self.assertTrue(any(
             "27" in item["title"]
             and any(s["url"] == content_qatar.PIRELLI_TYRE_LIMIT for s in item["sources"])
@@ -155,7 +163,7 @@ class GPParityTests(unittest.TestCase):
             " ".join(item["summary"] for item in briefing["items"]),
         )
         self.assertTrue(any(
-            item["date"] == "2026-11-24"
+            item["date"] == "2026-11-25"
             and any(s["url"] == content_qatar.QATAR_TYRE_STRATEGY for s in item["sources"])
             for item in briefing["items"]
         ))
