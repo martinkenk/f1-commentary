@@ -2,6 +2,7 @@ import datetime as dt
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import Mock, call, patch
@@ -10,6 +11,65 @@ from ops import agent_queue, publication_followup, watchdog
 
 
 class WatchdogTests(unittest.TestCase):
+    def test_receipt_validation_imports_repo_when_run_as_standalone_service(self):
+        script = Path(watchdog.__file__).resolve()
+        command = (
+            "import runpy,sys; "
+            f"sys.path.insert(0, {str(script.parent)!r}); "
+            f"w=runpy.run_path({str(script)!r}); "
+            "w['validate_editorial_review']({'remaining': [], 'editorial_review': []}, [])"
+        )
+        result = subprocess.run([sys.executable, "-I", "-c", command],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_incomplete_editorial_receipt_is_blocked_and_preserves_report(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            job = agent_queue.enqueue_editorial(state, ["qatar"], "Audit Qatar")
+
+            def command(args, **kwargs):
+                value = "main\n" if args[:3] == ["git", "branch", "--show-current"] else ""
+                return subprocess.CompletedProcess(args, 0, value, "")
+
+            def agent(args, log, timeout):
+                (log.parent / "report.json").write_text(json.dumps({
+                    "status": "fixed", "summary": "Published partial correction",
+                    "findings": [], "changes": ["Correction"], "remaining": ["Source conflict"],
+                    "sources": [], "commit": "a" * 40,
+                }))
+                return 0
+
+            with patch.object(watchdog, "STATE", state), \
+                 patch.object(watchdog, "command", side_effect=command), \
+                 patch.object(watchdog, "recent_runs", return_value=[]), \
+                 patch.object(watchdog, "run_agent", side_effect=agent):
+                self.assertEqual(watchdog.run(), 1)
+            task = json.loads((state / "tasks" / (job["id"] + ".json")).read_text())
+            self.assertEqual(task["status"], "blocked")
+            self.assertIn("outstanding work", task["summary"])
+            report = json.loads((state / "runs" / task["run_id"] / "report.json").read_text())
+            self.assertEqual(report["commit"], "a" * 40)
+
+    def test_unexpected_error_does_not_leave_task_running(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            job = agent_queue.enqueue_editorial(state, ["qatar"], "Audit Qatar")
+
+            def command(args, **kwargs):
+                value = "main\n" if args[:3] == ["git", "branch", "--show-current"] else ""
+                return subprocess.CompletedProcess(args, 0, value, "")
+
+            with patch.object(watchdog, "STATE", state), \
+                 patch.object(watchdog, "command", side_effect=command), \
+                 patch.object(watchdog, "recent_runs", return_value=[]), \
+                 patch.object(watchdog, "run_agent", side_effect=TypeError("unexpected")):
+                with self.assertRaises(TypeError):
+                    watchdog.run()
+            task = json.loads((state / "tasks" / (job["id"] + ".json")).read_text())
+            self.assertEqual(task["status"], "failed")
+            self.assertIn("service journal", task["error"])
+
     def test_scheduled_fix_waits_for_independent_publication_verification(self):
         import build
         with tempfile.TemporaryDirectory() as directory:

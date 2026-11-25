@@ -141,7 +141,8 @@ def recover(state):
                     continue
                 path = state / "runs" / job["run_id"] / "status.json"
                 record = json.loads(path.read_text()) if path.exists() else {}
-                finished = record.get("finished_at") and record.get("task_id") == job["id"]
+                finished = (record.get("finished_at") and record.get("task_id") == job["id"]
+                            and record.get("status") != "running")
                 job.update(status=record["status"] if finished else "interrupted",
                            finished_at=record.get("finished_at") if finished else now(),
                            summary=record.get("summary") if finished else None,

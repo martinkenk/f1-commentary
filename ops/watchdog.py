@@ -20,6 +20,7 @@ except ImportError:
     import publication_followup
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 STATE = Path.home() / ".local/state/f1-watchdog"
 REPOSITORY = "martinkenk/f1-commentary"
 WORKFLOWS = {"Build & deploy to GitHub Pages", "Critical race coverage"}
@@ -424,7 +425,13 @@ def run(audit_only=False, timeout=2700):
             if (task and task.get("kind") == "editorial_audit"
                     and (report["status"] in ("healthy", "fixed")
                          or publication_followup.pending_report(report))):
-                validate_editorial_review(report, task["gps"])
+                try:
+                    validate_editorial_review(report, task["gps"])
+                except ValueError as error:
+                    status.update(status="blocked",
+                                  summary=f"Editorial audit incomplete: {error}. {report['summary']}")
+                    print(f"Watchdog blocked: {status['summary']}")
+                    return 1
                 if report["status"] == "healthy" and report["changes"]:
                     raise ValueError("Editorial audit with changes must report a verified fix")
                 if report["status"] == "fixed":
@@ -445,13 +452,15 @@ def run(audit_only=False, timeout=2700):
                                       + report["summary"])
             print(f"Watchdog {status['status']}: {report['summary']}")
             return 1 if status["status"] == "blocked" else 0
-        except (OSError, ValueError, KeyError, RuntimeError, subprocess.TimeoutExpired,
+        except (OSError, ValueError, KeyError, RuntimeError, ImportError, subprocess.TimeoutExpired,
                 urllib.error.URLError) as error:
             status["status"] = "failed"
             status["error"] = str(error)
             print(f"Watchdog failed: {error}", file=sys.stderr)
             return 1
         finally:
+            if status["status"] == "running":
+                status.update(status="failed", error="Worker ended unexpectedly; inspect the service journal")
             if status["status"] in ("timed_out", "agent_failed", "failed"):
                 checkpoint = incomplete_report(status)
                 write_json(report_dir / "interruption.json", checkpoint)

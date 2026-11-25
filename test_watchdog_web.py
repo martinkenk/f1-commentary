@@ -101,6 +101,12 @@ class QueueTests(unittest.TestCase):
                        {"task_id": job["id"], "status": "fixed", "finished_at": queue.now()})
             queue.recover(state)
             self.assertEqual(queue.jobs(state)[1]["status"], "fixed")
+            job = queue.enqueue(state, "Unexpected failure during finalization")
+            queue.claim(state, "20261106T120200Z")
+            queue.save(state / "runs/20261106T120200Z/status.json",
+                       {"task_id": job["id"], "status": "running", "finished_at": queue.now()})
+            queue.recover(state)
+            self.assertEqual(queue.jobs(state)[2]["status"], "interrupted")
 
 
 class WebTests(unittest.TestCase):
