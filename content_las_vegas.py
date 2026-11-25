@@ -426,7 +426,7 @@ the 10-second time penalty, it became a five-place drop at his next race.
     fp3_summons = card(
         "FP3 Turn 16 summons: no matching ruling listed",
         f"""<p>FIA Document 29 summoned Max Verstappen over alleged erratic driving
-at 16:33. The current 65-document event listing contains no separate matching
+at 16:33. The current 66-document event listing contains no separate matching
 ruling, so the outcome remains unresolved; a summons is not a finding or
 penalty. This is distinct from Document 37's Turn 14 warning and Document 38's
 separate Turn 17 no-further-action finding.

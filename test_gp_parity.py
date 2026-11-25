@@ -124,6 +124,15 @@ class GPParityTests(unittest.TestCase):
             (Path(__file__).parent / "assets_src" / content_qatar.QATAR_TYRE_INFOGRAPHIC).is_file()
         )
         self.assertIn("Full, uncropped Pirelli Qatar 2026", pages["tyres"]["body"])
+        self.assertIn(content_qatar.FIA_QATAR_TYRE_NOTES, pages["tyres"]["body"])
+        self.assertIn(
+            "The FIA's official Qatar competition notes",
+            pages["tyres"]["body"],
+        )
+        self.assertNotIn(
+            "not a transcription from the FIA event listing",
+            pages["tyres"]["body"],
+        )
         self.assertIn("&gt;=30.0 psi", pages["tyres"]["body"])
         self.assertIn("-2.75 degrees\nfront", pages["tyres"]["body"])
         self.assertIn("-1.50 degrees rear", pages["tyres"]["body"])
@@ -171,6 +180,20 @@ class GPParityTests(unittest.TestCase):
         self.assertTrue(any(
             "27-lap" in item["summary"]
             and any(s["url"] == content_qatar.PIRELLI_TYRE_LIMIT for s in item["sources"])
+            for item in briefing["items"]
+        ))
+        self.assertTrue(any(
+            "Tsunoda appeal" in item["title"]
+            and "no later FIA decision was found" in item["summary"]
+            and any(s["url"] == content_qatar.FIA_APPEAL_HEARING for s in item["sources"])
+            and any(s["url"] == content_qatar.FIA_ITALY_DOC69 for s in item["sources"])
+            and any(s["url"] == content_qatar.FIA_VEGAS_DOC66 for s in item["sources"])
+            for item in briefing["items"]
+        ))
+        self.assertTrue(any(
+            "FIA competition visa confirms" in item["summary"]
+            and any(s["url"] == content_qatar.FIA_QATAR_VISA for s in item["sources"])
+            and any(s["url"] == content_qatar.FIA_QATAR_TYRE_NOTES for s in item["sources"])
             for item in briefing["items"]
         ))
         self.assertNotIn(
@@ -311,6 +334,7 @@ class GPParityTests(unittest.TestCase):
 
         self.assertIn(content_las_vegas.VERSTAPPEN_FP3_SUMMONS, body)
         self.assertIn("outcome remains unresolved", body)
+        self.assertIn("current 66-document event listing", body)
         self.assertIn("Document 37's Turn 14 warning", body)
         self.assertIn("Document 38's separate Turn 17", body)
         self.assertEqual(

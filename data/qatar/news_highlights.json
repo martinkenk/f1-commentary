@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-25T16:52:50Z",
-  "expires_at": "2026-11-25T21:52:50Z",
+  "reviewed_at": "2026-11-25T19:38:04Z",
+  "expires_at": "2026-11-26T07:00:00Z",
   "through_session": null,
   "feed_fingerprint": "2a9dc9d61319b769dbb2e43b89cce769a19787fed36eb5a0553244dce6db3081",
   "items": [
@@ -25,7 +25,7 @@
       "topic": "Tyre strategy and stint limit",
       "title": "Qatar's 27-lap cap; official F1 reports conflict on set totals",
       "date": "2026-11-25",
-      "summary": "Two Formula1.com articles published on 25 November give different per-driver allocations: the 10:05 UTC guide says 2 C1 Hard, 3 C2 Medium and 8 C3 Soft, with an extra Soft reserved for Q3; the 10:43 UTC explainer says each driver gets 13 sets (2 C1, 4 C2, 7 C3). Pirelli's 24 November release confirms the compounds and 27-lap cap, but not set totals. The newly retrieved FIA 24 November competition visa confirms 57 race laps over 5.419 km and race start at 19:00 local. Pirelli's reported counting rules include Safety Car and Virtual Safety Car laps; all race laps from start signal to chequered flag count, an unfinished lap in other sessions counts in full, mixed-mileage sets take the higher count, and reconnaissance, formation and post-race laps are excluded.",
+      "summary": "Two Formula1.com articles published on 25 November give different per-driver allocations: the 10:05 UTC guide says 2 C1 Hard, 3 C2 Medium and 8 C3 Soft, with an extra Soft reserved for Q3; the 10:43 UTC explainer says each driver gets 13 sets (2 C1, 4 C2, 7 C3). Pirelli's 24 November release confirms the compounds and 27-lap cap, but not set totals. The FIA competition visa confirms 57 race laps over 5.419 km and a 19:00 local start. Its separate Pirelli competition notes prescribe C1 and C2 as mandatory race tyres, C3 for Q3, and 27 laps per set across tyre history; they do not state the conflicting per-driver allocation. Pirelli's reported counting rules include Safety Car and Virtual Safety Car laps; all race laps from start signal to chequered flag count, an unfinished lap in other sessions counts in full, mixed-mileage sets take the higher count, and reconnaissance, formation and post-race laps are excluded.",
       "why_it_matters": "Do not present a single per-driver inventory as settled: cite the competing official reports until clarified. The 27-lap cap and FIA/Pirelli prescription are separately reviewed, but exact remaining-set counts still require a post-qualifying official chart.",
       "sources": [
         {
@@ -45,8 +45,45 @@
           "url": "https://www.formula1.com/en/latest/article/explained-why-theres-a-27-lap-limit-on-tyres-for-the-qatar-grand-prix.4oeu38BqJh1h7llxUeILBe"
         },
         {
+          "label": "FIA Qatar Competition Notes - Pirelli Preview, Doc 2, page 2",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
+        },
+        {
+          "label": "FIA Qatar Competition Visa",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
+        },
+        {
           "label": "Coffee Corner Motorsport, 24 November secondary preview (context only; no FIA counting rule inferred)",
           "url": "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
+        }
+      ]
+    },
+    {
+      "topic": "Italian GP appeal",
+      "title": "FIA lists Audi's Tsunoda appeal; decision not yet published",
+      "date": "2026-11-25",
+      "summary": "The FIA scheduled a closed International Court of Appeal hearing in Paris for 09:00 local time on 25 November on Audi's appeal of Italian GP Document 69, where stewards took no further action after the extra formation lap. The public notice says a decision will be published after the hearing; as checked at 19:38 UTC, no later FIA decision was found. Las Vegas Document 66's championship-points paper also notes Audi's appeal. Formula1.com currently lists Antonelli 402 / Verstappen 304 and Mercedes 666 / Ferrari 517 after round 21.",
+      "why_it_matters": "The hearing notice does not impose a penalty or change the points table. Do not infer a result; refresh standings and re-evaluate the appeal only if the Court publishes a decision.",
+      "sources": [
+        {
+          "label": "FIA International Court of Appeal hearing notice, Case ICA-2026-14",
+          "url": "https://www.fia.com/news/international-court-appeal-hearing-november-25-2026"
+        },
+        {
+          "label": "FIA Italian Grand Prix Document 69",
+          "url": "https://www.fia.com/system/files/decision-document/2026_italian_grand_prix_-_decision_-_car_22_-_alleged_start_procedure_infringement.pdf"
+        },
+        {
+          "label": "FIA Las Vegas Grand Prix Document 66, Championship Points",
+          "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_championship_points.pdf"
+        },
+        {
+          "label": "Formula1.com driver standings",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        },
+        {
+          "label": "Formula1.com team standings",
+          "url": "https://www.formula1.com/en/results/2026/team"
         }
       ]
     },
