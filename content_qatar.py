@@ -35,6 +35,7 @@ CAMARA_QATAR_ANNOUNCEMENT = (
     "haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026."
     "2wYY9ymhyqr7rXcuK6S7bj"
 )
+FIA_QATAR_VISA = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
 PEREZ_PENALTY_ARTICLE = (
     "https://www.formula1.com/en/latest/article/"
     "perez-hit-with-five-place-penalty-in-qatar-after-camara-clash-during-las-vegas-grand-prix."
@@ -136,8 +137,8 @@ remaining-set counts.
 <p>On 24 November, Pirelli announced a maximum 27-lap stint per set, agreed
 with the FIA, and said the race will require at least two stops. At the full
 scheduled 57-lap distance, two sets cover only 54 laps. The official event
-document listing remains unavailable, so its Qatar-specific prescriptions
-have not been independently reviewed.
+documents dated 24 November confirm the 27-lap Qatar prescription and are
+listed below with their FIA screenshots.
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
 <p>Formula1.com's 25 November explainer quotes Pirelli's counting details:
 the 27-lap maximum is cumulative across sessions, including Safety Car and
@@ -145,16 +146,15 @@ Virtual Safety Car laps; all race laps from the start signal to the
 chequered flag count. In other track sessions, a lap started but not
 completed counts as a full lap, and a set assembled from tyres with
 different mileage takes the higher mileage. Reconnaissance, formation and
-post-race laps are excluded. This is Formula1.com's report of Pirelli's
-rule, not an independent transcription from the unavailable Qatar FIA event
-listing.
+post-race laps are excluded. This report is consistent with the separately
+reviewed 27-lap FIA/Pirelli Qatar prescription.
 <a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com, 25 November explainer</a>.</p>
 <p>Pirelli's linked event infographic lists slick minimum starting / expected
 stabilized running pressures of 29.0 / &gt;=30.0 psi* at the front and
 27.5 / &gt;=28.5 psi* at the rear, with EOS camber limits of -2.75 degrees
 front and -1.50 degrees rear. The asterisk says these pressure values are
 subject to change after FP2. These are Pirelli preview figures, not a
-transcription from the unavailable FIA event listing. The same graphic lists
+transcription from the FIA event listing. The same graphic lists
 an average pit-stop loss of 26.5 seconds; do not present it as a stationary
 wheel-change duration.</p>
 <p>Pirelli F1 chief engineer Simone Berra's earlier Motorsport.com interview
@@ -212,6 +212,12 @@ driver-by-driver race-set inventory.
     pages["notes"]["body"] = nomination + strategy + pages["notes"]["body"]
     pages["schedule"]["body"] += f"""
 <h2 class="sec">Support-race and car-presentation watch</h2>
+<p>The FIA competition visa dates the race for 29 November 2026 at 19:00
+local (16:00 Tallinn), lists Lusail's lap length as 5.419 km and confirms
+57 race laps. The FIA stewards are Garry Connelly and Mathieu Remmerie.
+The timetable remains subject to the stewards' approval and published
+appendices.
+<a href="{FIA_QATAR_VISA}">FIA 2026 Qatar competition visa</a>.</p>
 <p>The Formula1.com timetable lists F1 car presentation on Friday 15:00–16:00
 local (14:00–15:00 Tallinn). F2 qualifying follows FP1 at 18:00 Friday
 (17:00 Tallinn); its Sprint is Saturday 19:15 (18:15 Tallinn), and its

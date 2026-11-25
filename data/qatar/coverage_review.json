@@ -1,0 +1,8 @@
+{
+  "reviewed_at": "2026-11-25T14:02:15Z",
+  "basis": "Visually reviewed both revised FIA Qatar screenshots: the Pirelli preview confirms C1/C2/C3 nominations, mandatory qualifying/race sets, 27-lap limit and Qatar pressure/camber prescriptions; the competition visa confirms the 24 November-dated Qatar event information, 5.419 km lap, 57-lap race, 19:00 local start and official roles.",
+  "fia_sha256": {
+    "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview.pdf": "f21987bcdb1bbcbfc007c06a5b7cbd17a2efb40f82821cae5ad0a1eb0ad79751",
+    "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf": "f2f0cba8043496bdd3ded69014782ca854c9ee8930f4ce34dc1b1a13909134af"
+  }
+}
