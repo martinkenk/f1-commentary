@@ -67,7 +67,7 @@ function metric(label, value, detail, cls) {
 }
 function render(data) {
   snapshot = data;
-  const clock = data.scheduler || {}, latest = data.latest || {};
+  const clock = data.scheduler || {}, latest = data.latest || {}, audit = clock.editorial_audit || {};
   const timer = data.units["f1-calendar.timer"] || {}, worker = data.units["f1-watchdog.service"] || {};
   const active = ["active", "activating"].includes(worker.ActiveState);
   const queued = data.tasks.filter(job => job.status === "queued").length;
@@ -77,9 +77,9 @@ function render(data) {
       `Last tick ${stamp(clock.checked_at)}`, timer.ActiveState === "active" && !data.scheduler_stale ? "good" : "bad"),
     metric("REPAIR WORKER", active ? "Agent running" : "Standby", active ? `Started ${stamp(latest.started_at)}` : `Last run ${stamp(last?.finished_at)}`,
       active ? "warn" : ""),
-    metric("COVERAGE ATTENTION", String((clock.coverage_findings || []).length),
-      `${(clock.pending || []).length} pending deadlines / ${(clock.errors || []).length} clock errors`,
-      (clock.errors || []).length ? "warn" : "good"),
+    metric("EDITORIAL REVIEW", audit.status || "Not scheduled",
+      `Last reviewed ${stamp(audit.last_reviewed_at)} / due ${stamp(audit.next_due)}`,
+      !audit.last_reviewed_at || (clock.errors || []).length ? "warn" : "good"),
     metric("AGENT QUEUE", String(queued), `${data.preferences?.audit_only ? "Read-only" : "Publish when safe"} / serialized writers`, queued ? "warn" : "")
   );
   const blockers = [...data.errors, ...(clock.errors || [])];
@@ -104,7 +104,8 @@ function render(data) {
   $("latest-summary").textContent = latest.summary || latest.error || latest.publication_deferred || "No completed report yet.";
   $("latest-meta").replaceChildren();
   [["Started", stamp(latest.started_at)], ["Finished", stamp(latest.finished_at)], ["Policy", latest.mode],
-    ["Conversation", latest.session_id]].forEach(([key, value]) => {
+    ["Conversation", latest.session_id], ["Audit targets", (audit.targets || []).join(", ")],
+    ["Audit status", audit.status], ["Audit deadline", stamp(audit.deadline)]].forEach(([key, value]) => {
     $("latest-meta").append(node("dt", key), node("dd", value || "Not recorded"));
   });
   $("findings").replaceChildren();

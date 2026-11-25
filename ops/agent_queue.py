@@ -68,6 +68,24 @@ def enqueue(state, prompt, mode="publish", title="", resume_run=None):
         return job
 
 
+def enqueue_editorial(state, gps, prompt):
+    """Create at most one outstanding automatic editorial review."""
+    with locked(state):
+        records = jobs(state)
+        existing = next((job for job in records if job.get("kind") == "editorial_audit"
+                         and job["status"] in ("queued", "running", "waiting_publication")), None)
+        if existing:
+            return existing
+        if sum(job["status"] in ("queued", "running") for job in records) >= 25:
+            raise ValueError("Queue is full (25 outstanding jobs); editorial audit was not queued")
+        job = {"id": uuid.uuid4().hex, "title": "Scheduled editorial review",
+               "prompt": prompt, "mode": "publish", "resume_run": None,
+               "kind": "editorial_audit", "gps": gps, "status": "queued",
+               "created_at": now()}
+        save(state / "tasks" / (job["id"] + ".json"), job)
+        return job
+
+
 def update(state, identity, **values):
     if not isinstance(identity, str) or not JOB_ID.fullmatch(identity):
         raise ValueError("Invalid task ID")

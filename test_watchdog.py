@@ -6,10 +6,60 @@ import tempfile
 import unittest
 from unittest.mock import Mock, call, patch
 
-from ops import watchdog
+from ops import agent_queue, publication_followup, watchdog
 
 
 class WatchdogTests(unittest.TestCase):
+    def test_scheduled_fix_waits_for_independent_publication_verification(self):
+        import build
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            job = agent_queue.enqueue_editorial(state, ["qatar"], "Audit Qatar")
+
+            def command(args, **kwargs):
+                value = "main\n" if args[:3] == ["git", "branch", "--show-current"] else ""
+                return subprocess.CompletedProcess(args, 0, value, "")
+
+            def agent(args, log, timeout):
+                (log.parent / "report.json").write_text(json.dumps({
+                    "status": "fixed", "summary": "Change complete",
+                    "findings": [], "changes": ["Corrected source"], "remaining": [],
+                    "sources": ["https://www.fia.com/"], "commit": "a" * 40,
+                    "editorial_review": [{"gp": "qatar",
+                        "pages": [item[0] for item in build.nav("")],
+                        "sources": ["https://www.fia.com/"]}],
+                }))
+                return 0
+
+            with patch.object(watchdog, "STATE", state), \
+                 patch.object(watchdog, "command", side_effect=command), \
+                 patch.object(watchdog, "recent_runs", return_value=[]), \
+                 patch.object(watchdog, "run_agent", side_effect=agent):
+                self.assertEqual(watchdog.run(), 0)
+            task = json.loads((state / "tasks" / (job["id"] + ".json")).read_text())
+            report = json.loads((state / "runs" / task["run_id"] / "report.json").read_text())
+            self.assertEqual(task["status"], "waiting_publication")
+            self.assertTrue(publication_followup.pending_report(report))
+
+    def test_editorial_success_requires_each_page_sources_and_no_remaining_work(self):
+        import build
+        pages = [item[0] for item in build.nav("")]
+        report = {"remaining": [], "editorial_review": [
+            {"gp": "qatar", "pages": pages, "sources": ["https://www.fia.com/"]}]}
+        watchdog.validate_editorial_review(report, ["qatar"])
+        with self.assertRaisesRegex(ValueError, "page reviews"):
+            watchdog.validate_editorial_review(report, ["qatar", "las-vegas"])
+        report["editorial_review"][0]["pages"] = pages[:-1]
+        with self.assertRaisesRegex(ValueError, "page reviews"):
+            watchdog.validate_editorial_review(report, ["qatar"])
+        report["editorial_review"][0]["pages"] = pages
+        report["editorial_review"][0]["sources"] = []
+        with self.assertRaisesRegex(ValueError, "source evidence"):
+            watchdog.validate_editorial_review(report, ["qatar"])
+        report["remaining"] = ["FIA document unavailable"]
+        with self.assertRaisesRegex(ValueError, "outstanding work"):
+            watchdog.validate_editorial_review(report, ["qatar"])
+
     def test_only_old_queued_runs_with_zero_jobs_stop_blocking_recovery(self):
         now = dt.datetime(2026, 11, 23, tzinfo=dt.timezone.utc)
         runs = [{"id": i, "name": "Build & deploy to GitHub Pages",

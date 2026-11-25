@@ -37,6 +37,7 @@ hourly `f1-watchdog.timer` must remain disabled.
 | Expected durations | Practice/qualifying 60 min, Sprint Qualifying 45, Sprint 30, race 120; final grid from qualifying end |
 | Delayed results | Continue until a validated classification is visible live; after six overdue hours back off to 15-minute polling |
 | Source/editorial gaps | Deterministic retries hourly, then bounded AI repair when permitted; never invent missing information |
+| Editorial review | Durable scheduled task for the previous GP and upcoming GP within ten days; every six hours, or hourly within 48 hours of a race |
 | Host heartbeat | Update health issue at least every 30 minutes; independent GitHub job alerts after 90 minutes without a heartbeat |
 
 Session durations are estimates, not declarations that a red-flagged session
@@ -50,6 +51,17 @@ build's bot data commit can conflict with the next build's generated timestamps.
 The 30-minute collection-to-deadline margin accommodates the existing two
 ten-minute Pages deployment attempts; a real smoke deployment exercised that
 timeout/retry path. It is not a guarantee against a prolonged GitHub outage.
+
+Scheduled editorial reviews use the same serialized agent queue as operator jobs.
+They compare all 17 pages with current source evidence and repair verified gaps.
+A successful report must list all page slugs and HTTPS sources for each target,
+and must have no remaining work. These are agent-reported receipts, not proof
+that every omission was detected. Failed, blocked or interrupted reviews retry
+after an hour, preserving prior work; publication waits are verified separately.
+The dashboard and external heartbeat expose the last completed review and its
+deadline. A fresh calendar heartbeat alone is not proof of editorial freshness.
+The latest failed publisher also escalates to the agent rather than repeatedly
+dispatching the same broken publisher.
 
 Every build publishes `/automation-health.json`: validated classification
 fingerprints, collector outcomes, news review status, expected FIA/Pirelli/tyre

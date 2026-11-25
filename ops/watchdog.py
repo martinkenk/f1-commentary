@@ -218,6 +218,29 @@ def incomplete_report(status):
     }
 
 
+def validate_editorial_review(report, gps):
+    """Require a source and page-level audit record, not just a success label."""
+    import build
+    if report.get("remaining"):
+        raise ValueError("Scheduled editorial audit still has outstanding work")
+    expected_pages = {item[0] for item in build.nav("")}
+    reviews = report.get("editorial_review")
+    if not isinstance(reviews, list):
+        raise ValueError("Scheduled editorial audit requires editorial_review evidence")
+    by_gp = {item["gp"]: item for item in reviews
+             if isinstance(item, dict) and isinstance(item.get("gp"), str)}
+    for gp in gps:
+        item = by_gp.get(gp)
+        if (not item or not isinstance(item.get("pages"), list)
+                or not all(isinstance(page, str) for page in item["pages"])
+                or not expected_pages.issubset(item["pages"])):
+            raise ValueError(f"Scheduled editorial audit lacks all page reviews for {gp}")
+        sources = item.get("sources")
+        if not isinstance(sources, list) or not sources or not all(
+                isinstance(url, str) and url.startswith("https://") for url in sources):
+            raise ValueError(f"Scheduled editorial audit lacks HTTPS source evidence for {gp}")
+
+
 def run(audit_only=False, timeout=2700):
     if timeout <= 0:
         raise ValueError("Watchdog timeout must be positive")
@@ -243,6 +266,8 @@ def run(audit_only=False, timeout=2700):
             if task:
                 status["task_id"] = task["id"]
                 status["task_title"] = task["title"]
+                if task.get("kind") == "editorial_audit":
+                    status["kind"] = "editorial_audit"
                 audit_only = audit_only or task["mode"] == "read_only"
             previous = json.loads(latest_path.read_text()) if latest_path.exists() else None
             preferred_audit, guidance = operator_settings(STATE)
@@ -344,6 +369,16 @@ def run(audit_only=False, timeout=2700):
                         '"resolution_basis" in the final fixed report. Only resolve the original '
                         "run if all its requested work is complete; pending publication or "
                         "partial fixes must not resolve it. Original evidence is preserved.\n")
+                if task.get("kind") == "editorial_audit":
+                    prompt += (
+                        "\nThis is a scheduled editorial audit, not a narrow operator task. "
+                        "Perform the complete active-event source and 17-page review in the runbook. "
+                        "For each requested GP, include in report.json an editorial_review entry "
+                        'with {"gp": "slug", "pages": ["overview", ...], "sources": '
+                        '["https://..."]}. List all 17 page slugs actually reviewed and the '
+                        "specific source URLs actually checked. Never claim pages or sources were "
+                        "reviewed when they were not. If the review is incomplete or sources are "
+                        "unavailable, report blocked with the remaining work, not healthy.\n")
             prompt += budget_instructions(started, timeout)
             remaining = timeout - (dt.datetime.now(dt.timezone.utc) - started).total_seconds()
             if remaining <= 0:
@@ -386,6 +421,17 @@ def run(audit_only=False, timeout=2700):
             for field in ("summary", "findings", "changes", "remaining", "sources"):
                 if field not in report:
                     raise ValueError(f"Agent report is missing {field}")
+            if (task and task.get("kind") == "editorial_audit"
+                    and (report["status"] in ("healthy", "fixed")
+                         or publication_followup.pending_report(report))):
+                validate_editorial_review(report, task["gps"])
+                if report["status"] == "healthy" and report["changes"]:
+                    raise ValueError("Editorial audit with changes must report a verified fix")
+                if report["status"] == "fixed":
+                    if not publication_followup.SHA.fullmatch(report.get("commit") or ""):
+                        raise ValueError("Editorial fix requires its full publication commit")
+                    report["publication_verification_required"] = True
+                    write_json(result_path, report)
             status["status"] = report["status"]
             if not writable and status["status"] != "blocked":
                 status["status"] = "read_only"

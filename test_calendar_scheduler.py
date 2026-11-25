@@ -7,7 +7,7 @@ from unittest.mock import patch
 
 import coverage_health as health
 from ops import calendar_scheduler as scheduler
-from ops import check_heartbeat
+from ops import agent_queue, check_heartbeat
 
 UTC = dt.timezone.utc
 
@@ -33,6 +33,105 @@ def live(now):
 
 
 class CalendarTests(unittest.TestCase):
+    def test_scheduled_audit_is_durable_deduplicated_and_retried(self):
+        now = at("2026-11-06T12:00")
+        with tempfile.TemporaryDirectory() as directory, \
+             patch.object(scheduler, "STATE", Path(directory)), \
+             patch.object(agent_queue, "now", return_value=now.isoformat()):
+            state = {"errors": []}
+            first = scheduler.editorial_audit(state, [context()], now, False)
+            self.assertEqual(first["targets"], ["brazil"])
+            self.assertEqual(first["interval_hours"], 1)
+            self.assertEqual(first["status"], "queued")
+            self.assertTrue(state["errors"])
+            scheduler.editorial_audit({"errors": []}, [context()], now, False)
+            self.assertEqual(len(agent_queue.jobs(Path(directory))), 1)
+            agent_queue.update(Path(directory), first["task_id"], status="blocked",
+                               run_id="20261106T120000Z", finished_at=now.isoformat())
+            scheduler.editorial_audit({"errors": []}, [context()], now + dt.timedelta(minutes=59), False)
+            self.assertEqual(len(agent_queue.jobs(Path(directory))), 1)
+            later = now + dt.timedelta(hours=1)
+            with patch.object(agent_queue, "now", return_value=later.isoformat()):
+                second = scheduler.editorial_audit({"errors": []}, [context()], later, False)
+            self.assertNotEqual(first["task_id"], second["task_id"])
+            self.assertIn("prior run 20261106T120000Z", agent_queue.jobs(Path(directory))[-1]["prompt"])
+
+    def test_successful_audit_freshness_and_failed_followup(self):
+        now = at("2026-11-06T12:00")
+        with tempfile.TemporaryDirectory() as directory, \
+             patch.object(scheduler, "STATE", Path(directory)), \
+             patch.object(agent_queue, "now", return_value=now.isoformat()):
+            state = {"errors": []}
+            audit = scheduler.editorial_audit(state, [context()], now, False)
+            agent_queue.update(Path(directory), audit["task_id"], status="healthy",
+                               finished_at=now.isoformat())
+            state = {"errors": []}
+            audit = scheduler.editorial_audit(state, [context()], now + dt.timedelta(minutes=30), False)
+            self.assertEqual(audit["last_reviewed_at"], now.isoformat())
+            self.assertFalse(state["errors"])
+            later = now + dt.timedelta(hours=1)
+            with patch.object(agent_queue, "now", return_value=later.isoformat()):
+                audit = scheduler.editorial_audit({"errors": []}, [context()], later, False)
+                agent_queue.update(Path(directory), audit["task_id"], status="failed",
+                                   finished_at=later.isoformat())
+            with patch.object(agent_queue, "now", return_value=(later + dt.timedelta(hours=1)).isoformat()):
+                audit = scheduler.editorial_audit({"errors": []}, [context()], later + dt.timedelta(hours=1), False)
+            self.assertEqual(audit["status"], "queued")
+            self.assertEqual(len(agent_queue.jobs(Path(directory))), 3)
+
+    def test_failed_publication_of_audit_is_retried_without_forgetting_prior_work(self):
+        now = at("2026-11-06T12:00")
+        with tempfile.TemporaryDirectory() as directory, \
+             patch.object(scheduler, "STATE", Path(directory)), \
+             patch.object(agent_queue, "now", return_value=now.isoformat()):
+            path = Path(directory)
+            audit = scheduler.editorial_audit({"errors": []}, [context()], now, False)
+            run_id = "20261106T120000Z"
+            run = path / "runs" / run_id
+            run.mkdir(parents=True)
+            (run / "report.json").write_text(json.dumps({"commit": "a" * 40}))
+            agent_queue.update(path, audit["task_id"], status="waiting_publication",
+                               run_id=run_id, finished_at=now.isoformat())
+            failed = [{"id": 123, "head_sha": "a" * 40, "status": "completed",
+                       "conclusion": "failure", "html_url": "https://github.com/run"}]
+            state = {"errors": []}
+            later = now + dt.timedelta(hours=1)
+            with patch.object(agent_queue, "now", return_value=later.isoformat()):
+                audit = scheduler.editorial_audit(state, [context()], later, False, failed)
+            self.assertEqual(audit["status"], "queued")
+            self.assertEqual(agent_queue.jobs(path)[0]["status"], "blocked")
+            self.assertIn(run_id, agent_queue.jobs(path)[1]["prompt"])
+
+    def test_latest_failed_publisher_is_not_hidden_by_older_success(self):
+        runs = [{"id": 2, "status": "completed", "conclusion": "failure"},
+                {"id": 1, "status": "completed", "conclusion": "success"}]
+        self.assertEqual(scheduler.latest_publisher_failure(runs)["id"], 2)
+        runs.insert(0, {"id": 3, "status": "completed", "conclusion": "success"})
+        self.assertIsNone(scheduler.latest_publisher_failure(runs))
+
+    def test_failed_publisher_escalates_to_agent_instead_of_dispatching_again(self):
+        now = at("2026-11-06T12:00")
+        failed = {"id": 123, "status": "completed", "conclusion": "failure",
+                  "html_url": "https://github.com/run"}
+        evidence = live(now)
+        evidence["findings"] = [{"gp": "brazil", "kind": "editorial", "message": "Needs review"}]
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)
+            (path / "preferences.json").write_text('{"health_issue":115}')
+            with patch.object(scheduler, "STATE", path), \
+                 patch.object(scheduler, "checked", return_value="") as checked, \
+                 patch("build.season_gps", return_value=[]), \
+                 patch.object(scheduler, "fetch_json", return_value=evidence), \
+                 patch.object(scheduler, "api", return_value={"workflow_runs": [failed]}), \
+                 patch.object(scheduler, "heartbeat"), \
+                 patch.object(scheduler, "dispatch") as dispatch:
+                scheduler.tick(now)
+            dispatch.assert_not_called()
+            self.assertTrue(any(call.args[0][:4] == ["systemctl", "--user", "start", "--no-block"]
+                                for call in checked.call_args_list))
+            request = json.loads((path / "repair-request.json").read_text())
+            self.assertEqual(request["failed_publisher"]["id"], 123)
+
     def test_completed_check_with_editorial_findings_is_attention_not_service_failure(self):
         now = at("2026-11-06T12:00")
         evidence = live(now)
@@ -315,6 +414,17 @@ class CalendarTests(unittest.TestCase):
 
 
 class HealthTests(unittest.TestCase):
+    def test_independent_monitor_checks_editorial_deadline(self):
+        now = at("2026-11-06T09:00")
+        record = {"heartbeat_at": now.isoformat(), "execution_errors": [], "errors": [],
+                  "editorial_audit": {"targets": ["brazil"], "deadline": (now - dt.timedelta(minutes=1)).isoformat()}}
+        body = "```json\n" + json.dumps(record) + "\n```"
+        self.assertIn("Editorial audit is overdue", check_heartbeat.assess(body, now))
+        record["editorial_audit"]["deadline"] = (now + dt.timedelta(hours=1)).isoformat()
+        record["errors"] = ["Latest publication failed (failure): https://github.com/run"]
+        body = "```json\n" + json.dumps(record) + "\n```"
+        self.assertIn("failed publisher", check_heartbeat.assess(body, now))
+
     def test_no_times_evidence_requires_the_current_review_digest(self):
         ctx = context()
         outcome = {"state": "no_times", "reviewed_at": "2026-11-06T15:00:00+00:00",

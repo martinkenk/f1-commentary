@@ -13,11 +13,87 @@ sys.path.insert(0, str(ROOT))
 
 import coverage_health as health
 import session_results
-from ops import watchdog
+from ops import agent_queue, watchdog
 
 STATE = watchdog.STATE
 UTC = dt.timezone.utc
 LIVE = "https://martinkenk.github.io/f1-commentary/automation-health.json"
+
+
+def editorial_targets(gps, now):
+    races = [(session_results.session_start(ctx, "Race"), ctx) for ctx in gps]
+    races = sorted(((race, ctx) for race, ctx in races if race), key=lambda row: row[0])
+    previous = [ctx for race, ctx in races if race <= now]
+    upcoming = [(race, ctx) for race, ctx in races if now < race <= now + dt.timedelta(days=10)]
+    selected = previous[-1:] + ([upcoming[0][1]] if upcoming else [])
+    urgent = any(abs((start - now).total_seconds()) <= 48 * 3600
+                 for ctx in selected for label, _ in session_results.f1lib.RESULT_SESSIONS
+                 if (start := session_results.session_start(ctx, label)))
+    return [ctx["dir"] for ctx in selected], dt.timedelta(hours=1 if urgent else 6)
+
+
+def editorial_audit(state, gps, now, audit_only, runs=()):
+    targets, interval = editorial_targets(gps, now)
+    records = [job for job in agent_queue.jobs(STATE) if job.get("kind") == "editorial_audit"
+               and set(targets).issubset(job.get("gps", []))]
+    latest = records[-1] if records else None
+    if latest and latest.get("status") == "waiting_publication":
+        run_id = latest.get("run_id", "")
+        if agent_queue.RUN_ID.fullmatch(run_id):
+            report = health.read(STATE / "runs" / run_id / "report.json")
+            commit = report.get("commit")
+            matching = [run for run in runs if commit and run.get("head_sha") == commit]
+            if matching and matching[0].get("status") == "completed" and matching[0].get("conclusion") == "failure":
+                latest = agent_queue.update(
+                    STATE, latest["id"], status="blocked",
+                    error=f"Editorial fix deployment failed: {matching[0].get('html_url', matching[0].get('id'))}")
+    valid = [job for job in records if job.get("status") in ("healthy", "fixed")
+             and set(targets).issubset(job.get("gps", [])) and job.get("finished_at")]
+    last_good = valid[-1] if valid else None
+    last_at = health.timestamp(last_good["finished_at"]) if last_good else None
+    due = (last_at + interval if last_at else
+           health.timestamp(latest["created_at"]) if latest else now)
+    outstanding = latest and latest.get("status") in ("queued", "running", "waiting_publication")
+    retry_at = (health.timestamp(latest["finished_at"]) + dt.timedelta(hours=1)
+                if latest and latest.get("finished_at") and latest.get("status") not in
+                ("healthy", "fixed", "queued", "running", "waiting_publication") else None)
+    if retry_at and (not last_good or latest["created_at"] > last_good["created_at"]):
+        due = min(due, retry_at)
+    if targets and now >= due and not outstanding and not audit_only and (not retry_at or now >= retry_at):
+        recovery = ""
+        if latest and latest.get("status") not in ("healthy", "fixed") and latest.get("run_id"):
+            recovery = (f" First inspect retained work and report for prior run {latest['run_id']}; "
+                        "verify prior publication and finish outstanding work without resetting or duplicating it.")
+        prompt = (
+            f"Review current official sources and all 17 live pages for: {', '.join(targets)}. "
+            "Compare source documents, results, figures and page content; repair verified gaps, "
+            "test and publish safely, and verify live publication. Record inaccessible sources "
+            "and unfinished work explicitly." + recovery)
+        latest = agent_queue.enqueue_editorial(STATE, targets, prompt)
+        outstanding = True
+    deadline = (due + max(interval, dt.timedelta(hours=2)) if last_at else
+                health.timestamp(latest["created_at"]) + dt.timedelta(hours=2) if latest else now)
+    result = {"targets": targets, "interval_hours": interval.total_seconds() / 3600,
+              "last_reviewed_at": last_good.get("finished_at") if last_good else None,
+              "next_due": due.isoformat(), "deadline": deadline.isoformat(),
+              "status": latest.get("status", "not_scheduled") if latest else "not_scheduled",
+              "task_id": latest.get("id") if latest else None,
+              "run_id": latest.get("run_id") if latest else None,
+              "not_before": latest.get("not_before") if latest else None,
+              "summary": (latest.get("summary") or latest.get("error")) if latest else None}
+    if targets and (not last_good or now >= deadline or
+                    (latest and latest.get("status") in ("blocked", "failed", "agent_failed",
+                                                          "timed_out", "interrupted", "read_only"))):
+        state["errors"].append("Editorial audit incomplete or overdue; see scheduled review task")
+    return result
+
+
+def latest_publisher_failure(runs):
+    completed = [run for run in runs if run.get("status") == "completed"
+                 and run.get("conclusion") not in ("cancelled", "skipped", None)]
+    if completed and completed[0]["conclusion"] != "success":
+        return completed[0]
+    return None
 
 
 def checked(args, timeout=60):
@@ -206,7 +282,8 @@ def heartbeat(state, preferences, now):
                "execution_errors": state["execution_errors"], "health_status": state["health_status"],
                "pending": state.get("pending", []), "request": state.get("request"),
                "next": state.get("next", []),
-               "agent": state.get("agent"), "live_generated_at": state.get("live_generated_at")}
+               "agent": state.get("agent"), "live_generated_at": state.get("live_generated_at"),
+               "editorial_audit": state.get("editorial_audit")}
     body = ("Calendar scheduler health. Updated automatically; stale heartbeat is a failure, "
             "not a healthy idle state.\n\n```json\n" + json.dumps(payload, indent=2) + "\n```\n")
     endpoint = f"repos/{watchdog.REPOSITORY}/issues/{number}"
@@ -246,6 +323,11 @@ def tick(now=None):
             if run.get("stalled_unstarted"):
                 state["errors"].append(
                     f"Stalled publication queue has no jobs; allowing recovery: {run['html_url']}")
+        failed_publisher = latest_publisher_failure(runs)
+        if failed_publisher:
+            state["errors"].append(
+                f"Latest publication failed ({failed_publisher['conclusion']}): "
+                f"{failed_publisher.get('html_url', failed_publisher.get('id'))}")
         from ops import publication_followup
         state["publication_verifications"] = publication_followup.reconcile(
             STATE, runs, live, gps, checked, now)
@@ -326,11 +408,13 @@ def tick(now=None):
         audit_only = preferences.get("audit_only", False)
         if audit_only:
             state["errors"].append("Operator read-only mode: dispatch and repair disabled")
+        state["editorial_audit"] = editorial_audit(
+            state, gps, now, audit_only or bool(preferences.get("agent_blocked_reason")), runs)
         retry_ready = not state.get("retry_after") or now >= health.timestamp(state["retry_after"])
         # Re-run the deterministic collectors before escalating stale source data to an agent.
         refresh_due = (actionable_findings and (not state.get("last_coverage_refresh") or
                        now - health.timestamp(state["last_coverage_refresh"]) >= dt.timedelta(hours=1)))
-        if not busy and not audit_only and retry_ready and (due or refresh_due):
+        if not busy and not audit_only and retry_ready and not failed_publisher and (due or refresh_due):
             priority = {"upgrades": 0, "pre": 1, "results": 2}
             chosen = min(due, key=lambda job: (priority[job["kind"]], job["deadline"])) if due else None
             mode = ({"upgrades": "upgrades", "pre": "pre-session", "results": "results"}
@@ -352,12 +436,17 @@ def tick(now=None):
                            for job in planned)
             last = state.get("agent_requested_at")
             cooldown = not last or now - health.timestamp(last) >= dt.timedelta(hours=1)
-            if (not busy and not audit_only and cooldown and (imminent or actionable_findings)
+            audit = state["editorial_audit"]
+            queued_audit = (audit["status"] == "queued" and
+                            (not audit["not_before"] or now >= health.timestamp(audit["not_before"])))
+            if (not audit_only and (queued_audit or
+                    (not busy and cooldown and (imminent or actionable_findings or failed_publisher)))
                     and checked(["systemctl", "--user", "show", "f1-watchdog.service",
                                  "--property=ActiveState", "--value"]) not in ("active", "activating")):
                 watchdog.write_json(STATE / "repair-request.json",
                                     {"requested_at": now.isoformat(), "findings": actionable_findings,
-                                     "pre_session": imminent, "pending": pending})
+                                     "pre_session": imminent, "pending": pending,
+                                     "failed_publisher": failed_publisher})
                 checked(["systemctl", "--user", "start", "--no-block", "f1-watchdog.service"])
                 state["agent_requested_at"] = now.isoformat()
     except (OSError, ValueError, KeyError, RuntimeError, subprocess.TimeoutExpired) as error:

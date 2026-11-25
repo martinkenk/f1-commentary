@@ -14,6 +14,8 @@ SHA = re.compile(r"[0-9a-f]{40}")
 def pending_report(report):
     if report.get("report_origin") == "wrapper_fallback":
         return False
+    if report.get("publication_verification_required") and SHA.fullmatch(report.get("commit") or ""):
+        return True
     summary = report.get("summary", "").lower()
     return (report.get("status") in ("blocked", "fixed")
             and SHA.fullmatch(report.get("commit") or "") is not None
