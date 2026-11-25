@@ -38,6 +38,13 @@ def explain(status, report=None):
                              "remain visible. An agent cannot bypass access restrictions or invent missing "
                              "evidence; recovery depends on source availability.",
                 "automatic": True, "action": None}
+    if (status.get("kind") == "editorial_audit"
+            and value in ("timed_out", "agent_failed", "failed", "interrupted", "blocked")):
+        return {"kind": "editorial_retry",
+                "cause": status.get("error") or status.get("summary") or "Editorial review did not finish.",
+                "next_step": "The scheduler will retry with the previous report and retained work when "
+                             "the cooldown has elapsed and operator policy permits.",
+                "automatic": True, "action": None}
     if value in ("timed_out", "agent_failed", "failed", "interrupted", "blocked"):
         return {"kind": "retained_work", "cause": status.get("error") or status.get("summary")
                 or report.get("summary") or "The agent did not finish its task.",

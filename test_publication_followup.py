@@ -33,6 +33,13 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(permission["action"], "terminal")
         timeout = run_recovery.explain({"status": "timed_out"})
         self.assertEqual(timeout["action"], "recover")
+        scheduled = run_recovery.explain({"status": "interrupted", "kind": "editorial_audit"})
+        self.assertTrue(scheduled["automatic"])
+        self.assertIn("scheduler will retry", scheduled["next_step"])
+        permission = run_recovery.explain({"status": "blocked", "kind": "editorial_audit",
+                                           "error": "Permission denied"})
+        self.assertFalse(permission["automatic"])
+
     def test_pending_publication_requires_explicit_commit_and_no_fallback(self):
         report = {"status": "blocked", "commit": "a" * 40,
                   "summary": "Repair pushed; deployment remains in progress."}
