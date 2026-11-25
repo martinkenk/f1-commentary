@@ -10,6 +10,9 @@ QATAR_TYRE_LIMIT = (
     "https://www.motorsport.com/f1/news/pirelli-introduces-stint-limit-for-f1-qatar-gp-but-increases-total-from-2025/10875950/"
 )
 QATAR_TYRE_STRATEGY = "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
+QATAR_TYRE_COUNTING = "https://coffeecornermotorsport.com/qatar-grand-prix-tyre-limit-2026/"
+QATAR_TRACK_MAP = "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632421/common/f1/2026/track/2026tracklusaildetailed.png"
+QATAR_TIMETABLE = "https://www.formula1.com/en/latest/article/formula-1-qatar-airways-qatar-grand-prix-2026.3XJyoYSnpJEcuZovstTdcG"
 QATAR_TYRE_PREVIEW = "pirelli-qatar-2026-preview.jpg"
 QATAR_TYRE_INFOGRAPHIC = "pirelli-qatar-2026-technical-preview.jpg"
 QATAR_2025_RACE = (
@@ -31,6 +34,16 @@ PEREZ_PENALTY_ARTICLE = (
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
+    circuit = f"""<h2 class="sec">2026 Straight Mode and Overtake</h2>
+<p>Formula1.com's 2026 circuit map marks four Straight Mode zones: between
+Turns 3–4, 11–12 and 15–16, and on the main straight. The separate Overtake
+detection and activation points are marked after Turn 16, before the run to
+Turn 1. Straight Mode is an active-aero setting; Overtake is an electrical
+power aid, not DRS. These locations are read from the published track map:
+precise distances, gap thresholds and low-grip variations still need the
+Qatar FIA event documents, whose listing has been unavailable.
+<a href="{QATAR_TRACK_MAP}">Formula1.com 2026 circuit map</a>.</p>"""
+    pages["circuit"]["body"] += circuit
     carryover = f"""<h2 class="sec">Verified Las Vegas carry-over</h2>
 <p><strong>Sergio Perez: five-place grid penalty at his next race.</strong>
 FIA Las Vegas Document 61 finds him wholly responsible for contact with
@@ -120,6 +133,22 @@ Coffee Corner Motorsport's independent 24 November preview says practice and
 qualifying laps consume each set's allowance. <a href="{QATAR_TYRE_STRATEGY}">Coffee
 Corner Motorsport, Qatar tyre preview</a> ·
 <a href="{PIRELLI_NOMINATION}">Pirelli compound selection and graphic, 13 November</a>.</p>"""
+    strategy = f"""<h2 class="sec">Two-stop examples — not a prediction</h2>
+<p>For a full 57-lap dry race, a fresh Medium / fresh Hard / fresh Medium
+could stop after laps 19 and 38: three 19-lap race stints. An early Safety
+Car stop after lap 7 could instead be followed by a stop after lap 34:
+7 / 27 / 23 laps, if each set has enough allowance left. These are arithmetic
+examples, not measured optimum windows or a claim that those sets remain
+available. A shortened race, Safety Car, rain, tyre wear or a changed rule
+can alter the plan; a dry race also requires two different slick compounds.</p>
+<p>Each set's earlier session use reduces its remaining allowance. Coffee
+Corner Motorsport reports that a started but unfinished non-race lap counts,
+and that a mixed-mileage set takes the highest tyre count; reconnaissance,
+formation and post-race laps are excluded. Verify those detailed counting
+rules against the FIA event documents when available, and use the post-Saturday
+official remaining-lap information before applying either example.
+<a href="{QATAR_TYRE_COUNTING}">Coffee Corner Motorsport counting report</a> ·
+<a href="{QATAR_TYRE_LIMIT}">Pirelli engineer on remaining laps</a>.</p>"""
     tyre_preview = f"""<figure class="circuit-fig">
 <img class="circuit-img tyre-preview-img" src="../assets/{QATAR_TYRE_PREVIEW}"
 alt="Pirelli's 2026 Qatar tyre selection: C1 Hard, C2 Medium and C3 Soft; C3 is mandatory for qualifying and C1 and C2 are mandatory for the race."
@@ -144,8 +173,16 @@ driver-by-driver race-set inventory.
         nomination,
         "bi-record-circle",
         "accent",
-    )
-    pages["notes"]["body"] = nomination + pages["notes"]["body"]
+    ) + strategy
+    pages["notes"]["body"] = nomination + strategy + pages["notes"]["body"]
+    pages["schedule"]["body"] += f"""
+<h2 class="sec">Support-race and car-presentation watch</h2>
+<p>The Formula1.com timetable lists F1 car presentation on Friday 15:00–16:00
+local (14:00–15:00 Tallinn). F2 qualifying follows FP1 at 18:00 Friday
+(17:00 Tallinn); its Sprint is Saturday 19:15 (18:15 Tallinn), and its
+Feature Race Sunday 15:00 (14:00 Tallinn). The F1 weekend is standard, not
+a Sprint weekend. Times are subject to change.
+<a href="{QATAR_TIMETABLE}">Official full timetable</a>.</p>"""
     pages["moments"]["body"] = pages["moments"]["body"].replace(
         content_generic.pending(
             "A curated moments list for this venue",

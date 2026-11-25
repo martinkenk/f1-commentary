@@ -477,7 +477,7 @@ CIRCUITS = {
         "key_corners": [
             ("Turn 1", "Heavy braking off the main straight; the main passing opportunity."),
             ("Turns 6–7", "Fast, sustained loading that generates the tyre stress the circuit is known for."),
-            ("Turns 12–14", "Quick final sequence onto the straight; exit speed sets up the DRS run."),
+            ("Turns 12–14", "Fast, sustained right-hand sequence leading into the final sector."),
         ],
         "overtaking": (
             "Moderate. The main straight offers a genuine chance, but the flowing middle "
@@ -492,7 +492,8 @@ CIRCUITS = {
         ),
         "tyre_compounds": ("C1 Hard", "C2 Medium", "C3 Soft"),
         "tyre_compounds_source": "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/",
-        "drs": 1,
+        "straight_mode_zones": 4,
+        "overtake_zones": 1,
         "lap_record": "1:22.384 — Lando Norris, 2024",
         "notes": [
             "First Grand Prix: 2021.",

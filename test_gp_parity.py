@@ -175,6 +175,25 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_qatar.PEREZ_PENALTY_ARTICLE, page)
         self.assertIn("This is not a Qatar ruling", page)
 
+    def test_qatar_map_strategy_and_timetable_keep_source_limits_explicit(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_qatar.build_pages(ctx, self.env)
+        circuit = pages["circuit"]["body"]
+        self.assertIn('4</div><div class="stat-lbl">Straight Mode zones', circuit)
+        self.assertIn('1</div><div class="stat-lbl">Overtake activation zones', circuit)
+        self.assertIn(content_qatar.QATAR_TRACK_MAP, circuit)
+        self.assertIn("precise distances, gap thresholds and low-grip variations", circuit)
+        self.assertNotIn("Legacy DRS zones", circuit)
+        self.assertNotIn("DRS run", circuit)
+        for slug in ("tyres", "notes"):
+            self.assertIn("7 / 27 / 23 laps", pages[slug]["body"])
+            self.assertIn("earlier session use reduces", pages[slug]["body"])
+            self.assertIn("not a prediction", pages[slug]["body"])
+            self.assertIn(content_qatar.QATAR_TYRE_COUNTING, pages[slug]["body"])
+        self.assertIn("F2 qualifying follows FP1", pages["schedule"]["body"])
+        self.assertIn(content_qatar.QATAR_TIMETABLE, pages["schedule"]["body"])
+
     def test_las_vegas_collision_summons_are_distinguished_from_final_ruling(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
         review_path = Path(__file__).parent / "data/las-vegas/coverage_review.json"
