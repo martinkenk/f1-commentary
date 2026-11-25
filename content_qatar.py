@@ -1,6 +1,10 @@
 """Verified carry-over information; local Qatar documents remain source-dependent."""
 import content_generic
-from content_las_vegas import PEREZ_PENALTY
+from content_las_vegas import (
+    FINAL_CLASSIFICATION,
+    HAMILTON_TRACK_LIMITS,
+    PEREZ_PENALTY,
+)
 from f1lib import card, render_penalties
 
 
@@ -34,6 +38,25 @@ CAMARA_QATAR_ANNOUNCEMENT = (
     "https://www.formula1.com/en/latest/article/"
     "haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026."
     "2wYY9ymhyqr7rXcuK6S7bj"
+)
+QATAR_RACE_WEEK_STORYLINES = (
+    "https://www.formula1.com/en/latest/article/"
+    "its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix."
+    "1bXINUYO8R8X3K7DjINr1A"
+)
+FERRARI_VASSEUR_REPORT = (
+    "https://www.formula1.com/en/latest/article/"
+    "its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-"
+    "unacceptable.5NGehhmEEtLqzDKxm7bi4z"
+)
+FIA_VEGAS_LECLERC_COLLISION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_las_vegas_grand_prix_-_infringement_-_car_16_-_causing_a_collision_with_car_44.pdf"
+)
+BEARMAN_HAAS_SEAT = (
+    "https://www.formula1.com/en/latest/article/"
+    "komatsu-insists-there-is-no-doubt-over-bearmans-2027-haas-seat-after-britons-"
+    "frustrations.1lCOdGv5mDv2FcqDshxnYB"
 )
 FIA_QATAR_VISA = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
 FIA_QATAR_POWER_UNIT = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_power_unit_information.pdf"
@@ -188,8 +211,48 @@ entry list or confirmation of FP1 substitutions.
 <a href="{CAMARA_QATAR_ANNOUNCEMENT}">Formula1.com, 22 November</a>.</p>""",
         "bi-person-badge", "accent",
     )
-    for slug in ("overview", "rookies", "teams", "notes"):
+    ferrari_story = card(
+        "Ferrari's Las Vegas tension carries into Qatar",
+        f"""<p>Formula1.com's 25 November Qatar preview also revisits the Ferrari
+collision in Las Vegas: Charles Leclerc hit team-mate Lewis Hamilton during
+their Turn 7 fight. FIA Document 60 found Leclerc wholly responsible and
+imposed a 10-second penalty; team principal Fred Vasseur described the
+incident as unacceptable. These are Las Vegas developments, not Qatar
+sanctions. The separate Hamilton Doc 54 / final Doc 65 footnote discrepancy
+remains unresolved on the Las Vegas pages.
+<a href="{QATAR_RACE_WEEK_STORYLINES}">Formula1.com Qatar preview</a> ·
+<a href="{FIA_VEGAS_LECLERC_COLLISION}">FIA Las Vegas Document 60</a> ·
+<a href="{FERRARI_VASSEUR_REPORT}">Vasseur's post-race comments</a> ·
+<a href="{HAMILTON_TRACK_LIMITS}">FIA Document 54</a> ·
+<a href="{FINAL_CLASSIFICATION}">FIA final Document 65</a>.</p>""",
+        "bi-people", "accent",
+    )
+    bearman_story = card(
+        "Bearman's 2027 Haas seat: expectation, not a formal announcement",
+        f"""<p>Formula1.com's 25 November Qatar preview says Haas had not yet
+formally announced Oliver Bearman's 2027 seat. Team Principal Ayao Komatsu
+had said there was no doubt Bearman would drive for Haas, while noting that
+the contract was still being finalised. Treat the expected seat and a signed
+announcement as distinct.
+<a href="{QATAR_RACE_WEEK_STORYLINES}">Formula1.com Qatar preview</a> ·
+<a href="{BEARMAN_HAAS_SEAT}">Komatsu on Bearman's seat</a>.</p>""",
+        "bi-person-badge", "accent",
+    )
+    for slug in ("overview", "rookies", "notes"):
         pages[slug]["body"] = lineup + pages[slug]["body"]
+    pages["teams"]["body"] = lineup + ferrari_story + bearman_story + pages["teams"]["body"]
+    pending_team_storylines = content_generic.pending(
+        "Team-by-team weekend storylines", "in the week before the race"
+    )
+    team_upgrade_pending = content_generic.pending(
+        "FIA car presentation submissions for this round",
+        "on the Friday of the race week",
+    )
+    if pending_team_storylines not in pages["teams"]["body"]:
+        raise ValueError("Could not locate Qatar's generic pending team-storyline copy")
+    pages["teams"]["body"] = pages["teams"]["body"].replace(
+        pending_team_storylines, team_upgrade_pending, 1
+    )
     nomination = f"""<p>Pirelli nominated <strong>C1 Hard, C2 Medium and C3 Soft</strong>
 for Qatar. Its 13 November graphic marks C3 as the qualifying mandatory set
 and C1 and C2 as the race mandatory sets. This nomination is not a
@@ -286,7 +349,7 @@ driver-by-driver race-set inventory.
         "bi-record-circle",
         "accent",
     ) + strategy
-    pages["notes"]["body"] = nomination + strategy + pages["notes"]["body"]
+    pages["notes"]["body"] = nomination + strategy + ferrari_story + pages["notes"]["body"]
     pages["schedule"]["body"] += f"""
 <h2 class="sec">Support-race and car-presentation watch</h2>
 <p>The FIA competition visa dates the race for 29 November 2026 at 19:00

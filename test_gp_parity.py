@@ -157,6 +157,13 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["rookies"]["body"])
         self.assertIn("not a complete FIA", pages["rookies"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["teams"]["body"])
+        self.assertIn(content_qatar.QATAR_RACE_WEEK_STORYLINES, pages["teams"]["body"])
+        self.assertIn(content_qatar.FIA_VEGAS_LECLERC_COLLISION, pages["teams"]["body"])
+        self.assertIn(content_qatar.BEARMAN_HAAS_SEAT, pages["teams"]["body"])
+        self.assertNotIn("Team-by-team weekend storylines: awaiting", pages["teams"]["body"])
+        self.assertIn("FIA car presentation submissions for this round: awaiting",
+                      pages["teams"]["body"])
+        self.assertIn(content_qatar.QATAR_RACE_WEEK_STORYLINES, pages["notes"]["body"])
         self.assertIn(content_qatar.QATAR_2025_RACE, pages["moments"]["body"])
         self.assertIn(content_qatar.PIRELLI_TYRE_LIMIT, pages["moments"]["body"])
         self.assertNotIn("A curated moments list", pages["moments"]["body"])
@@ -193,9 +200,13 @@ class GPParityTests(unittest.TestCase):
             for item in briefing["items"]
         ))
         self.assertTrue(any(
-            item["topic"] == "Driver rivalry"
+            item["topic"] == "Las Vegas fallout"
             and "Verstappen" in item["title"]
-            and any("storylines" in s["url"] for s in item["sources"])
+            and "Ferrari" in item["summary"]
+            and any(s["url"] == content_qatar.QATAR_RACE_WEEK_STORYLINES
+                    for s in item["sources"])
+            and any(s["url"] == content_qatar.FIA_VEGAS_LECLERC_COLLISION
+                    for s in item["sources"])
             for item in briefing["items"]
         ))
         self.assertTrue(any(

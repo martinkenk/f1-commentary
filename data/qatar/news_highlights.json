@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-25T20:56:11Z",
-  "expires_at": "2026-11-26T07:00:00Z",
+  "reviewed_at": "2026-11-25T22:08:10Z",
+  "expires_at": "2026-11-25T23:00:00Z",
   "through_session": null,
   "feed_fingerprint": "2a9dc9d61319b769dbb2e43b89cce769a19787fed36eb5a0553244dce6db3081",
   "items": [
@@ -109,15 +109,23 @@
       ]
     },
     {
-      "topic": "Driver rivalry",
-      "title": "Verstappen and Russell's Las Vegas tension carries into Qatar",
+      "topic": "Las Vegas fallout",
+      "title": "Verstappen/Russell tension and Ferrari clash follow F1 to Qatar",
       "date": "2026-11-25",
-      "summary": "Formula1.com's race-week preview recounts the FP3 confrontation between Max Verstappen and George Russell in Las Vegas and their sharper post-race remarks after Russell's late incident while trying to pass team-mate Kimi Antonelli. It also notes the pair's 2024 Qatar qualifying dispute. These are attributed accounts, not a new FIA ruling or evidence of any planned on-track action.",
-      "why_it_matters": "The Las Vegas fallout is a prominent storyline entering the Qatar weekend; keep the two events distinct and avoid predicting how the drivers will race.",
+      "summary": "Formula1.com's 25 November Qatar preview recounts the continuing Verstappen-Russell verbal dispute and Ferrari's Las Vegas fallout: Charles Leclerc hit team-mate Lewis Hamilton during their Turn 7 fight. FIA Document 60 found Leclerc wholly responsible and imposed a 10-second penalty; team principal Fred Vasseur described the incident as unacceptable. These are Las Vegas developments, not Qatar rulings.",
+      "why_it_matters": "Keep the driver remarks attributed and the Ferrari ruling attached to its Las Vegas source; do not infer a new Qatar sanction or predict how the drivers will race.",
       "sources": [
         {
-          "label": "Formula1.com, race-week storylines ahead of the 2026 Qatar Grand Prix, checked 25 November",
+          "label": "Formula1.com, Qatar race-week storylines, checked 25 November",
           "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix.1bXINUYO8R8X3K7DjINr1A"
+        },
+        {
+          "label": "FIA Las Vegas Document 60, visually reviewed",
+          "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_16_-_causing_a_collision_with_car_44.pdf"
+        },
+        {
+          "label": "Formula1.com, Vasseur on the Ferrari collision",
+          "url": "https://www.formula1.com/en/latest/article/its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-unacceptable.5NGehhmEEtLqzDKxm7bi4z"
         }
       ]
     }
