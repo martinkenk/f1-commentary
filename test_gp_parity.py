@@ -184,10 +184,18 @@ class GPParityTests(unittest.TestCase):
         ))
         self.assertTrue(any(
             "Tsunoda appeal" in item["title"]
-            and "no later FIA decision was found" in item["summary"]
+            and "ICA-2026-14" in item["summary"]
+            and "did not list a decision" in item["summary"]
             and any(s["url"] == content_qatar.FIA_APPEAL_HEARING for s in item["sources"])
+            and any(s["url"] == "https://www.fia.com/judgements-ica" for s in item["sources"])
             and any(s["url"] == content_qatar.FIA_ITALY_DOC69 for s in item["sources"])
             and any(s["url"] == content_qatar.FIA_VEGAS_DOC66 for s in item["sources"])
+            for item in briefing["items"]
+        ))
+        self.assertTrue(any(
+            item["topic"] == "Driver rivalry"
+            and "Verstappen" in item["title"]
+            and any("storylines" in s["url"] for s in item["sources"])
             for item in briefing["items"]
         ))
         self.assertTrue(any(

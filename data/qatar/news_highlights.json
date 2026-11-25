@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-25T19:38:04Z",
+  "reviewed_at": "2026-11-25T20:56:11Z",
   "expires_at": "2026-11-26T07:00:00Z",
   "through_session": null,
   "feed_fingerprint": "2a9dc9d61319b769dbb2e43b89cce769a19787fed36eb5a0553244dce6db3081",
@@ -62,12 +62,16 @@
       "topic": "Italian GP appeal",
       "title": "FIA lists Audi's Tsunoda appeal; decision not yet published",
       "date": "2026-11-25",
-      "summary": "The FIA scheduled a closed International Court of Appeal hearing in Paris for 09:00 local time on 25 November on Audi's appeal of Italian GP Document 69, where stewards took no further action after the extra formation lap. The public notice says a decision will be published after the hearing; as checked at 19:38 UTC, no later FIA decision was found. Las Vegas Document 66's championship-points paper also notes Audi's appeal. Formula1.com currently lists Antonelli 402 / Verstappen 304 and Mercedes 666 / Ferrari 517 after round 21.",
+      "summary": "The FIA scheduled a closed International Court of Appeal hearing in Paris for 09:00 local time on 25 November on Audi's appeal of Italian GP Document 69, where stewards took no further action after the extra formation lap. The public notice says a decision will be published after the hearing; at 20:54 UTC the FIA's public judgments index still did not list a decision for ICA-2026-14. Las Vegas Document 66's championship-points paper also notes Audi's appeal. Formula1.com currently lists Antonelli 402 / Verstappen 304 and Mercedes 666 / Ferrari 517 after round 21.",
       "why_it_matters": "The hearing notice does not impose a penalty or change the points table. Do not infer a result; refresh standings and re-evaluate the appeal only if the Court publishes a decision.",
       "sources": [
         {
           "label": "FIA International Court of Appeal hearing notice, Case ICA-2026-14",
           "url": "https://www.fia.com/news/international-court-appeal-hearing-november-25-2026"
+        },
+        {
+          "label": "FIA Judgements of the International Court of Appeal index, checked 25 November at 20:54 UTC",
+          "url": "https://www.fia.com/judgements-ica"
         },
         {
           "label": "FIA Italian Grand Prix Document 69",
@@ -101,6 +105,19 @@
         {
           "label": "Formula1.com, Slater takes over Câmara's F2 seat, 24 November",
           "url": "https://www.formula1.com/en/latest/article/audi-backed-slater-to-take-over-camaras-f2-seat-for-final-two-rounds-in-qatar-and-abu-dhabi.3F0sq83OoErm2IjBqsncqu"
+        }
+      ]
+    },
+    {
+      "topic": "Driver rivalry",
+      "title": "Verstappen and Russell's Las Vegas tension carries into Qatar",
+      "date": "2026-11-25",
+      "summary": "Formula1.com's race-week preview recounts the FP3 confrontation between Max Verstappen and George Russell in Las Vegas and their sharper post-race remarks after Russell's late incident while trying to pass team-mate Kimi Antonelli. It also notes the pair's 2024 Qatar qualifying dispute. These are attributed accounts, not a new FIA ruling or evidence of any planned on-track action.",
+      "why_it_matters": "The Las Vegas fallout is a prominent storyline entering the Qatar weekend; keep the two events distinct and avoid predicting how the drivers will race.",
+      "sources": [
+        {
+          "label": "Formula1.com, race-week storylines ahead of the 2026 Qatar Grand Prix, checked 25 November",
+          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix.1bXINUYO8R8X3K7DjINr1A"
         }
       ]
     }
