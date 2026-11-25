@@ -252,7 +252,7 @@ def build_pages(ctx, env):
         compound_status = (
             '<div class="callout"><strong>2026 nominated compounds:</strong> '
             f'{" / ".join(tyre_compounds)}. This is the compound selection, not a '
-            'driver-by-driver remaining-set inventory or an FIA-mandated set. '
+            'driver-by-driver remaining-set inventory. '
             f'<a href="{tyre_compounds_source}">Official Pirelli compound selection</a>.</div>'
         )
     else:

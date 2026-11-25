@@ -89,6 +89,11 @@ class GPParityTests(unittest.TestCase):
         ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
         pages = content_qatar.build_pages(ctx, self.env)
         self.assertIn("C1 Hard / C2 Medium / C3 Soft", pages["tyres"]["body"])
+        self.assertIn(
+            "This is the compound selection, not a driver-by-driver remaining-set inventory.",
+            pages["tyres"]["body"],
+        )
+        self.assertNotIn("or an FIA-mandated set", pages["tyres"]["body"])
         self.assertIn(content_qatar.PIRELLI_NOMINATION, pages["tyres"]["body"])
         self.assertIn(content_qatar.PIRELLI_TYRE_LIMIT, pages["tyres"]["body"])
         self.assertIn(
