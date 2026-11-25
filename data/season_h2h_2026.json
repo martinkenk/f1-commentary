@@ -1,6 +1,6 @@
 {
   "year": 2026,
-  "checked_at": "2026-11-25T05:52:46+00:00",
+  "checked_at": "2026-11-25T06:44:42+00:00",
   "expected": [
     "australia/qualifying",
     "australia/race-result",
@@ -7535,7 +7535,7 @@
       "label": "Qualifying",
       "date": "2026-11-20",
       "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/qualifying",
-      "fetched_at": "2026-11-25T05:52:46+00:00",
+      "fetched_at": "2026-11-25T06:44:42+00:00",
       "drivers": [
         {
           "code": "ANT",
@@ -7723,7 +7723,7 @@
       "label": "Race",
       "date": "2026-11-21",
       "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result",
-      "fetched_at": "2026-11-25T05:52:46+00:00",
+      "fetched_at": "2026-11-25T06:44:42+00:00",
       "drivers": [
         {
           "code": "VER",
