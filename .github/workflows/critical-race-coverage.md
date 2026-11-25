@@ -185,8 +185,12 @@ remain outside the editorial scope. Do not submit a known rejected patch.
 
 ## Avoid duplicate work
 
-Use `gh pr list` to inspect open `[coverage]` pull requests, including their
-body, changed files and head branch. **An open PR must never skip the audit.**
+Run `gh pr list --repo martinkenk/f1-commentary --state open --json number,title,isDraft,headRefName,headRefOid,url`
+and inspect matching `[coverage]` pull requests, including their body, changed
+files and head branch. Record each matching PR number and head SHA in the audit.
+Claim there are no open coverage PRs only when this live command succeeds and
+returns no matching rows; if the listing is unavailable, say the queue is
+unknown. **An open PR must never skip the audit.**
 Choose the GP first; a pending Italy PR must not block Spain or later rounds.
 For the same GP, fetch and check out its existing same-repository coverage branch.
 Do **not** merge main's commits onto that branch: the safe-output incremental
@@ -202,6 +206,9 @@ If there is no matching PR, start from main and create one.
 If the integration merge conflicts, report the concrete blocker rather than claiming coverage
 is complete. Only emit `noop` after actually auditing and finding no new gaps;
 state separately what is still awaiting review and therefore not deployed.
+Every no-op must include `Open coverage PRs checked:` followed by the matching
+PR numbers and head SHAs, or `none (verified by the successful live listing)`.
+Do not infer an empty queue from prior runs or cached context.
 
 ## Determine scope
 
