@@ -98,7 +98,11 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_qatar.PIRELLI_TYRE_LIMIT, pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT_EXPLAINER, pages["tyres"]["body"])
         self.assertIn(
-            "Pirelli's 27-lap maximum per set makes at least two stops necessary",
+            "The FIA's Qatar power-unit map is published and reviewed",
+            pages["overview"]["body"],
+        )
+        self.assertNotIn(
+            "event document remains unverified",
             pages["overview"]["body"],
         )
         self.assertNotIn(
@@ -137,7 +141,7 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_qatar.QATAR_TYRE_ALLOCATION, pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT_EXPLAINER, pages["notes"]["body"])
-        self.assertIn("remains unverified", pages["tyres"]["body"])
+        self.assertNotIn("remains unverified", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["notes"]["body"])
         self.assertIn("Virtual Safety Car", pages["notes"]["body"].replace("\n", " "))
         self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
@@ -207,7 +211,10 @@ class GPParityTests(unittest.TestCase):
         self.assertIn('4</div><div class="stat-lbl">Straight Mode zones', circuit)
         self.assertIn('1</div><div class="stat-lbl">Overtake activation zones', circuit)
         self.assertIn(content_qatar.QATAR_TRACK_MAP, circuit)
-        self.assertIn("precise distances, gap thresholds and low-grip variations", circuit)
+        self.assertIn("5,020 m on loop L24", circuit)
+        self.assertIn("5,078 m on loop L25/SC1", circuit)
+        self.assertIn("no low-grip-specific Overtake values", circuit)
+        self.assertNotIn("document listing has been unavailable", circuit)
         self.assertNotIn("Legacy DRS zones", circuit)
         self.assertNotIn("DRS run", circuit)
         for slug in ("tyres", "notes"):
@@ -218,6 +225,38 @@ class GPParityTests(unittest.TestCase):
             self.assertIn(content_qatar.QATAR_TYRE_COUNTING, pages[slug]["body"])
         self.assertIn("F2 qualifying follows FP1", pages["schedule"]["body"])
         self.assertIn(content_qatar.QATAR_TIMETABLE, pages["schedule"]["body"])
+
+    def test_qatar_published_power_map_is_reviewed_and_interpreted(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        body = " ".join(
+            content_qatar.build_pages(ctx, self.env)["powerunit"]["body"].split()
+        )
+        for value in (
+            "5.419 km", "8.0 MJ", "8.5 MJ", "6.5 MJ", "9.0 MJ",
+            "3,108 m", "100 kW/s", "750–1,050 m", "2,880–3,100 m",
+            "4,900–5,300 m", "310 km/h", "5,020 m / L24",
+            "5,078 m / L25/SC1",
+        ):
+            self.assertIn(value, body)
+        self.assertIn(content_qatar.FIA_QATAR_POWER_UNIT, body)
+        self.assertIn("Straight Mode setting", body)
+        self.assertIn("standard-format weekend", body)
+        self.assertNotIn("once it is issued", body)
+        self.assertNotIn("awaiting a verified update", body)
+        self.assertNotIn("expect Sunday straight-line speed", body)
+
+        review = json.loads(
+            (Path(__file__).parent / "data/qatar/coverage_review.json").read_text()
+        )
+        media = json.loads(
+            (Path(__file__).parent / "data/qatar/fia_media.json").read_text()
+        )
+        media_hashes = {doc["url"]: doc["sha256"] for doc in media["documents"]}
+        self.assertEqual(
+            review["fia_sha256"].get(content_qatar.FIA_QATAR_POWER_UNIT),
+            media_hashes[content_qatar.FIA_QATAR_POWER_UNIT],
+        )
 
     def test_las_vegas_collision_summons_are_distinguished_from_final_ruling(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)

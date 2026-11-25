@@ -487,8 +487,9 @@ CIRCUITS = {
             "Sustained high-speed loading puts the front-left under particular stress. "
             "For 2026, Pirelli announced a 27-lap maximum stint per set in agreement with "
             "the FIA, making the scheduled 57-lap race a minimum two-stop event. The "
-            "event-specific FIA prescription remains unverified while its document listing "
-            "is unavailable."
+            "reviewed Pirelli preview confirms the C1/C2/C3 nomination, mandatory sets "
+            "and event prescriptions; the conflicting Formula1.com set-allocation reports "
+            "are not a post-qualifying remaining-set chart."
         ),
         "tyre_compounds": ("C1 Hard", "C2 Medium", "C3 Soft"),
         "tyre_compounds_source": "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/",
@@ -501,7 +502,7 @@ CIRCUITS = {
             "Previous editions have required enforced maximum stint lengths on tyre-safety grounds.",
         ],
         "storylines": [
-            "Pirelli's 27-lap maximum per set makes at least two stops necessary at the full race distance; the FIA event document remains unverified.",
+            "The FIA's Qatar power-unit map is published and reviewed: use its 1.0-second Overtake detection gap, and keep electrical Overtake separate from the four Straight Mode zones.",
             "Sergio Perez carries a five-place grid drop from Las Vegas; keep that separate from Qatar's own event sanctions.",
         ],
     },

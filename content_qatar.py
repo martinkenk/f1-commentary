@@ -36,6 +36,7 @@ CAMARA_QATAR_ANNOUNCEMENT = (
     "2wYY9ymhyqr7rXcuK6S7bj"
 )
 FIA_QATAR_VISA = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
+FIA_QATAR_POWER_UNIT = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_power_unit_information.pdf"
 PEREZ_PENALTY_ARTICLE = (
     "https://www.formula1.com/en/latest/article/"
     "perez-hit-with-five-place-penalty-in-qatar-after-camara-clash-during-las-vegas-grand-prix."
@@ -48,13 +49,74 @@ def build_pages(ctx, env):
     circuit = f"""<h2 class="sec">2026 Straight Mode and Overtake</h2>
 <p>Formula1.com's 2026 circuit map marks four Straight Mode zones: between
 Turns 3–4, 11–12 and 15–16, and on the main straight. The separate Overtake
-detection and activation points are marked after Turn 16, before the run to
-Turn 1. Straight Mode is an active-aero setting; Overtake is an electrical
-power aid, not DRS. These locations are read from the published track map:
-precise distances, gap thresholds and low-grip variations still need the
-Qatar FIA event documents, whose listing has been unavailable.
-<a href="{QATAR_TRACK_MAP}">Formula1.com 2026 circuit map</a>.</p>"""
+detection and activation points are after Turn 16, before the run to Turn 1.
+The FIA map gives a <strong>1.0-second detection gap</strong>, detection at
+<strong>5,020 m on loop L24</strong> and activation at
+<strong>5,078 m on loop L25/SC1</strong>. These are electrical Overtake
+thresholds, not Straight Mode activation points. The reviewed FIA map gives
+no low-grip-specific Overtake values, so none are inferred.
+<a href="{QATAR_TRACK_MAP}">Formula1.com 2026 circuit map</a> ·
+<a href="{FIA_QATAR_POWER_UNIT}#page=2">FIA Power Unit Information, page 2</a>.</p>"""
     pages["circuit"]["body"] += circuit
+    powerunit = f"""<h2 class="sec">Qatar FIA power-and-energy map</h2>
+<p>The FIA sheet identifies a <strong>5.419 km</strong> lap, standard format
+and 27–29 November. Under Article C5.2.10, maximum recharge per lap is
+<strong>8.0 MJ</strong> in the race with Overtake inactive,
+<strong>8.5 MJ</strong> in the race with Overtake active,
+<strong>6.5 MJ</strong> in qualifying, <strong>8.5 MJ</strong> in free
+practice and <strong>9.0 MJ</strong> on out laps other than in the race.
+These are recharge limits, not deployment allowances.</p>
+<p>Article C5.12.8 sets the power-limited distance at <strong>3,108 m</strong>
+and the maximum reduction rate at <strong>100 kW/s</strong>. For Sprint and
+Race, the map assigns Base–Standard without Overtake and Base–Overtake with
+Overtake in the main zones, with Alt 1 elsewhere; all practice sessions,
+including qualifying, use Base–Overtake. This is the FIA's ERS-K power curve,
+not an active-aero Straight Mode setting.</p>
+<p>Alternative-curve windows under C5.2.8iii are T1–T2 (750–1,050 m),
+T4–T10 (1,700–3,100 m) and T12–T14 (3,750–4,150 m). Under C5.12.4, the
+350 kW power-reduction exceptions are T1–T2 (750–1,050 m), T4–T6
+(1,700–2,150 m), T9–T10 (2,880–3,100 m) and T12–T16 (3,750–4,800 m);
+the bracketed Exit T16 window is 4,900–5,300 m. The sheet marks bracketed
+windows for Sprint Qualifying and Qualifying; Qatar is a standard-format
+weekend, so they do not add a Sprint session.</p>
+<p>Reset windows under C5.12.5 are Exit T12 (3,750–4,050 m), Exit T14
+(4,150–4,300 m), Exit T15 (4,450–4,650 m) and bracketed Exit T16
+(5,050–5,400 m). The higher-speed threshold under C5.12.7 is
+<strong>310 km/h</strong> at T12–T14 (3,650–4,200 m). Overtake uses a
+<strong>1.0-second</strong> detection gap, with detection at
+<strong>5,020 m / L24</strong> and activation at
+<strong>5,078 m / L25/SC1</strong>. Distances are lap metres; loop labels are
+not turn numbers. See the complete map in the FIA source reader below.
+<a href="{FIA_QATAR_POWER_UNIT}#page=2">Original FIA document, page 2</a>.</p>"""
+    pending_powerunit = content_generic.pending(
+        "The FIA power-unit and energy-map document for this event",
+        "with the event documents in the race week",
+    )
+    powerunit_body = pages["powerunit"]["body"]
+    generic_curve_copy = (
+        "Practice and qualifying generally run a more permissive power curve than the race — "
+        "expect Sunday straight-line speed to look weaker than Saturday's."
+    )
+    generic_document_copy = "that is where the numbers below come from once it is issued."
+    if (
+        pending_powerunit not in powerunit_body
+        or generic_curve_copy not in powerunit_body
+        or generic_document_copy not in powerunit_body
+    ):
+        raise ValueError("Could not locate Qatar's generic power-unit copy")
+    pages["powerunit"]["body"] = powerunit_body.replace(
+        pending_powerunit, powerunit, 1
+    ).replace(
+        generic_curve_copy,
+        "The FIA map assigns Base–Overtake to practice and qualifying, while the race "
+        "uses different curves inside and outside its main Overtake zones; compare "
+        "the published curves rather than assuming a Sunday speed penalty.",
+        1,
+    ).replace(
+        generic_document_copy,
+        "Qatar's published event map is summarized below.",
+        1,
+    )
     carryover = f"""<h2 class="sec">Verified Las Vegas carry-over</h2>
 <p><strong>Sergio Perez: five-place grid penalty at his next race.</strong>
 FIA Las Vegas Document 61 finds him wholly responsible for contact with
@@ -178,9 +240,9 @@ Formula1.com's 25 November explainer reports that all race laps from the
 start signal to the chequered flag count; in other sessions, a started but
 unfinished lap counts in full, and mixed-mileage sets take the higher tyre
 mileage. Reconnaissance, formation and post-race laps are excluded. These
-are reported Pirelli counting rules; verify against FIA event documents if
-they become available, and use post-Saturday official remaining-lap
-information before applying either example.
+are the reported Pirelli counting rules and match the reviewed FIA/Pirelli
+event prescription; use post-Saturday official remaining-lap information
+before applying either example.
 <a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com counting-rule explainer</a> ·
 <a href="{QATAR_TYRE_COUNTING}">Coffee Corner Motorsport counting report</a> ·
 <a href="{QATAR_TYRE_LIMIT}">Pirelli engineer on remaining laps</a>.</p>"""
