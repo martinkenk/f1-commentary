@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-25T11:03:12Z",
-  "expires_at": "2026-11-26T07:00:00Z",
+  "reviewed_at": "2026-11-25T12:02:10Z",
+  "expires_at": "2026-11-25T17:00:00Z",
   "through_session": null,
-  "feed_fingerprint": "3cd32f5c5f75a4e51d46f5d59ab5df27f38c3cb47d71d60758b17a4dd1e3ac0a",
+  "feed_fingerprint": "2a9dc9d61319b769dbb2e43b89cce769a19787fed36eb5a0553244dce6db3081",
   "items": [
     {
       "topic": "Grid carry-over",
@@ -23,10 +23,10 @@
     },
     {
       "topic": "Tyre strategy and stint limit",
-      "title": "Qatar's 27-lap cap counts Safety Car and VSC laps",
+      "title": "Qatar's 27-lap cap; official F1 reports conflict on set totals",
       "date": "2026-11-25",
-      "summary": "Formula1.com's 25 November report says each driver has two Hard, three Medium and eight Soft sets available, with an extra Soft reserved for Q3 qualifiers. The 27-lap maximum counts cumulatively across sessions, including Safety Car and Virtual Safety Car laps; at 57 laps, at least two stops are required, and a dry race requires two different slick compounds.",
-      "why_it_matters": "Track the per-set limit across sessions, including Safety Car and Virtual Safety Car running. These are reported Pirelli allocations and rules, not remaining-set counts or an independent transcription of Qatar's unavailable FIA event listing.",
+      "summary": "Two Formula1.com articles published on 25 November give different per-driver allocations: the 10:05 UTC guide says 2 C1 Hard, 3 C2 Medium and 8 C3 Soft, with an extra Soft reserved for Q3; the 10:43 UTC explainer says each driver gets 13 sets (2 C1, 4 C2, 7 C3). Pirelli's 24 November release confirms the compounds and 27-lap cap, but not set totals. Its reported counting rules include Safety Car and Virtual Safety Car laps; all race laps from start signal to chequered flag count, an unfinished lap in other sessions counts in full, mixed-mileage sets take the higher count, and reconnaissance, formation and post-race laps are excluded.",
+      "why_it_matters": "Do not present a single per-driver inventory as settled: cite the competing official reports until clarified. The 27-lap cap and its counting rules are reported by Pirelli through Formula1.com, not independently transcribed from Qatar's unavailable FIA event listing or a remaining-set chart.",
       "sources": [
         {
           "label": "Pirelli, official Qatar tyre briefing and infographic, 24 November (graphic visually reviewed)",
@@ -39,6 +39,10 @@
         {
           "label": "Formula1.com, Qatar tyre allocation and rules, 25 November",
           "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-formula-1-teams-and-drivers-have-for-the-2026-qatar-grand-prix.7JllCRweDY5sW1N9LzdkLm"
+        },
+        {
+          "label": "Formula1.com, 27-lap limit explainer quoting Pirelli, 25 November",
+          "url": "https://www.formula1.com/en/latest/article/explained-why-theres-a-27-lap-limit-on-tyres-for-the-qatar-grand-prix.4oeu38BqJh1h7llxUeILBe"
         },
         {
           "label": "Coffee Corner Motorsport, 24 November secondary preview (context only; no FIA counting rule inferred)",

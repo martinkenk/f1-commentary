@@ -96,6 +96,7 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("or an FIA-mandated set", pages["tyres"]["body"])
         self.assertIn(content_qatar.PIRELLI_NOMINATION, pages["tyres"]["body"])
         self.assertIn(content_qatar.PIRELLI_TYRE_LIMIT, pages["tyres"]["body"])
+        self.assertIn(content_qatar.QATAR_TYRE_LIMIT_EXPLAINER, pages["tyres"]["body"])
         self.assertIn(
             "Pirelli's 27-lap maximum per set makes at least two stops necessary",
             pages["overview"]["body"],
@@ -127,10 +128,15 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
         self.assertIn("27-lap maximum stint per set", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_STRATEGY, pages["tyres"]["body"])
-        self.assertIn("two Hard, three", pages["tyres"]["body"])
+        self.assertIn("three C2 Medium and eight C3 Soft sets", pages["tyres"]["body"])
+        self.assertIn("four C2 Medium and seven C3 Soft", pages["tyres"]["body"])
+        self.assertIn("exact allocation is conflicting", pages["tyres"]["body"])
+        self.assertIn("started but not", pages["tyres"]["body"])
+        self.assertIn("Reconnaissance, formation and", pages["tyres"]["body"])
         self.assertIn("Virtual Safety Car", pages["tyres"]["body"].replace("\n", " "))
         self.assertIn(content_qatar.QATAR_TYRE_ALLOCATION, pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["tyres"]["body"])
+        self.assertIn(content_qatar.QATAR_TYRE_LIMIT_EXPLAINER, pages["notes"]["body"])
         self.assertIn("remains unverified", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["notes"]["body"])
         self.assertIn("Virtual Safety Car", pages["notes"]["body"].replace("\n", " "))
@@ -154,7 +160,12 @@ class GPParityTests(unittest.TestCase):
             for item in briefing["items"]
         ))
         self.assertTrue(any(
-            "27" in item["title"]
+            "conflict" in item["title"].lower()
+            and any(s["url"] == content_qatar.QATAR_TYRE_LIMIT_EXPLAINER for s in item["sources"])
+            for item in briefing["items"]
+        ))
+        self.assertTrue(any(
+            "27-lap" in item["summary"]
             and any(s["url"] == content_qatar.PIRELLI_TYRE_LIMIT for s in item["sources"])
             for item in briefing["items"]
         ))
@@ -203,6 +214,7 @@ class GPParityTests(unittest.TestCase):
             self.assertIn("7 / 27 / 23 laps", pages[slug]["body"])
             self.assertIn("earlier session use reduces", pages[slug]["body"])
             self.assertIn("not a prediction", pages[slug]["body"])
+            self.assertIn(content_qatar.QATAR_TYRE_LIMIT_EXPLAINER, pages[slug]["body"])
             self.assertIn(content_qatar.QATAR_TYRE_COUNTING, pages[slug]["body"])
         self.assertIn("F2 qualifying follows FP1", pages["schedule"]["body"])
         self.assertIn(content_qatar.QATAR_TIMETABLE, pages["schedule"]["body"])

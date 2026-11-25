@@ -14,6 +14,11 @@ QATAR_TYRE_ALLOCATION = (
     "what-tyres-will-the-formula-1-teams-and-drivers-have-for-the-2026-qatar-grand-prix."
     "7JllCRweDY5sW1N9LzdkLm"
 )
+QATAR_TYRE_LIMIT_EXPLAINER = (
+    "https://www.formula1.com/en/latest/article/"
+    "explained-why-theres-a-27-lap-limit-on-tyres-for-the-qatar-grand-prix."
+    "4oeu38BqJh1h7llxUeILBe"
+)
 QATAR_TYRE_STRATEGY = "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
 QATAR_TYRE_COUNTING = "https://coffeecornermotorsport.com/qatar-grand-prix-tyre-limit-2026/"
 QATAR_TRACK_MAP = "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632421/common/f1/2026/track/2026tracklusaildetailed.png"
@@ -116,23 +121,34 @@ entry list or confirmation of FP1 substitutions.
 for Qatar. Its 13 November graphic marks C3 as the qualifying mandatory set
 and C1 and C2 as the race mandatory sets. This nomination is not a
 driver-by-driver remaining-set inventory.</p>
-<p>Formula1.com's 25 November report says each driver has two Hard, three
-Medium and eight Soft sets available, plus Intermediates and full wets if
-needed. An additional Soft is reserved for Q3 qualifiers, and a dry race
-requires two different slick compounds. These are event allocations, not
-post-qualifying remaining-set counts.
-<a href="{QATAR_TYRE_ALLOCATION}">Formula1.com, Qatar tyre allocation and rules</a>.</p>
+<p>Two Formula1.com articles published on 25 November give different
+per-driver slick allocations. Its 10:05 UTC tyre guide says two C1 Hard,
+three C2 Medium and eight C3 Soft sets, and says an extra Soft is reserved
+for drivers reaching Q3. The 10:43 UTC explainer instead says each driver
+gets 13 sets: two C1 Hard, four C2 Medium and seven C3 Soft. Pirelli's
+24 November release confirms the compounds but does not state these
+per-driver totals, so the exact allocation is conflicting and remains
+unresolved here. Formula1.com also says a dry race requires two different
+slick compounds. These are allocation reports, not post-qualifying
+remaining-set counts.
+<a href="{QATAR_TYRE_ALLOCATION}">Formula1.com tyre guide, 10:05 UTC</a> ·
+<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com explainer, 10:43 UTC</a>.</p>
 <p>On 24 November, Pirelli announced a maximum 27-lap stint per set, agreed
 with the FIA, and said the race will require at least two stops. At the full
 scheduled 57-lap distance, two sets cover only 54 laps. The official event
 document listing remains unavailable, so its Qatar-specific prescriptions
 have not been independently reviewed.
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
-<p>Formula1.com's 25 November report says the 27-lap limit counts cumulatively
-across sessions, including race laps behind the Safety Car or Virtual Safety
-Car. This is a current report of Pirelli's rule, not an independent
-transcription from the unavailable Qatar FIA event listing.
-<a href="{QATAR_TYRE_ALLOCATION}">Formula1.com, Qatar tyre allocation and rules</a>.</p>
+<p>Formula1.com's 25 November explainer quotes Pirelli's counting details:
+the 27-lap maximum is cumulative across sessions, including Safety Car and
+Virtual Safety Car laps; all race laps from the start signal to the
+chequered flag count. In other track sessions, a lap started but not
+completed counts as a full lap, and a set assembled from tyres with
+different mileage takes the higher mileage. Reconnaissance, formation and
+post-race laps are excluded. This is Formula1.com's report of Pirelli's
+rule, not an independent transcription from the unavailable Qatar FIA event
+listing.
+<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com, 25 November explainer</a>.</p>
 <p>Pirelli's linked event infographic lists slick minimum starting / expected
 stabilized running pressures of 29.0 / &gt;=30.0 psi* at the front and
 27.5 / &gt;=28.5 psi* at the rear, with EOS camber limits of -2.75 degrees
@@ -157,12 +173,15 @@ Car stop after lap 7 could instead be followed by a stop after lap 34:
 examples, not measured optimum windows or a claim that those sets remain
 available. A shortened race, Safety Car, rain, tyre wear or a changed rule
 can alter the plan; a dry race also requires two different slick compounds.</p>
-<p>Each set's earlier session use reduces its remaining allowance. Coffee
-Corner Motorsport reports that a started but unfinished non-race lap counts,
-and that a mixed-mileage set takes the highest tyre count; reconnaissance,
-formation and post-race laps are excluded. Verify those detailed counting
-rules against the FIA event documents when available, and use the post-Saturday
-official remaining-lap information before applying either example.
+<p>Each set's earlier session use reduces its remaining allowance.
+Formula1.com's 25 November explainer reports that all race laps from the
+start signal to the chequered flag count; in other sessions, a started but
+unfinished lap counts in full, and mixed-mileage sets take the higher tyre
+mileage. Reconnaissance, formation and post-race laps are excluded. These
+are reported Pirelli counting rules; verify against FIA event documents if
+they become available, and use post-Saturday official remaining-lap
+information before applying either example.
+<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com counting-rule explainer</a> ·
 <a href="{QATAR_TYRE_COUNTING}">Coffee Corner Motorsport counting report</a> ·
 <a href="{QATAR_TYRE_LIMIT}">Pirelli engineer on remaining laps</a>.</p>"""
     tyre_preview = f"""<figure class="circuit-fig">
