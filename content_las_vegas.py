@@ -198,6 +198,11 @@ MCLAREN_VEGAS_URL = (
     "technically-a-very-interesting-race-stella-reveals-how-norris-and-mclaren-"
     "triumphed-at-interlagos.SRa4ORrmm9CcPqhwssoum"
 )
+REDBULL_VEGAS_URL = (
+    "https://www.formula1.com/en/latest/article/"
+    "the-rb22-tweaks-that-helped-verstappen-take-victory-in-las-vegas."
+    "67NV2uD7vnuxKuW9SHi685"
+)
 ANTONELLI_TITLE_URL = (
     "https://www.formula1.com/en/latest/article/"
     "antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-"
@@ -249,6 +254,19 @@ rel="noopener">Formula1.com, 9 November</a>.</p>""",
         "bi-tools",
         "accent",
     )
+    red_bull_update = card(
+        "Red Bull's Las Vegas front-wing update",
+        f"""<p>Formula1.com's 24 November technical report says Red Bull ran a new
+front-wing endplate to complement earlier sidepod changes and compared endplate
+versions while working on Max Verstappen's car balance. The FIA filing lists
+one front-wing-endplate declaration and describes a lower, shorter dive-plane
+intended to protect downstream flow stability. This is technical context, not
+evidence of a measured lap-time gain. <a href="{REDBULL_VEGAS_URL}"
+target="_blank" rel="noopener">Formula1.com report</a> ·
+<a href="{FIA_UPGRADES}">FIA team submissions</a>.</p>""",
+        "bi-tools",
+        "accent",
+    )
     championships = card(
         "Both 2026 championships are settled",
         f"""<p>Kimi Antonelli clinched the Drivers' Championship with third place
@@ -267,7 +285,7 @@ Mercedes' title</a>.</p>""",
     )
     pages["teams"]["body"] = pages["teams"]["body"].replace(
         pending,
-        update,
+        update + red_bull_update,
     )
     pages["upgrades"]["body"] = render_submissions(
         UPGRADE_SUBMISSIONS, source_url=FIA_UPGRADES,

@@ -462,6 +462,9 @@ class GPParityTests(unittest.TestCase):
         teams = pages["teams"]["body"]
         self.assertIn("two McLaren floor-furniture", teams)
         self.assertIn(content_las_vegas.FIA_UPGRADES, teams)
+        self.assertIn(content_las_vegas.REDBULL_VEGAS_URL, teams)
+        self.assertRegex(teams, r"new\s+front-wing endplate")
+        self.assertRegex(teams, r"compared endplate\s+versions")
         self.assertNotIn("more parts are planned for Las Vegas", teams)
         self.assertNotIn("Further team-specific weekend details", teams)
         self.assertNotIn("awaiting a verified update", teams)
