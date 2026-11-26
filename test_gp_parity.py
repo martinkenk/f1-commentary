@@ -136,12 +136,19 @@ class GPParityTests(unittest.TestCase):
         self.assertTrue(
             (Path(__file__).parent / "assets_src" / content_qatar.QATAR_TYRE_PREVIEW).is_file()
         )
+        preview_asset = ctx["ref"]["tyre_preview_asset"]
+        self.assertIn(f'src="../assets/{preview_asset}"', pages["tyres"]["body"])
+        self.assertEqual(
+            pages["tyres"]["body"].count(f'src="../assets/{preview_asset}"'), 1
+        )
+        self.assertIn(ctx["ref"]["tyre_preview_source"], pages["tyres"]["body"])
+        self.assertIn("Official Pirelli release", pages["tyres"]["body"])
         self.assertIn(
-            f'src="../assets/{content_qatar.QATAR_TYRE_INFOGRAPHIC}"',
+            "starred pressure figures as subject to change after FP2",
             pages["tyres"]["body"],
         )
         self.assertTrue(
-            (Path(__file__).parent / "assets_src" / content_qatar.QATAR_TYRE_INFOGRAPHIC).is_file()
+            (Path(__file__).parent / "assets_src" / preview_asset).is_file()
         )
         self.assertIn("Full, uncropped Pirelli Qatar 2026", pages["tyres"]["body"])
         self.assertIn(content_qatar.FIA_QATAR_TYRE_NOTES, pages["tyres"]["body"])

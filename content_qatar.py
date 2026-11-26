@@ -28,7 +28,6 @@ QATAR_TYRE_COUNTING = "https://coffeecornermotorsport.com/qatar-grand-prix-tyre-
 QATAR_TRACK_MAP = "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632421/common/f1/2026/track/2026tracklusaildetailed.png"
 QATAR_TIMETABLE = "https://www.formula1.com/en/latest/article/formula-1-qatar-airways-qatar-grand-prix-2026.3XJyoYSnpJEcuZovstTdcG"
 QATAR_TYRE_PREVIEW = "pirelli-qatar-2026-preview.jpg"
-QATAR_TYRE_INFOGRAPHIC = "pirelli-qatar-2026-technical-preview.jpg"
 QATAR_2025_RACE = (
     "https://www.formula1.com/en/latest/article/"
     "verstappen-wins-qatar-gp-as-title-battle-goes-to-abu-dhabi-with-piastri."
@@ -416,17 +415,10 @@ This is not a driver-by-driver remaining-set inventory.
 <a href="../assets/{QATAR_TYRE_PREVIEW}">Full-resolution image</a> ·
 <a href="{PIRELLI_NOMINATION}">Pirelli source, 13 November 2026</a>.</figcaption>
 </figure>"""
-    tyre_infographic = f"""<figure class="circuit-fig">
-<img class="circuit-img tyre-preview-img" src="../assets/{QATAR_TYRE_INFOGRAPHIC}"
-alt="Full Pirelli 2026 Qatar preview infographic: Lusail circuit data, pit-stop loss, slick pressure and camber figures, and C1 Hard, C2 Medium and C3 Soft compounds."
-loading="lazy" onclick="zoomImg(this)">
-<figcaption>Full, uncropped Pirelli Qatar event infographic, published 24 November.
-Pressure figures are marked subject to change after FP2; this is not a
-driver-by-driver race-set inventory.
-<a href="../assets/{QATAR_TYRE_INFOGRAPHIC}">Full-resolution image</a> ·
-<a href="{PIRELLI_TYRE_LIMIT}">Pirelli source, 24 November 2026</a>.</figcaption>
-</figure>"""
-    pages["tyres"]["body"] += tyre_preview + tyre_infographic + card(
+    pages["tyres"]["body"] += tyre_preview + (
+        "<p>Pirelli's 24 November preview marks the starred pressure figures "
+        "as subject to change after FP2.</p>"
+    ) + card(
         "Qatar compounds and 27-lap tyre-set limit",
         nomination,
         "bi-record-circle",

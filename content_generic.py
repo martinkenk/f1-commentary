@@ -261,6 +261,7 @@ def build_pages(ctx, env):
     preview = ""
     preview_asset = ref.get("tyre_preview_asset")
     preview_source = ref.get("tyre_preview_source")
+    preview_source_label = ref.get("tyre_preview_source_label", "Formula1.com / Pirelli")
     if preview_asset and preview_source:
         preview = f"""
 <h2 class="sec">Pirelli's event preview</h2>
@@ -273,7 +274,7 @@ def build_pages(ctx, env):
   <figcaption><strong>Official Pirelli event-preview graphic</strong> — circuit data,
   tyre demands, starting-pressure and camber limits, and the nominated compound selection.
   <strong>Click the graphic to zoom / full screen.</strong>
-  <span class="src">Source: <a href="{preview_source}" target="_blank" rel="noopener">Formula1.com</a> / Pirelli.
+  <span class="src">Source: <a href="{preview_source}" target="_blank" rel="noopener">{preview_source_label}</a>.
   <a href="../assets/{preview_asset}" target="_blank" rel="noopener">Full-resolution original</a>.</span></figcaption>
 </figure>
 """
