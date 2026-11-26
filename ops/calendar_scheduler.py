@@ -66,7 +66,7 @@ def editorial_audit(state, gps, now, audit_only, runs=()):
     last_good = valid[-1] if valid else None
     last_at = health.timestamp(last_good["finished_at"]) if last_good else None
     due = (last_at + interval if last_at else
-           health.timestamp(latest["created_at"]) if latest else now)
+           health.timestamp(records[0]["created_at"]) if records else now)
     outstanding = latest and latest.get("status") in ("queued", "running", "waiting_publication")
     retry_at = (health.timestamp(latest["finished_at"]) + dt.timedelta(hours=1)
                 if latest and latest.get("finished_at") and latest.get("status") not in
@@ -85,8 +85,7 @@ def editorial_audit(state, gps, now, audit_only, runs=()):
             "and unfinished work explicitly." + recovery)
         latest = agent_queue.enqueue_editorial(STATE, targets, prompt)
         outstanding = True
-    deadline = (due + max(interval, dt.timedelta(hours=2)) if last_at else
-                health.timestamp(latest["created_at"]) + dt.timedelta(hours=2) if latest else now)
+    deadline = due + max(interval, dt.timedelta(hours=2))
     result = {"targets": targets, "interval_hours": interval.total_seconds() / 3600,
               "last_reviewed_at": last_good.get("finished_at") if last_good else None,
               "next_due": due.isoformat(), "deadline": deadline.isoformat(),

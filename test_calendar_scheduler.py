@@ -55,6 +55,7 @@ class CalendarTests(unittest.TestCase):
             with patch.object(agent_queue, "now", return_value=later.isoformat()):
                 second = scheduler.editorial_audit({"errors": []}, [context()], later, False)
             self.assertNotEqual(first["task_id"], second["task_id"])
+            self.assertEqual(second["deadline"], first["deadline"])
             self.assertIn("prior run 20261106T120000Z", agent_queue.jobs(Path(directory))[-1]["prompt"])
 
     def test_successful_audit_freshness_and_failed_followup(self):

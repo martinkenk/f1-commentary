@@ -58,6 +58,7 @@ A successful report must list all page slugs and HTTPS sources for each target,
 and must have no remaining work. These are agent-reported receipts, not proof
 that every omission was detected. Failed, blocked or interrupted reviews retry
 after an hour, preserving prior work; publication waits are verified separately.
+Retries do not move the deadline for the first still-incomplete review.
 The dashboard and external heartbeat expose the last completed review and its
 deadline. A fresh calendar heartbeat alone is not proof of editorial freshness.
 The latest failed publisher also escalates to the agent rather than repeatedly
