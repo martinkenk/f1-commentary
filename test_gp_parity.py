@@ -225,6 +225,29 @@ class GPParityTests(unittest.TestCase):
             for item in briefing["items"]
         ))
 
+    def test_qatar_covers_published_fia_cost_cap_agreements(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_qatar.build_pages(ctx, self.env)
+
+        for slug in ("news", "teams", "notes"):
+            body = pages[slug]["body"]
+            self.assertIn("£627,000 (0.48%)", body)
+            self.assertIn("1.5 percentage points", body)
+            self.assertIn("90% becomes 88.5%", body)
+            self.assertIn("no sporting advantage", body)
+            self.assertIn("no sporting penalty", body)
+            self.assertIn("not a Qatar grid or race penalty", body)
+            for source in (
+                content_qatar.FIA_COST_CAP_REVIEW,
+                content_qatar.FIA_WILLIAMS_ABA,
+                content_qatar.FIA_WILLIAMS_ABA_SUMMARY,
+                content_qatar.FIA_ALPINE_ABA,
+                content_qatar.FIA_ALPINE_ABA_SUMMARY,
+                content_qatar.F1_COST_CAP_REPORT,
+            ):
+                self.assertIn(source, body)
+
     def test_qatar_penalties_include_las_vegas_carryover_in_its_source_reader(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
         ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)

@@ -5,7 +5,7 @@ from content_las_vegas import (
     HAMILTON_TRACK_LIMITS,
     PEREZ_PENALTY,
 )
-from f1lib import card, render_penalties
+from f1lib import auto_news, card, news_page_subtitle, render_penalties
 
 
 PIRELLI_NOMINATION = "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
@@ -74,6 +74,31 @@ PEREZ_PENALTY_ARTICLE = (
     "https://www.formula1.com/en/latest/article/"
     "perez-hit-with-five-place-penalty-in-qatar-after-camara-clash-during-las-vegas-grand-prix."
     "30GG7oJuJ1As0MrkavmStN"
+)
+FIA_COST_CAP_REVIEW = (
+    "https://www.fia.com/news/"
+    "fia-completes-its-review-compliance-2025-fia-formula-1-financial-regulations"
+)
+FIA_WILLIAMS_ABA = (
+    "https://www.fia.com/news/"
+    "accepted-breach-agreement-between-williams-grand-prix-engineering-limited-and-fia-breach-fia"
+)
+FIA_WILLIAMS_ABA_SUMMARY = (
+    "https://www.fia.com/sites/default/files/"
+    "summary_aba_for_public_disclosure_-_wgpe_0.pdf"
+)
+FIA_ALPINE_ABA = (
+    "https://www.fia.com/news/"
+    "accepted-breach-agreement-between-alpine-racing-limited-and-fia-procedural-breach-fia-formula-1"
+)
+FIA_ALPINE_ABA_SUMMARY = (
+    "https://www.fia.com/sites/default/files/"
+    "summary_aba_for_public_disclosure_-_alpine_1.pdf"
+)
+F1_COST_CAP_REPORT = (
+    "https://www.formula1.com/en/latest/article/"
+    "fia-confirm-williams-minor-overspend-breach-in-2025-cost-cap-review."
+    "12rGorQ1pzc6aH0LX2WdLZ"
 )
 
 
@@ -238,9 +263,38 @@ announcement as distinct.
 <a href="{BEARMAN_HAAS_SEAT}">Komatsu on Bearman's seat</a>.</p>""",
         "bi-person-badge", "accent",
     )
+    cost_cap_story = card(
+        "FIA resolves 2025 financial-regulation cases for Williams and Alpine",
+        f"""<p>The FIA's 25 November 2026 review found nine teams compliant with the
+2025 financial regulations; Williams had a minor overspend and procedural
+breach, while Alpine had a procedural breach. All five power-unit manufacturers
+were compliant. The Williams agreement says the unintentional overspend was
+£627,000 (0.48%) and found no sporting advantage. Its 12-month sporting
+sanction subtracts 1.5 percentage points from the coefficient used to set
+restricted wind-tunnel and CFD allowances (for example, 90% becomes 88.5%);
+this is not a Qatar grid or race penalty. The Alpine agreement requires a
+financial penalty and investigation costs, but no sporting penalty. The
+public summaries do not state either financial-penalty amount.
+<a href="{FIA_COST_CAP_REVIEW}">FIA's 2025 compliance review</a> ·
+<a href="{FIA_WILLIAMS_ABA}">Williams accepted breach agreement</a> ·
+<a href="{FIA_WILLIAMS_ABA_SUMMARY}">Williams public summary</a> ·
+<a href="{FIA_ALPINE_ABA}">Alpine accepted breach agreement</a> ·
+<a href="{FIA_ALPINE_ABA_SUMMARY}">Alpine public summary</a> ·
+<a href="{F1_COST_CAP_REPORT}">Formula1.com report</a>.</p>""",
+        "bi-info-circle", "accent",
+    )
     for slug in ("overview", "rookies", "notes"):
         pages[slug]["body"] = lineup + pages[slug]["body"]
-    pages["teams"]["body"] = lineup + ferrari_story + bearman_story + pages["teams"]["body"]
+    pages["news"] = dict(
+        kicker="Weekend News",
+        title="Weekend News & Session Reports",
+        sub=news_page_subtitle(ctx),
+        body=cost_cap_story + auto_news(ctx),
+    )
+    pages["teams"]["body"] = (
+        lineup + cost_cap_story + ferrari_story + bearman_story + pages["teams"]["body"]
+    )
+    pages["notes"]["body"] = cost_cap_story + pages["notes"]["body"]
     pending_team_storylines = content_generic.pending(
         "Team-by-team weekend storylines", "in the week before the race"
     )
