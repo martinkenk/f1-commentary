@@ -89,6 +89,11 @@ not repository data; never commit it or paste it into agent prompts. A missing
 or rejected credential does not stop other source reviews, but is not reported
 as a successful Reddit scan. Access restrictions are not bypassed.
 
+For interactive editorial checks, the service venv's Playwright uses its own
+Chromium installation, which need not appear on `PATH`. If the browser is
+missing, install it as the service user with
+`~/.local/share/f1-watchdog/venv/bin/python3 -m playwright install chromium`.
+
 Every build publishes `/automation-health.json`: validated classification
 fingerprints, collector outcomes, news review status, expected FIA/Pirelli/tyre
 deadlines and standings checkpoints. New FIA hashes require an explicit reviewed

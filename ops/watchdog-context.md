@@ -76,8 +76,10 @@ current strategy information. Retain the separate image-bound
    fails because they are missing; use the dedicated venv, never system pip/sudo.
    Never resume another user's interactive Copilot session.
 7. Run the smallest relevant tests, rebuild and run the inventory for page
-   changes. Inspect real rendered pages and images; use existing screenshot
-   evidence if a browser is unavailable, and state the limitation.
+   changes. Inspect real rendered pages and images. The service venv's Python
+   has Playwright; use its `playwright.sync_api` and `chromium.launch(headless=True)`
+   for interactive checks even when no browser command is on PATH. If that
+   browser is unavailable, use existing screenshot evidence and state the limitation.
 8. Before any GitHub mutation, recheck active deploy/editor runs. If another
    writer is running, defer publication and preserve your work with an explicit
    report. This remote process does not hold GitHub's `pages-publisher` lock.
