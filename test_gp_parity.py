@@ -202,6 +202,12 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_qatar.HAAS_BEARMAN_ANNOUNCEMENT, pages["notes"]["body"])
         self.assertIn("signed a new deal to continue with the team in 2027",
                       " ".join(pages["teams"]["body"].split()))
+        for slug in ("teams", "notes"):
+            body = " ".join(pages[slug]["body"].split())
+            self.assertIn("front-wing failure", body)
+            self.assertIn("remains under investigation", body)
+            self.assertIn("reinforced the assembly for Qatar", body)
+            self.assertIn(content_qatar.QATAR_THURSDAY_PRESS_CONFERENCE, body)
         self.assertNotIn("expectation, not a formal announcement",
                          pages["teams"]["body"])
         self.assertNotIn("Team-by-team weekend storylines: awaiting", pages["teams"]["body"])
@@ -256,9 +262,12 @@ class GPParityTests(unittest.TestCase):
             item["topic"] == "Las Vegas fallout"
             and "Verstappen" in item["title"]
             and "Ferrari" in item["summary"]
+            and "declined to disclose whether the rules of engagement would change" in item["summary"]
             and any(s["url"] == content_qatar.QATAR_RACE_WEEK_STORYLINES
                     for s in item["sources"])
             and any(s["url"] == content_qatar.FIA_VEGAS_LECLERC_COLLISION
+                    for s in item["sources"])
+            and any(s["url"] == content_qatar.QATAR_THURSDAY_PRESS_CONFERENCE
                     for s in item["sources"])
             for item in briefing["items"]
         ))

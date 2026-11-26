@@ -44,6 +44,9 @@ QATAR_RACE_WEEK_STORYLINES = (
     "its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix."
     "1bXINUYO8R8X3K7DjINr1A"
 )
+QATAR_THURSDAY_PRESS_CONFERENCE = (
+    "https://www.fia.com/news/f1-2026-qatar-grand-prix-thursday-press-conference-transcript"
+)
 FERRARI_VASSEUR_REPORT = (
     "https://www.formula1.com/en/latest/article/"
     "its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-"
@@ -276,12 +279,15 @@ teams' rookie appearances.
 collision in Las Vegas: Charles Leclerc hit team-mate Lewis Hamilton during
 their Turn 7 fight. FIA Document 60 found Leclerc wholly responsible and
 imposed a 10-second penalty; team principal Fred Vasseur described the
-incident as unacceptable. These are Las Vegas developments, not Qatar
-sanctions. The separate Hamilton Doc 54 / final Doc 65 footnote discrepancy
-remains unresolved on the Las Vegas pages.
+incident as unacceptable. At Thursday's FIA press conference, Leclerc said
+the team needed a solution, accepted responsibility for the Vegas clash, and
+declined to disclose whether the rules of engagement would change. This does
+not confirm new team rules or a Qatar sanction. The separate Hamilton Doc 54 /
+final Doc 65 footnote discrepancy remains unresolved on the Las Vegas pages.
 <a href="{QATAR_RACE_WEEK_STORYLINES}">Formula1.com Qatar preview</a> ·
 <a href="{FIA_VEGAS_LECLERC_COLLISION}">FIA Las Vegas Document 60</a> ·
 <a href="{FERRARI_VASSEUR_REPORT}">Vasseur's post-race comments</a> ·
+<a href="{QATAR_THURSDAY_PRESS_CONFERENCE}">FIA Thursday press-conference transcript, 26 November</a> ·
 <a href="{HAMILTON_TRACK_LIMITS}">FIA Document 54</a> ·
 <a href="{FINAL_CLASSIFICATION}">FIA final Document 65</a>.</p>""",
         "bi-people", "accent",
@@ -296,6 +302,16 @@ entry list; Bearman remains a Haas driver this weekend.
 <a href="{HAAS_BEARMAN_ANNOUNCEMENT}">TGR Haas official announcement</a> ·
 <a href="{BEARMAN_HAAS_SEAT}">Formula1.com report</a>.</p>""",
         "bi-person-badge", "accent",
+    )
+    hadjar_front_wing_story = card(
+        "Red Bull reinforces Hadjar's front wing after Las Vegas failure",
+        f"""<p>In the FIA's Thursday press-conference transcript, Isack Hadjar
+said the front-wing failure that ended his Las Vegas race remains under
+investigation. He said the team reinforced the assembly for Qatar and expects
+it to prevent a repeat. This is the driver's update, not a confirmed
+engineering root cause.
+<a href="{QATAR_THURSDAY_PRESS_CONFERENCE}">FIA Thursday press-conference transcript, 26 November</a>.</p>""",
+        "bi-tools", "accent",
     )
     cost_cap_story = card(
         "FIA resolves 2025 financial-regulation cases for Williams and Alpine",
@@ -341,9 +357,11 @@ public summaries do not state either financial-penalty amount.
         body=cost_cap_story + auto_news(ctx),
     )
     pages["teams"]["body"] = (
-        lineup + cost_cap_story + ferrari_story + bearman_story + pages["teams"]["body"]
+        lineup + cost_cap_story + ferrari_story + bearman_story
+        + hadjar_front_wing_story + pages["teams"]["body"]
     )
     pages["notes"]["body"] = cost_cap_story + pages["notes"]["body"]
+    pages["notes"]["body"] = hadjar_front_wing_story + pages["notes"]["body"]
     pending_team_storylines = content_generic.pending(
         "Team-by-team weekend storylines", "in the week before the race"
     )
