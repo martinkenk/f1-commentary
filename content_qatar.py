@@ -65,6 +65,11 @@ HAAS_BEARMAN_ANNOUNCEMENT = (
 FIA_QATAR_VISA = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
 FIA_QATAR_POWER_UNIT = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_power_unit_information.pdf"
 FIA_QATAR_TYRE_NOTES = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
+FIA_QATAR_CAR_DISPLAY = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_car_display_procedure.pdf"
+FIA_QATAR_PEREZ_SUMMONS = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_summons_-_car_11_-_late_attendance_of_the_thursday_press_conference.pdf"
+)
 FIA_APPEAL_HEARING = "https://www.fia.com/news/international-court-appeal-hearing-november-25-2026"
 FIA_ITALY_DOC69 = (
     "https://www.fia.com/system/files/decision-document/"
@@ -202,6 +207,22 @@ appear on the relevant pages as collection succeeds; discovery failures stay vis
         body=render_penalties(
             ctx,
             decisions=[
+                dict(
+                    doc="Qatar Doc 5",
+                    source_event="qatar",
+                    no="11",
+                    driver="Sergio Perez",
+                    team="Cadillac Formula 1 Team",
+                    session="Qatar Grand Prix — Stewards' hearing",
+                    fact="Alleged late attendance at the Thursday Press Conference.",
+                    outcome=(
+                        "The driver and team representative are summoned for 18:30 local "
+                        "on Friday 27 November. This is an allegation, not a finding or "
+                        "penalty; no ruling is recorded in this summons."
+                    ),
+                    kind="note",
+                    source_url=FIA_QATAR_PEREZ_SUMMONS,
+                ),
                 dict(
                     doc="Las Vegas Doc 61",
                     source_event="las-vegas",
@@ -441,6 +462,27 @@ local (14:00–15:00 Tallinn). F2 qualifying follows FP1 at 18:00 Friday
 Feature Race Sunday 15:00 (14:00 Tallinn). The F1 weekend is standard, not
 a Sprint weekend. Times are subject to change.
 <a href="{QATAR_TIMETABLE}">Official full timetable</a>.</p>"""
+    car_display = f"""<h2 class="sec">FIA car-display procedure — Document 4</h2>
+<p>For Friday 27 November, the FIA requires one car from each team to be
+positioned in its pit-stop position between 15:00 and 16:00 local; the other
+car is to be available for viewing inside the garage. If only one car carries
+major aerodynamic or bodywork components not run at a previous Competition
+or TCC and intended for this event, that is the car to display. The outside
+car may be used for pit-stop practice, but must return to the same position
+when practice is not taking place. The notice also sets out an adverse-weather
+procedure. This governs the media display, not team upgrade declarations, and
+does not establish that any new components have been submitted.
+<a href="{FIA_QATAR_CAR_DISPLAY}#page=2">Original FIA Document 4, page 2</a>.</p>"""
+    pages["upgrades"]["sub"] = (
+        "FIA car-presentation filings, parts changes and display logistics for Qatar."
+    )
+    pages["upgrades"]["body"] += car_display
+    pages["schedule"]["body"] += f"""
+<p>The FIA's Document 4 confirms the Friday car-display window is 15:00–16:00
+local (14:00–15:00 Tallinn) and requires each team's display car at its pit-stop
+position. It is a presentation procedure, not an upgrade submission.
+<a href="{FIA_QATAR_CAR_DISPLAY}#page=2">FIA Document 4, page 2</a>.</p>"""
+    pages["notes"]["body"] = car_display + pages["notes"]["body"]
     pages["moments"]["body"] = pages["moments"]["body"].replace(
         content_generic.pending(
             "A curated moments list for this venue",

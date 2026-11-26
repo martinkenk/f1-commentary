@@ -323,6 +323,54 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_qatar.PEREZ_PENALTY_ARTICLE, page)
         self.assertIn("This is not a Qatar ruling", page)
 
+    def test_qatar_car_display_and_doc5_summons_are_source_bound(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_qatar.build_pages(ctx, self.env)
+
+        upgrades = pages["upgrades"]["body"]
+        self.assertIn("FIA car-display procedure — Document 4", upgrades)
+        self.assertIn("not team upgrade declarations", upgrades)
+        self.assertIn("does not establish that any new components have been submitted", upgrades)
+        self.assertIn(
+            "FIA car presentation submissions for this round: awaiting a verified update",
+            upgrades,
+        )
+        self.assertNotIn("Upgrade packages brought to this round", pages["upgrades"]["sub"])
+        self.assertIn(content_qatar.FIA_QATAR_CAR_DISPLAY, upgrades)
+        self.assertIn(content_qatar.FIA_QATAR_CAR_DISPLAY, pages["schedule"]["body"])
+        self.assertIn(content_qatar.FIA_QATAR_CAR_DISPLAY, pages["notes"]["body"])
+
+        penalties = pages["penalties"]["body"]
+        row = next(
+            match.group(1)
+            for match in re.finditer(r"<tr>(.*?)</tr>", penalties, re.S)
+            if ">Qatar Doc 5</a>" in match.group(1)
+        )
+        self.assertIn("Sergio Perez", row)
+        self.assertIn("Alleged late attendance", row)
+        self.assertIn("not a finding or penalty", row)
+        self.assertIn(content_qatar.FIA_QATAR_PEREZ_SUMMONS, row)
+        self.assertIn('<details class="penalty-document"', row)
+        self.assertIn("data-document-reader", row)
+        self.assertIn("fia-qatar-4346f4d2c612-3d800b74e6cd774d-p1.png", row)
+        source_panel = f1lib.render_fia_documents(ctx, "penalties")
+        self.assertIn(content_qatar.FIA_QATAR_PEREZ_SUMMONS, source_panel)
+        self.assertIn("Summons request a hearing; they are not findings or penalties", source_panel)
+
+        review = json.loads(
+            (Path(__file__).parent / "data/qatar/coverage_review.json").read_text()
+        )
+        media = json.loads(
+            (Path(__file__).parent / "data/qatar/fia_media.json").read_text()
+        )
+        hashes = {doc["url"]: doc["sha256"] for doc in media["documents"]}
+        for source in (
+            content_qatar.FIA_QATAR_CAR_DISPLAY,
+            content_qatar.FIA_QATAR_PEREZ_SUMMONS,
+        ):
+            self.assertEqual(review["fia_sha256"].get(source), hashes[source])
+
     def test_qatar_map_strategy_and_timetable_keep_source_limits_explicit(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
         ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
