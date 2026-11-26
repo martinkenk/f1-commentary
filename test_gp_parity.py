@@ -205,6 +205,9 @@ class GPParityTests(unittest.TestCase):
             self.assertIn(content_qatar.QATAR_THURSDAY_PRESS_CONFERENCE, body)
             self.assertIn(content_qatar.QATAR_RUSSELL_VERSTAPPEN_FOLLOWUP, body)
             self.assertIn("quite amusing", body)
+            self.assertIn(content_qatar.QATAR_FERRARI_FOLLOWUP, body)
+            self.assertIn("securing second in the Constructors' Championship", body)
+            self.assertIn("remain free to race", body)
             self.assertIn(content_qatar.LECLERC_PENALTY_REPORT, body)
             self.assertNotIn("footnote discrepancy remains unresolved", body)
         self.assertNotIn("expectation, not a formal announcement",
@@ -271,7 +274,24 @@ class GPParityTests(unittest.TestCase):
                     for s in item["sources"])
             and any(s["url"] == content_qatar.QATAR_THURSDAY_PRESS_CONFERENCE
                     for s in item["sources"])
+            and (
+                "Hamilton saying securing second in the Constructors' Championship"
+                in item["summary"]
+            )
+            and any(s["url"] == content_qatar.QATAR_FERRARI_FOLLOWUP
+                    for s in item["sources"])
             for item in briefing["items"]
+        ))
+        vegas_briefing = json.loads(
+            (Path(__file__).parent / "data/las-vegas/news_highlights.json").read_text()
+        )
+        self.assertTrue(any(
+            item["topic"] == "Ferrari collision"
+            and item["date"] == "2026-11-26"
+            and "remain free to race" in item["summary"]
+            and any(s["url"] == content_qatar.QATAR_FERRARI_FOLLOWUP
+                    for s in item["sources"])
+            for item in vegas_briefing["items"]
         ))
         self.assertTrue(any(
             "FIA competition visa confirms" in item["summary"]

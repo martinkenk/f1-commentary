@@ -50,6 +50,11 @@ QATAR_RUSSELL_VERSTAPPEN_FOLLOWUP = (
     "it-was-quite-amusing-russell-shares-his-reaction-to-verstappens-las-vegas-comments."
     "6sv6Xkop4lBcCxge8ZgxXv"
 )
+QATAR_FERRARI_FOLLOWUP = (
+    "https://www.formula1.com/en/latest/article/"
+    "were-all-disappointed-leclerc-and-hamilton-address-aftermath-of-las-vegas-clash."
+    "34d9bV1J0varyAnDCWPAjU"
+)
 QATAR_THURSDAY_PRESS_CONFERENCE = (
     "https://www.fia.com/news/f1-2026-qatar-grand-prix-thursday-press-conference-transcript"
 )
@@ -337,11 +342,16 @@ the team needed a solution, accepted responsibility for the Vegas clash, and
 declined to disclose whether the rules of engagement would change. This does
 not confirm new team rules or a Qatar sanction. Formula1.com reports Hamilton
 finished seventh after serving a separate 10-second penalty; the final
-classification is consistent with that result.
+classification is consistent with that result. In a 26 November media-day
+report, Hamilton said securing second in the Constructors' Championship is
+Ferrari's immediate priority, that the drivers remain free to race, and that
+improvements to their processes and communication will be discussed over
+winter. This reports ongoing conversations, not a new team rule.
 <a href="{QATAR_RACE_WEEK_STORYLINES}">Formula1.com Qatar preview</a> ·
 <a href="{FIA_VEGAS_LECLERC_COLLISION}">FIA Las Vegas Document 60</a> ·
 <a href="{FERRARI_VASSEUR_REPORT}">Vasseur's post-race comments</a> ·
 <a href="{QATAR_THURSDAY_PRESS_CONFERENCE}">FIA Thursday press-conference transcript, 26 November</a> ·
+<a href="{QATAR_FERRARI_FOLLOWUP}">Formula1.com, Leclerc and Hamilton's Qatar media-day comments, 26 November</a> ·
 <a href="{HAMILTON_TRACK_LIMITS}">FIA Document 54</a> ·
 <a href="{FINAL_CLASSIFICATION}">FIA final Document 65</a> ·
 <a href="{LECLERC_PENALTY_REPORT}">Formula1.com final-result account</a>.</p>""",
