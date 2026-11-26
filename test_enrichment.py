@@ -277,6 +277,25 @@ class EnrichmentTests(unittest.TestCase):
         self.assertIn("not a statement of non-publication",
                       f1lib.render_fia_documents(CTX, "powerunit"))
 
+    def test_discovery_preserves_explicit_supplemental_official_documents(self):
+        supplemental = {
+            "filename": "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf",
+            "url": "https://www.fia.com/system/files/decision-document/"
+                   "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf",
+            "categories": ["circuit"],
+            "source_note": "Official FIA Lusail Event Document 5.",
+        }
+        self.save("fia_documents", {"documents": [MAP],
+                                    "supplemental_documents": [supplemental]})
+        with patch.object(enrich, "fia_documents", return_value=[PU]):
+            enrich.discover_fia(CTX)
+        manifest = self.read("fia_documents")
+        self.assertEqual(manifest["documents"], [PU])
+        self.assertEqual(manifest["supplemental_documents"], [supplemental])
+        rendered = f1lib.render_fia_documents(CTX, "circuit")
+        self.assertIn(supplemental["url"], rendered)
+        self.assertIn("supplemental to the saved event listing", rendered)
+
     def test_shell_injects_sources_and_preserves_curated_content(self):
         docs = [PU, MAP, document("available_tyres.pdf"),
                 document("car_presentation_submissions.pdf")]

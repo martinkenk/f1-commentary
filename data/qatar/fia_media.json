@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-26T17:48:59+00:00",
+  "checked_at": "2026-11-26T18:09:41+00:00",
   "discovery_retrieved_at": "2026-11-26T17:48:55.220656+00:00",
   "documents": [
     {
@@ -106,6 +106,22 @@
         {
           "page": 9,
           "asset": "fia-qatar-b11205c98892-f2f0cba8043496bd-p9.png"
+        }
+      ],
+      "revision": 0
+    },
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_lusail_event_-_circuit_map_-_lusail_2026.pdf",
+      "filename": "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "sha256": "2ecc4a2296e4c15c3b092866264b001ede07b0d28daf596156fe4aec603954c6",
+      "fetched_at": "2026-11-26T18:09:41+00:00",
+      "pages": [
+        {
+          "page": 2,
+          "asset": "fia-qatar-6ae76b12a98a-2ecc4a2296e4c15c-p2.png"
         }
       ],
       "revision": 0

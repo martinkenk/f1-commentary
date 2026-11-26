@@ -80,7 +80,7 @@ def inventory(gps, root=None):
         media_urls = {doc["url"] for doc in media.get("documents", [])
                       if doc.get("pages") and all((root / "assets_src" / p["asset"]).is_file()
                                                  for p in doc["pages"])}
-        uncached = [doc["filename"] for doc in documents.get("documents", [])
+        uncached = [doc["filename"] for doc in f1lib.fia_manifest_documents(documents)
                     if f1lib.fia_document_categories(doc["filename"]) and doc["url"] not in media_urls]
         tyres = race_tyres.context(ctx, root=root)
         reviewed = f1lib.reviewed_race_tyres(ctx, tyres["snapshot"], data_dir=root / "data")

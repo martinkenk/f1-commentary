@@ -59,14 +59,22 @@ class InventoryTests(unittest.TestCase):
             directory.mkdir(parents=True)
             (directory / "fia_documents.json").write_text(json.dumps({
                 "documents": [{"filename": "power_unit_information.pdf",
-                               "url": "https://www.fia.com/power_unit_information.pdf"}]}))
+                               "url": "https://www.fia.com/power_unit_information.pdf"}],
+                "supplemental_documents": [{
+                    "filename": "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf",
+                    "url": "https://www.fia.com/system/files/decision-document/"
+                           "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf",
+                    "categories": ["circuit"],
+                }],
+            }))
             (directory / "fia_discovery_status.json").write_text('{"error": "HTTP 403"}')
             ctx = {"dir": "spain", "race_date": "2026-09-13", "sessions": [],
                    "nav": [], "pages": coverage_inventory.inventory}
             event = coverage_inventory.inventory([ctx], root)["events"][0]
             self.assertEqual(event["fia_discovery"]["error"], "HTTP 403")
             self.assertEqual(event["fia_documents_without_automatic_screenshots"],
-                             ["power_unit_information.pdf"])
+                             ["power_unit_information.pdf",
+                              "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf"])
 
     def test_history_debut_and_failed_refresh_are_distinct_from_missing(self):
         with tempfile.TemporaryDirectory() as temporary:

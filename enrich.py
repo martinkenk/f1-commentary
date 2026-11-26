@@ -508,10 +508,27 @@ def discover_fia(ctx):
     save_json(os.path.join(directory, "fia_documents.json"), {
         "source_url": ctx["fia_url"], "retrieved_at": checked_at,
         "documents": documents,
+        "supplemental_documents": _supplemental_fia_documents(directory),
     })
     status["ok"] = True
     save_json(os.path.join(directory, "fia_discovery_status.json"), status)
     print(f"  · FIA discovery: {len(documents)} documents")
+    return documents
+
+
+def _supplemental_fia_documents(directory):
+    """Keep explicitly verified official PDFs that are outside the event listing."""
+    path = os.path.join(directory, "fia_documents.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            manifest = json.load(f)
+    except FileNotFoundError:
+        return []
+    if not isinstance(manifest, dict):
+        raise ValueError(f"Expected a FIA document manifest object: {path}")
+    documents = manifest.get("supplemental_documents", [])
+    if not isinstance(documents, list) or any(not isinstance(doc, dict) for doc in documents):
+        raise ValueError(f"Invalid supplemental FIA documents in {path}")
     return documents
 
 

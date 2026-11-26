@@ -68,6 +68,13 @@ HAAS_BEARMAN_ANNOUNCEMENT = (
 FIA_QATAR_VISA = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
 FIA_QATAR_POWER_UNIT = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_power_unit_information.pdf"
 FIA_QATAR_TYRE_NOTES = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
+FIA_QATAR_CIRCUIT_MAP = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf"
+)
+FIA_QATAR_CIRCUIT_MAP_IMAGE = (
+    "fia-qatar-6ae76b12a98a-2ecc4a2296e4c15c-p2.png"
+)
 FIA_QATAR_CAR_DISPLAY = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_car_display_procedure.pdf"
 FIA_QATAR_PEREZ_SUMMONS = (
     "https://www.fia.com/system/files/decision-document/"
@@ -127,6 +134,24 @@ thresholds, not Straight Mode activation points. The reviewed FIA map gives
 no low-grip-specific Overtake values, so none are inferred.
 <a href="{QATAR_TRACK_MAP}">Formula1.com 2026 circuit map</a> ·
 <a href="{FIA_QATAR_POWER_UNIT}#page=2">FIA Power Unit Information, page 2</a>.</p>"""
+    circuit += f"""<p>The FIA's supplemental Lusail Event Document 5, version 1
+(issued 24 November), separately marks the <strong>DRS detection point 55 m
+after Turn 15</strong> and <strong>DRS activation 190 m after Turn 16</strong>.
+These are Drag Reduction System points, distinct from the 2026 active-aero
+Straight Mode zones and the ERS Overtake points above. The full official
+circuit map is shown below.
+<a href="{FIA_QATAR_CIRCUIT_MAP}#page=2">FIA Lusail circuit map, page 2</a>.</p>"""
+    circuit += f"""<figure class="circuit-fig">
+<img class="circuit-img" src="../assets/{FIA_QATAR_CIRCUIT_MAP_IMAGE}"
+alt="Official FIA 2026 Lusail circuit map showing the track layout, DRS detection and activation, sectors, speed trap and marshal posts"
+loading="lazy" onclick="zoomImg(this)">
+<figcaption>FIA Lusail Event Document 5, circuit-map version 1 issued 24 November 2026,
+page 2. <a href="{FIA_QATAR_CIRCUIT_MAP}#page=2">Original FIA PDF, page 2</a>.</figcaption>
+</figure>"""
+    qatar_drs_note = f"""<div class="callout accent"><strong>Lusail DRS:</strong>
+the FIA map marks detection 55 m after Turn 15 and activation 190 m after
+Turn 16. This is separate from Straight Mode and ERS Overtake.
+<a href="{FIA_QATAR_CIRCUIT_MAP}#page=2">FIA circuit map, page 2</a>.</div>"""
     pages["circuit"]["body"] += circuit
     powerunit = f"""<h2 class="sec">Qatar FIA power-and-energy map</h2>
 <p>The FIA sheet identifies a <strong>5.419 km</strong> lap, standard format
@@ -464,7 +489,8 @@ This is not a driver-by-driver remaining-set inventory.
         "accent",
     ) + strategy
     pages["notes"]["body"] = (
-        bearman_story + nomination + strategy + ferrari_story + pages["notes"]["body"]
+        qatar_drs_note + bearman_story + nomination + strategy + ferrari_story
+        + pages["notes"]["body"]
     )
     pages["schedule"]["body"] += f"""
 <h2 class="sec">Support-race and car-presentation watch</h2>

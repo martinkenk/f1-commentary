@@ -37,5 +37,16 @@
         "schedule"
       ]
     }
+  ],
+  "supplemental_documents": [
+    {
+      "filename": "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_lusail_event_-_circuit_map_-_lusail_2026.pdf",
+      "categories": [
+        "circuit"
+      ],
+      "source_note": "Official FIA Qatar map, published as 2026 Lusail Event Document 5; not present in the saved Qatar Grand Prix event listing at its 17:48Z check.",
+      "discovered_at": "2026-11-26T18:09:41+00:00"
+    }
   ]
 }

@@ -97,6 +97,25 @@ class FiaMediaTests(unittest.TestCase):
         self.assertIn("automatic screenshot", body)
         self.assertEqual(f1lib.render_fia_media(CTX, "circuit"), "")
 
+    def test_supplemental_circuit_map_gets_collected_and_rendered(self):
+        map_url = (
+            "https://www.fia.com/system/files/decision-document/"
+            "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf"
+        )
+        self.manifest.write_text(json.dumps({
+            "documents": [],
+            "supplemental_documents": [{
+                "url": map_url,
+                "filename": "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf",
+                "categories": ["circuit"],
+            }],
+        }), encoding="utf-8")
+        with patch.object(fia_media, "_download", return_value=b"%PDF-map"), \
+                patch.object(fia_media, "_render", side_effect=self.render):
+            self.assertTrue(fia_media.refresh_gp(CTX))
+        self.assertIn(map_url + "#page=2", f1lib.render_fia_media(CTX, "circuit"))
+        self.assertIn(map_url, f1lib.render_fia_documents(CTX, "circuit"))
+
     def test_summons_and_classifications_have_distinct_page_destinations(self):
         summons_url = "https://www.fia.com/system/files/decision-document/summons_car_51.pdf"
         result_url = "https://www.fia.com/system/files/decision-document/free_practice_2_classification.pdf"

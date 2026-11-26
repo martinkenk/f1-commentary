@@ -13,6 +13,7 @@ from pathlib import Path
 import news_briefing
 import race_tyres
 import session_results
+import f1lib
 
 UTC = dt.timezone.utc
 DURATIONS = {"Practice 1": 60, "Practice 2": 60, "Practice 3": 60,
@@ -109,7 +110,7 @@ def report(gps, root, now=None):
         media = read(directory / "fia_media.json")
         for error in media.get("errors", []):
             problem(gp, "source_error", f"FIA screenshot collection: {error}")
-        documents = read(directory / "fia_documents.json").get("documents", [])
+        documents = f1lib.fia_manifest_documents(read(directory / "fia_documents.json"))
         cached_urls = {doc["url"] for doc in media.get("documents", []) if doc.get("pages")}
         for doc in documents:
             if doc.get("categories") and doc["url"] not in cached_urls:

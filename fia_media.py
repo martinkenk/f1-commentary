@@ -97,7 +97,7 @@ def refresh_gp(ctx, decisions_only=False, categories=None):
     records = {item["url"]: item for item in previous.get("documents", [])}
     penalties_path = directory / "penalties_auto.json"
     penalties = enrich.load_list(str(penalties_path))
-    sources = {item["url"]: item for item in discovered.get("documents", [])}
+    sources = {item["url"]: item for item in f1lib.fia_manifest_documents(discovered)}
     for document in previous.get("documents", []):
         if "penalties" in f1lib.fia_document_categories(document["filename"]):
             sources.setdefault(document["url"], document)
@@ -156,7 +156,8 @@ def refresh_gp(ctx, decisions_only=False, categories=None):
             errors.append({"url": url, "error": str(error)})
             print(f"  ! {ctx['dir']} FIA screenshots: {url}: {error}")
     # Keep the published listing order, retaining older successful documents last.
-    order = {doc["url"]: index for index, doc in enumerate(discovered.get("documents", []))}
+    order = {doc["url"]: index for index, doc in enumerate(
+        f1lib.fia_manifest_documents(discovered))}
     _write(directory / "fia_media.json", {
         "checked_at": checked_at,
         "discovery_retrieved_at": discovered.get("retrieved_at", ""),

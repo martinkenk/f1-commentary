@@ -122,6 +122,21 @@ def _official_fia_url(url):
     return parsed.scheme == "https" and parsed.hostname in ("fia.com", "www.fia.com")
 
 
+def fia_manifest_documents(manifest):
+    """Return listed and explicitly supplemental official FIA documents once."""
+    documents, seen = [], set()
+    for collection in ("documents", "supplemental_documents"):
+        for document in manifest.get(collection, []):
+            if not isinstance(document, dict):
+                continue
+            url = document.get("url")
+            if not url or url in seen:
+                continue
+            seen.add(url)
+            documents.append(document)
+    return documents
+
+
 def render_fia_documents(ctx, category):
     """Add source documents without replacing reviewed tables or circuit maps."""
     labels = {"powerunit": "power-unit documents", "circuit": "maps & race-director notes",
@@ -156,7 +171,9 @@ def render_fia_documents(ctx, category):
                    'This does not mean the FIA has not published documents.</p>')
     matching_categories = ({"penalties", "stewards"} if category == "penalties"
                            else {category})
-    documents = [d for d in manifest.get("documents", [])
+    supplemental_urls = {d.get("url") for d in manifest.get("supplemental_documents", [])
+                         if isinstance(d, dict)}
+    documents = [d for d in fia_manifest_documents(manifest)
                  if isinstance(d, dict) and _official_fia_url(d.get("url"))
                  and matching_categories.intersection(
                      fia_document_categories(d.get("filename", "")))]
@@ -165,7 +182,9 @@ def render_fia_documents(ctx, category):
         for doc in documents:
             out.append(f'<li><a href="{html.escape(doc["url"], quote=True)}" '
                        f'target="_blank" rel="noopener">'
-                       f'{html.escape(doc["filename"])}</a> (official PDF)</li>')
+                       f'{html.escape(doc["filename"])}</a> (official PDF'
+                       f'{"; supplemental to the saved event listing" if doc["url"] in supplemental_urls else ""})'
+                       f'</li>')
         out.append("</ul>")
         if category == "penalties":
             out.append("<p>Summons request a hearing; they are not findings or penalties.</p>")
