@@ -63,12 +63,20 @@
       ]
     },
     {
-      "topic": "Italian GP appeal",
-      "title": "FIA lists Audi's Tsunoda appeal; decision not yet published",
+      "topic": "Championship and appeal",
+      "title": "Both 2026 titles are decided; Tsunoda appeal remains pending",
       "date": "2026-11-25",
-      "summary": "The FIA scheduled a closed International Court of Appeal hearing in Paris for 09:00 local time on 25 November on Audi's appeal of Italian GP Document 69, where stewards took no further action after the extra formation lap. The hearing notice does not itself change the result. The public judgments index, checked on 26 November at 08:25 UTC, did not list a decision for ICA-2026-14. Las Vegas Document 66's championship-points paper also notes Audi's appeal. Formula1.com currently lists Antonelli 402 / Verstappen 304 and Mercedes 666 / Ferrari 517 after round 21.",
-      "why_it_matters": "The hearing notice does not impose a penalty or change the points table. Do not infer a result; refresh standings and re-evaluate the appeal only if the Court publishes a decision.",
+      "summary": "Kimi Antonelli clinched his first Drivers' Championship with third place in Mexico City on 1 November; Mercedes secured the Constructors' Championship in São Paulo on 8 November. After Las Vegas, Formula1.com lists Antonelli on 402 points to Max Verstappen's 304 and Mercedes on 666 to Ferrari's 517. Separately, the FIA scheduled a closed International Court of Appeal hearing in Paris for 25 November on Audi's appeal of Italian GP Document 69. The public judgments index, checked on 26 November, did not list a decision for ICA-2026-14; Las Vegas Document 66 also notes the appeal.",
+      "why_it_matters": "Qatar is not a title-deciding round. The appeal hearing notice does not itself change a race result or the points table; do not infer its outcome.",
       "sources": [
+        {
+          "label": "Formula1.com, Antonelli clinches the drivers' title in Mexico City",
+          "url": "https://www.formula1.com/en/latest/article/2026-formula-1-mexico-city-grand-prix-kimi-antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-mexico-city-grand-prix.xpMMeef0KmRURs9IDs3LH"
+        },
+        {
+          "label": "Formula1.com, Mercedes seals the constructors' title in São Paulo",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paolo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+        },
         {
           "label": "FIA International Court of Appeal hearing notice, Case ICA-2026-14",
           "url": "https://www.fia.com/news/international-court-appeal-hearing-november-25-2026"

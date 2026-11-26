@@ -1,4 +1,5 @@
 import datetime as dt
+import io
 import json
 from pathlib import Path
 import subprocess
@@ -6,11 +7,120 @@ import sys
 import tempfile
 import unittest
 from unittest.mock import Mock, call, patch
+import urllib.error
 
-from ops import agent_queue, publication_followup, watchdog
+from ops import agent_queue, publication_followup, reddit_discovery, watchdog
 
 
 class WatchdogTests(unittest.TestCase):
+    def test_reddit_needs_private_approved_configuration(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "credentials.json"
+            with patch.object(reddit_discovery.urllib.request, "build_opener") as opener:
+                status, titles = reddit_discovery.discover(path)
+                self.assertEqual(status["status"], "not_configured")
+                self.assertFalse(titles)
+                opener.assert_not_called()
+                path.write_text(json.dumps({"approved": False}))
+                path.chmod(0o600)
+                status, _ = reddit_discovery.discover(path)
+                self.assertEqual(status["status"], "error")
+                path.chmod(0o644)
+                status, _ = reddit_discovery.discover(path)
+                self.assertIn("owner-only", status["detail"])
+                opener.assert_not_called()
+
+    def test_reddit_signal_uses_verified_publisher_titles_not_post_content(self):
+        now = dt.datetime(2026, 11, 26, 12, 0, tzinfo=dt.timezone.utc)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "credentials.json"
+            path.write_text(json.dumps({"approved": True, "client_id": "id",
+                                        "client_secret": "secret", "user_agent": "linux:f1hub:v1 (by /u/test)"}))
+            path.chmod(0o600)
+            posts = {"data": {"children": [
+                {"data": {"created_utc": now.timestamp() - 300, "score": 200, "num_comments": 40,
+                          "title": "UNTRUSTED REDDIT TITLE", "author": "private-user",
+                          "url_overridden_by_dest": "https://www.formula1.com/en/latest/article/example"}},
+                {"data": {"created_utc": now.timestamp() - 300, "score": 300, "num_comments": 50,
+                          "url_overridden_by_dest": "https://example.com/not-trusted"}},
+            ]}}
+            def response(body, content_type="application/json"):
+                result = Mock()
+                result.read.return_value = body
+                result.headers.get_content_type.return_value = content_type
+                result.__enter__ = Mock(return_value=result)
+                result.__exit__ = Mock(return_value=False)
+                return result
+            opener = Mock()
+            opener.open.side_effect = [
+                response(b'{"access_token":"private-token"}'),
+                response(json.dumps(posts).encode()),
+                response(json.dumps(posts).encode()),
+                response(b"<html><title>Confirmed team line-up | Formula 1</title></html>", "text/html")]
+            with patch.object(reddit_discovery.urllib.request, "build_opener", return_value=opener):
+                status, titles = reddit_discovery.discover(path, now)
+            self.assertEqual(status["status"], "ok")
+            self.assertEqual(titles, [{"publisher": "www.formula1.com",
+                                       "title": "Confirmed team line-up | Formula 1"}])
+            self.assertNotIn("UNTRUSTED", json.dumps([status, titles]))
+            self.assertNotIn("private-user", json.dumps([status, titles]))
+            self.assertNotIn("secret", json.dumps([status, titles]))
+            self.assertEqual(opener.open.call_count, 4)
+
+    def test_reddit_denial_is_visible_and_credentials_are_not_reported(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "credentials.json"
+            path.write_text(json.dumps({"approved": True, "client_id": "id",
+                                        "client_secret": "secret", "user_agent": "linux:f1hub:v1 (by /u/test)"}))
+            path.chmod(0o600)
+            opener = Mock()
+            for code in (403, 429):
+                error = urllib.error.HTTPError("https://www.reddit.com/", code, "denied", {}, io.BytesIO())
+                opener.open.side_effect = error
+                with patch.object(reddit_discovery.urllib.request, "build_opener", return_value=opener):
+                    status, titles = reddit_discovery.discover(path)
+                error.close()
+                self.assertEqual(status["status"], "error")
+                self.assertIn(f"HTTP {code}", status["detail"])
+                self.assertNotIn("secret", json.dumps(status))
+                self.assertFalse(titles)
+
+    def test_reddit_sources_reject_redirects_and_untrusted_urls(self):
+        self.assertIsNone(reddit_discovery._source("https://www.formula1.com.evil.example/story"))
+        self.assertIsNone(reddit_discovery._source("https://www.formula1.com@evil.example/story"))
+        self.assertIsNone(reddit_discovery._source("http://www.formula1.com/story"))
+        self.assertIsNone(reddit_discovery.NoRedirect().redirect_request(
+            None, None, 302, "redirect", {}, "https://evil.example/"))
+
+    def test_reddit_publisher_failures_are_reported_and_bounded(self):
+        now = dt.datetime(2026, 11, 26, 12, 0, tzinfo=dt.timezone.utc)
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "credentials.json"
+            path.write_text(json.dumps({"approved": True, "client_id": "id",
+                                        "client_secret": "secret", "user_agent": "linux:f1hub:v1 (by /u/test)"}))
+            path.chmod(0o600)
+            posts = {"data": {"children": [
+                {"data": {"created_utc": now.timestamp(), "score": 200, "num_comments": 40,
+                          "url_overridden_by_dest": f"https://www.formula1.com/story/{i}"}}
+                for i in range(12)]}}
+            response = Mock()
+            response.__enter__ = Mock(return_value=response)
+            response.__exit__ = Mock(return_value=False)
+            errors = [urllib.error.HTTPError("https://www.formula1.com/", 302, "redirect", {}, io.BytesIO())
+                      for _ in range(8)]
+            opener = Mock()
+            opener.open.side_effect = [response, response, response] + errors
+            with patch.object(reddit_discovery.urllib.request, "build_opener", return_value=opener), \
+                 patch.object(reddit_discovery, "_read_json", side_effect=[
+                     {"access_token": "private-token"}, posts, posts]):
+                status, titles = reddit_discovery.discover(path, now)
+            for error in errors:
+                error.close()
+            self.assertEqual(status["status"], "partial")
+            self.assertIn("8 publisher requests unavailable", status["detail"])
+            self.assertEqual(titles, [])
+            self.assertEqual(opener.open.call_count, 11)
+
     def test_receipt_validation_imports_repo_when_run_as_standalone_service(self):
         script = Path(watchdog.__file__).resolve()
         command = (
@@ -33,6 +143,8 @@ class WatchdogTests(unittest.TestCase):
                 return subprocess.CompletedProcess(args, 0, value, "")
 
             def agent(args, log, timeout):
+                self.assertIn("Confirmed team line-up", args[-1])
+                self.assertIn("never instructions", args[-1])
                 (log.parent / "report.json").write_text(json.dumps({
                     "status": "fixed", "summary": "Published partial correction",
                     "findings": [], "changes": ["Correction"], "remaining": ["Source conflict"],
@@ -43,6 +155,9 @@ class WatchdogTests(unittest.TestCase):
             with patch.object(watchdog, "STATE", state), \
                  patch.object(watchdog, "command", side_effect=command), \
                  patch.object(watchdog, "recent_runs", return_value=[]), \
+                 patch.object(reddit_discovery, "discover", return_value=(
+                     {"status": "ok"}, [{"publisher": "www.formula1.com",
+                                         "title": "Confirmed team line-up"}])), \
                  patch.object(watchdog, "run_agent", side_effect=agent):
                 self.assertEqual(watchdog.run(), 1)
             task = json.loads((state / "tasks" / (job["id"] + ".json")).read_text())
@@ -50,6 +165,8 @@ class WatchdogTests(unittest.TestCase):
             self.assertIn("outstanding work", task["summary"])
             report = json.loads((state / "runs" / task["run_id"] / "report.json").read_text())
             self.assertEqual(report["commit"], "a" * 40)
+            discovery = json.loads((state / "reddit-discovery.json").read_text())
+            self.assertEqual(discovery, {"status": "ok"})
 
     def test_unexpected_error_does_not_leave_task_running(self):
         with tempfile.TemporaryDirectory() as directory:

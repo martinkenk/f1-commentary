@@ -235,6 +235,8 @@ class GPParityTests(unittest.TestCase):
         ))
         self.assertTrue(any(
             "Tsunoda appeal" in item["title"]
+            and "Antonelli clinched" in item["summary"]
+            and "Mercedes secured the Constructors' Championship" in item["summary"]
             and "ICA-2026-14" in item["summary"]
             and "did not list a decision" in item["summary"]
             and any(s["url"] == content_qatar.FIA_APPEAL_HEARING for s in item["sources"])

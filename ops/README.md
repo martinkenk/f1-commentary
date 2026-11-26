@@ -64,6 +64,31 @@ deadline. A fresh calendar heartbeat alone is not proof of editorial freshness.
 The latest failed publisher also escalates to the agent rather than repeatedly
 dispatching the same broken publisher.
 
+### Reddit-assisted news discovery
+
+Scheduled editorial audits can use the approved Reddit Data API to scan recent
+`r/formula1` new and hot link submissions. Engagement is only a discovery signal: the worker
+retrieves titles independently from an allowlist of publishers, and the editorial
+agent must check the original reporting, significance and event before updating
+the rundown. Reddit posts, authors, comments, titles and links are not saved.
+Scans follow the editorial schedule, not a separate real-time feed. Publisher
+or Reddit failures and missing configuration are visible in scheduler health.
+
+Reddit requires [approved Data API access](https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki)
+and OAuth. Once approved, use the service user's authenticated terminal to create
+`~/.local/state/f1-watchdog/reddit-credentials.json`, owned by that user with
+mode `0600`. Use an editor rather than putting secrets in shell history:
+
+```json
+{"approved": true, "client_id": "APP_ID", "client_secret": "APP_SECRET",
+ "user_agent": "linux:YOUR_APP_ID:v1 (by /u/YOUR_REDDIT_USER)"}
+```
+
+Set `approved` only after Reddit approves this use. The file is private state,
+not repository data; never commit it or paste it into agent prompts. A missing
+or rejected credential does not stop other source reviews, but is not reported
+as a successful Reddit scan. Access restrictions are not bypassed.
+
 Every build publishes `/automation-health.json`: validated classification
 fingerprints, collector outcomes, news review status, expected FIA/Pirelli/tyre
 deadlines and standings checkpoints. New FIA hashes require an explicit reviewed

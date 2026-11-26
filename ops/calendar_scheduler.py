@@ -297,7 +297,8 @@ def heartbeat(state, preferences, now):
                "pending": state.get("pending", []), "request": state.get("request"),
                "next": state.get("next", []),
                "agent": state.get("agent"), "live_generated_at": state.get("live_generated_at"),
-               "editorial_audit": state.get("editorial_audit")}
+               "editorial_audit": state.get("editorial_audit"),
+               "reddit_discovery": state.get("reddit_discovery")}
     body = ("Calendar scheduler health. Updated automatically; stale heartbeat is a failure, "
             "not a healthy idle state.\n\n```json\n" + json.dumps(payload, indent=2) + "\n```\n")
     endpoint = f"repos/{watchdog.REPOSITORY}/issues/{number}"
@@ -422,6 +423,16 @@ def tick(now=None):
         audit_only = preferences.get("audit_only", False)
         if audit_only:
             state["errors"].append("Operator read-only mode: dispatch and repair disabled")
+        reddit_status = health.read(STATE / "reddit-discovery.json")
+        credentials = STATE / "reddit-credentials.json"
+        if not credentials.exists() and not credentials.is_symlink():
+            reddit_status = {"status": "not_configured",
+                             "detail": "Reddit discovery needs approved OAuth credentials."}
+        elif not reddit_status:
+            reddit_status = {"status": "waiting", "detail": "Reddit discovery has not run yet."}
+        state["reddit_discovery"] = reddit_status
+        if reddit_status.get("status") != "ok":
+            state["errors"].append(f"Reddit discovery: {reddit_status.get('detail', 'status unavailable')}")
         state["editorial_audit"] = editorial_audit(
             state, gps, now, audit_only or bool(preferences.get("agent_blocked_reason")), runs)
         retry_ready = not state.get("retry_after") or now >= health.timestamp(state["retry_after"])
