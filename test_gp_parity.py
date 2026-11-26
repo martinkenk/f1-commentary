@@ -175,8 +175,14 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Virtual Safety Car", pages["notes"]["body"].replace("\n", " "))
         self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["rookies"]["body"])
-        self.assertIn("not a complete FIA", pages["rookies"]["body"])
-        self.assertIn("Rookie FP1 line-ups for this round", pages["rookies"]["body"])
+        self.assertIn("not establish a\nrookie FP1 substitution",
+                      pages["rookies"]["body"])
+        self.assertIn(content_qatar.QATAR_FP1_ANNOUNCEMENT, pages["rookies"]["body"])
+        rookies_body = " ".join(pages["rookies"]["body"].split())
+        self.assertIn("Crawford will drive Fernando Alonso's car in Friday's FP1",
+                      rookies_body)
+        self.assertNotIn("Rookie FP1 line-ups for this round: awaiting",
+                         rookies_body)
         self.assertNotIn("Reserve or replacement driver changes", pages["rookies"]["body"])
         schedule_body = " ".join(pages["schedule"]["body"].split())
         self.assertIn("19:00 local (18:00 Tallinn)", schedule_body)

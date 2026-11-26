@@ -39,6 +39,7 @@ CAMARA_QATAR_ANNOUNCEMENT = (
     "haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026."
     "2wYY9ymhyqr7rXcuK6S7bj"
 )
+QATAR_FP1_ANNOUNCEMENT = "https://x.com/AstonMartinF1/status/2125575387375948173"
 QATAR_RACE_WEEK_STORYLINES = (
     "https://www.formula1.com/en/latest/article/"
     "its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix."
@@ -231,9 +232,18 @@ appear on the relevant pages as collection succeeds; discovery failures stay vis
         f"""<p>Haas confirmed on 22 November that Câmara will drive for the team
 at both remaining 2026 Grands Prix, after his race outings in Brazil and Las
 Vegas. The announcement also identifies him as a full-time Haas driver for
-2027. This confirms Câmara's Qatar participation; it is not a complete FIA
-entry list or confirmation of FP1 substitutions.
+2027. This confirms Câmara's Qatar participation; it does not establish a
+rookie FP1 substitution or the complete event entry list.
 <a href="{CAMARA_QATAR_ANNOUNCEMENT}">Formula1.com, 22 November</a>.</p>""",
+        "bi-person-badge", "accent",
+    )
+    qatar_fp1 = card(
+        "Aston Martin confirms Jak Crawford for Qatar FP1",
+        f"""<p>On 25 November, Aston Martin confirmed that Crawford will drive
+Fernando Alonso's car in Friday's FP1 after limited running in Las Vegas. This
+confirms one FP1 substitution, not the complete event entry list or the other
+teams' rookie appearances.
+<a href="{QATAR_FP1_ANNOUNCEMENT}">Aston Martin's official announcement</a>.</p>""",
         "bi-person-badge", "accent",
     )
     ferrari_story = card(
@@ -286,6 +296,13 @@ public summaries do not state either financial-penalty amount.
     )
     for slug in ("overview", "rookies", "notes"):
         pages[slug]["body"] = lineup + pages[slug]["body"]
+    pages["rookies"]["body"] = pages["rookies"]["body"].replace(
+        content_generic.pending(
+            "Rookie FP1 line-ups for this round", "in the week before the event"
+        ),
+        qatar_fp1,
+        1,
+    )
     pages["rookies"]["body"] = pages["rookies"]["body"].replace(
         content_generic.pending(
             "Reserve or replacement driver changes", "as teams confirm them", "bi-people"
