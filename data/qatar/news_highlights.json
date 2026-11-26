@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-26T07:26:29Z",
-  "expires_at": "2026-11-26T23:00:00Z",
+  "reviewed_at": "2026-11-26T08:26:00Z",
+  "expires_at": "2026-11-26T11:15:00Z",
   "through_session": null,
-  "feed_fingerprint": "2a9dc9d61319b769dbb2e43b89cce769a19787fed36eb5a0553244dce6db3081",
+  "feed_fingerprint": "7b355440ae762eda71011414f6e40c367e94a21aa21e28626285c744d696c510",
   "items": [
     {
       "topic": "Grid carry-over",
@@ -23,10 +23,10 @@
     },
     {
       "topic": "Tyre strategy and stint limit",
-      "title": "Qatar's 27-lap cap; official F1 reports conflict on set totals",
-      "date": "2026-11-25",
-      "summary": "Two Formula1.com articles published on 25 November give different per-driver allocations: the 10:05 UTC guide says 2 C1 Hard, 3 C2 Medium and 8 C3 Soft, with an extra Soft reserved for Q3; the 10:43 UTC explainer says each driver gets 13 sets (2 C1, 4 C2, 7 C3). Pirelli's 24 November release confirms the compounds and 27-lap cap, but not set totals. The FIA competition visa confirms 57 race laps over 5.419 km and a 19:00 local start. Its separate Pirelli competition notes prescribe C1 and C2 as mandatory race tyres, C3 for Q3, and 27 laps per set across tyre history; they do not state the conflicting per-driver allocation. Pirelli's reported counting rules include Safety Car and Virtual Safety Car laps; all race laps from start signal to chequered flag count, an unfinished lap in other sessions counts in full, mixed-mileage sets take the higher count, and reconnaissance, formation and post-race laps are excluded.",
-      "why_it_matters": "Do not present a single per-driver inventory as settled: cite the competing official reports until clarified. The 27-lap cap and FIA/Pirelli prescription are separately reviewed, but exact remaining-set counts still require a post-qualifying official chart.",
+      "title": "Qatar's 27-lap cap, high pressures and conflicting set totals",
+      "date": "2026-11-26",
+      "summary": "Two Formula1.com articles published on 25 November give different per-driver allocations: the 10:05 UTC guide says 2 C1 Hard, 3 C2 Medium and 8 C3 Soft, with an extra Soft reserved for Q3; the 10:43 UTC explainer says each driver gets 13 sets (2 C1, 4 C2, 7 C3). Pirelli's 24 November release confirms the compounds and 27-lap cap, but not set totals. The FIA competition visa confirms 57 race laps over 5.419 km and a 19:00 local start. Its separate Pirelli competition notes prescribe C1 and C2 as mandatory race tyres, C3 for Q3, and 27 laps per set across tyre history; they do not state the conflicting per-driver allocation. The Race's 26 November report says the FIA notes set minimum starting pressures at 29 psi front and 27.5 psi rear, the season's highest front minimum. It attributes front-left overheating, wear and soft graining concerns to Williams, and the risk of an early stop forcing a third stop to McLaren. These are team assessments, not a predicted or published race strategy. Pirelli's reported counting rules include Safety Car and Virtual Safety Car laps; all race laps from start signal to chequered flag count, an unfinished lap in other sessions counts in full, mixed-mileage sets take the higher count, and reconnaissance, formation and post-race laps are excluded.",
+      "why_it_matters": "Keep the conflicting official F1 per-driver allocations explicitly attributed until clarified. The 29/27.5 psi figures are minimum starting pressures; the FIA table separately gives stabilized thresholds of 30/28.5 psi. Attribute the front-left and stop-timing assessments to the named teams, not as measured outcomes or official predicted strategy. Exact remaining-set counts still require a post-qualifying chart.",
       "sources": [
         {
           "label": "Pirelli, official Qatar tyre briefing and infographic, 24 November (graphic visually reviewed)",
@@ -43,6 +43,10 @@
         {
           "label": "Formula1.com, 27-lap limit explainer quoting Pirelli, 25 November",
           "url": "https://www.formula1.com/en/latest/article/explained-why-theres-a-27-lap-limit-on-tyres-for-the-qatar-grand-prix.4oeu38BqJh1h7llxUeILBe"
+        },
+        {
+          "label": "The Race, tyre pressures and team strategy report, 26 November",
+          "url": "https://www.the-race.com/formula-1/f1-drivers-face-highest-tyre-pressure-orders-yet-in-qatar/"
         },
         {
           "label": "FIA Qatar Competition Notes - Pirelli Preview, Doc 2, page 2",
@@ -62,7 +66,7 @@
       "topic": "Italian GP appeal",
       "title": "FIA lists Audi's Tsunoda appeal; decision not yet published",
       "date": "2026-11-25",
-      "summary": "The FIA scheduled a closed International Court of Appeal hearing in Paris for 09:00 local time on 25 November on Audi's appeal of Italian GP Document 69, where stewards took no further action after the extra formation lap. The hearing notice does not itself change the result. The public judgments index, checked on 26 November at 07:26 UTC, did not list a decision for ICA-2026-14. Las Vegas Document 66's championship-points paper also notes Audi's appeal. Formula1.com currently lists Antonelli 402 / Verstappen 304 and Mercedes 666 / Ferrari 517 after round 21.",
+      "summary": "The FIA scheduled a closed International Court of Appeal hearing in Paris for 09:00 local time on 25 November on Audi's appeal of Italian GP Document 69, where stewards took no further action after the extra formation lap. The hearing notice does not itself change the result. The public judgments index, checked on 26 November at 08:25 UTC, did not list a decision for ICA-2026-14. Las Vegas Document 66's championship-points paper also notes Audi's appeal. Formula1.com currently lists Antonelli 402 / Verstappen 304 and Mercedes 666 / Ferrari 517 after round 21.",
       "why_it_matters": "The hearing notice does not impose a penalty or change the points table. Do not infer a result; refresh standings and re-evaluate the appeal only if the Court publishes a decision.",
       "sources": [
         {
