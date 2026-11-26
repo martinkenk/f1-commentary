@@ -69,20 +69,15 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("differ on whether it was Lap 37 or Lap 38", collision["summary"])
         self.assertNotIn("lap-38", collision["summary"])
 
-    def test_las_vegas_penalty_note_distinguishes_the_sanction_from_the_missing_footnote(
-        self,
-    ):
+    def test_las_vegas_penalty_note_matches_the_served_penalty_to_the_final_result(self):
         pages = content_las_vegas.build_pages(
             dict(self.contexts["las-vegas"], status="future"), self.env
         )
         notes = pages["notes"]["body"]
-        self.assertIn("Unresolved FIA classification footnote mismatch", notes)
-        self.assertIn("Hamilton received the 10-second penalty", notes)
-        self.assertIn(
-            "The missing Document 65 footnote remains unexplained",
-            notes.replace("\n", " "),
-        )
-        self.assertIn(content_las_vegas.RACE_REPORT, notes)
+        self.assertIn("after serving this separate", notes)
+        self.assertIn("absent Doc 54 footnote does not", notes)
+        self.assertNotIn("Unresolved FIA classification footnote mismatch", notes)
+        self.assertIn(content_las_vegas.LECLERC_PENALTY_REPORT, notes)
 
     def test_las_vegas_moments_cite_a_historic_race(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "las-vegas")
@@ -208,6 +203,8 @@ class GPParityTests(unittest.TestCase):
             self.assertIn("remains under investigation", body)
             self.assertIn("reinforced the assembly for Qatar", body)
             self.assertIn(content_qatar.QATAR_THURSDAY_PRESS_CONFERENCE, body)
+            self.assertIn(content_qatar.LECLERC_PENALTY_REPORT, body)
+            self.assertNotIn("footnote discrepancy remains unresolved", body)
         self.assertNotIn("expectation, not a formal announcement",
                          pages["teams"]["body"])
         self.assertNotIn("Team-by-team weekend storylines: awaiting", pages["teams"]["body"])
@@ -624,9 +621,7 @@ class GPParityTests(unittest.TestCase):
             "5d9947774fca4d0afa35b79a944a97a18b6d3bbe4797fbda76e8a03fd075a773",
         )
 
-    def test_las_vegas_postrace_replaces_team_preview_and_flags_classification_mismatch(
-        self,
-    ):
+    def test_las_vegas_postrace_replaces_team_preview_and_reconciles_penalty_result(self):
         ctx = dict(
             self.contexts["las-vegas"],
             status="past",
@@ -646,11 +641,13 @@ class GPParityTests(unittest.TestCase):
 
         for slug in ("overview", "notes"):
             body = pages[slug]["body"]
-            self.assertIn("Unresolved FIA classification footnote mismatch", body)
+            self.assertNotIn("Unresolved FIA classification footnote mismatch", body)
             self.assertIn("seventh at +12.795s", body)
+            self.assertIn("after serving this separate", body)
             self.assertIn(content_las_vegas.HAMILTON_TRACK_LIMITS, body)
             self.assertIn(content_las_vegas.FINAL_CLASSIFICATION, body)
-            self.assertIn(content_las_vegas.RACE_REPORT, body)
+            self.assertIn(content_las_vegas.HAMILTON_PENALTY_REPORT, body)
+            self.assertIn(content_las_vegas.LECLERC_PENALTY_REPORT, body)
         self.assertIn(
             content_las_vegas.PIRELLI_INFOGRAPHICS,
             pages["tyres"]["body"],

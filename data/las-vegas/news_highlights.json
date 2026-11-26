@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-26T13:31:00Z",
+  "reviewed_at": "2026-11-26T20:06:22Z",
   "expires_at": "2026-11-27T12:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "5873896f79a53cffa6eb93f3747253a66ab6b5d4ca30bb3209274a9e62327b79",
@@ -19,11 +19,12 @@
       "topic": "Ferrari collision",
       "title": "Vasseur calls Leclerc–Hamilton clash 'unacceptable'",
       "date": "2026-11-22",
-      "summary": "After a Turn 7 collision, Leclerc accepted blame; team principal Fred Vasseur called it 'unacceptable' and 'a lack of respect', two races after another clash in Mexico. Formula1.com's reports differ on whether it was Lap 37 or Lap 38, so no lap number is given. The FIA Doc 54 versus final Doc 65 sanction-footnote mismatch remains unresolved on the Penalties and Notes pages.",
-      "why_it_matters": "This is a continuing team-relations story for Qatar; keep the FIA record discrepancy visible and do not imply that Ferrari has announced new team orders.",
+      "summary": "After a Turn 7 collision, Leclerc accepted blame; team principal Fred Vasseur called it 'unacceptable' and 'a lack of respect', two races after another clash in Mexico. Formula1.com's reports differ on whether it was Lap 37 or Lap 38, so no lap number is given. Formula1.com confirms Hamilton finished seventh after serving his separate 10-second penalty; the final classification is consistent with the served sanction.",
+      "why_it_matters": "This is a continuing team-relations story for Qatar. Keep Leclerc's 10-second final-result penalty separate from Hamilton's 10-second penalty served during the race; no new Ferrari team rules have been announced.",
       "sources": [
         {"label": "Formula1.com, Vasseur on the clash", "url": "https://www.formula1.com/en/latest/article/its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-unacceptable.5NGehhmEEtLqzDKxm7bi4z"},
         {"label": "Formula1.com, Leclerc accepts blame", "url": "https://www.formula1.com/en/latest/article/ill-accept-the-blame-leclerc-embarrassed-for-ferrari-as-he-assesses-latest-hamilton-clash-in-las-vegas.7hVueR5bwYsCGdIaYph3mK"},
+        {"label": "Formula1.com, Hamilton on his separate penalty", "url": "https://www.formula1.com/en/latest/article/hamilton-frustrated-by-really-harsh-las-vegas-penalty-as-hes-quizzed-on-leclerc-clash.5ASq9S5FeEJNdNi6Igej0Z"},
         {"label": "FIA Document 60, visually checked; Turn 7 collision ruling", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_16_-_causing_a_collision_with_car_44.pdf"},
         {"label": "FIA Document 54, Hamilton ruling", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf"},
         {"label": "FIA Document 65, final classification", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_race_classification.pdf"}

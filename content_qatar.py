@@ -3,6 +3,7 @@ import content_generic
 from content_las_vegas import (
     FINAL_CLASSIFICATION,
     HAMILTON_TRACK_LIMITS,
+    LECLERC_PENALTY_REPORT,
     PEREZ_PENALTY,
 )
 from f1lib import auto_news, card, news_page_subtitle, render_penalties
@@ -329,14 +330,16 @@ imposed a 10-second penalty; team principal Fred Vasseur described the
 incident as unacceptable. At Thursday's FIA press conference, Leclerc said
 the team needed a solution, accepted responsibility for the Vegas clash, and
 declined to disclose whether the rules of engagement would change. This does
-not confirm new team rules or a Qatar sanction. The separate Hamilton Doc 54 /
-final Doc 65 footnote discrepancy remains unresolved on the Las Vegas pages.
+not confirm new team rules or a Qatar sanction. Formula1.com reports Hamilton
+finished seventh after serving a separate 10-second penalty; the final
+classification is consistent with that result.
 <a href="{QATAR_RACE_WEEK_STORYLINES}">Formula1.com Qatar preview</a> ·
 <a href="{FIA_VEGAS_LECLERC_COLLISION}">FIA Las Vegas Document 60</a> ·
 <a href="{FERRARI_VASSEUR_REPORT}">Vasseur's post-race comments</a> ·
 <a href="{QATAR_THURSDAY_PRESS_CONFERENCE}">FIA Thursday press-conference transcript, 26 November</a> ·
 <a href="{HAMILTON_TRACK_LIMITS}">FIA Document 54</a> ·
-<a href="{FINAL_CLASSIFICATION}">FIA final Document 65</a>.</p>""",
+<a href="{FINAL_CLASSIFICATION}">FIA final Document 65</a> ·
+<a href="{LECLERC_PENALTY_REPORT}">Formula1.com final-result account</a>.</p>""",
         "bi-people", "accent",
     )
     bearman_story = card(
