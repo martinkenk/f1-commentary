@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-26T08:26:00Z",
-  "expires_at": "2026-11-26T11:15:00Z",
+  "reviewed_at": "2026-11-26T09:48:38Z",
+  "expires_at": "2026-11-27T08:48:38Z",
   "through_session": null,
   "feed_fingerprint": "7b355440ae762eda71011414f6e40c367e94a21aa21e28626285c744d696c510",
   "items": [
@@ -96,14 +96,22 @@
       ]
     },
     {
-      "topic": "Haas line-up and F2 seat",
-      "title": "Haas confirms Câmara for Qatar; Slater takes his F2 seat",
-      "date": "2026-11-24",
-      "summary": "Haas confirmed on 22 November that Câmara will drive for the team at both remaining 2026 Grands Prix, ahead of his 2027 F1 campaign. Formula1.com reported on 24 November that Freddie Slater will take over Câmara's Invicta F2 seat for the final two rounds; the article says Câmara had led the F2 standings.",
-      "why_it_matters": "Câmara's Qatar F1 participation is settled, but the F2 driver change does not alter the Haas F1 line-up or establish any FP1 substitutions.",
+      "topic": "Haas line-up",
+      "title": "Haas confirms Bearman for 2027; Câmara set for Qatar",
+      "date": "2026-11-26",
+      "summary": "TGR Haas confirmed on 26 November that Oliver Bearman has signed a new deal for 2027, completing next year's driver grid. Separately, Haas confirmed that Rafael Câmara will drive the final two 2026 Grands Prix and partner Bearman next season; Formula1.com reported that Freddie Slater will take Câmara's F2 seat for the final two rounds.",
+      "why_it_matters": "The 2027 Haas line-up is settled, but this announcement does not change the Qatar 2026 entry list. Câmara's Qatar participation is confirmed; his F2 replacement does not establish any additional FP1 substitutions.",
       "sources": [
         {
-          "label": "Formula1.com, Haas announcement, 22 November",
+          "label": "TGR Haas official Bearman announcement, 26 November",
+          "url": "https://www.haasf1team.com/news/tgr-haas-f1-team-confirms-ollie-bearman-2027-fia-formula-1-world-championship"
+        },
+        {
+          "label": "Formula1.com, Bearman confirmed for 2027, 26 November",
+          "url": "https://www.formula1.com/en/latest/article/bearman-to-continue-with-haas-for-2027-as-he-completes-next-years-grid.dRq9fWh9OGjhXuShgGnqE"
+        },
+        {
+          "label": "Formula1.com, Haas confirms Câmara for the final 2026 races, 22 November",
           "url": "https://www.formula1.com/en/latest/article/haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026.2wYY9ymhyqr7rXcuK6S7bj"
         },
         {

@@ -56,8 +56,12 @@ FIA_VEGAS_LECLERC_COLLISION = (
 )
 BEARMAN_HAAS_SEAT = (
     "https://www.formula1.com/en/latest/article/"
-    "komatsu-insists-there-is-no-doubt-over-bearmans-2027-haas-seat-after-britons-"
-    "frustrations.1lCOdGv5mDv2FcqDshxnYB"
+    "bearman-to-continue-with-haas-for-2027-as-he-completes-next-years-grid."
+    "dRq9fWh9OGjhXuShgGnqE"
+)
+HAAS_BEARMAN_ANNOUNCEMENT = (
+    "https://www.haasf1team.com/news/"
+    "tgr-haas-f1-team-confirms-ollie-bearman-2027-fia-formula-1-world-championship"
 )
 FIA_QATAR_VISA = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
 FIA_QATAR_POWER_UNIT = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_power_unit_information.pdf"
@@ -263,14 +267,14 @@ remains unresolved on the Las Vegas pages.
         "bi-people", "accent",
     )
     bearman_story = card(
-        "Bearman's 2027 Haas seat: expectation, not a formal announcement",
-        f"""<p>Formula1.com's 25 November Qatar preview says Haas had not yet
-formally announced Oliver Bearman's 2027 seat. Team Principal Ayao Komatsu
-had said there was no doubt Bearman would drive for Haas, while noting that
-the contract was still being finalised. Treat the expected seat and a signed
-announcement as distinct.
-<a href="{QATAR_RACE_WEEK_STORYLINES}">Formula1.com Qatar preview</a> ·
-<a href="{BEARMAN_HAAS_SEAT}">Komatsu on Bearman's seat</a>.</p>""",
+        "Haas confirms Bearman will continue into 2027",
+        f"""<p>On 26 November, TGR Haas confirmed that Oliver Bearman signed a
+new deal to continue with the team in 2027, completing next year's driver
+grid. This supersedes the 25 November report that his contract was still
+being finalised. It confirms his future seat, not a change to the 2026 Qatar
+entry list; Bearman remains a Haas driver this weekend.
+<a href="{HAAS_BEARMAN_ANNOUNCEMENT}">TGR Haas official announcement</a> ·
+<a href="{BEARMAN_HAAS_SEAT}">Formula1.com report</a>.</p>""",
         "bi-person-badge", "accent",
     )
     cost_cap_story = card(
@@ -428,7 +432,9 @@ driver-by-driver race-set inventory.
         "bi-record-circle",
         "accent",
     ) + strategy
-    pages["notes"]["body"] = nomination + strategy + ferrari_story + pages["notes"]["body"]
+    pages["notes"]["body"] = (
+        bearman_story + nomination + strategy + ferrari_story + pages["notes"]["body"]
+    )
     pages["schedule"]["body"] += f"""
 <h2 class="sec">Support-race and car-presentation watch</h2>
 <p>The FIA competition visa dates the race for 29 November 2026 at 19:00

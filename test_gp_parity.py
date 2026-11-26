@@ -191,6 +191,12 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_qatar.QATAR_RACE_WEEK_STORYLINES, pages["teams"]["body"])
         self.assertIn(content_qatar.FIA_VEGAS_LECLERC_COLLISION, pages["teams"]["body"])
         self.assertIn(content_qatar.BEARMAN_HAAS_SEAT, pages["teams"]["body"])
+        self.assertIn(content_qatar.HAAS_BEARMAN_ANNOUNCEMENT, pages["teams"]["body"])
+        self.assertIn(content_qatar.HAAS_BEARMAN_ANNOUNCEMENT, pages["notes"]["body"])
+        self.assertIn("signed a new deal to continue with the team in 2027",
+                      " ".join(pages["teams"]["body"].split()))
+        self.assertNotIn("expectation, not a formal announcement",
+                         pages["teams"]["body"])
         self.assertNotIn("Team-by-team weekend storylines: awaiting", pages["teams"]["body"])
         self.assertIn("FIA car presentation submissions for this round: awaiting",
                       pages["teams"]["body"])
@@ -208,6 +214,13 @@ class GPParityTests(unittest.TestCase):
         self.assertTrue(any(
             item["date"] == "2026-11-25"
             and any(s["url"] == content_qatar.QATAR_TYRE_ALLOCATION for s in item["sources"])
+            for item in briefing["items"]
+        ))
+        self.assertTrue(any(
+            item["topic"] == "Haas line-up"
+            and item["date"] == "2026-11-26"
+            and any(s["url"] == content_qatar.HAAS_BEARMAN_ANNOUNCEMENT
+                    for s in item["sources"])
             for item in briefing["items"]
         ))
         self.assertTrue(any(
