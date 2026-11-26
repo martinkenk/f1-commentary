@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from unittest.mock import Mock, patch
 
+import build
 from ops import agent_queue as queue, publication_followup as followup, run_recovery
 
 
@@ -106,6 +107,82 @@ class PublicationTests(unittest.TestCase):
             checked.reset_mock()
             self.assertEqual(followup.reconcile(state, [deployed], live, [], checked, now), [])
             checked.assert_not_called()
+
+    def test_verified_publication_does_not_finish_incomplete_editorial_audit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            path = state / "runs/20261107T120000Z"
+            task_id = "1" * 32
+            status = {"run_id": path.name, "task_id": task_id, "kind": "editorial_audit",
+                      "status": "blocked", "finished_at": "2026-11-07T12:00:00Z"}
+            report = {"status": "blocked", "commit": "a" * 40,
+                      "summary": "Deployment remains in progress; source conflict is unresolved.",
+                      "remaining": ["Resolve source conflict"]}
+            task = {"id": task_id, "created_at": "2026-11-07T12:00:00Z", "run_id": path.name,
+                    "kind": "editorial_audit", "gps": ["brazil"], "status": "blocked"}
+            queue.save(path / "status.json", status)
+            queue.save(path / "report.json", report)
+            queue.save(state / "latest.json", status)
+            queue.save(state / "tasks" / (task_id + ".json"), task)
+            deployed = {"id": 123, "status": "completed", "conclusion": "success",
+                        "head_sha": "b" * 40, "html_url": "https://github.com/run"}
+            live = {"run_id": "123", "generated_at": "2026-11-07T13:00:00Z", "findings": []}
+            checked = Mock(side_effect=["a" * 40, "a" * 40 + "\n" + "b" * 40, "content_brazil.py"])
+            response = Mock(status=200)
+            response.read.return_value = b"<html>Verified page</html>"
+            response.__enter__ = Mock(return_value=response)
+            response.__exit__ = Mock(return_value=False)
+            with patch.object(followup.urllib.request, "urlopen", return_value=response):
+                result = followup.reconcile(state, [deployed], live, [{"dir": "brazil"}],
+                                            checked, dt.datetime.now(dt.timezone.utc))
+            self.assertEqual(len(result), 1)
+            self.assertEqual(json.loads((path / "status.json").read_text())["status"], "blocked")
+            self.assertEqual(json.loads((state / "latest.json").read_text())["status"], "blocked")
+            self.assertEqual(json.loads((state / "tasks" / (task_id + ".json")).read_text())["status"],
+                             "blocked")
+            self.assertTrue((path / "publication.json").exists())
+            self.assertEqual(json.loads((path / "report.json").read_text()), report)
+
+    def test_editorial_completion_requires_receipt_and_no_remaining_work(self):
+        report = {"status": "fixed", "remaining": [],
+                  "editorial_review": [{"gp": "brazil", "pages": [item[0] for item in build.nav("")],
+                                        "sources": ["https://example.com/source"]}]}
+        self.assertIsNone(followup.editorial_completion_error(report, ["brazil"]))
+        self.assertIsNotNone(followup.editorial_completion_error(
+            dict(report, remaining=["Unresolved conflict"]), ["brazil"]))
+        self.assertIsNotNone(followup.editorial_completion_error(
+            dict(report, editorial_review=[]), ["brazil"]))
+        self.assertIsNotNone(followup.editorial_completion_error(dict(report, status="blocked"), ["brazil"]))
+        self.assertIsNotNone(followup.editorial_completion_error(report, None))
+
+    def test_verified_publication_completes_valid_editorial_audit(self):
+        with tempfile.TemporaryDirectory() as directory:
+            state = Path(directory)
+            path = state / "runs/20261107T120000Z"
+            task_id = "1" * 32
+            queue.save(path / "status.json", {"run_id": path.name, "task_id": task_id,
+                       "kind": "editorial_audit", "status": "waiting_publication", "finished_at": "yes"})
+            queue.save(path / "report.json", {"status": "fixed", "commit": "a" * 40,
+                       "publication_verification_required": True, "remaining": [],
+                       "editorial_review": [{"gp": "brazil", "pages": [item[0] for item in build.nav("")],
+                                             "sources": ["https://example.com/source"]}]})
+            queue.save(state / "tasks" / (task_id + ".json"),
+                       {"id": task_id, "created_at": "2026-11-07T12:00:00Z", "run_id": path.name,
+                        "kind": "editorial_audit", "gps": ["brazil"], "status": "waiting_publication"})
+            deployed = {"id": 123, "status": "completed", "conclusion": "success",
+                        "head_sha": "b" * 40, "html_url": "https://github.com/run"}
+            live = {"run_id": "123", "generated_at": "2026-11-07T13:00:00Z", "findings": []}
+            checked = Mock(side_effect=["a" * 40, "a" * 40 + "\n" + "b" * 40, "content_brazil.py"])
+            response = Mock(status=200)
+            response.read.return_value = b"<html>Verified page</html>"
+            response.__enter__ = Mock(return_value=response)
+            response.__exit__ = Mock(return_value=False)
+            with patch.object(followup.urllib.request, "urlopen", return_value=response):
+                followup.reconcile(state, [deployed], live, [{"dir": "brazil"}],
+                                   checked, dt.datetime.now(dt.timezone.utc))
+            self.assertEqual(json.loads((path / "status.json").read_text())["status"], "fixed")
+            self.assertEqual(json.loads((state / "tasks" / (task_id + ".json")).read_text())["status"],
+                             "fixed")
 
     def test_workflow_success_without_live_identity_or_ancestry_does_not_finish(self):
         with tempfile.TemporaryDirectory() as directory:

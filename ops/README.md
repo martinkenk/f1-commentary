@@ -172,6 +172,10 @@ blocked reports with the actually live successful Pages run, verifies commit
 ancestry and affected rendered routes, then records `publication.json` and updates
 the run/task to `fixed`. Original audit reports and source limitations are retained.
 Until independently verified the state is `waiting_publication`, not success.
+For editorial reviews, a deployed repair does not complete an audit whose report
+is blocked, incomplete, or still lists outstanding work. Publication evidence is
+recorded separately and the review stays blocked for its scheduled retry. Review
+freshness also excludes older success labels that lack a complete receipt.
 This also applies when an agent labels its report `fixed` but explicitly says
 publication is unconfirmed; the label cannot override the missing live evidence.
 Older inconsistent reports are reconciled without overwriting the original audit.

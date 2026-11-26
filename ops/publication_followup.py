@@ -11,6 +11,41 @@ except ImportError:
 SHA = re.compile(r"[0-9a-f]{40}")
 
 
+def validate_editorial_review(report, gps):
+    """Require a complete source and page-level audit record."""
+    import build
+    if not isinstance(report.get("remaining"), list) or report["remaining"]:
+        raise ValueError("Scheduled editorial audit still has outstanding work or lacks a work record")
+    expected_pages = {item[0] for item in build.nav("")}
+    reviews = report.get("editorial_review")
+    if not isinstance(reviews, list):
+        raise ValueError("Scheduled editorial audit requires editorial_review evidence")
+    by_gp = {item["gp"]: item for item in reviews
+             if isinstance(item, dict) and isinstance(item.get("gp"), str)}
+    for gp in gps:
+        item = by_gp.get(gp)
+        if (not item or not isinstance(item.get("pages"), list)
+                or not all(isinstance(page, str) for page in item["pages"])
+                or not expected_pages.issubset(item["pages"])):
+            raise ValueError(f"Scheduled editorial audit lacks all page reviews for {gp}")
+        sources = item.get("sources")
+        if not isinstance(sources, list) or not sources or not all(
+                isinstance(url, str) and url.startswith("https://") for url in sources):
+            raise ValueError(f"Scheduled editorial audit lacks HTTPS source evidence for {gp}")
+
+
+def editorial_completion_error(report, gps):
+    if report.get("status") not in ("healthy", "fixed"):
+        return "Editorial report does not claim a completed review"
+    if not isinstance(gps, list) or not gps:
+        return "Editorial review targets are missing"
+    try:
+        validate_editorial_review(report, gps)
+    except ValueError as error:
+        return str(error)
+    return None
+
+
 def pending_report(report):
     if report.get("report_origin") == "wrapper_fallback":
         return False
@@ -103,21 +138,32 @@ def reconcile(state, runs, live, gps, checked, now):
                     "live_generated_at": live["generated_at"],
                     "remaining_live_findings": live.get("findings", [])}
         agent_queue.save(path / "publication.json", evidence)
-        status.update(status="fixed", publication=evidence,
-                      summary=f"Published repair {commit[:8]}; deployment and live routes verified automatically. "
-                              "Original audit and remaining source limitations are preserved in the report.")
+        task = None
+        if status.get("task_id"):
+            task_id = status["task_id"]
+            if not isinstance(task_id, str) or not agent_queue.JOB_ID.fullmatch(task_id):
+                raise ValueError("Invalid publication task ID")
+            task = json.loads((state / "tasks" / (task_id + ".json")).read_text())
+        audit_error = None
+        if status.get("kind") == "editorial_audit" or (task and task.get("kind") == "editorial_audit"):
+            audit_error = editorial_completion_error(report, task.get("gps") if task else None)
+        final_status = "blocked" if audit_error else "fixed"
+        summary = f"Published repair {commit[:8]}; deployment and live routes verified automatically."
+        if audit_error:
+            summary += f" Editorial review remains incomplete: {audit_error}. {report.get('summary', '')}"
+        else:
+            summary += " Original audit and remaining source limitations are preserved in the report."
+        status.update(status=final_status, publication=evidence, summary=summary)
         agent_queue.save(path / "status.json", status)
-        if report.get("resolved_runs"):
+        if final_status == "fixed" and report.get("resolved_runs"):
             agent_queue.resolve_runs(state, path.name, dict(report, status="fixed"), status.get("mode"))
         latest = json.loads(latest_path.read_text()) if latest_path.exists() else {}
         if latest.get("run_id") == path.name:
             agent_queue.save(latest_path, status)
-        if status.get("task_id"):
-            task_path = state / "tasks" / (status["task_id"] + ".json")
-            task = json.loads(task_path.read_text())
+        if task:
             # Never finish a newer continuation or a job that the operator cancelled.
             if task.get("run_id") == path.name and task["status"] in ("blocked", "waiting_publication", "fixed"):
-                agent_queue.update(state, task["id"], status="fixed", summary=status["summary"],
+                agent_queue.update(state, task["id"], status=final_status, summary=status["summary"],
                                    publication=evidence)
         outcomes.append(evidence)
     return outcomes

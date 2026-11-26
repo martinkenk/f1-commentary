@@ -221,25 +221,7 @@ def incomplete_report(status):
 
 def validate_editorial_review(report, gps):
     """Require a source and page-level audit record, not just a success label."""
-    import build
-    if report.get("remaining"):
-        raise ValueError("Scheduled editorial audit still has outstanding work")
-    expected_pages = {item[0] for item in build.nav("")}
-    reviews = report.get("editorial_review")
-    if not isinstance(reviews, list):
-        raise ValueError("Scheduled editorial audit requires editorial_review evidence")
-    by_gp = {item["gp"]: item for item in reviews
-             if isinstance(item, dict) and isinstance(item.get("gp"), str)}
-    for gp in gps:
-        item = by_gp.get(gp)
-        if (not item or not isinstance(item.get("pages"), list)
-                or not all(isinstance(page, str) for page in item["pages"])
-                or not expected_pages.issubset(item["pages"])):
-            raise ValueError(f"Scheduled editorial audit lacks all page reviews for {gp}")
-        sources = item.get("sources")
-        if not isinstance(sources, list) or not sources or not all(
-                isinstance(url, str) and url.startswith("https://") for url in sources):
-            raise ValueError(f"Scheduled editorial audit lacks HTTPS source evidence for {gp}")
+    publication_followup.validate_editorial_review(report, gps)
 
 
 def run(audit_only=False, timeout=2700):

@@ -47,8 +47,22 @@ def editorial_audit(state, gps, now, audit_only, runs=()):
                 latest = agent_queue.update(
                     STATE, latest["id"], status="blocked",
                     error=f"Editorial fix deployment failed: {matching[0].get('html_url', matching[0].get('id'))}")
-    valid = [job for job in records if job.get("status") in ("healthy", "fixed")
-             and set(targets).issubset(job.get("gps", [])) and job.get("finished_at")]
+    valid = []
+    for job in records:
+        if job.get("status") not in ("healthy", "fixed") or not job.get("finished_at"):
+            continue
+        run_id = job.get("run_id", "")
+        report = (health.read(STATE / "runs" / run_id / "report.json")
+                  if agent_queue.RUN_ID.fullmatch(run_id) else {})
+        error = watchdog.publication_followup.editorial_completion_error(report, job.get("gps"))
+        if not error and job["status"] == "fixed" and not job.get("publication"):
+            error = "Editorial fix has no verified publication"
+        if error:
+            if latest is job:
+                latest = dict(job, status="blocked",
+                              summary=f"Editorial audit completion is unverified: {error}")
+        else:
+            valid.append(job)
     last_good = valid[-1] if valid else None
     last_at = health.timestamp(last_good["finished_at"]) if last_good else None
     due = (last_at + interval if last_at else
