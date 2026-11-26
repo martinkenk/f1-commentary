@@ -16,6 +16,13 @@ that gets filled in automatically as each event approaches.
 be right to a few hundred metres.
 """
 
+QATAR_F1_RACE_WEEK_STATS = (
+    "https://www.formula1.com/en/latest/article/"
+    "need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-qatar-grand-prix."
+    "7Ayey9W9IVQ1yNkR8F6zEI"
+)
+
+
 CIRCUITS = {
     # ------------------------------------------------- already covered in full
     # These two have bespoke content modules, so only the fields the build
@@ -475,7 +482,9 @@ CIRCUITS = {
             "and historically the hardest race of the year on tyre construction."
         ),
         "key_corners": [
-            ("Turn 1", "Heavy braking off the main straight; the main passing opportunity."),
+            ("Turn 1", "Heavy braking off the main straight; the main passing opportunity. "
+             f'<a href="{QATAR_F1_RACE_WEEK_STATS}">Formula1.com 26 November race-week guide</a> '
+             "puts the pole-to-braking point run at 403 m."),
             ("Turns 6–7", "Fast, sustained loading that generates the tyre stress the circuit is known for."),
             ("Turns 12–14", "Fast, sustained right-hand sequence leading into the final sector."),
         ],
@@ -489,7 +498,9 @@ CIRCUITS = {
             "the FIA, making the scheduled 57-lap race a minimum two-stop event. The "
             "reviewed Pirelli preview confirms the C1/C2/C3 nomination, mandatory sets "
             "and event prescriptions; the conflicting Formula1.com set-allocation reports "
-            "are not a post-qualifying remaining-set chart."
+            "are not a post-qualifying remaining-set chart. "
+            f'<a href="{QATAR_F1_RACE_WEEK_STATS}">Formula1.com 26 November guide</a> '
+            "lists a 26.17-second pit-stop time-loss figure; this is not an individual stop duration."
         ),
         "tyre_compounds": ("C1 Hard", "C2 Medium", "C3 Soft"),
         "tyre_compounds_source": "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/",
@@ -503,6 +514,13 @@ CIRCUITS = {
             "First Grand Prix: 2021.",
             "Run at night under lights, with big day-to-night track temperature swings.",
             "Previous editions have required enforced maximum stint lengths on tyre-safety grounds.",
+            f'<a href="{QATAR_F1_RACE_WEEK_STATS}">Formula1.com 26 November race-week guide</a> '
+            "reports 41 overtakes in the 2025 race, but gives no counting methodology; "
+            "keep that figure separate from the source-specific history above.",
+            f'<a href="{QATAR_F1_RACE_WEEK_STATS}">Formula1.com 26 November race-week guide</a> '
+            "reports Safety Car and Virtual Safety Car probabilities of 75% and 50%, respectively, "
+            "based on the previous four Qatar races; these are small-sample historical frequencies, "
+            "not a forecast for 2026.",
         ],
         "storylines": [
             "The FIA's Qatar power-unit map is published and reviewed: use its 1.0-second Overtake detection gap, and keep electrical Overtake separate from the four Straight Mode zones.",

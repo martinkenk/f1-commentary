@@ -394,6 +394,9 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("40 m after Turn 16", circuit)
         self.assertIn("5,020 m / L24", circuit)
         self.assertIn("5,078 m / L25/SC1", circuit)
+        self.assertIn("403 m", circuit)
+        self.assertIn("75% and 50%", circuit)
+        self.assertIn("previous four Qatar races", circuit)
         self.assertIn(
             "no separate low-grip-specific Overtake points",
             " ".join(circuit.split()),
@@ -409,6 +412,13 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("3.0 s", notes)
         self.assertIn("1.2 s", notes)
         self.assertIn("immediately following lap", notes)
+        self.assertIn("403 m", notes)
+        facts = pages["facts"]["body"]
+        self.assertIn("41 overtakes in the 2025 race", facts)
+        self.assertIn("no counting methodology", facts)
+        self.assertIn("keep that figure separate from the source-specific history above", facts)
+        self.assertIn("26.17-second pit-stop time-loss figure", pages["tyres"]["body"])
+        self.assertIn("not an individual stop duration", pages["tyres"]["body"])
         review = json.loads(
             (Path(__file__).parent / "data/qatar/coverage_review.json").read_text()
         )
