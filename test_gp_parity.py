@@ -388,12 +388,40 @@ class GPParityTests(unittest.TestCase):
         self.assertIn('4</div><div class="stat-lbl">Straight Mode zones', circuit)
         self.assertIn('1</div><div class="stat-lbl">Overtake activation zones', circuit)
         self.assertIn(content_qatar.QATAR_TRACK_MAP, circuit)
-        self.assertIn("5,020 m on loop L24", circuit)
-        self.assertIn("5,078 m on loop L25/SC1", circuit)
-        self.assertIn("no low-grip-specific Overtake values", circuit)
+        self.assertIn(content_qatar.FIA_QATAR_F1_CIRCUIT_MAP, circuit)
+        self.assertIn("A3", circuit)
+        self.assertIn("N/A (low grip)", " ".join(circuit.split()))
+        self.assertIn("40 m after Turn 16", circuit)
+        self.assertIn("5,020 m / L24", circuit)
+        self.assertIn("5,078 m / L25/SC1", circuit)
+        self.assertIn(
+            "no separate low-grip-specific Overtake points",
+            " ".join(circuit.split()),
+        )
+        self.assertNotIn("55 m after Turn 15", circuit)
+        self.assertNotIn("190 m after Turn 16", circuit)
         self.assertNotIn("document listing has been unavailable", circuit)
         self.assertNotIn("Legacy DRS zones", circuit)
         self.assertNotIn("DRS run", circuit)
+        notes = " ".join(pages["notes"]["body"].split())
+        self.assertIn("Formula 2 map", notes)
+        self.assertIn(content_qatar.FIA_QATAR_RACE_DIRECTOR_NOTES, notes)
+        self.assertIn("3.0 s", notes)
+        self.assertIn("1.2 s", notes)
+        self.assertIn("immediately following lap", notes)
+        review = json.loads(
+            (Path(__file__).parent / "data/qatar/coverage_review.json").read_text()
+        )
+        media = json.loads(
+            (Path(__file__).parent / "data/qatar/fia_media.json").read_text()
+        )
+        media_hashes = {doc["url"]: doc["sha256"] for doc in media["documents"]}
+        for source in (
+            content_qatar.FIA_QATAR_F1_CIRCUIT_MAP,
+            content_qatar.FIA_QATAR_RACE_DIRECTOR_NOTES,
+            content_qatar.FIA_QATAR_SUPPORT_CIRCUIT_MAP,
+        ):
+            self.assertEqual(review["fia_sha256"].get(source), media_hashes[source])
         for slug in ("tyres", "notes"):
             self.assertIn("7 / 27 / 23 laps", pages[slug]["body"])
             self.assertIn("earlier session use reduces", pages[slug]["body"])

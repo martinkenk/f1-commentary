@@ -68,12 +68,20 @@ HAAS_BEARMAN_ANNOUNCEMENT = (
 FIA_QATAR_VISA = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
 FIA_QATAR_POWER_UNIT = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_power_unit_information.pdf"
 FIA_QATAR_TYRE_NOTES = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
-FIA_QATAR_CIRCUIT_MAP = (
+FIA_QATAR_F1_CIRCUIT_MAP = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf"
+)
+FIA_QATAR_F1_CIRCUIT_MAP_IMAGE = (
+    "fia-qatar-32198d476fbc-d4e6898c25a3e5e9-p2.png"
+)
+FIA_QATAR_RACE_DIRECTOR_NOTES = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_race_directors_competition_notes.pdf"
+)
+FIA_QATAR_SUPPORT_CIRCUIT_MAP = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf"
-)
-FIA_QATAR_CIRCUIT_MAP_IMAGE = (
-    "fia-qatar-6ae76b12a98a-2ecc4a2296e4c15c-p2.png"
 )
 FIA_QATAR_CAR_DISPLAY = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_car_display_procedure.pdf"
 FIA_QATAR_PEREZ_SUMMONS = (
@@ -123,35 +131,49 @@ F1_COST_CAP_REPORT = (
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
-    circuit = f"""<h2 class="sec">2026 Straight Mode and Overtake</h2>
-<p>Formula1.com's 2026 circuit map marks four Straight Mode zones: between
-Turns 3–4, 11–12 and 15–16, and on the main straight. The separate Overtake
-detection and activation points are after Turn 16, before the run to Turn 1.
-The FIA map gives a <strong>1.0-second detection gap</strong>, detection at
-<strong>5,020 m on loop L24</strong> and activation at
-<strong>5,078 m on loop L25/SC1</strong>. These are electrical Overtake
-thresholds, not Straight Mode activation points. The reviewed FIA map gives
-no low-grip-specific Overtake values, so none are inferred.
-<a href="{QATAR_TRACK_MAP}">Formula1.com 2026 circuit map</a> ·
-<a href="{FIA_QATAR_POWER_UNIT}#page=2">FIA Power Unit Information, page 2</a>.</p>"""
-    circuit += f"""<p>The FIA's supplemental Lusail Event Document 5, version 1
-(issued 24 November), separately marks the <strong>DRS detection point 55 m
-after Turn 15</strong> and <strong>DRS activation 190 m after Turn 16</strong>.
-These are Drag Reduction System points, distinct from the 2026 active-aero
-Straight Mode zones and the ERS Overtake points above. The full official
-circuit map is shown below.
-<a href="{FIA_QATAR_CIRCUIT_MAP}#page=2">FIA Lusail circuit map, page 2</a>.</p>"""
+    circuit = f"""<h2 class="sec">2026 FIA Straight Mode and Overtake points</h2>
+<p>The current FIA Formula 1 circuit map (version 1, issued 24 November)
+lists separate normal-grip and low-grip Straight Mode activation points:
+<strong>A1</strong>, 40 m after Turn 16 / 10 m after Pit Exit (normal) and
+100 m after Turn 16 / 10 m after Pit Exit (low grip);
+<strong>A2</strong>, 60 m after Turn 3 (normal) and 120 m after Turn 3
+(low grip); <strong>A3</strong>, 70 m after Turn 10 (normal) and N/A (low
+grip); <strong>A4</strong>, 70 m after Turn 15 (normal) and 110 m after
+Turn 15 (low grip). These are Straight Mode points, not electrical Overtake
+thresholds.</p>
+<p>The separate FIA Overtake system detects at the exit of Turn 16 and
+activates 40 m after Turn 16. The FIA power-unit map expresses those same
+points as <strong>5,020 m / L24</strong> and
+<strong>5,078 m / L25/SC1</strong>, with a 1.0-second detection gap. Loop
+labels and lap distances are alternate references for Overtake; they are not
+Straight Mode zones. The map shows no separate low-grip-specific Overtake
+points.
+<a href="{FIA_QATAR_F1_CIRCUIT_MAP}#page=2">FIA Formula 1 circuit map, page 2</a> ·
+<a href="{FIA_QATAR_POWER_UNIT}#page=2">FIA Power Unit Information, page 2</a> ·
+<a href="{QATAR_TRACK_MAP}">Formula1.com 2026 circuit map</a>.</p>"""
     circuit += f"""<figure class="circuit-fig">
-<img class="circuit-img" src="../assets/{FIA_QATAR_CIRCUIT_MAP_IMAGE}"
-alt="Official FIA 2026 Lusail circuit map showing the track layout, DRS detection and activation, sectors, speed trap and marshal posts"
+<img class="circuit-img" src="../assets/{FIA_QATAR_F1_CIRCUIT_MAP_IMAGE}"
+alt="Official FIA 2026 Formula 1 Qatar circuit map showing the track layout, Straight Mode zones, Overtake points, sectors and marshal posts"
 loading="lazy" onclick="zoomImg(this)">
-<figcaption>FIA Lusail Event Document 5, circuit-map version 1 issued 24 November 2026,
-page 2. <a href="{FIA_QATAR_CIRCUIT_MAP}#page=2">Original FIA PDF, page 2</a>.</figcaption>
+<figcaption>FIA 2026 Qatar Grand Prix circuit map, version 1 issued 24 November 2026,
+page 2. <a href="{FIA_QATAR_F1_CIRCUIT_MAP}#page=2">Original FIA PDF, page 2</a>.</figcaption>
 </figure>"""
-    qatar_drs_note = f"""<div class="callout accent"><strong>Lusail DRS:</strong>
-the FIA map marks detection 55 m after Turn 15 and activation 190 m after
-Turn 16. This is separate from Straight Mode and ERS Overtake.
-<a href="{FIA_QATAR_CIRCUIT_MAP}#page=2">FIA circuit map, page 2</a>.</div>"""
+    qatar_fia_map_note = f"""<div class="callout accent"><strong>F1 Overtake:</strong>
+detection is at the exit of Turn 16 and activation is 40 m after Turn 16.
+The map's separate Straight Mode points are not DRS or Overtake points.
+The separately discovered Lusail Event Document 5 is a Formula 2 map
+(F2 logo), not the Formula 1 circuit map; its DRS markers do not describe
+the 2026 F1 system.
+<a href="{FIA_QATAR_F1_CIRCUIT_MAP}#page=2">FIA F1 map</a> ·
+<a href="{FIA_QATAR_SUPPORT_CIRCUIT_MAP}#page=2">separate FIA support-series map</a>.</div>"""
+    qatar_race_director_note = f"""<div class="callout accent"><strong>FIA Race Director's competition notes, 26 November:</strong>
+the maximum time between the second and first Safety Car Lines for qualifying
+and race reconnaissance laps will be notified after FP2. During the race,
+teams receive a lapping pre-warning at 3.0 s; blue panels are shown at 1.2 s,
+and the lapped driver must yield at the first opportunity. At Turn 16, a
+track-limits infringement invalidates that lap and the immediately following
+lap. <a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=2">Race Director's notes, page 2</a> ·
+<a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=6">track limits, page 6</a>.</div>"""
     pages["circuit"]["body"] += circuit
     powerunit = f"""<h2 class="sec">Qatar FIA power-and-energy map</h2>
 <p>The FIA sheet identifies a <strong>5.419 km</strong> lap, standard format
@@ -489,7 +511,8 @@ This is not a driver-by-driver remaining-set inventory.
         "accent",
     ) + strategy
     pages["notes"]["body"] = (
-        qatar_drs_note + bearman_story + nomination + strategy + ferrari_story
+        qatar_fia_map_note + qatar_race_director_note + bearman_story
+        + nomination + strategy + ferrari_story
         + pages["notes"]["body"]
     )
     pages["schedule"]["body"] += f"""
