@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-25T23:23:43Z",
+  "reviewed_at": "2026-11-26T07:26:29Z",
   "expires_at": "2026-11-26T23:00:00Z",
   "through_session": null,
   "feed_fingerprint": "2a9dc9d61319b769dbb2e43b89cce769a19787fed36eb5a0553244dce6db3081",
@@ -62,7 +62,7 @@
       "topic": "Italian GP appeal",
       "title": "FIA lists Audi's Tsunoda appeal; decision not yet published",
       "date": "2026-11-25",
-      "summary": "The FIA scheduled a closed International Court of Appeal hearing in Paris for 09:00 local time on 25 November on Audi's appeal of Italian GP Document 69, where stewards took no further action after the extra formation lap. The hearing notice does not itself change the result. At 23:23 UTC the FIA's public judgments index still did not list a decision for ICA-2026-14. Las Vegas Document 66's championship-points paper also notes Audi's appeal. Formula1.com currently lists Antonelli 402 / Verstappen 304 and Mercedes 666 / Ferrari 517 after round 21.",
+      "summary": "The FIA scheduled a closed International Court of Appeal hearing in Paris for 09:00 local time on 25 November on Audi's appeal of Italian GP Document 69, where stewards took no further action after the extra formation lap. The hearing notice does not itself change the result. The public judgments index, checked on 26 November at 07:26 UTC, did not list a decision for ICA-2026-14. Las Vegas Document 66's championship-points paper also notes Audi's appeal. Formula1.com currently lists Antonelli 402 / Verstappen 304 and Mercedes 666 / Ferrari 517 after round 21.",
       "why_it_matters": "The hearing notice does not impose a penalty or change the points table. Do not infer a result; refresh standings and re-evaluate the appeal only if the Court publishes a decision.",
       "sources": [
         {
@@ -70,7 +70,7 @@
           "url": "https://www.fia.com/news/international-court-appeal-hearing-november-25-2026"
         },
         {
-          "label": "FIA Judgements of the International Court of Appeal index, checked 25 November at 23:23 UTC",
+          "label": "FIA Judgements of the International Court of Appeal index, checked 26 November at 07:26 UTC",
           "url": "https://www.fia.com/judgements-ica"
         },
         {
