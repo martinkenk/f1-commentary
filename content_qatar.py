@@ -286,6 +286,13 @@ public summaries do not state either financial-penalty amount.
     )
     for slug in ("overview", "rookies", "notes"):
         pages[slug]["body"] = lineup + pages[slug]["body"]
+    pages["rookies"]["body"] = pages["rookies"]["body"].replace(
+        content_generic.pending(
+            "Reserve or replacement driver changes", "as teams confirm them", "bi-people"
+        ),
+        "",
+        1,
+    )
     pages["news"] = dict(
         kicker="Weekend News",
         title="Weekend News & Session Reports",
@@ -408,7 +415,7 @@ driver-by-driver race-set inventory.
     pages["schedule"]["body"] += f"""
 <h2 class="sec">Support-race and car-presentation watch</h2>
 <p>The FIA competition visa dates the race for 29 November 2026 at 19:00
-local (16:00 Tallinn), lists Lusail's lap length as 5.419 km and confirms
+local (18:00 Tallinn), lists Lusail's lap length as 5.419 km and confirms
 57 race laps. The FIA stewards are Garry Connelly and Mathieu Remmerie.
 The timetable remains subject to the stewards' approval and published
 appendices.
