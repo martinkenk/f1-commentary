@@ -232,6 +232,8 @@ class GPParityTests(unittest.TestCase):
 
         for slug in ("news", "teams", "notes"):
             body = pages[slug]["body"]
+            self.assertIn("11 team submissions", body)
+            self.assertIn("10 teams that raced in 2025 plus newcomer Cadillac", body)
             self.assertIn("£627,000 (0.48%)", body)
             self.assertIn("1.5 percentage points", body)
             self.assertIn("90% becomes 88.5%", body)

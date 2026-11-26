@@ -265,11 +265,12 @@ announcement as distinct.
     )
     cost_cap_story = card(
         "FIA resolves 2025 financial-regulation cases for Williams and Alpine",
-        f"""<p>The FIA's 25 November 2026 review found nine teams compliant with the
-2025 financial regulations; Williams had a minor overspend and procedural
-breach, while Alpine had a procedural breach. All five power-unit manufacturers
-were compliant. The Williams agreement says the unintentional overspend was
-£627,000 (0.48%) and found no sporting advantage. Its 12-month sporting
+        f"""<p>The FIA's 25 November 2026 review covered 11 team submissions:
+the 10 teams that raced in 2025 plus newcomer Cadillac. Nine were compliant
+with the 2025 financial regulations; Williams had a minor overspend and
+procedural breach, while Alpine had a procedural breach. All five power-unit
+manufacturers were compliant. The Williams agreement says the unintentional
+overspend was £627,000 (0.48%) and found no sporting advantage. Its 12-month sporting
 sanction subtracts 1.5 percentage points from the coefficient used to set
 restricted wind-tunnel and CFD allowances (for example, 90% becomes 88.5%);
 this is not a Qatar grid or race penalty. The Alpine agreement requires a
