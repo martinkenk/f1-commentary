@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-26T21:36:00Z",
+  "reviewed_at": "2026-11-26T21:51:16Z",
   "expires_at": "2026-11-27T12:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "5873896f79a53cffa6eb93f3747253a66ab6b5d4ca30bb3209274a9e62327b79",
@@ -55,12 +55,13 @@
     },
     {
       "topic": "Mercedes late-race energy",
-      "title": "Wolff says Antonelli lost battery power in the closing laps",
-      "date": "2026-11-22",
-      "summary": "Mercedes team principal Toto Wolff said Antonelli lifted behind Verstappen before reapplying, leaving him with no battery on the back straight; both McLarens passed and Antonelli finished fourth. Wolff said Mercedes had planned an energy deployment for the final 400 metres that could have offered a chance to win.",
-      "why_it_matters": "Keep this attributed to Wolff's post-race account, not independent telemetry or Qatar's published FIA limits; it is Las Vegas context, not a Qatar prediction.",
+      "title": "Mercedes adds a reported software safeguard after Antonelli's battery loss",
+      "date": "2026-11-26",
+      "summary": "Mercedes team principal Toto Wolff said Antonelli lifted behind Verstappen before reapplying, leaving him with no battery on the back straight; both McLarens passed and Antonelli finished fourth. Wolff said Mercedes had planned an energy deployment for the final 400 metres that could have offered a chance to win. The Race's 26 November Qatar report says Antonelli described a safety feature Mercedes added to make the energy-management system more robust after that loss.",
+      "why_it_matters": "Attribute the race account to Wolff and the software change to The Race's report of Antonelli's comments, not independent telemetry. The team-side change is not an FIA energy-limit revision, and its effect at Qatar is not yet demonstrated.",
       "sources": [
-        {"label": "Formula1.com, Wolff's post-race account", "url": "https://www.formula1.com/en/latest/article/wolff-explains-how-the-mercedes-challenge-fell-apart-in-the-closing-laps-in-las-vegas.4Zf0W1yuHxigFi72cspCj"}
+        {"label": "Formula1.com, Wolff's post-race account", "url": "https://www.formula1.com/en/latest/article/wolff-explains-how-the-mercedes-challenge-fell-apart-in-the-closing-laps-in-las-vegas.4Zf0W1yuHxigFi72cspCj"},
+        {"label": "The Race, Qatar day-one report quoting Antonelli, 26 November", "url": "https://www.the-race.com/formula-1/everything-we-learned-on-day-one-of-f1s-2026-qatar-grand-prix/"}
       ]
     }
   ]

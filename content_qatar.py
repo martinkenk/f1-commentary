@@ -55,6 +55,10 @@ QATAR_FERRARI_FOLLOWUP = (
     "were-all-disappointed-leclerc-and-hamilton-address-aftermath-of-las-vegas-clash."
     "34d9bV1J0varyAnDCWPAjU"
 )
+QATAR_MERCEDES_ENERGY_FOLLOWUP = (
+    "https://www.the-race.com/formula-1/"
+    "everything-we-learned-on-day-one-of-f1s-2026-qatar-grand-prix/"
+)
 QATAR_THURSDAY_PRESS_CONFERENCE = (
     "https://www.fia.com/news/f1-2026-qatar-grand-prix-thursday-press-conference-transcript"
 )
@@ -245,6 +249,13 @@ not turn numbers. See the complete map in the FIA source reader below.
         "Qatar's published event map is summarized below.",
         1,
     )
+    pages["powerunit"]["body"] += f"""<p><strong>Reported Mercedes energy-management update:</strong>
+The Race's 26 November Qatar report says Kimi Antonelli described a safety
+feature Mercedes added after his Las Vegas battery-deployment loss, intended
+to make the system more robust. This is an attributed team software change,
+not a revision to the FIA's published recharge limits or power map, and its
+effect at Qatar has not yet been demonstrated.
+<a href="{QATAR_MERCEDES_ENERGY_FOLLOWUP}">The Race's Qatar day-one report</a>.</p>"""
     carryover = f"""<h2 class="sec">Verified Las Vegas carry-over</h2>
 <p><strong>Sergio Perez: five-place grid penalty at his next race.</strong>
 FIA Las Vegas Document 61 finds him wholly responsible for contact with
@@ -346,7 +357,9 @@ classification is consistent with that result. In a 26 November media-day
 report, Hamilton said securing second in the Constructors' Championship is
 Ferrari's immediate priority, that the drivers remain free to race, and that
 improvements to their processes and communication will be discussed over
-winter. This reports ongoing conversations, not a new team rule.
+winter. The FIA press conference also records Leclerc denying a contractual
+number-one clause; this does not establish operational race instructions.
+These are updates to ongoing discussions, not a new team rule.
 <a href="{QATAR_RACE_WEEK_STORYLINES}">Formula1.com Qatar preview</a> ·
 <a href="{FIA_VEGAS_LECLERC_COLLISION}">FIA Las Vegas Document 60</a> ·
 <a href="{FERRARI_VASSEUR_REPORT}">Vasseur's post-race comments</a> ·

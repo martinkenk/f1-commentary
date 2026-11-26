@@ -208,6 +208,7 @@ class GPParityTests(unittest.TestCase):
             self.assertIn(content_qatar.QATAR_FERRARI_FOLLOWUP, body)
             self.assertIn("securing second in the Constructors' Championship", body)
             self.assertIn("remain free to race", body)
+            self.assertIn("denying a contractual number-one clause", body)
             self.assertIn(content_qatar.LECLERC_PENALTY_REPORT, body)
             self.assertNotIn("footnote discrepancy remains unresolved", body)
         self.assertNotIn("expectation, not a formal announcement",
@@ -280,6 +281,10 @@ class GPParityTests(unittest.TestCase):
             )
             and any(s["url"] == content_qatar.QATAR_FERRARI_FOLLOWUP
                     for s in item["sources"])
+            and "denied having a contractual number-one clause" in item["summary"]
+            and any(s["url"] == content_qatar.QATAR_MERCEDES_ENERGY_FOLLOWUP
+                    for s in item["sources"])
+            and "not a change to FIA limits" in item["summary"]
             for item in briefing["items"]
         ))
         vegas_briefing = json.loads(
@@ -290,6 +295,13 @@ class GPParityTests(unittest.TestCase):
             and item["date"] == "2026-11-26"
             and "remain free to race" in item["summary"]
             and any(s["url"] == content_qatar.QATAR_FERRARI_FOLLOWUP
+                    for s in item["sources"])
+            for item in vegas_briefing["items"]
+        ))
+        self.assertTrue(any(
+            item["topic"] == "Mercedes late-race energy"
+            and item["date"] == "2026-11-26"
+            and any(s["url"] == content_qatar.QATAR_MERCEDES_ENERGY_FOLLOWUP
                     for s in item["sources"])
             for item in vegas_briefing["items"]
         ))
@@ -477,6 +489,8 @@ class GPParityTests(unittest.TestCase):
         ):
             self.assertIn(value, body)
         self.assertIn(content_qatar.FIA_QATAR_POWER_UNIT, body)
+        self.assertIn(content_qatar.QATAR_MERCEDES_ENERGY_FOLLOWUP, body)
+        self.assertIn("not a revision to the FIA's published recharge limits", body)
         self.assertIn("Straight Mode setting", body)
         self.assertIn("standard-format weekend", body)
         self.assertNotIn("once it is issued", body)

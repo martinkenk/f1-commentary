@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-26T21:36:00Z",
+  "reviewed_at": "2026-11-26T21:51:16Z",
   "expires_at": "2026-11-27T08:22:07Z",
   "through_session": null,
   "feed_fingerprint": "7b355440ae762eda71011414f6e40c367e94a21aa21e28626285c744d696c510",
@@ -132,8 +132,8 @@
       "topic": "Las Vegas fallout",
       "title": "Verstappen/Russell tension and Ferrari clash follow F1 to Qatar",
       "date": "2026-11-26",
-      "summary": "Formula1.com's 25 November Qatar preview recounts the continuing Verstappen-Russell verbal dispute and Ferrari's Las Vegas fallout: Charles Leclerc hit team-mate Lewis Hamilton during their Turn 7 fight. FIA Document 60 found Leclerc wholly responsible and imposed a 10-second penalty; team principal Fred Vasseur described the incident as unacceptable. At Thursday's FIA press conference, Leclerc said Ferrari needed a solution, accepted responsibility for the Vegas clash, and declined to disclose whether the rules of engagement would change. That does not confirm new team rules or a Qatar ruling. A 26 November media-day report quotes Hamilton saying securing second in the Constructors' Championship is Ferrari's immediate priority, the drivers remain free to race, and process/communication improvements will be discussed over winter. This describes ongoing conversations, not a new rule. Formula1.com's Russell/Verstappen update adds that Russell found some post-race comments \"quite amusing\", is moving on and does not want to continue the off-track exchange; Verstappen said there was nothing else to add and that his focus was Qatar.",
-      "why_it_matters": "The Vegas penalty is final and does not become a Qatar ruling; Leclerc's refusal to discuss rules is not proof of a change. Attribute Hamilton's team-priority and process comments; they do not establish changed rules or predict Qatar. Keep Russell and Verstappen quotes attributed, not as predictions.",
+      "summary": "Formula1.com's 25 November Qatar preview recounts the continuing Verstappen-Russell verbal dispute and Ferrari's Las Vegas fallout: Charles Leclerc hit team-mate Lewis Hamilton during their Turn 7 fight. FIA Document 60 found Leclerc wholly responsible and imposed a 10-second penalty; team principal Fred Vasseur described the incident as unacceptable. At Thursday's FIA press conference, Leclerc said Ferrari needed a solution, accepted responsibility for the Vegas clash, and declined to disclose whether the rules of engagement would change. He also denied having a contractual number-one clause. Neither statement establishes the team's operational race instructions. A 26 November media-day report quotes Hamilton saying securing second in the Constructors' Championship is Ferrari's immediate priority, the drivers remain free to race, and process/communication improvements will be discussed over winter. The Race's Qatar day-one report says Antonelli described a Mercedes software safety feature added after the Vegas battery-deployment loss; this is a reported team change, not a change to FIA limits or a validated Qatar outcome. Formula1.com's Russell/Verstappen update adds that Russell found some post-race comments \"quite amusing\", is moving on and does not want to continue the off-track exchange; Verstappen said there was nothing else to add and that his focus was Qatar.",
+      "why_it_matters": "The Vegas penalty is final and does not become a Qatar ruling. Leclerc's contract denial and the drivers' comments do not establish team race instructions or a new rule. Attribute the Mercedes software update to The Race; do not treat it as an FIA energy-limit change or a confirmed on-track result. Keep Russell and Verstappen quotes attributed, not as predictions.",
       "sources": [
         {
           "label": "Formula1.com, Qatar race-week storylines, checked 25 November",
@@ -158,6 +158,10 @@
         {
           "label": "Formula1.com, Leclerc and Hamilton's Qatar media-day comments, 26 November",
           "url": "https://www.formula1.com/en/latest/article/were-all-disappointed-leclerc-and-hamilton-address-aftermath-of-las-vegas-clash.34d9bV1J0varyAnDCWPAjU"
+        },
+        {
+          "label": "The Race, day-one Qatar report with Antonelli's account of a Mercedes software change, 26 November",
+          "url": "https://www.the-race.com/formula-1/everything-we-learned-on-day-one-of-f1s-2026-qatar-grand-prix/"
         }
       ]
     }
