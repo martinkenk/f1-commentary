@@ -529,7 +529,7 @@ class GPParityTests(unittest.TestCase):
             expected,
         )
 
-    def test_las_vegas_fp3_turn16_summons_has_no_inferred_outcome(self):
+    def test_las_vegas_fp3_erratic_driving_summons_is_resolved_by_doc38(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)
         body = " ".join(pages["penalties"]["body"].split())
         review_path = Path(__file__).parent / "data/las-vegas/coverage_review.json"
@@ -537,6 +537,8 @@ class GPParityTests(unittest.TestCase):
         expected = {
             content_las_vegas.VERSTAPPEN_FP3_SUMMONS:
                 "df42227eaed78d570ef370fc32f8e1d905f8be29ddbfcece7c110f9d1c7cae11",
+            content_las_vegas.VERSTAPPEN_FP3_DECISION:
+                "7255ea3b8534d447018449a94d20c057ad168583449051fdd0bb5e0e2f0862d2",
             "https://www.fia.com/system/files/decision-document/"
             "2026_las_vegas_grand_prix_-_summons_-_car_63_-_alleged_incident_with_car_3.pdf":
                 "aa21bd77968e2c1f1612af42185002b9b25be338b0b2db73fafa45b7c1fd2c46",
@@ -561,10 +563,14 @@ class GPParityTests(unittest.TestCase):
         }
 
         self.assertIn(content_las_vegas.VERSTAPPEN_FP3_SUMMONS, body)
-        self.assertIn("outcome remains unresolved", body)
-        self.assertIn("current 66-document event listing", body)
+        self.assertIn("Document 38 resolved that same summons", body)
+        self.assertIn("no further action", body)
+        self.assertNotIn("outcome remains unresolved", body)
+        self.assertNotIn("current 66-document event listing", body)
+        self.assertNotIn("FP3 Turn 16 summons", body)
+        self.assertIn("Document 38 decision", body)
         self.assertIn("Document 37's Turn 14 warning", body)
-        self.assertIn("Document 38's separate Turn 17", body)
+        self.assertNotIn("Document 38's separate Turn 17", body)
         self.assertEqual(
             {url: review["fia_sha256"].get(url) for url in expected},
             expected,
