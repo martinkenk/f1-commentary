@@ -45,6 +45,11 @@ QATAR_RACE_WEEK_STORYLINES = (
     "its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix."
     "1bXINUYO8R8X3K7DjINr1A"
 )
+QATAR_RUSSELL_VERSTAPPEN_FOLLOWUP = (
+    "https://www.formula1.com/en/latest/article/"
+    "it-was-quite-amusing-russell-shares-his-reaction-to-verstappens-las-vegas-comments."
+    "6sv6Xkop4lBcCxge8ZgxXv"
+)
 QATAR_THURSDAY_PRESS_CONFERENCE = (
     "https://www.fia.com/news/f1-2026-qatar-grand-prix-thursday-press-conference-transcript"
 )
@@ -342,6 +347,17 @@ classification is consistent with that result.
 <a href="{LECLERC_PENALTY_REPORT}">Formula1.com final-result account</a>.</p>""",
         "bi-people", "accent",
     )
+    verstappen_russell_story = card(
+        "Russell and Verstappen move on from their Las Vegas exchange",
+        f"""<p>Formula1.com's 26 November Qatar media-day report says Russell
+found some of Verstappen's post-race comments "quite amusing", but is moving
+on and does not want to continue the off-track exchange. Verstappen said
+there was nothing else to add and that his focus was a good Qatar weekend.
+These are attributed comments, not a prediction of how they will race each
+other here.
+<a href="{QATAR_RUSSELL_VERSTAPPEN_FOLLOWUP}">Formula1.com, 26 November</a>.</p>""",
+        "bi-people", "accent",
+    )
     bearman_story = card(
         "Haas confirms Bearman will continue into 2027",
         f"""<p>On 26 November, TGR Haas confirmed that Oliver Bearman signed a
@@ -407,11 +423,12 @@ public summaries do not state either financial-penalty amount.
         body=cost_cap_story + auto_news(ctx),
     )
     pages["teams"]["body"] = (
-        lineup + cost_cap_story + ferrari_story + bearman_story
+        lineup + cost_cap_story + verstappen_russell_story + ferrari_story + bearman_story
         + hadjar_front_wing_story + pages["teams"]["body"]
     )
     pages["notes"]["body"] = cost_cap_story + pages["notes"]["body"]
     pages["notes"]["body"] = hadjar_front_wing_story + pages["notes"]["body"]
+    pages["notes"]["body"] = verstappen_russell_story + pages["notes"]["body"]
     pending_team_storylines = content_generic.pending(
         "Team-by-team weekend storylines", "in the week before the race"
     )

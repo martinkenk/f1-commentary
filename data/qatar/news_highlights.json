@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-26T17:37:58Z",
-  "expires_at": "2026-11-27T08:48:38Z",
+  "reviewed_at": "2026-11-26T20:22:07Z",
+  "expires_at": "2026-11-27T08:22:07Z",
   "through_session": null,
   "feed_fingerprint": "7b355440ae762eda71011414f6e40c367e94a21aa21e28626285c744d696c510",
   "items": [
@@ -132,8 +132,8 @@
       "topic": "Las Vegas fallout",
       "title": "Verstappen/Russell tension and Ferrari clash follow F1 to Qatar",
       "date": "2026-11-26",
-      "summary": "Formula1.com's 25 November Qatar preview recounts the continuing Verstappen-Russell verbal dispute and Ferrari's Las Vegas fallout: Charles Leclerc hit team-mate Lewis Hamilton during their Turn 7 fight. FIA Document 60 found Leclerc wholly responsible and imposed a 10-second penalty; team principal Fred Vasseur described the incident as unacceptable. At Thursday's FIA press conference, Leclerc said Ferrari needed a solution, accepted responsibility for the Vegas clash, and declined to disclose whether the rules of engagement would change. That does not confirm new team rules or a Qatar ruling.",
-      "why_it_matters": "Keep the driver remarks attributed and the Ferrari ruling attached to its Las Vegas source; Leclerc's refusal to discuss possible rule changes is not an announcement that rules or team orders changed.",
+      "summary": "Formula1.com's 25 November Qatar preview recounts the continuing Verstappen-Russell verbal dispute and Ferrari's Las Vegas fallout: Charles Leclerc hit team-mate Lewis Hamilton during their Turn 7 fight. FIA Document 60 found Leclerc wholly responsible and imposed a 10-second penalty; team principal Fred Vasseur described the incident as unacceptable. At Thursday's FIA press conference, Leclerc said Ferrari needed a solution, accepted responsibility for the Vegas clash, and declined to disclose whether the rules of engagement would change. That does not confirm new team rules or a Qatar ruling. Formula1.com's 26 November media-day update adds that Russell called some of Verstappen's post-race comments \"quite amusing\", said he was moving on and did not want to continue the off-track exchange; Verstappen said there was nothing else to add and that his focus was Qatar.",
+      "why_it_matters": "Keep the driver remarks attributed and the Ferrari ruling attached to its Las Vegas source; Leclerc's refusal to discuss possible rule changes is not an announcement that rules or team orders changed. Russell's and Verstappen's media-day comments are not a prediction of how they will race each other here.",
       "sources": [
         {
           "label": "Formula1.com, Qatar race-week storylines, checked 25 November",
@@ -150,6 +150,10 @@
         {
           "label": "FIA Thursday press-conference transcript, 26 November",
           "url": "https://www.fia.com/news/f1-2026-qatar-grand-prix-thursday-press-conference-transcript"
+        },
+        {
+          "label": "Formula1.com, Russell and Verstappen's Qatar media-day comments, 26 November",
+          "url": "https://www.formula1.com/en/latest/article/it-was-quite-amusing-russell-shares-his-reaction-to-verstappens-las-vegas-comments.6sv6Xkop4lBcCxge8ZgxXv"
         }
       ]
     }

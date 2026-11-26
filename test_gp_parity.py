@@ -203,6 +203,8 @@ class GPParityTests(unittest.TestCase):
             self.assertIn("remains under investigation", body)
             self.assertIn("reinforced the assembly for Qatar", body)
             self.assertIn(content_qatar.QATAR_THURSDAY_PRESS_CONFERENCE, body)
+            self.assertIn(content_qatar.QATAR_RUSSELL_VERSTAPPEN_FOLLOWUP, body)
+            self.assertIn("quite amusing", body)
             self.assertIn(content_qatar.LECLERC_PENALTY_REPORT, body)
             self.assertNotIn("footnote discrepancy remains unresolved", body)
         self.assertNotIn("expectation, not a formal announcement",
@@ -260,7 +262,10 @@ class GPParityTests(unittest.TestCase):
             and "Verstappen" in item["title"]
             and "Ferrari" in item["summary"]
             and "declined to disclose whether the rules of engagement would change" in item["summary"]
+            and "quite amusing" in item["summary"]
             and any(s["url"] == content_qatar.QATAR_RACE_WEEK_STORYLINES
+                    for s in item["sources"])
+            and any(s["url"] == content_qatar.QATAR_RUSSELL_VERSTAPPEN_FOLLOWUP
                     for s in item["sources"])
             and any(s["url"] == content_qatar.FIA_VEGAS_LECLERC_COLLISION
                     for s in item["sources"])
