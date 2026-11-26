@@ -332,12 +332,18 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           rm -rf public
-          if git clone --depth=1 --branch site-history \
-               "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" public 2>/dev/null; then
-            rm -rf public/.git
+          history_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code "$history_url" refs/heads/site-history >/dev/null 2>&1; then
+            git clone --depth=1 --branch site-history "$history_url" public
             echo "Restored existing version history."
           else
+            status=$?
+            if [ "$status" -ne 2 ]; then
+              echo "Unable to check the site-history branch (git ls-remote exit $status)." >&2
+              exit "$status"
+            fi
             mkdir -p public
+            git -C public init -q -b site-history
             echo "No history branch yet — starting fresh."
           fi
 
@@ -352,18 +358,20 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd public
-          git init -q -b site-history
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -qm "site history $(date -u +%FT%TZ)" || echo "nothing to commit"
-          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" site-history
+          if ! git diff --cached --quiet; then
+            git commit -qm "site history $(date -u +%FT%TZ)"
+          else
+            echo "No site-history changes to commit."
+          fi
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:site-history
 
       - name: Trim the Pages upload
-        # .raw is an HTML-only mirror used purely for the next run's diff. It has
-        # just been persisted to the site-history branch, so it does not need to be
-        # published — dropping it saves ~240 files from the deployment.
-        run: rm -rf public/.raw
+        # .raw and Git metadata are only needed while producing the next history
+        # commit; dropping them keeps both out of the Pages artifact.
+        run: rm -rf public/.raw public/.git
 
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5

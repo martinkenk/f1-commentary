@@ -9,6 +9,25 @@ import coverage_preflight as preflight
 
 
 class CoveragePreflightTests(unittest.TestCase):
+    def test_site_history_is_updated_with_a_fast_forward_push(self):
+        workflow = (preflight.ROOT / ".github/workflows/deploy.yml").read_text()
+        restore = workflow.split("- name: Restore version history", 1)[1].split(
+            "- name: Apply versioning", 1)[0]
+        persist = workflow.split("- name: Persist version history", 1)[1].split(
+            "- name: Trim the Pages upload", 1)[0]
+        trim = workflow.split("- name: Trim the Pages upload", 1)[1].split(
+            "- uses: actions/configure-pages", 1)[0]
+        self.assertIn("git ls-remote --exit-code", restore)
+        self.assertIn("git clone --depth=1 --branch site-history", restore)
+        self.assertNotIn("rm -rf public/.git", restore)
+        self.assertIn("git -C public init -q -b site-history", restore)
+        self.assertIn("git diff --cached --quiet", persist)
+        self.assertIn('git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:site-history',
+                      persist)
+        self.assertNotIn("git push -f", persist)
+        self.assertNotIn("git init", persist)
+        self.assertIn("rm -rf public/.raw public/.git", trim)
+
     def test_editor_serializes_data_writers_and_reports_failed_pushes(self):
         lock = preflight.LOCK.read_text()
         concurrency = re.search(r"^concurrency:\n((?:  .*\n)+)", lock, re.M)[1]
