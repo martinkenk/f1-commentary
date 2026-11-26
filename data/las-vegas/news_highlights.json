@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-25T07:03:29Z",
+  "reviewed_at": "2026-11-26T03:21:52Z",
   "expires_at": "2026-11-26T07:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "5873896f79a53cffa6eb93f3747253a66ab6b5d4ca30bb3209274a9e62327b79",
@@ -19,7 +19,7 @@
       "topic": "Ferrari collision",
       "title": "Vasseur calls Leclerc–Hamilton clash 'unacceptable'",
       "date": "2026-11-22",
-      "summary": "After the lap-38 Turn 7 collision, Leclerc accepted blame; team principal Fred Vasseur called it 'unacceptable' and 'a lack of respect', two races after another clash in Mexico. The FIA Doc 54 versus final Doc 65 sanction-footnote mismatch remains unresolved on the Penalties and Notes pages.",
+      "summary": "After a Turn 7 collision, Leclerc accepted blame; team principal Fred Vasseur called it 'unacceptable' and 'a lack of respect', two races after another clash in Mexico. Formula1.com's reports differ on whether it was Lap 37 or Lap 38, so no lap number is given. The FIA Doc 54 versus final Doc 65 sanction-footnote mismatch remains unresolved on the Penalties and Notes pages.",
       "why_it_matters": "This is a continuing team-relations story for Qatar; keep the FIA record discrepancy visible and do not imply that Ferrari has announced new team orders.",
       "sources": [
         {"label": "Formula1.com, Vasseur on the clash", "url": "https://www.formula1.com/en/latest/article/its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-unacceptable.5NGehhmEEtLqzDKxm7bi4z"},

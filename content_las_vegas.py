@@ -33,6 +33,11 @@ FP1_REPORT = ("https://www.formula1.com/en/latest/article/"
               "fp1-wet-conditions-limit-running-in-first-practice-at-las-vegas-grand-prix."
               "7H085JgIW1k8jM3ysejVqJ")
 RACE_RESULT = "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"
+RACE_REPORT = (
+    "https://www.formula1.com/en/latest/article/"
+    "verstappen-wins-exhilarating-las-vegas-grand-prix-from-norris-and-piastri."
+    "2eeBWqekZdir9mdDVK9YVX"
+)
 FINAL_CLASSIFICATION = FIA_ROOT + "final_race_classification.pdf"
 HAMILTON_TRACK_LIMITS = FIA_ROOT + "infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf"
 PIRELLI_RACE = "https://press.pirelli.com/verstappen-wins-overtaking-spectacle-on-the-strip/"
@@ -412,14 +417,17 @@ classified race penalties or grid consequences.
 Antonelli qualified first but did not start on pole after his PU sanction.
 <a href="{RACE_RESULT}">Official race classification</a> ·
 <a href="results.html">All session tables and actual starting grid</a>.</p>
-<p><strong>Unresolved FIA classification conflict:</strong> Stewards' Document 54
+<p><strong>Unresolved FIA classification footnote mismatch:</strong>
+Stewards' Document 54
 orders a 10-second penalty for Lewis Hamilton after leaving the track at Turn 8
 and retaining an advantage. The later Document 65 final classification lists
-Hamilton seventh at +12.795s and names only the Leclerc and Hadjar penalties;
-Formula1.com's result page also places him seventh. The sources do not explain
-the discrepancy, so no corrected order is inferred.
+Hamilton seventh at +12.795s but names only the Leclerc and Hadjar penalties.
+Formula1.com's race report also says Hamilton received the 10-second penalty;
+both it and Document 65 place him seventh. The missing Document 65 footnote
+remains unexplained, so no corrected order is inferred.
 <a href="{HAMILTON_TRACK_LIMITS}">Document 54</a> ·
-<a href="{FINAL_CLASSIFICATION}">Document 65</a>.</p>
+<a href="{FINAL_CLASSIFICATION}">Document 65</a> ·
+<a href="{RACE_REPORT}">Formula1.com race report</a>.</p>
 <p>FP1 finished with <strong>no timed laps</strong> in wet conditions: installation
 running is not a classification. <a href="{FP1_REPORT}">Official FP1 report</a>.</p>
 <p><strong>Qatar watch:</strong> Stewards' Documents 55 and 56 summoned Sergio

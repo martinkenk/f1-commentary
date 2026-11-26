@@ -63,6 +63,26 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertEqual(briefing["through_session"], "Race")
         self.assertTrue(any("result" in item["topic"].lower() for item in briefing["items"]))
+        collision = next(
+            item for item in briefing["items"] if item["topic"] == "Ferrari collision"
+        )
+        self.assertIn("differ on whether it was Lap 37 or Lap 38", collision["summary"])
+        self.assertNotIn("lap-38", collision["summary"])
+
+    def test_las_vegas_penalty_note_distinguishes_the_sanction_from_the_missing_footnote(
+        self,
+    ):
+        pages = content_las_vegas.build_pages(
+            dict(self.contexts["las-vegas"], status="future"), self.env
+        )
+        notes = pages["notes"]["body"]
+        self.assertIn("Unresolved FIA classification footnote mismatch", notes)
+        self.assertIn("Hamilton received the 10-second penalty", notes)
+        self.assertIn(
+            "The missing Document 65 footnote remains unexplained",
+            notes.replace("\n", " "),
+        )
+        self.assertIn(content_las_vegas.RACE_REPORT, notes)
 
     def test_las_vegas_moments_cite_a_historic_race(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "las-vegas")
@@ -476,7 +496,9 @@ class GPParityTests(unittest.TestCase):
             "5d9947774fca4d0afa35b79a944a97a18b6d3bbe4797fbda76e8a03fd075a773",
         )
 
-    def test_las_vegas_postrace_replaces_team_preview_and_flags_classification_conflict(self):
+    def test_las_vegas_postrace_replaces_team_preview_and_flags_classification_mismatch(
+        self,
+    ):
         ctx = dict(
             self.contexts["las-vegas"],
             status="past",
@@ -496,10 +518,11 @@ class GPParityTests(unittest.TestCase):
 
         for slug in ("overview", "notes"):
             body = pages[slug]["body"]
-            self.assertIn("Unresolved FIA classification conflict", body)
+            self.assertIn("Unresolved FIA classification footnote mismatch", body)
             self.assertIn("seventh at +12.795s", body)
             self.assertIn(content_las_vegas.HAMILTON_TRACK_LIMITS, body)
             self.assertIn(content_las_vegas.FINAL_CLASSIFICATION, body)
+            self.assertIn(content_las_vegas.RACE_REPORT, body)
         self.assertIn(
             content_las_vegas.PIRELLI_INFOGRAPHICS,
             pages["tyres"]["body"],
