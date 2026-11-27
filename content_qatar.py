@@ -97,6 +97,10 @@ FIA_QATAR_DOC23 = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf"
 )
+FIA_QATAR_FP1_FP2_SCRUTINEERING = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_fp1_and_fp2_scrutineering.pdf"
+)
 QATAR_RACE_WEEK_STORYLINES = (
     "https://www.formula1.com/en/latest/article/"
     "its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix."
@@ -985,6 +989,16 @@ Three beginning at 01:13 Saturday. Document 23 sets a 1:41.0 maximum between
 the Safety Car lines for qualifying and race-reconnaissance laps as specified.
 <a href="{FIA_QATAR_DOC22}">FIA Document 22</a> ·
 <a href="{FIA_QATAR_DOC23}">FIA Document 23</a>.</p>"""
+    scrutineering_report = f"""<p><strong>FIA Technical Delegate's Report,
+Document 25 (27 November, 22:42 local):</strong> The report lists checks
+covering both Friday practices, including tyre starting pressures and power-unit,
+fuel-flow, energy-flow and control-system items. It says all listed items were
+found compliant with the 2026 Technical Regulations. Car 12 was weighed after
+FP2, but the report gives no mass or separate finding about that weighing; it
+records no infringement or penalty.
+<a href="{FIA_QATAR_FP1_FP2_SCRUTINEERING}#page=1">Original report, page 1</a> ·
+<a href="{FIA_QATAR_FP1_FP2_SCRUTINEERING}#page=3">page 3</a> ·
+<a href="{FIA_QATAR_FP1_FP2_SCRUTINEERING}#page=4">page 4</a>.</p>"""
     alonso_fp2 = f"""<p><strong>Fernando Alonso returned for FP2:</strong>
 Formula1.com reports that he missed Thursday media day while recovering from
 a virus, then handed his Aston Martin to Jak Crawford for FP1 before driving
@@ -1002,6 +1016,8 @@ do not label this a confirmed power-unit failure.
         fia_decisions_summary + hadjar_summons + fp2_summary + fp1_summary
         + fp2_procedure + alonso_fp2 + hamilton_fp2 + pages["notes"]["body"]
     )
+    pages["powerunit"]["body"] += scrutineering_report
+    pages["notes"]["body"] = scrutineering_report + pages["notes"]["body"]
     pages["notes"]["body"] = car_display + pages["notes"]["body"]
     pages["notes"]["body"] = upgrade_summary + pages["notes"]["body"]
     pages["overview"]["body"] += upgrade_summary

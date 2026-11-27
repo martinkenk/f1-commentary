@@ -184,6 +184,17 @@ class GPParityTests(unittest.TestCase):
                     content_qatar.QATAR_2024_TYRE_FAILURES, content_qatar.QATAR_2025_HADJAR_PUNCTURE):
             self.assertIn(url, body)
 
+    def test_qatar_fia_scrutineering_report_is_scoped_to_its_compliance_finding(self):
+        ctx = next(gp for gp in build.season_gps() if gp["dir"] == "qatar")
+        ctx.update(status="live", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_qatar.build_pages(ctx, self.env)
+        for slug in ("powerunit", "notes"):
+            body = pages[slug]["body"]
+            self.assertIn(content_qatar.FIA_QATAR_FP1_FP2_SCRUTINEERING, body)
+            self.assertIn("found compliant with the 2026 Technical Regulations", body)
+            self.assertIn("Car 12 was weighed after", body)
+            self.assertIn("no mass or separate finding about that weighing", body)
+
     def test_qatar_nomination_and_history_are_source_scoped(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
         ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)

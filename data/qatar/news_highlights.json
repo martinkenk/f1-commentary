@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-27T19:02:41Z",
-  "expires_at": "2026-11-28T14:00:00Z",
+  "reviewed_at": "2026-11-27T21:30:26Z",
+  "expires_at": "2026-11-28T12:00:00Z",
   "through_session": "Practice 2",
-  "feed_fingerprint": "eebbf4203538980a855c4162b9a874c8a680571dcea6889d9db19fc00a6b600e",
+  "feed_fingerprint": "b9068ffaa8347c9e61b6e7f89d5a333bb521929d2abc53972b6a77913a8c7947",
   "items": [
     {
       "topic": "Session outcome",
@@ -43,19 +43,15 @@
       ]
     },
     {
-      "topic": "Race control and schedule",
-      "title": "FIA publishes Qatar post-FP2 procedure times",
+      "topic": "McLaren pace",
+      "title": "Norris sees Mercedes well clear after Friday practice",
       "date": "2026-11-27",
-      "summary": "Document 22 moved Friday’s Drivers’ Meeting to 22:43 local; FP2 cars were due covered and ready for seals by 00:13 Saturday, with Restricted Period Three starting at 01:13. Document 23 sets a 1:41.0 maximum between the Safety Car lines for qualifying and specified race-reconnaissance laps.",
-      "why_it_matters": "These are post-session obligations and a race-control threshold, not changes to the published F1 session timetable.",
+      "summary": "After Mercedes led both Friday sessions, Lando Norris said McLaren may be fighting for P3 and estimated it was roughly 0.6–0.7 seconds per lap off Mercedes. McLaren ran an older floor on Friday and plans to use its newer specification on Saturday; the team expects a modest, not transformative, gain.",
+      "why_it_matters": "Norris’s gap estimate is a Friday assessment, not a qualifying result. Check whether the new floor narrows the margin and how McLaren compares with Red Bull and Ferrari.",
       "sources": [
         {
-          "label": "FIA Qatar Document 22",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_drivers_meeting_covers-on_time_and_restricted_period_three.pdf"
-        },
-        {
-          "label": "FIA Qatar Document 23",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf"
+          "label": "Formula1.com Norris and McLaren Friday assessment",
+          "url": "https://www.formula1.com/en/latest/article/i-dont-think-weve-been-further-off-norris-worried-by-mclarens-deficit-to-mercedes-in-qatar.6mwnUPpxnOsIv6YJ7O6Lgm"
         }
       ]
     },
@@ -63,7 +59,7 @@
       "topic": "Tyre strategy and source conflict",
       "title": "Qatar pre-weekend tyre-set totals remain inconsistent",
       "date": "2026-11-27",
-      "summary": "Formula1.com’s preview lists 2/3/8 sets with an extra Soft reserved for Q3, while its explainer lists 2/4/7. Pirelli confirms C1/C2/C3 and the 27-lap limit, but neither source resolves the totals or reports remaining sets. The FIA listing refreshed after FP2 through Document 23 contains no later pressure table.",
+      "summary": "Formula1.com’s preview lists 2/3/8 sets with an extra Soft reserved for Q3, while its explainer lists 2/4/7. Pirelli confirms C1/C2/C3 and the 27-lap limit, but neither source resolves the totals or reports remaining sets. The later FIA Document 25 reports scrutineering checks, not per-driver tyre inventory or a new pressure table.",
       "why_it_matters": "Keep both allocations attributed; use neither as remaining sets or as a race-strategy inventory. The latest pressure values are not a post-FP2 reaffirmation.",
       "sources": [
         {
