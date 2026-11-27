@@ -1,32 +1,32 @@
 {
   "calendar": {
     "outcome": "success",
-    "gp": "qatar",
-    "checked_at": "2026-11-27T16:02:02.636290+00:00"
+    "gp": "",
+    "checked_at": "2026-11-27T16:12:01.745030+00:00"
   },
   "enrichment": {
-    "outcome": "success",
-    "gp": "qatar",
-    "checked_at": "2026-11-27T16:02:02.636290+00:00"
+    "outcome": "failure",
+    "gp": "",
+    "checked_at": "2026-11-27T16:12:01.745030+00:00"
   },
   "fia_media": {
-    "outcome": "success",
-    "gp": "qatar",
-    "checked_at": "2026-11-27T16:02:02.636290+00:00"
+    "outcome": "failure",
+    "gp": "",
+    "checked_at": "2026-11-27T16:12:01.745030+00:00"
   },
   "race_tyres": {
-    "outcome": "success",
-    "gp": "qatar",
-    "checked_at": "2026-11-27T16:02:02.636290+00:00"
+    "outcome": "failure",
+    "gp": "",
+    "checked_at": "2026-11-27T16:12:01.745030+00:00"
   },
   "session_results": {
     "outcome": "success",
-    "gp": "qatar",
-    "checked_at": "2026-11-27T16:02:02.636290+00:00"
+    "gp": "",
+    "checked_at": "2026-11-27T16:12:01.745030+00:00"
   },
   "standings": {
     "outcome": "success",
-    "gp": "qatar",
-    "checked_at": "2026-11-27T16:02:02.636290+00:00"
+    "gp": "",
+    "checked_at": "2026-11-27T16:12:01.745030+00:00"
   }
 }
