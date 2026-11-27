@@ -131,6 +131,7 @@ class GPParityTests(unittest.TestCase):
             pages["notes"]["body"],
         )
         moments = pages["moments"]["body"]
+        self.assertEqual(moments.count("First Grand Prix"), 1)
         self.assertIn("2010 — Vettel’s first title", moments)
         self.assertIn("finished seventh", moments)
         self.assertIn("clinched the championship by four points", moments)

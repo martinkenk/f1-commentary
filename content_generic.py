@@ -526,8 +526,11 @@ def build_pages(ctx, env):
 """)
 
     # ---- MOMENTS -----------------------------------------------------------
-    moments = ([f"First Grand Prix at this venue: <strong>{first_gp}</strong>."]
-               if first_gp else []) + ref.get("notes", [])
+    moments = list(ref.get("notes", []))
+    if first_gp and f"First Grand Prix: {first_gp}." not in moments:
+        moments.insert(
+            0, f"First Grand Prix at this venue: <strong>{first_gp}</strong>."
+        )
     if ctx.get("dir") == "las-vegas":
         moments.append(LAS_VEGAS_2023_MOMENT)
     if ctx.get("dir") == "united-arab-emirates":
