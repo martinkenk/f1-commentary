@@ -345,15 +345,20 @@ class GPParityTests(unittest.TestCase):
             "Virtual Safety Car",
             " ".join(item["summary"] for item in briefing["items"]),
         )
+        self.assertEqual(briefing["through_session"], "Practice 1")
         self.assertTrue(any(
-            item["date"] == "2026-11-25"
-            and any(s["url"] == content_qatar.QATAR_TYRE_ALLOCATION for s in item["sources"])
+            item["topic"] == "Practice 1 result"
+            and "Antonelli" in item["summary"]
+            and any(s["url"] == content_qatar.QATAR_FP1_RESULTS
+                    for s in item["sources"])
+            and any(s["url"].startswith(content_qatar.FIA_QATAR_FP1_CLASSIFICATION)
+                    for s in item["sources"])
             for item in briefing["items"]
         ))
         self.assertTrue(any(
-            item["topic"] == "Haas line-up"
-            and item["date"] == "2026-11-26"
-            and any(s["url"] == content_qatar.HAAS_BEARMAN_ANNOUNCEMENT
+            item["topic"] == "Stewards summons"
+            and "not a finding or penalty" in item["summary"]
+            and any(s["url"] == content_qatar.FIA_QATAR_HADJAR_SUMMONS
                     for s in item["sources"])
             for item in briefing["items"]
         ))
@@ -368,15 +373,13 @@ class GPParityTests(unittest.TestCase):
             for item in briefing["items"]
         ))
         self.assertTrue(any(
-            "Tsunoda appeal" in item["title"]
-            and "Antonelli clinched" in item["summary"]
-            and "Mercedes secured the Constructors' Championship" in item["summary"]
-            and "ICA-2026-14" in item["summary"]
-            and "did not list a decision" in item["summary"]
-            and any(s["url"] == content_qatar.FIA_APPEAL_HEARING for s in item["sources"])
-            and any(s["url"] == "https://www.fia.com/judgements-ica" for s in item["sources"])
-            and any(s["url"] == content_qatar.FIA_ITALY_DOC69 for s in item["sources"])
-            and any(s["url"] == content_qatar.FIA_VEGAS_DOC66 for s in item["sources"])
+            item["topic"] == "Championship context"
+            and "both championships have already been decided" in item["summary"]
+            and "Red Bull has 440 points and McLaren 431" in item["summary"]
+            and any(s["url"] == "https://www.formula1.com/en/results/2026/drivers"
+                    for s in item["sources"])
+            and any(s["url"] == "https://www.formula1.com/en/results/2026/team"
+                    for s in item["sources"])
             for item in briefing["items"]
         ))
         self.assertTrue(any(
@@ -426,7 +429,8 @@ class GPParityTests(unittest.TestCase):
         self.assertTrue(any(
             "FIA competition visa confirms" in item["summary"]
             and any(s["url"] == content_qatar.FIA_QATAR_VISA for s in item["sources"])
-            and any(s["url"] == content_qatar.FIA_QATAR_TYRE_NOTES for s in item["sources"])
+            and any(s["url"].startswith(content_qatar.FIA_QATAR_TYRE_NOTES)
+                    for s in item["sources"])
             for item in briefing["items"]
         ))
         self.assertNotIn(

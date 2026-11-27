@@ -68,6 +68,11 @@ CAMARA_QATAR_ANNOUNCEMENT = (
     "2wYY9ymhyqr7rXcuK6S7bj"
 )
 QATAR_FP1_ANNOUNCEMENT = "https://x.com/AstonMartinF1/status/2125575387375948173"
+QATAR_FP1_RESULTS = "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/1"
+FIA_QATAR_FP1_CLASSIFICATION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_free_practice_1_classification.pdf"
+)
 QATAR_RACE_WEEK_STORYLINES = (
     "https://www.formula1.com/en/latest/article/"
     "its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix."
@@ -181,6 +186,10 @@ UPGRADE_SUBMISSIONS = (
 FIA_QATAR_PEREZ_SUMMONS = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_summons_-_car_11_-_late_attendance_of_the_thursday_press_conference.pdf"
+)
+FIA_QATAR_HADJAR_SUMMONS = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_summons_-_car_6_-_alleged_unsafe_act.pdf"
 )
 FIA_APPEAL_HEARING = "https://www.fia.com/news/international-court-appeal-hearing-november-25-2026"
 FIA_ITALY_DOC69 = (
@@ -425,6 +434,26 @@ inspection result.
         body=render_penalties(
             ctx,
             decisions=[
+                dict(
+                    doc="Qatar Doc 15",
+                    source_event="qatar",
+                    no="6",
+                    driver="Isack Hadjar",
+                    team="Red Bull Racing",
+                    session="Qatar Grand Prix — Practice 1",
+                    fact=(
+                        "The summons alleges a breach of Article 12.2.1.h of the "
+                        "FIA International Sporting Code after an unsafe situation "
+                        "involving team personnel in the pit lane at 16:45 local."
+                    ),
+                    outcome=(
+                        "The team representative was required to report to the "
+                        "Stewards at 18:15 local. The summons records an allegation "
+                        "only; it is not a finding or penalty."
+                    ),
+                    kind="note",
+                    source_url=FIA_QATAR_HADJAR_SUMMONS,
+                ),
                 dict(
                     doc="Qatar Doc 5",
                     source_event="qatar",
@@ -851,6 +880,19 @@ it records no driver penalty.
 <a href="{FIA_QATAR_CURFEW}">Original FIA Document 10</a>.</p>"""
     pages["schedule"]["body"] += curfew_report
     pages["notes"]["body"] = curfew_report + pages["notes"]["body"]
+    hadjar_summons = f"""<p><strong>FIA Document 15:</strong> the Stewards summoned
+the Red Bull team representative after an alleged unsafe situation involving
+team personnel in the pit lane at 16:45 local during Practice 1. The report time
+was 18:15 local. This is an allegation, not a finding or driver penalty.
+<a href="{FIA_QATAR_HADJAR_SUMMONS}">Original summons</a>.</p>"""
+    fp1_summary = f"""<p><strong>Practice 1:</strong> Kimi Antonelli set the
+fastest time at 1:23.217, 0.507 seconds ahead of George Russell; Isack Hadjar
+was third, 0.661 seconds back. The official FIA classification matches the
+Formula1.com results.
+<a href="{QATAR_FP1_RESULTS}">Formula1.com classification</a> ·
+<a href="{FIA_QATAR_FP1_CLASSIFICATION}#page=2">FIA Document 16, page 2</a>.</p>"""
+    pages["overview"]["body"] += fp1_summary
+    pages["notes"]["body"] = hadjar_summons + fp1_summary + pages["notes"]["body"]
     pages["notes"]["body"] = car_display + pages["notes"]["body"]
     pages["notes"]["body"] = upgrade_summary + pages["notes"]["body"]
     pages["overview"]["body"] += upgrade_summary
