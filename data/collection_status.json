@@ -5,14 +5,14 @@
     "checked_at": "2026-11-27T11:31:21.711667+00:00"
   },
   "enrichment": {
-    "outcome": "failure",
-    "gp": "",
-    "checked_at": "2026-11-27T11:31:21.711667+00:00"
+    "outcome": "success",
+    "gp": "qatar",
+    "checked_at": "2026-11-27T12:01:02.504649+00:00"
   },
   "fia_media": {
-    "outcome": "failure",
-    "gp": "",
-    "checked_at": "2026-11-27T11:31:21.711667+00:00"
+    "outcome": "success",
+    "gp": "qatar",
+    "checked_at": "2026-11-27T12:01:02.504649+00:00"
   },
   "race_tyres": {
     "outcome": "failure",
