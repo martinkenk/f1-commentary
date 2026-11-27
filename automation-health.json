@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-27T11:33:19.414204+00:00",
-  "run_id": "45990833596",
-  "refresh_key": "20261127T112900Z",
-  "refresh_mode": "pre-session",
-  "collection_gp": "",
+  "generated_at": "2026-11-27T12:01:54.405582+00:00",
+  "run_id": "45994986819",
+  "refresh_key": "20261127T120000Z",
+  "refresh_mode": "upgrades",
+  "collection_gp": "qatar",
   "collection": {
-    "calendar": "success",
-    "enrichment": "failure",
-    "fia_media": "failure",
-    "race_tyres": "failure",
-    "session_results": "success",
-    "standings": "success"
+    "calendar": "skipped",
+    "enrichment": "success",
+    "fia_media": "success",
+    "race_tyres": "skipped",
+    "session_results": "skipped",
+    "standings": "skipped"
   },
   "last_collection_checks": {
     "calendar": {
@@ -19,14 +19,14 @@
       "checked_at": "2026-11-27T11:31:21.711667+00:00"
     },
     "enrichment": {
-      "outcome": "failure",
-      "gp": "",
-      "checked_at": "2026-11-27T11:31:21.711667+00:00"
+      "outcome": "success",
+      "gp": "qatar",
+      "checked_at": "2026-11-27T12:01:02.504649+00:00"
     },
     "fia_media": {
-      "outcome": "failure",
-      "gp": "",
-      "checked_at": "2026-11-27T11:31:21.711667+00:00"
+      "outcome": "success",
+      "gp": "qatar",
+      "checked_at": "2026-11-27T12:01:02.504649+00:00"
     },
     "race_tyres": {
       "outcome": "failure",
@@ -478,6 +478,11 @@
   "findings": [
     {
       "gp": "united-arab-emirates",
+      "kind": "editorial",
+      "message": "The previous editorial briefing has expired."
+    },
+    {
+      "gp": "united-arab-emirates",
       "kind": "source_error",
       "message": "FIA discovery failed: FIA documents page unavailable: HTTP Error 500: Internal Server Error; season fallback failed: Abu Dhabi Grand Prix is not listed in the FIA season index"
     },
@@ -485,16 +490,6 @@
       "gp": "united-arab-emirates",
       "kind": "source_error",
       "message": "FIA screenshot collection: {'url': 'https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Abu%20Dhabi%20Grand%20Prix', 'error': 'No saved FIA discovery manifest'}"
-    },
-    {
-      "gp": "collection",
-      "kind": "source_error",
-      "message": "enrichment collector failed; retained data is not fresh"
-    },
-    {
-      "gp": "collection",
-      "kind": "source_error",
-      "message": "fia_media collector failed; retained data is not fresh"
     },
     {
       "gp": "collection",
