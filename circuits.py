@@ -504,9 +504,12 @@ CIRCUITS = {
         ),
         "tyre_compounds": ("C1 Hard", "C2 Medium", "C3 Soft"),
         "tyre_compounds_source": "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/",
-        "tyre_preview_asset": "pirelli-qatar-2026-technical-preview.jpg",
-        "tyre_preview_source": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/",
-        "tyre_preview_source_label": "Official Pirelli release",
+        "tyre_preview_asset": "pirelli-qatar-2026-full-preview.webp",
+        "tyre_preview_source": (
+            "https://www.formula1.com/en/latest/article/"
+            "what-tyres-will-the-teams-and-drivers-have-for-the-2026-qatar-grand-prix."
+            "7JllCRweDY5sW1N9LzdkLm"
+        ),
         "straight_mode_zones": 4,
         "overtake_zones": 1,
         "lap_record": "1:22.384 — Lando Norris, 2024",

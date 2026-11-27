@@ -1,6 +1,7 @@
 """Verified carry-over information; local Qatar documents remain source-dependent."""
 import content_generic
 import f1lib
+from circuits import QATAR_F1_RACE_WEEK_STATS
 from content_las_vegas import (
     FINAL_CLASSIFICATION,
     HAMILTON_TRACK_LIMITS,
@@ -18,7 +19,7 @@ QATAR_TYRE_LIMIT = (
 )
 QATAR_TYRE_ALLOCATION = (
     "https://www.formula1.com/en/latest/article/"
-    "what-tyres-will-the-formula-1-teams-and-drivers-have-for-the-2026-qatar-grand-prix."
+    "what-tyres-will-the-teams-and-drivers-have-for-the-2026-qatar-grand-prix."
     "7JllCRweDY5sW1N9LzdkLm"
 )
 QATAR_TYRE_LIMIT_EXPLAINER = (
@@ -766,7 +767,7 @@ Formula1.com's 25 November explainer describes the earlier rule.
 <a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a> ·
 <a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=7">FIA Document 14 V2, page 7</a>.</p>
 <p>The FIA's official Qatar competition notes (Document 13 V2 / Issue B,
-page 2) repeat the earlier pressure and compound values. Minimum starting
+page 2) give the latest pressure and compound prescriptions. Minimum starting
 and expected stabilized pressures are in psi:</p>
 <div class="table-wrap"><table class="data compact">
 <thead><tr><th>Compound</th><th>Front start</th><th>Front stabilized</th><th>Front camber</th><th>Rear start</th><th>Rear stabilized</th><th>Rear camber</th></tr></thead>
@@ -777,12 +778,18 @@ and expected stabilized pressures are in psi:</p>
 </tbody></table></div>
 <p>The sheet also specifies C1 and C2 as mandatory race tyres, C3 as the Q3 tyre,
 and caps each set at 27 laps across all sessions and tyre history.
-Pirelli's separate 24 November event infographic shows the same pressure
-figures and marks them as subject to change after FP2. The latest FIA event
-listing, rechecked after FP2 through Document 23, contains no later pressure
-table; these remain the latest published figures, not a post-FP2 reaffirmation.
-The graphic also lists an average pit-stop loss of 26.5 seconds; do not present
-that as a stationary wheel-change duration. These event prescriptions do not resolve the
+Pirelli's separate 24 November event infographic prints expected stabilized
+pressures as &gt;30.0 psi front and &gt;28.5 psi rear; FIA Document 13 V2 /
+Issue B uses &gt;=30.0 and &gt;=28.5 psi. Preserve the source-specific
+inequalities instead of silently normalizing them. Pirelli marks its figures
+subject to change after FP2. The latest FIA event listing, rechecked after
+FP2 through Document 23, contains no later pressure table; these remain the
+latest published figures, not a post-FP2 reaffirmation.
+Pirelli's graphic lists 26.5 seconds average pit-stop time loss, while
+<a href="{QATAR_F1_RACE_WEEK_STATS}">Formula1.com's 26 November guide</a>
+reports 26.17 seconds. The sources do not state a shared method, so retain
+these as separately attributed time-loss estimates, not stationary wheel-change
+durations. These event prescriptions do not resolve the
 published Formula1.com discrepancy in driver-by-driver set allocations; both
 articles were accessible when reviewed on 27 November. Neither article should
 be used as a remaining-set inventory.

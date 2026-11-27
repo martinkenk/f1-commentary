@@ -222,9 +222,21 @@ class GPParityTests(unittest.TestCase):
             pages["tyres"]["body"].count(f'src="../assets/{preview_asset}"'), 1
         )
         self.assertIn(ctx["ref"]["tyre_preview_source"], pages["tyres"]["body"])
-        self.assertIn("Official Pirelli release", pages["tyres"]["body"])
+        self.assertEqual(preview_asset, "pirelli-qatar-2026-full-preview.webp")
+        self.assertEqual(
+            ctx["ref"]["tyre_preview_source"], content_qatar.QATAR_TYRE_ALLOCATION
+        )
+        self.assertIn("Formula1.com / Pirelli", pages["tyres"]["body"])
         self.assertIn(
             "latest published figures, not a post-FP2 reaffirmation",
+            pages["tyres"]["body"],
+        )
+        self.assertIn(
+            "Pirelli's separate 24 November event infographic prints expected stabilized",
+            pages["tyres"]["body"],
+        )
+        self.assertIn(
+            "Pirelli's graphic lists 26.5 seconds average pit-stop time loss",
             pages["tyres"]["body"],
         )
         self.assertTrue(
@@ -259,7 +271,10 @@ class GPParityTests(unittest.TestCase):
             pages["tyres"]["body"],
         )
         self.assertIn("subject to change after FP2", pages["tyres"]["body"])
-        self.assertIn("average pit-stop loss of 26.5 seconds", pages["tyres"]["body"])
+        self.assertIn(
+            "Pirelli's graphic lists 26.5 seconds average pit-stop time loss",
+            pages["tyres"]["body"],
+        )
         self.assertIn(
             "not a driver-by-driver remaining-set inventory",
             " ".join(pages["tyres"]["body"].split()),
