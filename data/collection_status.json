@@ -20,13 +20,13 @@
     "checked_at": "2026-11-27T14:34:34.479053+00:00"
   },
   "session_results": {
-    "outcome": "failure",
-    "gp": "",
-    "checked_at": "2026-11-27T14:34:34.479053+00:00"
+    "outcome": "success",
+    "gp": "qatar",
+    "checked_at": "2026-11-27T14:50:08.567619+00:00"
   },
   "standings": {
     "outcome": "success",
-    "gp": "",
-    "checked_at": "2026-11-27T14:34:34.479053+00:00"
+    "gp": "qatar",
+    "checked_at": "2026-11-27T14:50:08.567619+00:00"
   }
 }
