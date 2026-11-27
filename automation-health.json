@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-11-27T18:34:44.251380+00:00",
-  "run_id": "46050056022",
-  "refresh_key": "",
-  "refresh_mode": "",
-  "collection_gp": "",
+  "generated_at": "2026-11-27T18:42:36.261632+00:00",
+  "run_id": "46051167312",
+  "refresh_key": "20261127T184000Z",
+  "refresh_mode": "results",
+  "collection_gp": "qatar",
   "collection": {
-    "calendar": "success",
-    "enrichment": "failure",
-    "fia_media": "failure",
-    "race_tyres": "failure",
-    "session_results": "failure",
+    "calendar": "skipped",
+    "enrichment": "skipped",
+    "fia_media": "skipped",
+    "race_tyres": "skipped",
+    "session_results": "success",
     "standings": "success"
   },
   "last_collection_checks": {
@@ -34,14 +34,14 @@
       "checked_at": "2026-11-27T18:33:52.886683+00:00"
     },
     "session_results": {
-      "outcome": "failure",
-      "gp": "",
-      "checked_at": "2026-11-27T18:33:52.886683+00:00"
+      "outcome": "success",
+      "gp": "qatar",
+      "checked_at": "2026-11-27T18:41:19.013354+00:00"
     },
     "standings": {
       "outcome": "success",
-      "gp": "",
-      "checked_at": "2026-11-27T18:33:52.886683+00:00"
+      "gp": "qatar",
+      "checked_at": "2026-11-27T18:41:19.013354+00:00"
     }
   },
   "events": {
@@ -470,11 +470,16 @@
       "sessions": {
         "Practice 1": {
           "digest": "cfc1c6690caf6ecc4e788bc0e4d7b543da03bee6178ff997fe89a4f17cf3aa9f",
-          "fetched_at": "2026-11-27T18:33:48+00:00",
+          "fetched_at": "2026-11-27T18:41:18+00:00",
+          "retained": false
+        },
+        "Practice 2": {
+          "digest": "f89af34956c9f6fb62506006a06232c7b7dd13e24d9d7a5d1a6c33a7ef2520c3",
+          "fetched_at": "2026-11-27T18:41:18+00:00",
           "retained": false
         }
       },
-      "results_checked_at": "2026-11-27T18:33:48+00:00"
+      "results_checked_at": "2026-11-27T18:41:18+00:00"
     },
     "united-arab-emirates": {
       "sessions": {},
@@ -482,16 +487,6 @@
     }
   },
   "findings": [
-    {
-      "gp": "qatar",
-      "kind": "results",
-      "message": "Practice 2 overdue since 2026-11-27T21:15:00+03:00"
-    },
-    {
-      "gp": "qatar",
-      "kind": "source_error",
-      "message": "Practice 2: Official classification table is not published"
-    },
     {
       "gp": "qatar",
       "kind": "editorial",
@@ -521,11 +516,6 @@
       "gp": "collection",
       "kind": "source_error",
       "message": "race_tyres collector failed; retained data is not fresh"
-    },
-    {
-      "gp": "collection",
-      "kind": "source_error",
-      "message": "session_results collector failed; retained data is not fresh"
     }
   ]
 }
