@@ -78,6 +78,9 @@ def parse_table(page):
     parsed = f1lib._parse_result_table(tables[0])
     if not parsed:
         raise ValueError("Official classification table is not published")
+    _, rows = parsed
+    if any(re.search(r"\bno results available\b", " ".join(row), re.I) for row in rows):
+        raise ValueError("Official classification table is not published")
     validate_table(*parsed)
     return parsed
 

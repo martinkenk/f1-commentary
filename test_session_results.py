@@ -77,6 +77,12 @@ class ResultsTests(unittest.TestCase):
                 self.assertNotIn("official table pending or unavailable", rendered)
                 self.assertNotIn("No official classifications available here yet", rendered)
 
+    def test_unavailable_official_result_placeholder_is_not_a_partial_classification(self):
+        headers = ["Pos.", "No.", "Driver", "Team", "Time / Gap"]
+        unavailable = page(headers, [["Error No results available"]])
+        with self.assertRaisesRegex(ValueError, "classification table is not published"):
+            results.parse_table(unavailable)
+
     def test_practice_tyres_match_driver_and_time_including_relative_gaps(self):
         headers, rows = table()
         block = {"label": "Practice 1", "headers": headers, "rows": rows}
