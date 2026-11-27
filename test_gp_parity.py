@@ -240,9 +240,21 @@ class GPParityTests(unittest.TestCase):
             "not a transcription from the FIA event listing",
             pages["tyres"]["body"],
         )
-        self.assertIn("&gt;=30.0 psi", pages["tyres"]["body"])
-        self.assertIn("-2.75 degrees\nfront", pages["tyres"]["body"])
-        self.assertIn("-1.50 degrees rear", pages["tyres"]["body"])
+        self.assertIn(
+            "<th>Slicks</th><td>29.0</td><td>&gt;=30.0</td><td>-2.75 degrees</td>"
+            "<td>27.5</td><td>&gt;=28.5</td><td>-1.50 degrees</td>",
+            pages["tyres"]["body"],
+        )
+        self.assertIn(
+            "<th>Intermediates</th><td>30.0</td><td>&gt;=31.0</td><td>-3 degrees</td>"
+            "<td>27.5</td><td>&gt;=28.5</td><td>-2 degrees</td>",
+            pages["tyres"]["body"],
+        )
+        self.assertIn(
+            "<th>Wets</th><td>28.5</td><td>&gt;=31.0</td><td>-3 degrees</td>"
+            "<td>25.5</td><td>&gt;=28.5</td><td>-2 degrees</td>",
+            pages["tyres"]["body"],
+        )
         self.assertIn("subject to change after FP2", pages["tyres"]["body"])
         self.assertIn("average pit-stop loss of 26.5 seconds", pages["tyres"]["body"])
         self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
@@ -251,9 +263,13 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("three C2 Medium and eight C3 Soft sets", pages["tyres"]["body"])
         self.assertIn("four C2 Medium and seven C3 Soft", pages["tyres"]["body"])
         self.assertIn("exact allocation is conflicting", pages["tyres"]["body"])
-        self.assertIn("started but not", pages["tyres"]["body"])
-        self.assertIn("Reconnaissance, formation and", pages["tyres"]["body"])
+        tyre_text = " ".join(pages["tyres"]["body"].split())
+        self.assertIn("A lap started but not completed counts in full", tyre_text)
+        self.assertIn("reconnaissance and formation laps before the start", tyre_text)
+        self.assertIn("post-session laps to return to the pits and practice-start laps", tyre_text)
+        self.assertIn("earliest safe opportunity after it reopens", tyre_text)
         self.assertIn("Virtual Safety Car", pages["tyres"]["body"].replace("\n", " "))
+        self.assertIn("Document 14 V2, page 7", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_ALLOCATION, pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT_EXPLAINER, pages["notes"]["body"])
@@ -630,8 +646,11 @@ class GPParityTests(unittest.TestCase):
             content_qatar.FIA_QATAR_F1_CIRCUIT_MAP,
             content_qatar.FIA_QATAR_RACE_DIRECTOR_NOTES,
             content_qatar.FIA_QATAR_SUPPORT_CIRCUIT_MAP,
+            content_qatar.FIA_QATAR_TYRE_NOTES,
         ):
             self.assertEqual(review["fia_sha256"].get(source), media_hashes[source])
+        self.assertIn("Pirelli Preview V2", review["basis"])
+        self.assertIn("Document 14 V2", review["basis"])
         for slug in ("tyres", "notes"):
             self.assertIn("7 / 27 / 23 laps", pages[slug]["body"])
             self.assertIn("earlier session use reduces", pages[slug]["body"])

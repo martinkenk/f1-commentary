@@ -127,7 +127,10 @@ FIA_QATAR_CURFEW = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_curfew.pdf"
 )
-FIA_QATAR_TYRE_NOTES = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
+FIA_QATAR_TYRE_NOTES = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview_v2.pdf"
+)
 FIA_QATAR_F1_CIRCUIT_MAP = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_competition_notes_-_circuit_map_pit_lane_drawing_emergency_exits_map_and_red_zone.pdf"
@@ -137,7 +140,7 @@ FIA_QATAR_F1_CIRCUIT_MAP_IMAGE = (
 )
 FIA_QATAR_RACE_DIRECTOR_NOTES = (
     "https://www.fia.com/system/files/decision-document/"
-    "2026_qatar_grand_prix_-_race_directors_competition_notes.pdf"
+    "2026_qatar_grand_prix_-_race_directors_competition_notes_v2.pdf"
 )
 FIA_QATAR_SUPPORT_CIRCUIT_MAP = (
     "https://www.fia.com/system/files/decision-document/"
@@ -270,7 +273,7 @@ The separately discovered Lusail Event Document 5 is a Formula 2 map
 the 2026 F1 system.
 <a href="{FIA_QATAR_F1_CIRCUIT_MAP}#page=2">FIA F1 map</a> ·
 <a href="{FIA_QATAR_SUPPORT_CIRCUIT_MAP}#page=2">separate FIA support-series map</a>.</div>"""
-    qatar_race_director_note = f"""<div class="callout accent"><strong>FIA Race Director's competition notes, 26 November:</strong>
+    qatar_race_director_note = f"""<div class="callout accent"><strong>FIA Race Director's competition notes, Document 14 V2, 27 November:</strong>
 the maximum time between the second and first Safety Car Lines for qualifying
 and race reconnaissance laps will be notified after FP2. During the race,
 teams receive a lapping pre-warning at 3.0 s; blue panels are shown at 1.2 s,
@@ -652,30 +655,43 @@ remaining-set counts.
 <p>On 24 November, Pirelli announced a maximum 27-lap stint per set, agreed
 with the FIA, and said the race will require at least two stops. At the full
 scheduled 57-lap distance, two sets cover only 54 laps. The FIA's Qatar
-competition notes (Doc 2, page 2) independently specify the same 27-lap
-limit; the document and its screenshot are linked below.
+competition notes (Document 13, Pirelli Preview V2 / Issue B, page 2)
+independently specify the same limit.
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
-<p>Formula1.com's 25 November explainer quotes Pirelli's counting details:
-the 27-lap maximum is cumulative across sessions, including Safety Car and
-Virtual Safety Car laps; all race laps from the start signal to the
-chequered flag count. In other track sessions, a lap started but not
-completed counts as a full lap, and a set assembled from tyres with
-different mileage takes the higher mileage. Reconnaissance, formation and
-post-race laps are excluded. This report is consistent with the separately
-reviewed 27-lap FIA/Pirelli Qatar prescription.
-<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com, 25 November explainer</a>.</p>
-<p>The FIA's official Qatar competition notes (Doc 2, page 2) specify slick
-minimum starting / expected stabilized running pressures of
-29.0 / &gt;=30.0 psi at the front and 27.5 / &gt;=28.5 psi at the rear,
-with camber limits of -2.75 degrees
-front and -1.50 degrees rear. The same FIA sheet sets C1 and C2 as mandatory
-race tyres, C3 as the Q3 tyre, and caps each set at 27 laps across all sessions
-and tyre history. Pirelli's separate 24 November event infographic
+<p>Document 13 V2 clarifies the 27-lap cap's cumulative count across all track
+sessions, including laps under the Safety Car or Virtual Safety Car. For the
+Race, count each lap started after the start signal and before the
+end-of-session signal; reconnaissance and formation laps before the start and
+laps after the end signal do not count. In every other session, any lap started
+counts, including post-session laps to return to the pits and practice-start
+laps. A lap started but not completed counts in full, and a mixed set takes the
+mileage of its highest-mileage tyre. Document 14 V2 repeats this rule and
+clarifies that a set exceeding its limit because pit entry was closed must
+be changed at the earliest safe opportunity after it reopens; when both
+cars of a team exceed the limit this way, at least one must pit at that
+opportunity. The second car may pass pit entry once before entering.
+Formula1.com's 25 November explainer describes the earlier rule.
+<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com, 25 November explainer</a> ·
+<a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a> ·
+<a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=7">FIA Document 14 V2, page 7</a>.</p>
+<p>The FIA's official Qatar competition notes (Document 13 V2 / Issue B,
+page 2) repeat the earlier pressure and compound values. Minimum starting
+and expected stabilized pressures are in psi:</p>
+<div class="table-wrap"><table class="data compact">
+<thead><tr><th>Compound</th><th>Front start</th><th>Front stabilized</th><th>Front camber</th><th>Rear start</th><th>Rear stabilized</th><th>Rear camber</th></tr></thead>
+<tbody>
+<tr><th>Slicks</th><td>29.0</td><td>&gt;=30.0</td><td>-2.75 degrees</td><td>27.5</td><td>&gt;=28.5</td><td>-1.50 degrees</td></tr>
+<tr><th>Intermediates</th><td>30.0</td><td>&gt;=31.0</td><td>-3 degrees</td><td>27.5</td><td>&gt;=28.5</td><td>-2 degrees</td></tr>
+<tr><th>Wets</th><td>28.5</td><td>&gt;=31.0</td><td>-3 degrees</td><td>25.5</td><td>&gt;=28.5</td><td>-2 degrees</td></tr>
+</tbody></table></div>
+<p>The sheet also specifies C1 and C2 as mandatory race tyres, C3 as the Q3 tyre,
+and caps each set at 27 laps across all sessions and tyre history.
+Pirelli's separate 24 November event infographic
 shows the same pressure figures, marks them subject to change after FP2, and
 lists an average pit-stop loss of 26.5 seconds; do not present that as a
 stationary wheel-change duration. These event prescriptions do not resolve the
 conflicting Formula1.com reports of driver-by-driver set allocations.
-<a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Competition Notes - Pirelli Preview, page 2</a> ·
+<a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2 - Pirelli Preview, page 2</a> ·
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
 <p>Pirelli F1 chief engineer Simone Berra's earlier Motorsport.com interview
 adds details about session-by-session tyre use and remaining allowances after
@@ -693,15 +709,16 @@ Car stop after lap 7 could instead be followed by a stop after lap 34:
 examples, not measured optimum windows or a claim that those sets remain
 available. A shortened race, Safety Car, rain, tyre wear or a changed rule
 can alter the plan; a dry race also requires two different slick compounds.</p>
-<p>Each set's earlier session use reduces its remaining allowance.
-Formula1.com's 25 November explainer reports that all race laps from the
-start signal to the chequered flag count; in other sessions, a started but
-unfinished lap counts in full, and mixed-mileage sets take the higher tyre
-mileage. Reconnaissance, formation and post-race laps are excluded. These
-are the reported Pirelli counting rules and match the reviewed FIA/Pirelli
-event prescription; use post-Saturday official remaining-lap information
-before applying either example.
+<p>Each set's earlier session use reduces its remaining allowance. FIA
+Documents 13 and 14 V2 clarify that post-session laps to return to the pits
+and practice-start laps count against the cap, while reconnaissance and
+formation laps before the race start do not. If pit entry closure causes a
+set to exceed the cap, it must be changed at the earliest safe opportunity
+after pit entry reopens. Use the official post-Saturday remaining-lap
+information before applying either example.
 <a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com counting-rule explainer</a> ·
+<a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a> ·
+<a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=7">FIA Document 14 V2, page 7</a> ·
 <a href="{QATAR_TYRE_COUNTING}">Coffee Corner Motorsport counting report</a> ·
 <a href="{QATAR_TYRE_LIMIT}">Pirelli engineer on remaining laps</a>.</p>"""
     tyre_preview = f"""<figure class="circuit-fig">

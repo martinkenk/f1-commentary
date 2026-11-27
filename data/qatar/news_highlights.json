@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-27T10:48:15Z",
+  "reviewed_at": "2026-11-27T12:37:01Z",
   "expires_at": "2026-11-27T13:15:00Z",
   "through_session": null,
   "feed_fingerprint": "7b355440ae762eda71011414f6e40c367e94a21aa21e28626285c744d696c510",
@@ -25,8 +25,8 @@
       "topic": "Tyre strategy and stint limit",
       "title": "Qatar's 27-lap cap, high pressures and conflicting set totals",
       "date": "2026-11-25",
-      "summary": "Two Formula1.com articles published on 25 November give different per-driver allocations: the 10:05 UTC guide says 2 C1 Hard, 3 C2 Medium and 8 C3 Soft, with an extra Soft reserved for Q3; the 10:43 UTC explainer says each driver gets 13 sets (2 C1, 4 C2, 7 C3). Pirelli's 24 November release confirms the compounds and 27-lap cap, but not set totals. The FIA competition visa confirms 57 race laps over 5.419 km and a 19:00 local start. Its separate Pirelli competition notes prescribe C1 and C2 as mandatory race tyres, C3 for Q3, and 27 laps per set across tyre history; they do not state the conflicting per-driver allocation. The Race's 26 November report says the FIA notes set minimum starting pressures at 29 psi front and 27.5 psi rear, the season's highest front minimum. It attributes front-left overheating, wear and soft graining concerns to Williams, and the risk of an early stop forcing a third stop to McLaren. These are team assessments, not a predicted or published race strategy. Pirelli's reported counting rules include Safety Car and Virtual Safety Car laps; all race laps from start signal to chequered flag count, an unfinished lap in other sessions counts in full, mixed-mileage sets take the higher count, and reconnaissance, formation and post-race laps are excluded.",
-      "why_it_matters": "Keep the conflicting official F1 per-driver allocations explicitly attributed until clarified. The 29/27.5 psi figures are minimum starting pressures; the FIA table separately gives stabilized thresholds of 30/28.5 psi. Attribute the front-left and stop-timing assessments to the named teams, not as measured outcomes or official predicted strategy. Exact remaining-set counts still require a post-qualifying chart.",
+      "summary": "Two Formula1.com articles published on 25 November give different per-driver allocations: the 10:05 UTC guide says 2 C1 Hard, 3 C2 Medium and 8 C3 Soft, with an extra Soft reserved for Q3; the 10:43 UTC explainer says each driver gets 13 sets (2 C1, 4 C2, 7 C3). Pirelli's 24 November release confirms the compounds and 27-lap cap, but not set totals. The FIA competition visa confirms 57 race laps over 5.419 km and a 19:00 local start. The Race's 26 November report says the FIA notes set minimum starting pressures at 29 psi front and 27.5 psi rear, the season's highest front minimum. It attributes front-left overheating, wear and soft graining concerns to Williams, and the risk of an early stop forcing a third stop to McLaren. These are team assessments, not a predicted or published race strategy. The earlier Pirelli reporting says the cap is cumulative across sessions, including Safety Car and Virtual Safety Car laps. FIA Document 13 V2, published 27 November, clarifies that race laps count when started after the start signal and before the end-of-session signal; reconnaissance and formation laps before the start and laps after the end signal do not. In other sessions, any started lap counts, including practice starts and post-session laps to return to the pits; an unfinished lap counts in full and a mixed set takes the mileage of its highest-mileage tyre. FIA Document 14 V2 page 7 requires a set that exceeds the cap because pit entry was closed to be changed at the earliest safe opportunity after it reopens. If both cars exceed the cap this way, at least one must pit at that opportunity; the second may pass pit entry once before entering.",
+      "why_it_matters": "Keep the conflicting official F1 per-driver allocations explicitly attributed until clarified. The 29/27.5 psi figures are minimum starting pressures; the FIA table separately gives stabilized thresholds of 30/28.5 psi. Attribute the front-left and stop-timing assessments to the named teams, not as measured outcomes or official predicted strategy. Apply the current FIA V2 counting and pit-entry instructions, not the superseded summary of the earlier rule. Exact remaining-set counts still require a post-qualifying chart.",
       "sources": [
         {
           "label": "Pirelli, official Qatar tyre briefing and infographic, 24 November (graphic visually reviewed)",
@@ -49,8 +49,8 @@
           "url": "https://www.the-race.com/formula-1/f1-drivers-face-highest-tyre-pressure-orders-yet-in-qatar/"
         },
         {
-          "label": "FIA Qatar Competition Notes - Pirelli Preview, Doc 2, page 2",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
+          "label": "FIA Qatar Competition Notes, Document 13 Pirelli Preview V2 / Issue B, page 2",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview_v2.pdf"
         },
         {
           "label": "FIA Qatar Competition Visa",
@@ -59,6 +59,10 @@
         {
           "label": "Coffee Corner Motorsport, 24 November secondary preview (context only; no FIA counting rule inferred)",
           "url": "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
+        },
+        {
+          "label": "FIA Qatar Race Director Competition Notes, Document 14 V2, page 7",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_race_directors_competition_notes_v2.pdf#page=7"
         }
       ]
     },
