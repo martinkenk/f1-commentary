@@ -383,6 +383,14 @@ class GPParityTests(unittest.TestCase):
         session = next(item for item in briefing["items"] if item["topic"] == "Session outcome")
         self.assertIn("1:23.077", session["summary"])
         self.assertIn("Virtual Safety Car", session["summary"])
+        self.assertIn("Gasly's high-speed spin", session["summary"])
+        self.assertIn("Gasly's explanation is his account", session["why_it_matters"])
+        self.assertIn(
+            "https://www.formula1.com/en/latest/article/"
+            "its-never-nice-gasly-explains-dramatic-high-speed-spin-during-qatar-practice."
+            "11hIcFNT6zuvEG0mwAggDn",
+            {s["url"] for s in session["sources"]},
+        )
         self.assertIn(content_qatar.QATAR_FP2_RESULTS, {s["url"] for s in session["sources"]})
         self.assertIn(
             content_qatar.FIA_QATAR_FP2_CLASSIFICATION,
