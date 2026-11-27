@@ -191,6 +191,18 @@ FIA_QATAR_HADJAR_SUMMONS = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_summons_-_car_6_-_alleged_unsafe_act.pdf"
 )
+FIA_QATAR_FP1_DELETED_LAP_TIMES = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"
+)
+FIA_QATAR_HADJAR_DECISION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_infringement_-_car_6_-_unsafe_act.pdf"
+)
+FIA_QATAR_PEREZ_DECISION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_infringement_-_car_11_-_media_commitment.pdf"
+)
 FIA_APPEAL_HEARING = "https://www.fia.com/news/international-court-appeal-hearing-november-25-2026"
 FIA_ITALY_DOC69 = (
     "https://www.fia.com/system/files/decision-document/"
@@ -426,11 +438,24 @@ FIA Document 9 reports that all 11 teams submitted completed declaration forms
 before 21:52 on 26 November. This confirms the filing only, not a technical
 inspection result.
 <a href="{FIA_QATAR_SELF_SCRUTINEERING}">Original FIA Document 9</a>.</p>"""
+    fia_decisions_summary = f"""<p><strong>Friday's FIA rulings:</strong>
+Document 17 lists 32 deleted-lap entries for 12 drivers at Turns 1–6, 8, 10
+and 14–16 in FP1; its table and ruling are on pages 2–3. Document 18 finds an
+unsafe pit-box release involving Car 6 / Isack Hadjar and fines Oracle Red
+Bull Racing €30,000, with €20,000 suspended for 12 months. A team member's
+foot touched the rear-left wheel as the car began to leave with a brake-cooling
+blower still fitted. Document 19 confirms Sergio Perez was 22 minutes late to
+the Thursday press conference but applies no penalty, after an insurance issue
+delayed his flight and road closures delayed arrival. These are separate
+decisions, not a new grid penalty.
+<a href="{FIA_QATAR_FP1_DELETED_LAP_TIMES}#page=2">FIA Document 17, pages 2–3</a> ·
+<a href="{FIA_QATAR_HADJAR_DECISION}">FIA Document 18</a> ·
+<a href="{FIA_QATAR_PEREZ_DECISION}">FIA Document 19</a>.</p>"""
     pages["penalties"] = dict(
         kicker="Confirmed carry-over sanction",
         title="Penalties & Stewards",
         sub=("Las Vegas Document 61 applies a five-place grid drop to Sergio Perez "
-             "at this event; it is not a Qatar stewards' decision."),
+             "at this event; the confirmed Qatar rulings are listed separately below."),
         body=render_penalties(
             ctx,
             decisions=[
@@ -492,7 +517,7 @@ inspection result.
                 '<div class="callout accent"><strong>Confirmed carry-over:</strong> '
                 'Las Vegas Document 61 is the source of this Qatar grid sanction; '
                 'Formula1.com confirms it applies here. This is not a Qatar ruling; '
-                'Qatar-specific decisions remain separate and source-dependent. '
+                'Qatar decisions are listed separately with their original FIA documents. '
                 f'<a href="{PEREZ_PENALTY_ARTICLE}">Official Formula1.com report</a>.</div>'
                 f'<div class="callout"><strong>Qatar Document 10: no action.</strong> '
                 'The Technical Delegate reported Alpine car-operating personnel '
@@ -500,6 +525,7 @@ inspection result.
                 'second of six permitted exceptions for 2026; the report says no '
                 'action should be taken. This is not a driver penalty. '
                 f'<a href="{FIA_QATAR_CURFEW}">Original FIA report</a>.</div>'
+                + fia_decisions_summary
             ),
             fia_url=ctx.get("fia_url", ""),
         ),
@@ -667,22 +693,24 @@ cause for the spin.
         pending_team_storylines, upgrade_summary, 1
     )
     nomination = f"""<p>Pirelli nominated <strong>C1 Hard, C2 Medium and C3 Soft</strong>
-for Qatar. Its 13 November graphic marks C3 as the qualifying mandatory set
-and C1 and C2 as the race mandatory sets. This nomination is not a
+for Qatar. The 13 November Pirelli table confirms that compound selection;
+FIA Document 13 V2, page 2, separately identifies C3 as the qualifying
+mandatory set and C1 and C2 as the race mandatory sets. Neither source is a
 driver-by-driver remaining-set inventory.</p>
-<p>A Formula1.com tyre guide published at 10:05 UTC was previously checked
-and reported two C1 Hard, three C2 Medium and eight C3 Soft sets, plus an
-extra Soft for drivers reaching Q3. Its URL returned HTTP 404 when rechecked
-on 27 November, so that report cannot currently be verified. The still
-accessible 10:43 UTC explainer says each driver gets 13 sets: two C1 Hard,
-four C2 Medium and seven C3 Soft. Pirelli's 24 November release confirms the
-compounds but not the per-driver totals; retain the earlier discrepancy as
-unresolved rather than treating either report as a remaining-set inventory.
-Formula1.com also says a dry race requires two different slick compounds.
-<a href="{QATAR_TYRE_ALLOCATION}">Earlier Formula1.com tyre guide (returned
-404 on 27 November)</a> ·
-<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Accessible Formula1.com explainer,
-10:43 UTC</a>.</p>
+<p>Two Formula1.com articles currently give different pre-weekend set counts.
+The 10:05 UTC preview says two C1 Hard, three C2 Medium and eight C3 Soft
+sets, and separately says an extra Soft is reserved for Q3. The 10:43 UTC
+explainer explicitly lists 13 sets as two C1 Hard, four C2 Medium and seven
+C3 Soft. The earlier preview, which returned HTTP 404 when checked before,
+is accessible again on 27 November; the published allocation discrepancy
+remains unresolved. Pirelli confirms the compounds and 27-lap cap, not the
+per-driver set totals. Do not treat either article as a remaining-set
+inventory. Formula1.com also says a dry race requires two different slick
+compounds.
+<a href="{QATAR_TYRE_ALLOCATION}">Formula1.com tyre preview, 10:05 UTC (accessible again)</a> ·
+<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com 27-lap explainer,
+10:43 UTC</a> ·
+<a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a>.</p>
 <p>On 24 November, Pirelli announced a maximum 27-lap stint per set, agreed
 with the FIA, and said the race will require at least two stops. At the full
 scheduled 57-lap distance, two sets cover only 54 laps. The FIA's Qatar
@@ -721,9 +749,12 @@ Pirelli's separate 24 November event infographic
 shows the same pressure figures, marks them subject to change after FP2, and
 lists an average pit-stop loss of 26.5 seconds; do not present that as a
 stationary wheel-change duration. These event prescriptions do not resolve the
-reported Formula1.com discrepancy in driver-by-driver set allocations; one
-of those article URLs currently returns 404.
+published Formula1.com discrepancy in driver-by-driver set allocations; both
+articles were accessible when reviewed on 27 November. Neither article should
+be used as a remaining-set inventory.
 <a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2 - Pirelli Preview, page 2</a> ·
+<a href="{QATAR_TYRE_ALLOCATION}">Formula1.com tyre preview, 10:05 UTC</a> ·
+<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com 27-lap explainer, 10:43 UTC</a> ·
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
 <p>Pirelli F1 chief engineer Simone Berra's earlier Motorsport.com interview
 adds details about session-by-session tyre use and remaining allowances after
@@ -755,12 +786,15 @@ information before applying either example.
 <a href="{QATAR_TYRE_LIMIT}">Pirelli engineer on remaining laps</a>.</p>"""
     tyre_preview = f"""<figure class="circuit-fig">
 <img class="circuit-img tyre-preview-img" src="../assets/{QATAR_TYRE_PREVIEW}"
-alt="Pirelli's 2026 Qatar tyre selection: C1 Hard, C2 Medium and C3 Soft; C3 is mandatory for qualifying and C1 and C2 are mandatory for the race."
+alt="Qatar 2026 tyre selection: C1 Hard, C2 Medium and C3 Soft; C3 is mandatory for qualifying and C1 and C2 are mandatory for the race."
 loading="lazy" onclick="zoomImg(this)">
-<figcaption>Full, uncropped Pirelli Qatar 2026 compound and mandatory-set graphic.
+<figcaption>Full, uncropped Qatar 2026 compound and mandatory-set graphic.
+Its C1/C2 race and C3 qualifying designations match FIA Document 13 V2,
+page 2; Pirelli's compound-selection table independently confirms C1/C2/C3.
 This is not a driver-by-driver remaining-set inventory.
 <a href="../assets/{QATAR_TYRE_PREVIEW}">Full-resolution image</a> ·
-<a href="{PIRELLI_NOMINATION}">Pirelli source, 13 November 2026</a>.</figcaption>
+<a href="{PIRELLI_NOMINATION}">Pirelli compound-selection source, 13 November 2026</a> ·
+<a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a>.</figcaption>
 </figure>"""
     pages["tyres"]["body"] += tyre_preview + (
         "<p>Pirelli's 24 November preview marks the starred pressure figures "
@@ -894,7 +928,9 @@ Formula1.com results.
 <a href="{QATAR_FP1_RESULTS}">Formula1.com classification</a> ·
 <a href="{FIA_QATAR_FP1_CLASSIFICATION}#page=2">FIA Document 16, page 2</a>.</p>"""
     pages["overview"]["body"] += fp1_summary
-    pages["notes"]["body"] = hadjar_summons + fp1_summary + pages["notes"]["body"]
+    pages["notes"]["body"] = (
+        fia_decisions_summary + hadjar_summons + fp1_summary + pages["notes"]["body"]
+    )
     pages["notes"]["body"] = car_display + pages["notes"]["body"]
     pages["notes"]["body"] = upgrade_summary + pages["notes"]["body"]
     pages["overview"]["body"] += upgrade_summary

@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-27T15:50:37Z",
-  "expires_at": "2026-11-27T16:50:00Z",
+  "reviewed_at": "2026-11-27T17:32:27Z",
+  "expires_at": "2026-11-27T18:15:00Z",
   "through_session": "Practice 1",
   "feed_fingerprint": "752a91086497c1726199a704fa27edea63587d8844a78349add1dabdbd37fa31",
   "items": [
@@ -9,7 +9,7 @@
       "title": "Antonelli leads a Mercedes one-two in Qatar FP1",
       "date": "2026-11-27",
       "summary": "Kimi Antonelli set the fastest time in the first Qatar practice session at 1:23.217. George Russell was second, 0.507 seconds behind, and Isack Hadjar third, 0.661 seconds back. The official FIA classification matches Formula1.com across all 22 entrants.",
-      "why_it_matters": "This is the first completed on-track classification of the weekend. It is practice form only, not a qualifying or race prediction.",
+      "why_it_matters": "This is practice form only, not a qualifying or race prediction. The official FP2 result table currently says no results are available; do not imply that session has been completed.",
       "sources": [
         {
           "label": "Formula1.com official Qatar Practice 1 classification",
@@ -22,19 +22,31 @@
         {
           "label": "FIA Document 16, page 2",
           "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_free_practice_1_classification.pdf#page=2"
+        },
+        {
+          "label": "Formula1.com Qatar Practice 2 results (no results available at review)",
+          "url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/2"
         }
       ]
     },
     {
-      "topic": "Stewards summons",
-      "title": "FIA summons Red Bull representative over Hadjar pit-lane incident",
+      "topic": "FIA stewards' decisions",
+      "title": "Red Bull fined €30,000 after Hadjar pit-box incident; 32 FP1 lap entries deleted",
       "date": "2026-11-27",
-      "summary": "FIA Document 15, issued at 17:18 local, summons the Red Bull team representative to report to the Stewards at 18:15 after an alleged unsafe situation involving team personnel in the pit lane at 16:45. It cites Article 12.2.1.h of the FIA International Sporting Code and records an allegation, not a finding or penalty.",
-      "why_it_matters": "Keep this separate from a driver sanction and check the official FIA listing for any later ruling after the summons time.",
+      "summary": "FIA Document 18 finds an unsafe pit-box release involving Car 6 / Isack Hadjar and fines Oracle Red Bull Racing €30,000, with €20,000 suspended for 12 months; a team member's foot touched the rear-left wheel as the car began to leave with a brake-cooling blower still fitted. Document 17 lists 32 deleted-lap entries for 12 drivers in FP1. Document 19 says Sergio Perez was 22 minutes late to Thursday's press conference but applies no penalty, citing an insurance issue that delayed his flight and road closures.",
+      "why_it_matters": "The €30,000 fine is against Red Bull, not Hadjar personally; €20,000 is suspended. The 32 entries are lap-time deletions, not a separate grid penalty. Perez's late attendance resulted in no penalty.",
       "sources": [
         {
-          "label": "FIA Qatar Document 15 summons",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_summons_-_car_6_-_alleged_unsafe_act.pdf"
+          "label": "FIA Qatar Document 18 ruling",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_car_6_-_unsafe_act.pdf"
+        },
+        {
+          "label": "FIA Qatar Document 17, deleted lap times, pages 2–3",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"
+        },
+        {
+          "label": "FIA Qatar Document 19 ruling",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_car_11_-_media_commitment.pdf"
         }
       ]
     },
@@ -42,15 +54,15 @@
       "topic": "Tyre strategy and stint limit",
       "title": "Qatar's 27-lap cap, pressure rules and allocation conflict",
       "date": "2026-11-25",
-      "summary": "FIA competition visa confirms a 57-lap race. Pirelli set a 27-lap maximum per set and selected C1/C2/C3. FIA Document 13 V2 specifies the latest counting and replacement instructions; its pressure table gives minimum starting pressures of 29.0 psi front and 27.5 psi rear, with higher stabilized thresholds. A previously checked Formula1.com tyre guide reporting 2/3/8 plus a Q3 Soft now returns HTTP 404; the accessible 27-lap explainer lists 2/4/7. Pirelli does not give per-driver totals, so the prior discrepancy remains unresolved. The current explainer says cumulative set mileage includes Safety Car and Virtual Safety Car laps. Remaining sets require a separate post-qualifying source.",
-      "why_it_matters": "The earlier allocation report cannot be rechecked while its URL returns 404. Do not treat either pre-event figure as a remaining-set count or strategy prediction; apply the current FIA V2 rules and await a post-qualifying source.",
+      "summary": "FIA competition visa confirms a 57-lap race. Pirelli selected C1/C2/C3 and set a 27-lap maximum per set. FIA Document 13 V2 specifies the current counting and mandatory-tyre rules; its pressure table gives minimum starting pressures of 29.0 psi front and 27.5 psi rear, with higher stabilized thresholds. The Formula1.com 10:05 UTC preview says 2/3/8 sets with an extra Soft reserved for Q3; its URL, previously returning HTTP 404, is accessible again. The 10:43 UTC explainer explicitly lists 13 sets as 2/4/7 and says mileage is cumulative across sessions, including Safety Car and Virtual Safety Car laps. Both sources were accessible when reviewed on 27 November, but the published allocation discrepancy remains unresolved. These are pre-weekend figures, not remaining sets; post-qualifying inventory needs a separate source.",
+      "why_it_matters": "Treat the conflicting allocation figures as a publication discrepancy, not an outage. Do not use either as a remaining-set count or strategy prediction; apply the FIA V2 counting rules and refresh remaining sets only from a post-qualifying source.",
       "sources": [
         {
           "label": "Pirelli official Qatar tyre briefing, 24 November",
           "url": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
         },
         {
-          "label": "Earlier Formula1.com Qatar tyre guide (URL returned 404 on 27 November)",
+          "label": "Formula1.com Qatar tyre preview, 10:05 UTC (accessible again on 27 November)",
           "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-formula-1-teams-and-drivers-have-for-the-2026-qatar-grand-prix.7JllCRweDY5sW1N9LzdkLm"
         },
         {

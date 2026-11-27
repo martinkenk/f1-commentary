@@ -230,7 +230,10 @@ class GPParityTests(unittest.TestCase):
         self.assertTrue(
             (Path(__file__).parent / "assets_src" / preview_asset).is_file()
         )
-        self.assertIn("Full, uncropped Pirelli Qatar 2026", pages["tyres"]["body"])
+        self.assertIn(
+            "Full, uncropped Qatar 2026 compound and mandatory-set graphic",
+            pages["tyres"]["body"],
+        )
         self.assertIn(content_qatar.FIA_QATAR_TYRE_NOTES, pages["tyres"]["body"])
         self.assertIn(
             "The FIA's official Qatar competition notes",
@@ -257,18 +260,22 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertIn("subject to change after FP2", pages["tyres"]["body"])
         self.assertIn("average pit-stop loss of 26.5 seconds", pages["tyres"]["body"])
-        self.assertIn("not a\ndriver-by-driver remaining-set inventory", pages["tyres"]["body"])
-        self.assertIn("27-lap maximum stint per set", pages["tyres"]["body"])
-        self.assertIn(content_qatar.QATAR_TYRE_STRATEGY, pages["tyres"]["body"])
-        self.assertIn("three C2 Medium and eight C3 Soft sets", pages["tyres"]["body"])
-        self.assertIn("four C2 Medium and seven C3 Soft", pages["tyres"]["body"])
-        self.assertIn("returned HTTP 404", pages["tyres"]["body"])
-        self.assertIn("that report cannot currently be verified", pages["tyres"]["body"])
         self.assertIn(
-            "retain the earlier discrepancy as unresolved",
+            "not a driver-by-driver remaining-set inventory",
             " ".join(pages["tyres"]["body"].split()),
         )
+        self.assertIn("27-lap maximum stint per set", pages["tyres"]["body"])
+        self.assertIn(content_qatar.QATAR_TYRE_STRATEGY, pages["tyres"]["body"])
         tyre_text = " ".join(pages["tyres"]["body"].split())
+        self.assertIn("three C2 Medium and eight C3 Soft sets", tyre_text)
+        self.assertIn("four C2 Medium and seven C3 Soft", tyre_text)
+        self.assertIn("is accessible again on 27 November", tyre_text)
+        self.assertNotIn("article URLs currently returns 404", pages["tyres"]["body"])
+        self.assertNotIn("cannot currently be verified", pages["tyres"]["body"])
+        self.assertIn(
+            "the published allocation discrepancy remains unresolved",
+            tyre_text,
+        )
         self.assertIn("A lap started but not completed counts in full", tyre_text)
         self.assertIn("reconnaissance and formation laps before the start", tyre_text)
         self.assertIn("post-session laps to return to the pits and practice-start laps", tyre_text)
@@ -360,11 +367,26 @@ class GPParityTests(unittest.TestCase):
                     for s in item["sources"])
             for item in briefing["items"]
         ))
+        fp1_brief = next(
+            item for item in briefing["items"] if item["topic"] == "Practice 1 result"
+        )
+        self.assertIn(
+            "official FP2 result table currently says no results",
+            fp1_brief["why_it_matters"],
+        )
+        self.assertIn(
+            "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/2",
+            {source["url"] for source in fp1_brief["sources"]},
+        )
         self.assertTrue(any(
-            item["topic"] == "Stewards summons"
-            and "not a finding or penalty" in item["summary"]
-            and any(s["url"] == content_qatar.FIA_QATAR_HADJAR_SUMMONS
-                    for s in item["sources"])
+            item["topic"] == "FIA stewards' decisions"
+            and "€20,000 suspended" in item["summary"]
+            and "no penalty" in item["summary"]
+            and {
+                content_qatar.FIA_QATAR_FP1_DELETED_LAP_TIMES,
+                content_qatar.FIA_QATAR_HADJAR_DECISION,
+                content_qatar.FIA_QATAR_PEREZ_DECISION,
+            }.issubset({source["url"] for source in item["sources"]})
             for item in briefing["items"]
         ))
         self.assertTrue(any(
@@ -556,8 +578,17 @@ class GPParityTests(unittest.TestCase):
         for source in (
             content_qatar.FIA_QATAR_CAR_DISPLAY,
             content_qatar.FIA_QATAR_PEREZ_SUMMONS,
+            content_qatar.FIA_QATAR_FP1_DELETED_LAP_TIMES,
+            content_qatar.FIA_QATAR_HADJAR_DECISION,
+            content_qatar.FIA_QATAR_PEREZ_DECISION,
         ):
             self.assertEqual(review["fia_sha256"].get(source), hashes[source])
+        for slug in ("notes", "penalties"):
+            body = " ".join(pages[slug]["body"].split())
+            self.assertIn("32 deleted-lap entries for 12 drivers", body)
+            self.assertIn("€30,000, with €20,000 suspended for 12 months", body)
+            self.assertIn("22 minutes late", body)
+            self.assertIn(content_qatar.FIA_QATAR_FP1_DELETED_LAP_TIMES, body)
 
     def test_qatar_entry_list_and_car_presentation_are_transcribed(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
