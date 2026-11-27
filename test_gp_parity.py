@@ -391,12 +391,14 @@ class GPParityTests(unittest.TestCase):
         penalty = next(item for item in briefing["items"] if item["topic"] == "Stewards and grid")
         self.assertIn("84.4 km/h", penalty["summary"])
         self.assertIn(content_qatar.FIA_QATAR_DOC20, {s["url"] for s in penalty["sources"]})
-        procedure = next(
-            item for item in briefing["items"] if item["topic"] == "Race control and schedule"
+        mclaren = next(item for item in briefing["items"] if item["topic"] == "McLaren pace")
+        self.assertIn("0.6–0.7 seconds per lap", mclaren["summary"])
+        self.assertIn(
+            "https://www.formula1.com/en/latest/article/"
+            "i-dont-think-weve-been-further-off-norris-worried-by-mclarens-deficit-to-mercedes-in-qatar."
+            "6mwnUPpxnOsIv6YJ7O6Lgm",
+            {s["url"] for s in mclaren["sources"]},
         )
-        self.assertIn("1:41.0", procedure["summary"])
-        self.assertIn(content_qatar.FIA_QATAR_DOC22, {s["url"] for s in procedure["sources"]})
-        self.assertIn(content_qatar.FIA_QATAR_DOC23, {s["url"] for s in procedure["sources"]})
         tyres = next(
             item for item in briefing["items"] if item["topic"] == "Tyre strategy and source conflict"
         )
