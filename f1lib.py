@@ -1831,6 +1831,7 @@ def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{base}assets/table-sort.js" defer></script>
 <script src="{base}assets/document-reader.js" defer></script>
+<script src="{base}assets/briefing-freshness.js" defer></script>
 <script>
 function zoomImg(el){{
   var lb=document.getElementById('lightbox');

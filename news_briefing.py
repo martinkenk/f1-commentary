@@ -163,19 +163,17 @@ def select(ctx, directory, now=None):
             reason = "The priority news feed has changed since the editorial review."
         else:
             return {"items": record["items"], "mode": "Editor-collated",
-                    "reviewed_at": record["reviewed_at"], "notice": ""}
+                    "reviewed_at": record["reviewed_at"], "expires_at": record["expires_at"],
+                    "fallback_items": automatic_items(records, ctx, now), "notice": ""}
     return {"items": automatic_items(records, ctx, now),
             "mode": "Automatic priority selection", "reviewed_at": record.get("reviewed_at", ""),
             "notice": reason}
 
 
-def render(ctx, directory):
-    briefing = select(ctx, directory)
-    if not briefing["items"] and not briefing["notice"]:
-        return ""
+def _render_cards(items):
     escape = html.escape
     cards = []
-    for number, item in enumerate(briefing["items"], 1):
+    for number, item in enumerate(items, 1):
         links = " / ".join(
             f'<a href="{escape(source["url"], quote=True)}" target="_blank" rel="noopener">'
             f'{escape(source["label"])}</a>' for source in item["sources"])
@@ -188,6 +186,14 @@ def render(ctx, directory):
             f'<time datetime="{item["date"]}">{item["date"]}</time></div>'
             f'<h3>{escape(item["title"])}</h3>{text}'
             f'<p class="src">{"Sources" if item["summary"] else "Related reporting"}: {links}</p></article>')
+    return "".join(cards)
+
+
+def render(ctx, directory):
+    briefing = select(ctx, directory)
+    if not briefing["items"] and not briefing["notice"]:
+        return ""
+    escape = html.escape
     notice = ""
     if briefing["notice"]:
         notice = (f'<p class="briefing-notice">{escape(briefing["notice"])} '
@@ -197,13 +203,28 @@ def render(ctx, directory):
                    'Promotions are excluded; related reports may cover different developments.</p>')
     reviewed = (f' &middot; reviewed {escape(briefing["reviewed_at"])}'
                 if briefing["mode"] == "Editor-collated" else "")
+    expiry = briefing.get("expires_at")
+    current = (f'<p class="src">{briefing["mode"]}{reviewed}'
+               + (f' &middot; valid until {escape(expiry)}' if expiry else "")
+               + f'</p>{notice}<div class="briefing-grid">{_render_cards(briefing["items"])}</div>')
+    if expiry:
+        current = (
+            f'<div data-briefing-reviewed>{current}</div>'
+            '<div data-briefing-fallback hidden>'
+            '<p class="briefing-notice">The previous editorial briefing has expired. '
+            'Awaiting an updated editorial selection; the earlier briefing is not pinned.</p>'
+            '<p class="src">Automatic priority selection: grouped source headlines from the '
+            'last site build, not an editor-reviewed synthesis.</p>'
+            f'<div class="briefing-grid">{_render_cards(briefing["fallback_items"])}</div></div>'
+            '<noscript><p class="briefing-notice">Check the stated expiry time: '
+            'automatic expiry requires JavaScript.</p></noscript>')
     return (
-        '<section class="news-briefing" aria-labelledby="news-briefing-title">'
+        '<section class="news-briefing" aria-labelledby="news-briefing-title"'
+        + (f' data-briefing-expires="{escape(expiry, quote=True)}"' if expiry else "") + '>'
         '<div class="briefing-heading"><div><span class="hero-kicker">The on-air briefing</span>'
         '<h2 id="news-briefing-title">Top stories &amp; why they matter</h2></div>'
         '<a href="news.html#full-news">Full news feed &rarr;</a></div>'
-        f'<p class="src">{briefing["mode"]}{reviewed}</p>{notice}'
-        f'<div class="briefing-grid">{"".join(cards)}</div></section>')
+        f'{current}</section>')
 
 
 if __name__ == "__main__":

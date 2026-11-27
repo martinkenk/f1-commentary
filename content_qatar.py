@@ -407,6 +407,16 @@ engineering root cause.
 <a href="{QATAR_THURSDAY_PRESS_CONFERENCE}">FIA Thursday press-conference transcript, 26 November</a>.</p>""",
         "bi-tools", "accent",
     )
+    alonso_honda_story = card(
+        "Honda checks Alonso's reported Las Vegas engine problem",
+        f"""<p>Fernando Alonso stopped late in the Las Vegas race after reporting
+an engine problem. Honda's trackside representative Shintaro Orihara told
+The Race that its data and maintenance inspections had not identified an
+engine issue, and that Honda would check again on Friday in Qatar. Neither
+the cause of Alonso's report nor a Qatar failure has been established.
+<a href="{QATAR_MERCEDES_ENERGY_FOLLOWUP}">The Race's Qatar day-one report, 26 November</a>.</p>""",
+        "bi-tools", "accent",
+    )
     cost_cap_story = card(
         "FIA resolves 2025 financial-regulation cases for Williams and Alpine",
         f"""<p>The FIA's 25 November 2026 review covered 11 team submissions:
@@ -462,9 +472,10 @@ cause for the spin.
     )
     pages["teams"]["body"] = (
         lineup + cost_cap_story + verstappen_russell_story + ferrari_story + bearman_story
-        + hadjar_front_wing_story + pages["teams"]["body"]
+        + hadjar_front_wing_story + alonso_honda_story + pages["teams"]["body"]
     )
     pages["notes"]["body"] = cost_cap_story + pages["notes"]["body"]
+    pages["notes"]["body"] = alonso_honda_story + pages["notes"]["body"]
     pages["notes"]["body"] = hadjar_front_wing_story + pages["notes"]["body"]
     pages["notes"]["body"] = verstappen_russell_story + pages["notes"]["body"]
     pending_team_storylines = content_generic.pending(

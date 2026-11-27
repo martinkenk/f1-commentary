@@ -291,6 +291,10 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("expectation, not a formal announcement",
                          pages["teams"]["body"])
         self.assertNotIn("Team-by-team weekend storylines: awaiting", pages["teams"]["body"])
+        for slug in ("teams", "notes"):
+            self.assertIn("Honda checks Alonso's reported Las Vegas engine problem", pages[slug]["body"])
+            self.assertIn("had not identified an\nengine issue", pages[slug]["body"])
+            self.assertIn(content_qatar.QATAR_MERCEDES_ENERGY_FOLLOWUP, pages[slug]["body"])
         self.assertIn("FIA car presentation submissions for this round: awaiting",
                       pages["teams"]["body"])
         self.assertIn(content_qatar.QATAR_RACE_WEEK_STORYLINES, pages["notes"]["body"])

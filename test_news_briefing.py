@@ -2,6 +2,8 @@ import copy
 import datetime
 import json
 from pathlib import Path
+import shutil
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -142,11 +144,50 @@ class BriefingTests(unittest.TestCase):
         self.assertIn('href="https://example.org/lineup"', body)
         self.assertIn("Why it matters:", body)
 
+    def test_reviewed_render_includes_expiry_and_automatic_fallback(self):
+        selected = briefing.select(CTX, self.directory, NOW)
+        with patch.object(briefing, "select", return_value=selected):
+            body = briefing.render(CTX, self.directory)
+        self.assertIn('data-briefing-expires="2026-09-11T02:00:00Z"', body)
+        self.assertIn("Confirmed replacements", body)
+        self.assertIn("Lawson stays as injury recovery continues", body)
+        self.assertIn("data-briefing-fallback hidden", body)
+        self.assertIn("last site build, not an editor-reviewed synthesis", body)
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is needed to exercise browser JavaScript")
+    def test_published_briefing_expires_without_a_new_build(self):
+        script = Path(build.ROOT) / "assets_src/briefing-freshness.js"
+        program = r"""
+const fs = require("fs"), vm = require("vm"), assert = require("assert");
+let now = Date.parse("2026-09-11T01:59:00Z"), timer;
+Date.now = () => now;
+const reviewed = {hidden: false}, fallback = {hidden: true};
+const section = {dataset: {briefingExpires: "2026-09-11T02:00:00Z"},
+  querySelector: selector => selector === "[data-briefing-reviewed]" ? reviewed : fallback};
+global.document = {querySelectorAll: () => [section]};
+global.setTimeout = (fn, delay) => {timer = fn; assert.strictEqual(delay, 60000);};
+vm.runInThisContext(fs.readFileSync(process.argv[1], "utf8"));
+assert.strictEqual(reviewed.hidden, false);
+assert.strictEqual(fallback.hidden, true);
+now += 60000;
+timer();
+assert.strictEqual(reviewed.hidden, true);
+assert.strictEqual(fallback.hidden, false);
+reviewed.hidden = false;
+fallback.hidden = true;
+vm.runInThisContext(fs.readFileSync(process.argv[1], "utf8"));
+assert.strictEqual(reviewed.hidden, true);
+assert.strictEqual(fallback.hidden, false);
+"""
+        result = subprocess.run(["node", "-e", program, str(script)], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_shared_shell_puts_briefing_before_overview_and_news_only(self):
         ctx = next(gp for gp in build.season_gps() if gp["dir"] == "spain")
         with patch.object(briefing, "render", return_value="TOP_STORIES") as render:
             for slug in ("overview", "news", "notes"):
                 body = f1lib.shell(ctx, slug, "Page", "Kicker", "Title", "Subtitle", "ORIGINAL_BODY")
+                self.assertIn('src="../assets/briefing-freshness.js"', body)
                 if slug in ("overview", "news"):
                     self.assertLess(body.index("TOP_STORIES"), body.index("ORIGINAL_BODY"))
                 else:
