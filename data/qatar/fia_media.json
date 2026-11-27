@@ -1,7 +1,23 @@
 {
-  "checked_at": "2026-11-27T09:54:25+00:00",
-  "discovery_retrieved_at": "2026-11-27T09:54:21.360371+00:00",
+  "checked_at": "2026-11-27T10:29:58+00:00",
+  "discovery_retrieved_at": "2026-11-27T10:29:52.998570+00:00",
   "documents": [
+    {
+      "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_curfew.pdf",
+      "filename": "2026_qatar_grand_prix_-_curfew.pdf",
+      "categories": [
+        "schedule"
+      ],
+      "sha256": "0e2a99f3ec983dfbfe5a66530f5cb2945adf3915f4b909f494cc3bd3cb3b9f10",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
+      "pages": [
+        {
+          "page": 1,
+          "asset": "fia-qatar-0d9b6c1fe7ac-0e2a99f3ec983dfb-p1.png"
+        }
+      ],
+      "revision": 0
+    },
     {
       "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_self_scrutineering.pdf",
       "filename": "2026_qatar_grand_prix_-_self_scrutineering.pdf",
@@ -9,7 +25,7 @@
         "schedule"
       ],
       "sha256": "cd3fc63f838384f3bef764bcd343d973af310cc099e7c5a1436d7523835e416c",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 1,
@@ -25,7 +41,7 @@
         "powerunit"
       ],
       "sha256": "1266c45bd5f1f1e6a1a9c46b8c8ca8d986d76557f50ec4125194e134d7b60c56",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -41,7 +57,7 @@
         "circuit"
       ],
       "sha256": "d4e6898c25a3e5e99643a84d176732fdf405319e1d6fcf4f27758c2fdfffd3d0",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -69,7 +85,7 @@
         "circuit"
       ],
       "sha256": "61fae3b9f55f26aee0ceb2f7d0996a3ec577f9bd27978842a9a94c6add01a577",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -105,7 +121,7 @@
         "stewards"
       ],
       "sha256": "3d800b74e6cd774d76dbea8be782742d0cf2f90e0a7151a0095b351dd0e4f8b9",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 1,
@@ -121,7 +137,7 @@
         "upgrades"
       ],
       "sha256": "ea6a27e9a3d114981b1d8baa046fa01d8048f2a18c366b518f948b299fdcd0d3",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -137,7 +153,7 @@
         "powerunit"
       ],
       "sha256": "fa7a2c31f1e2632e34df82551eb3b6fda7a7f0250be5a4a38824063c3855ce46",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -153,7 +169,7 @@
         "tyres"
       ],
       "sha256": "f21987bcdb1bbcbfc007c06a5b7cbd17a2efb40f82821cae5ad0a1eb0ad79751",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -169,7 +185,7 @@
         "schedule"
       ],
       "sha256": "f2f0cba8043496bdd3ded69014782ca854c9ee8930f4ce34dc1b1a13909134af",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 2,
@@ -213,7 +229,7 @@
         "circuit"
       ],
       "sha256": "2ecc4a2296e4c15c3b092866264b001ede07b0d28daf596156fe4aec603954c6",
-      "fetched_at": "2026-11-27T09:54:25+00:00",
+      "fetched_at": "2026-11-27T10:29:58+00:00",
       "pages": [
         {
           "page": 2,
