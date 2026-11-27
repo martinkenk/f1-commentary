@@ -168,6 +168,22 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertNotIn("A curated moments list", moments)
 
+    def test_qatar_tyre_history_distinguishes_incidents_and_causes(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        body = content_qatar.build_pages(ctx, self.env)["tyres"]["body"]
+        for driver in ("Valtteri Bottas", "Lando Norris", "George Russell",
+                       "Nicholas Latifi", "Lewis Hamilton", "Carlos Sainz", "Isack Hadjar"):
+            self.assertIn(driver, body)
+        self.assertIn("not a complete\ninventory", body)
+        self.assertIn("should not be attributed to that mirror debris", body)
+        self.assertIn("Hadjar attributed\nit to a broken front wing", body)
+        self.assertIn("not another named puncture", body)
+        for url in (content_qatar.QATAR_2021_PUNCTURES, content_qatar.QATAR_2021_NORRIS_PUNCTURE,
+                    content_qatar.QATAR_2021_PIRELLI_FINDINGS, content_qatar.QATAR_2023_TYRE_LIMIT,
+                    content_qatar.QATAR_2024_TYRE_FAILURES, content_qatar.QATAR_2025_HADJAR_PUNCTURE):
+            self.assertIn(url, body)
+
     def test_qatar_nomination_and_history_are_source_scoped(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
         ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)

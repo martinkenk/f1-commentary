@@ -35,6 +35,33 @@ QATAR_2025_RACE = (
     "verstappen-wins-qatar-gp-as-title-battle-goes-to-abu-dhabi-with-piastri."
     "5KlYT7q8OcrJ7AnMALjkxJ"
 )
+QATAR_2021_PUNCTURES = (
+    "https://www.formula1.com/en/latest/article/"
+    "pirelli-boss-isola-explains-qatar-tyre-issues-that-saw-bottas-russell-and."
+    "10WNRRptmywRBmvNRL7Wb4"
+)
+QATAR_2021_NORRIS_PUNCTURE = (
+    "https://www.formula1.com/en/latest/article/"
+    "we-should-have-outscored-ferrari-says-norris-after-late-tyre-issue-costs-him."
+    "5mtdD6imPkZUAQADtWbkUx"
+)
+QATAR_2021_PIRELLI_FINDINGS = (
+    "https://www.formula1.com/en/latest/article/"
+    "pirelli-share-initial-findings-from-qatar-grand-prix-tyre-issue."
+    "4a7a2sny3wCTCW6exjhnnP"
+)
+QATAR_2023_TYRE_LIMIT = (
+    "https://www.motorsport.com/f1/news/"
+    "fia-mandates-maximum-18-lap-stints-in-qatar-gp-due-to-tyre-issues/10530448/"
+)
+QATAR_2024_TYRE_FAILURES = (
+    "https://www.the-race.com/formula-1/"
+    "what-pirelli-told-f1-teams-lewis-hamilton-carlos-sainz-qatar-failures/"
+)
+QATAR_2025_HADJAR_PUNCTURE = (
+    "https://www.formula1.com/en/video/"
+    "the-front-wing-broke-hadjar-explains-his-late-puncture-in-qatar.1850238257586160104"
+)
 CAMARA_QATAR_ANNOUNCEMENT = (
     "https://www.formula1.com/en/latest/article/"
     "haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026."
@@ -694,7 +721,44 @@ This is not a driver-by-driver remaining-set inventory.
         nomination,
         "bi-record-circle",
         "accent",
-    ) + strategy
+    ) + strategy + card(
+        "Known Qatar Grand Prix punctures",
+        f"""<p>Selected documented race incidents at Lusail, not a complete
+inventory. These had different reported causes and should not be treated as
+predictions for this year's race.</p>
+<ul>
+<li><strong>2021 — Valtteri Bottas (Mercedes):</strong> front-left puncture
+on lap 33; he later retired.</li>
+<li><strong>2021 — Lando Norris (McLaren):</strong> front-left puncture
+forced a second stop on lap 49; he recovered to ninth.
+<a href="{QATAR_2021_NORRIS_PUNCTURE}">Formula1.com: Norris</a>.</li>
+<li><strong>2021 — George Russell (Williams):</strong> front-left puncture
+on lap 50; he finished 17th.</li>
+<li><strong>2021 — Nicholas Latifi (Williams):</strong> front-left puncture
+on lap 52; he retired.
+<a href="{QATAR_2021_PUNCTURES}">Formula1.com: Bottas and Williams</a>.</li>
+<li><strong>2024 — Lewis Hamilton (Mercedes) and Carlos Sainz (Ferrari):</strong>
+both suffered front-left failures in the race. The Race reported in February
+2025 that Pirelli's investigation attributed them to excessive wear. Pressure
+was already dropping before Bottas struck Alex Albon's mirror, so those
+failures should not be attributed to that mirror debris.
+<a href="{QATAR_2024_TYRE_FAILURES}">The Race: Pirelli's findings</a>.</li>
+<li><strong>2025 — Isack Hadjar (Racing Bulls):</strong> a late front-left
+puncture cost him a likely sixth place and ended his race. Hadjar attributed
+it to a broken front wing, not to tyre wear.
+<a href="{QATAR_2025_RACE}">Formula1.com race report</a> ·
+<a href="{QATAR_2025_HADJAR_PUNCTURE}">Hadjar's account</a>.</li>
+</ul>
+<p><strong>Why the concern:</strong> Pirelli's initial 2021 investigation
+linked the four failures mainly to repeated high-speed kerb loading and
+sidewall damage.
+<a href="{QATAR_2021_PIRELLI_FINDINGS}">Formula1.com: Pirelli's initial findings</a>.
+In 2023, analysis found sidewall separation after track running; the FIA and
+Pirelli imposed an 18-lap total-life limit per set, including prior use.
+That is a separate safety measure, not another named puncture.
+<a href="{QATAR_2023_TYRE_LIMIT}">Motorsport.com: 2023 FIA decision</a>.</p>""",
+        "bi-record-circle",
+    )
     pages["notes"]["body"] = (
         qatar_fia_map_note + qatar_race_director_note + bearman_story
         + qatar_fp1 + nomination + strategy + ferrari_story
