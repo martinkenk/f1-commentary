@@ -608,6 +608,8 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("A3", circuit)
         self.assertIn("N/A (low grip)", " ".join(circuit.split()))
         self.assertIn("40 m after Turn 16", circuit)
+        self.assertIn("Document 14 V2", circuit)
+        self.assertIn(content_qatar.FIA_QATAR_RACE_DIRECTOR_NOTES, circuit)
         self.assertIn("5,020 m / L24", circuit)
         self.assertIn("5,078 m / L25/SC1", circuit)
         self.assertIn("403 m", circuit)

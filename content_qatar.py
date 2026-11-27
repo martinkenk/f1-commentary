@@ -282,6 +282,7 @@ track-limits infringement invalidates that lap and the immediately following
 lap. <a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=2">Race Director's notes, page 2</a> ·
 <a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=6">track limits, page 6</a>.</div>"""
     pages["circuit"]["body"] += circuit
+    pages["circuit"]["body"] += qatar_race_director_note
     powerunit = f"""<h2 class="sec">Qatar FIA power-and-energy map</h2>
 <p>The FIA sheet identifies a <strong>5.419 km</strong> lap, standard format
 and 27–29 November. Under Article C5.2.10, maximum recharge per lap is
