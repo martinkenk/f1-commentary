@@ -239,8 +239,8 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertIn("Formula1.com / Pirelli", pages["tyres"]["body"])
         self.assertIn(
-            "latest published figures, not a post-FP2 reaffirmation",
-            pages["tyres"]["body"],
+            "Document 13 V2 therefore remains the latest FIA prescription, not a post-FP2 reaffirmation",
+            " ".join(pages["tyres"]["body"].split()),
         )
         self.assertIn(
             "Pirelli's separate 24 November event infographic prints expected stabilized",
@@ -391,6 +391,13 @@ class GPParityTests(unittest.TestCase):
             "11hIcFNT6zuvEG0mwAggDn",
             {s["url"] for s in session["sources"]},
         )
+        self.assertIn("0.6–0.7 seconds per lap", session["summary"])
+        self.assertIn(
+            "https://www.formula1.com/en/latest/article/"
+            "i-dont-think-weve-been-further-off-norris-worried-by-mclarens-deficit-to-mercedes-in-qatar."
+            "6mwnUPpxnOsIv6YJ7O6Lgm",
+            {s["url"] for s in session["sources"]},
+        )
         self.assertIn(content_qatar.QATAR_FP2_RESULTS, {s["url"] for s in session["sources"]})
         self.assertIn(
             content_qatar.FIA_QATAR_FP2_CLASSIFICATION,
@@ -399,23 +406,39 @@ class GPParityTests(unittest.TestCase):
         penalty = next(item for item in briefing["items"] if item["topic"] == "Stewards and grid")
         self.assertIn("84.4 km/h", penalty["summary"])
         self.assertIn(content_qatar.FIA_QATAR_DOC20, {s["url"] for s in penalty["sources"]})
-        mclaren = next(item for item in briefing["items"] if item["topic"] == "McLaren pace")
-        self.assertIn("0.6–0.7 seconds per lap", mclaren["summary"])
-        self.assertIn(
-            "https://www.formula1.com/en/latest/article/"
-            "i-dont-think-weve-been-further-off-norris-worried-by-mclarens-deficit-to-mercedes-in-qatar."
-            "6mwnUPpxnOsIv6YJ7O6Lgm",
-            {s["url"] for s in mclaren["sources"]},
-        )
         tyres = next(
-            item for item in briefing["items"] if item["topic"] == "Tyre strategy and source conflict"
+            item for item in briefing["items"] if item["topic"] == "Tyre wear and allocation"
         )
+        self.assertIn("localized 100% wear indicators", tyres["summary"])
+        self.assertIn("15 laps", tyres["summary"])
+        self.assertIn("has not announced a pressure increase", tyres["summary"])
         self.assertIn("2/3/8", tyres["summary"])
         self.assertIn("2/4/7", tyres["summary"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT_EXPLAINER, {s["url"] for s in tyres["sources"]})
+        self.assertIn(content_qatar.QATAR_TYRE_WEAR_REPORT, {s["url"] for s in tyres["sources"]})
+        self.assertIn(content_qatar.FIA_QATAR_FP1_FP2_SCRUTINEERING + "#page=4",
+                      {s["url"] for s in tyres["sources"]})
+        self.assertIn(content_qatar.FIA_QATAR_EVENT_INDEX,
+                      {s["url"] for s in tyres["sources"]})
+        red_bull = next(item for item in briefing["items"] if item["topic"] == "Red Bull balance")
+        self.assertIn("disconnected", red_bull["summary"])
+        self.assertIn(
+            "https://www.formula1.com/en/latest/article/"
+            "a-bit-of-a-difficult-day-verstappen-and-red-bull-left-looking-for-car-balance-after-friday-in-qatar."
+            "zvqj1nQ6dBT2PSxEzzKWP",
+            {s["url"] for s in red_bull["sources"]},
+        )
         lineup = next(item for item in briefing["items"] if item["topic"] == "Drivers and line-up")
         self.assertIn("Alonso", lineup["summary"])
         self.assertIn(content_qatar.QATAR_FP2_REPORT, {s["url"] for s in lineup["sources"]})
+        self.assertIn(content_qatar.QATAR_TYRE_WEAR_REPORT, pages["tyres"]["body"])
+        self.assertIn("Document 25", pages["tyres"]["body"])
+        self.assertNotIn("through Document 23", pages["tyres"]["body"])
+        self.assertIn("Friday tyre-wear review", pages["tyres"]["body"])
+        self.assertNotIn(
+            "Long-run degradation data: awaiting a verified update",
+            pages["tyres"]["body"],
+        )
         self.assertNotIn(
             "official FP2 result table currently says no results",
             " ".join(item["why_it_matters"] for item in briefing["items"]),

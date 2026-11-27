@@ -17,6 +17,14 @@ PIRELLI_TYRE_LIMIT = "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-c
 QATAR_TYRE_LIMIT = (
     "https://www.motorsport.com/f1/news/pirelli-introduces-stint-limit-for-f1-qatar-gp-but-increases-total-from-2025/10875950/"
 )
+QATAR_TYRE_WEAR_REPORT = (
+    "https://www.the-race.com/formula-1/"
+    "100-wear-in-15-laps-qatar-tyre-issue-has-got-even-worse/"
+)
+FIA_QATAR_EVENT_INDEX = (
+    "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/"
+    "season/season-2026-2072/event/Qatar%20Grand%20Prix"
+)
 QATAR_TYRE_ALLOCATION = (
     "https://www.formula1.com/en/latest/article/"
     "what-tyres-will-the-teams-and-drivers-have-for-the-2026-qatar-grand-prix."
@@ -274,6 +282,24 @@ F1_COST_CAP_REPORT = (
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
+    tyre_pending_copy = (
+        "<strong>Long-run degradation data: awaiting a verified update.</strong> "
+        "Usually published after Friday practice. Check the linked official sources "
+        "for published material. Source discovery refreshes automatically; detailed "
+        "editorial coverage requires review."
+    )
+    if tyre_pending_copy in pages["tyres"]["body"]:
+        pages["tyres"]["body"] = pages["tyres"]["body"].replace(
+            tyre_pending_copy,
+            f"""<strong>Friday tyre-wear review:</strong> The Race reports localized
+100% wear indicators in the most-abused front-left areas after 15 laps of
+high-fuel running. Pirelli is still inspecting the returned tyres; no revised
+pressure or stint-limit prescription is confirmed.
+<a href="{QATAR_TYRE_WEAR_REPORT}">Source report, 27 November</a>.""",
+            1,
+        )
+    elif ctx.get("status") != "past":
+        raise ValueError("Could not locate Qatar's pre-race tyre-wear status callout")
     upgrade_summary = card(
         "Qatar FIA filing: Audi declares one front-corner update",
         f"""<p>FIA Document 12 lists one declared item across all eleven teams:
@@ -786,9 +812,10 @@ Pirelli's separate 24 November event infographic prints expected stabilized
 pressures as &gt;30.0 psi front and &gt;28.5 psi rear; FIA Document 13 V2 /
 Issue B uses &gt;=30.0 and &gt;=28.5 psi. Preserve the source-specific
 inequalities instead of silently normalizing them. Pirelli marks its figures
-subject to change after FP2. The latest FIA event listing, rechecked after
-FP2 through Document 23, contains no later pressure table; these remain the
-latest published figures, not a post-FP2 reaffirmation.
+subject to change after FP2. The FIA event index, rechecked after FP2, now
+includes Document 25. Its report says that listed checks, including starting
+pressures, were compliant but gives no revised pressure table; Document 13 V2
+therefore remains the latest FIA prescription, not a post-FP2 reaffirmation.
 Pirelli's graphic lists 26.5 seconds average pit-stop time loss, while
 <a href="{QATAR_F1_RACE_WEEK_STATS}">Formula1.com's 26 November guide</a>
 reports 26.17 seconds. The sources do not state a shared method, so retain
@@ -800,7 +827,19 @@ be used as a remaining-set inventory.
 <a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2 - Pirelli Preview, page 2</a> ·
 <a href="{QATAR_TYRE_ALLOCATION}">Formula1.com tyre preview, 10:05 UTC</a> ·
 <a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com 27-lap explainer, 10:43 UTC</a> ·
-<a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
+<a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a> ·
+<a href="{FIA_QATAR_EVENT_INDEX}">Current FIA Qatar event index</a> ·
+<a href="{FIA_QATAR_FP1_FP2_SCRUTINEERING}#page=4">FIA Document 25, page 4</a>.</p>
+<p><strong>Friday tyre-wear report:</strong> The Race reports that localized
+wear indicators on the most-abused front-left tyres reached 100% after 15
+laps of high-fuel running. Pirelli is examining returned tyres and has not
+announced a pressure increase or shorter stint limit; the current Document 13
+V2 prescription remains 29.0 psi minimum front slick starting pressure and
+27 laps per set. A localized indicator reading is not a claim that the whole
+tyre was worn through.
+<a href="{QATAR_TYRE_WEAR_REPORT}">The Race, 27 November</a> ·
+<a href="{PIRELLI_TYRE_LIMIT}">Pirelli's current event briefing</a> ·
+<a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a>.</p>
 <p>Pirelli F1 chief engineer Simone Berra's earlier Motorsport.com interview
 adds details about session-by-session tyre use and remaining allowances after
 Saturday running.
@@ -841,11 +880,7 @@ This is not a driver-by-driver remaining-set inventory.
 <a href="{PIRELLI_NOMINATION}">Pirelli compound-selection source, 13 November 2026</a> ·
 <a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a>.</figcaption>
 </figure>"""
-    pages["tyres"]["body"] += tyre_preview + (
-        "<p>The latest FIA event listing was checked after FP2 through Document 23 "
-        "and contains no later pressure table. The displayed values remain the "
-        "latest published figures, not a post-FP2 reaffirmation.</p>"
-    ) + card(
+    pages["tyres"]["body"] += tyre_preview + card(
         "Qatar compounds and 27-lap tyre-set limit",
         nomination,
         "bi-record-circle",
