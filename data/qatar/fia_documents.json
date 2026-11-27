@@ -1,7 +1,14 @@
 {
   "source_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Qatar%20Grand%20Prix",
-  "retrieved_at": "2026-11-27T10:29:52.998570+00:00",
+  "retrieved_at": "2026-11-27T10:53:44.212309+00:00",
   "documents": [
+    {
+      "filename": "2026_qatar_grand_prix_-_entry_list.pdf",
+      "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_entry_list.pdf",
+      "categories": [
+        "schedule"
+      ]
+    },
     {
       "filename": "2026_qatar_grand_prix_-_curfew.pdf",
       "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_curfew.pdf",
