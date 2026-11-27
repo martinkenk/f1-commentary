@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-27T01:38:02Z",
-  "expires_at": "2026-11-27T07:38:02Z",
+  "reviewed_at": "2026-11-27T08:06:39Z",
+  "expires_at": "2026-11-27T12:00:00Z",
   "through_session": null,
   "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
   "items": [
@@ -51,19 +51,15 @@
       ]
     },
     {
-      "topic": "Tyre allocation",
-      "title": "Pirelli nominate C3, C4 and C5 for Abu Dhabi",
-      "date": "2026-11-13",
-      "summary": "Pirelli selected its softest trio for Abu Dhabi: C3 Hard, C4 Medium and C5 Soft. The official Abu Dhabi nomination graphic marks C5 for Qualifying and C3/C4 for the Race.",
-      "why_it_matters": "This is the compound and mandatory-set nomination, not the event pressure/camber preview or a driver-by-driver remaining-sets chart. Keep race-set inventory pending until verified after qualifying.",
+      "topic": "Las Vegas fallout",
+      "title": "Lindblad says Vegas spin left him emotional as he targets Racing Bulls' P5",
+      "date": "2026-11-26",
+      "summary": "After spinning out while running near the front in Las Vegas, Arvid Lindblad said he had been trying not to dwell on the incident and was focused on the final two rounds. He hopes to help Racing Bulls secure fifth in the Teams' Championship. Formula1.com's account does not identify a technical cause for the spin.",
+      "why_it_matters": "Keep Lindblad's personal account and stated team goal distinct from any inferred technical explanation.",
       "sources": [
         {
-          "label": "Pirelli official release announcing the final three 2026 selections, 13 November",
-          "url": "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
-        },
-        {
-          "label": "Pirelli Abu Dhabi 2026 nomination graphic, full image visually reviewed",
-          "url": "https://content.presspage.com/uploads/2363/4e4d11a0-dee0-4f96-b6cc-c523b26c4e71/1920_nominations-ae26-en.jpg?10000"
+          "label": "Formula1.com: Lindblad reflects on Las Vegas spin and looks to Qatar and Abu Dhabi, 26 November",
+          "url": "https://www.formula1.com/en/latest/article/lindblad-left-trying-to-hold-back-tears-after-las-vegas-spin-as-he-reflects-on-emotional-social-media-post.6eGFigwGZhsbeR31PHHf4j"
         }
       ]
     }
