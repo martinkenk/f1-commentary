@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-11-26T21:51:16Z",
-  "expires_at": "2026-11-27T08:22:07Z",
+  "reviewed_at": "2026-11-27T08:26:56Z",
+  "expires_at": "2026-11-27T09:45:00Z",
   "through_session": null,
   "feed_fingerprint": "7b355440ae762eda71011414f6e40c367e94a21aa21e28626285c744d696c510",
   "items": [
@@ -64,10 +64,10 @@
     },
     {
       "topic": "Championship and appeal",
-      "title": "Both 2026 titles are decided; Tsunoda appeal remains pending",
-      "date": "2026-11-25",
-      "summary": "Kimi Antonelli clinched his first Drivers' Championship with third place in Mexico City on 1 November; Mercedes secured the Constructors' Championship in São Paulo on 8 November. After Las Vegas, Formula1.com lists Antonelli on 402 points to Max Verstappen's 304 and Mercedes on 666 to Ferrari's 517. Separately, the FIA scheduled a closed International Court of Appeal hearing in Paris for 25 November on Audi's appeal of Italian GP Document 69. The public judgments index, checked on 26 November, did not list a decision for ICA-2026-14; Las Vegas Document 66 also notes the appeal.",
-      "why_it_matters": "Qatar is not a title-deciding round. The appeal hearing notice does not itself change a race result or the points table; do not infer its outcome.",
+      "title": "Tsunoda appeal still has no public ruling as Red Bull and McLaren fight for P3",
+      "date": "2026-11-26",
+      "summary": "Kimi Antonelli clinched his first Drivers' Championship with third place in Mexico City on 1 November; Mercedes secured the Constructors' Championship in São Paulo on 8 November. After Las Vegas, Formula1.com lists Antonelli on 402 points to Max Verstappen's 304 and Mercedes on 666 to Ferrari's 517; Red Bull has 440 and McLaren 431, nine points apart for P3. Norris discussed the close contest in his Qatar media-week assessment. Separately, the FIA scheduled a closed International Court of Appeal hearing in Paris for 25 November on Audi's appeal of Italian GP Document 69. The public judgments index, checked on 27 November, did not list a decision for ICA-2026-14; Las Vegas Document 66 also notes the appeal.",
+      "why_it_matters": "The titles are decided, but the nine-point P3 contest gives the Qatar race-week standings context. The appeal hearing notice does not itself change a race result or the points table; do not infer its outcome.",
       "sources": [
         {
           "label": "Formula1.com, Antonelli clinches the drivers' title in Mexico City",
@@ -82,7 +82,7 @@
           "url": "https://www.fia.com/news/international-court-appeal-hearing-november-25-2026"
         },
         {
-          "label": "FIA Judgements of the International Court of Appeal index, checked 26 November at 13:31 UTC",
+          "label": "FIA Judgements of the International Court of Appeal index, checked 27 November",
           "url": "https://www.fia.com/judgements-ica"
         },
         {
@@ -100,6 +100,10 @@
         {
           "label": "Formula1.com team standings",
           "url": "https://www.formula1.com/en/results/2026/team"
+        },
+        {
+          "label": "Formula1.com, Norris on McLaren's season and the nine-point P3 battle, 26 November",
+          "url": "https://www.formula1.com/en/latest/article/you-cant-win-them-all-norris-concedes-it-hasnt-been-mclarens-finest-year-in-2026-assessment.bJdxL08P1IOeV8wzQkUsX"
         }
       ]
     },
