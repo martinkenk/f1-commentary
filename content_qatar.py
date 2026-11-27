@@ -7,6 +7,7 @@ from content_las_vegas import (
     PEREZ_PENALTY,
 )
 from f1lib import auto_news, card, news_page_subtitle, render_penalties
+from upgrade_render import render_submissions
 
 
 PIRELLI_NOMINATION = "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
@@ -116,6 +117,37 @@ FIA_QATAR_SUPPORT_CIRCUIT_MAP = (
     "2026_lusail_event_-_circuit_map_-_lusail_2026.pdf"
 )
 FIA_QATAR_CAR_DISPLAY = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_car_display_procedure.pdf"
+FIA_QATAR_ENTRY_LIST = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_entry_list.pdf"
+)
+FIA_QATAR_CAR_PRESENTATION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_car_presentation_submissions.pdf"
+)
+FIA_QATAR_CAR_PRESENTATION_ASSET = (
+    "fia-qatar-7ac412c052cb-259a83f98d072bc8"
+)
+UPGRADE_SUBMISSIONS = (
+    ("McLaren", 2, ()),
+    ("Mercedes", 3, ()),
+    ("Red Bull Racing", 4, ()),
+    ("Ferrari", 5, ()),
+    ("Williams", 6, ()),
+    ("Racing Bulls", 7, ()),
+    ("Aston Martin", 8, ()),
+    ("Haas", 9, ()),
+    ("Audi", 10, (
+        (
+            "Front Corner",
+            "Performance - Flow Conditioning",
+            "The revised lower front brake-duct deflector is described as improving "
+            "flow-field quality delivered to the rest of the car.",
+        ),
+    )),
+    ("Alpine", 12, ()),
+    ("Cadillac", 13, ()),
+)
 FIA_QATAR_PEREZ_SUMMONS = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_summons_-_car_11_-_late_attendance_of_the_thursday_press_conference.pdf"
@@ -163,6 +195,19 @@ F1_COST_CAP_REPORT = (
 
 def build_pages(ctx, env):
     pages = content_generic.build_pages(ctx, env)
+    upgrade_summary = card(
+        "Qatar FIA filing: Audi declares one front-corner update",
+        f"""<p>FIA Document 12 lists one declared item across all eleven teams:
+Audi's revised lower front brake-duct deflector, filed for performance /
+flow conditioning. The description says it improves flow-field quality
+delivered to the rest of the car; this is the team's stated rationale, not an
+independently measured gain. Ten teams explicitly submitted no updates for
+Qatar. Audi's component-location diagram is on page 11.
+<a href="{FIA_QATAR_CAR_PRESENTATION}#page=10">Audi declaration, page 10</a> ·
+<a href="{FIA_QATAR_CAR_PRESENTATION}#page=11">component diagram, page 11</a> ·
+<a href="upgrades.html">Full team-by-team filing and readers</a>.</p>""",
+        "bi-tools", "accent",
+    )
     circuit = f"""<h2 class="sec">2026 FIA Straight Mode and Overtake points</h2>
 <p>The current FIA Formula 1 circuit map (version 1, issued 24 November)
 lists separate normal-grip and low-grip Straight Mode activation points:
@@ -404,17 +449,21 @@ inspection result.
         f"""<p>Haas confirmed on 22 November that Câmara will drive for the team
 at both remaining 2026 Grands Prix, after his race outings in Brazil and Las
 Vegas. The announcement also identifies him as a full-time Haas driver for
-2027. This confirms Câmara's Qatar participation; it does not establish a
-rookie FP1 substitution or the complete event entry list.
-<a href="{CAMARA_QATAR_ANNOUNCEMENT}">Formula1.com, 22 November</a>.</p>""",
+2027. FIA Document 11 lists 20 race entrants and separately names Jak Crawford
+as eligible to take part in FP1 under regulations B1.7.3 and B1.7.4; he is not
+a 21st race entrant.
+<a href="{CAMARA_QATAR_ANNOUNCEMENT}">Formula1.com, 22 November</a> ·
+<a href="{FIA_QATAR_ENTRY_LIST}#page=2">FIA entry list, page 2</a>.</p>""",
         "bi-person-badge", "accent",
     )
     qatar_fp1 = card(
         "Aston Martin confirms Jak Crawford for Qatar FP1",
-        f"""<p>On 25 November, Aston Martin confirmed that Crawford will drive
-Fernando Alonso's car in Friday's FP1 after limited running in Las Vegas. This
-confirms one FP1 substitution, not the complete event entry list or the other
-teams' rookie appearances.
+        f"""<p>FIA Document 11 lists Crawford separately from the 20 race entrants
+as eligible to participate in FP1 under regulations B1.7.3 and B1.7.4.
+Aston Martin confirmed that he will drive Fernando Alonso's car in Friday's
+session after limited running in Las Vegas. This is a practice substitution,
+not a race-entry change.
+<a href="{FIA_QATAR_ENTRY_LIST}#page=2">FIA entry list, page 2</a> ·
 <a href="{QATAR_FP1_ANNOUNCEMENT}">Aston Martin's official announcement</a>.</p>""",
         "bi-person-badge", "accent",
     )
@@ -552,14 +601,10 @@ cause for the spin.
     pending_team_storylines = content_generic.pending(
         "Team-by-team weekend storylines", "in the week before the race"
     )
-    team_upgrade_pending = content_generic.pending(
-        "FIA car presentation submissions for this round",
-        "on the Friday of the race week",
-    )
     if pending_team_storylines not in pages["teams"]["body"]:
         raise ValueError("Could not locate Qatar's generic pending team-storyline copy")
     pages["teams"]["body"] = pages["teams"]["body"].replace(
-        pending_team_storylines, team_upgrade_pending, 1
+        pending_team_storylines, upgrade_summary, 1
     )
     nomination = f"""<p>Pirelli nominated <strong>C1 Hard, C2 Medium and C3 Soft</strong>
 for Qatar. Its 13 November graphic marks C3 as the qualifying mandatory set
@@ -678,10 +723,27 @@ or TCC and intended for this event, that is the car to display. The outside
 car may be used for pit-stop practice, but must return to the same position
 when practice is not taking place. The notice also sets out an adverse-weather
 procedure. This governs the media display, not team upgrade declarations, and
-does not establish that any new components have been submitted.
+is distinct from the car-presentation submissions recorded in FIA Document 12.
 <a href="{FIA_QATAR_CAR_DISPLAY}#page=2">Original FIA Document 4, page 2</a>.</p>"""
     pages["upgrades"]["sub"] = (
-        "FIA car-presentation filings, parts changes and display logistics for Qatar."
+        "FIA Document 12: one Audi item and explicit nil returns from ten other teams."
+    )
+    upgrades_pending = content_generic.pending(
+        "FIA car presentation submissions for this round", "on the Friday of the race week"
+    )
+    if upgrades_pending not in pages["upgrades"]["body"]:
+        raise ValueError("Could not locate Qatar's pending FIA upgrade-submission copy")
+    pages["upgrades"]["body"] = pages["upgrades"]["body"].replace(
+        upgrades_pending,
+        render_submissions(
+            UPGRADE_SUBMISSIONS,
+            source_url=FIA_QATAR_CAR_PRESENTATION,
+            asset_prefix=FIA_QATAR_CAR_PRESENTATION_ASSET,
+            document="FIA Document 12",
+            event="Qatar Grand Prix",
+            issued="27 November 2026",
+        ),
+        1,
     )
     pages["upgrades"]["body"] += car_display
     pages["schedule"]["body"] += f"""
@@ -689,6 +751,13 @@ does not establish that any new components have been submitted.
 local (14:00–15:00 Tallinn) and requires each team's display car at its pit-stop
 position. It is a presentation procedure, not an upgrade submission.
 <a href="{FIA_QATAR_CAR_DISPLAY}#page=2">FIA Document 4, page 2</a>.</p>"""
+    pages["schedule"]["body"] += f"""
+<p><strong>FIA entry list, Document 11:</strong> it lists 20 race entrants and
+separately names Jak Crawford as eligible for FP1 under regulations B1.7.3 and
+B1.7.4. Aston Martin confirmed he will drive Fernando Alonso's car; this is a
+practice substitution, not a twenty-first race entry.
+<a href="{FIA_QATAR_ENTRY_LIST}#page=2">Official entry list, page 2</a> ·
+<a href="{QATAR_FP1_ANNOUNCEMENT}">Aston Martin confirmation</a>.</p>"""
     curfew_report = f"""<h2 class="sec">FIA curfew report — Document 10</h2>
 <p>Issued to the stewards on 27 November, the Technical Delegate's report says
 BWT Alpine Formula One Team personnel associated with car operation were inside
@@ -701,6 +770,8 @@ it records no driver penalty.
     pages["schedule"]["body"] += curfew_report
     pages["notes"]["body"] = curfew_report + pages["notes"]["body"]
     pages["notes"]["body"] = car_display + pages["notes"]["body"]
+    pages["notes"]["body"] = upgrade_summary + pages["notes"]["body"]
+    pages["overview"]["body"] += upgrade_summary
     pages["moments"]["body"] = pages["moments"]["body"].replace(
         content_generic.pending(
             "A curated moments list for this venue",

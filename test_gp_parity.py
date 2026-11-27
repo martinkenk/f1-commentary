@@ -246,15 +246,18 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("Virtual Safety Car", pages["notes"]["body"].replace("\n", " "))
         self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["rookies"]["body"])
-        self.assertIn("not establish a\nrookie FP1 substitution",
-                      pages["rookies"]["body"])
+        self.assertIn("20 race entrants", pages["rookies"]["body"])
+        self.assertIn(
+            "not a 21st race entrant",
+            pages["rookies"]["body"].replace("\n", " "),
+        )
         self.assertIn(content_qatar.QATAR_FP1_ANNOUNCEMENT, pages["rookies"]["body"])
         notes_body = " ".join(pages["notes"]["body"].split())
         self.assertIn(content_qatar.QATAR_FP1_ANNOUNCEMENT, notes_body)
         self.assertIn("Aston Martin confirms Jak Crawford for Qatar FP1",
                       notes_body)
         rookies_body = " ".join(pages["rookies"]["body"].split())
-        self.assertIn("Crawford will drive Fernando Alonso's car in Friday's FP1",
+        self.assertIn("drive Fernando Alonso's car in Friday's session",
                       rookies_body)
         self.assertNotIn("Rookie FP1 line-ups for this round: awaiting",
                          rookies_body)
@@ -295,8 +298,10 @@ class GPParityTests(unittest.TestCase):
             self.assertIn("Honda checks Alonso's reported Las Vegas engine problem", pages[slug]["body"])
             self.assertIn("had not identified an\nengine issue", pages[slug]["body"])
             self.assertIn(content_qatar.QATAR_MERCEDES_ENERGY_FOLLOWUP, pages[slug]["body"])
-        self.assertIn("FIA car presentation submissions for this round: awaiting",
-                      pages["teams"]["body"])
+        self.assertIn(
+            "Qatar FIA filing: Audi declares one front-corner update",
+            pages["teams"]["body"],
+        )
         self.assertIn(content_qatar.QATAR_RACE_WEEK_STORYLINES, pages["notes"]["body"])
         self.assertIn(content_qatar.QATAR_2025_RACE, pages["moments"]["body"])
         self.assertIn(content_qatar.PIRELLI_TYRE_LIMIT, pages["moments"]["body"])
@@ -475,11 +480,9 @@ class GPParityTests(unittest.TestCase):
         upgrades = pages["upgrades"]["body"]
         self.assertIn("FIA car-display procedure — Document 4", upgrades)
         self.assertIn("not team upgrade declarations", upgrades)
-        self.assertIn("does not establish that any new components have been submitted", upgrades)
-        self.assertIn(
-            "FIA car presentation submissions for this round: awaiting a verified update",
-            upgrades,
-        )
+        self.assertIn("distinct from the car-presentation submissions", upgrades)
+        self.assertIn(content_qatar.FIA_QATAR_CAR_PRESENTATION, upgrades)
+        self.assertNotIn("awaiting a verified update", upgrades)
         self.assertNotIn("Upgrade packages brought to this round", pages["upgrades"]["sub"])
         self.assertIn(content_qatar.FIA_QATAR_CAR_DISPLAY, upgrades)
         self.assertIn(content_qatar.FIA_QATAR_CAR_DISPLAY, pages["schedule"]["body"])
@@ -512,6 +515,52 @@ class GPParityTests(unittest.TestCase):
         for source in (
             content_qatar.FIA_QATAR_CAR_DISPLAY,
             content_qatar.FIA_QATAR_PEREZ_SUMMONS,
+        ):
+            self.assertEqual(review["fia_sha256"].get(source), hashes[source])
+
+    def test_qatar_entry_list_and_car_presentation_are_transcribed(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_qatar.build_pages(ctx, self.env)
+
+        self.assertEqual(len(content_qatar.UPGRADE_SUBMISSIONS), 11)
+        self.assertEqual(
+            sum(len(updates) for _, _, updates in content_qatar.UPGRADE_SUBMISSIONS), 1
+        )
+        self.assertEqual(
+            [team for team, _, updates in content_qatar.UPGRADE_SUBMISSIONS if updates],
+            ["Audi"],
+        )
+        upgrades = pages["upgrades"]["body"]
+        self.assertIn("10</div><div class=\"stat-lbl\">Nil returns", upgrades)
+        self.assertIn("Front Corner", upgrades)
+        self.assertIn("Performance - Flow Conditioning", upgrades)
+        self.assertIn(
+            "fia-qatar-7ac412c052cb-259a83f98d072bc8-p10.png", upgrades
+        )
+        self.assertIn(
+            "fia-qatar-7ac412c052cb-259a83f98d072bc8-p11.png", upgrades
+        )
+        self.assertIn(content_qatar.FIA_QATAR_CAR_PRESENTATION, upgrades)
+        self.assertNotIn(
+            "FIA car presentation submissions for this round: awaiting", upgrades
+        )
+        self.assertIn("20 race entrants", pages["rookies"]["body"])
+        self.assertIn(content_qatar.FIA_QATAR_ENTRY_LIST, pages["rookies"]["body"])
+        self.assertIn(content_qatar.FIA_QATAR_ENTRY_LIST, pages["schedule"]["body"])
+        for slug in ("overview", "teams", "notes"):
+            self.assertIn("Audi declares one front-corner update", pages[slug]["body"])
+
+        media = json.loads(
+            (Path(__file__).parent / "data/qatar/fia_media.json").read_text()
+        )
+        review = json.loads(
+            (Path(__file__).parent / "data/qatar/coverage_review.json").read_text()
+        )
+        hashes = {doc["url"]: doc["sha256"] for doc in media["documents"]}
+        for source in (
+            content_qatar.FIA_QATAR_ENTRY_LIST,
+            content_qatar.FIA_QATAR_CAR_PRESENTATION,
         ):
             self.assertEqual(review["fia_sha256"].get(source), hashes[source])
 
