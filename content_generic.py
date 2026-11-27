@@ -30,6 +30,23 @@ LAS_VEGAS_2023_MOMENT = (
     'race-result">official classification</a>.'
 )
 
+ABU_DHABI_TITLE_DECIDERS = [
+    '<strong>2010 — Vettel’s first title:</strong> Sebastian Vettel took pole '
+    'and led from the start, while Fernando Alonso finished seventh after '
+    'being caught behind Vitaly Petrov; Vettel clinched the championship by '
+    'four points. <a href="https://www.formula1.com/en/latest/article/'
+    'f1-abu-dhabi-previous-title-deciders.2LNYjiKoBy8QvVBdJKtZ8Y">'
+    'Formula1.com title-decider retrospective</a>.',
+    '<strong>2021 — a one-lap title finish:</strong> After a late Safety Car, '
+    'Max Verstappen passed Lewis Hamilton into Turn 5 on the final lap to win '
+    'the race and his first World Championship. '
+    '<a href="https://www.formula1.com/en/latest/article/'
+    'highlights-relive-hamilton-and-verstappens-dramatic-fight-in-the-abu-dhabi.'
+    '2S7ncmbbmpmyjoZ02ndXxD">Formula1.com race highlights</a> · '
+    '<a href="https://www.formula1.com/en/results/2021/races/1107/abu-dhabi/'
+    'race-result">official classification</a>.',
+]
+
 
 def pending(what, when="", icon="bi-hourglass-split"):
     """Mark missing coverage without asserting that its source is unpublished.
@@ -513,10 +530,12 @@ def build_pages(ctx, env):
                if first_gp else []) + ref.get("notes", [])
     if ctx.get("dir") == "las-vegas":
         moments.append(LAS_VEGAS_2023_MOMENT)
+    if ctx.get("dir") == "united-arab-emirates":
+        moments.extend(ABU_DHABI_TITLE_DECIDERS)
     moments_pending = (
         pending("A curated moments list for this venue",
                 "in the official preview material for the round", "bi-stars")
-        if ctx.get("dir") != "las-vegas" else ""
+        if ctx.get("dir") not in {"las-vegas", "united-arab-emirates"} else ""
     )
     P["moments"] = dict(
         kicker="History",

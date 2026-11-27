@@ -130,6 +130,22 @@ class GPParityTests(unittest.TestCase):
             "https://press.pirelli.com/tyre-compounds-selected",
             pages["notes"]["body"],
         )
+        moments = pages["moments"]["body"]
+        self.assertIn("2010 — Vettel’s first title", moments)
+        self.assertIn("finished seventh", moments)
+        self.assertIn("clinched the championship by four points", moments)
+        self.assertIn("2021 — a one-lap title finish", moments)
+        self.assertIn("passed Lewis Hamilton into Turn 5 on the final lap", moments)
+        self.assertIn(
+            "https://www.formula1.com/en/latest/article/"
+            "f1-abu-dhabi-previous-title-deciders.2LNYjiKoBy8QvVBdJKtZ8Y",
+            moments,
+        )
+        self.assertIn(
+            "https://www.formula1.com/en/results/2021/races/1107/abu-dhabi/race-result",
+            moments,
+        )
+        self.assertNotIn("A curated moments list", moments)
 
     def test_las_vegas_moments_cite_a_historic_race(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "las-vegas")
@@ -232,6 +248,10 @@ class GPParityTests(unittest.TestCase):
         self.assertIn("not establish a\nrookie FP1 substitution",
                       pages["rookies"]["body"])
         self.assertIn(content_qatar.QATAR_FP1_ANNOUNCEMENT, pages["rookies"]["body"])
+        notes_body = " ".join(pages["notes"]["body"].split())
+        self.assertIn(content_qatar.QATAR_FP1_ANNOUNCEMENT, notes_body)
+        self.assertIn("Aston Martin confirms Jak Crawford for Qatar FP1",
+                      notes_body)
         rookies_body = " ".join(pages["rookies"]["body"].split())
         self.assertIn("Crawford will drive Fernando Alonso's car in Friday's FP1",
                       rookies_body)

@@ -555,7 +555,7 @@ This is not a driver-by-driver remaining-set inventory.
     ) + strategy
     pages["notes"]["body"] = (
         qatar_fia_map_note + qatar_race_director_note + bearman_story
-        + nomination + strategy + ferrari_story
+        + qatar_fp1 + nomination + strategy + ferrari_story
         + pages["notes"]["body"]
     )
     pages["schedule"]["body"] += f"""
