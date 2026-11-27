@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-11-27T23:18:08Z",
+  "reviewed_at": "2026-11-27T23:31:52Z",
   "expires_at": "2026-11-28T13:00:00Z",
   "through_session": "Practice 2",
-  "feed_fingerprint": "a1ac495ab0a7138ca2a30ce8cb842ce47d0b0d6f815ccd6551e9e94627afa65a",
+  "feed_fingerprint": "382bd56ca4444d7036c1b9fd925c5dd72e9804d887922595097b5b998db87790",
   "items": [
     {
       "topic": "Session outcome",
       "title": "Antonelli leads extended FP2 as Gasly's spin brings a red flag",
       "date": "2026-11-27",
-      "summary": "Kimi Antonelli set 1:23.077, 0.127 seconds ahead of George Russell; Lando Norris was third at +0.445s. The FIA Document 21 table matches Formula1.com across all 22 classified drivers. Two red flags interrupted the session, which was extended by 13 minutes. Gasly's high-speed spin brought out a red flag; he said cooler tyres and lower pressures led to more bottoming, and reported floor damage to be repaired for Saturday. A Virtual Safety Car followed when Hamilton stopped after reporting lost power. After Mercedes topped both Friday sessions, Norris estimated McLaren was 0.6–0.7 seconds per lap off and expected only a modest gain from its newer floor on Saturday.",
-      "why_it_matters": "The official report does not establish a cause for Hamilton's loss of power. Gasly's explanation is his account, not a confirmed mechanical fault; Norris's gap is a Friday estimate, not a qualifying result, and the interrupted session is not a long-run comparison.",
+      "summary": "Kimi Antonelli set 1:23.077, 0.127 seconds ahead of George Russell; Lando Norris was third at +0.445s. The FIA Document 21 table matches Formula1.com across all 22 classified drivers. Two red flags interrupted the session, which was extended by 13 minutes. Gasly's high-speed spin brought out a red flag; he said cooler tyres and lower pressures led to more bottoming, and reported floor damage to be repaired for Saturday. A Virtual Safety Car followed when Hamilton stopped after reporting lost power. After Mercedes topped both Friday sessions, Norris estimated McLaren was 0.6–0.7 seconds per lap off and expected only a modest gain from its newer floor on Saturday. The Race's traffic-adjusted FP2 analysis put Antonelli's long-run average 0.810 seconds per lap ahead of Verstappen.",
+      "why_it_matters": "The official report does not establish a cause for Hamilton's loss of power. Gasly's explanation is his account, not a confirmed mechanical fault; Norris's gap is a Friday estimate, not a qualifying result. The Race's traffic-adjusted long-run figure is its own calculation from an interrupted session, not a representative race-pace forecast.",
       "sources": [
         {
           "label": "Formula1.com Practice 2 classification",
@@ -18,6 +18,10 @@
         {
           "label": "Formula1.com Qatar FP2 report",
           "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-extended-second-practice-from-russell-and-norris-in-qatar.6jAa2kcIAVqOPHW30oipfm"
+        },
+        {
+          "label": "The Race, Mercedes' Qatar pace analysis, 27 November",
+          "url": "https://www.the-race.com/formula-1/mercedes-early-qatar-advantage-is-even-scarier-than-it-looks/"
         },
         {
           "label": "FIA Document 21, page 2",

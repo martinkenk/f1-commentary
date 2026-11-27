@@ -398,6 +398,13 @@ class GPParityTests(unittest.TestCase):
             "6mwnUPpxnOsIv6YJ7O6Lgm",
             {s["url"] for s in session["sources"]},
         )
+        self.assertIn("0.810 seconds per lap", session["summary"])
+        self.assertIn("not a representative race-pace forecast", session["why_it_matters"])
+        self.assertIn(
+            "https://www.the-race.com/formula-1/"
+            "mercedes-early-qatar-advantage-is-even-scarier-than-it-looks/",
+            {s["url"] for s in session["sources"]},
+        )
         self.assertIn(content_qatar.QATAR_FP2_RESULTS, {s["url"] for s in session["sources"]})
         self.assertIn(
             content_qatar.FIA_QATAR_FP2_CLASSIFICATION,
