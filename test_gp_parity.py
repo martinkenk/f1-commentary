@@ -359,7 +359,7 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertEqual(briefing["through_session"], "Practice 1")
         self.assertTrue(any(
-            item["topic"] == "Practice 1 result"
+            item["topic"] == "Friday session results"
             and "Antonelli" in item["summary"]
             and any(s["url"] == content_qatar.QATAR_FP1_RESULTS
                     for s in item["sources"])
@@ -368,7 +368,7 @@ class GPParityTests(unittest.TestCase):
             for item in briefing["items"]
         ))
         fp1_brief = next(
-            item for item in briefing["items"] if item["topic"] == "Practice 1 result"
+            item for item in briefing["items"] if item["topic"] == "Friday session results"
         )
         self.assertIn(
             "official FP2 result table currently says no results",

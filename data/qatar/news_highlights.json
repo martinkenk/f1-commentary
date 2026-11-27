@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-11-27T17:32:27Z",
-  "expires_at": "2026-11-27T18:15:00Z",
+  "reviewed_at": "2026-11-27T17:46:20Z",
+  "expires_at": "2026-11-27T18:16:20Z",
   "through_session": "Practice 1",
-  "feed_fingerprint": "752a91086497c1726199a704fa27edea63587d8844a78349add1dabdbd37fa31",
+  "feed_fingerprint": "ca6cca44472c2132d38393dcbf528ae6c9153b375b13fe4ee1985550c48f3ee8",
   "items": [
     {
-      "topic": "Practice 1 result",
-      "title": "Antonelli leads a Mercedes one-two in Qatar FP1",
+      "topic": "Friday session results",
+      "title": "Antonelli leads FP1; Ugochukwu takes F2 pole on debut",
       "date": "2026-11-27",
-      "summary": "Kimi Antonelli set the fastest time in the first Qatar practice session at 1:23.217. George Russell was second, 0.507 seconds behind, and Isack Hadjar third, 0.661 seconds back. The official FIA classification matches Formula1.com across all 22 entrants.",
-      "why_it_matters": "This is practice form only, not a qualifying or race prediction. The official FP2 result table currently says no results are available; do not imply that session has been completed.",
+      "summary": "Kimi Antonelli set the fastest time in F1 FP1 at 1:23.217; George Russell was 0.507 seconds back and Isack Hadjar 0.661 seconds back. The official FIA classification matches Formula1.com across all 22 entrants. Separately, Formula1.com reports that F3 champion Ugo Ugochukwu took F2 pole on his debut in 1:35.818, 0.044 seconds ahead of Gabriele Mini.",
+      "why_it_matters": "The Race's two new FP1 reports publish different timings, including Antonelli at 1:23.219 and Russell at +0.467; the FIA classification and current Formula1.com table agree. F2 pole is not an F1 starting position. The official FP2 result table currently says no results; do not imply that session has been completed.",
       "sources": [
         {
           "label": "Formula1.com official Qatar Practice 1 classification",
@@ -22,6 +22,18 @@
         {
           "label": "FIA Document 16, page 2",
           "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_free_practice_1_classification.pdf#page=2"
+        },
+        {
+          "label": "Formula1.com, Ugochukwu takes F2 pole on debut in Qatar",
+          "url": "https://www.formula1.com/en/latest/article/f2-formula-3-champion-ugochukwu-takes-pole-position-on-series-debut-in-qatar.1JCyMKDD3cZcIEGj2c9Zfp"
+        },
+        {
+          "label": "The Race Qatar FP1 practice-results table (differs from FIA/F1)",
+          "url": "https://www.the-race.com/formula-1/f1-2026-qatar-grand-prix-practice-results/"
+        },
+        {
+          "label": "The Race Qatar FP1 report (narrative and result table differ)",
+          "url": "https://www.the-race.com/formula-1/what-happened-in-2026-f1-qatar-gp-first-practice/"
         },
         {
           "label": "Formula1.com Qatar Practice 2 results (no results available at review)",
