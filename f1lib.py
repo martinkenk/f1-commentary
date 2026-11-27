@@ -1903,6 +1903,7 @@ def render_index(gps):
                         f'<div class="gp-grid">{"".join(gp_card(c) for c in reversed(past))}</div>')
 
     body = f"""
+    <p><a href="next.html">Open the current or next Grand Prix <i class="bi bi-arrow-right"></i></a></p>
     {''.join(sections)}
 
     <h2 class="sec">Season calendar</h2>
@@ -1967,6 +1968,46 @@ def render_index(gps):
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/table-sort.js" defer></script>
 </body></html>"""
+
+
+def render_next_gp(gps):
+    """Build a time-aware shortcut using the published event schedule."""
+    links = []
+    for ctx in gps:
+        sessions = (ctx.get("cal") or {}).get("sessions") or []
+        try:
+            starts = [datetime.datetime.fromisoformat(
+                f'{s["date"]}T{s["time"]}{s["gmt_offset"]}') for s in sessions]
+            if not starts or any(start.tzinfo is None for start in starts):
+                raise ValueError("missing timezone-aware sessions")
+            first = min(starts)
+            last_day = max(datetime.date.fromisoformat(s["date"]) for s in sessions)
+            end = datetime.datetime.combine(
+                last_day + datetime.timedelta(days=1), datetime.time.min, first.tzinfo)
+        except (KeyError, TypeError, ValueError) as exc:
+            raise ValueError(f'Invalid schedule for {ctx["name"]}: {exc}') from exc
+        url = html.escape(f'{ctx["dir"]}/{ctx["nav"][0][1]}', quote=True)
+        name = html.escape(f'{ctx["name"]} {ctx["year"]}')
+        links.append(
+            f'<li><a href="{url}" data-start="{first.isoformat()}" '
+            f'data-end="{end.isoformat()}">{name}</a></li>')
+    return f"""<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Current or next Grand Prix — F1 Commentary Hub</title>
+<link href="assets/style.css" rel="stylesheet">
+<script src="assets/next-gp.js" defer></script>
+</head>
+<body><main class="content">
+<h1>Current or next Grand Prix</h1>
+<p id="redirect-status">Opening the current or next scheduled weekend. If you are not redirected, choose a Grand Prix below.</p>
+<noscript><p>Automatic selection requires JavaScript. Choose a Grand Prix below or open the season calendar.</p></noscript>
+<p><a href="index.html">Season calendar</a></p>
+<ul id="gp-options">{''.join(links)}</ul>
+</main></body></html>"""
 
 
 # --------------------------------------------------------------------------
@@ -2717,6 +2758,9 @@ def build_all(gps):
 
     with open(os.path.join(OUT, "index.html"), "w") as f:
         f.write(render_index(gps))
+
+    with open(os.path.join(OUT, "next.html"), "w") as f:
+        f.write(render_next_gp(gps))
 
     # Marker so GitHub Pages serves the output verbatim (no Jekyll processing).
     open(os.path.join(OUT, ".nojekyll"), "w").close()

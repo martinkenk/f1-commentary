@@ -1,5 +1,8 @@
 import datetime
+from html.parser import HTMLParser
 import os
+import shutil
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -9,6 +12,7 @@ import json
 
 import enrich
 import f1lib
+import build
 
 
 class SessionCompatibilityTests(unittest.TestCase):
@@ -54,6 +58,69 @@ class SessionCompatibilityTests(unittest.TestCase):
         ]
         picked = enrich.active_gps(events)
         self.assertEqual({c["slug"] for c in picked}, {"spain", "azerbaijan"})
+
+
+class NextGrandPrixTests(unittest.TestCase):
+    class Links(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.events = []
+
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if tag == "a" and "data-start" in attrs:
+                self.events.append({
+                    "href": attrs["href"],
+                    "dataset": {"start": attrs["data-start"], "end": attrs["data-end"]},
+                })
+
+    def test_shortcut_renders_calendar_and_rejects_missing_schedule(self):
+        gps = [ctx for ctx in build.season_gps() if ctx["dir"] in ("qatar", "united-arab-emirates")]
+        page = f1lib.render_next_gp(gps)
+        self.assertIn('src="assets/next-gp.js"', page)
+        self.assertIn("<noscript>", page)
+        self.assertIn('href="index.html"', page)
+        links = self.Links()
+        links.feed(page)
+        self.assertEqual(len(links.events), 2)
+        self.assertEqual(links.events[0]["dataset"]["start"], "2026-11-27T16:30:00+03:00")
+        self.assertEqual(links.events[0]["dataset"]["end"], "2026-11-30T00:00:00+03:00")
+        with self.assertRaisesRegex(ValueError, "Invalid schedule"):
+            f1lib.render_next_gp([{**gps[0], "cal": {"sessions": []}}])
+
+    @unittest.skipUnless(shutil.which("node"), "Node.js is required to exercise the browser script")
+    def test_shortcut_selects_at_access_time_and_handles_season_end(self):
+        gps = [ctx for ctx in build.season_gps() if ctx["dir"] in ("qatar", "united-arab-emirates")]
+        links = self.Links()
+        links.feed(f1lib.render_next_gp(gps))
+        script = os.path.join(f1lib.ROOT, "assets_src", "next-gp.js")
+        runner = """
+const fs = require("fs"), vm = require("vm");
+const input = JSON.parse(fs.readFileSync(0, "utf8"));
+const status = {textContent: ""};
+let target = null;
+const context = {
+  document: {querySelectorAll: () => input.events, getElementById: () => status},
+  window: {location: {replace: value => { target = value; }}},
+  Date: {parse: Date.parse, now: () => Date.parse(input.now)}
+};
+vm.runInNewContext(fs.readFileSync(process.argv[1], "utf8"), context);
+console.log(JSON.stringify({target, status: status.textContent}));
+"""
+        for now, expected in (
+            ("2026-11-27T10:00:00Z", "qatar/overview.html"),
+            ("2026-11-29T20:59:59Z", "qatar/overview.html"),
+            ("2026-11-29T21:00:00Z", "united-arab-emirates/overview.html"),
+            ("2026-12-06T20:00:00Z", None),
+        ):
+            with self.subTest(now=now):
+                result = subprocess.run(
+                    ["node", "-e", runner, script], check=True, capture_output=True, text=True,
+                    input=json.dumps({"events": list(reversed(links.events)), "now": now}))
+                output = json.loads(result.stdout)
+                self.assertEqual(output["target"], expected)
+                if expected is None:
+                    self.assertIn("season is complete", output["status"])
 
 
 class CalendarFieldTests(unittest.TestCase):

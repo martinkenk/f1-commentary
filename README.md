@@ -28,7 +28,10 @@ An operator may also supply **`LOCAL-AUTOMATION.md`**, excluded locally through
 Do not commit that file or copy infrastructure/credential details into PRs.
 
 ## View it
-Open `site/index.html` (the multi-GP hub), or serve the folder:
+Open `site/index.html` (the multi-GP hub), or use `site/next.html` for a
+bookmark that opens the current or next scheduled Grand Prix. It selects at
+access time, requires JavaScript, and offers the calendar if the season has
+ended or JavaScript is unavailable. To serve the folder:
 
 ```bash
 cd site
