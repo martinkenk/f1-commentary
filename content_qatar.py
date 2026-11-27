@@ -87,6 +87,14 @@ HAAS_BEARMAN_ANNOUNCEMENT = (
 )
 FIA_QATAR_VISA = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
 FIA_QATAR_POWER_UNIT = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_power_unit_information.pdf"
+FIA_QATAR_PU_USAGE = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_pu_elements_used_per_driver_up_to_now.pdf"
+)
+FIA_QATAR_SELF_SCRUTINEERING = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_self_scrutineering.pdf"
+)
 FIA_QATAR_TYRE_NOTES = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
 FIA_QATAR_F1_CIRCUIT_MAP = (
     "https://www.fia.com/system/files/decision-document/"
@@ -261,6 +269,50 @@ to make the system more robust. This is an attributed team software change,
 not a revision to the FIA's published recharge limits or power map, and its
 effect at Qatar has not yet been demonstrated.
 <a href="{QATAR_MERCEDES_ENERGY_FOLLOWUP}">The Race's Qatar day-one report</a>.</p>"""
+    pu_usage = [
+        ("81", "McLaren Mercedes", "Oscar Piastri", 5, 4, 3, 2, 3, 3, 6),
+        ("01", "McLaren Mercedes", "Lando Norris", 4, 4, 4, 2, 3, 4, 6),
+        ("63", "Mercedes", "George Russell", 6, 5, 5, 4, 4, 4, 6),
+        ("12", "Mercedes", "Kimi Antonelli", 6, 4, 4, 2, 4, 4, 6),
+        ("03", "Red Bull Racing RB Ford", "Max Verstappen", 5, 5, 5, 3, 3, 3, 6),
+        ("06", "Red Bull Racing RB Ford", "Isack Hadjar", 8, 7, 7, 4, 4, 4, 8),
+        ("16", "Ferrari", "Charles Leclerc", 5, 4, 4, 3, 3, 3, 6),
+        ("44", "Ferrari", "Lewis Hamilton", 6, 5, 5, 4, 4, 4, 7),
+        ("23", "Atlassian Williams Mercedes", "Alexander Albon", 5, 4, 4, 2, 3, 4, 5),
+        ("55", "Atlassian Williams Mercedes", "Carlos Sainz", 4, 5, 4, 2, 3, 4, 5),
+        ("41", "Racing Bulls RB Ford", "Arvid Lindblad", 7, 6, 5, 2, 3, 3, 6),
+        ("30", "Racing Bulls RB Ford", "Liam Lawson", 5, 5, 5, 2, 3, 3, 7),
+        ("18", "Aston Martin Aramco Honda", "Lance Stroll", 6, 7, 3, 5, 9, 8, 9),
+        ("14", "Aston Martin Aramco Honda", "Fernando Alonso", 5, 6, 4, 5, 7, 6, 9),
+        ("51", "Haas Ferrari", "Rafael Câmara", 4, 4, 4, 3, 3, 3, 6),
+        ("87", "Haas Ferrari", "Oliver Bearman", 5, 5, 5, 5, 4, 4, 5),
+        ("27", "Audi", "Nico Hülkenberg", 4, 4, 4, 3, 3, 3, 5),
+        ("05", "Audi", "Gabriel Bortoleto", 5, 5, 5, 4, 6, 6, 7),
+        ("10", "Alpine Mercedes", "Pierre Gasly", 4, 4, 4, 2, 3, 3, 5),
+        ("43", "Alpine Mercedes", "Franco Colapinto", 5, 4, 3, 2, 3, 4, 5),
+        ("11", "Cadillac Ferrari", "Sergio Perez", 5, 5, 4, 4, 3, 3, 5),
+        ("77", "Cadillac Ferrari", "Valtteri Bottas", 5, 5, 4, 4, 4, 4, 5),
+    ]
+    pu_usage_rows = "".join(
+        "<tr>"
+        f'<td class="num">{number}</td><td class="team">{team}</td>'
+        f'<td class="drv">{driver}</td>'
+        + "".join(f'<td class="num">{count}</td>' for count in counts)
+        + "</tr>"
+        for number, team, driver, *counts in pu_usage
+    )
+    pages["powerunit"]["body"] += f"""<h2 class="sec" id="qatar-pu-usage">PU elements used before Qatar running</h2>
+<p>FIA Technical Delegate Document 8, published on 27 November before the
+weekend's first practice, lists the power-unit elements each of the 22 drivers
+has used so far this season. These are season-to-date counts, not Qatar-specific
+allocations or penalty decisions; any sanction is reported separately by the
+stewards.</p>
+<div class="table-wrap"><table class="data compact">
+<thead><tr><th>No.</th><th>Constructor</th><th>Driver</th><th>ICE</th><th>TC</th>
+<th>EXH</th><th>MGU-K</th><th>ES</th><th>PU-CE</th><th>PU-ANC</th></tr></thead>
+<tbody>{pu_usage_rows}</tbody></table></div>
+<p>Counts are transcribed from the exact-hash, visually reviewed FIA report.
+<a href="{FIA_QATAR_PU_USAGE}#page=2">Document 8, page 2</a>.</p>"""
     carryover = f"""<h2 class="sec">Verified Las Vegas carry-over</h2>
 <p><strong>Sergio Perez: five-place grid penalty at his next race.</strong>
 FIA Las Vegas Document 61 finds him wholly responsible for contact with
@@ -276,6 +328,15 @@ Qatar publications, not copied Las Vegas figures. Published source readers
 appear on the relevant pages as collection succeeds; discovery failures stay visible.</p>"""
     for slug in ("overview", "notes", "schedule"):
         pages[slug]["body"] = carryover + pages[slug]["body"]
+    pages["notes"]["body"] += f"""<p><strong>PU-use baseline:</strong>
+FIA Document 8 lists season-to-date elements used by all 22 drivers before
+Qatar running. It is not a local penalty list; see the full table and source
+reader on <a href="powerunit.html#qatar-pu-usage">Power Unit</a>.</p>"""
+    pages["schedule"]["body"] += f"""<p><strong>Self-scrutineering:</strong>
+FIA Document 9 reports that all 11 teams submitted completed declaration forms
+before 21:52 on 26 November. This confirms the filing only, not a technical
+inspection result.
+<a href="{FIA_QATAR_SELF_SCRUTINEERING}">Original FIA Document 9</a>.</p>"""
     pages["penalties"] = dict(
         kicker="Confirmed carry-over sanction",
         title="Penalties & Stewards",

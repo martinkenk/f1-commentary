@@ -1825,7 +1825,7 @@ def shell(ctx, active_slug, page_title, hero_kicker, hero_title, hero_sub, body_
 
 <div id="lightbox" class="lightbox" onclick="this.classList.remove('open')">
   <span class="lightbox-close" aria-label="Close">&times;</span>
-  <img id="lightbox-img" src="" alt="Zoomed circuit map">
+  <img id="lightbox-img" alt="Zoomed circuit map">
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

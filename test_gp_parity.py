@@ -577,6 +577,20 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("once it is issued", body)
         self.assertNotIn("awaiting a verified update", body)
         self.assertNotIn("expect Sunday straight-line speed", body)
+        self.assertIn(content_qatar.FIA_QATAR_PU_USAGE, body)
+        self.assertEqual(body.count('class="drv">'), 22)
+        self.assertIn(
+            '<td class="num">18</td><td class="team">Aston Martin Aramco Honda</td>'
+            '<td class="drv">Lance Stroll</td><td class="num">6</td>'
+            '<td class="num">7</td><td class="num">3</td><td class="num">5</td>'
+            '<td class="num">9</td><td class="num">8</td><td class="num">9</td>',
+            body,
+        )
+        self.assertIn("season-to-date counts, not Qatar-specific", body)
+        self.assertIn(
+            content_qatar.FIA_QATAR_SELF_SCRUTINEERING,
+            content_qatar.build_pages(ctx, self.env)["schedule"]["body"],
+        )
 
         review = json.loads(
             (Path(__file__).parent / "data/qatar/coverage_review.json").read_text()
@@ -589,6 +603,11 @@ class GPParityTests(unittest.TestCase):
             review["fia_sha256"].get(content_qatar.FIA_QATAR_POWER_UNIT),
             media_hashes[content_qatar.FIA_QATAR_POWER_UNIT],
         )
+        for source in (
+            content_qatar.FIA_QATAR_PU_USAGE,
+            content_qatar.FIA_QATAR_SELF_SCRUTINEERING,
+        ):
+            self.assertEqual(review["fia_sha256"].get(source), media_hashes[source])
 
     def test_las_vegas_collision_summons_are_distinguished_from_final_ruling(self):
         pages = content_las_vegas.build_pages(self.contexts["las-vegas"], self.env)

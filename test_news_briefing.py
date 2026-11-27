@@ -194,6 +194,12 @@ assert.strictEqual(fallback.hidden, false);
                     self.assertNotIn("TOP_STORIES", body)
         self.assertEqual(render.call_count, 2)
 
+    def test_lightbox_placeholder_does_not_load_the_page_as_an_image(self):
+        ctx = next(gp for gp in build.season_gps() if gp["dir"] == "spain")
+        body = f1lib.shell(ctx, "circuit", "Page", "Kicker", "Title", "Subtitle", "BODY")
+        self.assertIn('<img id="lightbox-img" alt="Zoomed circuit map">', body)
+        self.assertIn("document.getElementById('lightbox-img').src=el.src;", body)
+
     def test_committed_editorial_records_follow_the_contract(self):
         for path in (Path(build.ROOT) / "data").glob("*/news_highlights.json"):
             with self.subTest(path=path):
