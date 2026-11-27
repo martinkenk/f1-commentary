@@ -62,6 +62,11 @@ QATAR_MERCEDES_ENERGY_FOLLOWUP = (
 QATAR_THURSDAY_PRESS_CONFERENCE = (
     "https://www.fia.com/news/f1-2026-qatar-grand-prix-thursday-press-conference-transcript"
 )
+QATAR_LINDBLAD_FOLLOWUP = (
+    "https://www.formula1.com/en/latest/article/"
+    "lindblad-left-trying-to-hold-back-tears-after-las-vegas-spin-as-he-reflects-on-"
+    "emotional-social-media-post.6eGFigwGZhsbeR31PHHf4j"
+)
 FERRARI_VASSEUR_REPORT = (
     "https://www.formula1.com/en/latest/article/"
     "its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-"
@@ -438,6 +443,16 @@ public summaries do not state either financial-penalty amount.
         ),
         "",
         1,
+    )
+    pages["rookies"]["body"] += card(
+        "Lindblad reflects on his Las Vegas retirement",
+        f"""<p>Formula1.com reported on 26 November that Lindblad was upset
+after a Safety Car-period spin ended his Las Vegas race while he was running
+near the front. He said he is now trying to focus on Qatar and Abu Dhabi.
+This is the driver's account of the disappointment, not a confirmed technical
+cause for the spin.
+<a href="{QATAR_LINDBLAD_FOLLOWUP}">Formula1.com interview, 26 November</a>.</p>""",
+        "bi-person-badge", "accent",
     )
     pages["news"] = dict(
         kicker="Weekend News",

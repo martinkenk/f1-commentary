@@ -259,6 +259,10 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("Rookie FP1 line-ups for this round: awaiting",
                          rookies_body)
         self.assertNotIn("Reserve or replacement driver changes", pages["rookies"]["body"])
+        self.assertIn(content_qatar.QATAR_LINDBLAD_FOLLOWUP,
+                      pages["rookies"]["body"])
+        self.assertIn("Lindblad reflects on his Las Vegas retirement",
+                      pages["rookies"]["body"])
         schedule_body = " ".join(pages["schedule"]["body"].split())
         self.assertIn("19:00 local (18:00 Tallinn)", schedule_body)
         self.assertNotIn("19:00 local (16:00 Tallinn)", schedule_body)
