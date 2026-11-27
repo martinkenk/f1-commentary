@@ -1,0 +1,71 @@
+{
+  "reviewed_at": "2026-11-27T01:38:02Z",
+  "expires_at": "2026-11-27T07:38:02Z",
+  "through_session": null,
+  "feed_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "items": [
+    {
+      "topic": "Championship",
+      "title": "Titles are settled; Hamilton and Red Bull lead close fights for third",
+      "date": "2026-11-27",
+      "summary": "The pre-Qatar Formula1.com tables after Las Vegas show Hamilton on 267 points, three ahead of Russell and Norris on 264 and 17 ahead of Leclerc on 250. Red Bull hold third in the Constructors' table on 440, nine ahead of McLaren on 431. Antonelli and Mercedes have already secured their championships; these are pre-Qatar standings and should be refreshed after that race.",
+      "why_it_matters": "Abu Dhabi is a season finale, not a title decider. Keep the settled championships separate from the remaining-position battles and update the live points before the final round.",
+      "sources": [
+        {
+          "label": "Formula1.com 2026 Drivers' standings, checked 27 November",
+          "url": "https://www.formula1.com/en/results/2026/drivers"
+        },
+        {
+          "label": "Formula1.com 2026 Teams' standings, checked 27 November",
+          "url": "https://www.formula1.com/en/results/2026/team"
+        },
+        {
+          "label": "Formula1.com report: Antonelli clinches the Drivers' title in Mexico City",
+          "url": "https://www.formula1.com/en/latest/article/2026-formula-1-mexico-city-grand-prix-kimi-antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-mexico-city-grand-prix.xpMMeef0KmRURs9IDs3LH"
+        },
+        {
+          "label": "Formula1.com report: Mercedes clinches the Constructors' title in Sao Paulo",
+          "url": "https://www.formula1.com/en/latest/article/norris-beats-verstappen-in-wet-sao-paolo-gp-thriller-as-mercedes-win-constructors-championship.7JN7MXLZf5lk5l0C3gfKGI"
+        }
+      ]
+    },
+    {
+      "topic": "Haas line-up",
+      "title": "Camara is confirmed for Abu Dhabi; Bearman's 2027 seat is settled",
+      "date": "2026-11-26",
+      "summary": "Haas confirmed that Rafael Camara will drive its final two 2026 Grands Prix, including Abu Dhabi. On 26 November, Formula1.com reported Camara's decision to leave his F2 title challenge for the final two rounds and Haas's confirmation that Oliver Bearman will stay for 2027, completing next year's grid.",
+      "why_it_matters": "Camara's Abu Dhabi race seat is confirmed; this does not establish an FP1 rookie appearance. Keep the 2027 contract update distinct from the 2026 weekend entry.",
+      "sources": [
+        {
+          "label": "Formula1.com: Haas confirms Camara for the final 2026 races, 22 November",
+          "url": "https://www.formula1.com/en/latest/article/haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026.2wYY9ymhyqr7rXcuK6S7bj"
+        },
+        {
+          "label": "Formula1.com: Camara reacts to leaving the F2 title challenge, 26 November",
+          "url": "https://www.formula1.com/en/latest/article/obviously-not-easy-camara-reacts-to-decision-to-sacrifice-f2-title-challenge-for-haas-drive.ltxdSbb5ibvHqIXHBAMId"
+        },
+        {
+          "label": "Formula1.com: Bearman continues with Haas in 2027, 26 November",
+          "url": "https://www.formula1.com/en/latest/article/bearman-to-continue-with-haas-for-2027-as-he-completes-next-years-grid.dRq9fWh9OGjhXuShgGnqE"
+        }
+      ]
+    },
+    {
+      "topic": "Tyre allocation",
+      "title": "Pirelli nominate C3, C4 and C5 for Abu Dhabi",
+      "date": "2026-11-13",
+      "summary": "Pirelli selected its softest trio for Abu Dhabi: C3 Hard, C4 Medium and C5 Soft. The official Abu Dhabi nomination graphic marks C5 for Qualifying and C3/C4 for the Race.",
+      "why_it_matters": "This is the compound and mandatory-set nomination, not the event pressure/camber preview or a driver-by-driver remaining-sets chart. Keep race-set inventory pending until verified after qualifying.",
+      "sources": [
+        {
+          "label": "Pirelli official release announcing the final three 2026 selections, 13 November",
+          "url": "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
+        },
+        {
+          "label": "Pirelli Abu Dhabi 2026 nomination graphic, full image visually reviewed",
+          "url": "https://content.presspage.com/uploads/2363/4e4d11a0-dee0-4f96-b6cc-c523b26c4e71/1920_nominations-ae26-en.jpg?10000"
+        }
+      ]
+    }
+  ]
+}

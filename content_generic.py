@@ -106,6 +106,19 @@ def build_pages(ctx, env):
     history_ready = bool(circuit_history.context(ctx).get("profile"))
     fia_url = ctx.get("fia_url", "")
     P = {}
+    lineup_cards = "".join(
+        card(
+            f'{update["team"]} — confirmed race-seat update',
+            f'<p>{update["summary"]}</p><p class="src">Sources: '
+            + " · ".join(
+                f'<a href="{url}" target="_blank" rel="noopener">{label}</a>'
+                for label, url in update["sources"]
+            )
+            + ".</p>",
+            "bi-person-badge",
+        )
+        for update in ref.get("lineup_updates", [])
+    )
 
     fmt_line = ("<strong>Sprint weekend</strong> — one hour of practice, then Sprint "
                 "Qualifying, the Sprint, Qualifying and the Grand Prix."
@@ -253,10 +266,31 @@ def build_pages(ctx, env):
             '<div class="callout"><strong>2026 nominated compounds:</strong> '
             f'{" / ".join(tyre_compounds)}. This is the compound selection, not a '
             'driver-by-driver remaining-set inventory. '
+            f'{ref.get("tyre_mandatory_sets", "")} '
             f'<a href="{tyre_compounds_source}">Official Pirelli compound selection</a>.</div>'
         )
     else:
         compound_status = pending("Pirelli's compound allocation", "about two weeks before the race")
+
+    nomination_graphic = ""
+    nomination_asset = ref.get("tyre_nomination_asset")
+    nomination_source = ref.get("tyre_nomination_source")
+    if nomination_asset and nomination_source:
+        nomination_graphic = f"""
+<h2 class="sec">Pirelli's compound nomination graphic</h2>
+<figure class="circuit-fig">
+  <img src="../assets/{nomination_asset}"
+       alt="Complete Pirelli Abu Dhabi 2026 nomination graphic showing C3 Hard, C4 Medium, C5 Soft, C5 for qualifying and C3/C4 for the race"
+       class="circuit-img" loading="lazy" role="button" tabindex="0"
+       onclick="zoomImg(this)" title="Click to zoom / full screen"
+       onkeydown="if(event.key==='Enter'||event.key===' '){{event.preventDefault();zoomImg(this)}}">
+  <figcaption>Full official Pirelli Abu Dhabi compound and mandatory-set nomination graphic.
+  It shows C3 Hard, C4 Medium and C5 Soft; the mandatory-set panel marks C5 for Qualifying
+  and C3/C4 for the Race. This is not a remaining-sets chart or a technical pressure preview.
+  <span class="src">Source: <a href="{nomination_source}" target="_blank" rel="noopener">Pirelli release, 13 November 2026</a>.
+  <a href="../assets/{nomination_asset}" target="_blank" rel="noopener">Full-resolution original</a>.</span></figcaption>
+</figure>
+"""
 
     preview = ""
     preview_asset = ref.get("tyre_preview_asset")
@@ -278,6 +312,8 @@ def build_pages(ctx, env):
   <a href="../assets/{preview_asset}" target="_blank" rel="noopener">Full-resolution original</a>.</span></figcaption>
 </figure>
 """
+    elif ctx.get("status") != "past" and ref.get("tyre_preview_pending"):
+        preview = pending(ref["tyre_preview_pending"])
 
     tyre_body = f"""
 <div class="grid cols-2">
@@ -290,6 +326,7 @@ def build_pages(ctx, env):
 </div>
 
 {compound_status}
+{nomination_graphic}
 {preview}
 {(
     '<div class="callout watch"><i class="bi bi-graph-down"></i> '
@@ -324,7 +361,7 @@ def build_pages(ctx, env):
 ]), "bi-person-badge", "accent")}
 
 {pending("Rookie FP1 line-ups for this round", "in the week before the event")}
-{pending("Reserve or replacement driver changes", "as teams confirm them", "bi-people")}
+{lineup_cards or pending("Reserve or replacement driver changes", "as teams confirm them", "bi-people")}
 """)
 
     # ---- STANDINGS ---------------------------------------------------------
@@ -381,7 +418,7 @@ def build_pages(ctx, env):
 {card("What to watch for here", ul_or(ref.get("storylines")),
       "bi-people", "accent")}
 
-{pending("Team-by-team weekend storylines", "in the week before the race")}
+{lineup_cards or pending("Team-by-team weekend storylines", "in the week before the race")}
 
 <div class="callout">
   Weekend news from Formula1.com and The Race is collected automatically on the

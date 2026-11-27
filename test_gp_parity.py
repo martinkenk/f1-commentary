@@ -79,6 +79,58 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("Unresolved FIA classification footnote mismatch", notes)
         self.assertIn(content_las_vegas.LECLERC_PENALTY_REPORT, notes)
 
+    def test_abu_dhabi_published_compounds_and_race_seat_replace_stale_placeholders(self):
+        ctx = next(gp for gp in build.season_gps() if gp["dir"] == "united-arab-emirates")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_generic.build_pages(ctx, self.env)
+
+        rookies = pages["rookies"]["body"]
+        for page in ("rookies", "teams"):
+            self.assertIn("Rafael Camara is confirmed", pages[page]["body"])
+            self.assertIn(
+                "https://www.formula1.com/en/latest/article/"
+                "haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026."
+                "2wYY9ymhyqr7rXcuK6S7bj",
+                pages[page]["body"],
+            )
+            self.assertNotIn(
+                "Reserve or replacement driver changes: awaiting",
+                pages[page]["body"],
+            )
+        self.assertIn("Rookie FP1 line-ups for this round: awaiting", rookies)
+        self.assertIn("not an Abu Dhabi FP1 rookie-line-up announcement", rookies)
+
+        tyres = pages["tyres"]["body"]
+        self.assertIn("C3 Hard / C4 Medium / C5 Soft", tyres)
+        self.assertIn("C5 for Qualifying", tyres)
+        self.assertIn("C3/C4 for the Race", tyres)
+        self.assertNotIn("Pirelli's compound allocation: awaiting", tyres)
+        self.assertIn(
+            "Full Pirelli pressure-and-camber preview graphic for Abu Dhabi: awaiting",
+            tyres,
+        )
+        self.assertEqual(
+            tyres.count('src="../assets/pirelli-abu-dhabi-2026-tyre-nominations.jpg"'),
+            1,
+        )
+        self.assertIn("Full-resolution original", tyres)
+        self.assertTrue(
+            (Path(build.ROOT) / "assets_src"
+             / "pirelli-abu-dhabi-2026-tyre-nominations.jpg").is_file()
+        )
+
+        for page in ("overview", "teams", "notes"):
+            self.assertIn("Both 2026 titles are settled", pages[page]["body"])
+            self.assertNotIn(
+                "title, constructors' places and driver farewells",
+                pages[page]["body"],
+            )
+        self.assertIn("Pirelli selected C3/C4/C5", pages["notes"]["body"])
+        self.assertIn(
+            "https://press.pirelli.com/tyre-compounds-selected",
+            pages["notes"]["body"],
+        )
+
     def test_las_vegas_moments_cite_a_historic_race(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "las-vegas")
         ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)

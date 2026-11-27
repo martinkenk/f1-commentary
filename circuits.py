@@ -549,15 +549,57 @@ CIRCUITS = {
             "Falling track temperature through the race means graining early and better grip "
             "later — the classic Yas Marina strategy question is when to give up track position."
         ),
+        "tyre_compounds": ("C3 Hard", "C4 Medium", "C5 Soft"),
+        "tyre_compounds_source": (
+            "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
+        ),
+        "tyre_mandatory_sets": (
+            "The mandatory-set panel lists C5 for Qualifying and C3/C4 for the Race."
+        ),
+        "tyre_nomination_asset": "pirelli-abu-dhabi-2026-tyre-nominations.jpg",
+        "tyre_nomination_source": (
+            "https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/"
+        ),
+        "tyre_preview_pending": (
+            "Full Pirelli pressure-and-camber preview graphic for Abu Dhabi"
+        ),
+        "lineup_updates": [
+            {
+                "team": "Haas",
+                "summary": (
+                    "Rafael Camara is confirmed for the final two 2026 Grands Prix, "
+                    "including Abu Dhabi, alongside Oliver Bearman. This is a race-seat "
+                    "confirmation, not an Abu Dhabi FP1 rookie-line-up announcement."
+                ),
+                "sources": [
+                    (
+                        "Formula1.com confirmation, 22 November",
+                        "https://www.formula1.com/en/latest/article/"
+                        "haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026."
+                        "2wYY9ymhyqr7rXcuK6S7bj",
+                    ),
+                    (
+                        "Formula1.com interview, 26 November",
+                        "https://www.formula1.com/en/latest/article/"
+                        "obviously-not-easy-camara-reacts-to-decision-to-sacrifice-f2-title-"
+                        "challenge-for-haas-drive.ltxdSbb5ibvHqIXHBAMId",
+                    ),
+                ],
+            },
+        ],
         "drs": 2,
         "lap_record": "1:26.103 — Max Verstappen, 2021",
         "notes": [
             "First Grand Prix: 2009.",
             "The day-to-night transition is the defining feature: qualifying conditions match the start of the race, not the end.",
-            "As the finale, it carries every remaining championship, contract and farewell storyline of the season.",
+            "Both 2026 titles are settled before this finale; check the current standings for any remaining-place battles.",
+            '<a href="https://www.formula1.com/en/latest/article/haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026.2wYY9ymhyqr7rXcuK6S7bj">Haas confirmed Rafael Camara</a> for the final two 2026 Grands Prix, including Abu Dhabi; this does not confirm an FP1 rookie outing.',
+            '<a href="https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/">Pirelli selected C3/C4/C5</a>; its Abu Dhabi graphic marks C5 for Qualifying and C3/C4 for the Race.',
         ],
         "storylines": [
-            "Season finale — title, constructors' places and driver farewells all converge here.",
+            "Both 2026 titles are settled; use the live standings to identify the final positions still mathematically open.",
+            '<a href="https://www.formula1.com/en/latest/article/haas-confirm-camara-will-drive-for-the-team-in-final-races-of-2026.2wYY9ymhyqr7rXcuK6S7bj">Haas confirmed Rafael Camara</a> for Abu Dhabi; FP1 rookie entries remain a separate question.',
+            '<a href="https://press.pirelli.com/tyre-compounds-selected-for-the-final-three-races-of-the-season/">Pirelli selected C3/C4/C5</a>; the nomination graphic is not a pressure-and-camber preview.',
             "Falling temperatures make the second half of the race quicker; expect late strategy gambles.",
         ],
     },
