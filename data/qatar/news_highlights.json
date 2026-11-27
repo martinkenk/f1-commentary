@@ -1,5 +1,5 @@
 {
-  "reviewed_at": "2026-11-27T21:30:26Z",
+  "reviewed_at": "2026-11-27T21:57:56Z",
   "expires_at": "2026-11-28T12:00:00Z",
   "through_session": "Practice 2",
   "feed_fingerprint": "b9068ffaa8347c9e61b6e7f89d5a333bb521929d2abc53972b6a77913a8c7947",
@@ -81,19 +81,15 @@
       ]
     },
     {
-      "topic": "Drivers and line-up",
-      "title": "Alonso returns after missing Qatar FP1",
+      "topic": "FP2 incident",
+      "title": "Gasly explains high-speed FP2 spin and floor damage",
       "date": "2026-11-27",
-      "summary": "Formula1.com reports that Fernando Alonso returned in FP2 after missing Thursday media day while recovering from a virus. Jak Crawford drove Alonso’s Aston Martin in FP1.",
-      "why_it_matters": "Crawford’s FP1 appearance was a practice substitution, not a change to the race line-up.",
+      "summary": "Gasly said an earlier red flag left his tyres cooler than expected; he described lower pressures, increased bottoming and a spin that brought out another red flag. He reported floor damage and said the team would repair it for Saturday.",
+      "why_it_matters": "This is Gasly’s account of the incident, not a confirmed mechanical fault. Alpine’s managing director also described the car as difficult to handle and did not attribute the spin solely to driver error.",
       "sources": [
         {
-          "label": "Formula1.com Qatar FP2 report",
-          "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-extended-second-practice-from-russell-and-norris-in-qatar.6jAa2kcIAVqOPHW30oipfm"
-        },
-        {
-          "label": "FIA Qatar Document 11 entry list",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_entry_list.pdf#page=2"
+          "label": "Formula1.com Gasly on his FP2 spin",
+          "url": "https://www.formula1.com/en/latest/article/its-never-nice-gasly-explains-dramatic-high-speed-spin-during-qatar-practice.11hIcFNT6zuvEG0mwAggDn"
         }
       ]
     }
