@@ -12,5 +12,33 @@
     "identity_status": "named",
     "identity_version": 1,
     "source_url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"
+  },
+  {
+    "doc": "Doc 18",
+    "no": "6",
+    "driver": "Isack Hadjar",
+    "team": "Oracle Red Bull Racing",
+    "session": "Free Practice 1",
+    "fact": "Car 6 was starting to leave the pit box whilst a mechanic was still working on the car.",
+    "outcome": "The competitor (Oracle Red Bull Racing) is fined €30,000, €20,000 of which is suspended for a period of 12 months subject to there being no further breach of this Article by the Competitor.",
+    "kind": "fine",
+    "source_pdf": "2026_qatar_grand_prix_-_infringement_-_car_6_-_unsafe_act.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_car_6_-_unsafe_act.pdf"
+  },
+  {
+    "doc": "Doc 19",
+    "no": "11",
+    "driver": "Sergio Perez",
+    "team": "Cadillac Formula 1 Team",
+    "session": "",
+    "fact": "The driver was late attending the Thursday Press Conference",
+    "outcome": "No penalty is applied",
+    "kind": "noaction",
+    "source_pdf": "2026_qatar_grand_prix_-_infringement_-_car_11_-_media_commitment.pdf",
+    "identity_status": "named",
+    "identity_version": 1,
+    "source_url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_car_11_-_media_commitment.pdf"
   }
 ]
