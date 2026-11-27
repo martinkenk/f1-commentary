@@ -95,6 +95,10 @@ FIA_QATAR_SELF_SCRUTINEERING = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_self_scrutineering.pdf"
 )
+FIA_QATAR_CURFEW = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_curfew.pdf"
+)
 FIA_QATAR_TYRE_NOTES = "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview.pdf"
 FIA_QATAR_F1_CIRCUIT_MAP = (
     "https://www.fia.com/system/files/decision-document/"
@@ -385,6 +389,12 @@ inspection result.
                 'Formula1.com confirms it applies here. This is not a Qatar ruling; '
                 'Qatar-specific decisions remain separate and source-dependent. '
                 f'<a href="{PEREZ_PENALTY_ARTICLE}">Official Formula1.com report</a>.</div>'
+                f'<div class="callout"><strong>Qatar Document 10: no action.</strong> '
+                'The Technical Delegate reported Alpine car-operating personnel '
+                'inside the circuit during a curfew period, identified as the team’s '
+                'second of six permitted exceptions for 2026; the report says no '
+                'action should be taken. This is not a driver penalty. '
+                f'<a href="{FIA_QATAR_CURFEW}">Original FIA report</a>.</div>'
             ),
             fia_url=ctx.get("fia_url", ""),
         ),
@@ -679,6 +689,17 @@ does not establish that any new components have been submitted.
 local (14:00–15:00 Tallinn) and requires each team's display car at its pit-stop
 position. It is a presentation procedure, not an upgrade submission.
 <a href="{FIA_QATAR_CAR_DISPLAY}#page=2">FIA Document 4, page 2</a>.</p>"""
+    curfew_report = f"""<h2 class="sec">FIA curfew report — Document 10</h2>
+<p>Issued to the stewards on 27 November, the Technical Delegate's report says
+BWT Alpine Formula One Team personnel associated with car operation were inside
+the circuit during a 13-hour curfew period from 22:30 on Wednesday 25 November
+to 11:30 on Thursday 26 November. The period was 42 to 29 hours before the
+scheduled start of P1. This was Alpine's second of six permitted individual
+exceptions for the 2026 season, so the report says no action should be taken;
+it records no driver penalty.
+<a href="{FIA_QATAR_CURFEW}">Original FIA Document 10</a>.</p>"""
+    pages["schedule"]["body"] += curfew_report
+    pages["notes"]["body"] = curfew_report + pages["notes"]["body"]
     pages["notes"]["body"] = car_display + pages["notes"]["body"]
     pages["moments"]["body"] = pages["moments"]["body"].replace(
         content_generic.pending(

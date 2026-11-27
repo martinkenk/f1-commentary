@@ -402,6 +402,26 @@ class GPParityTests(unittest.TestCase):
             for item in briefing["items"]
         ))
 
+    def test_qatar_curfew_report_is_no_action_not_a_driver_penalty(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_qatar.build_pages(ctx, self.env)
+        source = content_qatar.FIA_QATAR_CURFEW
+
+        for slug in ("schedule", "notes", "penalties"):
+            self.assertIn("Document 10", pages[slug]["body"])
+            self.assertIn("no action should be taken", pages[slug]["body"])
+            self.assertIn(source, pages[slug]["body"])
+        self.assertIn("not a driver penalty", pages["penalties"]["body"])
+
+        receipt = json.loads(
+            (Path(__file__).parent / "data/qatar/coverage_review.json").read_text()
+        )
+        self.assertEqual(
+            receipt["fia_sha256"][source],
+            "0e2a99f3ec983dfbfe5a66530f5cb2945adf3915f4b909f494cc3bd3cb3b9f10",
+        )
+
     def test_qatar_covers_published_fia_cost_cap_agreements(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
         ctx.update(status="future", results=[], extra={}, weather={}, weather_ok=False)
