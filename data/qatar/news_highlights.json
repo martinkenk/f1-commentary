@@ -1,8 +1,8 @@
 {
-  "reviewed_at": "2026-11-27T15:11:00Z",
+  "reviewed_at": "2026-11-27T15:50:37Z",
   "expires_at": "2026-11-27T16:50:00Z",
   "through_session": "Practice 1",
-  "feed_fingerprint": "7b355440ae762eda71011414f6e40c367e94a21aa21e28626285c744d696c510",
+  "feed_fingerprint": "752a91086497c1726199a704fa27edea63587d8844a78349add1dabdbd37fa31",
   "items": [
     {
       "topic": "Practice 1 result",
@@ -14,6 +14,10 @@
         {
           "label": "Formula1.com official Qatar Practice 1 classification",
           "url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/1"
+        },
+        {
+          "label": "Formula1.com Qatar FP1 report",
+          "url": "https://www.formula1.com/en/latest/article/fp1-antonelli-leads-russell-in-qatar-as-mercedes-control-opening-practice.3v7t8Oja9vAGkic9TxN7FR"
         },
         {
           "label": "FIA Document 16, page 2",
@@ -38,15 +42,15 @@
       "topic": "Tyre strategy and stint limit",
       "title": "Qatar's 27-lap cap, pressure rules and allocation conflict",
       "date": "2026-11-25",
-      "summary": "FIA competition visa confirms a 57-lap race. Pirelli set a 27-lap maximum per set and selected C1/C2/C3. FIA Document 13 V2 specifies the latest counting and replacement instructions; its pressure table gives minimum starting pressures of 29.0 psi front and 27.5 psi rear, with higher stabilized thresholds. Two Formula1.com articles still conflict on the individual pre-event set allocation (2/3/8 plus a Q3 Soft versus 2/4/7); Pirelli has not resolved those totals. The official Formula1.com explainer says cumulative set mileage includes Safety Car and Virtual Safety Car laps. Remaining sets require a separate post-qualifying source.",
-      "why_it_matters": "Do not turn either pre-event allocation report into a remaining-set count or a strategy prediction. Apply the current FIA V2 rules and preserve the unresolved allocation conflict.",
+      "summary": "FIA competition visa confirms a 57-lap race. Pirelli set a 27-lap maximum per set and selected C1/C2/C3. FIA Document 13 V2 specifies the latest counting and replacement instructions; its pressure table gives minimum starting pressures of 29.0 psi front and 27.5 psi rear, with higher stabilized thresholds. A previously checked Formula1.com tyre guide reporting 2/3/8 plus a Q3 Soft now returns HTTP 404; the accessible 27-lap explainer lists 2/4/7. Pirelli does not give per-driver totals, so the prior discrepancy remains unresolved. The current explainer says cumulative set mileage includes Safety Car and Virtual Safety Car laps. Remaining sets require a separate post-qualifying source.",
+      "why_it_matters": "The earlier allocation report cannot be rechecked while its URL returns 404. Do not treat either pre-event figure as a remaining-set count or strategy prediction; apply the current FIA V2 rules and await a post-qualifying source.",
       "sources": [
         {
           "label": "Pirelli official Qatar tyre briefing, 24 November",
           "url": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
         },
         {
-          "label": "Formula1.com Qatar tyre allocation and rules",
+          "label": "Earlier Formula1.com Qatar tyre guide (URL returned 404 on 27 November)",
           "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-formula-1-teams-and-drivers-have-for-the-2026-qatar-grand-prix.7JllCRweDY5sW1N9LzdkLm"
         },
         {

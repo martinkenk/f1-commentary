@@ -262,7 +262,12 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(content_qatar.QATAR_TYRE_STRATEGY, pages["tyres"]["body"])
         self.assertIn("three C2 Medium and eight C3 Soft sets", pages["tyres"]["body"])
         self.assertIn("four C2 Medium and seven C3 Soft", pages["tyres"]["body"])
-        self.assertIn("exact allocation is conflicting", pages["tyres"]["body"])
+        self.assertIn("returned HTTP 404", pages["tyres"]["body"])
+        self.assertIn("that report cannot currently be verified", pages["tyres"]["body"])
+        self.assertIn(
+            "retain the earlier discrepancy as unresolved",
+            " ".join(pages["tyres"]["body"].split()),
+        )
         tyre_text = " ".join(pages["tyres"]["body"].split())
         self.assertIn("A lap started but not completed counts in full", tyre_text)
         self.assertIn("reconnaissance and formation laps before the start", tyre_text)

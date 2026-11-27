@@ -670,18 +670,19 @@ cause for the spin.
 for Qatar. Its 13 November graphic marks C3 as the qualifying mandatory set
 and C1 and C2 as the race mandatory sets. This nomination is not a
 driver-by-driver remaining-set inventory.</p>
-<p>Two Formula1.com articles published on 25 November give different
-per-driver slick allocations. Its 10:05 UTC tyre guide says two C1 Hard,
-three C2 Medium and eight C3 Soft sets, and says an extra Soft is reserved
-for drivers reaching Q3. The 10:43 UTC explainer instead says each driver
-gets 13 sets: two C1 Hard, four C2 Medium and seven C3 Soft. Pirelli's
-24 November release confirms the compounds but does not state these
-per-driver totals, so the exact allocation is conflicting and remains
-unresolved here. Formula1.com also says a dry race requires two different
-slick compounds. These are allocation reports, not post-qualifying
-remaining-set counts.
-<a href="{QATAR_TYRE_ALLOCATION}">Formula1.com tyre guide, 10:05 UTC</a> ·
-<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Formula1.com explainer, 10:43 UTC</a>.</p>
+<p>A Formula1.com tyre guide published at 10:05 UTC was previously checked
+and reported two C1 Hard, three C2 Medium and eight C3 Soft sets, plus an
+extra Soft for drivers reaching Q3. Its URL returned HTTP 404 when rechecked
+on 27 November, so that report cannot currently be verified. The still
+accessible 10:43 UTC explainer says each driver gets 13 sets: two C1 Hard,
+four C2 Medium and seven C3 Soft. Pirelli's 24 November release confirms the
+compounds but not the per-driver totals; retain the earlier discrepancy as
+unresolved rather than treating either report as a remaining-set inventory.
+Formula1.com also says a dry race requires two different slick compounds.
+<a href="{QATAR_TYRE_ALLOCATION}">Earlier Formula1.com tyre guide (returned
+404 on 27 November)</a> ·
+<a href="{QATAR_TYRE_LIMIT_EXPLAINER}">Accessible Formula1.com explainer,
+10:43 UTC</a>.</p>
 <p>On 24 November, Pirelli announced a maximum 27-lap stint per set, agreed
 with the FIA, and said the race will require at least two stops. At the full
 scheduled 57-lap distance, two sets cover only 54 laps. The FIA's Qatar
@@ -720,7 +721,8 @@ Pirelli's separate 24 November event infographic
 shows the same pressure figures, marks them subject to change after FP2, and
 lists an average pit-stop loss of 26.5 seconds; do not present that as a
 stationary wheel-change duration. These event prescriptions do not resolve the
-conflicting Formula1.com reports of driver-by-driver set allocations.
+reported Formula1.com discrepancy in driver-by-driver set allocations; one
+of those article URLs currently returns 404.
 <a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2 - Pirelli Preview, page 2</a> ·
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a>.</p>
 <p>Pirelli F1 chief engineer Simone Berra's earlier Motorsport.com interview
