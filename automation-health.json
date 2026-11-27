@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-11-27T14:39:04.171765+00:00",
-  "run_id": "46016784743",
-  "refresh_key": "20261127T143200Z",
-  "refresh_mode": "pre-session",
-  "collection_gp": "",
+  "generated_at": "2026-11-27T14:51:45.743723+00:00",
+  "run_id": "46019312825",
+  "refresh_key": "20261127T144900Z",
+  "refresh_mode": "results",
+  "collection_gp": "qatar",
   "collection": {
-    "calendar": "success",
-    "enrichment": "failure",
-    "fia_media": "failure",
-    "race_tyres": "success",
-    "session_results": "failure",
+    "calendar": "skipped",
+    "enrichment": "skipped",
+    "fia_media": "skipped",
+    "race_tyres": "skipped",
+    "session_results": "success",
     "standings": "success"
   },
   "last_collection_checks": {
@@ -34,14 +34,14 @@
       "checked_at": "2026-11-27T14:34:34.479053+00:00"
     },
     "session_results": {
-      "outcome": "failure",
-      "gp": "",
-      "checked_at": "2026-11-27T14:34:34.479053+00:00"
+      "outcome": "success",
+      "gp": "qatar",
+      "checked_at": "2026-11-27T14:50:08.567619+00:00"
     },
     "standings": {
       "outcome": "success",
-      "gp": "",
-      "checked_at": "2026-11-27T14:34:34.479053+00:00"
+      "gp": "qatar",
+      "checked_at": "2026-11-27T14:50:08.567619+00:00"
     }
   },
   "events": {
@@ -467,8 +467,14 @@
       "results_checked_at": "2026-11-27T14:34:32+00:00"
     },
     "qatar": {
-      "sessions": {},
-      "results_checked_at": "2026-11-27T14:34:32+00:00"
+      "sessions": {
+        "Practice 1": {
+          "digest": "cfc1c6690caf6ecc4e788bc0e4d7b543da03bee6178ff997fe89a4f17cf3aa9f",
+          "fetched_at": "2026-11-27T14:50:08+00:00",
+          "retained": false
+        }
+      },
+      "results_checked_at": "2026-11-27T14:50:08+00:00"
     },
     "united-arab-emirates": {
       "sessions": {},
@@ -478,8 +484,8 @@
   "findings": [
     {
       "gp": "qatar",
-      "kind": "source_error",
-      "message": "Practice 1: Incomplete classification: 1 entrants"
+      "kind": "editorial",
+      "message": "The previous editorial briefing has expired."
     },
     {
       "gp": "qatar",
@@ -505,11 +511,6 @@
       "gp": "collection",
       "kind": "source_error",
       "message": "fia_media collector failed; retained data is not fresh"
-    },
-    {
-      "gp": "collection",
-      "kind": "source_error",
-      "message": "session_results collector failed; retained data is not fresh"
     }
   ]
 }
