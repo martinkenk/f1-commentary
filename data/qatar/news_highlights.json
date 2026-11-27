@@ -1,155 +1,103 @@
 {
-  "reviewed_at": "2026-11-27T17:46:20Z",
-  "expires_at": "2026-11-27T18:16:20Z",
-  "through_session": "Practice 1",
-  "feed_fingerprint": "ca6cca44472c2132d38393dcbf528ae6c9153b375b13fe4ee1985550c48f3ee8",
+  "reviewed_at": "2026-11-27T19:02:41Z",
+  "expires_at": "2026-11-28T14:00:00Z",
+  "through_session": "Practice 2",
+  "feed_fingerprint": "eebbf4203538980a855c4162b9a874c8a680571dcea6889d9db19fc00a6b600e",
   "items": [
     {
-      "topic": "Friday session results",
-      "title": "Antonelli leads FP1; Ugochukwu takes F2 pole on debut",
+      "topic": "Session outcome",
+      "title": "Antonelli leads the extended Qatar FP2",
       "date": "2026-11-27",
-      "summary": "Kimi Antonelli set the fastest time in F1 FP1 at 1:23.217; George Russell was 0.507 seconds back and Isack Hadjar 0.661 seconds back. The official FIA classification matches Formula1.com across all 22 entrants. Separately, Formula1.com reports that F3 champion Ugo Ugochukwu took F2 pole on his debut in 1:35.818, 0.044 seconds ahead of Gabriele Mini.",
-      "why_it_matters": "The Race's two new FP1 reports publish different timings, including Antonelli at 1:23.219 and Russell at +0.467; the FIA classification and current Formula1.com table agree. F2 pole is not an F1 starting position. The official FP2 result table currently says no results; do not imply that session has been completed.",
+      "summary": "Kimi Antonelli set 1:23.077, 0.127 seconds ahead of George Russell; Lando Norris was third at +0.445s. The FIA Document 21 table matches Formula1.com across all 22 classified drivers. Two red flags interrupted the session, which was extended by 13 minutes. A Virtual Safety Car followed when Hamilton stopped after reporting lost power.",
+      "why_it_matters": "The official report does not establish a cause for Hamilton's loss of power. The interrupted session is not a long-run comparison.",
       "sources": [
         {
-          "label": "Formula1.com official Qatar Practice 1 classification",
-          "url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/1"
-        },
-        {
-          "label": "Formula1.com Qatar FP1 report",
-          "url": "https://www.formula1.com/en/latest/article/fp1-antonelli-leads-russell-in-qatar-as-mercedes-control-opening-practice.3v7t8Oja9vAGkic9TxN7FR"
-        },
-        {
-          "label": "FIA Document 16, page 2",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_free_practice_1_classification.pdf#page=2"
-        },
-        {
-          "label": "Formula1.com, Ugochukwu takes F2 pole on debut in Qatar",
-          "url": "https://www.formula1.com/en/latest/article/f2-formula-3-champion-ugochukwu-takes-pole-position-on-series-debut-in-qatar.1JCyMKDD3cZcIEGj2c9Zfp"
-        },
-        {
-          "label": "The Race Qatar FP1 practice-results table (differs from FIA/F1)",
-          "url": "https://www.the-race.com/formula-1/f1-2026-qatar-grand-prix-practice-results/"
-        },
-        {
-          "label": "The Race Qatar FP1 report (narrative and result table differ)",
-          "url": "https://www.the-race.com/formula-1/what-happened-in-2026-f1-qatar-gp-first-practice/"
-        },
-        {
-          "label": "Formula1.com Qatar Practice 2 results (no results available at review)",
+          "label": "Formula1.com Practice 2 classification",
           "url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/2"
+        },
+        {
+          "label": "Formula1.com Qatar FP2 report",
+          "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-extended-second-practice-from-russell-and-norris-in-qatar.6jAa2kcIAVqOPHW30oipfm"
+        },
+        {
+          "label": "FIA Document 21, page 2",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_free_practice_2_classification.pdf#page=2"
         }
       ]
     },
     {
-      "topic": "FIA stewards' decisions",
-      "title": "Red Bull fined €30,000 after Hadjar pit-box incident; 32 FP1 lap entries deleted",
+      "topic": "Stewards and grid",
+      "title": "FIA fines Audi €500 for Hülkenberg pit-lane speeding",
       "date": "2026-11-27",
-      "summary": "FIA Document 18 finds an unsafe pit-box release involving Car 6 / Isack Hadjar and fines Oracle Red Bull Racing €30,000, with €20,000 suspended for 12 months; a team member's foot touched the rear-left wheel as the car began to leave with a brake-cooling blower still fitted. Document 17 lists 32 deleted-lap entries for 12 drivers in FP1. Document 19 says Sergio Perez was 22 minutes late to Thursday's press conference but applies no penalty, citing an insurance issue that delayed his flight and road closures.",
-      "why_it_matters": "The €30,000 fine is against Red Bull, not Hadjar personally; €20,000 is suspended. The 32 entries are lap-time deletions, not a separate grid penalty. Perez's late attendance resulted in no penalty.",
+      "summary": "Document 20 records Car 27 at 84.4 km/h in the 80 km/h pit lane during FP2. The €500 fine is imposed on Audi Revolut F1 Team, not the driver.",
+      "why_it_matters": "This is a team fine, not a grid penalty or sporting penalty for Hülkenberg.",
       "sources": [
         {
-          "label": "FIA Qatar Document 18 ruling",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_car_6_-_unsafe_act.pdf"
+          "label": "FIA Qatar Document 20 ruling",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_car_27_-_pit_lane_speeding.pdf"
         },
         {
-          "label": "FIA Qatar Document 17, deleted lap times, pages 2–3",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_free_practice_1_deleted_lap_times.pdf"
-        },
-        {
-          "label": "FIA Qatar Document 19 ruling",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_car_11_-_media_commitment.pdf"
+          "label": "FIA Qatar event document index",
+          "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Qatar%20Grand%20Prix"
         }
       ]
     },
     {
-      "topic": "Tyre strategy and stint limit",
-      "title": "Qatar's 27-lap cap, pressure rules and allocation conflict",
-      "date": "2026-11-25",
-      "summary": "FIA competition visa confirms a 57-lap race. Pirelli selected C1/C2/C3 and set a 27-lap maximum per set. FIA Document 13 V2 specifies the current counting and mandatory-tyre rules; its pressure table gives minimum starting pressures of 29.0 psi front and 27.5 psi rear, with higher stabilized thresholds. The Formula1.com 10:05 UTC preview says 2/3/8 sets with an extra Soft reserved for Q3; its URL, previously returning HTTP 404, is accessible again. The 10:43 UTC explainer explicitly lists 13 sets as 2/4/7 and says mileage is cumulative across sessions, including Safety Car and Virtual Safety Car laps. Both sources were accessible when reviewed on 27 November, but the published allocation discrepancy remains unresolved. These are pre-weekend figures, not remaining sets; post-qualifying inventory needs a separate source.",
-      "why_it_matters": "Treat the conflicting allocation figures as a publication discrepancy, not an outage. Do not use either as a remaining-set count or strategy prediction; apply the FIA V2 counting rules and refresh remaining sets only from a post-qualifying source.",
+      "topic": "Race control and schedule",
+      "title": "FIA publishes Qatar post-FP2 procedure times",
+      "date": "2026-11-27",
+      "summary": "Document 22 moved Friday’s Drivers’ Meeting to 22:43 local; FP2 cars were due covered and ready for seals by 00:13 Saturday, with Restricted Period Three starting at 01:13. Document 23 sets a 1:41.0 maximum between the Safety Car lines for qualifying and specified race-reconnaissance laps.",
+      "why_it_matters": "These are post-session obligations and a race-control threshold, not changes to the published F1 session timetable.",
       "sources": [
         {
-          "label": "Pirelli official Qatar tyre briefing, 24 November",
-          "url": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
+          "label": "FIA Qatar Document 22",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_drivers_meeting_covers-on_time_and_restricted_period_three.pdf"
         },
         {
-          "label": "Formula1.com Qatar tyre preview, 10:05 UTC (accessible again on 27 November)",
-          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-formula-1-teams-and-drivers-have-for-the-2026-qatar-grand-prix.7JllCRweDY5sW1N9LzdkLm"
+          "label": "FIA Qatar Document 23",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "Tyre strategy and source conflict",
+      "title": "Qatar pre-weekend tyre-set totals remain inconsistent",
+      "date": "2026-11-27",
+      "summary": "Formula1.com’s preview lists 2/3/8 sets with an extra Soft reserved for Q3, while its explainer lists 2/4/7. Pirelli confirms C1/C2/C3 and the 27-lap limit, but neither source resolves the totals or reports remaining sets. The FIA listing refreshed after FP2 through Document 23 contains no later pressure table.",
+      "why_it_matters": "Keep both allocations attributed; use neither as remaining sets or as a race-strategy inventory. The latest pressure values are not a post-FP2 reaffirmation.",
+      "sources": [
+        {
+          "label": "Formula1.com Qatar tyre preview, 10:05 UTC",
+          "url": "https://www.formula1.com/en/latest/article/what-tyres-will-the-teams-and-drivers-have-for-the-2026-qatar-grand-prix.7JllCRweDY5sW1N9LzdkLm"
         },
         {
-          "label": "Formula1.com 27-lap limit explainer",
+          "label": "Formula1.com Qatar 27-lap explainer, 10:43 UTC",
           "url": "https://www.formula1.com/en/latest/article/explained-why-theres-a-27-lap-limit-on-tyres-for-the-qatar-grand-prix.4oeu38BqJh1h7llxUeILBe"
+        },
+        {
+          "label": "Pirelli official Qatar preview, 24 November",
+          "url": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
         },
         {
           "label": "FIA Qatar Document 13 V2, page 2",
           "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview_v2.pdf#page=2"
-        },
-        {
-          "label": "FIA Qatar Document 14 V2, page 7",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_race_directors_competition_notes_v2.pdf#page=7"
-        },
-        {
-          "label": "FIA Qatar Competition Visa",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_visa.pdf"
-        },
-        {
-          "label": "Coffee Corner Motorsport Qatar tyre preview (context only)",
-          "url": "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
         }
       ]
     },
     {
-      "topic": "Championship context",
-      "title": "The titles are settled; Red Bull and McLaren are nine points apart for P3",
+      "topic": "Drivers and line-up",
+      "title": "Alonso returns after missing Qatar FP1",
       "date": "2026-11-27",
-      "summary": "After Las Vegas, Formula1.com lists Kimi Antonelli on 402 points to Max Verstappen’s 304 and Mercedes on 666 points; both championships have already been decided. Red Bull has 440 points and McLaren 431 in the Constructors’ standings, a nine-point gap for third.",
-      "why_it_matters": "The remaining constructors’ battle is live context for Qatar; do not present settled titles as still contested or confuse current totals with a pre-event snapshot.",
+      "summary": "Formula1.com reports that Fernando Alonso returned in FP2 after missing Thursday media day while recovering from a virus. Jak Crawford drove Alonso’s Aston Martin in FP1.",
+      "why_it_matters": "Crawford’s FP1 appearance was a practice substitution, not a change to the race line-up.",
       "sources": [
         {
-          "label": "Formula1.com 2026 driver standings",
-          "url": "https://www.formula1.com/en/results/2026/drivers"
+          "label": "Formula1.com Qatar FP2 report",
+          "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-extended-second-practice-from-russell-and-norris-in-qatar.6jAa2kcIAVqOPHW30oipfm"
         },
         {
-          "label": "Formula1.com 2026 team standings",
-          "url": "https://www.formula1.com/en/results/2026/team"
-        }
-      ]
-    },
-    {
-      "topic": "Las Vegas fallout",
-      "title": "Verstappen/Russell tension and Ferrari clash follow F1 to Qatar",
-      "date": "2026-11-26",
-      "summary": "Formula1.com's 25 November Qatar preview recounts the continuing Verstappen-Russell verbal dispute and Ferrari's Las Vegas fallout: Charles Leclerc hit team-mate Lewis Hamilton during their Turn 7 fight. FIA Document 60 found Leclerc wholly responsible and imposed a 10-second penalty; team principal Fred Vasseur described the incident as unacceptable. At Thursday's FIA press conference, Leclerc said Ferrari needed a solution, accepted responsibility for the Vegas clash, and declined to disclose whether the rules of engagement would change. He also denied having a contractual number-one clause. Neither statement establishes the team's operational race instructions. A 26 November media-day report quotes Hamilton saying securing second in the Constructors' Championship is Ferrari's immediate priority, the drivers remain free to race, and process/communication improvements will be discussed over winter. The Race's Qatar day-one report says Antonelli described a Mercedes software safety feature added after the Vegas battery-deployment loss; this is a reported team change, not a change to FIA limits or a validated Qatar outcome. Formula1.com's Russell/Verstappen update adds that Russell found some post-race comments \"quite amusing\", is moving on and does not want to continue the off-track exchange; Verstappen said there was nothing else to add and that his focus was Qatar.",
-      "why_it_matters": "The Vegas penalty is final and does not become a Qatar ruling. Leclerc's contract denial and the drivers' comments do not establish team race instructions or a new rule. Attribute the Mercedes software update to The Race; do not treat it as an FIA energy-limit change or a confirmed on-track result. Keep Russell and Verstappen quotes attributed, not as predictions.",
-      "sources": [
-        {
-          "label": "Formula1.com, Qatar race-week storylines, checked 25 November",
-          "url": "https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix.1bXINUYO8R8X3K7DjINr1A"
-        },
-        {
-          "label": "FIA Las Vegas Document 60, visually reviewed",
-          "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_16_-_causing_a_collision_with_car_44.pdf"
-        },
-        {
-          "label": "Formula1.com, Vasseur on the Ferrari collision",
-          "url": "https://www.formula1.com/en/latest/article/its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-unacceptable.5NGehhmEEtLqzDKxm7bi4z"
-        },
-        {
-          "label": "FIA Thursday press-conference transcript, 26 November",
-          "url": "https://www.fia.com/news/f1-2026-qatar-grand-prix-thursday-press-conference-transcript"
-        },
-        {
-          "label": "Formula1.com, Russell and Verstappen's Qatar media-day comments, 26 November",
-          "url": "https://www.formula1.com/en/latest/article/it-was-quite-amusing-russell-shares-his-reaction-to-verstappens-las-vegas-comments.6sv6Xkop4lBcCxge8ZgxXv"
-        },
-        {
-          "label": "Formula1.com, Leclerc and Hamilton's Qatar media-day comments, 26 November",
-          "url": "https://www.formula1.com/en/latest/article/were-all-disappointed-leclerc-and-hamilton-address-aftermath-of-las-vegas-clash.34d9bV1J0varyAnDCWPAjU"
-        },
-        {
-          "label": "The Race, day-one Qatar report with Antonelli's account of a Mercedes software change, 26 November",
-          "url": "https://www.the-race.com/formula-1/everything-we-learned-on-day-one-of-f1s-2026-qatar-grand-prix/"
+          "label": "FIA Qatar Document 11 entry list",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_entry_list.pdf#page=2"
         }
       ]
     }

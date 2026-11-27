@@ -224,7 +224,7 @@ class GPParityTests(unittest.TestCase):
         self.assertIn(ctx["ref"]["tyre_preview_source"], pages["tyres"]["body"])
         self.assertIn("Official Pirelli release", pages["tyres"]["body"])
         self.assertIn(
-            "starred pressure figures as subject to change after FP2",
+            "latest published figures, not a post-FP2 reaffirmation",
             pages["tyres"]["body"],
         )
         self.assertTrue(
@@ -353,88 +353,37 @@ class GPParityTests(unittest.TestCase):
         briefing = json.loads(
             (Path(__file__).parent / "data/qatar/news_highlights.json").read_text()
         )
+        self.assertEqual(briefing["through_session"], "Practice 2")
+        session = next(item for item in briefing["items"] if item["topic"] == "Session outcome")
+        self.assertIn("1:23.077", session["summary"])
+        self.assertIn("Virtual Safety Car", session["summary"])
+        self.assertIn(content_qatar.QATAR_FP2_RESULTS, {s["url"] for s in session["sources"]})
         self.assertIn(
-            "Virtual Safety Car",
-            " ".join(item["summary"] for item in briefing["items"]),
+            content_qatar.FIA_QATAR_FP2_CLASSIFICATION,
+            {s["url"].split("#", 1)[0] for s in session["sources"]},
         )
-        self.assertEqual(briefing["through_session"], "Practice 1")
-        self.assertTrue(any(
-            item["topic"] == "Friday session results"
-            and "Antonelli" in item["summary"]
-            and any(s["url"] == content_qatar.QATAR_FP1_RESULTS
-                    for s in item["sources"])
-            and any(s["url"].startswith(content_qatar.FIA_QATAR_FP1_CLASSIFICATION)
-                    for s in item["sources"])
-            for item in briefing["items"]
-        ))
-        fp1_brief = next(
-            item for item in briefing["items"] if item["topic"] == "Friday session results"
+        penalty = next(item for item in briefing["items"] if item["topic"] == "Stewards and grid")
+        self.assertIn("84.4 km/h", penalty["summary"])
+        self.assertIn(content_qatar.FIA_QATAR_DOC20, {s["url"] for s in penalty["sources"]})
+        procedure = next(
+            item for item in briefing["items"] if item["topic"] == "Race control and schedule"
         )
-        self.assertIn(
+        self.assertIn("1:41.0", procedure["summary"])
+        self.assertIn(content_qatar.FIA_QATAR_DOC22, {s["url"] for s in procedure["sources"]})
+        self.assertIn(content_qatar.FIA_QATAR_DOC23, {s["url"] for s in procedure["sources"]})
+        tyres = next(
+            item for item in briefing["items"] if item["topic"] == "Tyre strategy and source conflict"
+        )
+        self.assertIn("2/3/8", tyres["summary"])
+        self.assertIn("2/4/7", tyres["summary"])
+        self.assertIn(content_qatar.QATAR_TYRE_LIMIT_EXPLAINER, {s["url"] for s in tyres["sources"]})
+        lineup = next(item for item in briefing["items"] if item["topic"] == "Drivers and line-up")
+        self.assertIn("Alonso", lineup["summary"])
+        self.assertIn(content_qatar.QATAR_FP2_REPORT, {s["url"] for s in lineup["sources"]})
+        self.assertNotIn(
             "official FP2 result table currently says no results",
-            fp1_brief["why_it_matters"],
+            " ".join(item["why_it_matters"] for item in briefing["items"]),
         )
-        self.assertIn(
-            "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/2",
-            {source["url"] for source in fp1_brief["sources"]},
-        )
-        self.assertTrue(any(
-            item["topic"] == "FIA stewards' decisions"
-            and "€20,000 suspended" in item["summary"]
-            and "no penalty" in item["summary"]
-            and {
-                content_qatar.FIA_QATAR_FP1_DELETED_LAP_TIMES,
-                content_qatar.FIA_QATAR_HADJAR_DECISION,
-                content_qatar.FIA_QATAR_PEREZ_DECISION,
-            }.issubset({source["url"] for source in item["sources"]})
-            for item in briefing["items"]
-        ))
-        self.assertTrue(any(
-            "conflict" in item["title"].lower()
-            and any(s["url"] == content_qatar.QATAR_TYRE_LIMIT_EXPLAINER for s in item["sources"])
-            for item in briefing["items"]
-        ))
-        self.assertTrue(any(
-            "27-lap" in item["summary"]
-            and any(s["url"] == content_qatar.PIRELLI_TYRE_LIMIT for s in item["sources"])
-            for item in briefing["items"]
-        ))
-        self.assertTrue(any(
-            item["topic"] == "Championship context"
-            and "both championships have already been decided" in item["summary"]
-            and "Red Bull has 440 points and McLaren 431" in item["summary"]
-            and any(s["url"] == "https://www.formula1.com/en/results/2026/drivers"
-                    for s in item["sources"])
-            and any(s["url"] == "https://www.formula1.com/en/results/2026/team"
-                    for s in item["sources"])
-            for item in briefing["items"]
-        ))
-        self.assertTrue(any(
-            item["topic"] == "Las Vegas fallout"
-            and "Verstappen" in item["title"]
-            and "Ferrari" in item["summary"]
-            and "declined to disclose whether the rules of engagement would change" in item["summary"]
-            and "quite amusing" in item["summary"]
-            and any(s["url"] == content_qatar.QATAR_RACE_WEEK_STORYLINES
-                    for s in item["sources"])
-            and any(s["url"] == content_qatar.QATAR_RUSSELL_VERSTAPPEN_FOLLOWUP
-                    for s in item["sources"])
-            and any(s["url"] == content_qatar.FIA_VEGAS_LECLERC_COLLISION
-                    for s in item["sources"])
-            and any(s["url"] == content_qatar.QATAR_THURSDAY_PRESS_CONFERENCE
-                    for s in item["sources"])
-            and (
-                "Hamilton saying securing second in the Constructors' Championship"
-                in item["summary"]
-            )
-            and any(s["url"] == content_qatar.QATAR_FERRARI_FOLLOWUP
-                    for s in item["sources"])
-            and "denied having a contractual number-one clause" in item["summary"]
-            and any(s["url"] == content_qatar.QATAR_MERCEDES_ENERGY_FOLLOWUP
-                    for s in item["sources"])
-            and "not a change to FIA limits" in item["summary"]
-            for item in briefing["items"]
-        ))
         vegas_briefing = json.loads(
             (Path(__file__).parent / "data/las-vegas/news_highlights.json").read_text()
         )
@@ -453,22 +402,10 @@ class GPParityTests(unittest.TestCase):
                     for s in item["sources"])
             for item in vegas_briefing["items"]
         ))
-        self.assertTrue(any(
-            "FIA competition visa confirms" in item["summary"]
-            and any(s["url"] == content_qatar.FIA_QATAR_VISA for s in item["sources"])
-            and any(s["url"].startswith(content_qatar.FIA_QATAR_TYRE_NOTES)
-                    for s in item["sources"])
-            for item in briefing["items"]
-        ))
         self.assertNotIn(
             "not the event prescription",
             " ".join(item["summary"] for item in briefing["items"]),
         )
-        self.assertTrue(any(
-            item["date"] == "2026-11-25"
-            and any(s["url"] == content_qatar.QATAR_TYRE_STRATEGY for s in item["sources"])
-            for item in briefing["items"]
-        ))
 
     def test_qatar_curfew_report_is_no_action_not_a_driver_penalty(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
@@ -589,6 +526,15 @@ class GPParityTests(unittest.TestCase):
             self.assertIn("€30,000, with €20,000 suspended for 12 months", body)
             self.assertIn("22 minutes late", body)
             self.assertIn(content_qatar.FIA_QATAR_FP1_DELETED_LAP_TIMES, body)
+
+    def test_qatar_fp2_power_loss_is_cause_limited_on_reliability_page(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="live", results=[], extra={}, weather={}, weather_ok=False)
+        reliability = content_qatar.build_pages(ctx, self.env)["reliability"]["body"]
+
+        self.assertIn("FP2 reliability watch", reliability)
+        self.assertIn("does not establish a cause", reliability)
+        self.assertIn("do not label this a confirmed power-unit failure", reliability)
 
     def test_qatar_entry_list_and_car_presentation_are_transcribed(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")

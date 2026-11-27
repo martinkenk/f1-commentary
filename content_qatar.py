@@ -1,5 +1,6 @@
 """Verified carry-over information; local Qatar documents remain source-dependent."""
 import content_generic
+import f1lib
 from content_las_vegas import (
     FINAL_CLASSIFICATION,
     HAMILTON_TRACK_LIMITS,
@@ -72,6 +73,28 @@ QATAR_FP1_RESULTS = "https://www.formula1.com/en/results/2026/races/1301/qatar/p
 FIA_QATAR_FP1_CLASSIFICATION = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_free_practice_1_classification.pdf"
+)
+QATAR_FP2_RESULTS = "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/2"
+QATAR_FP2_REPORT = (
+    "https://www.formula1.com/en/latest/article/"
+    "fp2-antonelli-tops-extended-second-practice-from-russell-and-norris-in-qatar."
+    "6jAa2kcIAVqOPHW30oipfm"
+)
+FIA_QATAR_FP2_CLASSIFICATION = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_free_practice_2_classification.pdf"
+)
+FIA_QATAR_DOC20 = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_infringement_-_car_27_-_pit_lane_speeding.pdf"
+)
+FIA_QATAR_DOC22 = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_drivers_meeting_covers-on_time_and_restricted_period_three.pdf"
+)
+FIA_QATAR_DOC23 = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_race_director_notes_-_sc2_-_sc1_times.pdf"
 )
 QATAR_RACE_WEEK_STORYLINES = (
     "https://www.formula1.com/en/latest/article/"
@@ -294,14 +317,20 @@ The separately discovered Lusail Event Document 5 is a Formula 2 map
 the 2026 F1 system.
 <a href="{FIA_QATAR_F1_CIRCUIT_MAP}#page=2">FIA F1 map</a> ·
 <a href="{FIA_QATAR_SUPPORT_CIRCUIT_MAP}#page=2">separate FIA support-series map</a>.</div>"""
-    qatar_race_director_note = f"""<div class="callout accent"><strong>FIA Race Director's competition notes, Document 14 V2, 27 November:</strong>
-the maximum time between the second and first Safety Car Lines for qualifying
-and race reconnaissance laps will be notified after FP2. During the race,
+    qatar_race_director_note = f"""<div class="callout accent"><strong>FIA Race Director's notes, Documents 14 V2 and 23:</strong>
+following FP2, Document 23 set a 1:41.0 maximum between the Safety Car Lines
+on laps during or after qualifying and on race-reconnaissance laps when pit
+exit is open. During the race,
 teams receive a lapping pre-warning at 3.0 s; blue panels are shown at 1.2 s,
 and the lapped driver must yield at the first opportunity. At Turn 16, a
 track-limits infringement invalidates that lap and the immediately following
-lap. <a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=2">Race Director's notes, page 2</a> ·
-<a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=6">track limits, page 6</a>.</div>"""
+lap. <a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=2">Document 14 V2, page 2</a> ·
+<a href="{FIA_QATAR_RACE_DIRECTOR_NOTES}#page=6">track limits, page 6</a> ·
+<a href="{FIA_QATAR_DOC23}">Document 23</a>.</div>"""
+    qatar_sc_time_note = f"""<div class="callout"><strong>FIA Race Director's Document 23, 27 November:</strong>
+the maximum time between the Safety Car lines is 1:41.0 on laps during or
+after qualifying and on race-reconnaissance laps when pit exit is open.
+<a href="{FIA_QATAR_DOC23}">Original FIA Document 23</a>.</div>"""
     pages["circuit"]["body"] += circuit
     pages["circuit"]["body"] += qatar_race_director_note
     powerunit = f"""<h2 class="sec">Qatar FIA power-and-energy map</h2>
@@ -447,10 +476,13 @@ foot touched the rear-left wheel as the car began to leave with a brake-cooling
 blower still fitted. Document 19 confirms Sergio Perez was 22 minutes late to
 the Thursday press conference but applies no penalty, after an insurance issue
 delayed his flight and road closures delayed arrival. These are separate
-decisions, not a new grid penalty.
+decisions, not a new grid penalty. Document 20 fines Audi €500 after Nico
+Hülkenberg's Car 27 was measured at 84.4 km/h in the 80 km/h pit lane during
+FP2; the fine is against the competitor, not the driver.
 <a href="{FIA_QATAR_FP1_DELETED_LAP_TIMES}#page=2">FIA Document 17, pages 2–3</a> ·
 <a href="{FIA_QATAR_HADJAR_DECISION}">FIA Document 18</a> ·
-<a href="{FIA_QATAR_PEREZ_DECISION}">FIA Document 19</a>.</p>"""
+<a href="{FIA_QATAR_PEREZ_DECISION}">FIA Document 19</a> ·
+<a href="{FIA_QATAR_DOC20}">FIA Document 20</a>.</p>"""
     pages["penalties"] = dict(
         kicker="Confirmed carry-over sanction",
         title="Penalties & Stewards",
@@ -745,10 +777,12 @@ and expected stabilized pressures are in psi:</p>
 </tbody></table></div>
 <p>The sheet also specifies C1 and C2 as mandatory race tyres, C3 as the Q3 tyre,
 and caps each set at 27 laps across all sessions and tyre history.
-Pirelli's separate 24 November event infographic
-shows the same pressure figures, marks them subject to change after FP2, and
-lists an average pit-stop loss of 26.5 seconds; do not present that as a
-stationary wheel-change duration. These event prescriptions do not resolve the
+Pirelli's separate 24 November event infographic shows the same pressure
+figures and marks them as subject to change after FP2. The latest FIA event
+listing, rechecked after FP2 through Document 23, contains no later pressure
+table; these remain the latest published figures, not a post-FP2 reaffirmation.
+The graphic also lists an average pit-stop loss of 26.5 seconds; do not present
+that as a stationary wheel-change duration. These event prescriptions do not resolve the
 published Formula1.com discrepancy in driver-by-driver set allocations; both
 articles were accessible when reviewed on 27 November. Neither article should
 be used as a remaining-set inventory.
@@ -797,8 +831,9 @@ This is not a driver-by-driver remaining-set inventory.
 <a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a>.</figcaption>
 </figure>"""
     pages["tyres"]["body"] += tyre_preview + (
-        "<p>Pirelli's 24 November preview marks the starred pressure figures "
-        "as subject to change after FP2.</p>"
+        "<p>The latest FIA event listing was checked after FP2 through Document 23 "
+        "and contains no later pressure table. The displayed values remain the "
+        "latest published figures, not a post-FP2 reaffirmation.</p>"
     ) + card(
         "Qatar compounds and 27-lap tyre-set limit",
         nomination,
@@ -927,13 +962,52 @@ was third, 0.661 seconds back. The official FIA classification matches the
 Formula1.com results.
 <a href="{QATAR_FP1_RESULTS}">Formula1.com classification</a> ·
 <a href="{FIA_QATAR_FP1_CLASSIFICATION}#page=2">FIA Document 16, page 2</a>.</p>"""
+    fp2_summary = f"""<p><strong>Practice 2:</strong> Kimi Antonelli led in
+1:23.077, 0.127 seconds ahead of George Russell; Lando Norris was third at
++0.445s. The FIA Document 21 table matches Formula1.com's 22-driver
+classification. Two red flags interrupted the session, which was extended by
+13 minutes. Lewis Hamilton stopped after reporting lost power; no cause is
+established here.
+<a href="{QATAR_FP2_RESULTS}">Formula1.com classification</a> ·
+<a href="{QATAR_FP2_REPORT}">Formula1.com FP2 report</a> ·
+<a href="{FIA_QATAR_FP2_CLASSIFICATION}#page=2">FIA Document 21, page 2</a>.</p>"""
+    fp2_procedure = f"""<p><strong>After FP2:</strong> FIA Document 22 moved
+the Drivers' Meeting to 22:43 local on Friday; cars used in FP2 were due
+covered and ready for FIA seals by 00:13 Saturday, with Restricted Period
+Three beginning at 01:13 Saturday. Document 23 sets a 1:41.0 maximum between
+the Safety Car lines for qualifying and race-reconnaissance laps as specified.
+<a href="{FIA_QATAR_DOC22}">FIA Document 22</a> ·
+<a href="{FIA_QATAR_DOC23}">FIA Document 23</a>.</p>"""
+    alonso_fp2 = f"""<p><strong>Fernando Alonso returned for FP2:</strong>
+Formula1.com reports that he missed Thursday media day while recovering from
+a virus, then handed his Aston Martin to Jak Crawford for FP1 before driving
+in FP2. Crawford's practice outing did not change the race entry.
+<a href="{QATAR_FP2_REPORT}">Formula1.com FP2 report</a> ·
+<a href="{FIA_QATAR_ENTRY_LIST}#page=2">FIA entry list, page 2</a>.</p>"""
+    hamilton_fp2 = f"""<p><strong>FP2 reliability watch:</strong> Lewis
+Hamilton stopped off track after reporting a loss of power, prompting a
+Virtual Safety Car. The official session report does not establish a cause;
+do not label this a confirmed power-unit failure.
+<a href="{QATAR_FP2_REPORT}">Formula1.com FP2 report</a>.</p>"""
     pages["overview"]["body"] += fp1_summary
+    pages["overview"]["body"] += fp2_summary
     pages["notes"]["body"] = (
-        fia_decisions_summary + hadjar_summons + fp1_summary + pages["notes"]["body"]
+        fia_decisions_summary + hadjar_summons + fp2_summary + fp1_summary
+        + fp2_procedure + alonso_fp2 + hamilton_fp2 + pages["notes"]["body"]
     )
     pages["notes"]["body"] = car_display + pages["notes"]["body"]
     pages["notes"]["body"] = upgrade_summary + pages["notes"]["body"]
     pages["overview"]["body"] += upgrade_summary
+    pages["schedule"]["body"] += fp2_procedure
+    pages["schedule"]["body"] += qatar_sc_time_note
+    pages["rookies"]["body"] += alonso_fp2
+    pages["teams"]["body"] += alonso_fp2
+    pages["reliability"] = dict(
+        kicker="Practice 2",
+        title="Reliability & Pit Stops",
+        sub="Session incidents are separated from race retirements and confirmed failures.",
+        body=hamilton_fp2 + f1lib.auto_reliability(ctx),
+    )
     pages["moments"]["body"] = pages["moments"]["body"].replace(
         content_generic.pending(
             "A curated moments list for this venue",
