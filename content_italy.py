@@ -35,6 +35,10 @@ FIA_TSUNODA_DECISION_URL = ("https://www.fia.com/system/files/decision-document/
                             "2026_italian_grand_prix_-_decision_-_car_22_-_alleged_start_procedure_infringement.pdf")
 FIA_TSUNODA_SUMMONS_URL = ("https://www.fia.com/system/files/decision-document/"
                            "2026_italian_grand_prix_-_summons_-_car_22_-_alleged_start_procedure_infringement.pdf")
+FIA_TSUNODA_APPEAL_URL = (
+    "https://www.fia.com/news/ica-decision-2026-14-dated-27-11-26-operative-part-"
+    "audi-revolut-f1-team-2026-fia-formula-one"
+)
 
 
 def _race_review():
@@ -50,8 +54,9 @@ Polesitter Gasly finished seventh, ahead of Lindblad, Colapinto and Tsunoda.</p>
   him on lap 2. Hamilton lost ground in his first-chicane fight with Leclerc.
   Leclerc then crashed separately at Curva Alboreto on lap 2, bringing a red flag
   and barrier repairs. He climbed out unaided; that observation is not a medical diagnosis.</li>
-  <li><strong>Restart:</strong> Tsunoda's incorrect grid positioning caused an aborted
-  start. Russell led the eventual restart; Verstappen and the recovering Antonelli
+  <li><strong>Restart:</strong> Race Control ordered an extra formation lap after
+  assessing Tsunoda's approach to the grid. The stewards later found his car was
+  correctly positioned in its grid box. Russell led the eventual restart; Verstappen and the recovering Antonelli
   worked through the order. Antonelli first took the lead on lap 18.</li>
   <li><strong>Strategy split:</strong> Stroll's hydraulic retirement brought a Virtual
   Safety Car. Antonelli stopped for fresh mediums and Verstappen for hards;
@@ -441,19 +446,19 @@ Selected decisions, not an exhaustive post-race stewards log.</p>
   failure and warned future incidents may draw sporting penalties too.
 </div>
 <div class="callout watch">
-  <i class="bi bi-flag"></i> <strong>Audi appeals the Tsunoda restart no-further-action ruling (post-race).</strong>
+  <i class="bi bi-flag"></i> <strong>Audi's appeal of the Tsunoda restart ruling dismissed.</strong>
   After Race Control ordered an extra formation lap for the second (post-red-flag) standing restart
   based on car 22's approach to the grid, the Stewards' Document 69 found Tsunoda's car had in fact
-  been correctly positioned within its grid box and cleared him with no further action. Audi has since
-  lodged a formal &ldquo;intention to appeal&rdquo; against that decision. This is a post-event
-  regulatory dispute, not a live penalty against Tsunoda or Racing Bulls; any FIA International Court
-  of Appeal ruling would arrive after this event and is tracked here as a pending follow-up, not yet
-  decided.
+  been correctly positioned within its grid box and took no further action. Audi appealed.
+  On 27 November, the FIA International Court of Appeal declared the appeal admissible,
+  dismissed it on the merits and upheld Document 69. The published operative decision says
+  the full decision will follow; it does not provide the court's full reasoning.
 </div>
 <p class="src">Sources: <a href="{FIA_TSUNODA_DECISION_URL}" target="_blank" rel="noopener">FIA Document 69, Decision &mdash; Car 22, Alleged Start Procedure Infringement</a> and
 <a href="{FIA_TSUNODA_SUMMONS_URL}" target="_blank" rel="noopener">Document 62, Summons</a> (6 Sep 2026);
 <a href="https://www.formula1.com/en/latest/article/audi-lodge-intention-to-appeal-over-tsunoda-decision-in-italian-gp.70YzooUbxrwZnGgt98pqRk" target="_blank" rel="noopener">Formula1.com: Audi lodge &lsquo;intention to appeal&rsquo;</a> and
-<a href="https://www.the-race.com/formula-1/audi-appeals-stewards-decision-yuki-tsunoda-aborted-start-monza/" target="_blank" rel="noopener">The Race: Audi appeals stewards' decision</a>.</p>
+<a href="https://www.the-race.com/formula-1/audi-appeals-stewards-decision-yuki-tsunoda-aborted-start-monza/" target="_blank" rel="noopener">The Race: Audi appeals stewards' decision</a>;
+<a href="{FIA_TSUNODA_APPEAL_URL}" target="_blank" rel="noopener">FIA appeal decision, operative part, 27 November</a>.</p>
 <div class="grid cols-2">
   {card("Zandvoort compliance check cleared (Document 2)", ul([
      "Car number 10 (Gasly, Alpine) was randomly selected from the top ten after the Dutch GP for extensive physical inspection of its re-programmable electronic devices and SECU.",

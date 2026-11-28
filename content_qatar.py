@@ -1,5 +1,6 @@
 """Verified carry-over information; local Qatar documents remain source-dependent."""
 import content_generic
+from content_italy import FIA_TSUNODA_APPEAL_URL
 import f1lib
 from circuits import QATAR_F1_RACE_WEEK_STATS
 from content_las_vegas import (
@@ -37,6 +38,7 @@ QATAR_TYRE_LIMIT_EXPLAINER = (
 )
 QATAR_TYRE_STRATEGY = "https://coffeecornermotorsport.com/qatar-grand-prix-2026-tyre-preview/"
 QATAR_TYRE_COUNTING = "https://coffeecornermotorsport.com/qatar-grand-prix-tyre-limit-2026/"
+QATAR_TYRE_REVIEW_UPDATE = "https://www.planetf1.com/news/qatar-grand-prix-pirelli-tyre-pressures-27-lap-limit"
 QATAR_TRACK_MAP = "https://media.formula1.com/image/upload/f_auto/q_auto/v1751632421/common/f1/2026/track/2026tracklusaildetailed.png"
 QATAR_TIMETABLE = "https://www.formula1.com/en/latest/article/formula-1-qatar-airways-qatar-grand-prix-2026.3XJyoYSnpJEcuZovstTdcG"
 QATAR_TYRE_PREVIEW = "pirelli-qatar-2026-preview.jpg"
@@ -301,9 +303,11 @@ def build_pages(ctx, env):
             tyre_pending_copy,
             f"""<strong>Friday tyre-wear review:</strong> The Race reports localized
 100% wear indicators in the most-abused front-left areas after 15 laps of
-high-fuel running. Pirelli is still inspecting the returned tyres; no revised
-pressure or stint-limit prescription is confirmed.
-<a href="{QATAR_TYRE_WEAR_REPORT}">Source report, 27 November</a>.""",
+high-fuel running. On 28 November, PlanetF1 reported that Friday's tyre
+analysis led to no immediate change to pressures or the 27-lap limit, with
+another review after Saturday's running. Check the FIA for any later amendment.
+<a href="{QATAR_TYRE_WEAR_REPORT}">The Race, 27 November</a> ·
+<a href="{QATAR_TYRE_REVIEW_UPDATE}">PlanetF1, 28 November</a>.""",
             1,
         )
     elif ctx.get("status") != "past":
@@ -606,22 +610,23 @@ FP2; the fine is against the competitor, not the driver.
         f"""<p>Haas confirmed on 22 November that Câmara will drive for the team
 at both remaining 2026 Grands Prix, after his race outings in Brazil and Las
 Vegas. The announcement also identifies him as a full-time Haas driver for
-2027. FIA Document 11 lists 20 race entrants and separately names Jak Crawford
+2027. FIA Document 11 lists 22 race drivers and separately names Jak Crawford
 as eligible to take part in FP1 under regulations B1.7.3 and B1.7.4; he is not
-a 21st race entrant.
+an additional race entrant.
 <a href="{CAMARA_QATAR_ANNOUNCEMENT}">Formula1.com, 22 November</a> ·
 <a href="{FIA_QATAR_ENTRY_LIST}#page=2">FIA entry list, page 2</a>.</p>""",
         "bi-person-badge", "accent",
     )
     qatar_fp1 = card(
-        "Aston Martin confirms Jak Crawford for Qatar FP1",
-        f"""<p>FIA Document 11 lists Crawford separately from the 20 race entrants
-as eligible to participate in FP1 under regulations B1.7.3 and B1.7.4.
-Aston Martin confirmed that he will drive Fernando Alonso's car in Friday's
-session after limited running in Las Vegas. This is a practice substitution,
-not a race-entry change.
+        "Jak Crawford drove Alonso's car in Qatar FP1",
+        f"""<p>FIA Document 11 lists Crawford separately from the 22 race drivers
+as eligible to participate in FP1 under regulations B1.7.3 and B1.7.4. He
+drove Fernando Alonso's car in Friday's session; Alonso returned for FP2.
+This was a practice substitution, not a race-entry change.
 <a href="{FIA_QATAR_ENTRY_LIST}#page=2">FIA entry list, page 2</a> ·
-<a href="{QATAR_FP1_ANNOUNCEMENT}">Aston Martin's official announcement</a>.</p>""",
+<a href="{QATAR_FP1_ANNOUNCEMENT}">Aston Martin's announcement</a> ·
+<a href="{QATAR_FP1_RESULTS}">Formula1.com FP1 classification</a> ·
+<a href="{QATAR_FP2_REPORT}">Formula1.com FP2 report</a>.</p>""",
         "bi-person-badge", "accent",
     )
     ferrari_story = card(
@@ -662,6 +667,17 @@ These are attributed comments, not a prediction of how they will race each
 other here.
 <a href="{QATAR_RUSSELL_VERSTAPPEN_FOLLOWUP}">Formula1.com, 26 November</a>.</p>""",
         "bi-people", "accent",
+    )
+    appeal_story = card(
+        "Audi's Italian GP appeal dismissed",
+        f"""<p>On 27 November, the FIA International Court of Appeal declared
+Audi's appeal against the stewards' Tsunoda restart decision admissible but
+dismissed it on the merits, upholding Italian GP Document 69. The published
+operative decision says the full decision will follow; it does not set out
+the court's full reasoning. This is an Italian GP ruling, not a Qatar penalty.
+<a href="{FIA_TSUNODA_APPEAL_URL}">FIA operative decision, 27 November</a> ·
+<a href="../italy/penalties.html">Italian GP stewards' decisions</a>.</p>""",
+        "bi-flag", "accent",
     )
     bearman_story = card(
         "Haas confirms Bearman will continue into 2027",
@@ -752,6 +768,7 @@ cause for the spin.
         + hadjar_front_wing_story + alonso_honda_story + pages["teams"]["body"]
     )
     pages["notes"]["body"] = cost_cap_story + pages["notes"]["body"]
+    pages["notes"]["body"] = appeal_story + pages["notes"]["body"]
     pages["notes"]["body"] = alonso_honda_story + pages["notes"]["body"]
     pages["notes"]["body"] = hadjar_front_wing_story + pages["notes"]["body"]
     pages["notes"]["body"] = verstappen_russell_story + pages["notes"]["body"]
@@ -838,14 +855,16 @@ be used as a remaining-set inventory.
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's official Qatar tyre briefing, 24 November</a> ·
 <a href="{FIA_QATAR_EVENT_INDEX}">Current FIA Qatar event index</a> ·
 <a href="{FIA_QATAR_FP1_FP2_SCRUTINEERING}#page=4">FIA Document 25, page 4</a>.</p>
-<p><strong>Friday tyre-wear report:</strong> The Race reports that localized
+<p><strong>Friday tyre-wear review:</strong> The Race reports that localized
 wear indicators on the most-abused front-left tyres reached 100% after 15
-laps of high-fuel running. Pirelli is examining returned tyres and has not
-announced a pressure increase or shorter stint limit; the current Document 13
-V2 prescription remains 29.0 psi minimum front slick starting pressure and
-27 laps per set. A localized indicator reading is not a claim that the whole
-tyre was worn through.
+laps of high-fuel running. PlanetF1 reported on 28 November that analysis
+after Friday brought no immediate change to pressures or the 27-lap limit,
+with another evaluation after Saturday. The latest reviewed FIA Document 13 V2
+specifies 29.0 psi minimum front slick starting pressure and 27 laps per set;
+check the FIA for later amendments. A localized indicator reading is not a
+claim that the whole tyre was worn through.
 <a href="{QATAR_TYRE_WEAR_REPORT}">The Race, 27 November</a> ·
+<a href="{QATAR_TYRE_REVIEW_UPDATE}">PlanetF1, 28 November</a> ·
 <a href="{PIRELLI_TYRE_LIMIT}">Pirelli's current event briefing</a> ·
 <a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a>.</p>
 <p>Pirelli F1 chief engineer Simone Berra's earlier Motorsport.com interview
@@ -989,10 +1008,10 @@ local (14:00–15:00 Tallinn) and requires each team's display car at its pit-st
 position. It is a presentation procedure, not an upgrade submission.
 <a href="{FIA_QATAR_CAR_DISPLAY}#page=2">FIA Document 4, page 2</a>.</p>"""
     pages["schedule"]["body"] += f"""
-<p><strong>FIA entry list, Document 11:</strong> it lists 20 race entrants and
+<p><strong>FIA entry list, Document 11:</strong> it lists 22 race drivers and
 separately names Jak Crawford as eligible for FP1 under regulations B1.7.3 and
-B1.7.4. Aston Martin confirmed he will drive Fernando Alonso's car; this is a
-practice substitution, not a twenty-first race entry.
+B1.7.4. Crawford drove Fernando Alonso's car in FP1, and Alonso returned for
+FP2; this was a practice substitution, not an additional race entry.
 <a href="{FIA_QATAR_ENTRY_LIST}#page=2">Official entry list, page 2</a> ·
 <a href="{QATAR_FP1_ANNOUNCEMENT}">Aston Martin confirmation</a>.</p>"""
     curfew_report = f"""<h2 class="sec">FIA curfew report — Document 10</h2>

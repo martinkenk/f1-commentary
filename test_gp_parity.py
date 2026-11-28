@@ -37,6 +37,30 @@ class GPParityTests(unittest.TestCase):
             "weather": {}, "weather_ok": False,
         }
 
+    def test_tsunoda_appeal_and_qatar_tyre_review_are_current(self):
+        italy = content_italy.build_pages(self.contexts["italy"], self.env)
+        penalties = " ".join(italy["penalties"]["body"].split())
+        self.assertIn("dismissed it on the merits and upheld Document 69", penalties)
+        self.assertIn("full decision will follow", penalties)
+        self.assertIn(content_italy.FIA_TSUNODA_APPEAL_URL, penalties)
+        self.assertNotIn("tracked here as a pending follow-up", penalties)
+        self.assertNotIn("incorrect grid positioning caused an aborted", content_italy._race_review())
+
+        qatar = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        qatar.update(status="live", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_qatar.build_pages(qatar, self.env)
+        notes = " ".join(pages["notes"]["body"].split())
+        tyres = " ".join(pages["tyres"]["body"].split())
+        self.assertIn(content_italy.FIA_TSUNODA_APPEAL_URL, notes)
+        self.assertIn("not a Qatar penalty", notes)
+        self.assertIn(content_qatar.QATAR_TYRE_REVIEW_UPDATE, tyres)
+        self.assertIn("no immediate change to pressures or the 27-lap limit", tyres)
+        self.assertIn("another evaluation after Saturday", tyres)
+        self.assertNotIn("Pirelli is still inspecting the returned tyres", tyres)
+        schedule = " ".join(pages["schedule"]["body"].split())
+        self.assertIn("Crawford drove Fernando Alonso's car in FP1", schedule)
+        self.assertNotIn("confirmed he will drive Fernando Alonso's car", schedule)
+
     def test_las_vegas_mclaren_update_is_not_mislabeled_as_an_fia_filing(self):
         ctx = dict(self.contexts["las-vegas"], status="future")
         self.assertIs(build.BESPOKE["las-vegas"], content_las_vegas.build_pages)
@@ -320,18 +344,18 @@ class GPParityTests(unittest.TestCase):
         )
         self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["rookies"]["body"])
-        self.assertIn("20 race entrants", pages["rookies"]["body"])
+        self.assertIn("22 race drivers", pages["rookies"]["body"])
         self.assertIn(
-            "not a 21st race entrant",
+            "not an additional race entrant",
             pages["rookies"]["body"].replace("\n", " "),
         )
         self.assertIn(content_qatar.QATAR_FP1_ANNOUNCEMENT, pages["rookies"]["body"])
         notes_body = " ".join(pages["notes"]["body"].split())
         self.assertIn(content_qatar.QATAR_FP1_ANNOUNCEMENT, notes_body)
-        self.assertIn("Aston Martin confirms Jak Crawford for Qatar FP1",
+        self.assertIn("Jak Crawford drove Alonso's car in Qatar FP1",
                       notes_body)
         rookies_body = " ".join(pages["rookies"]["body"].split())
-        self.assertIn("drive Fernando Alonso's car in Friday's session",
+        self.assertIn("drove Fernando Alonso's car in Friday's session; Alonso returned for FP2",
                       rookies_body)
         self.assertNotIn("Rookie FP1 line-ups for this round: awaiting",
                          rookies_body)
@@ -697,7 +721,7 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn(
             "FIA car presentation submissions for this round: awaiting", upgrades
         )
-        self.assertIn("20 race entrants", pages["rookies"]["body"])
+        self.assertIn("22 race drivers", pages["rookies"]["body"])
         self.assertIn(content_qatar.FIA_QATAR_ENTRY_LIST, pages["rookies"]["body"])
         self.assertIn(content_qatar.FIA_QATAR_ENTRY_LIST, pages["schedule"]["body"])
         for slug in ("overview", "teams", "notes"):
