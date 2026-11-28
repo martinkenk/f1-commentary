@@ -466,9 +466,11 @@ class GPParityTests(unittest.TestCase):
             for item in vegas_briefing["items"]
         ))
         self.assertTrue(any(
-            item["topic"] == "Mercedes late-race energy"
+            item["topic"] == "Lindblad retirement"
             and item["date"] == "2026-11-26"
-            and any(s["url"] == content_qatar.QATAR_MERCEDES_ENERGY_FOLLOWUP
+            and any(s["url"] == "https://www.formula1.com/en/latest/article/"
+                    "lindblad-left-trying-to-hold-back-tears-after-las-vegas-spin-as-he-reflects-on-emotional-social-media-post."
+                    "6eGFigwGZhsbeR31PHHf4j"
                     for s in item["sources"])
             for item in vegas_briefing["items"]
         ))
@@ -496,6 +498,68 @@ class GPParityTests(unittest.TestCase):
             receipt["fia_sha256"][source],
             "0e2a99f3ec983dfbfe5a66530f5cb2945adf3915f4b909f494cc3bd3cb3b9f10",
         )
+
+    def test_qatar_latest_fia_procedures_are_reviewed_and_source_bound(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="live", results=[], extra={}, weather={}, weather_ok=False)
+        pages = content_qatar.build_pages(ctx, self.env)
+        receipt = json.loads(
+            (Path(__file__).parent / "data/qatar/coverage_review.json").read_text()
+        )
+        media = json.loads(
+            (Path(__file__).parent / "data/qatar/fia_media.json").read_text()
+        )
+        media_hashes = {doc["url"]: doc["sha256"] for doc in media["documents"]}
+
+        for slug in ("schedule", "notes"):
+            body = pages[slug]["body"]
+            self.assertIn("Document 26", body)
+            self.assertIn("Document 27", body)
+            self.assertIn(content_qatar.FIA_QATAR_POST_QUALIFYING + "#page=2", body)
+            self.assertIn(content_qatar.FIA_QATAR_POST_QUALIFYING + "#page=4", body)
+            self.assertIn(content_qatar.FIA_QATAR_CURFEW_27 + "#page=1", body)
+            self.assertIn("time offsets do not align", body)
+        self.assertIn("Document 27", pages["penalties"]["body"])
+        self.assertIn(
+            "no driver penalty",
+            " ".join(pages["penalties"]["body"].split()),
+        )
+
+        for source in (
+            content_qatar.FIA_QATAR_POST_QUALIFYING,
+            content_qatar.FIA_QATAR_CURFEW_27,
+        ):
+            self.assertEqual(receipt["fia_sha256"][source], media_hashes[source])
+
+    def test_qatar_pirelli_artwork_does_not_hide_fia_page_two(self):
+        ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")
+        ctx.update(status="live", results=[], extra={}, weather={}, weather_ok=False)
+        body = content_qatar.build_pages(ctx, self.env)["tyres"]["body"]
+        preview = f'src="../assets/{content_qatar.QATAR_TYRE_PREVIEW}"'
+        image_start = body.index(preview)
+        figure_start = body.rfind("<figure", 0, image_start)
+        figure_end = body.index("</figure>", image_start) + len("</figure>")
+
+        self.assertNotIn(
+            content_qatar.FIA_QATAR_TYRE_NOTES,
+            body[figure_start:figure_end],
+        )
+        self.assertIn(
+            f'href="{content_qatar.FIA_QATAR_TYRE_NOTES}#page=2"',
+            body,
+        )
+        media = json.loads(
+            (Path(__file__).parent / "data/qatar/fia_media.json").read_text()
+        )
+        document = next(
+            item for item in media["documents"]
+            if item["url"] == content_qatar.FIA_QATAR_TYRE_NOTES
+        )
+        page_two_asset = next(
+            page["asset"] for page in document["pages"] if page["page"] == 2
+        )
+        gallery = f1lib.render_fia_media(ctx, "tyres", body)
+        self.assertIn(f'src="../assets/{page_two_asset}"', gallery)
 
     def test_qatar_covers_published_fia_cost_cap_agreements(self):
         ctx = next(ctx for ctx in build.season_gps() if ctx["dir"] == "qatar")

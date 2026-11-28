@@ -168,6 +168,14 @@ FIA_QATAR_CURFEW = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_curfew.pdf"
 )
+FIA_QATAR_CURFEW_27 = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_curfew_0.pdf"
+)
+FIA_QATAR_POST_QUALIFYING = (
+    "https://www.fia.com/system/files/decision-document/"
+    "2026_qatar_grand_prix_-_post-qualifying_procedure.pdf"
+)
 FIA_QATAR_TYRE_NOTES = (
     "https://www.fia.com/system/files/decision-document/"
     "2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview_v2.pdf"
@@ -877,9 +885,10 @@ Its C1/C2 race and C3 qualifying designations match FIA Document 13 V2,
 page 2; Pirelli's compound-selection table independently confirms C1/C2/C3.
 This is not a driver-by-driver remaining-set inventory.
 <a href="../assets/{QATAR_TYRE_PREVIEW}">Full-resolution image</a> ·
-<a href="{PIRELLI_NOMINATION}">Pirelli compound-selection source, 13 November 2026</a> ·
-<a href="{FIA_QATAR_TYRE_NOTES}#page=2">FIA Document 13 V2, page 2</a>.</figcaption>
-</figure>"""
+<a href="{PIRELLI_NOMINATION}">Pirelli compound-selection source, 13 November 2026</a>.</figcaption>
+</figure>
+<p class="src">FIA prescription and page-specific screenshot:
+<a href="{FIA_QATAR_TYRE_NOTES}#page=2">Document 13 V2, page 2</a>.</p>"""
     pages["tyres"]["body"] += tyre_preview + card(
         "Qatar compounds and 27-lap tyre-set limit",
         nomination,
@@ -997,6 +1006,34 @@ it records no driver penalty.
 <a href="{FIA_QATAR_CURFEW}">Original FIA Document 10</a>.</p>"""
     pages["schedule"]["body"] += curfew_report
     pages["notes"]["body"] = curfew_report + pages["notes"]["body"]
+    latest_curfew_report = f"""<h2 class="sec">FIA curfew report — Document 27</h2>
+<p>Issued to the Stewards on 28 November, the Technical Delegate's report says
+car-operating personnel from McLaren Mastercard and Oracle Red Bull Racing were
+inside the circuit during a 13-hour-17-minute curfew period. The report calls
+this the third of four permitted individual exceptions for the two teams during
+the 2026 season and says no action should be taken; it records no driver
+penalty. The report's stated time offsets do not align with its printed clock
+times, so those offsets are not repeated here.
+<a href="{FIA_QATAR_CURFEW_27}#page=1">Original FIA Document 27, page 1</a>.</p>"""
+    post_qualifying_procedure = f"""<h2 class="sec">FIA post-qualifying procedure — Document 26</h2>
+<p>After qualifying, the fastest three drivers return to the pit lane, are
+weighed fully attired, then complete the live interviews, Parc Fermé photo
+opportunities, FIA press conference and TV pen. Other drivers must also report
+to the FIA scales immediately after returning to the garage from their final
+qualifying session; the top ten are weighed as soon as they leave their cars.
+Drivers eliminated in Q1 or Q2 and those classified fourth to tenth in Q3 must
+also attend the TV pen immediately after weighing. The attached diagram shows
+the qualifying Parc Fermé layout.
+<a href="{FIA_QATAR_POST_QUALIFYING}#page=2">Procedure, page 2</a> ·
+<a href="{FIA_QATAR_POST_QUALIFYING}#page=4">Parc Fermé diagram, page 4</a>.</p>"""
+    pages["schedule"]["body"] += latest_curfew_report
+    pages["schedule"]["body"] += post_qualifying_procedure
+    pages["notes"]["body"] = (
+        post_qualifying_procedure
+        + latest_curfew_report
+        + pages["notes"]["body"]
+    )
+    pages["penalties"]["body"] += latest_curfew_report
     hadjar_summons = f"""<p><strong>FIA Document 15:</strong> the Stewards summoned
 the Red Bull team representative after an alleged unsafe situation involving
 team personnel in the pit lane at 16:45 local during Practice 1. The report time

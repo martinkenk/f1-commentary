@@ -1,67 +1,58 @@
 {
-  "reviewed_at": "2026-11-27T12:11:07Z",
-  "expires_at": "2026-11-28T12:00:00Z",
+  "reviewed_at": "2026-11-28T12:46:41Z",
+  "expires_at": "2026-11-28T17:00:00Z",
   "through_session": "Race",
   "feed_fingerprint": "5873896f79a53cffa6eb93f3747253a66ab6b5d4ca30bb3209274a9e62327b79",
   "items": [
     {
       "topic": "Race result",
-      "title": "Verstappen wins; McLaren secure a double podium",
-      "date": "2026-11-22",
-      "summary": "Verstappen beat Norris by 0.639 seconds and Piastri by 1.529. Mercedes had contested the lead, but Russell fell to ninth late and Antonelli to fourth.",
-      "why_it_matters": "Use the official result and keep the late Mercedes drop specific to Las Vegas rather than treating it as a Qatar forecast.",
+      "title": "Verstappen wins in Las Vegas as Norris and Piastri complete the podium",
+      "date": "2026-11-21",
+      "summary": "Max Verstappen won the 50-lap Las Vegas Grand Prix in 1:27:39.624, 0.639 seconds ahead of Lando Norris; Oscar Piastri was third, 1.529 seconds back. The official classification records the completed result.",
+      "why_it_matters": "Use the final classification, not a pre-race prediction, as the weekend baseline; McLaren placed both drivers on the podium while Verstappen took the win.",
       "sources": [
-        {"label": "Official final race result", "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"},
-        {"label": "Formula1.com race report, full article checked", "url": "https://www.formula1.com/en/latest/article/verstappen-wins-exhilarating-las-vegas-grand-prix-from-norris-and-piastri.2eeBWqekZdir9mdDVK9YVX"}
+        {
+          "label": "Formula1.com official 2026 Las Vegas Grand Prix race result",
+          "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"
+        }
       ]
     },
     {
       "topic": "Ferrari collision",
-      "title": "Leclerc and Hamilton address the Las Vegas fallout",
+      "title": "Leclerc and Hamilton say Ferrari must resolve their latest on-track clash",
       "date": "2026-11-26",
-      "summary": "After a Turn 7 collision, Leclerc accepted blame; team principal Fred Vasseur called it 'unacceptable' and 'a lack of respect', two races after another clash in Mexico. Formula1.com's reports differ on whether it was Lap 37 or Lap 38, so no lap number is given. Formula1.com confirms Hamilton finished seventh after serving his separate 10-second penalty; the final classification is consistent with the served sanction. At Qatar media day on 26 November, Hamilton said Ferrari's priority is securing second in the Constructors' Championship, the drivers remain free to race, and process/communication improvements will be discussed over winter. This reports ongoing conversations, not a new team rule.",
-      "why_it_matters": "Keep Leclerc's 10-second final-result penalty separate from Hamilton's 10-second penalty served during the race. Hamilton's comments describe Ferrari's current target and future discussions; they announce no new team rules and do not predict the next race.",
+      "summary": "After the Turn 7 collision, Leclerc accepted responsibility; the final classification put him P10 and Hamilton P7. Formula1.com's reports differ on whether it was Lap 37 or Lap 38, so no lap number is given. At Qatar media day on 26 November the drivers said they were working toward a solution; Hamilton said they remain free to race and discussions about process belong over winter. No new rule was announced.",
+      "why_it_matters": "Preserve the published lap-number discrepancy rather than choosing one account. Separate Leclerc's final-result penalty from Hamilton's served penalty, and report ongoing discussions as such—not as a new Ferrari rule.",
       "sources": [
-        {"label": "Formula1.com, Vasseur on the clash", "url": "https://www.formula1.com/en/latest/article/its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-unacceptable.5NGehhmEEtLqzDKxm7bi4z"},
-        {"label": "Formula1.com, Leclerc accepts blame", "url": "https://www.formula1.com/en/latest/article/ill-accept-the-blame-leclerc-embarrassed-for-ferrari-as-he-assesses-latest-hamilton-clash-in-las-vegas.7hVueR5bwYsCGdIaYph3mK"},
-        {"label": "Formula1.com, Hamilton on his separate penalty", "url": "https://www.formula1.com/en/latest/article/hamilton-frustrated-by-really-harsh-las-vegas-penalty-as-hes-quizzed-on-leclerc-clash.5ASq9S5FeEJNdNi6Igej0Z"},
-        {"label": "FIA Document 60, visually checked; Turn 7 collision ruling", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_16_-_causing_a_collision_with_car_44.pdf"},
-        {"label": "FIA Document 54, Hamilton ruling", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_44_-_leaving_the_track_and_gaining_an_advantage.pdf"},
-        {"label": "FIA Document 65, final classification", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_final_race_classification.pdf"},
-        {"label": "Formula1.com, Leclerc and Hamilton's Qatar media-day comments, 26 November", "url": "https://www.formula1.com/en/latest/article/were-all-disappointed-leclerc-and-hamilton-address-aftermath-of-las-vegas-clash.34d9bV1J0varyAnDCWPAjU"}
+        {
+          "label": "Formula1.com: Vasseur addresses the Las Vegas clash, 22 November",
+          "url": "https://www.formula1.com/en/latest/article/its-a-lack-of-respect-vasseur-calls-latest-hamilton-leclerc-clash-in-las-vegas-unacceptable.5NGehhmEEtLqzDKxm7bi4z"
+        },
+        {
+          "label": "Formula1.com: Leclerc accepts responsibility, 22 November",
+          "url": "https://www.formula1.com/en/latest/article/ill-accept-the-blame-leclerc-embarrassed-for-ferrari-as-he-assesses-latest-hamilton-clash-in-las-vegas.7hVueR5bwYsCGdIaYph3mK"
+        },
+        {
+          "label": "Formula1.com: Leclerc and Hamilton address the Las Vegas clash aftermath, 26 November",
+          "url": "https://www.formula1.com/en/latest/article/were-all-disappointed-leclerc-and-hamilton-address-aftermath-of-las-vegas-clash.34d9bV1J0varyAnDCWPAjU"
+        },
+        {
+          "label": "Formula1.com official 2026 Las Vegas Grand Prix race result",
+          "url": "https://www.formula1.com/en/results/2026/races/1300/las-vegas/race-result"
+        }
       ]
     },
     {
-      "topic": "Qatar grid carry-over",
-      "title": "Perez has a five-place drop at his next race",
-      "date": "2026-11-22",
-      "summary": "The stewards found Perez wholly responsible for contact with Câmara at Turn 14. Because Perez retired, the unserved time penalty was converted to a five-place drop at his next race.",
-      "why_it_matters": "Qatar is the expected next application. This is a grid penalty, not a five-second race penalty, and the Vegas PU sanctions must not be carried over a second time.",
-      "sources": [
-        {"label": "FIA Document 61, visually reviewed", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_11_-_causing_a_collision_with_car_51.pdf"},
-        {"label": "Formula1.com report and driver reactions", "url": "https://www.formula1.com/en/latest/article/perez-and-camara-react-to-las-vegas-grand-prix-clash-as-perez-receives-penalty-for-qatar.2WhxfuDIpCN5yN35Zupw8M"}
-      ]
-    },
-    {
-      "topic": "Hadjar's race",
-      "title": "Hadjar's front wing fails; a separate Safety Car penalty demotes him",
-      "date": "2026-11-22",
-      "summary": "Hadjar reached the lead battle before his front wing collapsed; he said he did not know the cause. A separate 10-second penalty for driving unnecessarily slowly behind the Safety Car dropped him to 15th.",
-      "why_it_matters": "Keep the wing-failure cause unconfirmed and distinguish it from the Safety Car infringement.",
-      "sources": [
-        {"label": "Formula1.com report, 22 November", "url": "https://www.formula1.com/en/latest/article/hadjar-clueless-on-reason-for-front-wing-failure-as-post-race-penalty-demotes-him-a-place-in-las-vegas-gp.2tF9g5VLiq5P6MtIpiaZ1J"},
-        {"label": "FIA Document 64, Safety Car infringement", "url": "https://www.fia.com/system/files/decision-document/2026_las_vegas_grand_prix_-_infringement_-_car_6_-_driving_unnecessarily_slowly.pdf"}
-      ]
-    },
-    {
-      "topic": "Mercedes late-race energy",
-      "title": "Mercedes adds a reported software safeguard after Antonelli's battery loss",
+      "topic": "Lindblad retirement",
+      "title": "Lindblad reflects on his Vegas spin and targets Racing Bulls’ P5 fight",
       "date": "2026-11-26",
-      "summary": "Mercedes team principal Toto Wolff said Antonelli lifted behind Verstappen before reapplying, leaving him with no battery on the back straight; both McLarens passed and Antonelli finished fourth. Wolff said Mercedes had planned an energy deployment for the final 400 metres that could have offered a chance to win. The Race's 26 November Qatar report says Antonelli described a safety feature Mercedes added to make the energy-management system more robust after that loss.",
-      "why_it_matters": "Attribute the race account to Wolff and the software change to The Race's report of Antonelli's comments, not independent telemetry. The team-side change is not an FIA energy-limit revision, and its effect at Qatar is not yet demonstrated.",
+      "summary": "Arvid Lindblad said he was emotional after spinning out while running near the front in Las Vegas. He is focused on the final two rounds and hopes to help Racing Bulls secure fifth in the Teams’ Championship; the report gives no technical cause for the spin.",
+      "why_it_matters": "His personal account and stated team goal are current post-race context; do not turn the report into an unsupported car-failure explanation.",
       "sources": [
-        {"label": "Formula1.com, Wolff's post-race account", "url": "https://www.formula1.com/en/latest/article/wolff-explains-how-the-mercedes-challenge-fell-apart-in-the-closing-laps-in-las-vegas.4Zf0W1yuHxigFi72cspCj"},
-        {"label": "The Race, Qatar day-one report quoting Antonelli, 26 November", "url": "https://www.the-race.com/formula-1/everything-we-learned-on-day-one-of-f1s-2026-qatar-grand-prix/"}
+        {
+          "label": "Formula1.com: Lindblad reflects on Las Vegas spin, 26 November",
+          "url": "https://www.formula1.com/en/latest/article/lindblad-left-trying-to-hold-back-tears-after-las-vegas-spin-as-he-reflects-on-emotional-social-media-post.6eGFigwGZhsbeR31PHHf4j"
+        }
       ]
     }
   ]
