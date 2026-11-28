@@ -1055,6 +1055,14 @@ do not label this a confirmed power-unit failure.
     pages["notes"]["body"] = scrutineering_report + pages["notes"]["body"]
     pages["notes"]["body"] = car_display + pages["notes"]["body"]
     pages["notes"]["body"] = upgrade_summary + pages["notes"]["body"]
+    session_notes_pending = content_generic.pending(
+        "Session-by-session commentary notes", "as the weekend runs", "bi-mic"
+    )
+    if session_notes_pending not in pages["notes"]["body"]:
+        raise ValueError("Could not locate Qatar's generic session-notes placeholder")
+    pages["notes"]["body"] = pages["notes"]["body"].replace(
+        session_notes_pending, "", 1
+    )
     pages["overview"]["body"] += upgrade_summary
     pages["schedule"]["body"] += fp2_procedure
     pages["schedule"]["body"] += qatar_sc_time_note

@@ -314,6 +314,10 @@ class GPParityTests(unittest.TestCase):
         self.assertNotIn("remains unverified", pages["tyres"]["body"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT, pages["notes"]["body"])
         self.assertIn("Virtual Safety Car", pages["notes"]["body"].replace("\n", " "))
+        self.assertNotIn(
+            "Session-by-session commentary notes: awaiting",
+            pages["notes"]["body"],
+        )
         self.assertNotIn("Pirelli's compound allocation: awaiting", pages["tyres"]["body"])
         self.assertIn(content_qatar.CAMARA_QATAR_ANNOUNCEMENT, pages["rookies"]["body"])
         self.assertIn("20 race entrants", pages["rookies"]["body"])
