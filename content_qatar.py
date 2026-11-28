@@ -900,9 +900,10 @@ information before applying either example.
 alt="Qatar 2026 tyre selection: C1 Hard, C2 Medium and C3 Soft; C3 is mandatory for qualifying and C1 and C2 are mandatory for the race."
 loading="lazy" onclick="zoomImg(this)">
 <figcaption>Full, uncropped Qatar 2026 compound and mandatory-set graphic.
-Its C1/C2 race and C3 qualifying designations match FIA Document 13 V2,
-page 2; Pirelli's compound-selection table independently confirms C1/C2/C3.
-This is not a driver-by-driver remaining-set inventory.
+Its C1/C2 race and C3 qualifying designations are consistent with FIA
+Document 13 V2; Pirelli's compound-selection table independently confirms
+C1/C2/C3. This is Pirelli artwork, not a screenshot of the FIA prescription
+or a driver-by-driver remaining-set inventory.
 <a href="../assets/{QATAR_TYRE_PREVIEW}">Full-resolution image</a> ·
 <a href="{PIRELLI_NOMINATION}">Pirelli compound-selection source, 13 November 2026</a>.</figcaption>
 </figure>

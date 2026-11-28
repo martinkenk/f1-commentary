@@ -1,89 +1,90 @@
 {
-  "reviewed_at": "2026-11-28T10:23:16Z",
-  "expires_at": "2026-11-28T14:00:00Z",
+  "reviewed_at": "2026-11-28T15:04:36Z",
+  "expires_at": "2026-11-28T17:45:00Z",
   "through_session": "Practice 2",
   "feed_fingerprint": "382bd56ca4444d7036c1b9fd925c5dd72e9804d887922595097b5b998db87790",
   "items": [
     {
       "topic": "Session outcome",
-      "title": "Antonelli leads extended FP2 amid Friday setbacks",
+      "title": "Antonelli leads disrupted FP2 as Gasly explains his high-speed spin",
       "date": "2026-11-27",
-      "summary": "Kimi Antonelli set 1:23.077, 0.127 seconds ahead of George Russell; Lando Norris was third at +0.445s. The FIA Document 21 table matches Formula1.com across all 22 classified drivers. Two red flags interrupted FP2, which was extended by 13 minutes; Gasly's high-speed spin brought one. Leclerc said his earlier FP2 spin damaged the Ferrari floor; he and Hamilton finished seventh and eighth in both Friday sessions as Ferrari searched for pace. A Virtual Safety Car followed when Hamilton stopped after reporting lost power; Ferrari said it was investigating and did not consider it a concern for Saturday. Norris estimated McLaren was 0.6–0.7 seconds per lap off, while The Race’s traffic-adjusted analysis put Antonelli’s long-run average 0.810 seconds per lap ahead of Verstappen.",
-      "why_it_matters": "The classification is official. Leclerc described the floor damage; Ferrari said Hamilton's power issue was under investigation, not a confirmed cause. Gasly's explanation is his account: he attributed the bottoming to cooler tyres and lower pressures, not a confirmed mechanical fault. The Norris gap and The Race long-run figure are Friday estimates, not a representative race-pace forecast or qualifying result.",
+      "summary": "Kimi Antonelli set 1:23.077 to lead George Russell by 0.127s, with Norris and Piastri third and fourth. Two red flags—gravel and Pierre Gasly’s spin—extended FP2 by 13 minutes and left many drivers without an uninterrupted soft-tyre run. Gasly said the earlier stoppage left his tyres below temperature and pressure, increasing bottoming; Alpine management also pointed to the car’s handling difficulties.",
+      "why_it_matters": "The classification is official, but the red flags interrupted run plans. Gasly’s explanation is his account, and Alpine cited the car’s handling too; do not treat the incident as settled driver error or a single confirmed cause.",
       "sources": [
-        {
-          "label": "Formula1.com Practice 2 classification",
-          "url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/2"
-        },
         {
           "label": "Formula1.com Qatar FP2 report",
           "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-extended-second-practice-from-russell-and-norris-in-qatar.6jAa2kcIAVqOPHW30oipfm"
-        },
-        {
-          "label": "The Race, Mercedes' Qatar pace analysis, 27 November",
-          "url": "https://www.the-race.com/formula-1/mercedes-early-qatar-advantage-is-even-scarier-than-it-looks/"
-        },
-        {
-          "label": "FIA Document 21, page 2",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_free_practice_2_classification.pdf#page=2"
         },
         {
           "label": "Formula1.com Gasly on his FP2 spin",
           "url": "https://www.formula1.com/en/latest/article/its-never-nice-gasly-explains-dramatic-high-speed-spin-during-qatar-practice.11hIcFNT6zuvEG0mwAggDn"
         },
         {
-          "label": "Formula1.com Norris on McLaren's Friday pace",
-          "url": "https://www.formula1.com/en/latest/article/i-dont-think-weve-been-further-off-norris-worried-by-mclarens-deficit-to-mercedes-in-qatar.6mwnUPpxnOsIv6YJ7O6Lgm"
-        },
-        {
-          "label": "Formula1.com Leclerc on Ferrari’s difficult Friday",
-          "url": "https://www.formula1.com/en/latest/article/it-looks-like-a-very-difficult-weekend-leclerc-searching-for-answers-after-tricky-friday-in-qatar.34CxxcaWerPPLl84sU9cZq"
+          "label": "Formula1.com Practice 2 classification",
+          "url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/2"
         }
       ]
     },
     {
-      "topic": "Stewards and grid",
-      "title": "FIA fines Audi €500 for Hülkenberg pit-lane speeding",
+      "topic": "Ferrari reliability",
+      "title": "Hamilton reports a loss of power as Ferrari repairs Leclerc’s floor",
       "date": "2026-11-27",
-      "summary": "Document 20 records Car 27 at 84.4 km/h in the 80 km/h pit lane during FP2. The €500 fine is imposed on Audi Revolut F1 Team, not the driver.",
-      "why_it_matters": "This is a team fine, not a grid penalty or sporting penalty for Hülkenberg.",
+      "summary": "Charles Leclerc’s Ferrari floor was repaired after his FP2 spin through the gravel. Later, Lewis Hamilton stopped off track after reporting “I’ve lost power”, prompting a Virtual Safety Car. The official session report does not establish a cause for Hamilton’s loss of power.",
+      "why_it_matters": "Keep the power-loss cause unconfirmed until a team or official report identifies it; do not turn a driver radio message into a diagnosed power-unit failure.",
       "sources": [
         {
-          "label": "FIA Qatar Document 20 ruling",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_infringement_-_car_27_-_pit_lane_speeding.pdf"
+          "label": "Formula1.com Qatar FP2 report",
+          "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-extended-second-practice-from-russell-and-norris-in-qatar.6jAa2kcIAVqOPHW30oipfm"
+        }
+      ]
+    },
+    {
+      "topic": "Friday team outlook",
+      "title": "Norris expects a fight for P3 as Friday analysis puts Mercedes ahead",
+      "date": "2026-11-27",
+      "summary": "Norris said Friday that McLaren could be fighting for P3 and estimated Mercedes were 0.6–0.7 seconds per lap ahead; he said the team planned to run its newer floor Saturday. Verstappen described Red Bull’s balance as disconnected and understeering. The Race’s traffic-adjusted FP2 long-run analysis estimated Antonelli 0.810 seconds per lap quicker than Verstappen and noted Ferrari did not complete a representative long run.",
+      "why_it_matters": "These are attributed Friday assessments, not a qualifying prediction. The 0.810-second comparison is The Race’s traffic-adjusted analysis, not an official classification; the Practice 3 results page currently has no classification.",
+      "sources": [
+        {
+          "label": "Formula1.com Norris on McLaren’s Friday deficit",
+          "url": "https://www.formula1.com/en/latest/article/i-dont-think-weve-been-further-off-norris-worried-by-mclarens-deficit-to-mercedes-in-qatar.6mwnUPpxnOsIv6YJ7O6Lgm"
         },
         {
-          "label": "FIA Qatar event document index",
+          "label": "Formula1.com Red Bull Friday balance report",
+          "url": "https://www.formula1.com/en/latest/article/a-bit-of-a-difficult-day-verstappen-and-red-bull-left-looking-for-car-balance-after-friday-in-qatar.zvqj1nQ6dBT2PSxEzzKWP"
+        },
+        {
+          "label": "The Race traffic-adjusted FP2 analysis",
+          "url": "https://www.the-race.com/formula-1/mercedes-early-qatar-advantage-is-even-scarier-than-it-looks/"
+        },
+        {
+          "label": "Formula1.com Practice 3 results",
+          "url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/3"
+        },
+        {
+          "label": "FIA Qatar Document 12, car presentation submissions",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_car_presentation_submissions.pdf"
+        },
+        {
+          "label": "Current FIA Qatar event document index",
           "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Qatar%20Grand%20Prix"
         }
       ]
     },
     {
       "topic": "Tyre wear and allocation",
-      "title": "Localized tyre-wear indicators prompt a Pirelli review",
-      "date": "2026-11-27",
-      "summary": "The Race reports localized 100% wear indicators on the most-abused front-left tyres after 15 laps of high-fuel running. Pirelli is examining returned tyres and has not announced a pressure increase or shorter stint limit. FIA Document 13 V2 still specifies a 27-lap cap and 29.0 psi minimum front slick starting pressure; Document 25 reports listed checks compliant but publishes no revised table. Formula1.com still conflicts on pre-weekend sets (2/3/8 plus a Q3 Soft versus 2/4/7); neither is a remaining-set inventory.",
-      "why_it_matters": "A localized wear indicator is not evidence that a whole tyre wore through. Treat any pressure or stint-limit change as pending until Pirelli or the FIA confirms it, and keep the allocation discrepancy attributed.",
+      "title": "Tyre wear prompts another review; official allocation sources still conflict",
+      "date": "2026-11-28",
+      "summary": "The Race reported localized 100% wear indicators on the most-abused front-left tyres after 15 laps of high-fuel running. PlanetF1 reports no immediate pressure or 27-lap-limit change after Friday’s review, with another evaluation after Saturday; no matching official Pirelli statement or revised FIA prescription appears in the current sources checked. Formula1.com’s 10:05 UTC preview lists 2 C1 / 3 C2 / 8 C3 plus a separate Q3 Soft, while its 10:43 UTC explainer lists 2 / 4 / 7. Pirelli’s official release and FIA Document 13 V2 confirm C1/C2/C3 and the 27-lap cap, not the per-driver totals.",
+      "why_it_matters": "Attribute the reported no-change decision to PlanetF1 pending official confirmation, and keep the allocation discrepancy unresolved. Do not infer remaining sets or record a post-qualifying race strategy before the official chart is available and reviewed.",
       "sources": [
         {
-          "label": "The Race, 27 November tyre-wear report",
+          "label": "The Race Friday Qatar tyre-wear report",
           "url": "https://www.the-race.com/formula-1/100-wear-in-15-laps-qatar-tyre-issue-has-got-even-worse/"
         },
         {
-          "label": "Pirelli official Qatar tyre briefing, 24 November",
-          "url": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
-        },
-        {
-          "label": "FIA Document 13 V2, page 2",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview_v2.pdf#page=2"
-        },
-        {
-          "label": "FIA Document 25, page 4",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_fp1_and_fp2_scrutineering.pdf#page=4"
-        },
-        {
-          "label": "Current FIA Qatar event index",
-          "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Qatar%20Grand%20Prix"
+          "label": "PlanetF1 report on the post-Friday tyre review",
+          "url": "https://www.planetf1.com/news/qatar-grand-prix-pirelli-tyre-pressures-27-lap-limit"
         },
         {
           "label": "Formula1.com Qatar tyre preview, 10:05 UTC",
@@ -92,36 +93,18 @@
         {
           "label": "Formula1.com 27-lap explainer, 10:43 UTC",
           "url": "https://www.formula1.com/en/latest/article/explained-why-theres-a-27-lap-limit-on-tyres-for-the-qatar-grand-prix.4oeu38BqJh1h7llxUeILBe"
-        }
-      ]
-    },
-    {
-      "topic": "Red Bull balance",
-      "title": "Verstappen says Red Bull is still searching for balance",
-      "date": "2026-11-27",
-      "summary": "Verstappen finished fifth in FP2 after a day when he and Hadjar struggled with understeer. Verstappen described the balance as disconnected; technical director Pierre Wache said the fixes moved the car in the right direction but he was unsure how much of Mercedes' gap Red Bull could close.",
-      "why_it_matters": "This is a Friday assessment rather than a prediction of qualifying or race pace.",
-      "sources": [
-        {
-          "label": "Formula1.com Friday Red Bull balance report",
-          "url": "https://www.formula1.com/en/latest/article/a-bit-of-a-difficult-day-verstappen-and-red-bull-left-looking-for-car-balance-after-friday-in-qatar.zvqj1nQ6dBT2PSxEzzKWP"
-        }
-      ]
-    },
-    {
-      "topic": "Drivers and line-up",
-      "title": "Alonso returns after missing Qatar FP1",
-      "date": "2026-11-27",
-      "summary": "Formula1.com reports that Fernando Alonso returned in FP2 after missing Thursday media day while recovering from a virus. Jak Crawford drove Alonso's Aston Martin in FP1.",
-      "why_it_matters": "Crawford's FP1 appearance was a practice substitution, not a change to the race line-up.",
-      "sources": [
-        {
-          "label": "Formula1.com Qatar FP2 report",
-          "url": "https://www.formula1.com/en/latest/article/fp2-antonelli-tops-extended-second-practice-from-russell-and-norris-in-qatar.6jAa2kcIAVqOPHW30oipfm"
         },
         {
-          "label": "FIA Qatar Document 11 entry list",
-          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_entry_list.pdf#page=2"
+          "label": "Pirelli Qatar tyre briefing, 24 November",
+          "url": "https://press.pirelli.com/in-qatar-with-the-hardest-tyre-compounds-in-the-range/"
+        },
+        {
+          "label": "FIA Document 13 V2, page 2",
+          "url": "https://www.fia.com/system/files/decision-document/2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview_v2.pdf#page=2"
+        },
+        {
+          "label": "Current FIA Qatar event document index",
+          "url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Qatar%20Grand%20Prix"
         }
       ]
     }

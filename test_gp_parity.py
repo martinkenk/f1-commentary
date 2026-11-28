@@ -282,6 +282,42 @@ class GPParityTests(unittest.TestCase):
             pages["tyres"]["body"],
         )
         self.assertIn(content_qatar.FIA_QATAR_TYRE_NOTES, pages["tyres"]["body"])
+        tyre_preview_start = pages["tyres"]["body"].index(
+            f'<figure class="circuit-fig">\n<img class="circuit-img tyre-preview-img" '
+            f'src="../assets/{content_qatar.QATAR_TYRE_PREVIEW}"'
+        )
+        tyre_preview_end = pages["tyres"]["body"].index(
+            "</figure>", tyre_preview_start
+        ) + len("</figure>")
+        self.assertNotIn(
+            content_qatar.FIA_QATAR_TYRE_NOTES,
+            pages["tyres"]["body"][tyre_preview_start:tyre_preview_end],
+        )
+        self.assertIn(
+            f'href="{content_qatar.FIA_QATAR_TYRE_NOTES}#page=2"',
+            pages["tyres"]["body"],
+        )
+        v2_pirelli_pdf = {
+            "filename": "2026_qatar_grand_prix_-_competition_notes_-_pirelli_preview_v2.pdf",
+            "url": content_qatar.FIA_QATAR_TYRE_NOTES,
+            "pages": [{
+                "page": 2,
+                "asset": "fia-qatar-49af81e4d201-9c75c27bbcd9da52-p2.png",
+            }],
+            "fetched_at": "2026-11-28T11:25:06+00:00",
+        }
+        with patch.object(
+            f1lib,
+            "_load_fia_record",
+            return_value={"documents": [v2_pirelli_pdf], "errors": []},
+        ):
+            tyre_gallery = f1lib.render_fia_media(
+                ctx, "tyres", pages["tyres"]["body"]
+            )
+        self.assertIn(
+            'src="../assets/fia-qatar-49af81e4d201-9c75c27bbcd9da52-p2.png"',
+            tyre_gallery,
+        )
         self.assertIn(
             "The FIA's official Qatar competition notes",
             pages["tyres"]["body"],
@@ -408,64 +444,51 @@ class GPParityTests(unittest.TestCase):
             (Path(__file__).parent / "data/qatar/news_highlights.json").read_text()
         )
         self.assertEqual(briefing["through_session"], "Practice 2")
-        session = next(item for item in briefing["items"] if item["topic"] == "Session outcome")
+        self.assertEqual(len(briefing["items"]), 4)
+        stories = {item["topic"]: item for item in briefing["items"]}
+        session = stories["Session outcome"]
         self.assertIn("1:23.077", session["summary"])
-        self.assertIn("Virtual Safety Car", session["summary"])
-        self.assertIn("Gasly's high-speed spin", session["summary"])
-        self.assertIn("Gasly's explanation is his account", session["why_it_matters"])
+        self.assertIn("Two red flags", session["summary"])
+        self.assertIn("Gasly’s spin", session["summary"])
+        self.assertIn("Gasly’s explanation is his account", session["why_it_matters"])
         self.assertIn(
             "https://www.formula1.com/en/latest/article/"
             "its-never-nice-gasly-explains-dramatic-high-speed-spin-during-qatar-practice."
             "11hIcFNT6zuvEG0mwAggDn",
             {s["url"] for s in session["sources"]},
         )
-        self.assertIn("0.6–0.7 seconds per lap", session["summary"])
+        ferrari = stories["Ferrari reliability"]
+        self.assertIn("Virtual Safety Car", ferrari["summary"])
+        self.assertIn("does not establish a cause", ferrari["summary"])
+        pace = stories["Friday team outlook"]
+        self.assertIn("0.6–0.7 seconds per lap", pace["summary"])
+        self.assertIn("0.810 seconds per lap", pace["summary"])
+        self.assertIn("not a qualifying prediction", pace["why_it_matters"])
         self.assertIn(
             "https://www.formula1.com/en/latest/article/"
             "i-dont-think-weve-been-further-off-norris-worried-by-mclarens-deficit-to-mercedes-in-qatar."
             "6mwnUPpxnOsIv6YJ7O6Lgm",
-            {s["url"] for s in session["sources"]},
+            {s["url"] for s in pace["sources"]},
         )
-        self.assertIn("0.810 seconds per lap", session["summary"])
-        self.assertIn("not a representative race-pace forecast", session["why_it_matters"])
         self.assertIn(
             "https://www.the-race.com/formula-1/"
             "mercedes-early-qatar-advantage-is-even-scarier-than-it-looks/",
-            {s["url"] for s in session["sources"]},
+            {s["url"] for s in pace["sources"]},
         )
-        self.assertIn(content_qatar.QATAR_FP2_RESULTS, {s["url"] for s in session["sources"]})
-        self.assertIn(
-            content_qatar.FIA_QATAR_FP2_CLASSIFICATION,
-            {s["url"].split("#", 1)[0] for s in session["sources"]},
-        )
-        penalty = next(item for item in briefing["items"] if item["topic"] == "Stewards and grid")
-        self.assertIn("84.4 km/h", penalty["summary"])
-        self.assertIn(content_qatar.FIA_QATAR_DOC20, {s["url"] for s in penalty["sources"]})
-        tyres = next(
-            item for item in briefing["items"] if item["topic"] == "Tyre wear and allocation"
-        )
+        tyres = stories["Tyre wear and allocation"]
         self.assertIn("localized 100% wear indicators", tyres["summary"])
         self.assertIn("15 laps", tyres["summary"])
-        self.assertIn("has not announced a pressure increase", tyres["summary"])
-        self.assertIn("2/3/8", tyres["summary"])
-        self.assertIn("2/4/7", tyres["summary"])
+        self.assertIn("no immediate pressure or 27-lap-limit change", tyres["summary"])
+        self.assertIn("pending official confirmation", tyres["why_it_matters"])
+        self.assertIn("2 C1 / 3 C2 / 8 C3", tyres["summary"])
+        self.assertIn("2 / 4 / 7", tyres["summary"])
         self.assertIn(content_qatar.QATAR_TYRE_LIMIT_EXPLAINER, {s["url"] for s in tyres["sources"]})
         self.assertIn(content_qatar.QATAR_TYRE_WEAR_REPORT, {s["url"] for s in tyres["sources"]})
-        self.assertIn(content_qatar.FIA_QATAR_FP1_FP2_SCRUTINEERING + "#page=4",
+        self.assertIn(content_qatar.QATAR_TYRE_REVIEW_UPDATE, {s["url"] for s in tyres["sources"]})
+        self.assertIn(content_qatar.FIA_QATAR_TYRE_NOTES + "#page=2",
                       {s["url"] for s in tyres["sources"]})
         self.assertIn(content_qatar.FIA_QATAR_EVENT_INDEX,
                       {s["url"] for s in tyres["sources"]})
-        red_bull = next(item for item in briefing["items"] if item["topic"] == "Red Bull balance")
-        self.assertIn("disconnected", red_bull["summary"])
-        self.assertIn(
-            "https://www.formula1.com/en/latest/article/"
-            "a-bit-of-a-difficult-day-verstappen-and-red-bull-left-looking-for-car-balance-after-friday-in-qatar."
-            "zvqj1nQ6dBT2PSxEzzKWP",
-            {s["url"] for s in red_bull["sources"]},
-        )
-        lineup = next(item for item in briefing["items"] if item["topic"] == "Drivers and line-up")
-        self.assertIn("Alonso", lineup["summary"])
-        self.assertIn(content_qatar.QATAR_FP2_REPORT, {s["url"] for s in lineup["sources"]})
         self.assertIn(content_qatar.QATAR_TYRE_WEAR_REPORT, pages["tyres"]["body"])
         self.assertIn("Document 25", pages["tyres"]["body"])
         self.assertNotIn("through Document 23", pages["tyres"]["body"])
