@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-11-28T13:07:55.908678+00:00",
-  "run_id": "46147742853",
-  "refresh_key": "20261128T130400Z",
+  "generated_at": "2026-11-28T13:31:55.370316+00:00",
+  "run_id": "46149902531",
+  "refresh_key": "20261128T133000Z",
   "refresh_mode": "pre-session",
-  "collection_gp": "",
+  "collection_gp": "qatar",
   "collection": {
     "calendar": "success",
-    "enrichment": "failure",
-    "fia_media": "failure",
+    "enrichment": "success",
+    "fia_media": "success",
     "race_tyres": "success",
     "session_results": "success",
     "standings": "success"
@@ -15,33 +15,33 @@
   "last_collection_checks": {
     "calendar": {
       "outcome": "success",
-      "gp": "",
-      "checked_at": "2026-11-28T13:05:51.819309+00:00"
+      "gp": "qatar",
+      "checked_at": "2026-11-28T13:31:23.656269+00:00"
     },
     "enrichment": {
-      "outcome": "failure",
-      "gp": "",
-      "checked_at": "2026-11-28T13:05:51.819309+00:00"
+      "outcome": "success",
+      "gp": "qatar",
+      "checked_at": "2026-11-28T13:31:23.656269+00:00"
     },
     "fia_media": {
-      "outcome": "failure",
-      "gp": "",
-      "checked_at": "2026-11-28T13:05:51.819309+00:00"
+      "outcome": "success",
+      "gp": "qatar",
+      "checked_at": "2026-11-28T13:31:23.656269+00:00"
     },
     "race_tyres": {
       "outcome": "success",
-      "gp": "",
-      "checked_at": "2026-11-28T13:05:51.819309+00:00"
+      "gp": "qatar",
+      "checked_at": "2026-11-28T13:31:23.656269+00:00"
     },
     "session_results": {
       "outcome": "success",
-      "gp": "",
-      "checked_at": "2026-11-28T13:05:51.819309+00:00"
+      "gp": "qatar",
+      "checked_at": "2026-11-28T13:31:23.656269+00:00"
     },
     "standings": {
       "outcome": "success",
-      "gp": "",
-      "checked_at": "2026-11-28T13:05:51.819309+00:00"
+      "gp": "qatar",
+      "checked_at": "2026-11-28T13:31:23.656269+00:00"
     }
   },
   "events": {
@@ -470,16 +470,16 @@
       "sessions": {
         "Practice 1": {
           "digest": "cfc1c6690caf6ecc4e788bc0e4d7b543da03bee6178ff997fe89a4f17cf3aa9f",
-          "fetched_at": "2026-11-28T13:05:45+00:00",
+          "fetched_at": "2026-11-28T13:31:23+00:00",
           "retained": false
         },
         "Practice 2": {
           "digest": "f89af34956c9f6fb62506006a06232c7b7dd13e24d9d7a5d1a6c33a7ef2520c3",
-          "fetched_at": "2026-11-28T13:05:45+00:00",
+          "fetched_at": "2026-11-28T13:31:23+00:00",
           "retained": false
         }
       },
-      "results_checked_at": "2026-11-28T13:05:45+00:00"
+      "results_checked_at": "2026-11-28T13:31:23+00:00"
     },
     "united-arab-emirates": {
       "sessions": {},
@@ -496,16 +496,6 @@
       "gp": "united-arab-emirates",
       "kind": "source_error",
       "message": "FIA screenshot collection: {'url': 'https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2026-2072/event/Abu%20Dhabi%20Grand%20Prix', 'error': 'No saved FIA discovery manifest'}"
-    },
-    {
-      "gp": "collection",
-      "kind": "source_error",
-      "message": "enrichment collector failed; retained data is not fresh"
-    },
-    {
-      "gp": "collection",
-      "kind": "source_error",
-      "message": "fia_media collector failed; retained data is not fresh"
     }
   ]
 }
