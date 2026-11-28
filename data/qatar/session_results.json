@@ -5,7 +5,7 @@
     "results_slug": "qatar",
     "gp": "qatar"
   },
-  "checked_at": "2026-11-28T13:31:23+00:00",
+  "checked_at": "2026-11-28T14:31:57+00:00",
   "sessions": [
     {
       "label": "Practice 1",
@@ -196,7 +196,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/1",
-      "fetched_at": "2026-11-28T13:31:23+00:00",
+      "fetched_at": "2026-11-28T14:31:57+00:00",
       "session_start": "2026-11-27T16:30:00+03:00",
       "retained": false
     },
@@ -389,7 +389,7 @@
         ]
       ],
       "source_url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/2",
-      "fetched_at": "2026-11-28T13:31:23+00:00",
+      "fetched_at": "2026-11-28T14:31:57+00:00",
       "session_start": "2026-11-27T20:00:00+03:00",
       "retained": false
     }
@@ -404,6 +404,13 @@
       "label": "Practice 2",
       "state": "available",
       "source_url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/2"
+    },
+    {
+      "label": "Practice 3",
+      "state": "pending",
+      "source_url": "https://www.formula1.com/en/results/2026/races/1301/qatar/practice/3",
+      "error": "Official classification table is not published",
+      "retained": false
     }
   ]
 }
