@@ -1,15 +1,15 @@
 {
-  "reviewed_at": "2026-11-27T23:31:52Z",
-  "expires_at": "2026-11-28T13:00:00Z",
+  "reviewed_at": "2026-11-28T10:23:16Z",
+  "expires_at": "2026-11-28T14:00:00Z",
   "through_session": "Practice 2",
   "feed_fingerprint": "382bd56ca4444d7036c1b9fd925c5dd72e9804d887922595097b5b998db87790",
   "items": [
     {
       "topic": "Session outcome",
-      "title": "Antonelli leads extended FP2 as Gasly's spin brings a red flag",
+      "title": "Antonelli leads extended FP2 amid Friday setbacks",
       "date": "2026-11-27",
-      "summary": "Kimi Antonelli set 1:23.077, 0.127 seconds ahead of George Russell; Lando Norris was third at +0.445s. The FIA Document 21 table matches Formula1.com across all 22 classified drivers. Two red flags interrupted the session, which was extended by 13 minutes. Gasly's high-speed spin brought out a red flag; he said cooler tyres and lower pressures led to more bottoming, and reported floor damage to be repaired for Saturday. A Virtual Safety Car followed when Hamilton stopped after reporting lost power. After Mercedes topped both Friday sessions, Norris estimated McLaren was 0.6–0.7 seconds per lap off and expected only a modest gain from its newer floor on Saturday. The Race's traffic-adjusted FP2 analysis put Antonelli's long-run average 0.810 seconds per lap ahead of Verstappen.",
-      "why_it_matters": "The official report does not establish a cause for Hamilton's loss of power. Gasly's explanation is his account, not a confirmed mechanical fault; Norris's gap is a Friday estimate, not a qualifying result. The Race's traffic-adjusted long-run figure is its own calculation from an interrupted session, not a representative race-pace forecast.",
+      "summary": "Kimi Antonelli set 1:23.077, 0.127 seconds ahead of George Russell; Lando Norris was third at +0.445s. The FIA Document 21 table matches Formula1.com across all 22 classified drivers. Two red flags interrupted FP2, which was extended by 13 minutes; Gasly's high-speed spin brought one. Leclerc said his earlier FP2 spin damaged the Ferrari floor; he and Hamilton finished seventh and eighth in both Friday sessions as Ferrari searched for pace. A Virtual Safety Car followed when Hamilton stopped after reporting lost power; Ferrari said it was investigating and did not consider it a concern for Saturday. Norris estimated McLaren was 0.6–0.7 seconds per lap off, while The Race’s traffic-adjusted analysis put Antonelli’s long-run average 0.810 seconds per lap ahead of Verstappen.",
+      "why_it_matters": "The classification is official. Leclerc described the floor damage; Ferrari said Hamilton's power issue was under investigation, not a confirmed cause. Gasly's explanation is his account: he attributed the bottoming to cooler tyres and lower pressures, not a confirmed mechanical fault. The Norris gap and The Race long-run figure are Friday estimates, not a representative race-pace forecast or qualifying result.",
       "sources": [
         {
           "label": "Formula1.com Practice 2 classification",
@@ -34,6 +34,10 @@
         {
           "label": "Formula1.com Norris on McLaren's Friday pace",
           "url": "https://www.formula1.com/en/latest/article/i-dont-think-weve-been-further-off-norris-worried-by-mclarens-deficit-to-mercedes-in-qatar.6mwnUPpxnOsIv6YJ7O6Lgm"
+        },
+        {
+          "label": "Formula1.com Leclerc on Ferrari’s difficult Friday",
+          "url": "https://www.formula1.com/en/latest/article/it-looks-like-a-very-difficult-weekend-leclerc-searching-for-answers-after-tricky-friday-in-qatar.34CxxcaWerPPLl84sU9cZq"
         }
       ]
     },
